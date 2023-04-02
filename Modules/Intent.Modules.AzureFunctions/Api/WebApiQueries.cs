@@ -7,7 +7,7 @@ namespace Intent.AzureFunctions.Api;
 
 public static class WebApiQueries
 {
-    public static ParameterModel GetRequestDtoParameter(this AzureFunctionModel operationModel)
+    public static AzureFunctionParameterModel GetRequestDtoParameter(this AzureFunctionModel operationModel)
     {
         var dtoParams = operationModel.Parameters
             .Where(IsParameterBody)
@@ -26,7 +26,7 @@ public static class WebApiQueries
         }
     }
 
-    private static bool IsParameterBody(ParameterModel parameterModel)
+    private static bool IsParameterBody(AzureFunctionParameterModel parameterModel)
     {
         return parameterModel.GetParameterSetting()?.Source().IsFromBody() == true
                || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&

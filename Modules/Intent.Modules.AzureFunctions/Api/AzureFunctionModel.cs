@@ -52,9 +52,9 @@ namespace Intent.AzureFunctions.Api
 
         public IElement InternalElement => _element;
 
-        public IList<ParameterModel> Parameters => _element.ChildElements
-            .GetElementsOfType(ParameterModel.SpecializationTypeId)
-            .Select(x => new ParameterModel(x))
+        public IList<AzureFunctionParameterModel> Parameters => _element.ChildElements
+            .GetElementsOfType(AzureFunctionParameterModel.SpecializationTypeId)
+            .Select(x => new AzureFunctionParameterModel(x))
             .ToList();
 
         public override string ToString()
@@ -95,34 +95,14 @@ namespace Intent.AzureFunctions.Api
             return type.IsAzureFunctionModel() ? new AzureFunctionModel((IElement)type) : null;
         }
 
-        public static bool HasMapToServiceOperationMapping(this AzureFunctionModel type)
+        public static bool HasMapToOperationMapping(this AzureFunctionModel type)
         {
             return type.Mapping?.MappingSettingsId == "95923466-5e26-49ce-8824-db29d0d2d8b0";
         }
 
-        public static IElementMapping GetMapToServiceOperationMapping(this AzureFunctionModel type)
+        public static IElementMapping GetMapToOperationMapping(this AzureFunctionModel type)
         {
-            return type.HasMapToServiceOperationMapping() ? type.Mapping : null;
-        }
-
-        public static bool HasMapToCommandMapping(this AzureFunctionModel type)
-        {
-            return type.Mapping?.MappingSettingsId == "6cc1e01d-75fa-48f7-ad4b-09a4c305daf1";
-        }
-
-        public static IElementMapping GetMapToCommandMapping(this AzureFunctionModel type)
-        {
-            return type.HasMapToCommandMapping() ? type.Mapping : null;
-        }
-
-        public static bool HasMapToQueryMapping(this AzureFunctionModel type)
-        {
-            return type.Mapping?.MappingSettingsId == "29493763-0166-48fb-b79e-7e9d6a9996f1";
-        }
-
-        public static IElementMapping GetMapToQueryMapping(this AzureFunctionModel type)
-        {
-            return type.HasMapToQueryMapping() ? type.Mapping : null;
+            return type.HasMapToOperationMapping() ? type.Mapping : null;
         }
     }
 }

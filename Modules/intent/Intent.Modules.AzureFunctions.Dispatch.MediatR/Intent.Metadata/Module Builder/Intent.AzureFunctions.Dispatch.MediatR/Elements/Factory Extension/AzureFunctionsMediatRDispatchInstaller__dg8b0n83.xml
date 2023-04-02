@@ -7,7 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>6fee9ba6-f397-45a4-97ea-62d47def90f3</parentFolderId>
   <packageId>6fee9ba6-f397-45a4-97ea-62d47def90f3</packageId>
-  <packageName>Intent.Modules.AzureFunctions.Dispatch.MediatR</packageName>
+  <packageName>Intent.AzureFunctions.Dispatch.MediatR</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
@@ -12,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -29,9 +31,10 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         {
             var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
                 ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
-                : null;
+            : null;
 
-            if (requestDtoTypeName == null || template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            if (requestDtoTypeName == null || template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true ||
+                template.Model.Mapping?.Element?.AsOperationModel() == null)
             {
                 return;
             }
@@ -49,10 +52,10 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
 
                 var runMethod = @class.FindMethod("Run");
                 runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
-                    .InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+                    ?.InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
 
-                runMethod.FindStatement<CSharpTryBlock>(x => true)?
-                    .InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
+                runMethod.FindStatement<CSharpTryBlock>(x => true)
+                    ?.InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
                         .AddStatement("return new BadRequestObjectResult(exception.Errors);"));
 
             }, 10);

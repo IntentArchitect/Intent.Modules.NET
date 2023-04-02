@@ -12,18 +12,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>f906b59c-4dfe-4f6e-8366-e3254c358e62</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#f906b59c-4dfe-4f6e-8366-e3254c358e62</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../../Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.AzureFunctions.Dispatch.MediatR.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AzureFunctions.Dispatch.MediatR.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f906b59c-4dfe-4f6e-8366-e3254c358e62</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#f906b59c-4dfe-4f6e-8366-e3254c358e62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Dispatch.MediatR.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../../Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

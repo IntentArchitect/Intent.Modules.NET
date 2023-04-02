@@ -35,14 +35,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#0d6293c6-395b-47f6-99c7-d7111aa66981</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/ServiceExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa5d716-3bc4-4a74-828d-d9b7c966ae17</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

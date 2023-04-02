@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,21 +10,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.AzureFunctions.Api
 {
-    public static class ParameterModelStereotypeExtensions
+    public static class AzureFunctionParameterModelStereotypeExtensions
     {
-        public static ParameterSetting GetParameterSetting(this ParameterModel model)
+        public static ParameterSetting GetParameterSetting(this AzureFunctionParameterModel model)
         {
             var stereotype = model.GetStereotype("Parameter Setting");
             return stereotype != null ? new ParameterSetting(stereotype) : null;
         }
 
 
-        public static bool HasParameterSetting(this ParameterModel model)
+        public static bool HasParameterSetting(this AzureFunctionParameterModel model)
         {
             return model.HasStereotype("Parameter Setting");
         }
 
-        public static bool TryGetParameterSetting(this ParameterModel model, out ParameterSetting stereotype)
+        public static bool TryGetParameterSetting(this AzureFunctionParameterModel model, out ParameterSetting stereotype)
         {
             if (!HasParameterSetting(model))
             {
@@ -36,7 +35,6 @@ namespace Intent.AzureFunctions.Api
             stereotype = new ParameterSetting(model.GetStereotype("Parameter Setting"));
             return true;
         }
-
 
         public class ParameterSetting
         {
@@ -93,10 +91,6 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "Default";
                 }
-                public bool IsFromQuery()
-                {
-                    return Value == "From Query";
-                }
                 public bool IsFromBody()
                 {
                     return Value == "From Body";
@@ -109,6 +103,10 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "From Header";
                 }
+                public bool IsFromQuery()
+                {
+                    return Value == "From Query";
+                }
                 public bool IsFromRoute()
                 {
                     return Value == "From Route";
@@ -118,10 +116,10 @@ namespace Intent.AzureFunctions.Api
             public enum SourceOptionsEnum
             {
                 Default,
-                FromQuery,
                 FromBody,
                 FromForm,
                 FromHeader,
+                FromQuery,
                 FromRoute
             }
         }

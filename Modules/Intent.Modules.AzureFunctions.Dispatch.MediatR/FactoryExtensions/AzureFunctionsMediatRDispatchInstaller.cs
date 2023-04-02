@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.Api;
 using Intent.AzureFunctions.Api;
@@ -26,8 +26,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class AzureFunctionsMediatRDispatchInstaller : FactoryExtensionBase
     {
-        public override string Id =>
-            "Intent.Modules.AzureFunctions.Dispatch.MediatR.AzureFunctionsMediatRDispatchInstaller";
+        public override string Id => "Intent.AzureFunctions.Dispatch.MediatR.AzureFunctionsMediatRDispatchInstaller";
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
@@ -88,7 +87,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                     validations.Add($@"
             if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()})
             {{
-                return BadRequest();
+                return new BadRequestObjectResult(new {{ Message = ""Supplied '{mappedParameter.Name}' does not match '{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()}' from body."" }});
             }}
             ");
                 }
@@ -147,7 +146,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             }
         }
 
-        private static ParameterModel GetPayloadParameter(AzureFunctionModel operation)
+        private static AzureFunctionParameterModel GetPayloadParameter(AzureFunctionModel operation)
         {
             return operation.Parameters.SingleOrDefault(x =>
                 x.TypeReference.Element.SpecializationTypeId == CommandModel.SpecializationTypeId ||
@@ -168,7 +167,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             return $"new {template.GetTypeName(requestType)}()";
         }
 
-        private IList<ParameterModel> GetMappedParameters(AzureFunctionModel operationModel)
+        private IList<AzureFunctionParameterModel> GetMappedParameters(AzureFunctionModel operationModel)
         {
             return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
         }

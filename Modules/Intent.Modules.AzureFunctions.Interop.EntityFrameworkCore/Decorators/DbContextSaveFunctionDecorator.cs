@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -27,7 +28,8 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
         public DbContextSaveFunctionDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
             _template = template;
-            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true)
+            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true ||
+                template.Model.Mapping?.Element?.AsOperationModel() == null)
             {
                 return;
             }

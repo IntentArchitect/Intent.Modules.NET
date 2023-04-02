@@ -85,11 +85,12 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         return _azureFunctionModel.GetRequestDtoParameter().Name.ToParameterName();
     }
 
-    private static bool IsParameterRoute(ParameterModel parameterModel)
+    private bool IsParameterRoute(AzureFunctionParameterModel parameterModel)
     {
         return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
                || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                   parameterModel.TypeReference.Element.IsTypeDefinitionModel());
+                   parameterModel.TypeReference.Element.IsTypeDefinitionModel() &&
+                   _template.Model.GetAzureFunction().Route().Contains($"{{{parameterModel.Name}}}"));
     }
 
     public string GetRequestDtoType()
@@ -100,9 +101,11 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             : _template.GetTypeName(dtoParameter.TypeReference.Element.AsTypeReference());
     }
 
-    private IEnumerable<ParameterModel> GetQueryParams()
+    private IEnumerable<AzureFunctionParameterModel> GetQueryParams()
     {
         return _azureFunctionModel.Parameters
-            .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true);
+            .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true || 
+                        (p.GetParameterSetting()?.Source().IsDefault() == true && p.TypeReference.Element.IsTypeDefinitionModel() &&
+                         !_template.Model.GetAzureFunction().Route().Contains($"{{{p.Name}}}")));
     }
 }
