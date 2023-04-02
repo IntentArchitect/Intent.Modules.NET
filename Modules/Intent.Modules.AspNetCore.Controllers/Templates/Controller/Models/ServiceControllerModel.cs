@@ -44,7 +44,12 @@ public class ServiceControllerModel : IControllerModel
                         : null
                 },
                 parameters: x.Parameters
-                    .Select(p => new ControllerParameterModel(id: p.Id, name: p.Name, typeReference: p.TypeReference, source: Enum.Parse<SourceOptionsEnum>(p.GetParameterSettings().Source().Value), headerName: p.GetParameterSettings().HeaderName(), mappedPayloadProperty: p.InternalElement.MappedElement?.Element))
+                    .Select(p => new ControllerParameterModel(id: p.Id,
+                        name: p.Name,
+                        typeReference: p.TypeReference,
+                        source: Enum.TryParse<SourceOptionsEnum>(p.GetParameterSettings()?.Source().Value, out var source) ? source : SourceOptionsEnum.Default,
+                        headerName: p.GetParameterSettings()?.HeaderName(),
+                        mappedPayloadProperty: p.InternalElement.MappedElement?.Element))
                     .ToList<IControllerParameterModel>()
             ))
             .ToList<IControllerOperationModel>();

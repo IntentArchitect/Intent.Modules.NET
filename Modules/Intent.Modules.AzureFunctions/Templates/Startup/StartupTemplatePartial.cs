@@ -80,7 +80,17 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
             var statementList = new List<string>();
 
             statementList.AddRange(GetRelevantServiceConfigurationRequests()
-                .Select(s => $"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});"));
+                .Select(s =>
+                {
+                    foreach (var dependency in s.TemplateDependencies)
+                    {
+                        var classProvider = GetTemplate<IClassProvider>(dependency);
+
+                        AddTemplateDependency(dependency);
+                        AddUsing(classProvider.Namespace);
+                    }
+                    return $"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});";
+                }));
 
             const string newLine = @"
             ";

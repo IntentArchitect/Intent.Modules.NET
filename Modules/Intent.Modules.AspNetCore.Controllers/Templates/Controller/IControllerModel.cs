@@ -18,7 +18,6 @@ public interface IControllerModel : IHasFolder, IHasName, IMetadataModel
     public IList<IControllerOperationModel> Operations { get; }
 }
 
-
 public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetadataModel
 {
     string Comment { get; }

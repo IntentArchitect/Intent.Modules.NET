@@ -8,6 +8,7 @@ using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -35,6 +36,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
             foreach (var template in templates)
             {
+                if (template.Model is not ServiceControllerModel)
+                {
+                    continue;
+                }
+
                 InstallContractDispatch(template);
                 InstallTransactionWithUnitOfWork(template, application);
                 InstallMessageBus(template, application);
@@ -56,7 +62,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<OperationModel>("model", out var operationModel) && operationModel.HasHttpSettings())
+                    if (method.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
                         if (operationModel.ReturnType != null)
                         {
@@ -74,14 +80,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             });
         }
-        
+
         private void InstallTransactionWithUnitOfWork(ControllerTemplate template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallUnitOfWork(application))
             {
                 return;
             }
-            
+
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
@@ -93,12 +99,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
                 foreach (var method in @class.Methods)
                 {
-                    if (!method.TryGetMetadata<OperationModel>("model", out var operation) ||
-                        !(operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET()))
+                    if (!method.TryGetMetadata<IControllerOperationModel>("model", out var operation) ||
+                        operation.Verb == HttpVerb.Get)
                     {
                         continue;
                     }
-                    
+
                     template.AddUsing("System.Transactions");
 
                     var dispatchStmt = method.FindStatement(stmt => stmt.HasMetadata("service-contract-dispatch"));
@@ -118,7 +124,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             }, order: 1);
         }
-        
+
         private static void InstallMessageBus(ControllerTemplate template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallMessageBus(application))
@@ -140,7 +146,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             }, order: -100);
         }
-        
+
         private void InstallMongoDbUnitOfWork(ControllerTemplate template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
@@ -156,60 +162,62 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<IHasStereotypes>("model", out var operation) &&
-                        operation.HasStereotype("Http Settings") && operation.GetStereotype("Http Settings").GetProperty<string>("Verb") != "GET")
+                    if (!method.TryGetMetadata<IControllerOperationModel>("model", out var operation) ||
+                        operation.Verb == HttpVerb.Get)
                     {
-                        method.Statements.LastOrDefault(x => x.ToString().Contains("return "))
-                            ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                        continue;
                     }
+
+                    method.Statements.LastOrDefault(x => x.ToString().StartsWith("return "))
+                        ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
                 }
             }, -150);
         }
 
-        private string GetReturnStatement(ControllerTemplate template, OperationModel operationModel)
+        private string GetReturnStatement(ControllerTemplate template, IControllerOperationModel operation)
         {
-            switch (template.GetHttpVerb(operationModel))
+            switch (operation.Verb)
             {
-                case ControllerTemplate.HttpVerb.Get:
-                    if (operationModel.ReturnType == null)
+                case HttpVerb.Get:
+                    if (operation.ReturnType == null)
                     {
                         return "return NoContent();";
                     }
 
-                    var resultExpression = GetResultExpression(template, operationModel);
+                    var resultExpression = GetResultExpression(template, operation);
 
-                    if (operationModel.ReturnType.IsCollection)
+                    if (operation.ReturnType.IsCollection)
                     {
                         return $"return Ok({resultExpression});";
                     }
 
                     return $@"return {resultExpression} != null ? Ok({resultExpression}) : NotFound();";
-                case ControllerTemplate.HttpVerb.Post:
-                    return operationModel.ReturnType == null
+                case HttpVerb.Post:
+                    return operation.ReturnType == null
                         ? @"return Created(string.Empty, null);"
-                        : $@"return Created(string.Empty, {GetResultExpression(template, operationModel)});";
-                case ControllerTemplate.HttpVerb.Put:
-                case ControllerTemplate.HttpVerb.Patch:
-                    return operationModel.ReturnType == null
+                        : $@"return Created(string.Empty, {GetResultExpression(template, operation)});";
+                case HttpVerb.Put:
+                case HttpVerb.Patch:
+                    return operation.ReturnType == null
                         ? @"return NoContent();"
-                        : $@"return Ok({GetResultExpression(template, operationModel)});";
-                case ControllerTemplate.HttpVerb.Delete:
-                    return operationModel.ReturnType == null
+                        : $@"return Ok({GetResultExpression(template, operation)});";
+                case HttpVerb.Delete:
+                    return operation.ReturnType == null
                         ? @"return Ok();"
-                        : $@"return Ok({GetResultExpression(template, operationModel)});";
+                        : $@"return Ok({GetResultExpression(template, operation)});";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private string GetResultExpression(ControllerTemplate template, OperationModel operationModel)
+        private string GetResultExpression(ControllerTemplate template, IControllerOperationModel operationModel)
         {
             if (operationModel.ReturnType == null)
             {
                 throw new ArgumentException($@"{nameof(operationModel.ReturnType)} is expected to be specified with a Type");
             }
 
-            if (operationModel.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
+            if (operationModel.MediaType == MediaTypeOptions.ApplicationJson
                 && (template.GetTypeInfo(operationModel.ReturnType).IsPrimitive || operationModel.ReturnType.HasStringType()))
             {
                 return $@"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)";
@@ -217,7 +225,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
             return "result";
         }
-        
+
         private string GetUnitOfWork(ControllerTemplate template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||

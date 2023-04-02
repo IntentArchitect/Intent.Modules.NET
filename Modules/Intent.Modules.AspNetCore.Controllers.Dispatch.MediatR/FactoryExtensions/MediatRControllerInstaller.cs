@@ -7,6 +7,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -36,6 +37,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
             var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
             foreach (var template in templates)
             {
+                if (template.Model is not MediatRControllerModel)
+                {
+                    continue;
+                }
+
                 template.AddTypeSource(CommandModelsTemplate.TemplateId);
                 template.AddTypeSource(QueryModelsTemplate.TemplateId);
                 template.AddTypeSource(ClassTypeSource.Create(application, "Application.Contract.Dto").WithCollectionFormatter(CSharpCollectionFormatter.CreateList()));
