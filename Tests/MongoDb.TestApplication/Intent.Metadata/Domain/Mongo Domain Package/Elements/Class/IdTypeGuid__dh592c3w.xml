@@ -45,7 +45,7 @@
         </stereotype>
       </stereotypes>
       <metadata>
-        <entry key="id-managed" value="true" />
+        <entry key="is-managed-key" value="true" />
       </metadata>
       <childElements />
     </childElement>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb</id>
-  <version>1.0.0-pre.8</version>
+  <version>1.0.0-pre.9</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</summary>
   <description>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</description>
@@ -81,5 +81,6 @@
   <metadata>
     <install target="Domain" src="modelers/MongoDb Settings.designer.settings" externalReference="232b1576-74b7-45e1-bc24-2ddc42529d5d" />
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
+    <install target="Domain" src="modelers/MongoDb Key Automation Extensions.designer.settings" externalReference="4652d8dc-eea5-49cb-8c08-93ac1972962c" />
   </metadata>
 </package>
