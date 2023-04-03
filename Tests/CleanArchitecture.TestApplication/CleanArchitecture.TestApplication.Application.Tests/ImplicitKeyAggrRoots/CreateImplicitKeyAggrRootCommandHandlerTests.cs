@@ -32,12 +32,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         {
             // Arrange
             var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
-
             ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
             repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRootId);
-
             var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
 
             // Act

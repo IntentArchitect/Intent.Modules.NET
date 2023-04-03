@@ -34,12 +34,11 @@ public class CreateAggregateRootCompositeManyBCommandValidatorTests
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = new Fixture().Create<System.Guid>();
         // Act
-        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
+        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
 
         // Assert
-        result.Should().Be(expectedId);
+        result.Should().Be(Unit.Value);
     }
 
     public static IEnumerable<object[]> GetFailedResultTestData()
@@ -66,17 +65,16 @@ public class CreateAggregateRootCompositeManyBCommandValidatorTests
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = new Fixture().Create<System.Guid>();
         // Act
-        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
+        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
         .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
     }
 
-    private ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid> GetValidationBehaviour()
+    private ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, Unit> GetValidationBehaviour()
     {
-        return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid>(new[] { new CreateAggregateRootCompositeManyBCommandValidator() });
+        return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, Unit>(new[] { new CreateAggregateRootCompositeManyBCommandValidator() });
     }
 }

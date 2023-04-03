@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="5fafef2d-e558-4060-ac43-7f09f1ec434a" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateAggregateRootCommand</name>
-  <display>CreateAggregateRootCommand: guid</display>
+  <display>CreateAggregateRootCommand: void</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="b485ab65-c534-4c1c-aaa0-99ac373793fe">
-    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Common.Types</typePackageName>
-    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -21,7 +18,7 @@
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <autoSyncTypeReference>false</autoSyncTypeReference>
     <mappedPath>
       <target id="d4caf10c-064e-41ff-9202-7ba1c44d40c4" name="AggregateRoot" type="element" specialization="Class" />
     </mappedPath>

@@ -36,12 +36,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         {
             // Arrange
             var expectedAggregateRootLongId = new Fixture().Create<long>();
-
             AggregateRootLong addedAggregateRootLong = null;
             var repository = Substitute.For<IAggregateRootLongRepository>();
             repository.OnAdd(ent => addedAggregateRootLong = ent);
             repository.OnSaveChanges(() => addedAggregateRootLong.Id = expectedAggregateRootLongId);
-
             var sut = new CreateAggregateRootLongCommandHandler(repository);
 
             // Act

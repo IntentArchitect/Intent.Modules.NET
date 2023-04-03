@@ -59,7 +59,8 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainIdAttr = domainElement.GetEntityIdAttribute(ExecutionContext);
-                var isCommand = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase);
+                var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                    && Model.TypeReference.Element != null;
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
@@ -81,16 +82,16 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     method.AddStatements($@"
         // Arrange
         var validator = GetValidationBehaviour();");
-                    if (isCommand)
+                    if (isCommandWithReturnId)
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
                     }
                     method.AddStatements($@"
         // Act
-        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult({(isCommand ? "expectedId" : "Unit.Value")}));
+        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}));
 
         // Assert
-        result.Should().Be({(isCommand ? "expectedId" : "Unit.Value")});");
+        result.Should().Be({(isCommandWithReturnId ? "expectedId" : "Unit.Value")});");
                 });
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetFailedResultTestData", method =>
@@ -110,13 +111,13 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     method.AddStatements($@"
         // Arrange
         var validator = GetValidationBehaviour();");
-                    if (isCommand)
+                    if (isCommandWithReturnId)
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
                     }
                     method.AddStatements($@"
         // Act
-        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult({(isCommand ? "expectedId" : "Unit.Value")}));
+        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}));
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
@@ -130,11 +131,11 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     priClass.Methods.Remove(priClass.FindMethod("Validate_WithInvalidCommand_FailsValidation"));
                 }
 
-                priClass.AddMethod($"{this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommand ? domainIdAttr.Type : "Unit")}>",
+                priClass.AddMethod($"{this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>",
                     "GetValidationBehaviour", method =>
                     {
                         method.Private();
-                        method.AddStatement($@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommand ? domainIdAttr.Type : "Unit")}>(new[] {{ new {this.GetCommandValidatorName(Model)}() }});");
+                        method.AddStatement($@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ new {this.GetCommandValidatorName(Model)}() }});");
                     });
             });
     }

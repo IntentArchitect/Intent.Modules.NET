@@ -88,28 +88,40 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{domainElementName}ToRepository", method =>
                 {
+                    var hasIdReturnType = model.TypeReference.Element != null;
+                    
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddStatements($@"
-        // Arrange
-        var expected{domainElementName}Id = new Fixture().Create<{domainIdAttr.Type}>();
+        // Arrange");
+                    if (hasIdReturnType)
+                    {
+                        method.AddStatement($@"var expected{domainElementName}Id = new Fixture().Create<{domainIdAttr.Type}>();");
+                    }
 
-        {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
+                    method.AddStatements($@"{GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSaveChanges(() => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id);
+        repository.OnAdd(ent => added{domainElementName} = ent);");
+                    if (hasIdReturnType)
+                    {
+                        method.AddStatements($@"repository.OnSaveChanges(() => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id);");
+                    }
 
-        var sut = new {this.GetCommandHandlerName(Model)}(repository);
+                    method.AddStatements($@"var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
         var result = await sut.Handle(testCommand, CancellationToken.None);
 
-        // Assert
-        result.Should().Be(expected{domainElementName}Id);
-        await repository.UnitOfWork.Received(1).SaveChangesAsync();
-        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, added{domainElementName});");
+        // Assert");
+                    if (hasIdReturnType)
+                    {
+                        method.AddStatements($@"result.Should().Be(expected{domainElementName}Id);
+        await repository.UnitOfWork.Received(1).SaveChangesAsync();");
+                    }
+
+                    method.AddStatement($@"{this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, added{domainElementName});");
                 });
             })
             .OnBuild(file =>

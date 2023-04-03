@@ -40,21 +40,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(CreateAggregateRootCommand testCommand)
         {
             // Arrange
-            var expectedAggregateRootId = new Fixture().Create<System.Guid>();
-
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.OnAdd(ent => addedAggregateRoot = ent);
-            repository.OnSaveChanges(() => addedAggregateRoot.Id = expectedAggregateRootId);
-
             var sut = new CreateAggregateRootCommandHandler(repository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            result.Should().Be(expectedAggregateRootId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
             AggregateRootAssertions.AssertEquivalent(testCommand, addedAggregateRoot);
         }
     }

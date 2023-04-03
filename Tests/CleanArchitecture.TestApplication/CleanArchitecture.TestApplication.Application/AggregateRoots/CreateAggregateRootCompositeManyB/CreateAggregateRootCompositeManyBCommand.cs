@@ -9,7 +9,7 @@ using MediatR;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB
 {
-    public class CreateAggregateRootCompositeManyBCommand : IRequest<Guid>, ICommand
+    public class CreateAggregateRootCompositeManyBCommand : IRequest, ICommand
     {
         public Guid AggregateRootId { get; set; }
 
