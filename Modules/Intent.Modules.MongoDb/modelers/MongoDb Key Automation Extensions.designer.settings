@@ -26,21 +26,23 @@
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
     let pk = element.getChildren("Attribute")
-        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
-        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
-    if (!isAggregateRoot(element)) {
-        if (pk) {
-            pk.delete();
-        }
+        .filter(x =&gt; x.hasStereotype(PrimaryKeyStereotypeId) || (x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association")))[0];
+    let isAggregate = isAggregateRoot(element);
+    if (pk &amp;&amp; (pk.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; !isAggregate)) {
+        pk.removeStereotype(PrimaryKeyStereotypeId);
+        pk.setMetadata("is-managed-key", "false");
+        return;
+    }
+    if (!isAggregate) {
         return;
     }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
-    idAttr.setOrder(0);
     if (!pk) {
+        idAttr.setOrder(0);
         idAttr.typeReference.setType(getDefaultIdType());
     }
-    if (!idAttr.hasMetadata("is-managed-key")) {
-        idAttr.addMetadata("is-managed-key", "true");
+    if (idAttr.getMetadata("is-managed-key") != "true") {
+        idAttr.setMetadata("is-managed-key", "true");
     }
     if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
         idAttr.addStereotype(PrimaryKeyStereotypeId);
@@ -80,7 +82,9 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
         }
         if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
             if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
-                fk.setName(fkNameToUse);
+                if (fkNameToUse != fk.getName()) {
+                    fk.setName(fkNameToUse);
+                }
                 fk.setMetadata("fk-original-name", fk.getName());
             }
         }
@@ -91,10 +95,18 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
             fk.addStereotype(ForeignKeyStereotypeId);
             fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
         }
-        fkStereotype.getProperty("Association").setValue(associationId);
-        fk.typeReference.setType(pk.typeId);
-        fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
-        fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        if (fkStereotype.getProperty("Association").getValue() != associationId) {
+            fkStereotype.getProperty("Association").setValue(associationId);
+        }
+        if (fk.typeReference.typeId != pk.typeId) {
+            fk.typeReference.setType(pk.typeId);
+        }
+        if (fk.typeReference.isNullable != associationEnd.typeReference.isNullable) {
+            fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+        }
+        if (fk.typeReference.isCollection != associationEnd.typeReference.isCollection) {
+            fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        }
     });
     startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
         if (index &gt;= primaryKeysLen) {
@@ -195,7 +207,7 @@ if (element.getParent().getPackage().specialization !== "Mongo Domain Package") 
 }
 const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
 const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
-if (!element.hasMetadata("is-managed-key")) {
+if (element.getMetadata("is-managed-key") != "true") {
     if (element.hasStereotype(PrimaryKeyStereotypeId)) {
         element.removeStereotype(PrimaryKeyStereotypeId);
     }
@@ -216,13 +228,13 @@ if (element.hasMetadata("association") &amp;&amp; !element.hasStereotype(Foreign
 if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
     return;
 }
-if (!element.hasMetadata("is-managed-key") || !isAggregateRoot(element.getParent())) {
+if (element.getMetadata("is-managed-key") != "true" || !isAggregateRoot(element.getParent())) {
     return;
 }
 if (!element.hasMetadata("association")) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
     let idAttr = createElement("Attribute", "Id", element.getParent().id);
-    idAttr.typeReference.setType(getDefaultIdType());
+    idAttr.typeReference.setType(element.typeReference.getType().id);
     idAttr.setOrder(0);
     idAttr.addMetadata("is-managed-key", "true");
     idAttr.addStereotype(PrimaryKeyStereotypeId);
@@ -253,7 +265,8 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
     let primaryKeyObjects = Object.values(primaryKeyDict);
     let primaryKeysLen = primaryKeyObjects.length;
     primaryKeyObjects.forEach((pk, index) =&gt; {
-        let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+        let fk = startingEndType.getChildren()
+            .filter(x =&gt; (x.getMetadata("association") == associationId) || (x.hasStereotype(ForeignKeyStereotypeId) &amp;&amp; !x.hasMetadata("association")))[index] ||
             createElement("Attribute", "", startingEndType.id);
         // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
         let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
@@ -262,7 +275,9 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
         }
         if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
             if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
-                fk.setName(fkNameToUse);
+                if (fkNameToUse != fk.getName()) {
+                    fk.setName(fkNameToUse);
+                }
                 fk.setMetadata("fk-original-name", fk.getName());
             }
         }
@@ -273,10 +288,18 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
             fk.addStereotype(ForeignKeyStereotypeId);
             fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
         }
-        fkStereotype.getProperty("Association").setValue(associationId);
-        fk.typeReference.setType(pk.typeId);
-        fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
-        fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        if (fkStereotype.getProperty("Association").getValue() != associationId) {
+            fkStereotype.getProperty("Association").setValue(associationId);
+        }
+        if (fk.typeReference.typeId != pk.typeId) {
+            fk.typeReference.setType(pk.typeId);
+        }
+        if (fk.typeReference.isNullable != associationEnd.typeReference.isNullable) {
+            fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+        }
+        if (fk.typeReference.isCollection != associationEnd.typeReference.isCollection) {
+            fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        }
     });
     startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
         if (index &gt;= primaryKeysLen) {
@@ -433,21 +456,23 @@ function getDefaultIdType() {
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
     let pk = element.getChildren("Attribute")
-        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
-        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
-    if (!isAggregateRoot(element)) {
-        if (pk) {
-            pk.delete();
-        }
+        .filter(x =&gt; x.hasStereotype(PrimaryKeyStereotypeId) || (x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association")))[0];
+    let isAggregate = isAggregateRoot(element);
+    if (pk &amp;&amp; (pk.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; !isAggregate)) {
+        pk.removeStereotype(PrimaryKeyStereotypeId);
+        pk.setMetadata("is-managed-key", "false");
+        return;
+    }
+    if (!isAggregate) {
         return;
     }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
-    idAttr.setOrder(0);
     if (!pk) {
+        idAttr.setOrder(0);
         idAttr.typeReference.setType(getDefaultIdType());
     }
-    if (!idAttr.hasMetadata("is-managed-key")) {
-        idAttr.addMetadata("is-managed-key", "true");
+    if (idAttr.getMetadata("is-managed-key") != "true") {
+        idAttr.setMetadata("is-managed-key", "true");
     }
     if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
         idAttr.addStereotype(PrimaryKeyStereotypeId);
@@ -482,7 +507,8 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
     let primaryKeyObjects = Object.values(primaryKeyDict);
     let primaryKeysLen = primaryKeyObjects.length;
     primaryKeyObjects.forEach((pk, index) =&gt; {
-        let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+        let fk = startingEndType.getChildren()
+            .filter(x =&gt; (x.getMetadata("association") == associationId) || (x.hasStereotype(ForeignKeyStereotypeId) &amp;&amp; !x.hasMetadata("association")))[index] ||
             createElement("Attribute", "", startingEndType.id);
         // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
         let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
@@ -491,7 +517,9 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
         }
         if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
             if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
-                fk.setName(fkNameToUse);
+                if (fkNameToUse != fk.getName()) {
+                    fk.setName(fkNameToUse);
+                }
                 fk.setMetadata("fk-original-name", fk.getName());
             }
         }
@@ -502,10 +530,18 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
             fk.addStereotype(ForeignKeyStereotypeId);
             fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
         }
-        fkStereotype.getProperty("Association").setValue(associationId);
-        fk.typeReference.setType(pk.typeId);
-        fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
-        fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        if (fkStereotype.getProperty("Association").getValue() != associationId) {
+            fkStereotype.getProperty("Association").setValue(associationId);
+        }
+        if (fk.typeReference.typeId != pk.typeId) {
+            fk.typeReference.setType(pk.typeId);
+        }
+        if (fk.typeReference.isNullable != associationEnd.typeReference.isNullable) {
+            fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+        }
+        if (fk.typeReference.isCollection != associationEnd.typeReference.isCollection) {
+            fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        }
     });
     startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
         if (index &gt;= primaryKeysLen) {
@@ -616,21 +652,23 @@ sourceEnd.setIsNullable(false);</script>
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
     let pk = element.getChildren("Attribute")
-        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
-        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
-    if (!isAggregateRoot(element)) {
-        if (pk) {
-            pk.delete();
-        }
+        .filter(x =&gt; x.hasStereotype(PrimaryKeyStereotypeId) || (x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association")))[0];
+    let isAggregate = isAggregateRoot(element);
+    if (pk &amp;&amp; (pk.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; !isAggregate)) {
+        pk.removeStereotype(PrimaryKeyStereotypeId);
+        pk.setMetadata("is-managed-key", "false");
+        return;
+    }
+    if (!isAggregate) {
         return;
     }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
-    idAttr.setOrder(0);
     if (!pk) {
+        idAttr.setOrder(0);
         idAttr.typeReference.setType(getDefaultIdType());
     }
-    if (!idAttr.hasMetadata("is-managed-key")) {
-        idAttr.addMetadata("is-managed-key", "true");
+    if (idAttr.getMetadata("is-managed-key") != "true") {
+        idAttr.setMetadata("is-managed-key", "true");
     }
     if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
         idAttr.addStereotype(PrimaryKeyStereotypeId);
