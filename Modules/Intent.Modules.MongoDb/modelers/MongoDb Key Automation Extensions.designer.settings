@@ -25,19 +25,20 @@
 }
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let pk = element.getChildren("Attribute").filter(x =&gt; x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association"))[0];
+    let pk = element.getChildren("Attribute")
+        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
+        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
     if (!isAggregateRoot(element)) {
         if (pk) {
             pk.delete();
         }
         return;
     }
-    if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
-        return;
-    }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
     idAttr.setOrder(0);
-    idAttr.typeReference.setType(getDefaultIdType());
+    if (!pk) {
+        idAttr.typeReference.setType(getDefaultIdType());
+    }
     if (!idAttr.hasMetadata("is-managed-key")) {
         idAttr.addMetadata("is-managed-key", "true");
     }
@@ -69,7 +70,8 @@ function updateForeignKeyAttribute(startingEndType, destinationEndType, associat
     let primaryKeyObjects = Object.values(primaryKeyDict);
     let primaryKeysLen = primaryKeyObjects.length;
     primaryKeyObjects.forEach((pk, index) =&gt; {
-        let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+        let fk = startingEndType.getChildren()
+            .filter(x =&gt; (x.getMetadata("association") == associationId) || (x.hasStereotype(ForeignKeyStereotypeId) &amp;&amp; !x.hasMetadata("association")))[index] ||
             createElement("Attribute", "", startingEndType.id);
         // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
         let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
@@ -430,19 +432,20 @@ function getDefaultIdType() {
 }
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association"))[0];
+    let pk = element.getChildren("Attribute")
+        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
+        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
     if (!isAggregateRoot(element)) {
         if (pk) {
             pk.delete();
         }
         return;
     }
-    if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
-        return;
-    }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
     idAttr.setOrder(0);
-    idAttr.typeReference.setType(getDefaultIdType());
+    if (!pk) {
+        idAttr.typeReference.setType(getDefaultIdType());
+    }
     if (!idAttr.hasMetadata("is-managed-key")) {
         idAttr.addMetadata("is-managed-key", "true");
     }
@@ -612,19 +615,20 @@ sourceEnd.setIsNullable(false);</script>
 }
 function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association"))[0];
+    let pk = element.getChildren("Attribute")
+        .filter(x =&gt; (x.getMetadata("is-managed-key") == "true" &amp;&amp; !x.hasMetadata("association")) ||
+        (x.hasStereotype(PrimaryKeyStereotypeId) &amp;&amp; x.getMetadata("is-managed-key") != "true"))[0];
     if (!isAggregateRoot(element)) {
         if (pk) {
             pk.delete();
         }
         return;
     }
-    if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
-        return;
-    }
     let idAttr = pk || createElement("Attribute", "Id", element.id);
     idAttr.setOrder(0);
-    idAttr.typeReference.setType(getDefaultIdType());
+    if (!pk) {
+        idAttr.typeReference.setType(getDefaultIdType());
+    }
     if (!idAttr.hasMetadata("is-managed-key")) {
         idAttr.addMetadata("is-managed-key", "true");
     }
