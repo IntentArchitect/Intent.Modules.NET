@@ -3,19 +3,18 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.EntityFrameworkCore;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
+using MongoFramework;
+using MongoFramework.Linq;
 using Subscribe.GooglePubSub.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.PagedList", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.Repositories.PagedList", Version = "1.0")]
 
 namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
 {
-    public class PagedList<T> : List<T>, IPagedResult<T>
+    public class MongoPagedList<T> : List<T>, IPagedResult<T>
     {
-        public PagedList(IQueryable<T> source, int pageNo, int pageSize)
+        public MongoPagedList(IQueryable<T> source, int pageNo, int pageSize)
         {
             TotalCount = source.Count();
             PageCount = GetPageCount(pageSize, TotalCount);
@@ -30,7 +29,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
                     .ToList());
         }
 
-        public PagedList(int totalCount, int pageNo, int pageSize, List<T> results)
+        public MongoPagedList(int totalCount, int pageNo, int pageSize, List<T> results)
         {
             TotalCount = totalCount;
             PageCount = GetPageCount(pageSize, TotalCount);
@@ -63,7 +62,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
-            return new PagedList<T>(count, pageNo, pageSize, results);
+            return new MongoPagedList<T>(count, pageNo, pageSize, results);
         }
     }
 }

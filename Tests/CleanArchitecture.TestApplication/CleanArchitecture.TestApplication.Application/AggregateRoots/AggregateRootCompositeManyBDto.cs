@@ -17,13 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static AggregateRootCompositeManyBDto Create(
-            string compositeAttr,
-            DateTime? someDate,
-            Guid aggregateRootId,
-            Guid id,
-            AggregateRootCompositeManyBCompositeSingleBBDto? composite,
-            List<AggregateRootCompositeManyBCompositeManyBBDto> composites)
+        public static AggregateRootCompositeManyBDto Create(string compositeAttr, DateTime? someDate, Guid aggregateRootId, Guid id, AggregateRootCompositeManyBCompositeSingleBBDto? composite, List<AggregateRootCompositeManyBCompositeManyBBDto> composites)
         {
             return new AggregateRootCompositeManyBDto
             {

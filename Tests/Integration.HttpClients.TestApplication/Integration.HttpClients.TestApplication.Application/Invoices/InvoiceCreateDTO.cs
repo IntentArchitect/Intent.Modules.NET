@@ -14,8 +14,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
         {
         }
 
-        public static InvoiceCreateDTO Create(
-            string reference)
+        public static InvoiceCreateDTO Create(string reference)
         {
             return new InvoiceCreateDTO
             {

@@ -14,8 +14,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
         {
         }
 
-        public static ClassACreateDTO Create(
-            string attribute)
+        public static ClassACreateDTO Create(string attribute)
         {
             return new ClassACreateDTO
             {

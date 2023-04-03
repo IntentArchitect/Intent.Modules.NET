@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
     <PackageReference Include="MongoDB.Data.UnitOfWork" Version="1.1.5" />
+    <PackageReference Include="MongoFramework" Version="0.28.1" />
   </ItemGroup>
 
 </Project>

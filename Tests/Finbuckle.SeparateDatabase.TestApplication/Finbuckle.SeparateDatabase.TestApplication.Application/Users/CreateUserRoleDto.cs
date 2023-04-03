@@ -14,8 +14,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
         {
         }
 
-        public static CreateUserRoleDto Create(
-            string name)
+        public static CreateUserRoleDto Create(string name)
         {
             return new CreateUserRoleDto
             {

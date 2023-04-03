@@ -17,9 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static AggregateRootCompositeSingleACompositeSingleAADto Create(
-            string compositeAttr,
-            Guid id)
+        public static AggregateRootCompositeSingleACompositeSingleAADto Create(string compositeAttr, Guid id)
         {
             return new AggregateRootCompositeSingleACompositeSingleAADto
             {

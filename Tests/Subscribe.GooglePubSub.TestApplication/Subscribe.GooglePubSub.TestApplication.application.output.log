@@ -348,6 +348,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b239378-b062-4eee-b284-02e444431393</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Infrastructure/Repositories/MongoPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b239378-b062-4eee-b284-02e444431393</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Infrastructure/Repositories/MongoRepositoryBase.cs</ApplicationRelativeFilePath>
