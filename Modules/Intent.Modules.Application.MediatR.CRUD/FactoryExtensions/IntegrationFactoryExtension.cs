@@ -135,7 +135,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update( existing{strategyData.FoundEntity.Name});");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(existing{strategyData.FoundEntity.Name});");
                 }, 100);
             }
         }

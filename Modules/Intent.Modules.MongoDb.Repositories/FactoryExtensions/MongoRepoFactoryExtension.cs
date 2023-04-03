@@ -3,6 +3,7 @@ using System.Reflection;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -53,7 +54,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
 
                 inter.AddMethod($"List<{repositoryTemplate.GetTypeName("Domain.Entity.Interface", model)}>", "SearchText", method =>
                 {
-                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                     method.AddParameter("string", "searchText");
                     method.AddParameter($"Expression<Func<{repositoryTemplate.GetTypeName("Domain.Entity", model)}, bool>>", "filterExpression", param => param.WithDefaultValue("null"));
 
@@ -61,7 +62,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
 
                 inter.AddMethod("void", "Update", method =>
                 {
-                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                     method.AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");
                 });
             }
