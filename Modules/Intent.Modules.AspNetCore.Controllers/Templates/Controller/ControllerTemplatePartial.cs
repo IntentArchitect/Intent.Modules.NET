@@ -207,10 +207,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
-            if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
-                && (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType()))
+            if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson() &&
+				operation.ReturnType != null)
             {
-                apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
+                // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2320
+                attributes.Add($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]");
+                if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
+                {
+                    apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                }
             }
 
             switch (GetHttpVerb(operation))

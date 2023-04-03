@@ -1,38 +1,64 @@
-Read here about Migrations using EF Core: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations
-You can perform these commands in Visual Studio IDE (VS) using the Package Manager Console (View > Other Windows > Package Manager Console)
-or using the dotnet Command Line Interface (CLI) instructions.
-Substitute the {Keywords} below with the appropriate migration name when executing these commands.
+See https://learn.microsoft.com/ef/core/managing-schemas/migrations for information about
+migrations using EF Core. You can perform these commands in the Visual Studio IDE using the
+Package Manager Console (View > Other Windows > Package Manager Console) or using the dotnet
+Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
+migration name when executing these commands.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Add-Migration -Name {ChangeName} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef migrations add {ChangeName} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+From the Visual Studio Package Manager Console:
+Add-Migration -Name {ChangeName} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef migrations add {ChangeName} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Remove-Migration -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef migrations remove --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+From the Visual Studio Package Manager Console:
+Remove-Migration -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef migrations remove --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Update-Database -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef database update --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure" 
+From the Visual Studio Package Manager Console:
+Update-Database -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef database update --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure" 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Update-Database -Migration {Target} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef database update {Target} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+From the Visual Studio Package Manager Console:
+Update-Database -Migration {Target} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef database update {Target} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef migrations script --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+From the Visual Studio Package Manager Console:
+Script-Migration -Idempotent -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef migrations script --idempotent --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration {Source} {Target} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
-CLI: dotnet ef migrations script {Source} {Target} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+From the Visual Studio Package Manager Console:
+Script-Migration {Source} {Target} -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
+CLI:
+dotnet ef migrations script {Source} {Target} --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 DECLARE @SCHEMA AS varchar(max) = 'EntityFrameworkCore.CosmosDb.TestApplication'

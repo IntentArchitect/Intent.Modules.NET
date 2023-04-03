@@ -1,4 +1,8 @@
-﻿### Version 4.2.0
+﻿### Version 4.2.2
+
+- Fixed: `MIGRATION_README.txt` did not include the `Idempotent` argument for the `Generate a script which detects the current database schema version and updates it to the latest` commands. Also updated formatting so that the entire lines with commands can be more simply copied without having to de-select the prefixed `VS:` and `CLI:` text.
+
+### Version 4.2.0
 
 - Update: Configuration and DbSet code will only be generated for Classes created inside a "Domain Package".
 - Update: Changed underlying MySql provider from `MySql.EntityFrameworkCore` to `Pomelo.EntityFrameworkCore.MySql`.

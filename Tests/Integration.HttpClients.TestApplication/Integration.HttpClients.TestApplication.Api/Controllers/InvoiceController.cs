@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -293,6 +294,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an Guid with the parameters provided.</response>
         [HttpGet("[action]")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -312,6 +314,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an string with the parameters provided.</response>
         [HttpGet("[action]")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -331,6 +334,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an int with the parameters provided.</response>
         [HttpGet("[action]")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<int>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -424,6 +428,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an InvoiceDTO with the parameters provided.</response>
         [HttpGet("[action]")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(InvoiceDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
