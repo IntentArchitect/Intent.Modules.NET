@@ -201,6 +201,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.OpenTelemetr
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.DomainEvents", "Intent.Modules.MongoDb.DomainEvents\Intent.Modules.MongoDb.DomainEvents.csproj", "{111C457D-DE8A-4C13-9E32-CEB539A380EF}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Dtos.AutoMapper", "Intent.Modules.MongoDb.Dtos.AutoMapper\Intent.Modules.MongoDb.Dtos.AutoMapper.csproj", "{B5FA1DF3-73E8-41FD-88F5-07B1949EC646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -571,6 +573,10 @@ Global
 		{111C457D-DE8A-4C13-9E32-CEB539A380EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{111C457D-DE8A-4C13-9E32-CEB539A380EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{111C457D-DE8A-4C13-9E32-CEB539A380EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FA1DF3-73E8-41FD-88F5-07B1949EC646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FA1DF3-73E8-41FD-88F5-07B1949EC646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FA1DF3-73E8-41FD-88F5-07B1949EC646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FA1DF3-73E8-41FD-88F5-07B1949EC646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -669,6 +675,7 @@ Global
 		{46039F50-4110-455C-8288-22DEC8A0D340} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{4C241E0E-B274-4D98-A0BB-C0D94F310661} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{111C457D-DE8A-4C13-9E32-CEB539A380EF} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{B5FA1DF3-73E8-41FD-88F5-07B1949EC646} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

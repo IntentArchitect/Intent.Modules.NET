@@ -66,13 +66,13 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                                 if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
                                 {
                                     var mapping = $@"
-                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))";
+                ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))";
                                     AddFieldMapping(statement, field, mapping);
                                 }
                                 else if (field.TypeReference.IsCollection && field.TypeReference.Element.Name != field.Mapping.Element?.TypeReference?.Element.Name)
                                 {
                                     var mapping = $@"
-                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))";
+                ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))";
                                     AddFieldMapping(statement, field, mapping);
                                 }
                             }
@@ -152,7 +152,6 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                         : name;
                 }));
         }
-
 
         private ICSharpFileBuilderTemplate GetEntityTemplate(ICSharpFileBuilderTemplate template, DTOModel templateModel)
         {

@@ -103,5 +103,6 @@
     <application id="78c253bf-6722-4fe4-bdbf-4c5b1621e503" name="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.application.config" />
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
     <application id="a1f8e42e-7c08-47c7-be64-6bcf3bd0bc85" name="Intent.Modules.MongoDb.DomainEvents" relativePath="intent/Intent.Modules.MongoDb.DomainEvents/Intent.Modules.MongoDb.DomainEvents.application.config" />
+    <application id="4f29486d-476e-44ea-ae9c-f8d0fa2cb17e" name="Intent.Modules.MongoDb.Dtos.AutoMapper" relativePath="intent/Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.application.config" />
   </applications>
 </solution>

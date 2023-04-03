@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>4f29486d-476e-44ea-ae9c-f8d0fa2cb17e</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>d1e1b1fe-cfab-4039-ba3b-e2b3d0b4fa89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#7c35d694-c490-413b-bb9c-05142ae531ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.Dtos.AutoMapper/FactoryExtensions/DtoAutoMapperFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoAutoMapperFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5fa1df3-73e8-41fd-88f5-07b1949ec646</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b5fa1df3-73e8-41fd-88f5-07b1949ec646</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.MongoDb.Dtos.AutoMapper.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5fa1df3-73e8-41fd-88f5-07b1949ec646</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.MongoDb.Dtos.AutoMapper.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.MongoDb.Dtos.AutoMapper.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5fa1df3-73e8-41fd-88f5-07b1949ec646</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.Dtos.AutoMapper/README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1612d791-9cf1-49db-a421-872da7324f9e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

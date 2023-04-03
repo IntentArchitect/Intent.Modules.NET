@@ -1,4 +1,12 @@
 using Intent.Engine;
+using Intent.Modules.Common.Plugins;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
+/*
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -47,4 +55,4 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             }
         }
     }
-}
+}*/

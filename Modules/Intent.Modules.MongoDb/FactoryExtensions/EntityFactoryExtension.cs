@@ -69,29 +69,28 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     }
 
                     var pks = model.GetExplicitPrimaryKey();
-                    if (!pks.Any())
+                    if (pks.Any())
                     {
-                        throw new Exception($"No Id has been specified for {@class.Name}");
-                    }
-                    var primaryKeyProperties = new List<CSharpProperty>();
-                    foreach (var attribute in pks)
-                    {
-                        var existingPk = @class.GetAllProperties().FirstOrDefault(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
-                        if (!model.IsAggregateRoot())
+                        var primaryKeyProperties = new List<CSharpProperty>();
+                        foreach (var attribute in pks)
                         {
-                            @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
-                        }
-                        if (!model.IsAggregateRoot())
-                        {
-                            existingPk.Getter.WithExpressionImplementation($"_id ??= Guid.NewGuid()");
-                            existingPk.Setter.WithExpressionImplementation($"_id = value");
-                        }
+                            var existingPk = @class.GetAllProperties().FirstOrDefault(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                            if (!model.IsAggregateRoot())
+                            {
+                                @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
+                            }
+                            if (!model.IsAggregateRoot())
+                            {
+                                existingPk.Getter.WithExpressionImplementation($"_id ??= Guid.NewGuid()");
+                                existingPk.Setter.WithExpressionImplementation($"_id = value");
+                            }
 
-                        primaryKeyProperties.Add(existingPk);
-                    }
-                    if (!@class.TryGetMetadata("primary-keys", out var keys))
-                    {
-                        @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
+                            primaryKeyProperties.Add(existingPk);
+                        }
+                        if (!@class.TryGetMetadata("primary-keys", out var keys))
+                        {
+                            @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
+                        }
                     }
                 });
             }
