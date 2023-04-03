@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="88a67a13-411c-4f68-9ee5-34cd0a9d145a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>IdLongs</name>
-  <display>IdLongs</display>
+<class id="1d296743-a2f0-498a-bad3-d5f812a05930" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IdTypeLongs</name>
+  <display>IdTypeLongs</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="32c656c2-4283-4048-8d3d-c3ac6d25b1b3" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-  <name>IdIntCreateDto</name>
-  <display>IdIntCreateDto</display>
+<class id="bf77e18a-645a-42e1-8c06-77d4635bd25f" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>IdTypeGuidUpdateDto</name>
+  <display>IdTypeGuidUpdateDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,25 +12,25 @@
     <mappingSettingsId>01d74d4f-e478-4fde-a2f0-9ea92255f3c5</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="979c03d4-b23f-45d0-89d8-3e51d90cb4e9" name="IdInt" type="element" specialization="Class" />
+      <target id="b6ebb5b4-166f-4d74-81f6-ba36b1512407" name="IdTypeGuid" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>34ec1a66-3198-4f63-aea6-bcb57ee588ac</parentFolderId>
+  <parentFolderId>86bc7626-56a9-43f7-af22-b0166ffa2b84</parentFolderId>
   <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
   <packageName>MongoDb.TestApplication.Services</packageName>
   <stereotypes />
   <metadata>
-    <entry key="baseName" value="IdInt" />
-    <entry key="originalVerb" value="Create" />
+    <entry key="baseName" value="IdTypeGuid" />
+    <entry key="originalVerb" value="Update" />
   </metadata>
   <childElements>
-    <childElement id="eccc848b-2cb9-48b2-bd9f-47422549f76b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>Attribute</name>
-      <display>Attribute: string</display>
+    <childElement id="0dd1385b-b80a-49d5-b367-289d231c45a3" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="64ee0c83-3177-4bb9-9859-c9c419e05f56">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+      <typeReference id="2c9a67dc-1179-4d05-914b-66e29716f243">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -45,10 +45,10 @@
         <mappingSettingsId>01d74d4f-e478-4fde-a2f0-9ea92255f3c5</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e18351f3-a86a-444e-8d27-91fd1d2f36b1" name="Attribute" type="element" specialization="Attribute" />
+          <target id="936f8d8d-7024-42e3-9fd4-5c3826dc7c5a" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>32c656c2-4283-4048-8d3d-c3ac6d25b1b3</parentFolderId>
+      <parentFolderId>bf77e18a-645a-42e1-8c06-77d4635bd25f</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
@@ -60,8 +60,8 @@
             <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
             <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
             <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
-            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
-            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />

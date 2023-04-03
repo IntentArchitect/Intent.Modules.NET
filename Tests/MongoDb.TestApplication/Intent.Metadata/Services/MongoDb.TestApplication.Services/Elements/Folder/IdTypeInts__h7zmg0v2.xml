@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="2142606f-c07d-4393-bec1-23108c6a6c5c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>IdGuids</name>
-  <display>IdGuids</display>
+<class id="4dfac3dc-6718-4342-8388-c503a7eac56c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IdTypeInts</name>
+  <display>IdTypeInts</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

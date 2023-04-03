@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3e510831-94be-4638-beae-d10b5a27e785" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
-  <name>IdObjectIdsService</name>
-  <display>IdObjectIdsService</display>
+<class id="f4a3153a-b0d0-404f-8ae1-c334fe77a057" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>IdTypeGuidsService</name>
+  <display>IdTypeGuidsService</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -11,7 +11,7 @@
   <packageName>MongoDb.TestApplication.Services</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
-      <addedByDefault>true</addedByDefault>
+      <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
@@ -21,14 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="0f4fdf3a-2bd3-45e0-a415-f717cdeea9c2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="a33fdb2e-d589-4e8e-92e0-74693e867e02" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Create</name>
-      <display>Create(dto: IdObjectIdCreateDto): string</display>
+      <display>Create(dto: IdTypeGuidCreateDto): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="b37f1963-6272-4e93-a46b-cdd8377da61f">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+      <typeReference id="f33e7dc1-54da-4cbe-9c5b-e64777c008d7">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -39,12 +39,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3e510831-94be-4638-beae-d10b5a27e785</parentFolderId>
+      <parentFolderId>f4a3153a-b0d0-404f-8ae1-c334fe77a057</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
@@ -56,13 +56,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ee7f0086-84d6-4c35-aca1-9c89f4ab29e3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="9746be5e-ee96-4d50-bb03-afcb54add29c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
-          <display>in : dto: IdObjectIdCreateDto</display>
+          <display>in : dto: IdTypeGuidCreateDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="700753d4-b2c3-4225-a72a-b1e99bb39f3f">
-            <typeId>a2ea39f7-ee4a-4705-bb9b-53c4e7ceaec4</typeId>
+          <typeReference id="28e7d5ff-cbcc-45a6-8731-993008b129ec">
+            <typeId>fb5998f9-6903-4d15-9e53-934b06fb3af3</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -73,12 +73,12 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>0f4fdf3a-2bd3-45e0-a415-f717cdeea9c2</parentFolderId>
+          <parentFolderId>a33fdb2e-d589-4e8e-92e0-74693e867e02</parentFolderId>
           <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
           <packageName>MongoDb.TestApplication.Services</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
+              <addedByDefault>false</addedByDefault>
               <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
@@ -92,14 +92,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="248e677c-93a2-4841-a03c-e44c526e66ff" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="cdde83e9-50a6-40c0-be80-a3184431f8bb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindById</name>
-      <display>FindById(id: string): IdObjectIdDto</display>
+      <display>FindById(id: guid): IdTypeGuidDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="c319e3e9-495c-481f-8278-a2adc6ee66dd">
-        <typeId>3184116c-dfc5-44a5-ab02-5609c496d1e8</typeId>
+      <typeReference id="e9d66348-c981-41f9-9341-6fa628a8aba7">
+        <typeId>b8de3035-8afd-4859-b3b8-47c3eba473d5</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -110,12 +110,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3e510831-94be-4638-beae-d10b5a27e785</parentFolderId>
+      <parentFolderId>f4a3153a-b0d0-404f-8ae1-c334fe77a057</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
@@ -127,13 +127,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ee5a639f-1fa4-4dd9-83c6-aae04f6c913a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="21a363c0-bd9b-476d-90a8-9839a75a2573" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
-          <display>in : id: string</display>
+          <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="04700c78-609e-4384-afc5-cb715a1a12b7">
-            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <typeReference id="e9f1e41c-7c79-4f10-9da6-5edc0152692b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -144,12 +144,12 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>248e677c-93a2-4841-a03c-e44c526e66ff</parentFolderId>
+          <parentFolderId>cdde83e9-50a6-40c0-be80-a3184431f8bb</parentFolderId>
           <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
           <packageName>MongoDb.TestApplication.Services</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
+              <addedByDefault>false</addedByDefault>
               <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
@@ -163,13 +163,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="b6087d0d-86b9-46b5-bde7-9177c820555f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="c59f3e55-29ac-45c5-8274-b8726bad3a05" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindAll</name>
-      <display>FindAll(): IdObjectIdDto[*]</display>
+      <display>FindAll(): IdTypeGuidDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="bde864f4-d751-48c8-ab12-0f94d61164f2">
-        <typeId>3184116c-dfc5-44a5-ab02-5609c496d1e8</typeId>
+      <typeReference id="e1efe6b6-64f8-45a6-8018-f096bc54b0a7">
+        <typeId>b8de3035-8afd-4859-b3b8-47c3eba473d5</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -180,12 +180,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3e510831-94be-4638-beae-d10b5a27e785</parentFolderId>
+      <parentFolderId>f4a3153a-b0d0-404f-8ae1-c334fe77a057</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
@@ -198,13 +198,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="edda00f6-1b0c-4c7d-a5a9-f26550bf8bd9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="86b823b5-489b-4011-bd03-db5fd3d436f0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Put</name>
-      <display>Put(id: string, dto: IdObjectIdUpdateDto): void</display>
+      <display>Put(id: guid, dto: IdTypeGuidUpdateDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="f852821b-76d7-492e-9e59-042ff56ba348">
+      <typeReference id="5b4d686d-c909-4e2f-a1ce-1dc8c498c0bf">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -213,12 +213,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3e510831-94be-4638-beae-d10b5a27e785</parentFolderId>
+      <parentFolderId>f4a3153a-b0d0-404f-8ae1-c334fe77a057</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
@@ -230,13 +230,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5aa78f96-ce43-49e5-8caa-d759a0558103" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="858b9b7a-bd91-4dd7-9969-88cea2c84e88" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
-          <display>in : id: string</display>
+          <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="eaa3fa1b-cf33-4491-a3d2-ec3c588a0108">
-            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <typeReference id="1ac3f4f9-028f-4f31-a3bc-0fdd38038207">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -247,12 +247,12 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>edda00f6-1b0c-4c7d-a5a9-f26550bf8bd9</parentFolderId>
+          <parentFolderId>86b823b5-489b-4011-bd03-db5fd3d436f0</parentFolderId>
           <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
           <packageName>MongoDb.TestApplication.Services</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
+              <addedByDefault>false</addedByDefault>
               <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
@@ -264,13 +264,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c7ac859e-edfa-4848-ab9e-32c3fefa04d2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="67302e08-9386-4b21-880f-cb874c18452e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
-          <display>in : dto: IdObjectIdUpdateDto</display>
+          <display>in : dto: IdTypeGuidUpdateDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="fcfe1bd1-8906-4820-8057-2870b7ae9173">
-            <typeId>c3d1f99f-3731-4f4e-9531-b2406bd7662a</typeId>
+          <typeReference id="4d2235af-5c53-46a6-a156-63f883d1bb71">
+            <typeId>bf77e18a-645a-42e1-8c06-77d4635bd25f</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -281,12 +281,12 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>edda00f6-1b0c-4c7d-a5a9-f26550bf8bd9</parentFolderId>
+          <parentFolderId>86b823b5-489b-4011-bd03-db5fd3d436f0</parentFolderId>
           <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
           <packageName>MongoDb.TestApplication.Services</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
+              <addedByDefault>false</addedByDefault>
               <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
@@ -300,14 +300,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="b4294f7a-6900-4ca8-a73c-1dbed5eed07d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="4239ba32-e9e4-48a2-b809-c634d6847209" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
-      <display>Delete(id: string): IdObjectIdDto</display>
+      <display>Delete(id: guid): IdTypeGuidDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="2d30c24a-9fed-4367-91ff-099b5170976f">
-        <typeId>3184116c-dfc5-44a5-ab02-5609c496d1e8</typeId>
+      <typeReference id="67f5cc4c-c1f1-442d-8df7-a25b2773fa5d">
+        <typeId>b8de3035-8afd-4859-b3b8-47c3eba473d5</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -318,12 +318,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3e510831-94be-4638-beae-d10b5a27e785</parentFolderId>
+      <parentFolderId>f4a3153a-b0d0-404f-8ae1-c334fe77a057</parentFolderId>
       <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
       <packageName>MongoDb.TestApplication.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
@@ -335,13 +335,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c1efcc43-ca64-455d-98b9-a432ae5f1104" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="3f3ea1dc-57e8-4a92-ac6d-d9d80a4e7a07" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
-          <display>in : id: string</display>
+          <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="1ec98c4e-0754-4219-a768-b7f29da359da">
-            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <typeReference id="c70700dd-5d7d-4363-9dc8-2886a00832d2">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -352,12 +352,12 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>b4294f7a-6900-4ca8-a73c-1dbed5eed07d</parentFolderId>
+          <parentFolderId>4239ba32-e9e4-48a2-b809-c634d6847209</parentFolderId>
           <packageId>2fe0ca8a-7078-43dc-bf4b-278cb2c86911</packageId>
           <packageName>MongoDb.TestApplication.Services</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
+              <addedByDefault>false</addedByDefault>
               <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
