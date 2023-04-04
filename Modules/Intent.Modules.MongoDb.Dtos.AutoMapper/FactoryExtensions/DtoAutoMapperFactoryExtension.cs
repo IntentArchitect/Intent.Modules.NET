@@ -20,6 +20,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
+using Intent.Metadata.RDBMS.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -56,6 +57,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
                 template.CSharpFile.AfterBuild(file =>
                 {
+                    file.AddUsing("System.Linq");
                     var @class = file.Classes.First();
                     var entityTemplate = GetEntityTemplate(template, templateModel.Mapping.ElementId);
 
@@ -136,13 +138,24 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                     method.AddParameter(template.GetTypeName(entityTemplate), "source");
                     method.AddParameter(template.ClassName, "destination");
                     method.AddParameter("ResolutionContext", "context");
-#warning resolve Id Properly
-                    method.AddStatement($"var data = Repository.FindByIdAsync(source.{mapData.AssociationEnd.AsAssociationEndModel().Class.Name}Id).Result;");
+
+                    var fkEntityTemplate = mapData.AssociationEnd.OtherEnd().AsAssociationEndModel().Class;
+                    var fkAttribure = fkEntityTemplate.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == mapData.AssociationEnd.Association.TargetEnd.Id);
+                    
+                    if (fkAttribure == null)
+                    {
+                        throw new Exception($"No Foreign Key found on : {fkEntityTemplate.Name} to load associate Aggregate {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
+                    }
+
+                    string fkExpression = fkAttribure.TypeReference.IsCollection ? $"{fkAttribure.Name}.ToArray()" : fkAttribure.Name;
+                    
+                    method.AddStatement($"var data = Repository.{(fkAttribure.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}(source.{fkExpression}).Result;");
                     foreach (var field in mapData.Fields)
                     {
-                        if (template.GetTypeInfo(field.TypeReference).Name.EndsWith("Dto", StringComparison.InvariantCultureIgnoreCase))
+                        if (field.TypeReference.Element.IsDTOModel())
                         {
-                            method.AddStatement($"destination.{field.Name} = data.{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))}MapTo{template.GetTypeName(field.TypeReference)}(Mapper);");
+                            string mapFunction = GetMappingFunction(template, field);
+                            method.AddStatement($"destination.{field.Name} = data.{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))}{mapFunction}(Mapper);");
                         }
                         else
                         {
@@ -153,9 +166,11 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
             });
         }
 
-        private string GetMappingExpression(IList<IElementMappingPathTarget> path)
+        private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
         {
-            throw new NotImplementedException();
+            return field.TypeReference.IsCollection ? 
+                $"MapTo{template.GetTypeName(field.TypeReference, "{0}" )}List" 
+                : $"MapTo{template.GetTypeName(field.TypeReference)}";
         }
 
         private static bool CheckIfDtoNeedsChanges(DTOModel templateModel)
@@ -199,7 +214,9 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
             return pathPart.Specialization == OperationModel.SpecializationType
                 ? $"{name}()"
-                : name;
+                : pathPart.Element.TypeReference.IsNullable 
+                    ? $"{name}?" 
+                    : name;
         }
 
         private static string GetPathExpression(IEnumerable<IElementMappingPathTarget> path)
