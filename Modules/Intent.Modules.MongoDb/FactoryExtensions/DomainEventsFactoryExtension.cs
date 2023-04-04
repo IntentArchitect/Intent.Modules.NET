@@ -84,9 +84,10 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 while (true)
                 {{
                     var domainEventEntity = ChangeTracker
-                        .Entries().Where(e => e.Entity is {hasDomainEventsInterface})
-                        .Select(x => (({hasDomainEventsInterface})x.Entity).DomainEvents)
-                        .SelectMany(x => x)
+                        .Entries()
+                        .Select(x => x.Entity)
+                        .OfType<{hasDomainEventsInterface}>()
+                        .SelectMany(x => x.DomainEvents)
                         .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                     if (domainEventEntity == null) break;

@@ -1,3 +1,8 @@
+### Version 4.0.1
+
+- Change: Moved `DomainEvents` on `Domain Entities` decoration moved to `Intent.DomainEvents` module.
+
+
 ### Version 4.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.

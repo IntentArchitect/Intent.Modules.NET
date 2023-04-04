@@ -58,6 +58,19 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                         @class.AddProperty($"MongoDbSet<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>", aggregate.Name.Pluralize().ToPascalCase());
                     }
 
+                    @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
+                    {
+                        method.Override().Async()
+                            .AddParameter($"CancellationToken", "cancellationToken",
+                                param =>
+                                {
+                                    param.WithDefaultValue("default");
+                                })
+                            .AddStatement("await base.SaveChangesAsync(cancellationToken);")
+                            .AddStatement("return default;");
+                    });
+
+                    /*
                     @class.AddMethod("Task<int>", $"{GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId)}.SaveChangesAsync", method =>
                     {
                         method.WithoutAccessModifier().Async().AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -74,12 +87,12 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                             method.AddStatement("await SaveChangesAsync(cancellationToken);");
                             method.AddStatement("return default;");
                         });
-                    }
+                    }*/
 
                     @class.AddMethod("void", "Dispose", method =>
                     {
                         method.Protected().Override().AddParameter("bool", "disposing");
-                        method.AddStatement("//we don't want to dispose the connection which the base class does");
+                        method.AddStatement("// Don't call the base's dispose as it disposes the connection which is not recommended as per https://www.mongodb.com/docs/manual/administration/connection-pool-overview/");
                     });
                 })
                 .AfterBuild(file =>
