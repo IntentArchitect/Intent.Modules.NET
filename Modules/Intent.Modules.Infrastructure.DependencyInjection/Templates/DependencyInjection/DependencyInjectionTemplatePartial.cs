@@ -28,6 +28,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")

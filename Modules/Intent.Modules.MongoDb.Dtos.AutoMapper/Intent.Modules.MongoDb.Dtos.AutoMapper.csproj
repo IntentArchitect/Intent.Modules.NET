@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,10 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19-pre.0" />
+    <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.4.3-pre.0" />
-	<PackageReference Include="Intent.Modules.MongoDb" Version="1.0.0-pre.8" />
-    <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />	  
-	<PackageReference Include="Intent.Packager" Version="3.4.0">
+    <PackageReference Include="Intent.Modules.MongoDb" Version="1.0.0-pre.8" />
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

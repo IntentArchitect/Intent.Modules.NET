@@ -34,6 +34,8 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             AddNugetDependency(NugetPackages.MongoFramework);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddUsing("MongoFramework")
                 .AddUsing("MongoFramework.Infrastructure.Mapping")
                 .AddClass($"ApplicationMongoDbContext")

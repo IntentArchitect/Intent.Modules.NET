@@ -1,5 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -13,14 +19,8 @@ using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterfa
 using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
-using Intent.Metadata.RDBMS.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -141,35 +141,43 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
                     var fkEntityTemplate = mapData.AssociationEnd.OtherEnd().AsAssociationEndModel().Class;
                     var fkAttribure = fkEntityTemplate.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == mapData.AssociationEnd.Association.TargetEnd.Id);
-                    
+
                     if (fkAttribure == null)
                     {
                         throw new Exception($"No Foreign Key found on : {fkEntityTemplate.Name} to load associate Aggregate {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
                     }
 
                     string fkExpression = fkAttribure.TypeReference.IsCollection ? $"{fkAttribure.Name}.ToArray()" : fkAttribure.Name;
-                    
+
                     method.AddStatement($"var data = Repository.{(fkAttribure.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}(source.{fkExpression}).Result;");
                     foreach (var field in mapData.Fields)
                     {
-                        if (field.TypeReference.Element.IsDTOModel())
-                        {
-                            string mapFunction = GetMappingFunction(template, field);
-                            method.AddStatement($"destination.{field.Name} = data.{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))}{mapFunction}(Mapper);");
-                        }
-                        else
-                        {
-                            method.AddStatement($"destination.{field.Name} = data.{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))};");
-                        }
+                        method.AddStatement($"destination.{field.Name} = data.{GetMappingExpression(field, template, mapData)};");
                     }
                 });
             });
         }
 
+        private static string GetMappingExpression(DTOFieldModel field, DtoModelTemplate template, ActionMapData mapData)
+        {
+            if (field.TypeReference.Element.IsDTOModel())
+            {
+                string mapFunction = GetMappingFunction(template, field);
+                string pathExpression = GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip));
+                if (pathExpression.Length > 0)
+                    pathExpression += ".";
+                return $"{pathExpression}{mapFunction}(Mapper)";
+            }
+            else
+            {
+                return $"{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))}";
+            }
+        }
+
         private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
         {
-            return field.TypeReference.IsCollection ? 
-                $"MapTo{template.GetTypeName(field.TypeReference, "{0}" )}List" 
+            return field.TypeReference.IsCollection ?
+                $"MapTo{template.GetTypeName(field.TypeReference, "{0}")}List"
                 : $"MapTo{template.GetTypeName(field.TypeReference)}";
         }
 
@@ -214,8 +222,8 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
             return pathPart.Specialization == OperationModel.SpecializationType
                 ? $"{name}()"
-                : pathPart.Element.TypeReference.IsNullable 
-                    ? $"{name}?" 
+                : pathPart.Element.TypeReference.IsNullable
+                    ? $"{name}?"
                     : name;
         }
 
@@ -230,7 +238,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
         }
 
         private static bool IsAggregational(IAssociationEnd ae)
-        {            
+        {
             return ae.Association.SourceEnd.TypeReference.IsCollection || ae.Association.SourceEnd.TypeReference.IsNullable;
         }
 
