@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
   <version>5.0.0-pre.0</version>
@@ -36,7 +36,7 @@
     <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.CSharp" version="3.3.24" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Metadata.WebApi" version="3.3.10" />
+    <dependency id="Intent.Metadata.WebApi" version="3.4.0-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.3.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
@@ -46,7 +46,6 @@
   </files>
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers/Intent.AspNetCore.Controllers.pkg.config" externalReference="2e47c1f8-bb68-45ad-aa23-385a4faadc92" />
-    <install src="modelers/AspNetCore Controller Settings.designer.settings" externalReference="44c873bc-c82b-4ce0-9a43-eede44e6b664" target="Services" />
   </metadata>
   <moduleSettings>
     <group id="4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb" title="API Settings" externalReference="4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb">
