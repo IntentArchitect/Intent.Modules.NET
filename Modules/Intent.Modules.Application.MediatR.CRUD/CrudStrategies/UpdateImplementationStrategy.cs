@@ -17,6 +17,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using JetBrains.Annotations;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
+using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -90,6 +92,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
             codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
+
+            GenerateOperationInvocationCode("request", $"existing{foundEntity.Name}");
+            
             codeLines.Add($"return Unit.Value;");
 
             return codeLines;
@@ -99,6 +104,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return field.Mapping?.Element == null ||
                        field.Mapping.Element.IsAttributeModel() ||
                        field.Mapping.Element.IsAssociationEndModel();
+            }
+            
+            void GenerateOperationInvocationCode(string dtoVarName, string entityVarName)
+            {
+                var operationParamLookup = _template.Model.Properties
+                    .Where(p => OperationModelExtensions.IsOperationModel(p.Mapping?.Path[0].Element) && 
+                                ParameterModelExtensions.IsParameterModel(p.Mapping?.Element))
+                    .ToLookup(field => OperationModelExtensions.AsOperationModel(field.Mapping.Path[0].Element));
+
+                foreach (var kvp in operationParamLookup)
+                {
+                    var paramList = kvp.Key.Parameters
+                        .Select(s => kvp.First(p => p.Mapping.Element.Id == s.Id))
+                        .Select(s => $"{dtoVarName}.{s.Name.ToPascalCase()}");
+                    var statement = new CSharpInvocationStatement($@"{entityVarName}.{kvp.Key.Name.ToPascalCase()}");
+                    foreach (var param in paramList)
+                    {
+                        statement.AddArgument(param);
+                    }
+                    codeLines.Add(statement);
+                }
             }
         }
 

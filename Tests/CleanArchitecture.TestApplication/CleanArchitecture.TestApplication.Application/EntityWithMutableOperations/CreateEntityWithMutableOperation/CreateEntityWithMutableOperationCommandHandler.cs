@@ -26,9 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateEntityWithMutableOperationCommand request, CancellationToken cancellationToken)
         {
-            var newEntityWithMutableOperation = new EntityWithMutableOperation
-            {
-            };
+            var newEntityWithMutableOperation = new EntityWithMutableOperation();
             newEntityWithMutableOperation.ChangeName(request.Name);
 
             _entityWithMutableOperationRepository.Add(newEntityWithMutableOperation);

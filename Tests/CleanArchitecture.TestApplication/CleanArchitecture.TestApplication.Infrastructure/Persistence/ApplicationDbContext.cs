@@ -31,6 +31,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
+        public DbSet<EntityWithCtor> EntityWithCtors { get; set; }
         public DbSet<EntityWithMutableOperation> EntityWithMutableOperations { get; set; }
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
 
@@ -53,6 +54,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityWithCtorConfiguration());
             modelBuilder.ApplyConfiguration(new EntityWithMutableOperationConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
         }

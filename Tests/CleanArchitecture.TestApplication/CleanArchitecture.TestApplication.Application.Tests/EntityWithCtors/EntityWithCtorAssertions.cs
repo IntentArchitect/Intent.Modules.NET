@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.TestApplication.Application.EntityWithMutableOperations;
-using CleanArchitecture.TestApplication.Application.EntityWithMutableOperations.CreateEntityWithMutableOperation;
-using CleanArchitecture.TestApplication.Application.EntityWithMutableOperations.UpdateEntityWithMutableOperation;
+using CleanArchitecture.TestApplication.Application.EntityWithCtors;
+using CleanArchitecture.TestApplication.Application.EntityWithCtors.CreateEntityWithCtor;
+using CleanArchitecture.TestApplication.Application.EntityWithCtors.UpdateEntityWithCtor;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableOperations
+namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
 {
-    public static class EntityWithMutableOperationAssertions
+    public static class EntityWithCtorAssertions
     {
-        public static void AssertEquivalent(UpdateEntityWithMutableOperationCommand expectedDto, EntityWithMutableOperation actualEntity)
+        public static void AssertEquivalent(UpdateEntityWithCtorCommand expectedDto, EntityWithCtor actualEntity)
         {
             if (expectedDto == null)
             {
@@ -23,9 +23,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             }
 
             actualEntity.Should().NotBeNull();
+            actualEntity.Name.Should().Be(expectedDto.Name);
         }
 
-        public static void AssertEquivalent(EntityWithMutableOperationDto actualDto, EntityWithMutableOperation expectedEntity)
+        public static void AssertEquivalent(EntityWithCtorDto actualDto, EntityWithCtor expectedEntity)
         {
             if (expectedEntity == null)
             {
@@ -38,7 +39,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             actualDto.Name.Should().Be(expectedEntity.Name);
         }
 
-        public static void AssertEquivalent(IEnumerable<EntityWithMutableOperationDto> actualDtos, IEnumerable<EntityWithMutableOperation> expectedEntities)
+        public static void AssertEquivalent(IEnumerable<EntityWithCtorDto> actualDtos, IEnumerable<EntityWithCtor> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -63,7 +64,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             }
         }
 
-        public static void AssertEquivalent(CreateEntityWithMutableOperationCommand expectedDto, EntityWithMutableOperation actualEntity)
+        public static void AssertEquivalent(CreateEntityWithCtorCommand expectedDto, EntityWithCtor actualEntity)
         {
             if (expectedDto == null)
             {

@@ -181,7 +181,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         {(first ? "var " : "")}fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name.ToPascalCase()}, () => default));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
+        yield return new object[] {{ testCommand, ""{property.Name.ToPascalCase()}"", ""not be empty"" }};");
                 first = false;
             }
 

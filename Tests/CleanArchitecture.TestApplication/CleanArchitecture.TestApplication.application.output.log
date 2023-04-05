@@ -60,6 +60,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#ee607a5c-9f0c-4645-9125-c09a3b6ae514</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/EntityWithCtorsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtorsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#3b294f4e-da4e-45ec-b6d0-5212b760fa7d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/EntityWithMutableOperationsController.cs</ApplicationRelativeFilePath>
@@ -384,6 +392,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/CreateEntityWithCtorCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtorCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/CreateEntityWithCtorCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtorCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#3b243ea7-a908-4eeb-a532-5305babe69de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/DeleteEntityWithCtorCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/DeleteEntityWithCtorCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#dcd1dd3d-347e-40e0-b0a4-87b1f2981386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/EntityWithCtorAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/EntityWithCtorAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#ff46fadc-1164-4a54-8e99-963287be72d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/GetEntityWithCtorByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtorByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#47cbd720-787e-4280-b58e-dd6dfd5acdb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/GetEntityWithCtorsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtorsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/UpdateEntityWithCtorCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/UpdateEntityWithCtorCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/UpdateEntityWithCtorCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/UpdateEntityWithCtorCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1524,6 +1596,142 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtor/CreateEntityWithCtorCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3b243ea7-a908-4eeb-a532-5305babe69de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3b243ea7-a908-4eeb-a532-5305babe69de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3b243ea7-a908-4eeb-a532-5305babe69de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/DeleteEntityWithCtor/DeleteEntityWithCtorCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#41c6a8e9-c01b-41dd-9a88-08e4dd3f46c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/EntityWithCtorDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/EntityWithCtorDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#41c6a8e9-c01b-41dd-9a88-08e4dd3f46c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/EntityWithCtorDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/EntityWithCtorDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ff46fadc-1164-4a54-8e99-963287be72d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ff46fadc-1164-4a54-8e99-963287be72d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ff46fadc-1164-4a54-8e99-963287be72d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtorById/GetEntityWithCtorByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#47cbd720-787e-4280-b58e-dd6dfd5acdb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#47cbd720-787e-4280-b58e-dd6dfd5acdb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#47cbd720-787e-4280-b58e-dd6dfd5acdb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/GetEntityWithCtors/GetEntityWithCtorsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtors/UpdateEntityWithCtor/UpdateEntityWithCtorCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f2fefd70-25dd-4f5d-a140-c943326b3652</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EntityWithMutableOperations/CreateEntityWithMutableOperation/CreateEntityWithMutableOperationCommand.cs</ApplicationRelativeFilePath>
@@ -2084,6 +2292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#dcd1dd3d-347e-40e0-b0a4-87b1f2981386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/EntityWithCtor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#f8480030-a32a-43ee-925d-80ffba89c384</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/EntityWithMutableOperation.cs</ApplicationRelativeFilePath>
@@ -2136,6 +2352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IAggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#dcd1dd3d-347e-40e0-b0a4-87b1f2981386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IEntityWithCtorRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEntityWithCtorRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2260,6 +2484,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#dcd1dd3d-347e-40e0-b0a4-87b1f2981386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/EntityWithCtorConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtorConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f8480030-a32a-43ee-925d-80ffba89c384</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/EntityWithMutableOperationConfiguration.cs</ApplicationRelativeFilePath>
@@ -2312,6 +2544,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/AggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#dcd1dd3d-347e-40e0-b0a4-87b1f2981386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/EntityWithCtorRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityWithCtorRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

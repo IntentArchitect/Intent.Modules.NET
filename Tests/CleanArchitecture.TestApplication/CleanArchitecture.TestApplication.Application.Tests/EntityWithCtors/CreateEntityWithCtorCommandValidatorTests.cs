@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
-using CleanArchitecture.TestApplication.Application.EntityWithMutableOperations.CreateEntityWithMutableOperation;
+using CleanArchitecture.TestApplication.Application.EntityWithCtors.CreateEntityWithCtor;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -16,20 +16,20 @@ using Xunit;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableOperations
+namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
 {
-    public class CreateEntityWithMutableOperationCommandValidatorTests
+    public class CreateEntityWithCtorCommandValidatorTests
     {
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            var testCommand = fixture.Create<CreateEntityWithMutableOperationCommand>();
+            var testCommand = fixture.Create<CreateEntityWithCtorCommand>();
             yield return new object[] { testCommand };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Validate_WithValidCommand_PassesValidation(CreateEntityWithMutableOperationCommand testCommand)
+        public async Task Validate_WithValidCommand_PassesValidation(CreateEntityWithCtorCommand testCommand)
         {
             // Arrange
             var validator = GetValidationBehaviour();
@@ -44,14 +44,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Customize<CreateEntityWithMutableOperationCommand>(comp => comp.With(x => x.Name, () => default));
-            var testCommand = fixture.Create<CreateEntityWithMutableOperationCommand>();
+            fixture.Customize<CreateEntityWithCtorCommand>(comp => comp.With(x => x.Name, () => default));
+            var testCommand = fixture.Create<CreateEntityWithCtorCommand>();
             yield return new object[] { testCommand, "Name", "not be empty" };
         }
 
         [Theory]
         [MemberData(nameof(GetFailedResultTestData))]
-        public async Task Validate_WithInvalidCommand_FailsValidation(CreateEntityWithMutableOperationCommand testCommand, string expectedPropertyName, string expectedPhrase)
+        public async Task Validate_WithInvalidCommand_FailsValidation(CreateEntityWithCtorCommand testCommand, string expectedPropertyName, string expectedPhrase)
         {
             // Arrange
             var validator = GetValidationBehaviour();
@@ -64,9 +64,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
         }
 
-        private ValidationBehaviour<CreateEntityWithMutableOperationCommand, System.Guid> GetValidationBehaviour()
+        private ValidationBehaviour<CreateEntityWithCtorCommand, System.Guid> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateEntityWithMutableOperationCommand, System.Guid>(new[] { new CreateEntityWithMutableOperationCommandValidator() });
+            return new ValidationBehaviour<CreateEntityWithCtorCommand, System.Guid>(new[] { new CreateEntityWithCtorCommandValidator() });
         }
     }
 }

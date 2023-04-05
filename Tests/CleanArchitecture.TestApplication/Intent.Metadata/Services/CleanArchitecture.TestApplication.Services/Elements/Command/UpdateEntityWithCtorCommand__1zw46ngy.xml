@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="8155a797-c11a-48fb-a77d-c4f96f5d46fc" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
-  <name>UpdateEntityWithMutableOperationCommand</name>
-  <display>UpdateEntityWithMutableOperationCommand: void</display>
+<class id="fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>UpdateEntityWithCtorCommand</name>
+  <display>UpdateEntityWithCtorCommand: void</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="40264f61-2132-4d51-8bee-f79941846b6e">
+  <typeReference id="492b6873-2a1c-408f-a08b-1d600521e240">
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -20,23 +20,23 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="f8480030-a32a-43ee-925d-80ffba89c384" name="EntityWithMutableOperation" type="element" specialization="Class" />
+      <target id="dcd1dd3d-347e-40e0-b0a4-87b1f2981386" name="EntityWithCtor" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>fc3a3e6d-5d48-4ec7-96ff-37a6eec57e5e</parentFolderId>
+  <parentFolderId>fd5ed4ea-b003-48f0-867a-4419997df6cc</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
   <stereotypes />
   <metadata>
-    <entry key="baseName" value="EntityWithMutableOperation" />
+    <entry key="baseName" value="EntityWithCtor" />
   </metadata>
   <childElements>
-    <childElement id="2f976ef7-6ceb-4987-b97e-01805f471972" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="7f961bd3-8957-439c-9b6c-3d19d5772369" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="4348e4e2-122a-4257-a9d7-f22b1f980377">
+      <typeReference id="1eb1d960-f763-495e-8ff6-bc9a120e97ce">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -52,10 +52,10 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ce4fd797-456c-41d0-ad10-8333e4b012c1" name="Id" type="element" specialization="Attribute" />
+          <target id="48408fb1-aa70-41d6-b834-32cce09971c4" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>8155a797-c11a-48fb-a77d-c4f96f5d46fc</parentFolderId>
+      <parentFolderId>fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -80,12 +80,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="5af6527e-bb6d-44a7-a466-b2f9629cfbfa" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>name</name>
-      <display>name: string</display>
+    <childElement id="423a928f-0b15-4732-82c5-5b889fb2bea7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="dd3cef0b-31f8-4a11-8298-fb906cdb11fa">
+      <typeReference id="ea09de7b-9106-42c9-832d-72a47deec10b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -101,11 +101,10 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6098b0a8-33e8-4dd6-bdee-b3cec190b695" name="ChangeName" type="element" specialization="Operation" />
-          <target id="b2e71bff-8a35-46f2-9657-b8041e6fda27" name="name" type="element" specialization="Parameter" />
+          <target id="f7fcf495-e6d3-4057-a36b-816b9b4282fb" name="Name" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>8155a797-c11a-48fb-a77d-c4f96f5d46fc</parentFolderId>
+      <parentFolderId>fd4ee11c-20c5-47f9-b5c0-88c2a4241d2e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
