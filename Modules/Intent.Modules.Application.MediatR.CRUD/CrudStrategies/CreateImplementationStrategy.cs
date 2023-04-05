@@ -19,6 +19,9 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using JetBrains.Annotations;
+using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
+using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -86,8 +89,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             codeLines.Add($"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}");
             codeLines.Add(new CSharpStatementBlock()
-                .AddStatements(GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true))
+                .AddStatements(GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainModel: foundEntity,
+                    dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
+                    skipIdField: true))
                 .WithSemicolon());
+
+            var operationParamLookup = _template.Model.Properties.Where(p => ParameterModelExtensions.IsParameterModel(p.Mapping?.Element))
+                .ToLookup(field => OperationModelExtensions.AsOperationModel(field.Mapping.Path[0].Element));
+
+            foreach (var kvp in operationParamLookup)
+            {
+                var paramList = kvp.Key.Parameters
+                    .Select(s => kvp.First(p => p.Mapping.Element.Id == s.Id))
+                    .Select(s => $"request.{s.Name.ToPascalCase()}");
+                codeLines.Add($@"new{foundEntity.Name}.{kvp.Key.Name.ToPascalCase()}({string.Join(", ", paramList)});");
+            }
 
             if (nestedCompOwner != null)
             {
@@ -110,6 +126,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             return codeLines.ToList();
+            
+            bool FilterForAnaemicMapping(DTOFieldModel field)
+            {
+                return field.Mapping?.Element == null ||
+                       field.Mapping.Element.IsAttributeModel() ||
+                       field.Mapping.Element.IsAssociationEndModel();
+            }
         }
 
         private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)

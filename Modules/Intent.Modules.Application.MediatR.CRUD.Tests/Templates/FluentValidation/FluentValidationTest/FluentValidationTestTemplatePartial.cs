@@ -156,8 +156,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             {
                 method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
             }
-
-            if (property.GetValidations()?.MaxLength() == null && property.InternalElement.IsMapped)
+            else if (property.GetValidations()?.MaxLength() == null && property.InternalElement.IsMapped)
             {
                 var attribute = property.InternalElement?.MappedElement?.Element?.AsAttributeModel();
                 if (attribute != null && attribute.HasStereotype("Text Constraints") &&
@@ -180,7 +179,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 if (!first) { method.AddStatement(string.Empty); }
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name.ToPascalCase()}, () => default));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
                 first = false;

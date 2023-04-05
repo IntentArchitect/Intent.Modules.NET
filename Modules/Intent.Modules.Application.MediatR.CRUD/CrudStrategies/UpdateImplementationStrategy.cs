@@ -81,7 +81,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
+                codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 codeLines.Add("return Unit.Value;");
 
@@ -93,6 +93,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             codeLines.Add($"return Unit.Value;");
 
             return codeLines;
+            
+            bool FilterForAnaemicMapping(DTOFieldModel field)
+            {
+                return field.Mapping?.Element == null ||
+                       field.Mapping.Element.IsAttributeModel() ||
+                       field.Mapping.Element.IsAssociationEndModel();
+            }
         }
 
         private StrategyData GetMatchingElementDetails()

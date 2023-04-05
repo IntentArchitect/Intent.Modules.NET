@@ -70,14 +70,14 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         {
             return CSharpFile.ToString();
         }
-        
+
         private string GetRequestHandlerInterface()
         {
             return Model.TypeReference.Element != null
                 ? $"IRequestHandler<{GetQueryModelName()}, {GetTypeName(Model.TypeReference)}>"
                 : $"IRequestHandler<{GetQueryModelName()}>";
         }
-        
+
         private string GetQueryModelName()
         {
             return GetTypeName(QueryModelsTemplate.TemplateId, Model);
