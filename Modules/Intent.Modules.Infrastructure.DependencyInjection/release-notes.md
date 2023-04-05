@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Fixed: Added Nuget Dependancy on `Microsoft.Extensions.Configuration.Abstractions`.
+
 ### Version 4.0.1
 
 - Fixed: Didn't take "requires namespaces" into account.

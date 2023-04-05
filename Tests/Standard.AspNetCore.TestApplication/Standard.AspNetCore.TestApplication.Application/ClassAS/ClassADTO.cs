@@ -17,9 +17,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
         {
         }
 
-        public static ClassADTO Create(
-            Guid id,
-            string attribute)
+        public static ClassADTO Create(Guid id, string attribute)
         {
             return new ClassADTO
             {

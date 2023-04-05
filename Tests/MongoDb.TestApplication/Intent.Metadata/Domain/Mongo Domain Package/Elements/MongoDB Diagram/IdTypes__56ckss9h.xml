@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="410a524b-9454-4685-b2d9-60f2aa304c72" type="MongoDB Diagram" typeId="67f81f34-af38-4245-9c8e-1816e3012cce">
+  <name>IdTypes</name>
+  <display>IdTypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8944490e-7138-4da9-a654-55d50e151168</parentFolderId>
+  <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
+  <packageName>Mongo Domain Package</packageName>
+  <diagram>
+    <targetPackageId>8944490e-7138-4da9-a654-55d50e151168</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

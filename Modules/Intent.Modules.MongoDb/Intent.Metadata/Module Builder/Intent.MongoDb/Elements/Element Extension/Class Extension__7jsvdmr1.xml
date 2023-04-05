@@ -17,7 +17,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>232b1576-74b7-45e1-bc24-2ddc42529d5d</parentFolderId>
+  <parentFolderId>4652d8dc-eea5-49cb-8c08-93ac1972962c</parentFolderId>
   <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
   <packageName>Intent.MongoDb</packageName>
   <stereotypes>
@@ -47,7 +47,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2c44dfc2-e153-4916-8378-2615583ea043" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+    <childElement id="dc673e32-dd4a-4957-a472-c8a5fec4895f" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
       <name>NewElementEventSettings</name>
       <display>[events]</display>
       <isAbstract>false</isAbstract>
@@ -60,12 +60,12 @@
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="e8aabea3-5c04-4732-8a9e-e1582892db37" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+        <childElement id="b57955f8-aa49-435b-b062-41ce40b626c2" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Created</name>
           <display>On Created: Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="ae3ebf9e-eb43-41b2-a3ad-333100af0f90">
+          <typeReference id="445a2336-6f53-4fb0-886c-fd6a57c092d4">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -77,7 +77,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>2c44dfc2-e153-4916-8378-2615583ea043</parentFolderId>
+          <parentFolderId>dc673e32-dd4a-4957-a472-c8a5fec4895f</parentFolderId>
           <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
           <packageName>Intent.MongoDb</packageName>
           <stereotypes>
@@ -86,7 +86,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="if (element.getPackage().specialization !== &quot;Mongo Domain Package&quot;) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;const GuidTypeId = &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;;&#xD;&#xA;const PrimaryKeyStereotypeId = &quot;b99aac21-9ca4-467f-a3a6-046255a9eed6&quot;;&#xD;&#xA;let idAttr = createElement(&quot;Attribute&quot;, &quot;Id&quot;, element.id);&#xD;&#xA;idAttr.typeReference.setType(isAggregateRoot(element) ? getDefaultIdType() : GuidTypeId);&#xD;&#xA;idAttr.addMetadata(&quot;id&quot;, &quot;true&quot;);&#xD;&#xA;idAttr.addStereotype(PrimaryKeyStereotypeId);&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return !element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;function getDefaultIdType() {&#xD;&#xA;    const StringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;    const GuidTypeId = &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;;&#xD;&#xA;    const IntTypeId = &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;;&#xD;&#xA;    const LongTypeId = &quot;33013006-E404-48C2-AC46-24EF5A5774FD&quot;;&#xD;&#xA;    const MongoSettingId = &quot;d5581fe8-7385-4bb6-88dc-8940e20ec1d4&quot;;&#xD;&#xA;    switch (application.getSettings(MongoSettingId)?.getField(&quot;Id Type&quot;)?.value) {&#xD;&#xA;        default:&#xD;&#xA;            return StringTypeId;&#xD;&#xA;        case &quot;guid&quot;:&#xD;&#xA;            return GuidTypeId;&#xD;&#xA;        case &quot;int&quot;:&#xD;&#xA;            return IntTypeId;&#xD;&#xA;        case &quot;long&quot;:&#xD;&#xA;            return LongTypeId;&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="// This script was made using a Typescript source. Don't edit this script directly.&#xD;&#xA;if (element.getPackage().specialization !== &quot;Mongo Domain Package&quot;) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;const PrimaryKeyStereotypeId = &quot;b99aac21-9ca4-467f-a3a6-046255a9eed6&quot;;&#xD;&#xA;let idAttr = createElement(&quot;Attribute&quot;, &quot;Id&quot;, element.id);&#xD;&#xA;idAttr.typeReference.setType(getDefaultIdType());&#xD;&#xA;idAttr.addMetadata(&quot;is-managed-key&quot;, &quot;true&quot;);&#xD;&#xA;idAttr.addStereotype(PrimaryKeyStereotypeId);&#xD;&#xA;function getDefaultIdType() {&#xD;&#xA;    const StringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;    const GuidTypeId = &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;;&#xD;&#xA;    const IntTypeId = &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;;&#xD;&#xA;    const LongTypeId = &quot;33013006-E404-48C2-AC46-24EF5A5774FD&quot;;&#xD;&#xA;    const MongoSettingId = &quot;d5581fe8-7385-4bb6-88dc-8940e20ec1d4&quot;;&#xD;&#xA;    switch (application.getSettings(MongoSettingId)?.getField(&quot;Id Type&quot;)?.value) {&#xD;&#xA;        default:&#xD;&#xA;            return StringTypeId;&#xD;&#xA;        case &quot;guid&quot;:&#xD;&#xA;            return GuidTypeId;&#xD;&#xA;        case &quot;int&quot;:&#xD;&#xA;            return IntTypeId;&#xD;&#xA;        case &quot;long&quot;:&#xD;&#xA;            return LongTypeId;&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

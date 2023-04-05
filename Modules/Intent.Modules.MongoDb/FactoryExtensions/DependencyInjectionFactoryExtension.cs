@@ -42,18 +42,32 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
             dependencyInjection.CSharpFile.OnBuild(file =>
             {
+                file.AddUsing("MongoFramework");
                 file.Classes.First().FindMethod("AddInfrastructure")
-                    .AddStatement(new CSharpInvocationStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>")
-                            .AddArgument(new CSharpLambdaBlock("provider")
-                                .AddStatement($@"var connectionString = configuration.GetConnectionString(""MongoDbConnection"");")
-                                .AddStatement($@"var url = MongoDB.Driver.MongoUrl.Create(connectionString);")
-                                .AddStatement($@"return new {dependencyInjection.GetTypeName(dbContext.Id)}(connectionString, url.DatabaseName);"))
-                            .WithArgumentsOnNewLines(),
-                        stmt => stmt.AddMetadata("application-mongodb-context", true));
+                    .AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();")
+                    .AddStatement("services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString(\"MongoDbConnection\")));")
+                    ;
+                /*
+                .AddStatement(new CSharpInvocationStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>")
+                        .AddArgument(new CSharpLambdaBlock("provider")
+                            .AddStatement($@"var connectionString = configuration.GetConnectionString(""MongoDbConnection"");")
+                            .AddStatement($@"var connection = MongoDbConnection.FromConnectionString(connectionString);")
+                            .AddStatement($@"return new {dependencyInjection.GetTypeName(dbContext.Id)}(connection);"))
+                        .WithArgumentsOnNewLines(),
+                    stmt => stmt.AddMetadata("application-mongodb-context", true));
+                */
             });
 
             application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.Replace(".", "_")}", string.Empty));
 
+
+            application.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(dbContext)
+                .ForInterface(dbContext.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
+                .ForConcern("Infrastructure")
+                .WithResolveFromContainer());
+
+            /*
             application.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddMongoDbUnitOfWork")
                 .ForConcern("Infrastructure")
@@ -64,15 +78,10 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 .RequiresUsingNamespaces("MongoDB.UnitOfWork.Abstractions.Extensions"));
             application.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(dbContext)
-                .ForInterface(dbContext.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
-                .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
-            application.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(dbContext)
                 .ForInterface("IMongoDbContext")
                 .RequiresUsingNamespaces("MongoDB.Infrastructure")
                 .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
+                .WithResolveFromContainer());*/
         }
     }
 }

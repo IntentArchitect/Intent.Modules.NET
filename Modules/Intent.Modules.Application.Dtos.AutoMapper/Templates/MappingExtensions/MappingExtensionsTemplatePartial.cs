@@ -43,8 +43,8 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
 
         private string GetEntityName()
         {
-            return TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model.Mapping.ElementId, out var name) 
-                   ? name 
+            return TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model.Mapping.ElementId, out var name)
+                   ? name
                    : GetTypeName(TemplateFulfillingRoles.Domain.ValueObject, Model.Mapping.ElementId);
         }
     }

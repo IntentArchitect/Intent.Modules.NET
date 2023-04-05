@@ -1,3 +1,8 @@
-﻿### Version 3.3.4
+﻿### Version 4.0.1
+
+- Change: Moved `DomainEvents` on `Domain Entities` now happening from this module.
+
+
+### Version 3.3.4
 
 - Fixed: Domain events not respecting folder paths from the designer.

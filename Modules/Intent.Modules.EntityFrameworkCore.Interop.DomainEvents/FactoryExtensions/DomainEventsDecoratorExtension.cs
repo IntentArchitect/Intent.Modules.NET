@@ -32,39 +32,6 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
-            foreach (var template in entityStateTemplates)
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var @class = file.Classes.FirstOrDefault();
-                    if (@class.TryGetMetadata<ClassModel>("model", out var model) && 
-                        model.IsAggregateRoot() && model.ParentClass == null)
-                    {
-                        @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                        @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
-                        {
-                            property.WithInitialValue($"new {property.Type}()");
-                            property.AddMetadata("non-persistent", true);
-                        });
-                    }
-                });
-            }
-
-            var entityInterfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
-            foreach (var template in entityInterfaceTemplates.Where(x => x.CSharpFile.Interfaces.Any()))
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var @interface = file.Interfaces.First();
-                    if (@interface.TryGetMetadata<ClassModel>("model", out var model) &&
-                        model.IsAggregateRoot() && model.ParentClass == null)
-                    {
-                        @interface.ExtendsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                    }
-                });
-            }
-
             var designTimeDbContextFactoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DesignTimeDbContextFactory"));
             foreach (var template in designTimeDbContextFactoryTemplates)
             {

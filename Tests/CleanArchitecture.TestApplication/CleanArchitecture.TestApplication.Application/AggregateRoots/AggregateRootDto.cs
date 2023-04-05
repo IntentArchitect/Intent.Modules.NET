@@ -17,12 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static AggregateRootDto Create(
-            Guid id,
-            string aggregateAttr,
-            List<AggregateRootCompositeManyBDto> composites,
-            AggregateRootCompositeSingleADto? composite,
-            AggregateRootAggregateSingleCDto? aggregate)
+        public static AggregateRootDto Create(Guid id, string aggregateAttr, List<AggregateRootCompositeManyBDto> composites, AggregateRootCompositeSingleADto? composite, AggregateRootAggregateSingleCDto? aggregate)
         {
             return new AggregateRootDto
             {

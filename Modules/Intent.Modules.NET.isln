@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.12" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.14" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -102,5 +102,7 @@
     <application id="03e0114e-4f03-474f-a16e-57fa1d247007" name="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.application.config" />
     <application id="78c253bf-6722-4fe4-bdbf-4c5b1621e503" name="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.application.config" />
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
+    <application id="a1f8e42e-7c08-47c7-be64-6bcf3bd0bc85" name="Intent.Modules.MongoDb.DomainEvents" relativePath="intent/Intent.Modules.MongoDb.DomainEvents/Intent.Modules.MongoDb.DomainEvents.application.config" />
+    <application id="4f29486d-476e-44ea-ae9c-f8d0fa2cb17e" name="Intent.Modules.MongoDb.Dtos.AutoMapper" relativePath="intent/Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.application.config" />
   </applications>
 </solution>

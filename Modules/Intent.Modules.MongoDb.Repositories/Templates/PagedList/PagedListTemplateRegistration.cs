@@ -31,12 +31,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            // This bypasses the cached lookup
-            var templates = applicationManager.FindTemplateInstances(TemplateFulfillingRoles.Repository.PagedList, _ => true).ToArray();
-            if (templates.All(p => p.Id == TemplateId))
-            {
-                registry.RegisterTemplate(TemplateId, project => new PagedListTemplate(project, null));
-            }
+            registry.RegisterTemplate(TemplateId, project => new PagedListTemplate(project, null));
         }
     }
 }

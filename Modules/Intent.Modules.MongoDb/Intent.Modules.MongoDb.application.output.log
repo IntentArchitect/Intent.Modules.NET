@@ -34,6 +34,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#f15ed9f1-9344-4ffe-add2-44f83d0ed3aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/MongoDomainPackageExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDomainPackageExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#9d80acf2-6f29-4688-955b-6c17f94042ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MongoDomainPackageModel.cs</ApplicationRelativeFilePath>
@@ -66,6 +74,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f269765c-a166-4830-acfb-5fbfc038e4ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DomainEventsFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventsFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1ff06ef6-6838-40ec-9ffe-8e69965781a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DtoAutoMapperFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoAutoMapperFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbce7f40-2eba-4a2a-90f8-8edde9ba6b07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>
@@ -86,6 +110,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.MongoDb.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.MongoDb.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b42cb104-9697-4b78-873e-ca5602b25497</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#4652d8dc-eea5-49cb-8c08-93ac1972962c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/MongoDb Key Automation Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDb Key Automation Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -122,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#06cc8b50-827a-4336-97f6-cebf3bac43a8</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#06cc8b50-827a-4336-97f6-cebf3bac43a8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationMongoDbContext/ApplicationMongoDbContextTemplateRegistration.cs</ProjectRelativeFilePath>

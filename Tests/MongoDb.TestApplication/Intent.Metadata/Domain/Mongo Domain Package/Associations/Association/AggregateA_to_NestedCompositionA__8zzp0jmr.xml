@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2dab3782-7e89-4707-aa2a-90b5ff3aed69">
+  <sourceEnd id="eddf0259-334b-4818-b99e-ee4e3612c7fd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateA</name>
+    <display>AggregateA: AggregateA</display>
+    <order>0</order>
+    <typeReference id="a94328fb-c5d2-4d96-8093-8d2c6b9802d2">
+      <typeId>15a20a84-ba00-4188-8fd1-298e0148b7a2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2dab3782-7e89-4707-aa2a-90b5ff3aed69" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>NestedCompositionA</name>
+    <display>NestedCompositionA: NestedCompositionA</display>
+    <order>2</order>
+    <typeReference id="44b9f5b3-a1b4-49f5-8226-323eea9bb840">
+      <typeId>3d1547cf-95f6-4993-8e48-8a138bd06000</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

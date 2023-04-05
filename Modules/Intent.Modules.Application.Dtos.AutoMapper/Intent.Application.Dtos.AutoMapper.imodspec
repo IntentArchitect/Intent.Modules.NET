@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.AutoMapper</id>
-  <version>4.0.1</version>
+  <version>4.0.2-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</summary>
   <description>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</description>
@@ -20,16 +20,14 @@
   </templates>
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="4.0.0" />
-    <dependency id="Intent.Application.Dtos" version="3.3.8" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24" />
+    <dependency id="Intent.Application.Dtos" version="4.0.0-pre.0" />
+    <dependency id="Intent.Common" version="3.3.19-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Modelers.Services" version="3.3.6" />
+    <dependency id="Intent.Modelers.Services" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
-  <decorators>
-    <decorator id="Intent.Application.Dtos.AutoMapper.AutoMapperDtoDecorator" externalReference="2e837e0e-09a3-49d3-beb3-96e7ac8acca1" />
-  </decorators>
+  <decorators />
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
@@ -37,4 +35,7 @@
   <metadata />
   <moduleSettings />
   <moduleSettingsExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.Dtos.AutoMapper.AutoMapperDtoFactoryExtension" externalReference="26e93d7b-2b58-435d-8401-c67cfe06c30a" />
+  </factoryExtensions>
 </package>
