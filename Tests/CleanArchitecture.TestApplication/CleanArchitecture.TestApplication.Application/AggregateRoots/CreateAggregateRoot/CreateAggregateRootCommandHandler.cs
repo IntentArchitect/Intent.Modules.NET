@@ -14,7 +14,7 @@ using MediatR;
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateAggregateRootCommandHandler : IRequestHandler<CreateAggregateRootCommand>
+    public class CreateAggregateRootCommandHandler : IRequestHandler<CreateAggregateRootCommand, Guid>
     {
         private readonly IAggregateRootRepository _aggregateRootRepository;
 
@@ -25,7 +25,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(CreateAggregateRootCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var newAggregateRoot = new AggregateRoot
             {
@@ -36,7 +36,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             };
 
             _aggregateRootRepository.Add(newAggregateRoot);
-            return Unit.Value;
+            await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newAggregateRoot.Id;
         }
 
         [IntentManaged(Mode.Fully)]

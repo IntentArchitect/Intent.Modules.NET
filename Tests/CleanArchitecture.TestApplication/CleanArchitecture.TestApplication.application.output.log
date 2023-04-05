@@ -52,6 +52,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#85839690-de46-4c66-a55e-ebe573239e8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/AggregateTestNoIdReturnsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturnsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#bc52f4d6-706e-4d34-82a8-95db0c914894</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ImplicitKeyAggrRootsController.cs</ApplicationRelativeFilePath>
@@ -296,6 +304,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateSingleCs/AggregateSingleCAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateSingleCs/AggregateSingleCAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/AggregateTestNoIdReturnAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/AggregateTestNoIdReturnAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#89851f4e-bbd9-40e3-9fc2-69c4d8347086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/CreateAggregateTestNoIdReturnCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/CreateAggregateTestNoIdReturnCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#89851f4e-bbd9-40e3-9fc2-69c4d8347086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/CreateAggregateTestNoIdReturnCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/CreateAggregateTestNoIdReturnCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#069adb10-9a48-4df1-97a9-886841ec2de9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturnCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturnCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#580b8274-2f66-49c6-a21e-e82eb7cf9685</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/GetAggregateTestNoIdReturnByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturnByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#3bef0d53-46a0-4c71-8aa6-ade3ad275b95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#cdf86226-9df2-4876-bd93-e156cab9f4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturnCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturnCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#cdf86226-9df2-4876-bd93-e156cab9f4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturnCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturnCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1084,6 +1156,142 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#34c0dd57-94b2-4a81-a9d0-7130c22da98d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/AggregateTestNoIdReturnDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/AggregateTestNoIdReturnDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#34c0dd57-94b2-4a81-a9d0-7130c22da98d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#89851f4e-bbd9-40e3-9fc2-69c4d8347086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#89851f4e-bbd9-40e3-9fc2-69c4d8347086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#89851f4e-bbd9-40e3-9fc2-69c4d8347086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/CreateAggregateTestNoIdReturn/CreateAggregateTestNoIdReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#069adb10-9a48-4df1-97a9-886841ec2de9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#069adb10-9a48-4df1-97a9-886841ec2de9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#069adb10-9a48-4df1-97a9-886841ec2de9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/DeleteAggregateTestNoIdReturn/DeleteAggregateTestNoIdReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#580b8274-2f66-49c6-a21e-e82eb7cf9685</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#580b8274-2f66-49c6-a21e-e82eb7cf9685</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#580b8274-2f66-49c6-a21e-e82eb7cf9685</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturnById/GetAggregateTestNoIdReturnByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#3bef0d53-46a0-4c71-8aa6-ade3ad275b95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#3bef0d53-46a0-4c71-8aa6-ade3ad275b95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3bef0d53-46a0-4c71-8aa6-ade3ad275b95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/GetAggregateTestNoIdReturns/GetAggregateTestNoIdReturnsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#cdf86226-9df2-4876-bd93-e156cab9f4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#cdf86226-9df2-4876-bd93-e156cab9f4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cdf86226-9df2-4876-bd93-e156cab9f4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#200c87e3-90dc-414e-bb27-53f91deca874</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/CleanArchitecture.TestApplication.Application.csproj</ApplicationRelativeFilePath>
@@ -1604,6 +1812,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/AggregateTestNoIdReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#58bad112-8e6d-4a3f-9bd7-2e982c3c2531</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/CompositeManyAA.cs</ApplicationRelativeFilePath>
@@ -1700,6 +1916,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IAggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#70197f0a-1b57-43ba-8d05-67a3c955772b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IImplicitKeyAggrRootRepository.cs</ApplicationRelativeFilePath>
@@ -1772,6 +1996,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/AggregateTestNoIdReturnConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturnConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ef7b22c0-fe8f-4782-9aeb-9fa810eb158a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/CompositeManyBConfiguration.cs</ApplicationRelativeFilePath>
@@ -1840,6 +2072,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/AggregateSingleCRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateSingleCRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/AggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

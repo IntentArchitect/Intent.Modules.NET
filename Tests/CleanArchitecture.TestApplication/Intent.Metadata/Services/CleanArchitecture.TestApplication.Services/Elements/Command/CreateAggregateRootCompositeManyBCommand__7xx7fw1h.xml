@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="7e32c772-8408-4429-8af2-820f832d584f" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateAggregateRootCompositeManyBCommand</name>
-  <display>CreateAggregateRootCompositeManyBCommand: void</display>
+  <display>CreateAggregateRootCompositeManyBCommand: guid</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="be4f0afd-fb04-4f56-b6cb-053b154d5c49">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

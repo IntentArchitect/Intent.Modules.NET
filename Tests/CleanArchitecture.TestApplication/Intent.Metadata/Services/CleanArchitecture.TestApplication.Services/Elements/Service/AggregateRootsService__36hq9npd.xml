@@ -23,15 +23,18 @@
   <childElements>
     <childElement id="75779c05-727c-4f78-b17c-caf95fd00aeb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Post</name>
-      <display>Post(command: CreateAggregateRootCommand): void</display>
+      <display>Post(command: CreateAggregateRootCommand): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="fae08229-9452-44ac-bd07-41a1463bf12a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -433,15 +436,18 @@
     </childElement>
     <childElement id="4796b95c-b787-45b3-91cd-5d36d4f8aa90" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>PostCompositeManyB</name>
-      <display>PostCompositeManyB(aggregateRootId: guid, command: CreateAggregateRootCompositeManyBCommand): void</display>
+      <display>PostCompositeManyB(aggregateRootId: guid, command: CreateAggregateRootCompositeManyBCommand): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="65b4f6ae-ef89-4a55-831c-fb4746c452b9">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

@@ -34,11 +34,12 @@ public class CreateAggregateRootCommandValidatorTests
     {
         // Arrange
         var validator = GetValidationBehaviour();
+        var expectedId = new Fixture().Create<System.Guid>();
         // Act
-        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
+        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
 
         // Assert
-        result.Should().Be(Unit.Value);
+        result.Should().Be(expectedId);
     }
 
     public static IEnumerable<object[]> GetFailedResultTestData()
@@ -65,16 +66,17 @@ public class CreateAggregateRootCommandValidatorTests
     {
         // Arrange
         var validator = GetValidationBehaviour();
+        var expectedId = new Fixture().Create<System.Guid>();
         // Act
-        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
+        var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
         .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
     }
 
-    private ValidationBehaviour<CreateAggregateRootCommand, Unit> GetValidationBehaviour()
+    private ValidationBehaviour<CreateAggregateRootCommand, System.Guid> GetValidationBehaviour()
     {
-        return new ValidationBehaviour<CreateAggregateRootCommand, Unit>(new[] { new CreateAggregateRootCommandValidator() });
+        return new ValidationBehaviour<CreateAggregateRootCommand, System.Guid>(new[] { new CreateAggregateRootCommandValidator() });
     }
 }

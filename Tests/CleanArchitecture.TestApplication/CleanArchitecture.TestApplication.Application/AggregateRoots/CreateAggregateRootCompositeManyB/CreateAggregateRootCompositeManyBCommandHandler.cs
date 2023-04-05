@@ -13,7 +13,7 @@ using MediatR;
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateAggregateRootCompositeManyBCommandHandler : IRequestHandler<CreateAggregateRootCompositeManyBCommand>
+    public class CreateAggregateRootCompositeManyBCommandHandler : IRequestHandler<CreateAggregateRootCompositeManyBCommand, Guid>
     {
         private readonly IAggregateRootRepository _aggregateRootRepository;
 
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(CreateAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot == null)
@@ -41,7 +41,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             };
 
             aggregateRoot.Composites.Add(newCompositeManyB);
-            return Unit.Value;
+            await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newCompositeManyB.Id;
         }
 
         [IntentManaged(Mode.Fully)]

@@ -43,13 +43,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Post([FromBody] CreateAggregateRootCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> Post([FromBody] CreateAggregateRootCommand command, CancellationToken cancellationToken)
         {
-            await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, null);
+            var result = await _mediator.Send(command, cancellationToken);
+            return CreatedAtAction(nameof(Get), new { id = result }, new { Id = result });
         }
 
         /// <summary>
@@ -118,18 +119,19 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost("{aggregateRootId}/CompositeManyBS")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PostCompositeManyB([FromRoute] Guid aggregateRootId, [FromBody] CreateAggregateRootCompositeManyBCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> PostCompositeManyB([FromRoute] Guid aggregateRootId, [FromBody] CreateAggregateRootCompositeManyBCommand command, CancellationToken cancellationToken)
         {
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();
             }
 
-            await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, null);
+            var result = await _mediator.Send(command, cancellationToken);
+            return CreatedAtAction(nameof(Get), new { id = result }, new { Id = result });
         }
 
         /// <summary>

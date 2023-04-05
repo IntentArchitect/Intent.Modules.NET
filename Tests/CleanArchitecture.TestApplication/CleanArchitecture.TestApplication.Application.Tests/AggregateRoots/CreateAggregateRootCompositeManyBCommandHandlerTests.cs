@@ -45,16 +45,25 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidCommand_AddsCompositeManyBToRepository(CreateAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity)
         {
             // Arrange
+            var expectedAggregateRootId = new Fixture().Create<System.Guid>();
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+            repository.OnSaveChanges(
+                () =>
+                {
+                    addedCompositeManyB = existingOwnerEntity.Composites.Single(p => p.Id == default);
+                    addedCompositeManyB.Id = expectedAggregateRootId;
+                    addedCompositeManyB.AggregateRootId = testCommand.AggregateRootId;
+                });
             var sut = new CreateAggregateRootCompositeManyBCommandHandler(repository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            addedCompositeManyB = existingOwnerEntity.Composites.Single(p => p.Id == default);
+            result.Should().Be(expectedAggregateRootId);
+            await repository.UnitOfWork.Received(1).SaveChangesAsync();
             AggregateRootAssertions.AssertEquivalent(testCommand, addedCompositeManyB);
         }
     }
