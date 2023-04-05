@@ -2,7 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.UI.Interop.Identity.EFCore</id>
   <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Allow the UI Controllers to use the Identity SignInManager instead</summary>
   <description>Allow the UI Controllers to use the Identity SignInManager instead</description>
   <authors>Intent Architect</authors>

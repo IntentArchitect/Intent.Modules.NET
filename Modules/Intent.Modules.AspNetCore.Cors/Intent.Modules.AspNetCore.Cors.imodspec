@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Modules.AspNetCore.Cors</id>
   <version>3.3.8</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.3.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Provides a standard CORS policy for ASP.NET Core</summary>
   <description>Provides a standard CORS policy for ASP.NET Core</description>
   <authors>Intent Architect</authors>

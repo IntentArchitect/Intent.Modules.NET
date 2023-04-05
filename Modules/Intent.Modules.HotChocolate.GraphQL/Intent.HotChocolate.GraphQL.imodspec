@@ -2,7 +2,7 @@
 <package>
   <id>Intent.HotChocolate.GraphQL</id>
   <version>3.3.5</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.3.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>GraphQL implementation using Hot Chocolate</summary>
   <description>GraphQL implementation using Hot Chocolate</description>
   <authors>Intent Architect</authors>

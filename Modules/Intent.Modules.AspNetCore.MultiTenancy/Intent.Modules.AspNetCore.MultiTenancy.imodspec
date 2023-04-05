@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
   <version>4.1.0</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.MassTransit.EntityFrameworkCore</id>
   <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Integrates MassTransit with Entity Framework Core to bring you proper transaction scope handling in your consumers.</summary>
   <description>Integrates MassTransit with Entity Framework Core to bring you proper transaction scope handling in your consumers.</description>
   <authors>Intent Architect</authors>

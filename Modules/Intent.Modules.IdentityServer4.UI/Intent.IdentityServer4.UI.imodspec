@@ -2,7 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.UI</id>
   <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</summary>
   <description>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</description>
   <authors>Intent Architect</authors>

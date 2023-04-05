@@ -108,7 +108,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             base.BeforeTemplateExecution();
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
-                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
+                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model))
+                .WithPriority(100));
         }
 
         private string GetOperationReturnType(OperationModel o)

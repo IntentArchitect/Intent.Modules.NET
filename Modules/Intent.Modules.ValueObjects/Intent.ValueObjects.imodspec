@@ -2,7 +2,7 @@
 <package>
   <id>Intent.ValueObjects</id>
   <version>4.0.0</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</summary>
   <description>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</description>
   <authors>Intent Architect</authors>

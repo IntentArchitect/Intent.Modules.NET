@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MongoDb.Finbuckle</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Adds Multi-tenancy to MongoDb.</summary>
   <description>Adds Multi-tenancy to MongoDb.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.MassTransit.MediatR</id>
   <version>4.0.2</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>This module is no longer in use. It can be safely removed.</summary>
   <description>This module is no longer in use. It can be safely removed.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MongoDb.Repositories</id>
   <version>1.0.0-pre.1</version>
-  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Repository pattern for MongoDB provider.</summary>
   <description>Repository pattern for MongoDB provider.</description>
   <authors>Intent Architect</authors>
