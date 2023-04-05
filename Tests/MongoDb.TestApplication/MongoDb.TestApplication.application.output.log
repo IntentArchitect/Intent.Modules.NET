@@ -28,22 +28,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa8bc136-6d0a-40aa-ae67-84a0986b56a5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b618bfec-af28-4f24-aec5-474455baf12f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/IdTypeIntsController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeIntsController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aa8bc136-6d0a-40aa-ae67-84a0986b56a5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#67ee7784-4eeb-4167-a420-d00751004024</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/IdTypeLongsController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongsController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aa8bc136-6d0a-40aa-ae67-84a0986b56a5</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#6cfbfee7-38e1-48de-a0d9-232d45759f32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/IdTypeOjectIdStrsController.cs</ApplicationRelativeFilePath>
@@ -212,118 +196,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e6f4a5c1-57a5-45b0-8164-45ea29bafeb8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntCreateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e6f4a5c1-57a5-45b0-8164-45ea29bafeb8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntCreateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e73387d3-afc0-481c-bd46-6eb82ee625d7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e73387d3-afc0-481c-bd46-6eb82ee625d7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e73387d3-afc0-481c-bd46-6eb82ee625d7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#6f68b6c6-2d13-4552-89e4-a832ad2b9105</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntUpdateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6f68b6c6-2d13-4552-89e4-a832ad2b9105</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeInts/IdTypeIntUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeInts/IdTypeIntUpdateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#9f5ac84b-4c40-42fb-9ec8-71c9880c8180</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongCreateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9f5ac84b-4c40-42fb-9ec8-71c9880c8180</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongCreateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#b81172fb-5fa5-4ac1-bba5-70319ed6ca41</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#b81172fb-5fa5-4ac1-bba5-70319ed6ca41</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b81172fb-5fa5-4ac1-bba5-70319ed6ca41</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#1c412ada-44f5-445e-ae92-9185bd1dfaaf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongUpdateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1c412ada-44f5-445e-ae92-9185bd1dfaaf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeLongs/IdTypeLongUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongs/IdTypeLongUpdateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#6137836d-9180-4614-8219-36a5114cbbac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ApplicationRelativeFilePath>
@@ -388,22 +260,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>998ae63b-f56d-45cc-bf87-d0d8842e25ed</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#b618bfec-af28-4f24-aec5-474455baf12f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Implementation/IdTypeIntsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeIntsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>998ae63b-f56d-45cc-bf87-d0d8842e25ed</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#67ee7784-4eeb-4167-a420-d00751004024</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Implementation/IdTypeLongsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeLongsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>998ae63b-f56d-45cc-bf87-d0d8842e25ed</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6cfbfee7-38e1-48de-a0d9-232d45759f32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Implementation/IdTypeOjectIdStrsService.cs</ApplicationRelativeFilePath>
@@ -416,22 +272,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Interfaces/IIdTypeGuidsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIdTypeGuidsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>709cac2b-e50f-4bce-a83d-20f26c41967c</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#b618bfec-af28-4f24-aec5-474455baf12f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Interfaces/IIdTypeIntsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IIdTypeIntsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>709cac2b-e50f-4bce-a83d-20f26c41967c</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#67ee7784-4eeb-4167-a420-d00751004024</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Interfaces/IIdTypeLongsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IIdTypeLongsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -668,22 +508,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#6346505a-c7b5-4366-ab67-ec746f84b1cd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/IdTypes/IdTypeInt.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeInt.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#5bd0d297-7824-478b-b3a2-5751d541cecb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/IdTypes/IdTypeLong.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeLong.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1e3f34eb-5f22-4b21-8ee4-3b978c3c09b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/IdTypes/IdTypeOjectIdStr.cs</ApplicationRelativeFilePath>
@@ -872,22 +696,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IdTypes/IIdTypeGuidRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypes/IIdTypeGuidRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#6346505a-c7b5-4366-ab67-ec746f84b1cd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IdTypes/IIdTypeIntRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IIdTypeIntRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5bd0d297-7824-478b-b3a2-5751d541cecb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IdTypes/IIdTypeLongRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IIdTypeLongRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1120,22 +928,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeGuidRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypes/IdTypeGuidRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.Repository#6346505a-c7b5-4366-ab67-ec746f84b1cd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeIntRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeIntRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.Repository#5bd0d297-7824-478b-b3a2-5751d541cecb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeLongRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeLongRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

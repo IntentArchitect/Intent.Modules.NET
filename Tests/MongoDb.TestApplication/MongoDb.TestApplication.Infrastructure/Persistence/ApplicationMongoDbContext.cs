@@ -37,29 +37,21 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<I_MultipleAggregate> I_MultipleAggregates { get; set; }
         public MongoDbSet<I_RequiredDependent> I_RequiredDependents { get; set; }
         public MongoDbSet<IdTypeGuid> IdTypeGuids { get; set; }
-        public MongoDbSet<IdTypeInt> IdTypeInts { get; set; }
-        public MongoDbSet<IdTypeLong> IdTypeLongs { get; set; }
         public MongoDbSet<IdTypeOjectIdStr> IdTypeOjectIdStrs { get; set; }
         public MongoDbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public MongoDbSet<J_MultipleDependent> J_MultipleDependents { get; set; }
         public MongoDbSet<K_MultipleAggregateNav> K_MultipleAggregateNavs { get; set; }
         public MongoDbSet<K_MultipleDependent> K_MultipleDependents { get; set; }
 
-        async Task<int> IMongoDbUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            await SaveChangesAsync(cancellationToken);
-            return default;
-        }
-
-        async Task<int> IUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            await SaveChangesAsync(cancellationToken);
+            await base.SaveChangesAsync(cancellationToken);
             return default;
         }
 
         protected override void Dispose(bool disposing)
         {
-            //we don't want to dispose the connection which the base class does
+            // Don't call the base's dispose as it disposes the connection which is not recommended as per https://www.mongodb.com/docs/manual/administration/connection-pool-overview/
         }
 
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
@@ -114,12 +106,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
 
             mappingBuilder.Entity<IdTypeGuid>()
                 .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator));
-
-            mappingBuilder.Entity<IdTypeInt>()
-                .HasKey(e => e.Id, d => new Int32KeyGenerator<MyIntity>(this.Connection));
-
-            mappingBuilder.Entity<IdTypeLong>()
-                .HasKey(e => e.Id, d => new Int64KeyGenerator<MyIntity>(this.Connection));
 
             mappingBuilder.Entity<IdTypeOjectIdStr>()
                 .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));

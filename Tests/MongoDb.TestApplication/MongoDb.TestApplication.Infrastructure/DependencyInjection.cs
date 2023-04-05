@@ -49,8 +49,6 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<II_MultipleAggregateRepository, I_MultipleAggregateRepository>();
             services.AddTransient<II_RequiredDependentRepository, I_RequiredDependentRepository>();
             services.AddTransient<IIdTypeGuidRepository, IdTypeGuidRepository>();
-            services.AddTransient<IIdTypeIntRepository, IdTypeIntRepository>();
-            services.AddTransient<IIdTypeLongRepository, IdTypeLongRepository>();
             services.AddTransient<IIdTypeOjectIdStrRepository, IdTypeOjectIdStrRepository>();
             services.AddTransient<IJ_MultipleAggregateRepository, J_MultipleAggregateRepository>();
             services.AddTransient<IJ_MultipleDependentRepository, J_MultipleDependentRepository>();

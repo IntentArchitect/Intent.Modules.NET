@@ -129,6 +129,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             }
             //result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator))");
 #warning what do we need here
+            /*
             else if (pk.Type.Element.IsIntType())
             {
                 result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => new Int32KeyGenerator<MyIntity>(this.Connection))");
@@ -136,7 +137,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             else if (pk.Type.Element.IsLongType())
             {
                 result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => new Int64KeyGenerator<MyIntity>(this.Connection))");
-            }
+            }*/
             else
             {
                 throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].");
