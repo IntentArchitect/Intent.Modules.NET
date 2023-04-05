@@ -162,22 +162,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#588e50b6-f605-4fc3-9942-3c87c7a91169</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/BsonClassMap/BsonClassMapTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BsonClassMap/BsonClassMapTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#588e50b6-f605-4fc3-9942-3c87c7a91169</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/BsonClassMap/BsonClassMapTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BsonClassMap/BsonClassMapTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#97a9caeb-8167-47f9-a31d-0e8f8c99d5c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
