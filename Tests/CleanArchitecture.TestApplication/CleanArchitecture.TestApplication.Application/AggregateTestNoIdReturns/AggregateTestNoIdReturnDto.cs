@@ -17,9 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         {
         }
 
-        public static AggregateTestNoIdReturnDto Create(
-            Guid id,
-            string attribute)
+        public static AggregateTestNoIdReturnDto Create(Guid id, string attribute)
         {
             return new AggregateTestNoIdReturnDto
             {

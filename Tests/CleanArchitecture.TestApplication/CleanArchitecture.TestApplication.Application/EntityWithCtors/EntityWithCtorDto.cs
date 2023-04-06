@@ -17,9 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithCtors
         {
         }
 
-        public static EntityWithCtorDto Create(
-            Guid id,
-            string name)
+        public static EntityWithCtorDto Create(Guid id, string name)
         {
             return new EntityWithCtorDto
             {

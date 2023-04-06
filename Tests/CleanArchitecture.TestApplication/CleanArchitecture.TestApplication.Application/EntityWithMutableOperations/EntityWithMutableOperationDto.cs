@@ -17,9 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         {
         }
 
-        public static EntityWithMutableOperationDto Create(
-            Guid id,
-            string name)
+        public static EntityWithMutableOperationDto Create(Guid id, string name)
         {
             return new EntityWithMutableOperationDto
             {
