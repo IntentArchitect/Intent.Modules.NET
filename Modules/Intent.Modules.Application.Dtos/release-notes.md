@@ -1,6 +1,7 @@
 ﻿### Version 4.0.0
 
 - Upgrade : `DtoModelTemplate` upgraded to use the `ICSharpFileBuilderTemplate` paradigm.
+- Enums will now generate comments captured in designers.
 
 
 ### Version 3.3.10

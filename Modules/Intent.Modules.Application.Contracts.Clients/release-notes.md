@@ -1,3 +1,7 @@
+### Version 3.3.11
+
+- Enums will now generate comments captured in designers.
+
 ### Version 3.3.10
 
 - Generated DTOs now respect the `Serialization Settings` stereotype.

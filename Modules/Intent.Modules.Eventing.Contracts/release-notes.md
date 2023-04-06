@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Enums will now generate comments captured in designers.
+
 ### Version 4.0.1
 
 - Enums used on messages or their DTOs will now also be generated.

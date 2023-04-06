@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
-  <version>4.0.1</version>
+  <version>4.0.2-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
