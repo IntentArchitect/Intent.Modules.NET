@@ -9,6 +9,7 @@ using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -21,8 +22,15 @@ public static class AssertionMethodHelper
             method.Static();
             method.AddParameter(template.GetTypeName(commandModel.InternalElement), "expectedDto");
             method.AddParameter(template.GetTypeName(domainModel.InternalElement), "actualEntity");
-            method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties, skipIdFields, false));
+            method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
         });
+
+        bool FilterForAnaemicMapping(DTOFieldModel field)
+        {
+            return field.Mapping?.Element == null ||
+                   field.Mapping.Element.IsAttributeModel() ||
+                   field.Mapping.Element.IsAssociationEndModel();
+        }
     }
 
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel, bool hasCollection)

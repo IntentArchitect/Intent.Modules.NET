@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="84bc3615-a0f2-4e3f-8230-55de746d940a">
+  <sourceEnd id="06fc9019-49c9-4c76-8cc1-258477619f51" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>J_MultipleAggregates</name>
+    <display>J_MultipleAggregates: K_MultipleAggregateNav[*]</display>
+    <order>3</order>
+    <typeReference id="3e4c857d-115a-4593-8fe4-edd03b9c1982">
+      <typeId>3c033932-75d2-4042-8e94-ff6e355c0d62</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="84bc3615-a0f2-4e3f-8230-55de746d940a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>J_MultipleDependents</name>
+    <display>J_MultipleDependents: K_MultipleDependent[*]</display>
+    <order>3</order>
+    <typeReference id="31b27621-ee1d-4aea-8cb6-7a175062aac3">
+      <typeId>db628487-abe6-48e0-9dcf-86f5311f8bd4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

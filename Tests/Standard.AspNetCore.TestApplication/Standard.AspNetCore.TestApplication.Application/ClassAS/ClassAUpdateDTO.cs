@@ -14,9 +14,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
         {
         }
 
-        public static ClassAUpdateDTO Create(
-            Guid id,
-            string attribute)
+        public static ClassAUpdateDTO Create(Guid id, string attribute)
         {
             return new ClassAUpdateDTO
             {

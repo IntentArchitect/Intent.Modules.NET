@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using MongoDB.Infrastructure;
+using MongoFramework;
+using MongoFramework.Infrastructure.Mapping;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,20 +14,30 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence
 {
     public class ApplicationMongoDbContext : MongoDbContext, IMongoDbUnitOfWork
     {
-        static ApplicationMongoDbContext()
+        public ApplicationMongoDbContext(IMongoDbConnection connection) : base(connection)
         {
-            ApplyConfigurationsFromAssembly(typeof(ApplicationMongoDbContext).Assembly);
         }
 
-        public ApplicationMongoDbContext(string connectionString, string databaseName, MongoDatabaseSettings databaseSettings = null) : base(connectionString, databaseName, databaseSettings)
+        async Task<int> IMongoDbUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            AcceptAllChangesOnSave = true;
-            AddCommand(() => null);
+            await SaveChangesAsync(cancellationToken);
+            return default;
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        async Task<int> IUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            return (await base.SaveChangesAsync(cancellationToken)).Results.Count;
+            await SaveChangesAsync(cancellationToken);
+            return default;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            //we don't want to dispose the connection which the base class does
+        }
+
+        protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
+        {
+            base.OnConfigureMapping(mappingBuilder);
         }
     }
 }

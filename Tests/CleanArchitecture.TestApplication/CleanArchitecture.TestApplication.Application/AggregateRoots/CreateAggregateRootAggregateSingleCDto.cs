@@ -14,8 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static CreateAggregateRootAggregateSingleCDto Create(
-            string aggregationAttr)
+        public static CreateAggregateRootAggregateSingleCDto Create(string aggregationAttr)
         {
             return new CreateAggregateRootAggregateSingleCDto
             {

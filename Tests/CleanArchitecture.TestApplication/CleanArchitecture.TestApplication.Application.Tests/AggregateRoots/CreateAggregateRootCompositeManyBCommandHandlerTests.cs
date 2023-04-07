@@ -46,7 +46,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var expectedAggregateRootId = new Fixture().Create<System.Guid>();
-
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));

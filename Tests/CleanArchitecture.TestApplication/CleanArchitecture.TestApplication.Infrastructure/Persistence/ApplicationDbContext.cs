@@ -26,10 +26,13 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateRoot> AggregateRoots { get; set; }
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
+        public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
+        public DbSet<EntityWithCtor> EntityWithCtors { get; set; }
+        public DbSet<EntityWithMutableOperation> EntityWithMutableOperations { get; set; }
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -46,10 +49,13 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateTestNoIdReturnConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeManyBConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityWithCtorConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityWithMutableOperationConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
         }
 

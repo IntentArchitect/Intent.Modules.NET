@@ -17,11 +17,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
         {
         }
 
-        public static UserDto Create(
-            Guid id,
-            string email,
-            string username,
-            List<UserRoleDto> roles)
+        public static UserDto Create(Guid id, string email, string username, List<UserRoleDto> roles)
         {
             return new UserDto
             {

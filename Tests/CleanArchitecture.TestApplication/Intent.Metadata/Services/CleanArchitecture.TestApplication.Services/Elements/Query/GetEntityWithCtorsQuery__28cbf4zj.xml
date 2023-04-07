@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="47cbd720-787e-4280-b58e-dd6dfd5acdb4" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetEntityWithCtorsQuery</name>
+  <display>GetEntityWithCtorsQuery: EntityWithCtorDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c9a447d1-a9f5-44a3-a732-9a16cd9183f2">
+    <typeId>41c6a8e9-c01b-41dd-9a88-08e4dd3f46c0</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>fd5ed4ea-b003-48f0-867a-4419997df6cc</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="EntityWithCtors" />
+  </metadata>
+  <childElements />
+</class>

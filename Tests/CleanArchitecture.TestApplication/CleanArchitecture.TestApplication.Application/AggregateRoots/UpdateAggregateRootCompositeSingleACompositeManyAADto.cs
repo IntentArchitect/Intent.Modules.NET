@@ -14,10 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static UpdateAggregateRootCompositeSingleACompositeManyAADto Create(
-            string compositeAttr,
-            Guid compositeSingleAId,
-            Guid id)
+        public static UpdateAggregateRootCompositeSingleACompositeManyAADto Create(string compositeAttr, Guid compositeSingleAId, Guid id)
         {
             return new UpdateAggregateRootCompositeSingleACompositeManyAADto
             {

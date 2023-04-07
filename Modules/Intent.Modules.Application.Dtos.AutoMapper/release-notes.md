@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Change: `AutoMapperDTODecorator` replaced with `AutoMapperDTOFactoryExtension` to take advantage of the new `ICSharpFileBuilderTemplate` paradigm.
+
 ### Version 4.0.1
 
 - Fixed: Mappping paths like `property.Count(x => x.Method())` would be incorrectly transformed to `property.Count(x => X.Method())` in AutoMapper profiles.

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1a2243e2-e591-40e0-a4b5-be7f1fec9de8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainEventsDecoratorExtension</name>
+  <display>DomainEventsDecoratorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</parentFolderId>
+  <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+  <packageName>Intent.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -65,14 +65,5 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
                 .ToListAsync(cancellationToken);
             return new PagedList<T>(count, pageNo, pageSize, results);
         }
-
-        public static async Task<IPagedResult<T>> CreateAsync(IMongoQueryable<T> source, int pageNo, int pageSize, CancellationToken cancellationToken = default)
-        {
-            var count = await source.CountAsync(cancellationToken);
-            var skip = ((pageNo - 1) * pageSize);
-            IAsyncCursorSource<T> cursorSource = source.Skip(skip).Take(pageSize);
-            var results = await cursorSource.ToListAsync(cancellationToken);
-            return new PagedList<T>(count, pageNo, pageSize, results);
-        }
     }
 }

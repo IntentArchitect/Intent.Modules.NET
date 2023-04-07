@@ -41,12 +41,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var expectedAggregateRootId = new Fixture().Create<System.Guid>();
-
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.OnAdd(ent => addedAggregateRoot = ent);
             repository.OnSaveChanges(() => addedAggregateRoot.Id = expectedAggregateRootId);
-
             var sut = new CreateAggregateRootCommandHandler(repository);
 
             // Act

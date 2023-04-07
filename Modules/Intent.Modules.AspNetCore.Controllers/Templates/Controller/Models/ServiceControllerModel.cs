@@ -22,7 +22,7 @@ public class ServiceControllerModel : IControllerModel
         _model = model;
         RequiresAuthorization = model.HasSecured();
         AllowAnonymous = model.HasUnsecured();
-        Route = string.IsNullOrWhiteSpace(model.GetHttpServiceSettings().Route())
+        Route = string.IsNullOrWhiteSpace(model.GetHttpServiceSettings()?.Route())
             ? "api/[controller]"
             : model.GetHttpServiceSettings().Route();
         Operations = model.Operations

@@ -105,6 +105,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{nestedDomainElementName}ToRepository", method =>
                 {
                     var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
+                    var hasIdReturnType = model.TypeReference.Element != null;
 
                     method.Async();
                     method.AddAttribute("Theory");
@@ -112,22 +113,28 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
                     method.AddStatements($@"
-        // Arrange
-        var expected{nestedDomainElementIdAttr.IdName} = new Fixture().Create<{nestedDomainElementIdAttr.Type}>();
+        // Arrange");
+                    if (hasIdReturnType)
+                    {
+                        method.AddStatements($@"var expected{nestedDomainElementIdAttr.IdName} = new Fixture().Create<{nestedDomainElementIdAttr.Type}>();");
+                    }
 
-        {GetTypeName(nestedDomainElement.InternalElement)} added{nestedDomainElementName} = null;
+                    method.AddStatements($@"{GetTypeName(nestedDomainElement.InternalElement)} added{nestedDomainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
         repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
         ");
 
                     var associationPropertyName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
-                    method.AddInvocationStatement("repository.OnSaveChanges", stmt => stmt
-                        .AddArgument(new CSharpLambdaBlock("()")
-                            .AddStatement($@"
+                    if (hasIdReturnType)
+                    {
+                        method.AddInvocationStatement("repository.OnSaveChanges", stmt => stmt
+                            .AddArgument(new CSharpLambdaBlock("()")
+                                .AddStatement($@"
         added{nestedDomainElementName} = existingOwnerEntity.{associationPropertyName}.Single(p => p.{nestedEntityIdName} == default);
         added{nestedDomainElementName}.{nestedEntityIdName} = expected{nestedDomainElementIdAttr.IdName};
         added{nestedDomainElementName}.{nestedDomainElementIdAttr.IdName} = testCommand.{nestedOwnerIdFieldName};"))
-                        .WithArgumentsOnNewLines());
+                            .WithArgumentsOnNewLines());
+                    }
 
                     method.AddStatements($@"
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
@@ -135,10 +142,18 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         // Act
         var result = await sut.Handle(testCommand, CancellationToken.None);
 
-        // Assert
-        result.Should().Be(expected{nestedDomainElementIdAttr.IdName});
-        await repository.UnitOfWork.Received(1).SaveChangesAsync();
-        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(testCommand, added{nestedDomainElementName});");
+        // Assert");
+                    if (hasIdReturnType)
+                    {
+                        method.AddStatements($@"result.Should().Be(expected{nestedDomainElementIdAttr.IdName});
+        await repository.UnitOfWork.Received(1).SaveChangesAsync();");
+                    }
+                    else
+                    {
+                        method.AddStatement($@"added{nestedDomainElementName} = existingOwnerEntity.{associationPropertyName}.Single(p => p.{nestedEntityIdName} == default);");
+                    }
+
+                    method.AddStatement($@"{this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(testCommand, added{nestedDomainElementName});");
                 });
             })
             .OnBuild(file =>

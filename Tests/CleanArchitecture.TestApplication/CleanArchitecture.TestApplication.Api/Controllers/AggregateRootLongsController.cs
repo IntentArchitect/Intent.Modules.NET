@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Controllers.ResponseTypes;
@@ -37,6 +38,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<long>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

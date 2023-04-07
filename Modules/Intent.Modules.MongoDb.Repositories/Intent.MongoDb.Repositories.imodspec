@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb.Repositories</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Repository pattern for MongoDB provider.</summary>
   <description>Repository pattern for MongoDB provider.</description>
@@ -23,7 +23,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Repository.Implementation.PagedList</role>
+      <role>Repository.Implementation.MongoDb</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.MongoDb.Repositories.Repository" externalReference="6e39f618-35c1-42e0-b3db-191b71f8c50c">
@@ -47,7 +47,7 @@
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.1" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
-    <dependency id="Intent.MongoDb" version="1.0.0-pre.0" />
+    <dependency id="Intent.MongoDb" version="1.0.0-pre.8" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>

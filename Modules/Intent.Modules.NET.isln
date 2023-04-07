@@ -98,6 +98,8 @@
     <application id="03e0114e-4f03-474f-a16e-57fa1d247007" name="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.application.config" />
     <application id="78c253bf-6722-4fe4-bdbf-4c5b1621e503" name="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.application.config" />
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
+    <application id="a1f8e42e-7c08-47c7-be64-6bcf3bd0bc85" name="Intent.Modules.MongoDb.DomainEvents" relativePath="intent/Intent.Modules.MongoDb.DomainEvents/Intent.Modules.MongoDb.DomainEvents.application.config" />
+    <application id="4f29486d-476e-44ea-ae9c-f8d0fa2cb17e" name="Intent.Modules.MongoDb.Dtos.AutoMapper" relativePath="intent/Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.application.config" />
     <application id="a9b4b39d-2b2e-4212-89c9-e639f7219900" name="Intent.Modules.AzureFunctions.Dispatch.MediatR" relativePath="intent/Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.application.config" />
   </applications>
 </solution>

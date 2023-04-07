@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb</id>
-  <version>1.0.0-pre.7</version>
+  <version>1.0.0-pre.9</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</summary>
   <description>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</description>
@@ -18,14 +18,6 @@
       <role>Infrastructure.Data.DbContext.MongoDb</role>
       <location>Persistence</location>
     </template>
-    <template id="Intent.MongoDb.BsonClassMap" externalReference="588e50b6-f605-4fc3-9942-3c87c7a91169">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.BsonClassMap</role>
-      <location>Persistence/BsonClassMaps</location>
-    </template>
     <template id="Intent.MongoDb.MongoDbUnitOfWorkInterface" externalReference="97a9caeb-8167-47f9-a31d-0e8f8c99d5c8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -38,6 +30,8 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.MongoDb.DependencyInjectionFactoryExtension" externalReference="d9b9b16c-50cd-4c7e-a2e0-a92a3446befc" />
+    <factoryExtension id="Intent.MongoDb.DomainEventsFactoryExtension" externalReference="f269765c-a166-4830-acfb-5fbfc038e4ef" />
+    <factoryExtension id="Intent.MongoDb.DtoAutoMapperFactoryExtension" externalReference="1ff06ef6-6838-40ec-9ffe-8e69965781a2" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
   </factoryExtensions>
   <moduleSettings>
@@ -57,6 +51,13 @@
       </settings>
     </group>
   </moduleSettings>
+  <interoperability>
+    <detect id="Intent.Modelers.Domain.Events">
+      <install>
+        <package id="Intent.MongoDb.DomainEvents" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
@@ -73,5 +74,6 @@
   <metadata>
     <install target="Domain" src="modelers/MongoDb Settings.designer.settings" externalReference="232b1576-74b7-45e1-bc24-2ddc42529d5d" />
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
+    <install target="Domain" src="modelers/MongoDb Key Automation Extensions.designer.settings" externalReference="4652d8dc-eea5-49cb-8c08-93ac1972962c" />
   </metadata>
 </package>

@@ -36,7 +36,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         {
             // Arrange
             var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
-
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));

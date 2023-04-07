@@ -8,20 +8,5 @@
   <parentFolderId>8e2d23dd-fcbd-4ecf-ae5a-90ad089bdd43</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="3d52c067-3835-46ad-9703-4bdeaac2fe8d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.BsonClassMap</name>
-      <display>Intent.MongoDb.BsonClassMap</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7a64131c-ddef-4176-8c17-b0c7bf44ba91</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

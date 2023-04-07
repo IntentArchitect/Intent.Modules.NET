@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -14,18 +13,17 @@ using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
-[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate
     {
-        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Dtos.DtoModel";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
@@ -33,34 +31,71 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "List<{0}>");
             FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
             AddTypeSource(ContractEnumModelTemplate.TemplateId, "List<{0}>");
+
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddClass($"{Model.Name}")
+                .OnBuild((Action<CSharpFile>)(file =>
+                {
+                    file.AddUsing("System");
+                    file.AddUsing("System.Collections.Generic");
+                    var @class = file.Classes.First();
+
+                    ConfigureClass(@class);
+
+                    var enterClass = GetDecorators(d => d.EnterClass());
+                    foreach (var line in enterClass)
+                        @class.AddCodeBlock(line);
+
+                    @class.AddConstructor();
+
+                    if (!Model.IsAbstract)
+                    {
+                        @class.AddMethod(base.GetTypeName(this), "Create", method =>
+                        {
+                            method.Static();
+                            foreach (var field in Model.Fields)
+                            {
+                                method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                            }
+                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}", block => 
+                            {
+                                foreach (var field in Model.Fields)
+                                {
+                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToCamelCase(reservedWordEscape: true));
+                                }
+                                block.WithSemicolon();
+                            });
+                        });
+                    }
+
+                    foreach (var field in Model.Fields)
+                    {
+                        @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
+                        {
+                            property.WithComments(field.GetXmlDocLines());
+                            property.AddMetadata("model", field);
+                            AddPropertyAttributes(property, field);
+                        });
+                    }
+
+                    var exitClass = GetDecorators(d => d.ExitClass());
+                    foreach (var line in exitClass)
+                        @class.AddCodeBlock(line);
+                }));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        private void AddPropertyAttributes(CSharpProperty property, DTOFieldModel field)
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath());
-        }
-
-        public string ClassAttributes()
-        {
-            return GetDecorators().Aggregate(x => x.ClassAttributes(Model));
-        }
-
-        public string PropertyAttributes(DTOFieldModel field)
-        {
-            var list = GetDecorators()
-                .Select(x => x.PropertyAttributes(Model, field))
-                .Select((x, i) => (i == 0 ? "": Environment.NewLine) + x?.Trim())
-                .ToList();
-
-            if (TryGetSerializedName(field, out var serializedName)) 
+            var attributes = GetDecorators(x => x.PropertyAttributes(Model, field));
+            foreach (var attribute in attributes)
+                property.AddAttribute(attribute);
+            if (TryGetSerializedName(field, out var serializedName))
             {
-                list.Add($"[{UseType("System.Text.Json.Serialization.JsonPropertyName")}(\"{serializedName}\")]");
+                property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                {
+                    attribute.AddArgument($"\"{serializedName}\"");
+                });
             }
-            return string.Concat(list);
         }
 
         private bool TryGetSerializedName(DTOFieldModel field, out string serializedName)
@@ -69,8 +104,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             {
                 var serializationSettings = field.GetStereotype("Serialization Settings");
                 var namingConvention = serializationSettings.GetProperty<string>("Naming Convention");
-                serializedName = namingConvention == "Custom" 
-                    ? serializationSettings.GetProperty<string>("Custom Name") 
+                serializedName = namingConvention == "Custom"
+                    ? serializationSettings.GetProperty<string>("Custom Name")
                     : ApplyConvention(field.Name, namingConvention);
                 return true;
             }
@@ -98,58 +133,61 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             };
         }
 
-        public string EnterClass()
+        private void ConfigureClass(CSharpClass @class)
         {
-            return GetDecorators().Aggregate(x => x.EnterClass());
-        }
-
-        public string ExitClass()
-        {
-            return GetDecorators().Aggregate(x => x.ExitClass());
-        }
-
-        public string GetBaseTypes()
-        {
-            var baseTypes = new List<string>();
-
+            @class.AddMetadata("model", Model);
+            if (Model.IsAbstract)
+            {
+                @class.Abstract();
+            }
+            if (Model.GenericTypes.Any())
+            {
+                foreach (var genericType in Model.GenericTypes)
+                {
+                    @class.AddGenericParameter(genericType);
+                }
+            }
             if (Model.ParentDtoTypeReference != null)
             {
-                baseTypes.Add(GetTypeName(Model.ParentDtoTypeReference));
+                @class.WithBaseType(GetTypeName(Model.ParentDtoTypeReference));
             }
             else if (GetDecorators().Any(x => !string.IsNullOrWhiteSpace(x.BaseClass())))
             {
-                baseTypes.Add(GetDecorators().FirstOrDefault(x => !string.IsNullOrWhiteSpace(x.BaseClass()))?.BaseClass());
+                @class.WithBaseType(GetDecorators().FirstOrDefault(x => !string.IsNullOrWhiteSpace(x.BaseClass()))?.BaseClass());
             }
-            baseTypes.AddRange(GetDecorators().SelectMany(x => x.BaseInterfaces()));
-            return baseTypes.Any() ? $" : {string.Join(", ", baseTypes)}" : "";
-        }
 
-        public string ConstructorParameters()
-        {
-            var parameters = new List<string>();
-            //if (Model.HasMapFromDomainMapping())
-            //{
-            //    if (GetTemplate<ITemplate>("Domain.Entity", Model.Mapping.ElementId).GetMetadata().CustomMetadata
-            //        .TryGetValue("Surrogate Key Type", out var entitySurrogateKeyType))
-            //    {
-            //        parameters.Add($"{UseType(entitySurrogateKeyType)} id");
-            //    }
-            //}
-            foreach (var field in Model.Fields)
+            @class.ImplementsInterfaces(GetDecorators().SelectMany(x => x.BaseInterfaces()));
+
+            @class.XmlComments.AddStatements(Model.GetXmlDocLines());
+
+            var attributes = GetDecorators(x => x.ClassAttributes(Model));
+            foreach (var attr in attributes)
             {
-                parameters.Add($"{GetTypeName(field.TypeReference)} {field.Name.ToParameterName()}");
+                @class.AddAttribute(attr);
             }
-            return $@"
-            {string.Join(@",
-            ", parameters)}";
         }
 
-        public string GenericTypes => Model.GenericTypes.Any()
-            ? $"<{string.Join(", ", Model.GenericTypes)}>"
-            : string.Empty;
+        private List<string> GetDecorators( Func<DtoModelDecorator, string> decoratorAction)
+        {
+            return GetDecorators()
+                    .Select(x => decoratorAction(x))
+                    .Where(x => x != null && x.Trim() != string.Empty)
+                    .ToList();
+        }
 
-        private string AbstractDefinition => Model.IsAbstract
-            ? " abstract"
-            : string.Empty;
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
     }
 }

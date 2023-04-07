@@ -74,14 +74,6 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
 
                                     method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
                                 });
-
-                                @class.AddMethod("void", "Remove", method =>
-                                {
-                                    var pk = rootEntity.GetPropertyWithPrimaryKey();
-                                    method.Override();
-                                    method.AddParameter(EntityInterfaceName, "entity");
-                                    method.AddStatement($"base.DeleteOne(p => p.{pk.Name} == entity.{pk.Name});");
-                                });
                             }
                         });
                     }

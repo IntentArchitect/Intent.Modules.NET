@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3bef0d53-46a0-4c71-8aa6-ade3ad275b95" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateTestNoIdReturnsQuery</name>
+  <display>GetAggregateTestNoIdReturnsQuery: AggregateTestNoIdReturnDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="42dda712-af7c-4f39-b345-0dc181411aa1">
+    <typeId>34c0dd57-94b2-4a81-a9d0-7130c22da98d</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>6b8c7449-175b-40f9-82aa-1f9ac5b2f2c4</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="AggregateTestNoIdReturns" />
+  </metadata>
+  <childElements />
+</class>

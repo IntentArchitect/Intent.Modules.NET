@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
 
                         method.Statements.Last()
                             .InsertAbove(
-                                $"{(domainModel.Name.ToCamelCase() + "Repository").ToPrivateMemberName()}.Update(p => p.{domainModel.GetEntityIdAttribute().IdName} == {method.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase)).Name.ToCamelCase()}, existing{domainModel.Name.ToPascalCase()});");
+                                $"{(domainModel.Name.ToCamelCase() + "Repository").ToPrivateMemberName()}.Update(existing{domainModel.Name.ToPascalCase()});");
                     }
                 }, 100);
             }

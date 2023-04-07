@@ -28,7 +28,9 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddClass($"PagedList")
+                .AddUsing("MongoFramework")
+                .AddUsing("MongoFramework.Linq")
+                .AddClass($"MongoPagedList")
                 .OnBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -87,6 +89,24 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                             var remainder = totalCount % pageSize;
                             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
                     });
+
+                    @class.AddMethod($"Task<{PagedResultInterfaceName}<{T}>>", "CreateAsync", method =>
+                    {
+                        method.Static();
+                        method.Async();
+                        method.AddParameter($"IQueryable<{T}>", "source")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
+                        method.AddStatement("var count = await source.CountAsync(cancellationToken);");
+                        method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+                        method.AddStatement(new CSharpMethodChainStatement("var results = await source")
+                            .AddChainStatement("Skip(skip)")
+                            .AddChainStatement("Take(pageSize)")
+                            .AddChainStatement("ToListAsync(cancellationToken)"));
+                        method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
+                    });
+
                 });
         }
 

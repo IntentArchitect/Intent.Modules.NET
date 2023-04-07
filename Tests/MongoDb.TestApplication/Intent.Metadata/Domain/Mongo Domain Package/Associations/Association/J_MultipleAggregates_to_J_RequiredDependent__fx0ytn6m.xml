@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a0a92ec9-b124-4ef5-bba9-c9a6d9072425">
+  <sourceEnd id="12a7d947-200c-46b4-8868-86b0c9c08c3c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>J_MultipleAggregates</name>
+    <display>J_MultipleAggregates: I_MultipleAggregate[*]</display>
+    <order>0</order>
+    <typeReference id="a11a5f2f-6a55-4ffa-8bdd-faf3f795193b">
+      <typeId>3db6744f-16bf-4335-b5a2-600e25063d0a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a0a92ec9-b124-4ef5-bba9-c9a6d9072425" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>J_RequiredDependent</name>
+    <display>J_RequiredDependent: I_RequiredDependent</display>
+    <order>3</order>
+    <typeReference id="e13dda6b-94bd-49a9-92cd-81f3a5abda5c">
+      <typeId>b3545156-21c6-4459-aeb5-21d6c1761bc6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
