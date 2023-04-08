@@ -1,6 +1,7 @@
 ### Version 5.0.0
 
 - Switched to abstract model type IControllerModel for ControllerTemplate, allowing support for Controllers being created from different sources.
+- Fixed: Operations which returned nullable DTOs would generate uncompilable `typeof(SomeDto?)` for controller operation attributes.
 
 ### Version 4.0.2
 

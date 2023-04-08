@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,7 +11,6 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
-using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -189,7 +187,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 }
             }
 
-            var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
+            var apiResponse = operation.ReturnType != null ? $"typeof({UseType(GetTypeInfo(operation).WithIsNullable(false))}), " : string.Empty;
             if (operation.MediaType == MediaTypeOptions.ApplicationJson && operation.ReturnType != null)
             {
                 // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
