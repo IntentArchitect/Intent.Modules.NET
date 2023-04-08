@@ -181,8 +181,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.29" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="4.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -190,7 +190,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>
