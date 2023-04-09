@@ -44,23 +44,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="d8d9d738-4366-405b-816b-6c36f3484ac7" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Startup</name>
-      <display>Startup</display>
-      <externalReference>a1ebfadf-c1bc-4b37-8156-5cab47fd1e0a</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9c5d2ff0-301b-4722-9cce-08c76532eb66</parentFolderId>
-      <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${application.name}</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="f46221bc-62b1-4490-9116-5b3d9c0a4f72" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Distribution</name>
-      <display>Distribution</display>
+      <name>Azure</name>
+      <display>Azure</display>
       <externalReference>a0d2c141-8412-46c1-8aa9-851f0c644d0f</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

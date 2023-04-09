@@ -18,7 +18,7 @@
     }
 
     let verb = funcSettings.getProperty("Method").getValue()?.toString()
-    let route = funcSettings.getProperty("Route").getValue()?.toString();
+    let route = funcSettings.getProperty("Route").getValue()?.toString() ?? "";
     if (route.indexOf(`{${element.getName()}}`) !== -1) {
         return "[From Route]";
     }
