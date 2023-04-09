@@ -101,5 +101,6 @@
     <application id="a1f8e42e-7c08-47c7-be64-6bcf3bd0bc85" name="Intent.Modules.MongoDb.DomainEvents" relativePath="intent/Intent.Modules.MongoDb.DomainEvents/Intent.Modules.MongoDb.DomainEvents.application.config" />
     <application id="4f29486d-476e-44ea-ae9c-f8d0fa2cb17e" name="Intent.Modules.MongoDb.Dtos.AutoMapper" relativePath="intent/Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.application.config" />
     <application id="a9b4b39d-2b2e-4212-89c9-e639f7219900" name="Intent.Modules.AzureFunctions.Dispatch.MediatR" relativePath="intent/Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.application.config" />
+    <application id="dba57f83-0e39-4484-bf7a-b65de87e557f" name="Intent.Modules.DomainServices" relativePath="Intent.Modules.DomainServices/Intent.Modules.DomainServices.application.config" />
   </applications>
 </solution>
