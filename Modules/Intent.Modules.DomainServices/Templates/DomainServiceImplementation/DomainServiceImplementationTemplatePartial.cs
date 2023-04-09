@@ -3,8 +3,10 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.DomainServices.Templates.DomainServiceInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -53,6 +55,15 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         protected override CSharpFileConfig DefineFileConfig()
         {
             return CSharpFile.GetConfig();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Application")
+                .ForInterface(GetTemplate<IClassProvider>(DomainServiceInterfaceTemplate.TemplateId, Model))
+                .WithPriority(99));
         }
 
         [IntentManaged(Mode.Fully)]

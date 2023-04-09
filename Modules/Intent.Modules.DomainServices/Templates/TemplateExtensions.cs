@@ -12,22 +12,22 @@ namespace Intent.Modules.DomainServices.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDomainServiceImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Services.Api.DomainServiceModel
+        public static string GetDomainServiceImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Services.Api.DomainServiceModel
         {
             return template.GetTypeName(DomainServiceImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainServiceImplementationName(this IntentTemplateBase template, Intent.Modelers.Domain.Services.Api.DomainServiceModel model)
+        public static string GetDomainServiceImplementationName(this IIntentTemplate template, Intent.Modelers.Domain.Services.Api.DomainServiceModel model)
         {
             return template.GetTypeName(DomainServiceImplementationTemplate.TemplateId, model);
         }
 
-        public static string GetDomainServiceInterfaceName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Services.Api.DomainServiceModel
+        public static string GetDomainServiceInterfaceName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Services.Api.DomainServiceModel
         {
             return template.GetTypeName(DomainServiceInterfaceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainServiceInterfaceName(this IntentTemplateBase template, Intent.Modelers.Domain.Services.Api.DomainServiceModel model)
+        public static string GetDomainServiceInterfaceName(this IIntentTemplate template, Intent.Modelers.Domain.Services.Api.DomainServiceModel model)
         {
             return template.GetTypeName(DomainServiceInterfaceTemplate.TemplateId, model);
         }
