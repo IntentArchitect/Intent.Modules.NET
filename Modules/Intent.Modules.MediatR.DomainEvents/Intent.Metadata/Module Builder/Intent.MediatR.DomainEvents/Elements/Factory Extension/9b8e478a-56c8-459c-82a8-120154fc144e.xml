@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9b8e478a-56c8-459c-82a8-120154fc144e" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainServiceEventHandlerExtension</name>
+  <display>DomainServiceEventHandlerExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d2145ffc-e9ed-4058-994a-8cd923d16a77</parentFolderId>
+  <packageId>d2145ffc-e9ed-4058-994a-8cd923d16a77</packageId>
+  <packageName>Intent.MediatR.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

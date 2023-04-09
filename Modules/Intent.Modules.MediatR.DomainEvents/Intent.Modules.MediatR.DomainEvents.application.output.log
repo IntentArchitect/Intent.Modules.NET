@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8f6b1ef7-63f0-4216-8fa1-ee4027979978</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9b8e478a-56c8-459c-82a8-120154fc144e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DomainServiceEventHandlerExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceEventHandlerExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
