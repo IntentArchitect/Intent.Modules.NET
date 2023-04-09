@@ -1,4 +1,8 @@
-﻿### Version 4.0.4
+﻿### Version 4.0.5
+
+- Enums will now generate comments captured in designers.
+
+### Version 4.0.4
 
 - Fixed: `UpdateHelper` would not correctly handle sources with null values.
 - Fixed: Domain Entity collection property initializers would not have generic type arguments included.

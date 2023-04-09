@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
@@ -24,7 +26,7 @@ public class EnumGenerator
 
 namespace {_template.Namespace}
 {{
-    {GetEnumAttributes()}public enum {_template.ClassName}
+    {GetComments(_template.Model.InternalElement, "    ")}{GetEnumAttributes()}public enum {_template.ClassName}
     {{
         {GetEnumLiterals(_template.Model.Literals)}
     }}
@@ -45,6 +47,23 @@ namespace {_template.Namespace}
 
     private static string GetEnumLiteral(EnumLiteralModel literal)
     {
-        return $"{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
+        return $"{GetComments(literal.InternalElement, "        ")}{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
+    }
+
+    private static string GetComments(IElement element, string indentation)
+    {
+        var comment = element?.Comment?.Trim();
+
+        if (string.IsNullOrWhiteSpace(comment))
+        {
+            return string.Empty;
+        }
+
+        return string.Concat(Enumerable.Empty<string>()
+            .Append("<summary>")
+            .Concat(comment.Replace("\r\n", "\n").Split('\n'))
+            .Append("</summary>")
+            .Select(line => $"/// {line}{Environment.NewLine}{indentation}")
+        );
     }
 }
