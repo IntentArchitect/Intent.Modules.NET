@@ -95,11 +95,21 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
                         {
+                            var hasImplementation = false;
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
+                                if (parameter.InternalElement.IsMapped)
+                                {
+                                    method.AddStatement($"{parameter.InternalElement.MappedElement.Element.Name} = {parameter.Name.ToCamelCase()};");
+                                    hasImplementation = true;
+                                }
                             }
-                            method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
+
+                            if (!hasImplementation)
+                            {
+                                method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
+                            }
                         });
 
                         if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&

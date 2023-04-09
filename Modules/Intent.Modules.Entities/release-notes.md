@@ -1,4 +1,8 @@
-﻿### Version 4.0.5
+﻿### Version 4.1.0
+
+- Auto-implements operations that are mapped (supported in Intent.Modelers.Domain <= 3.4.0). 
+
+### Version 4.0.5
 
 - Enums will now generate comments captured in designers.
 
