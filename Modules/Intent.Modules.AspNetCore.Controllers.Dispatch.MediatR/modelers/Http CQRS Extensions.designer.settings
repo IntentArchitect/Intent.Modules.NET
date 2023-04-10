@@ -13,7 +13,9 @@
       <macros>
         <macro trigger="on-loaded">
           <script>let services = lookupTypesOf("Service").filter(x =&gt; x.hasStereotype("Http Service Settings"));
-if (services.length == 0 || services.some(x =&gt; x.getChildren().some(x =&gt; x.isMapped &amp;&amp; (x.getMapping().getElement().specialization == "Command" || x.getMapping().getElement().specialization == "Query")))) {
+if (services.length == 0 || services.filter(x =&gt; x.getChildren("Operation")
+    .some(x =&gt; x.isMapped &amp;&amp; (x.getMapping()?.getElement()?.specialization == "Command" || x.getMapping()?.getElement()?.specialization == "Query")))
+    .length == 0) {
     return;
 }
 
