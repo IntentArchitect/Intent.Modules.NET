@@ -159,6 +159,8 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                 return entityTemplate;
             if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.ValueObject, templateModel.Mapping.ElementId, out entityTemplate))
                 return entityTemplate;
+            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.DataContract, templateModel.Mapping.ElementId, out entityTemplate))
+                return entityTemplate;
             return entityTemplate;
         }
     }

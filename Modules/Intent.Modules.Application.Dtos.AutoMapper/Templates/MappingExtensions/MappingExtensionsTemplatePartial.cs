@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -45,7 +46,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         {
             return TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model.Mapping.ElementId, out var name)
                    ? name
-                   : GetTypeName(TemplateFulfillingRoles.Domain.ValueObject, Model.Mapping.ElementId);
+                   : TryGetTypeName(TemplateFulfillingRoles.Domain.ValueObject, Model.Mapping.ElementId, out name) 
+                       ? name 
+                       : TryGetTypeName(TemplateFulfillingRoles.Domain.DataContract, Model.Mapping.ElementId, out name) 
+                           ? name
+                           : throw new Exception($"Could not resolve mapped type '{Model.Mapping.Element.Name}'");
         }
     }
 }
