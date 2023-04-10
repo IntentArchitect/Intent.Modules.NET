@@ -1,13 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -16,7 +12,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
-using JetBrains.Annotations;
+using Intent.Modules.Entities.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
@@ -83,7 +80,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
+                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 codeLines.Add("return Unit.Value;");
 
@@ -91,25 +88,25 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
-            codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
+            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
 
             GenerateOperationInvocationCode("request", $"existing{foundEntity.Name}");
-            
+
             codeLines.Add($"return Unit.Value;");
 
             return codeLines;
-            
+
             bool FilterForAnaemicMapping(DTOFieldModel field)
             {
                 return field.Mapping?.Element == null ||
                        field.Mapping.Element.IsAttributeModel() ||
                        field.Mapping.Element.IsAssociationEndModel();
             }
-            
+
             void GenerateOperationInvocationCode(string dtoVarName, string entityVarName)
             {
                 var operationParamLookup = _template.Model.Properties
-                    .Where(p => OperationModelExtensions.IsOperationModel(p.Mapping?.Path[0].Element) && 
+                    .Where(p => OperationModelExtensions.IsOperationModel(p.Mapping?.Path[0].Element) &&
                                 ParameterModelExtensions.IsParameterModel(p.Mapping?.Element))
                     .ToLookup(field => OperationModelExtensions.AsOperationModel(field.Mapping.Path[0].Element));
 
@@ -130,36 +127,42 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
-            var commandNameLowercase = _template.Model.Name.ToLower();
-            if ((commandNameLowercase.StartsWith("update") ||
-                 commandNameLowercase.StartsWith("edit"))
-                && _template.Model.Mapping?.Element.IsClassModel() == true)
+            if (_template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
             {
-                var foundEntity = _template.Model.Mapping.Element.AsClassModel();
-
-                var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
-                if (idField == null)
-                {
-                    return NoMatch;
-                }
-
-                var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
-                if (repositoryInterface == null)
-                {
-                    return NoMatch;
-                }
-
-                var repository = new RequiredService(type: repositoryInterface,
-                    name: repositoryInterface.Substring(1).ToCamelCase());
-
-                return new StrategyData(true, foundEntity, idField, repository);
+                return NoMatch;
             }
 
-            return NoMatch;
+            var commandNameLowercase = _template.Model.Name.ToLower();
+            if ((!commandNameLowercase.StartsWith("update") &&
+                 !commandNameLowercase.StartsWith("edit"))
+                || _template.Model.Mapping?.Element.IsClassModel() != true)
+            {
+                return NoMatch;
+            }
+
+            var foundEntity = _template.Model.Mapping.Element.AsClassModel();
+
+            var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
+            if (idField == null)
+            {
+                return NoMatch;
+            }
+
+            var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
+            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
+            if (repositoryInterface == null)
+            {
+                return NoMatch;
+            }
+
+            var repository = new RequiredService(type: repositoryInterface,
+                name: repositoryInterface.Substring(1).ToCamelCase());
+
+            return new StrategyData(true, foundEntity, idField, repository);
+
         }
 
-        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
+        private IList<CSharpStatement> GetDtoPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {
             var codeLines = new CSharpStatementAggregator();
             foreach (var field in dtoFields)
@@ -233,7 +236,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                             .AddStatement("return null;")
                                         )
                                         .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
-                                        .AddStatements(GetDTOPropertyAssignments(
+                                        .AddStatements(GetDtoPropertyAssignments(
                                             entityVarName: "entity",
                                             dtoVarName: "dto",
                                             domainModel: targetEntity,

@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Fixed: Would try to use domain entity setters event when `Ensure Private Setters` setting was enabled.
+
 ### Version 4.1.3
 
 - Fixed: `Create CRUD Service` no longer adds the DeleteCommand as part of operation signature.

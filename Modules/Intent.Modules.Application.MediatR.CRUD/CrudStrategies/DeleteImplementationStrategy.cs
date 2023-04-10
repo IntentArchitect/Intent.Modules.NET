@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
@@ -12,6 +11,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Entities.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -32,7 +33,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             return _matchingElementDetails.Value.IsMatch;
         }
-        
+
         internal StrategyData GetStrategyData() => _matchingElementDetails.Value;
 
         public void ApplyStrategy()
@@ -65,7 +66,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
-                
+
                 _template.AddUsing("System.Linq");
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
@@ -74,16 +75,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
-                
+
                 codeLines.Add("");
                 codeLines.Add($"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
                 codeLines.Add($@"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                
+
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
                 codeLines.Add("return Unit.Value;");
-                
+
                 return codeLines.ToList();
             }
 
@@ -104,8 +105,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 return NoMatch;
             }
-            
+
             var foundEntity = _template.Model.Mapping.Element.AsClassModel();
+
+            if (!foundEntity.IsAggregateRoot() &&
+                _template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                return NoMatch;
+            }
 
             var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
             if (idField == null)
