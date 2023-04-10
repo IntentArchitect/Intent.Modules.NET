@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.CollectionExtensions;
 using Intent.Modules.Entities.Templates.CollectionWrapper;
+using Intent.Modules.Entities.Templates.DataContract;
 using Intent.Modules.Entities.Templates.DomainEntity;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
@@ -16,55 +17,66 @@ namespace Intent.Modules.Entities.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCollectionExtensionsName<T>(this IntentTemplateBase<T> template)
+        public static string GetCollectionExtensionsName(this IIntentTemplate template)
         {
             return template.GetTypeName(CollectionExtensionsTemplate.TemplateId);
         }
-        public static string GetCollectionWrapperName<T>(this IntentTemplateBase<T> template)
+        public static string GetCollectionWrapperName(this IIntentTemplate template)
         {
             return template.GetTypeName(CollectionWrapperTemplate.TemplateId);
         }
-        public static string GetDomainEntityName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+
+        public static string GetDataContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.DataContractModel
+        {
+            return template.GetTypeName(DataContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDataContractName(this IIntentTemplate template, Intent.Modelers.Domain.Api.DataContractModel model)
+        {
+            return template.GetTypeName(DataContractTemplate.TemplateId, model);
+        }
+
+        public static string GetDomainEntityName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(DomainEntityTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEntityName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetDomainEntityName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(DomainEntityTemplate.TemplateId, model);
         }
 
-        public static string GetDomainEntityInterfaceName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetDomainEntityInterfaceName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(DomainEntityInterfaceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEntityInterfaceName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetDomainEntityInterfaceName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(DomainEntityInterfaceTemplate.TemplateId, model);
         }
 
-        public static string GetDomainEntityStateName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetDomainEntityStateName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(DomainEntityStateTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEntityStateName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetDomainEntityStateName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(DomainEntityStateTemplate.TemplateId, model);
         }
 
-        public static string GetDomainEnumName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        public static string GetDomainEnumName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
         {
             return template.GetTypeName(DomainEnumTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEnumName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        public static string GetDomainEnumName(this IIntentTemplate template, Intent.Modules.Common.Types.Api.EnumModel model)
         {
             return template.GetTypeName(DomainEnumTemplate.TemplateId, model);
         }
 
-        public static string GetUpdateHelperName<T>(this IntentTemplateBase<T> template)
+        public static string GetUpdateHelperName(this IIntentTemplate template)
         {
             return template.GetTypeName(UpdateHelperTemplate.TemplateId);
         }

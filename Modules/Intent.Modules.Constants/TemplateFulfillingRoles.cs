@@ -8,6 +8,7 @@
             public const string UnitOfWork = "Domain.UnitOfWork";
             public const string MongoDbUnitOfWork = "Domain.UnitOfWork.MongoDb";
             public const string ValueObject = "Domain.ValueObject";
+            public const string DataContract = "Domain.DataContract";
             public static class Entity
             {
                 public const string Primary = "Domain.Entity";

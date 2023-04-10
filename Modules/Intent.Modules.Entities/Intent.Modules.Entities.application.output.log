@@ -122,6 +122,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#64d440cd-c1ed-44b4-b4ab-c53d50bf46e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DataContract/DataContractTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContract/DataContractTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#64d440cd-c1ed-44b4-b4ab-c53d50bf46e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DataContract/DataContractTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContract/DataContractTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplatePartial.cs</ApplicationRelativeFilePath>
