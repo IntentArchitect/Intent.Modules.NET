@@ -42,6 +42,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 }
             }
 
+            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
+            AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
