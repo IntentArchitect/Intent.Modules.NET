@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.DomainServices.Templates.DomainServiceInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,6 +24,12 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainServiceImplementationTemplate(IOutputTarget outputTarget, DomainServiceModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
+            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddClass($"{Model.Name}", @class =>
