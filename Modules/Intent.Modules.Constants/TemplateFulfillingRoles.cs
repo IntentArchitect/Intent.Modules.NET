@@ -14,6 +14,12 @@
                 public const string Interface = "Domain.Entity.Interface";
                 public const string State = "Domain.Entity.State";
             }
+
+            public static class DomainServices
+            {
+                public const string Interface = "Domain.DomainServices.Interface";
+                public const string Implementation = "Domain.DomainServices.Implementation";
+            }
         }
 
         public static class Repository

@@ -82,6 +82,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
   </ItemGroup>
 

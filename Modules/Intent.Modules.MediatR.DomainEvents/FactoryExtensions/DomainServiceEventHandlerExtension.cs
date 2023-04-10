@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
@@ -35,7 +36,7 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
             {
                 foreach (var targetHandler in domainEvent.AssociatedClasses().Select(x => x.Element).Distinct().ToList())
                 {
-                    var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel("Domain.DomainServices.Implementation", targetHandler));
+                    var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel(TemplateFulfillingRoles.Domain.DomainServices.Implementation, targetHandler));
                     template?.CSharpFile.OnBuild(file =>
                     {
                         file.AddUsing("System");
