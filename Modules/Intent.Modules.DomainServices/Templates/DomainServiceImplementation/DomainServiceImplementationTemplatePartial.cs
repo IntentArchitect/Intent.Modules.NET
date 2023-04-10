@@ -24,10 +24,12 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         public DomainServiceImplementationTemplate(IOutputTarget outputTarget, DomainServiceModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.AddMetadata("model", model.InternalElement);
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
+                    @class.ImplementsInterface(this.GetDomainServiceInterfaceName());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge().WithBodyIgnored());
