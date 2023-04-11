@@ -119,7 +119,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.MediatR.CRUD" version="4.1.4-pre.1" />
+    <dependency id="Intent.Application.MediatR.CRUD" version="5.0.0-pre.1" />
     <dependency id="Intent.Application.MediatR.FluentValidation" version="4.0.3-pre.0" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.29" />
