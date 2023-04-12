@@ -30,8 +30,8 @@
       <ProjectId>2e5d8763-8039-4969-99f5-224d6a01e9ae</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/Controller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Controller.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/DefaultController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -8,19 +8,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.TestPublish;
+using Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
-namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controllers
+namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Controllers
 {
     [ApiController]
-    public class Controller : ControllerBase
+    public class DefaultController : ControllerBase
     {
         private readonly ISender _mediator;
 
-        public Controller(ISender mediator)
+        public DefaultController(ISender mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
@@ -33,9 +33,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> TestPublish(
-            [FromBody] TestPublishCommand command,
-            CancellationToken cancellationToken)
+        public async Task<ActionResult> TestPublish([FromBody] TestPublish command, CancellationToken cancellationToken)
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);
