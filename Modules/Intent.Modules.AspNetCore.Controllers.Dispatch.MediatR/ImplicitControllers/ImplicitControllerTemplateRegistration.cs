@@ -43,14 +43,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
         {
             var commands = _metadataManager.Services(application).GetCommandModels()
                 .Where(x => x.HasHttpSettings())
-                .GroupBy(x => (x.Folder.Id, x.Folder.Name), x => x)
+                .GroupBy(x => (Id: x.Folder?.Id ?? Guid.Empty.ToString(), Name: x.Folder?.Name ?? ""), x => x)
                 .ToDictionary(x => x.Key, x => x.ToList());
             var queries = _metadataManager.Services(application).GetQueryModels()
                 .Where(x => x.HasHttpSettings())
-                .GroupBy(x => (x.Folder.Id, x.Folder.Name), x => x)
+                .GroupBy(x => (Id: x.Folder?.Id ?? Guid.Empty.ToString(), Name: x.Folder?.Name ?? ""), x => x)
                 .ToDictionary(x => x.Key, x => x.ToList());
 
-            var results = commands.Keys.Concat(queries.Keys).Distinct()
+            var results = commands.Keys.Union(queries.Keys)
                 .Select(x => new MediatRControllerModel(
                     id: x.Id,
                     name: x.Name,

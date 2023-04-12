@@ -8,7 +8,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MongoDb.TestApplication.Api.Controllers.ResponseTypes;
 using MongoDb.TestApplication.Application.Common.Validation;
 using MongoDb.TestApplication.Application.IdTypeGuids;
 using MongoDb.TestApplication.Application.Interfaces;

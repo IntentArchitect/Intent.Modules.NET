@@ -28,10 +28,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac8bdcaf-d066-493b-8df1-b9fd537ebd23</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#cb4c3359-d57c-47f5-8a79-1ab20ccf0cbd</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Controllers/PublishController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Controllers/Controller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Controller.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -8,27 +8,28 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.TestPublish;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.TestPublish;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
-namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controllers
+namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class PublishController : ControllerBase
+    public class Controller : ControllerBase
     {
+        private readonly ISender _mediator;
 
-        public PublishController()
+        public Controller(ISender mediator)
         {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("[action]")]
+        [HttpPost("api/publish/[action]")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +37,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             [FromBody] TestPublishCommand command,
             CancellationToken cancellationToken)
         {
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
     }
 }

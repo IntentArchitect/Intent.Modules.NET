@@ -16,24 +16,27 @@ using Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish;
 namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class PublishController : ControllerBase
+    public class Controller : ControllerBase
     {
+        private readonly ISender _mediator;
 
-        public PublishController()
+        public Controller(ISender mediator)
         {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("[action]")]
+        [HttpPost("api/publish/[action]")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> TestPublish(string message, CancellationToken cancellationToken)
+        public async Task<ActionResult> TestPublish([FromBody] TestPublish command, CancellationToken cancellationToken)
         {
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
     }
 }
