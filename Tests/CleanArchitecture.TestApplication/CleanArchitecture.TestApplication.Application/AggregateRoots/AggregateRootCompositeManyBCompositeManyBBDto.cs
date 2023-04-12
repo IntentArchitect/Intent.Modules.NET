@@ -17,7 +17,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
         }
 
-        public static AggregateRootCompositeManyBCompositeManyBBDto Create(string compositeAttr, Guid compositeManyBId, Guid id)
+        public static AggregateRootCompositeManyBCompositeManyBBDto Create(
+            string compositeAttr,
+            Guid compositeManyBId,
+            Guid id)
         {
             return new AggregateRootCompositeManyBCompositeManyBBDto
             {

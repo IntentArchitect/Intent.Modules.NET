@@ -50,7 +50,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         [Theory]
         [MemberData(nameof(GetFailedResultTestData))]
-        public async Task Validate_WithInvalidCommand_FailsValidation(UpdateAggregateRootLongCommand testCommand, string expectedPropertyName, string expectedPhrase)
+        public async Task Validate_WithInvalidCommand_FailsValidation(
+            UpdateAggregateRootLongCommand testCommand,
+            string expectedPropertyName,
+            string expectedPhrase)
         {
             // Arrange
             var validator = GetValidationBehaviour();

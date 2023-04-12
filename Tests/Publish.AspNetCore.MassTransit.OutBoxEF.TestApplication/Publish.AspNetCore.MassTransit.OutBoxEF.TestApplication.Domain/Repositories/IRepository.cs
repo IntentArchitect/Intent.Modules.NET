@@ -15,7 +15,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Reposit
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
     public interface IRepository<TDomain, TPersistence>
     {
-
         IUnitOfWork UnitOfWork { get; }
         void Add(TDomain entity);
         void Remove(TDomain entity);

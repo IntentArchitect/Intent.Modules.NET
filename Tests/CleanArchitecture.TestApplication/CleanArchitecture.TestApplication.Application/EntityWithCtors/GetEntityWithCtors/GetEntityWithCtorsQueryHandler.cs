@@ -26,7 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithCtors.GetEntit
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<EntityWithCtorDto>> Handle(GetEntityWithCtorsQuery request, CancellationToken cancellationToken)
+        public async Task<List<EntityWithCtorDto>> Handle(
+            GetEntityWithCtorsQuery request,
+            CancellationToken cancellationToken)
         {
             var entityWithCtors = await _entityWithCtorRepository.FindAllAsync(cancellationToken);
             return entityWithCtors.MapToEntityWithCtorDtoList(_mapper);

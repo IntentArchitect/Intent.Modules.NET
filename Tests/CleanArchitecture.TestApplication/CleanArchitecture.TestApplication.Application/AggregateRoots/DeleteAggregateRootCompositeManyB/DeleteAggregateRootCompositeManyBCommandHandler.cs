@@ -24,7 +24,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(
+            DeleteAggregateRootCompositeManyBCommand request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot == null)

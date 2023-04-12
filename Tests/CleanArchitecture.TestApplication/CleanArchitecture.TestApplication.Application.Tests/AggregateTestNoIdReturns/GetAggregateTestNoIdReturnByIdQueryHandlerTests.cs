@@ -46,7 +46,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateTestNoIdReturn(GetAggregateTestNoIdReturnByIdQuery testQuery, AggregateTestNoIdReturn existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesAggregateTestNoIdReturn(
+            GetAggregateTestNoIdReturnByIdQuery testQuery,
+            AggregateTestNoIdReturn existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();

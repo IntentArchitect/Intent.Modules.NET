@@ -42,7 +42,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_AddsCompositeManyBToRepository(CreateAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity)
+        public async Task Handle_WithValidCommand_AddsCompositeManyBToRepository(
+            CreateAggregateRootCompositeManyBCommand testCommand,
+            AggregateRoot existingOwnerEntity)
         {
             // Arrange
             var expectedAggregateRootId = new Fixture().Create<System.Guid>();

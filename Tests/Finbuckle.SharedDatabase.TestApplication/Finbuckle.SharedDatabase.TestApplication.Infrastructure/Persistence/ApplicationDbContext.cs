@@ -55,7 +55,9 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
-        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(
+            bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = default)
         {
             this.EnforceMultiTenant();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);

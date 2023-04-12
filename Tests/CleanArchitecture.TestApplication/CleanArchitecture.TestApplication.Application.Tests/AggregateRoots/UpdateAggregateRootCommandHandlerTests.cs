@@ -42,7 +42,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCommand testCommand, AggregateRoot existingEntity)
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(
+            UpdateAggregateRootCommand testCommand,
+            AggregateRoot existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();

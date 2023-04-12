@@ -12,7 +12,9 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Configu
 {
     public static class GoogleCloudPubSubConfiguration
     {
-        public static IServiceCollection RegisterGoogleCloudPubSubServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterGoogleCloudPubSubServices(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.Configure<PubSubOptions>(configuration.GetSection("GoogleCloudPubSub"));
             services.AddScoped<GooglePubSubEventBus>();

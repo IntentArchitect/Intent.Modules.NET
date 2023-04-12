@@ -24,7 +24,9 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<D_MultipleDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<D_MultipleDependent>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

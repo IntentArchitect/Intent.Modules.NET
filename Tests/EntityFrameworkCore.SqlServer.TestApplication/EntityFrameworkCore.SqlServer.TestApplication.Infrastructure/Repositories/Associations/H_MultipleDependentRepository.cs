@@ -26,7 +26,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<H_MultipleDependent>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<H_MultipleDependent>> FindByIdsAsync(
+            Guid[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

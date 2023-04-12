@@ -27,7 +27,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AssertEquivalent(expectedDto.CompositeOfAggrLong, actualEntity.CompositeOfAggrLong);
         }
 
-        public static void AssertEquivalent(UpdateAggregateRootLongCompositeOfAggrLongDto expectedDto, CompositeOfAggrLong actualEntity)
+        public static void AssertEquivalent(
+            UpdateAggregateRootLongCompositeOfAggrLongDto expectedDto,
+            CompositeOfAggrLong actualEntity)
         {
             if (expectedDto == null)
             {
@@ -53,7 +55,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AssertEquivalent(actualDto.CompositeOfAggrLong, expectedEntity.CompositeOfAggrLong);
         }
 
-        public static void AssertEquivalent(AggregateRootLongCompositeOfAggrLongDto actualDto, CompositeOfAggrLong expectedEntity)
+        public static void AssertEquivalent(
+            AggregateRootLongCompositeOfAggrLongDto actualDto,
+            CompositeOfAggrLong expectedEntity)
         {
             if (expectedEntity == null)
             {
@@ -66,7 +70,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
-        public static void AssertEquivalent(IEnumerable<AggregateRootLongDto> actualDtos, IEnumerable<AggregateRootLong> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<AggregateRootLongDto> actualDtos,
+            IEnumerable<AggregateRootLong> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -105,7 +111,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AssertEquivalent(expectedDto.CompositeOfAggrLong, actualEntity.CompositeOfAggrLong);
         }
 
-        public static void AssertEquivalent(CreateAggregateRootLongCompositeOfAggrLongDto expectedDto, CompositeOfAggrLong actualEntity)
+        public static void AssertEquivalent(
+            CreateAggregateRootLongCompositeOfAggrLongDto expectedDto,
+            CompositeOfAggrLong actualEntity)
         {
             if (expectedDto == null)
             {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -91,7 +91,7 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -29,7 +29,18 @@
   <parentFolderId>01e2ecf5-ce0a-4df3-acd6-cb5ce203237f</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="389e3ad2-6063-4777-aa47-5ec9421faf3d" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.Controllers.Dispatch.MediatR</definitionPackageName>
+      <definitionPackageId>c150a471-8907-4bc4-8be8-f63c8a782e69</definitionPackageId>
+      <properties>
+        <property name="3c8a760e-8340-4749-adce-98a19d422068" display="Verb" value="GET" isActive="true" />
+        <property name="b8e71dbb-eb96-4e36-94c2-cdf87a546862" display="Route" value="api/implicit-key-aggr-roots/{id}" isActive="true" />
+        <property name="cd4e8d51-d9e4-4f1f-b3e7-6b6a41b6843e" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata>
     <entry key="baseName" value="ImplicitKeyAggrRoot" />
   </metadata>

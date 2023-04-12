@@ -25,7 +25,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(
+            UpdateAggregateRootCompositeManyBCommand request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot == null)
@@ -46,7 +48,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(
+            CompositeSingleBB entity,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             if (dto == null)
             {
@@ -60,7 +64,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyBB CreateOrUpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
+        private static CompositeManyBB CreateOrUpdateCompositeManyBB(
+            CompositeManyBB entity,
+            UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             if (dto == null)
             {

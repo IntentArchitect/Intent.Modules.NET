@@ -24,7 +24,9 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories.IdTypes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<IdTypeOjectIdStr>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<IdTypeOjectIdStr>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

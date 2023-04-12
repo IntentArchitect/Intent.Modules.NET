@@ -44,11 +44,12 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> Create([FromBody] IdTypeOjectIdStrCreateDto dto, CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> Create(
+            [FromBody] IdTypeOjectIdStrCreateDto dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             var result = default(string);
@@ -60,7 +61,7 @@ namespace MongoDb.TestApplication.Api.Controllers
                 transaction.Complete();
             }
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            return Created(string.Empty, new JsonResponse<string>(result));
+            return Created(string.Empty, result);
         }
 
         /// <summary>
@@ -73,7 +74,9 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IdTypeOjectIdStrDto>> FindById([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<ActionResult<IdTypeOjectIdStrDto>> FindById(
+            [FromRoute] string id,
+            CancellationToken cancellationToken)
         {
             var result = default(IdTypeOjectIdStrDto);
             result = await _appService.FindById(id);
@@ -101,7 +104,10 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Put([FromRoute] string id, [FromBody] IdTypeOjectIdStrUpdateDto dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Put(
+            [FromRoute] string id,
+            [FromBody] IdTypeOjectIdStrUpdateDto dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -123,7 +129,9 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(IdTypeOjectIdStrDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IdTypeOjectIdStrDto>> Delete([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<ActionResult<IdTypeOjectIdStrDto>> Delete(
+            [FromRoute] string id,
+            CancellationToken cancellationToken)
         {
             var result = default(IdTypeOjectIdStrDto);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

@@ -49,7 +49,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesCompositeManyB(GetAggregateRootCompositeManyBByIdQuery testQuery, AggregateRoot existingOwnerEntity, CompositeManyB existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesCompositeManyB(
+            GetAggregateRootCompositeManyBByIdQuery testQuery,
+            AggregateRoot existingOwnerEntity,
+            CompositeManyB existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();

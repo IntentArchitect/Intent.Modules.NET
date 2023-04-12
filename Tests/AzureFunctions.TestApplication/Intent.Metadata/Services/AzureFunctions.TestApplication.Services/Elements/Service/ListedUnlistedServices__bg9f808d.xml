@@ -30,22 +30,7 @@
       <parentFolderId>4b2b5e97-94de-4c02-969f-4f2c754315f4</parentFolderId>
       <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
       <packageName>AzureFunctions.TestApplication.Services</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="dc6ee497-a53f-4e6c-bbed-2dbd9951796c" name="Azure Function">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
-          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
-          <properties>
-            <property name="707d002a-e612-4112-bf5a-22bc194e71e2" display="Type" value="Http Trigger" isActive="true" />
-            <property name="a1910492-781d-42ab-bb76-e5db6810240f" display="Authorization Level" value="Function" isActive="true" />
-            <property name="8b1d6b10-b9c9-4562-a8cf-bf3eb9123621" display="Method" value="POST" isActive="true" />
-            <property name="095baa56-16b2-4aaa-91e2-a43c1698b7e0" display="Route" value="listedunlistedservices/{param}" isActive="true" />
-            <property name="43a2e28b-7c0c-4c81-88f4-8404c7ddff02" display="Queue Name" isActive="false" />
-            <property name="b2bfad15-1818-4fa5-86ec-15c34b3bd7ee" display="Connection" isActive="false" />
-            <property name="a6952628-d858-432d-a9fb-3bb08081a37f" display="Return Type Mediatype" value="Default" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata />
       <childElements>
         <childElement id="30e5fbc7-f001-483e-83ed-d551c4c3fd10" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
@@ -68,16 +53,7 @@
           <parentFolderId>4260a48c-f8ed-476b-8909-1937cfff38ef</parentFolderId>
           <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
           <packageName>AzureFunctions.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="9c43b6a8-7d38-4799-b441-399923e5790b" name="Parameter Setting">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
-              <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
-              <properties>
-                <property name="2f757dda-f5c0-4901-b442-fa06ddf9acba" display="Source" value="Default" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
+          <stereotypes />
           <metadata />
           <childElements />
         </childElement>

@@ -18,9 +18,9 @@ namespace AzureFunctions.TestApplication.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();
-            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }

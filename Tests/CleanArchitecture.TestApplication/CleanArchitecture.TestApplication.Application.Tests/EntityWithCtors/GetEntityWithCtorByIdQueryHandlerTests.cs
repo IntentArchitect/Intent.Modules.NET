@@ -46,7 +46,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesEntityWithCtor(GetEntityWithCtorByIdQuery testQuery, EntityWithCtor existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesEntityWithCtor(
+            GetEntityWithCtorByIdQuery testQuery,
+            EntityWithCtor existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IEntityWithCtorRepository>();

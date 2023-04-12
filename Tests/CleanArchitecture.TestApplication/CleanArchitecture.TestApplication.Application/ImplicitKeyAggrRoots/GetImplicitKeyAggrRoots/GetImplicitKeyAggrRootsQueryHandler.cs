@@ -26,7 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ImplicitKeyAggrRootDto>> Handle(GetImplicitKeyAggrRootsQuery request, CancellationToken cancellationToken)
+        public async Task<List<ImplicitKeyAggrRootDto>> Handle(
+            GetImplicitKeyAggrRootsQuery request,
+            CancellationToken cancellationToken)
         {
             var implicitKeyAggrRoots = await _implicitKeyAggrRootRepository.FindAllAsync(cancellationToken);
             return implicitKeyAggrRoots.MapToImplicitKeyAggrRootDtoList(_mapper);

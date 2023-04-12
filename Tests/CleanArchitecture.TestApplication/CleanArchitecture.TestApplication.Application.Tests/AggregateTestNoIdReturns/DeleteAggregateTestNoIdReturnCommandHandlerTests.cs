@@ -33,7 +33,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_DeletesAggregateTestNoIdReturnFromRepository(DeleteAggregateTestNoIdReturnCommand testCommand, AggregateTestNoIdReturn existingEntity)
+        public async Task Handle_WithValidCommand_DeletesAggregateTestNoIdReturnFromRepository(
+            DeleteAggregateTestNoIdReturnCommand testCommand,
+            AggregateTestNoIdReturn existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();

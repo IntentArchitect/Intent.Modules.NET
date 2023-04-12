@@ -44,11 +44,12 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> Create([FromBody] IdTypeGuidCreateDto dto, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> Create(
+            [FromBody] IdTypeGuidCreateDto dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
@@ -60,7 +61,7 @@ namespace MongoDb.TestApplication.Api.Controllers
                 transaction.Complete();
             }
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            return Created(string.Empty, new JsonResponse<Guid>(result));
+            return Created(string.Empty, result);
         }
 
         /// <summary>
@@ -101,7 +102,10 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] IdTypeGuidUpdateDto dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Put(
+            [FromRoute] Guid id,
+            [FromBody] IdTypeGuidUpdateDto dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

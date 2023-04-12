@@ -14,7 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
 {
     public static class AggregateTestNoIdReturnAssertions
     {
-        public static void AssertEquivalent(UpdateAggregateTestNoIdReturnCommand expectedDto, AggregateTestNoIdReturn actualEntity)
+        public static void AssertEquivalent(
+            UpdateAggregateTestNoIdReturnCommand expectedDto,
+            AggregateTestNoIdReturn actualEntity)
         {
             if (expectedDto == null)
             {
@@ -39,7 +41,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             actualDto.Attribute.Should().Be(expectedEntity.Attribute);
         }
 
-        public static void AssertEquivalent(IEnumerable<AggregateTestNoIdReturnDto> actualDtos, IEnumerable<AggregateTestNoIdReturn> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<AggregateTestNoIdReturnDto> actualDtos,
+            IEnumerable<AggregateTestNoIdReturn> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -64,7 +68,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             }
         }
 
-        public static void AssertEquivalent(CreateAggregateTestNoIdReturnCommand expectedDto, AggregateTestNoIdReturn actualEntity)
+        public static void AssertEquivalent(
+            CreateAggregateTestNoIdReturnCommand expectedDto,
+            AggregateTestNoIdReturn actualEntity)
         {
             if (expectedDto == null)
             {

@@ -24,7 +24,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(
+            UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.ImplicitKeyAggrRootId, cancellationToken);
             if (aggregateRoot == null)

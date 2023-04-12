@@ -42,7 +42,11 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
             AddRange(results);
         }
 
-        public static async Task<IPagedResult<T>> CreateAsync(IQueryable<T> source, int pageNo, int pageSize, CancellationToken cancellationToken = default)
+        public static async Task<IPagedResult<T>> CreateAsync(
+            IQueryable<T> source,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
         {
             var count = await source.CountAsync(cancellationToken);
             var skip = ((pageNo - 1) * pageSize);

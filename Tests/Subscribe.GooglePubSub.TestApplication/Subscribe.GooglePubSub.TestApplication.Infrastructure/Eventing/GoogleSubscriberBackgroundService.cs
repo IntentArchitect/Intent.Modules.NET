@@ -54,7 +54,9 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing
             }
         }
 
-        private async Task<SubscriberClient.Reply> RequestHandler(PubsubMessage message, CancellationToken cancellationToken)
+        private async Task<SubscriberClient.Reply> RequestHandler(
+            PubsubMessage message,
+            CancellationToken cancellationToken)
         {
             try
             {

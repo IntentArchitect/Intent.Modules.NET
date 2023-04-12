@@ -39,7 +39,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
             actualDto.Name.Should().Be(expectedEntity.Name);
         }
 
-        public static void AssertEquivalent(IEnumerable<EntityWithCtorDto> actualDtos, IEnumerable<EntityWithCtor> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<EntityWithCtorDto> actualDtos,
+            IEnumerable<EntityWithCtor> expectedEntities)
         {
             if (expectedEntities == null)
             {

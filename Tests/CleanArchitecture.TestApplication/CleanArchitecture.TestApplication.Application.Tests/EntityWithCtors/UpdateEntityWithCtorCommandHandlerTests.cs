@@ -33,7 +33,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateEntityWithCtorCommand testCommand, EntityWithCtor existingEntity)
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(
+            UpdateEntityWithCtorCommand testCommand,
+            EntityWithCtor existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IEntityWithCtorRepository>();

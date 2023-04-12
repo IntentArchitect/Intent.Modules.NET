@@ -24,7 +24,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Handle(CreateAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(
+            CreateAggregateRootCompositeManyBCommand request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot == null)

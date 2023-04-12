@@ -34,7 +34,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
         }
 
         [IntentManaged(Mode.Fully)]
-        private static ImplicitKeyNestedComposition CreateOrUpdateImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
+        private static ImplicitKeyNestedComposition CreateOrUpdateImplicitKeyNestedComposition(
+            ImplicitKeyNestedComposition entity,
+            UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
         {
             if (dto == null)
             {

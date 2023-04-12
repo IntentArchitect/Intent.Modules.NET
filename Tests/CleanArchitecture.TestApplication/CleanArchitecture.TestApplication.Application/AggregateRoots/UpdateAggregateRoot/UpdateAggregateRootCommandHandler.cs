@@ -36,7 +36,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyB CreateOrUpdateCompositeManyB(CompositeManyB entity, UpdateAggregateRootCompositeManyBDto dto)
+        private static CompositeManyB CreateOrUpdateCompositeManyB(
+            CompositeManyB entity,
+            UpdateAggregateRootCompositeManyBDto dto)
         {
             if (dto == null)
             {
@@ -54,7 +56,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyBB CreateOrUpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
+        private static CompositeManyBB CreateOrUpdateCompositeManyBB(
+            CompositeManyBB entity,
+            UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             if (dto == null)
             {
@@ -69,7 +73,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(
+            CompositeSingleBB entity,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             if (dto == null)
             {
@@ -83,7 +89,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleA CreateOrUpdateCompositeSingleA(CompositeSingleA entity, UpdateAggregateRootCompositeSingleADto dto)
+        private static CompositeSingleA CreateOrUpdateCompositeSingleA(
+            CompositeSingleA entity,
+            UpdateAggregateRootCompositeSingleADto dto)
         {
             if (dto == null)
             {
@@ -99,7 +107,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleAA CreateOrUpdateCompositeSingleAA(CompositeSingleAA entity, UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
+        private static CompositeSingleAA CreateOrUpdateCompositeSingleAA(
+            CompositeSingleAA entity,
+            UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
         {
             if (dto == null)
             {
@@ -113,7 +123,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyAA CreateOrUpdateCompositeManyAA(CompositeManyAA entity, UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
+        private static CompositeManyAA CreateOrUpdateCompositeManyAA(
+            CompositeManyAA entity,
+            UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
         {
             if (dto == null)
             {

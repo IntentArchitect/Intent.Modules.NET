@@ -23,11 +23,12 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateEntityWithMutableOperationCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(
+            UpdateEntityWithMutableOperationCommand request,
+            CancellationToken cancellationToken)
         {
             var existingEntityWithMutableOperation = await _entityWithMutableOperationRepository.FindByIdAsync(request.Id, cancellationToken);
 #warning No matching type for Domain: name and DTO: name
-            existingEntityWithMutableOperation.ChangeName(request.Name);
             return Unit.Value;
         }
     }

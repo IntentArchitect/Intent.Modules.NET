@@ -47,7 +47,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRoot(GetAggregateRootByIdQuery testQuery, AggregateRoot existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesAggregateRoot(
+            GetAggregateRootByIdQuery testQuery,
+            AggregateRoot existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();

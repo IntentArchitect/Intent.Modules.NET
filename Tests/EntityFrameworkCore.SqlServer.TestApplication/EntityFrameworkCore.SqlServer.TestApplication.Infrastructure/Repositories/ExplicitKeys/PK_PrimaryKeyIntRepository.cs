@@ -26,7 +26,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             return await FindAsync(x => x.PrimaryKeyId == primaryKeyId, cancellationToken);
         }
 
-        public async Task<List<PK_PrimaryKeyInt>> FindByIdsAsync(int[] primaryKeyIds, CancellationToken cancellationToken = default)
+        public async Task<List<PK_PrimaryKeyInt>> FindByIdsAsync(
+            int[] primaryKeyIds,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => primaryKeyIds.Contains(x.PrimaryKeyId), cancellationToken);
         }

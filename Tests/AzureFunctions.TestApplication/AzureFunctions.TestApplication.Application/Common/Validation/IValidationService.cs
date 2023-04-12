@@ -9,6 +9,6 @@ namespace AzureFunctions.TestApplication.Application.Common.Validation
 {
     public interface IValidationService
     {
-        Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default);
+        Task Validate<TRequest>(TRequest request, CancellationToken cancellationToken = default);
     }
 }

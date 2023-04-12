@@ -3,7 +3,7 @@
   <ApplicationId>859f5adf-c40e-40fb-9e68-e41da908d768</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/AzureFunctionHelper.cs</ApplicationRelativeFilePath>
@@ -11,32 +11,64 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.CsProject#999793a3-90d3-42e3-ac3f-71d231a90c99</CorrelationId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#9466369f-8619-418f-972f-413e1ba6cf0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/AzureFunctions.TestApplication.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.TestApplication.Api.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#999793a3-90d3-42e3-ac3f-71d231a90c99</CorrelationId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#f254114d-5b0a-49b8-8ec8-6b04ea78ff74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Create.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Create.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#92bd90f5-32bf-4f6d-bd1f-9ab258da3c79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Delete.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Delete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#6302fc64-c6e9-4398-a529-a7f17e298a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindAll.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FindAll.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#511170b3-64d7-4c3e-b776-d18f5e805307</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindById.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FindById.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#9466369f-8619-418f-972f-413e1ba6cf0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/host.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>host.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4260a48c-f8ed-476b-8909-1937cfff38ef</CorrelationId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3dcff8d9-3590-43aa-9339-ad76388ca329</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/ListedUnlistedServices/ListedServiceFunc.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ListedUnlistedServices/ListedServiceFunc.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/ListedServiceFunc.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ListedServiceFunc.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson#999793a3-90d3-42e3-ac3f-71d231a90c99</CorrelationId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson#9466369f-8619-418f-972f-413e1ba6cf0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/local.settings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>local.settings.json</ProjectRelativeFilePath>
@@ -51,51 +83,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#70f42a90-3c8b-4ad3-beba-2292f3abe4e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/SampleDomainsService/Create.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainsService/Create.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#96cdad03-8771-4c2c-86de-d7383c273bc8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/SampleDomainsService/Delete.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainsService/Delete.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#d51ed406-ebc3-418b-9841-9f8c5c31c917</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/SampleDomainsService/FindAll.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainsService/FindAll.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#cf27906b-6cff-438f-a1cb-99c59504e10e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/SampleDomainsService/FindById.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainsService/FindById.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#12be62ff-cdc4-40c3-8ec8-ba6a46f258ad</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/SampleDomainsService/Update.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainsService/Update.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>999793a3-90d3-42e3-ac3f-71d231a90c99</ProjectId>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#148ddda6-8153-4668-b50b-bd21681aa228</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Update.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Update.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

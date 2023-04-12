@@ -26,7 +26,10 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
         private readonly IValidationService _validationService;
         private readonly IEventBus _eventBus;
 
-        public PublishController(IPublishService appService, IUnitOfWork unitOfWork, IValidationService validationService, IEventBus eventBus)
+        public PublishController(IPublishService appService,
+            IUnitOfWork unitOfWork,
+            IValidationService validationService,
+            IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));

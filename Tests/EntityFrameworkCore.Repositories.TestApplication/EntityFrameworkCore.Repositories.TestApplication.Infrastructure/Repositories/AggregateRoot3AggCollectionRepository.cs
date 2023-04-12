@@ -21,12 +21,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
         }
 
-        public async Task<AggregateRoot3AggCollection> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AggregateRoot3AggCollection> FindByIdAsync(
+            Guid id,
+            CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<AggregateRoot3AggCollection>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<AggregateRoot3AggCollection>> FindByIdsAsync(
+            Guid[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

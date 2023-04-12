@@ -23,7 +23,6 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CleanArchitecture.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class EntityWithCtorsController : ControllerBase
     {
         private readonly ISender _mediator;
@@ -37,54 +36,45 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost]
+        [HttpPost("api/entity-with-ctors")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> Post([FromBody] CreateEntityWithCtorCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> CreateEntityWithCtor(
+            [FromBody] CreateEntityWithCtorCommand command,
+            CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(Get), new { id = result }, new { Id = result });
+            return CreatedAtAction(nameof(GetEntityWithCtorById), new { id = result }, new { Id = result });
         }
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified EntityWithCtorDto.</response>
+        /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an EntityWithCtorDto with the parameters provided.</response>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(EntityWithCtorDto), StatusCodes.Status200OK)]
+        [HttpDelete("api/entity-with-ctors/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<EntityWithCtorDto>> Get([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteEntityWithCtor([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetEntityWithCtorByIdQuery { Id = id }, cancellationToken);
-            return result != null ? Ok(result) : NotFound();
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="200">Returns the specified List&lt;EntityWithCtorDto&gt;.</response>
-        [HttpGet]
-        [ProducesResponseType(typeof(List<EntityWithCtorDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<EntityWithCtorDto>>> GetAll(CancellationToken cancellationToken)
-        {
-            var result = await _mediator.Send(new GetEntityWithCtorsQuery(), cancellationToken);
-            return Ok(result);
+            await _mediator.Send(new DeleteEntityWithCtorCommand { Id = id }, cancellationToken);
+            return Ok();
         }
 
         /// <summary>
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPut("{id}")]
+        [HttpPut("api/entity-with-ctors/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] UpdateEntityWithCtorCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> UpdateEntityWithCtor(
+            [FromRoute] Guid id,
+            [FromBody] UpdateEntityWithCtorCommand command,
+            CancellationToken cancellationToken)
         {
             if (id != command.Id)
             {
@@ -97,16 +87,32 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Successfully deleted.</response>
+        /// <response code="200">Returns the specified EntityWithCtorDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        /// <response code="404">Can't find an EntityWithCtorDto with the parameters provided.</response>
+        [HttpGet("api/entity-with-ctors/{id}")]
+        [ProducesResponseType(typeof(EntityWithCtorDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<EntityWithCtorDto>> GetEntityWithCtorById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken)
         {
-            await _mediator.Send(new DeleteEntityWithCtorCommand { Id = id }, cancellationToken);
-            return Ok();
+            var result = await _mediator.Send(new GetEntityWithCtorByIdQuery { Id = id }, cancellationToken);
+            return result != null ? Ok(result) : NotFound();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;EntityWithCtorDto&gt;.</response>
+        [HttpGet("api/entity-with-ctors")]
+        [ProducesResponseType(typeof(List<EntityWithCtorDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<EntityWithCtorDto>>> GetEntityWithCtors(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetEntityWithCtorsQuery(), cancellationToken);
+            return Ok(result);
         }
     }
 }

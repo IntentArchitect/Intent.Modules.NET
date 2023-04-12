@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.TestApplication.Api.ResponseTypes;
 using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
-using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
@@ -19,37 +18,31 @@ using Newtonsoft.Json;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
-namespace AzureFunctions.TestApplication.Api.SampleDomainsService
+namespace AzureFunctions.TestApplication.Api
 {
     public class Create
     {
-        private readonly IValidationService _validation;
         private readonly ISampleDomainsService _appService;
-        private readonly IUnitOfWork _unitOfWork;
-        public Create(
-            IValidationService validation,
-            ISampleDomainsService appService,
-            IUnitOfWork unitOfWork)
+        private readonly IValidationService _validator;
+
+        public Create(ISampleDomainsService appService, IValidationService validator)
         {
-            _validation = validation ?? throw new ArgumentNullException(nameof(validation));
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
-        [FunctionName("SampleDomainsService-Create")]
+        [FunctionName("Create")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "sampledomain")] HttpRequest req,
-            ILogger log)
+            CancellationToken cancellationToken)
         {
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var dto = JsonConvert.DeserializeObject<SampleDomainCreateDTO>(requestBody);
-                await _validation.Handle(dto, default);
-                var result = default(Guid);
-                result = await _appService.Create(dto);
-                await _unitOfWork.SaveChangesAsync();
-                return new CreatedResult(string.Empty, new JsonResponse<Guid>(result));
+                await _validator.Validate(dto, default);
+                var result = await _appService.Create(dto);
+                return new CreatedResult(string.Empty, result);
             }
             catch (ValidationException exception)
             {

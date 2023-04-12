@@ -9,7 +9,6 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Eve
 {
     public interface IEventBus
     {
-
         void Publish<T>(T message) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }

@@ -26,7 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<EntityWithMutableOperationDto>> Handle(GetEntityWithMutableOperationsQuery request, CancellationToken cancellationToken)
+        public async Task<List<EntityWithMutableOperationDto>> Handle(
+            GetEntityWithMutableOperationsQuery request,
+            CancellationToken cancellationToken)
         {
             var entityWithMutableOperations = await _entityWithMutableOperationRepository.FindAllAsync(cancellationToken);
             return entityWithMutableOperations.MapToEntityWithMutableOperationDtoList(_mapper);

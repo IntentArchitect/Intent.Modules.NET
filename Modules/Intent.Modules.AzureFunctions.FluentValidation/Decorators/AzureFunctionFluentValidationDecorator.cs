@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;

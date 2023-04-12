@@ -26,7 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithCtors.CreateEn
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateEntityWithCtorCommand request, CancellationToken cancellationToken)
         {
-            var newEntityWithCtor = new EntityWithCtor(request.Name);
+            var newEntityWithCtor = new EntityWithCtor();
 
             _entityWithCtorRepository.Add(newEntityWithCtor);
             await _entityWithCtorRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

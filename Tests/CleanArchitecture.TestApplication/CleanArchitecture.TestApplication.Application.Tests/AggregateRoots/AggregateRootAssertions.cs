@@ -31,7 +31,9 @@ public static class AggregateRootAssertions
 #warning Field not a composite association: Aggregate
     }
 
-    public static void AssertEquivalent(IEnumerable<UpdateAggregateRootCompositeManyBDto> expectedDtos, IEnumerable<CompositeManyB> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<UpdateAggregateRootCompositeManyBDto> expectedDtos,
+            IEnumerable<CompositeManyB> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -59,7 +61,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(IEnumerable<UpdateAggregateRootCompositeManyBCompositeManyBBDto> expectedDtos, IEnumerable<CompositeManyBB> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<UpdateAggregateRootCompositeManyBCompositeManyBBDto> expectedDtos,
+            IEnumerable<CompositeManyBB> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -84,7 +88,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(UpdateAggregateRootCompositeManyBCompositeSingleBBDto expectedDto, CompositeSingleBB actualEntity)
+    public static void AssertEquivalent(
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto expectedDto,
+            CompositeSingleBB actualEntity)
     {
         if (expectedDto == null)
         {
@@ -96,7 +102,9 @@ public static class AggregateRootAssertions
         actualEntity.CompositeAttr.Should().Be(expectedDto.CompositeAttr);
     }
 
-    public static void AssertEquivalent(UpdateAggregateRootCompositeSingleADto expectedDto, CompositeSingleA actualEntity)
+    public static void AssertEquivalent(
+            UpdateAggregateRootCompositeSingleADto expectedDto,
+            CompositeSingleA actualEntity)
     {
         if (expectedDto == null)
         {
@@ -110,7 +118,9 @@ public static class AggregateRootAssertions
         AssertEquivalent(expectedDto.Composites, actualEntity.Composites);
     }
 
-    public static void AssertEquivalent(UpdateAggregateRootCompositeSingleACompositeSingleAADto expectedDto, CompositeSingleAA actualEntity)
+    public static void AssertEquivalent(
+            UpdateAggregateRootCompositeSingleACompositeSingleAADto expectedDto,
+            CompositeSingleAA actualEntity)
     {
         if (expectedDto == null)
         {
@@ -122,7 +132,9 @@ public static class AggregateRootAssertions
         actualEntity.CompositeAttr.Should().Be(expectedDto.CompositeAttr);
     }
 
-    public static void AssertEquivalent(IEnumerable<UpdateAggregateRootCompositeSingleACompositeManyAADto> expectedDtos, IEnumerable<CompositeManyAA> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<UpdateAggregateRootCompositeSingleACompositeManyAADto> expectedDtos,
+            IEnumerable<CompositeManyAA> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -163,7 +175,9 @@ public static class AggregateRootAssertions
         AssertEquivalent(actualDto.Aggregate, expectedEntity.Aggregate);
     }
 
-    public static void AssertEquivalent(IEnumerable<AggregateRootCompositeManyBDto> actualDtos, IEnumerable<CompositeManyB> expectedEntities)
+    public static void AssertEquivalent(
+            IEnumerable<AggregateRootCompositeManyBDto> actualDtos,
+            IEnumerable<CompositeManyB> expectedEntities)
     {
         if (expectedEntities == null)
         {
@@ -192,7 +206,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(AggregateRootCompositeManyBCompositeSingleBBDto actualDto, CompositeSingleBB expectedEntity)
+    public static void AssertEquivalent(
+            AggregateRootCompositeManyBCompositeSingleBBDto actualDto,
+            CompositeSingleBB expectedEntity)
     {
         if (expectedEntity == null)
         {
@@ -205,7 +221,9 @@ public static class AggregateRootAssertions
         actualDto.Id.Should().Be(expectedEntity.Id);
     }
 
-    public static void AssertEquivalent(IEnumerable<AggregateRootCompositeManyBCompositeManyBBDto> actualDtos, IEnumerable<CompositeManyBB> expectedEntities)
+    public static void AssertEquivalent(
+            IEnumerable<AggregateRootCompositeManyBCompositeManyBBDto> actualDtos,
+            IEnumerable<CompositeManyBB> expectedEntities)
     {
         if (expectedEntities == null)
         {
@@ -246,7 +264,9 @@ public static class AggregateRootAssertions
         AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
     }
 
-    public static void AssertEquivalent(AggregateRootCompositeSingleACompositeSingleAADto actualDto, CompositeSingleAA expectedEntity)
+    public static void AssertEquivalent(
+            AggregateRootCompositeSingleACompositeSingleAADto actualDto,
+            CompositeSingleAA expectedEntity)
     {
         if (expectedEntity == null)
         {
@@ -259,7 +279,9 @@ public static class AggregateRootAssertions
         actualDto.Id.Should().Be(expectedEntity.Id);
     }
 
-    public static void AssertEquivalent(IEnumerable<AggregateRootCompositeSingleACompositeManyAADto> actualDtos, IEnumerable<CompositeManyAA> expectedEntities)
+    public static void AssertEquivalent(
+            IEnumerable<AggregateRootCompositeSingleACompositeManyAADto> actualDtos,
+            IEnumerable<CompositeManyAA> expectedEntities)
     {
         if (expectedEntities == null)
         {
@@ -298,7 +320,9 @@ public static class AggregateRootAssertions
         actualDto.Id.Should().Be(expectedEntity.Id);
     }
 
-    public static void AssertEquivalent(IEnumerable<AggregateRootDto> actualDtos, IEnumerable<AggregateRoot> expectedEntities)
+    public static void AssertEquivalent(
+            IEnumerable<AggregateRootDto> actualDtos,
+            IEnumerable<AggregateRoot> expectedEntities)
     {
         if (expectedEntities == null)
         {
@@ -341,7 +365,9 @@ public static class AggregateRootAssertions
 #warning Field not a composite association: Aggregate
     }
 
-    public static void AssertEquivalent(IEnumerable<CreateAggregateRootCompositeManyBDto> expectedDtos, IEnumerable<CompositeManyB> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<CreateAggregateRootCompositeManyBDto> expectedDtos,
+            IEnumerable<CompositeManyB> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -368,7 +394,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(CreateAggregateRootCompositeManyBCompositeSingleBBDto expectedDto, CompositeSingleBB actualEntity)
+    public static void AssertEquivalent(
+            CreateAggregateRootCompositeManyBCompositeSingleBBDto expectedDto,
+            CompositeSingleBB actualEntity)
     {
         if (expectedDto == null)
         {
@@ -380,7 +408,9 @@ public static class AggregateRootAssertions
         actualEntity.CompositeAttr.Should().Be(expectedDto.CompositeAttr);
     }
 
-    public static void AssertEquivalent(IEnumerable<CreateAggregateRootCompositeManyBCompositeManyBBDto> expectedDtos, IEnumerable<CompositeManyBB> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<CreateAggregateRootCompositeManyBCompositeManyBBDto> expectedDtos,
+            IEnumerable<CompositeManyBB> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -404,7 +434,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(CreateAggregateRootCompositeSingleADto expectedDto, CompositeSingleA actualEntity)
+    public static void AssertEquivalent(
+            CreateAggregateRootCompositeSingleADto expectedDto,
+            CompositeSingleA actualEntity)
     {
         if (expectedDto == null)
         {
@@ -418,7 +450,9 @@ public static class AggregateRootAssertions
         AssertEquivalent(expectedDto.Composites, actualEntity.Composites);
     }
 
-    public static void AssertEquivalent(CreateAggregateRootCompositeSingleACompositeSingleAADto expectedDto, CompositeSingleAA actualEntity)
+    public static void AssertEquivalent(
+            CreateAggregateRootCompositeSingleACompositeSingleAADto expectedDto,
+            CompositeSingleAA actualEntity)
     {
         if (expectedDto == null)
         {
@@ -430,7 +464,9 @@ public static class AggregateRootAssertions
         actualEntity.CompositeAttr.Should().Be(expectedDto.CompositeAttr);
     }
 
-    public static void AssertEquivalent(IEnumerable<CreateAggregateRootCompositeSingleACompositeManyAADto> expectedDtos, IEnumerable<CompositeManyAA> actualEntities)
+    public static void AssertEquivalent(
+            IEnumerable<CreateAggregateRootCompositeSingleACompositeManyAADto> expectedDtos,
+            IEnumerable<CompositeManyAA> actualEntities)
     {
         if (expectedDtos == null)
         {
@@ -454,7 +490,9 @@ public static class AggregateRootAssertions
         }
     }
 
-    public static void AssertEquivalent(UpdateAggregateRootCompositeManyBCommand expectedDto, CompositeManyB actualEntity)
+    public static void AssertEquivalent(
+            UpdateAggregateRootCompositeManyBCommand expectedDto,
+            CompositeManyB actualEntity)
     {
         if (expectedDto == null)
         {
@@ -487,7 +525,9 @@ public static class AggregateRootAssertions
         AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
     }
 
-    public static void AssertEquivalent(CreateAggregateRootCompositeManyBCommand expectedDto, CompositeManyB actualEntity)
+    public static void AssertEquivalent(
+            CreateAggregateRootCompositeManyBCommand expectedDto,
+            CompositeManyB actualEntity)
     {
         if (expectedDto == null)
         {

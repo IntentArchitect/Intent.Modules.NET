@@ -18,21 +18,15 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence
         {
         }
 
-        async Task<int> IMongoDbUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            await SaveChangesAsync(cancellationToken);
-            return default;
-        }
-
-        async Task<int> IUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            await SaveChangesAsync(cancellationToken);
+            await base.SaveChangesAsync(cancellationToken);
             return default;
         }
 
         protected override void Dispose(bool disposing)
         {
-            //we don't want to dispose the connection which the base class does
+            // Don't call the base's dispose as it disposes the connection which is not recommended as per https://www.mongodb.com/docs/manual/administration/connection-pool-overview/
         }
 
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)

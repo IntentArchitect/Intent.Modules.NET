@@ -35,7 +35,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_DeletesCompositeManyBFromRepository(DeleteAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity)
+        public async Task Handle_WithValidCommand_DeletesCompositeManyBFromRepository(
+            DeleteAggregateRootCompositeManyBCommand testCommand,
+            AggregateRoot existingOwnerEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();

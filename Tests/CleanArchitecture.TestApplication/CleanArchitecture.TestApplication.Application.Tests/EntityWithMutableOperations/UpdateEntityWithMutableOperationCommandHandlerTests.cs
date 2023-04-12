@@ -33,7 +33,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateEntityWithMutableOperationCommand testCommand, EntityWithMutableOperation existingEntity)
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(
+            UpdateEntityWithMutableOperationCommand testCommand,
+            EntityWithMutableOperation existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IEntityWithMutableOperationRepository>();

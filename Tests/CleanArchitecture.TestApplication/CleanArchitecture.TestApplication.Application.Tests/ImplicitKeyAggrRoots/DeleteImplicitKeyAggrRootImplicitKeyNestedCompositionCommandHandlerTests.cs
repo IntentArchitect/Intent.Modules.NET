@@ -34,7 +34,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         }
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_DeletesImplicitKeyNestedCompositionFromRepository(DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot existingOwnerEntity)
+        public async Task Handle_WithValidCommand_DeletesImplicitKeyNestedCompositionFromRepository(
+            DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand,
+            ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();

@@ -13,7 +13,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Configuration
 {
     public static class MultiTenancyConfiguration
     {
-        public static IServiceCollection ConfigureMultiTenancy(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureMultiTenancy(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddMultiTenant<TenantInfo>()
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store

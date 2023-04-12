@@ -34,7 +34,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeOfAggrLong CreateOrUpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateAggregateRootLongCompositeOfAggrLongDto dto)
+        private static CompositeOfAggrLong CreateOrUpdateCompositeOfAggrLong(
+            CompositeOfAggrLong entity,
+            UpdateAggregateRootLongCompositeOfAggrLongDto dto)
         {
             if (dto == null)
             {

@@ -21,12 +21,16 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<PK_PrimaryKeyLong> FindByIdAsync(long primaryKeyLong, CancellationToken cancellationToken = default)
+        public async Task<PK_PrimaryKeyLong> FindByIdAsync(
+            long primaryKeyLong,
+            CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.PrimaryKeyLong == primaryKeyLong, cancellationToken);
         }
 
-        public async Task<List<PK_PrimaryKeyLong>> FindByIdsAsync(long[] primaryKeyLongs, CancellationToken cancellationToken = default)
+        public async Task<List<PK_PrimaryKeyLong>> FindByIdsAsync(
+            long[] primaryKeyLongs,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => primaryKeyLongs.Contains(x.PrimaryKeyLong), cancellationToken);
         }

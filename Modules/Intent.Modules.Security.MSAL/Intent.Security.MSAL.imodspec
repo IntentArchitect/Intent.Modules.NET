@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.MSAL</id>
-  <version>4.1.0-pre.0</version>
+  <version>4.1.0</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</summary>
   <description>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</description>
@@ -16,7 +16,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.4.0-pre.0" />
+    <dependency id="Intent.Application.Identity" version="3.4.0" />
     <dependency id="Intent.AspNetCore" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.29" />

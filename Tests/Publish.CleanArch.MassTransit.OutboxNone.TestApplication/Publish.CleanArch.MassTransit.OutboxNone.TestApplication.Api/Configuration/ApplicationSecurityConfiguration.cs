@@ -16,7 +16,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Configura
 {
     public static class ApplicationSecurityConfiguration
     {
-        public static IServiceCollection ConfigureApplicationSecurity(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureApplicationSecurity(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddTransient<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;

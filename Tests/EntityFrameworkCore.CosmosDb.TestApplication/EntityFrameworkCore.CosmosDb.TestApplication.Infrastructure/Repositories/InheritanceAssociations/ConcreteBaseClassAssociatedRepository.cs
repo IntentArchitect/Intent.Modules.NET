@@ -21,12 +21,16 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
         {
         }
 
-        public async Task<ConcreteBaseClassAssociated> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ConcreteBaseClassAssociated> FindByIdAsync(
+            Guid id,
+            CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<ConcreteBaseClassAssociated>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<ConcreteBaseClassAssociated>> FindByIdsAsync(
+            Guid[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

@@ -53,7 +53,9 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Eventin
             }
         }
 
-        private async Task<SubscriberClient.Reply> RequestHandler(PubsubMessage message, CancellationToken cancellationToken)
+        private async Task<SubscriberClient.Reply> RequestHandler(
+            PubsubMessage message,
+            CancellationToken cancellationToken)
         {
             try
             {

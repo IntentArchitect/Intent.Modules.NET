@@ -11,7 +11,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Co
     public interface IIntegrationEventHandler<TMessage>
         where TMessage : class
     {
-
         Task HandleAsync(TMessage message, CancellationToken cancellationToken = default);
     }
 }

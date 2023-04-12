@@ -47,7 +47,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRootLong(GetAggregateRootLongByIdQuery testQuery, AggregateRootLong existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesAggregateRootLong(
+            GetAggregateRootLongByIdQuery testQuery,
+            AggregateRootLong existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootLongRepository>();

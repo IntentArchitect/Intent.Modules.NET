@@ -22,7 +22,9 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteEntityWithMutableOperationCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(
+            DeleteEntityWithMutableOperationCommand request,
+            CancellationToken cancellationToken)
         {
             var existingEntityWithMutableOperation = await _entityWithMutableOperationRepository.FindByIdAsync(request.Id, cancellationToken);
             _entityWithMutableOperationRepository.Remove(existingEntityWithMutableOperation);

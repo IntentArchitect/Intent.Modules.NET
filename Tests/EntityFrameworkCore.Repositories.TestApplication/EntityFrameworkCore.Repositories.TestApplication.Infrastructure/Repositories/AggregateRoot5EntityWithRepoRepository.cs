@@ -24,12 +24,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotSupportedException($"Cannot create a repository for type AggregateRoot5EntityWithRepo.");
         }
 
-        public async Task<AggregateRoot5EntityWithRepo> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AggregateRoot5EntityWithRepo> FindByIdAsync(
+            Guid id,
+            CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<AggregateRoot5EntityWithRepo>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<AggregateRoot5EntityWithRepo>> FindByIdsAsync(
+            Guid[] ids,
+            CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

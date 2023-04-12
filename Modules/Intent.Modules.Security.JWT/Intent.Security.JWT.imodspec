@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>4.1.0-pre.0</version>
+  <version>4.1.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
@@ -17,7 +17,7 @@
     <factoryExtension id="Intent.Security.JWT.CurrentUserServiceFactoryExtension" externalReference="5631733b-f3fd-46ec-b22e-0abaf76c29c8" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.4.0-pre.0" />
+    <dependency id="Intent.Application.Identity" version="3.4.0" />
     <dependency id="Intent.AspNetCore" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.29" />

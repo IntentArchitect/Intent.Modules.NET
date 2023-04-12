@@ -14,7 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
 {
     public static class EntityWithMutableOperationAssertions
     {
-        public static void AssertEquivalent(UpdateEntityWithMutableOperationCommand expectedDto, EntityWithMutableOperation actualEntity)
+        public static void AssertEquivalent(
+            UpdateEntityWithMutableOperationCommand expectedDto,
+            EntityWithMutableOperation actualEntity)
         {
             if (expectedDto == null)
             {
@@ -25,7 +27,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             actualEntity.Should().NotBeNull();
         }
 
-        public static void AssertEquivalent(EntityWithMutableOperationDto actualDto, EntityWithMutableOperation expectedEntity)
+        public static void AssertEquivalent(
+            EntityWithMutableOperationDto actualDto,
+            EntityWithMutableOperation expectedEntity)
         {
             if (expectedEntity == null)
             {
@@ -38,7 +42,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             actualDto.Name.Should().Be(expectedEntity.Name);
         }
 
-        public static void AssertEquivalent(IEnumerable<EntityWithMutableOperationDto> actualDtos, IEnumerable<EntityWithMutableOperation> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<EntityWithMutableOperationDto> actualDtos,
+            IEnumerable<EntityWithMutableOperation> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -63,7 +69,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
             }
         }
 
-        public static void AssertEquivalent(CreateEntityWithMutableOperationCommand expectedDto, EntityWithMutableOperation actualEntity)
+        public static void AssertEquivalent(
+            CreateEntityWithMutableOperationCommand expectedDto,
+            EntityWithMutableOperation actualEntity)
         {
             if (expectedDto == null)
             {

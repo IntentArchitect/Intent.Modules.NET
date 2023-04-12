@@ -16,7 +16,9 @@ namespace Application.Identity.Jwt.TestApplication.Api.Configuration
 {
     public static class ApplicationSecurityConfiguration
     {
-        public static IServiceCollection ConfigureApplicationSecurity(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureApplicationSecurity(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddTransient<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;

@@ -50,7 +50,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
 
         [Theory]
         [MemberData(nameof(GetFailedResultTestData))]
-        public async Task Validate_WithInvalidCommand_FailsValidation(UpdateEntityWithCtorCommand testCommand, string expectedPropertyName, string expectedPhrase)
+        public async Task Validate_WithInvalidCommand_FailsValidation(
+            UpdateEntityWithCtorCommand testCommand,
+            string expectedPropertyName,
+            string expectedPhrase)
         {
             // Arrange
             var validator = GetValidationBehaviour();

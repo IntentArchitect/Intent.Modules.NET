@@ -26,7 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<AggregateRootDto>> Handle(GetAggregateRootsQuery request, CancellationToken cancellationToken)
+        public async Task<List<AggregateRootDto>> Handle(
+            GetAggregateRootsQuery request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoots = await _aggregateRootRepository.FindAllAsync(cancellationToken);
             return aggregateRoots.MapToAggregateRootDtoList(_mapper);

@@ -38,12 +38,17 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             GetSet().Add((TPersistence)entity);
         }
 
-        public virtual async Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
+        public virtual async Task<TDomain> FindAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default)
+        public virtual async Task<TDomain> FindAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
@@ -53,17 +58,25 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             return await QueryInternal(x => true).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
+        public virtual async Task<List<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default)
+        public virtual async Task<List<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default)
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(x => true);
             return await PagedList<TDomain>.CreateAsync(
@@ -73,7 +86,11 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default)
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression);
             return await PagedList<TDomain>.CreateAsync(
@@ -83,7 +100,12 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default)
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, linq);
             return await PagedList<TDomain>.CreateAsync(
@@ -93,7 +115,9 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
+        public virtual async Task<int> CountAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).CountAsync(cancellationToken);
         }
@@ -103,7 +127,9 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             return QueryInternal(filterExpression).Any();
         }
 
-        public virtual async Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> AnyAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
@@ -118,7 +144,9 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             return queryable;
         }
 
-        protected virtual IQueryable<TResult> QueryInternal<TResult>(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TResult>> linq)
+        protected virtual IQueryable<TResult> QueryInternal<TResult>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TResult>> linq)
         {
             var queryable = CreateQuery();
             queryable = queryable.Where(filterExpression);

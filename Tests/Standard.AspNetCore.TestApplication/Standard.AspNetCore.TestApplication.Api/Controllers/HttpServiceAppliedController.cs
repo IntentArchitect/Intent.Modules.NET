@@ -24,7 +24,9 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IValidationService _validationService;
 
-        public HttpServiceAppliedController(IHttpServiceAppliedService appService, IUnitOfWork unitOfWork, IValidationService validationService)
+        public HttpServiceAppliedController(IHttpServiceAppliedService appService,
+            IUnitOfWork unitOfWork,
+            IValidationService validationService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));

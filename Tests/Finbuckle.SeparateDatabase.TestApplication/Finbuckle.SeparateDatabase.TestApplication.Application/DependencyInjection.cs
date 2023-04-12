@@ -18,8 +18,8 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IUsersService, UsersService>();
             return services;
         }
     }

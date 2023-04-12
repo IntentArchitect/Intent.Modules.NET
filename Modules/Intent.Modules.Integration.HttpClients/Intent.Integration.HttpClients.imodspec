@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>3.3.0-pre.7</version>
+  <version>3.3.0</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -48,11 +48,11 @@
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="3.3.9" />
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Metadata.WebApi" version="3.3.9" />
     <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6" />
-    <dependency id="Intent.Modelers.Types.ServiceProxies" version="3.3.7-pre.0" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="3.3.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>

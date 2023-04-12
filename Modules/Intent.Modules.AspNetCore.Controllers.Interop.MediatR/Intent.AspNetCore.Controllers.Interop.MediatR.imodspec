@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.MediatR</id>
-  <version>4.0.3-pre.0</version>
+  <version>4.0.3</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Obsolete. Please install Intent.AspNetCore.Controllers.Dispatch.MediatR as this module is no longer in use. It can be safely removed.</summary>
   <description>Obsolete. Please install Intent.AspNetCore.Controllers.Dispatch.MediatR as this module is no longer in use. It can be safely removed.</description>
@@ -12,9 +12,9 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.0.0-pre.0" />
+    <dependency id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.0.0" />
   </dependencies>
-	<files>
+  <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>

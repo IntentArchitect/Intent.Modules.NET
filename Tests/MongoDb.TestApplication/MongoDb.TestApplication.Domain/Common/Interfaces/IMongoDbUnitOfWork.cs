@@ -9,7 +9,6 @@ namespace MongoDb.TestApplication.Domain.Common.Interfaces
 {
     public interface IMongoDbUnitOfWork : IUnitOfWork
     {
-
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

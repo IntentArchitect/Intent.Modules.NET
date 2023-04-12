@@ -91,7 +91,10 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Update([FromRoute] Guid id, [FromBody] ClassAUpdateDTO dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Update(
+            [FromRoute] Guid id,
+            [FromBody] ClassAUpdateDTO dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

@@ -26,7 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<AggregateRootLongDto>> Handle(GetAggregateRootLongsQuery request, CancellationToken cancellationToken)
+        public async Task<List<AggregateRootLongDto>> Handle(
+            GetAggregateRootLongsQuery request,
+            CancellationToken cancellationToken)
         {
             var aggregateRootLongs = await _aggregateRootLongRepository.FindAllAsync(cancellationToken);
             return aggregateRootLongs.MapToAggregateRootLongDtoList(_mapper);

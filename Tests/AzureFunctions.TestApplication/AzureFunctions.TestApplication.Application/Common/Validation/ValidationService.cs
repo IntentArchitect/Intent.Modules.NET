@@ -21,7 +21,7 @@ namespace AzureFunctions.TestApplication.Application.Common.Validation
             _serviceProvider = serviceProvider;
         }
 
-        public async Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default)
+        public async Task Validate<TRequest>(TRequest request, CancellationToken cancellationToken = default)
         {
             var validators = _serviceProvider.GetService<IEnumerable<IValidator<TRequest>>>();
             if (validators.Any())

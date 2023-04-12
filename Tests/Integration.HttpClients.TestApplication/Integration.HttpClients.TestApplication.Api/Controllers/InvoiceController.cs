@@ -110,7 +110,10 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Update([FromRoute] Guid id, [FromBody] InvoiceUpdateDTO dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Update(
+            [FromRoute] Guid id,
+            [FromBody] InvoiceUpdateDTO dto,
+            CancellationToken cancellationToken)
         {
             await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -161,7 +164,10 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<InvoiceDTO>> QueryParamOp([FromQuery] string param1, [FromQuery] int param2, CancellationToken cancellationToken)
+        public async Task<ActionResult<InvoiceDTO>> QueryParamOp(
+            string param1,
+            int param2,
+            CancellationToken cancellationToken)
         {
             var result = default(InvoiceDTO);
             result = await _appService.QueryParamOp(param1, param2);
@@ -180,7 +186,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> HeaderParamOp([FromHeader(Name = "MY-HEADER")] string param1, CancellationToken cancellationToken)
+        public async Task<ActionResult> HeaderParamOp(string param1, CancellationToken cancellationToken)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -204,7 +210,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> FormParamOp([FromForm] string param1, [FromForm] int param2, CancellationToken cancellationToken)
+        public async Task<ActionResult> FormParamOp(string param1, int param2, CancellationToken cancellationToken)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -294,8 +300,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an Guid with the parameters provided.</response>
         [HttpGet("[action]")]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -304,7 +309,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(Guid);
             result = await _appService.GetWrappedPrimitiveGuid();
-            return new JsonResponse<Guid>(result) != null ? Ok(new JsonResponse<Guid>(result)) : NotFound();
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -314,8 +319,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an string with the parameters provided.</response>
         [HttpGet("[action]")]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -324,7 +328,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(string);
             result = await _appService.GetWrappedPrimitiveString();
-            return new JsonResponse<string>(result) != null ? Ok(new JsonResponse<string>(result)) : NotFound();
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -334,8 +338,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an int with the parameters provided.</response>
         [HttpGet("[action]")]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<int>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -344,7 +347,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(int);
             result = await _appService.GetWrappedPrimitiveInt();
-            return new JsonResponse<int>(result) != null ? Ok(new JsonResponse<int>(result)) : NotFound();
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -428,7 +431,6 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an InvoiceDTO with the parameters provided.</response>
         [HttpGet("[action]")]
-        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(InvoiceDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

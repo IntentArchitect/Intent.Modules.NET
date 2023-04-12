@@ -25,7 +25,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<AggregateTestNoIdReturnDto> Handle(GetAggregateTestNoIdReturnByIdQuery request, CancellationToken cancellationToken)
+        public async Task<AggregateTestNoIdReturnDto> Handle(
+            GetAggregateTestNoIdReturnByIdQuery request,
+            CancellationToken cancellationToken)
         {
             var aggregateTestNoIdReturn = await _aggregateTestNoIdReturnRepository.FindByIdAsync(request.Id, cancellationToken);
             return aggregateTestNoIdReturn.MapToAggregateTestNoIdReturnDto(_mapper);

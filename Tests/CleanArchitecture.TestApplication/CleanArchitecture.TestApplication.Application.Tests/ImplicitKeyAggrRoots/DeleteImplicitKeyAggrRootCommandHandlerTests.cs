@@ -32,7 +32,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         }
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_DeletesImplicitKeyAggrRootFromRepository(DeleteImplicitKeyAggrRootCommand testCommand, ImplicitKeyAggrRoot existingEntity)
+        public async Task Handle_WithValidCommand_DeletesImplicitKeyAggrRootFromRepository(
+            DeleteImplicitKeyAggrRootCommand testCommand,
+            ImplicitKeyAggrRoot existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();

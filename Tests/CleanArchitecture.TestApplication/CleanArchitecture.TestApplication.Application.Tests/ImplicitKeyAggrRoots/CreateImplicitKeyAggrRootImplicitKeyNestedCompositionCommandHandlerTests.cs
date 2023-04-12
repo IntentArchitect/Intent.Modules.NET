@@ -32,7 +32,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         }
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot existingOwnerEntity)
+        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(
+            CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand,
+            ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
             var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();

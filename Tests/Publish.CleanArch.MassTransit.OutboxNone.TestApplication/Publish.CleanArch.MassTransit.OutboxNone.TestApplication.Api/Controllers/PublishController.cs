@@ -19,11 +19,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
     [Route("api/[controller]")]
     public class PublishController : ControllerBase
     {
-        private readonly ISender _mediator;
 
-        public PublishController(ISender mediator)
+        public PublishController()
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         /// <summary>
@@ -34,10 +32,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> TestPublish([FromBody] TestPublishCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> TestPublish(
+            [FromBody] TestPublishCommand command,
+            CancellationToken cancellationToken)
         {
-            await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, null);
         }
     }
 }

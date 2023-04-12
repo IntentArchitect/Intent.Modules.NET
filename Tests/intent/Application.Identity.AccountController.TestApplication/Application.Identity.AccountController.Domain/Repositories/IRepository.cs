@@ -15,7 +15,6 @@ namespace Application.Identity.AccountController.Domain.Repositories
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
     public interface IRepository<TDomain, TPersistence>
     {
-
         IUnitOfWork UnitOfWork { get; }
         void Add(TDomain entity);
         void Remove(TDomain entity);

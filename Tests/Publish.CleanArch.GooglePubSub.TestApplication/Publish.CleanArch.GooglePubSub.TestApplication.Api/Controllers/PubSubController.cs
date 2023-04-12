@@ -42,7 +42,10 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Controllers
         }
 
         [HttpPost("PushNotification")]
-        public async Task<IActionResult> PushNotification([FromBody] PushBody body, [FromQuery] string token, CancellationToken cancellationToken)
+        public async Task<IActionResult> PushNotification(
+            [FromBody] PushBody body,
+            [FromQuery] string token,
+            CancellationToken cancellationToken)
         {
             if (body == null || body.message == null)
             {

@@ -21,7 +21,6 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CleanArchitecture.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class AggregateTestNoIdReturnsController : ControllerBase
     {
         private readonly ISender _mediator;
@@ -35,11 +34,13 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost]
+        [HttpPost("api/aggregate-test-no-id-returns")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Post([FromBody] CreateAggregateTestNoIdReturnCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> CreateAggregateTestNoIdReturn(
+            [FromBody] CreateAggregateTestNoIdReturnCommand command,
+            CancellationToken cancellationToken)
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);
@@ -47,41 +48,32 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified AggregateTestNoIdReturnDto.</response>
+        /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an AggregateTestNoIdReturnDto with the parameters provided.</response>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(AggregateTestNoIdReturnDto), StatusCodes.Status200OK)]
+        [HttpDelete("api/aggregate-test-no-id-returns/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<AggregateTestNoIdReturnDto>> Get([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteAggregateTestNoIdReturn(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetAggregateTestNoIdReturnByIdQuery { Id = id }, cancellationToken);
-            return result != null ? Ok(result) : NotFound();
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="200">Returns the specified List&lt;AggregateTestNoIdReturnDto&gt;.</response>
-        [HttpGet]
-        [ProducesResponseType(typeof(List<AggregateTestNoIdReturnDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<AggregateTestNoIdReturnDto>>> GetAll(CancellationToken cancellationToken)
-        {
-            var result = await _mediator.Send(new GetAggregateTestNoIdReturnsQuery(), cancellationToken);
-            return Ok(result);
+            await _mediator.Send(new DeleteAggregateTestNoIdReturnCommand { Id = id }, cancellationToken);
+            return Ok();
         }
 
         /// <summary>
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPut("{id}")]
+        [HttpPut("api/aggregate-test-no-id-returns/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] UpdateAggregateTestNoIdReturnCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> UpdateAggregateTestNoIdReturn(
+            [FromRoute] Guid id,
+            [FromBody] UpdateAggregateTestNoIdReturnCommand command,
+            CancellationToken cancellationToken)
         {
             if (id != command.Id)
             {
@@ -94,16 +86,32 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Successfully deleted.</response>
+        /// <response code="200">Returns the specified AggregateTestNoIdReturnDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        /// <response code="404">Can't find an AggregateTestNoIdReturnDto with the parameters provided.</response>
+        [HttpGet("api/aggregate-test-no-id-returns/{id}")]
+        [ProducesResponseType(typeof(AggregateTestNoIdReturnDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<AggregateTestNoIdReturnDto>> GetAggregateTestNoIdReturnById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken)
         {
-            await _mediator.Send(new DeleteAggregateTestNoIdReturnCommand { Id = id }, cancellationToken);
-            return Ok();
+            var result = await _mediator.Send(new GetAggregateTestNoIdReturnByIdQuery { Id = id }, cancellationToken);
+            return result != null ? Ok(result) : NotFound();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;AggregateTestNoIdReturnDto&gt;.</response>
+        [HttpGet("api/aggregate-test-no-id-returns")]
+        [ProducesResponseType(typeof(List<AggregateTestNoIdReturnDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<AggregateTestNoIdReturnDto>>> GetAggregateTestNoIdReturns(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetAggregateTestNoIdReturnsQuery(), cancellationToken);
+            return Ok(result);
         }
     }
 }

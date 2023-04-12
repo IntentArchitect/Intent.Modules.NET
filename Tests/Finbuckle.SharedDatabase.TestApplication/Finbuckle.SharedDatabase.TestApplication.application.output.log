@@ -27,14 +27,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ae63b6ed-a476-47f7-9532-a22e8ac278a3</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>1b10e9ff-7c9d-4bd4-a6d5-779e38e04508</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#a8d68edd-36fb-4f52-94f8-30234641f3f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

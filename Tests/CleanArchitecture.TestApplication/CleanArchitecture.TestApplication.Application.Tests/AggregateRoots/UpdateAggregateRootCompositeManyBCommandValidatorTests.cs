@@ -61,7 +61,10 @@ public class UpdateAggregateRootCompositeManyBCommandValidatorTests
 
     [Theory]
     [MemberData(nameof(GetFailedResultTestData))]
-    public async Task Validate_WithInvalidCommand_FailsValidation(UpdateAggregateRootCompositeManyBCommand testCommand, string expectedPropertyName, string expectedPhrase)
+    public async Task Validate_WithInvalidCommand_FailsValidation(
+            UpdateAggregateRootCompositeManyBCommand testCommand,
+            string expectedPropertyName,
+            string expectedPhrase)
     {
         // Arrange
         var validator = GetValidationBehaviour();

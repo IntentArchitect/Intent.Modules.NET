@@ -41,7 +41,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         }
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootLongCommand testCommand, AggregateRootLong existingEntity)
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(
+            UpdateAggregateRootLongCommand testCommand,
+            AggregateRootLong existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootLongRepository>();

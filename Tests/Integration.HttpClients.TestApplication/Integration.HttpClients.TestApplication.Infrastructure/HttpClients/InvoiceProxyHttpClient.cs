@@ -128,7 +128,10 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
                 }
             }
         }
-        public async Task<InvoiceDTO> QueryParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default)
+        public async Task<InvoiceDTO> QueryParamOpAsync(
+            string param1,
+            int param2,
+            CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoice/queryparamop";
 

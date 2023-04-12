@@ -62,7 +62,10 @@ public class CreateAggregateRootCommandValidatorTests
 
     [Theory]
     [MemberData(nameof(GetFailedResultTestData))]
-    public async Task Validate_WithInvalidCommand_FailsValidation(CreateAggregateRootCommand testCommand, string expectedPropertyName, string expectedPhrase)
+    public async Task Validate_WithInvalidCommand_FailsValidation(
+            CreateAggregateRootCommand testCommand,
+            string expectedPropertyName,
+            string expectedPhrase)
     {
         // Arrange
         var validator = GetValidationBehaviour();

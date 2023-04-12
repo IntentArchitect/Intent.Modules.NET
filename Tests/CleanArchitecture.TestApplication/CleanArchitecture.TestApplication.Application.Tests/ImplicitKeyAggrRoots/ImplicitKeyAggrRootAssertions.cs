@@ -29,7 +29,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             AssertEquivalent(expectedDto.ImplicitKeyNestedCompositions, actualEntity.ImplicitKeyNestedCompositions);
         }
 
-        public static void AssertEquivalent(IEnumerable<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> expectedDtos, IEnumerable<ImplicitKeyNestedComposition> actualEntities)
+        public static void AssertEquivalent(
+            IEnumerable<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> expectedDtos,
+            IEnumerable<ImplicitKeyNestedComposition> actualEntities)
         {
             if (expectedDtos == null)
             {
@@ -67,7 +69,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             AssertEquivalent(actualDto.ImplicitKeyNestedCompositions, expectedEntity.ImplicitKeyNestedCompositions);
         }
 
-        public static void AssertEquivalent(IEnumerable<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> actualDtos, IEnumerable<ImplicitKeyNestedComposition> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> actualDtos,
+            IEnumerable<ImplicitKeyNestedComposition> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -92,7 +96,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             }
         }
 
-        public static void AssertEquivalent(IEnumerable<ImplicitKeyAggrRootDto> actualDtos, IEnumerable<ImplicitKeyAggrRoot> expectedEntities)
+        public static void AssertEquivalent(
+            IEnumerable<ImplicitKeyAggrRootDto> actualDtos,
+            IEnumerable<ImplicitKeyAggrRoot> expectedEntities)
         {
             if (expectedEntities == null)
             {
@@ -131,7 +137,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             AssertEquivalent(expectedDto.ImplicitKeyNestedCompositions, actualEntity.ImplicitKeyNestedCompositions);
         }
 
-        public static void AssertEquivalent(IEnumerable<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> expectedDtos, IEnumerable<ImplicitKeyNestedComposition> actualEntities)
+        public static void AssertEquivalent(
+            IEnumerable<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> expectedDtos,
+            IEnumerable<ImplicitKeyNestedComposition> actualEntities)
         {
             if (expectedDtos == null)
             {
@@ -155,7 +163,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             }
         }
 
-        public static void AssertEquivalent(UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand expectedDto, ImplicitKeyNestedComposition actualEntity)
+        public static void AssertEquivalent(
+            UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand expectedDto,
+            ImplicitKeyNestedComposition actualEntity)
         {
             if (expectedDto == null)
             {
@@ -168,7 +178,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             actualEntity.Attribute.Should().Be(expectedDto.Attribute);
         }
 
-        public static void AssertEquivalent(ImplicitKeyAggrRootImplicitKeyNestedCompositionDto actualDto, ImplicitKeyNestedComposition expectedEntity)
+        public static void AssertEquivalent(
+            ImplicitKeyAggrRootImplicitKeyNestedCompositionDto actualDto,
+            ImplicitKeyNestedComposition expectedEntity)
         {
             if (expectedEntity == null)
             {
@@ -181,7 +193,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
-        public static void AssertEquivalent(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand expectedDto, ImplicitKeyNestedComposition actualEntity)
+        public static void AssertEquivalent(
+            CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand expectedDto,
+            ImplicitKeyNestedComposition actualEntity)
         {
             if (expectedDto == null)
             {

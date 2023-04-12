@@ -14,7 +14,11 @@ namespace Integration.HttpClients.TestApplication.Application.Common.Exceptions
 {
     public class HttpClientRequestException : Exception
     {
-        public static async Task<HttpClientRequestException> Create(Uri baseAddress, HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
+        public static async Task<HttpClientRequestException> Create(
+            Uri baseAddress,
+            HttpRequestMessage request,
+            HttpResponseMessage response,
+            CancellationToken cancellationToken)
         {
             var fullRequestUri = new Uri(baseAddress, request.RequestUri!);
             var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
@@ -42,7 +46,11 @@ namespace Integration.HttpClients.TestApplication.Application.Common.Exceptions
         public string ReasonPhrase { get; private set; }
         public string ResponseContent { get; private set; }
 
-        private static string GetMessage(Uri requestUri, HttpStatusCode statusCode, string reasonPhrase, string responseContent)
+        private static string GetMessage(
+            Uri requestUri,
+            HttpStatusCode statusCode,
+            string reasonPhrase,
+            string responseContent)
         {
             var message = $"Request to {requestUri} failed with status code {(int)statusCode} {reasonPhrase}.";
             if (!string.IsNullOrWhiteSpace(responseContent))
