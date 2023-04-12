@@ -121,7 +121,7 @@ public static class ImplementationStrategyTemplatesExtensions
         {
             var idField = properties.FirstOrDefault(p =>
                 string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                string.Equals(p.Name, $"{entity.Name}Id", StringComparison.InvariantCultureIgnoreCase));
+                (entity != null && string.Equals(p.Name, $"{entity.Name}Id", StringComparison.InvariantCultureIgnoreCase)));
             return idField;
         }
     }

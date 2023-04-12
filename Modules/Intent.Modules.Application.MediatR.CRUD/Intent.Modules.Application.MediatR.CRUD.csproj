@@ -20,7 +20,7 @@
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.2" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.4.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.0-pre.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

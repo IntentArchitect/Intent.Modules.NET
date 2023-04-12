@@ -39,7 +39,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             {
                 new CreateImplementationStrategy(template),
                 new UpdateImplementationStrategy(template),
-                new DeleteImplementationStrategy(template)
+                new DeleteImplementationStrategy(template),
+                new DomainCtorImplementationStrategy(template),
+                new DomainOpImplementationStrategy(template)
             };
 
             var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
