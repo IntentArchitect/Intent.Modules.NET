@@ -26,7 +26,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.Infrastructure.DependencyInjection" version="4.0.1" metadataOnly="false">
+            <module id="Intent.Infrastructure.DependencyInjection" version="4.0.2-pre.0" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
@@ -50,7 +50,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.Infrastructure.DependencyInjection" version="4.0.1" metadataOnly="false">
+            <module id="Intent.Infrastructure.DependencyInjection" version="4.0.2-pre.0" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>

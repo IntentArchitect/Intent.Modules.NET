@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ef54f9ff-b933-4b66-af42-d61a7b1da91b" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>DomainServiceImplementation</name>
-  <display>DomainServiceImplementation: File Per Model</display>
+<class id="12a8ead7-58c2-4a54-8ffd-d1d4783625f0" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>DomainServiceInterface</name>
+  <display>DomainServiceInterface: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="fed0ebf3-7bb9-48fc-9e68-69061877e039">
+  <typeReference id="98e36f54-233f-48cf-bbef-a5c7c1f8bc51">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</parentFolderId>
   <packageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</packageId>
-  <packageName>Intent.Modules.DomainServices</packageName>
+  <packageName>Intent.DomainServices</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
@@ -37,7 +37,7 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="6ab29b31-27af-4f56-a67c-986d82097d63" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="07f936ea-3756-48c8-babd-24ac7271daac" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Domain.DomainServices.Implementation" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Domain.DomainServices.Interface" isActive="true" />
         <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Services" isActive="true" />
       </properties>
     </stereotype>

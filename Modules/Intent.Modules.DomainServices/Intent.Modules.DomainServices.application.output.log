@@ -10,18 +10,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>4911971c-c2f8-4458-b847-82cb1280259f</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4911971c-c2f8-4458-b847-82cb1280259f</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.DomainServices.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.DomainServices.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.DomainServices.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.DomainServices.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4911971c-c2f8-4458-b847-82cb1280259f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4911971c-c2f8-4458-b847-82cb1280259f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.DomainServices.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.DomainServices.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.DomainServices.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.DomainServices.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

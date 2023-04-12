@@ -17,7 +17,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class DomainServiceInterfaceTemplate : CSharpTemplateBase<DomainServiceModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.DomainServices.DomainServiceInterface";
+        public const string TemplateId = "Intent.DomainServices.DomainServiceInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainServiceInterfaceTemplate(IOutputTarget outputTarget, DomainServiceModel model) : base(TemplateId, outputTarget, model)
