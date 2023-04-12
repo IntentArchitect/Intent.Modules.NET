@@ -14,18 +14,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
 {
     public static class EntityWithMutableOperationAssertions
     {
-        public static void AssertEquivalent(
-            UpdateEntityWithMutableOperationCommand expectedDto,
-            EntityWithMutableOperation actualEntity)
-        {
-            if (expectedDto == null)
-            {
-                actualEntity.Should().BeNull();
-                return;
-            }
-
-            actualEntity.Should().NotBeNull();
-        }
 
         public static void AssertEquivalent(
             EntityWithMutableOperationDto actualDto,
@@ -67,19 +55,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithMutableO
                 dto.Id.Should().Be(entity.Id);
                 dto.Name.Should().Be(entity.Name);
             }
-        }
-
-        public static void AssertEquivalent(
-            CreateEntityWithMutableOperationCommand expectedDto,
-            EntityWithMutableOperation actualEntity)
-        {
-            if (expectedDto == null)
-            {
-                actualEntity.Should().BeNull();
-                return;
-            }
-
-            actualEntity.Should().NotBeNull();
         }
     }
 }

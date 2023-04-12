@@ -26,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithCtors.CreateEn
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateEntityWithCtorCommand request, CancellationToken cancellationToken)
         {
-            var newEntityWithCtor = new EntityWithCtor();
+            var entity = new EntityWithCtor(request.Name);
 
-            _entityWithCtorRepository.Add(newEntityWithCtor);
+            _entityWithCtorRepository.Add(entity);
             await _entityWithCtorRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newEntityWithCtor.Id;
+            return entity.Id;
         }
     }
 }

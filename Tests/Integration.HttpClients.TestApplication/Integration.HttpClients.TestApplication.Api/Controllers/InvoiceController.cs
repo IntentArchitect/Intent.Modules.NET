@@ -4,7 +4,6 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using Integration.HttpClients.TestApplication.Api.Controllers.ResponseTypes;
 using Integration.HttpClients.TestApplication.Application.Common.Validation;
 using Integration.HttpClients.TestApplication.Application.Interfaces;
 using Integration.HttpClients.TestApplication.Application.Invoices;

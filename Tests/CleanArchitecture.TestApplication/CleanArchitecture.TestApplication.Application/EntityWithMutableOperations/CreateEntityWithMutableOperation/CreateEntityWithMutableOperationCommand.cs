@@ -9,7 +9,7 @@ using MediatR;
 
 namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperations.CreateEntityWithMutableOperation
 {
-    public class CreateEntityWithMutableOperationCommand : IRequest<Guid>, ICommand
+    public class CreateEntityWithMutableOperationCommand : IRequest, ICommand
     {
         public string Name { get; set; }
 

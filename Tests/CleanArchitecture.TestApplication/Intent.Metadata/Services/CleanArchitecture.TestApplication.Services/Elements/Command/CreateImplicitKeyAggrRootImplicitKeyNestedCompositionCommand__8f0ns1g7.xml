@@ -21,7 +21,7 @@
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>false</autoSyncTypeReference>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="63711bd5-e375-4318-be8e-ccd531a3bb12" name="ImplicitKeyNestedComposition" type="element" specialization="Class" />
     </mappedPath>

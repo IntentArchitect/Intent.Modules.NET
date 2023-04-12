@@ -13,7 +13,7 @@ using MediatR;
 namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperations.CreateEntityWithMutableOperation
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateEntityWithMutableOperationCommandHandler : IRequestHandler<CreateEntityWithMutableOperationCommand, Guid>
+    public class CreateEntityWithMutableOperationCommandHandler : IRequestHandler<CreateEntityWithMutableOperationCommand>
     {
         private readonly IEntityWithMutableOperationRepository _entityWithMutableOperationRepository;
 
@@ -24,15 +24,11 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Handle(
+        public async Task<Unit> Handle(
             CreateEntityWithMutableOperationCommand request,
             CancellationToken cancellationToken)
         {
-            var newEntityWithMutableOperation = new EntityWithMutableOperation();
-
-            _entityWithMutableOperationRepository.Add(newEntityWithMutableOperation);
-            await _entityWithMutableOperationRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newEntityWithMutableOperation.Id;
+            throw new NotImplementedException("Your implementation here...");
         }
     }
 }

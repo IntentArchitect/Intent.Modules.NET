@@ -21,7 +21,7 @@
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>false</autoSyncTypeReference>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="d4caf10c-064e-41ff-9202-7ba1c44d40c4" name="AggregateRoot" type="element" specialization="Class" />
     </mappedPath>

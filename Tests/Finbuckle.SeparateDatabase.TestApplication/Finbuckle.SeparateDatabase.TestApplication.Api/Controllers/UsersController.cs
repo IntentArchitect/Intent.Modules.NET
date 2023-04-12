@@ -4,7 +4,6 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using Finbuckle.SeparateDatabase.TestApplication.Api.Controllers.ResponseTypes;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;

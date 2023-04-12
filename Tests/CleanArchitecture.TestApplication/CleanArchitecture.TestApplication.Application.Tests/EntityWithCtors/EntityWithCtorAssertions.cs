@@ -65,16 +65,5 @@ namespace CleanArchitecture.TestApplication.Application.Tests.EntityWithCtors
                 dto.Name.Should().Be(entity.Name);
             }
         }
-
-        public static void AssertEquivalent(CreateEntityWithCtorCommand expectedDto, EntityWithCtor actualEntity)
-        {
-            if (expectedDto == null)
-            {
-                actualEntity.Should().BeNull();
-                return;
-            }
-
-            actualEntity.Should().NotBeNull();
-        }
     }
 }

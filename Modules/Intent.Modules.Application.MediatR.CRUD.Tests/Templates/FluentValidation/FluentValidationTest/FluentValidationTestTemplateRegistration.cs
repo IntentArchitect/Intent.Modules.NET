@@ -39,6 +39,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.FluentValidati
             return _metadataManager.Services(application).GetCommandModels()
                 .Where(p => p.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase) ||
                             p.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase))
+                .Where(p => p.Mapping?.Element?.IsClassModel() == true)
                 .ToList();
         }
     }

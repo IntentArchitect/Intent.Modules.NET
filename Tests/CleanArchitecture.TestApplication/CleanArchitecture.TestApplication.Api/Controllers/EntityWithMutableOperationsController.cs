@@ -37,16 +37,15 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost("api/entity-with-mutable-operations")]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateEntityWithMutableOperation(
+        public async Task<ActionResult> CreateEntityWithMutableOperation(
             [FromBody] CreateEntityWithMutableOperationCommand command,
             CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetEntityWithMutableOperationById), new { id = result }, new { Id = result });
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
 
         /// <summary>

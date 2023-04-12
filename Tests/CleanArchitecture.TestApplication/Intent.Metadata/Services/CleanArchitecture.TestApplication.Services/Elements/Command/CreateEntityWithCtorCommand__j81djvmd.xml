@@ -20,10 +20,11 @@
   <mappedClass>
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+    <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="dcd1dd3d-347e-40e0-b0a4-87b1f2981386" name="EntityWithCtor" type="element" specialization="Class" />
+      <target id="a5c1e11b-b347-4376-a742-1137591efb1a" name="Constructor" type="element" specialization="Class Constructor" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>fd5ed4ea-b003-48f0-867a-4419997df6cc</parentFolderId>
@@ -45,12 +46,12 @@
     <entry key="baseName" value="EntityWithCtor" />
   </metadata>
   <childElements>
-    <childElement id="874877d3-0105-4eb9-b858-837f0690e326" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="370f39eb-78f3-49e5-adbc-52588b2f6565" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>name</name>
       <display>name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="3c26bb63-0b14-4ac1-ad5d-42dd7f75b45e">
+      <typeReference id="a83cc85f-ed7f-4dfb-a62d-1d54ec6de3b6">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -63,10 +64,9 @@
       </typeReference>
       <isMapped>true</isMapped>
       <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="a5c1e11b-b347-4376-a742-1137591efb1a" name="Constructor" type="element" specialization="Class Constructor" />
           <target id="2763b933-12fd-4f09-a886-1b03896ba823" name="name" type="element" specialization="Parameter" />
         </mappedPath>
       </mappedClass>

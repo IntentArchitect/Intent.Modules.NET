@@ -18,7 +18,7 @@
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>false</autoSyncTypeReference>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="b6ec559a-f523-4f26-bfc7-e919dea3cf90" name="AggregateTestNoIdReturn" type="element" specialization="Class" />
     </mappedPath>

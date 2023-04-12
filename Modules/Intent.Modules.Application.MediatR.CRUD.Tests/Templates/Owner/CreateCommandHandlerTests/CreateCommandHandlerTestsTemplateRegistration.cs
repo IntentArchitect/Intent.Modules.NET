@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCo
             return _metadataManager.Services(application)
                 .GetCommandModels()
                 .Where(p => p.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
+                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
     }

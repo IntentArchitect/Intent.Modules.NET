@@ -396,22 +396,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/CreateEntityWithCtorCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtorCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#beed42eb-d470-4195-bd3d-f722a3896b06</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/CreateEntityWithCtorCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithCtors/CreateEntityWithCtorCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#3b243ea7-a908-4eeb-a532-5305babe69de</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithCtors/DeleteEntityWithCtorCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -460,22 +444,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#f2fefd70-25dd-4f5d-a140-c943326b3652</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/CreateEntityWithMutableOperationCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithMutableOperations/CreateEntityWithMutableOperationCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#f2fefd70-25dd-4f5d-a140-c943326b3652</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/CreateEntityWithMutableOperationCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithMutableOperations/CreateEntityWithMutableOperationCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#19d549fa-4adf-4d7e-a3af-e82a2ffd292d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/DeleteEntityWithMutableOperationCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -504,22 +472,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/GetEntityWithMutableOperationsQueryHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityWithMutableOperations/GetEntityWithMutableOperationsQueryHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#8155a797-c11a-48fb-a77d-c4f96f5d46fc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/UpdateEntityWithMutableOperationCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithMutableOperations/UpdateEntityWithMutableOperationCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#8155a797-c11a-48fb-a77d-c4f96f5d46fc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/EntityWithMutableOperations/UpdateEntityWithMutableOperationCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityWithMutableOperations/UpdateEntityWithMutableOperationCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

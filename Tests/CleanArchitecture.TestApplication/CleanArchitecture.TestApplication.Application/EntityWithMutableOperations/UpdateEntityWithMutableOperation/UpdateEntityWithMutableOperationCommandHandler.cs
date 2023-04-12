@@ -27,8 +27,8 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
             UpdateEntityWithMutableOperationCommand request,
             CancellationToken cancellationToken)
         {
-            var existingEntityWithMutableOperation = await _entityWithMutableOperationRepository.FindByIdAsync(request.Id, cancellationToken);
-#warning No matching type for Domain: name and DTO: name
+            var entity = await _entityWithMutableOperationRepository.FindByIdAsync(request.Id, cancellationToken);
+            entity.ChangeName(request.Name);
             return Unit.Value;
         }
     }
