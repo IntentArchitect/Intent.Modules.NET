@@ -62,11 +62,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                     {
                         return null;
                     }
+
+                    var classModel = command.Mapping.Element.SpecializationType switch
+                    {
+                        ClassModel.SpecializationType => command.Mapping.Element.AsClassModel(),
+                        OperationModel.SpecializationType => command.Mapping.Element.AsOperationModel().InternalElement.ParentElement.AsClassModel(),
+                        ClassConstructorModel.SpecializationType => command.Mapping.Element.AsClassConstructorModel().InternalElement.ParentElement.AsClassModel(),
+                        _ => throw new Exception($"Unknown specialization: {command.Mapping.Element.SpecializationType}")
+                    };
+
                     return new
                     {
                         Template = template,
                         Command = command,
-                        Entity = command.Mapping.Element.AsClassModel()
+                        Entity = classModel
                     };
                 })
                 .Where(p => p != null)
