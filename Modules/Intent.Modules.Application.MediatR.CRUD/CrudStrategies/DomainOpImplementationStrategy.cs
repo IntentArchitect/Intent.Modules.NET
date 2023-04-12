@@ -74,8 +74,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             GenerateOperationInvocationCode("request", $"entity");
 
-            codeLines.Add($"{repository.FieldName}.Add(entity);", x => x.SeparatedFromPrevious());
-
             codeLines.Add($"return Unit.Value;");
 
             return codeLines.ToList();
