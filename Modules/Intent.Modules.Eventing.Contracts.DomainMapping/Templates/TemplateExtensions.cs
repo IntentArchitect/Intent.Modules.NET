@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtensions;
 using Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,6 +12,15 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetDtoExtensionsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.EventingDTOModel
+        {
+            return template.GetTypeName(DtoExtensionsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDtoExtensionsName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.EventingDTOModel model)
+        {
+            return template.GetTypeName(DtoExtensionsTemplate.TemplateId, model);
+        }
         public static string GetMessageExtensionsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
         {
             return template.GetTypeName(MessageExtensionsTemplate.TemplateId, template.Model);

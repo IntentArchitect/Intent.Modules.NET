@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cf018a72-1728-4f58-95cb-8ccd0c4d6cf0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ba7d2517-4f8b-40b0-89aa-36aed9940116</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/EventingDTOExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventingDTOExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cf018a72-1728-4f58-95cb-8ccd0c4d6cf0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#8059b11d-b5fb-44fe-bd94-0119a22ed1c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MessageExtensionModel.cs</ApplicationRelativeFilePath>
@@ -46,6 +54,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd615bc-ade0-4842-a2b4-04c724cb4b24</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d72addf4-0c26-4c4c-b5b2-adfc08f8f498</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoExtensions/DtoExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoExtensions/DtoExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd615bc-ade0-4842-a2b4-04c724cb4b24</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#d72addf4-0c26-4c4c-b5b2-adfc08f8f498</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoExtensions/DtoExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoExtensions/DtoExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

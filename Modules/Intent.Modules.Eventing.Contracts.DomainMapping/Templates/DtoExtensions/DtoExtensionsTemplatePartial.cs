@@ -17,15 +17,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExtensions
+namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class MessageExtensionsTemplate : CSharpTemplateBase<MessageModel>, ICSharpFileBuilderTemplate
+    partial class DtoExtensionsTemplate : CSharpTemplateBase<EventingDTOModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.Contracts.DomainMapping.MessageExtensions";
+        public const string TemplateId = "Intent.Eventing.Contracts.DomainMapping.DtoExtensions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public MessageExtensionsTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
+        public DtoExtensionsTemplate(IOutputTarget outputTarget, EventingDTOModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
@@ -33,11 +33,11 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
             AddTypeSource("Domain.Entity");
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
-                .AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>
+                .AddClass($"{Model.Name.EnsureSuffixedWith("Dto")}Extensions", @class =>
                 {
                     @class.Static();
-                    var messageTemplate = GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, model);
-                    @class.AddMethod(GetTypeName(model.InternalElement), $"MapTo{messageTemplate.ClassName}", method =>
+                    var dtoTemplate = GetTemplate<IClassProvider>(IntegrationEventDtoTemplate.TemplateId, model);
+                    @class.AddMethod(GetTypeName(model.InternalElement), $"MapTo{dtoTemplate.ClassName}", method =>
                     {
                         method.Static();
                         method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
@@ -47,7 +47,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
                         codeLines.Add(new CSharpStatementBlock()
-                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", domainEntity, model.Properties.Select(x => x.InternalElement), this))
+                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", domainEntity, model.Fields.Select(x => x.InternalElement), this))
                             .WithSemicolon());
                         method.AddStatements(codeLines.ToList());
                     });
