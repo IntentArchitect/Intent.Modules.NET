@@ -7,12 +7,15 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Templates;
+using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
@@ -171,6 +174,24 @@ public static class ImplementationStrategyTemplatesExtensions
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {
         return owner.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
+    }
+    
+    public static IReadOnlyCollection<RequiredService> GetAdditionalServicesFromParameters(this ICSharpTemplate template, IEnumerable<ParameterModel> parameters)
+    {
+        return parameters
+            .Select(parameter => template.FindRequiredService(parameter.Type.Element))
+            .Where(service => service != null)
+            .ToList();
+    }
+
+    public static RequiredService FindRequiredService(this ICSharpTemplate template, IMetadataModel element)
+    {
+        return element switch
+        {
+            _ when template.TryGetTypeName("Domain.DomainServices.Interface", element, out var typeName) => 
+                new RequiredService(typeName, "domainService"),
+            _ => null
+        };
     }
 
     private static string GetKeyTypeName(ITypeReference typeReference)

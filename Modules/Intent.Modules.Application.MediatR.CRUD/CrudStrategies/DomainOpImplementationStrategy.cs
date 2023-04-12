@@ -16,6 +16,7 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
+using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
 using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
@@ -50,6 +51,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
                 param => param.IntroduceReadonlyField());
+            
+            foreach (var requiredService in _matchingElementDetails.Value.AdditionalServices)
+            {
+                ctor.AddParameter(requiredService.Type, requiredService.Name, c => c.IntroduceReadonlyField());
+            }
 
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
@@ -59,11 +65,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public IEnumerable<CSharpStatement> GetImplementation()
         {
-            var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
             var idField = _matchingElementDetails.Value.IdField;
-
-            var entityName = _template.GetDomainEntityName(foundEntity) ?? foundEntity.Name;
 
             var codeLines = new CSharpStatementAggregator();
 
@@ -86,9 +89,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 var operParams = oper.Parameters;
-                var paramList = operParams
-                    .Select(s => _template.Model.Properties.First(p => p.Mapping.Element.Id == s.Id))
-                    .Select(s => $"{dtoVarName}.{s.Name.ToPascalCase()}");
+                var paramList = GetInvocationParameters(operParams, _template.Model.Properties, dtoVarName);
                 var statement = new CSharpInvocationStatement($@"{entityVarName}.{oper.Name.ToPascalCase()}");
                 foreach (var param in paramList)
                 {
@@ -98,29 +99,51 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
         }
 
+        private IEnumerable<CSharpStatement> GetInvocationParameters(
+            IList<ParameterModel> operParameters, 
+            IList<DTOFieldModel> fields, 
+            string dtoVarName)
+        {
+            var list = new List<CSharpStatement>();
+            foreach (var parameter in operParameters)
+            {
+                var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
+                    .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
+                    .FirstOrDefault();
+                if (dtoFieldRef != null)
+                {
+                    list.Add(dtoFieldRef);
+                    continue;
+                }
+
+                var service = _template.FindRequiredService(parameter.Type.Element);
+                if (service != null)
+                {
+                    list.Add(service.FieldName);
+                    continue;
+                }
+                
+                list.Add("UNKNOWN");
+            }
+            return list;
+        }
+
         private StrategyData GetMatchingElementDetails()
         {
-            if (_template.Model.Mapping?.Element == null || (
-                    !OperationModelExtensions.IsOperationModel(_template.Model.Mapping.Element) && 
-                    !ClassConstructorModelExtensions.IsClassConstructorModel(_template.Model.Mapping.Element)))
+            if (_template.Model.Mapping?.Element == null || !OperationModelExtensions.IsOperationModel(_template.Model.Mapping.Element))
             {
                 return NoMatch;
             }
 
-            ClassModel foundEntity = null;
-            DTOFieldModel idField = null;
-
-            if (OperationModelExtensions.IsOperationModel(_template.Model.Mapping.Element))
-            {
-                foundEntity = OperationModelExtensions.AsOperationModel(_template.Model.Mapping.Element).ParentClass;
-                idField = _template.Model.Properties.GetEntityIdField(foundEntity);
-                if (idField == null)
-                {
-                    return NoMatch;
-                }
-            }
-
+            var operationModel = OperationModelExtensions.AsOperationModel(_template.Model.Mapping.Element);
+            var foundEntity = operationModel.ParentClass;
             if (foundEntity == null)
+            {
+                return NoMatch;
+            }
+            
+            var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
+            if (idField == null)
             {
                 return NoMatch;
             }
@@ -134,30 +157,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, idField, repository);
+            return new StrategyData(true, foundEntity, idField, repository, _template.GetAdditionalServicesFromParameters(operationModel.Parameters));
         }
 
-        private static string GetCreateMethodName(ICanBeReferencedType classModel)
-        {
-            return $"Create{classModel.Name.ToPascalCase()}";
-        }
-
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository)
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, IReadOnlyCollection<RequiredService> additionalServices)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdField = idField;
                 Repository = repository;
+                AdditionalServices = additionalServices ?? Array.Empty<RequiredService>();
             }
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
             public DTOFieldModel IdField { get; }
             public RequiredService Repository { get; }
+            public IReadOnlyCollection<RequiredService> AdditionalServices { get; }
         }
     }
 }
