@@ -2,7 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
-using MongoDB.Infrastructure;
 using MongoFramework;
 using MongoFramework.Infrastructure.Mapping;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;

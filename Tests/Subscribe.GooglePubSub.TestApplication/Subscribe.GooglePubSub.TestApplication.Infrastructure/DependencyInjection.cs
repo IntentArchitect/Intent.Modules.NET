@@ -2,8 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Infrastructure;
-using MongoDB.UnitOfWork.Abstractions.Extensions;
 using MongoFramework;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Configuration;
