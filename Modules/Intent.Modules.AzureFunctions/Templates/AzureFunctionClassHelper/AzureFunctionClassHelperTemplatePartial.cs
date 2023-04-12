@@ -19,6 +19,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionClassHelperTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

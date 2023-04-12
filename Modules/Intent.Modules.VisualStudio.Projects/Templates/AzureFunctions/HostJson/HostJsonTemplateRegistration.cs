@@ -30,12 +30,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.VisualStudio(applicationManager)
-                .GetAzureFunctionsProjectModels();
+            var azureFunctionsProjectModelIds = _metadataManager.VisualStudio(applicationManager)
+                .GetAzureFunctionsProjectModels()
+                .Select(x => x.Id);
 
-            foreach (var model in models)
+            var genericProjectModelIds = _metadataManager.VisualStudio(applicationManager)
+                .GetCSharpProjectNETModels()
+                .Where(x => x.TryGetNETSettings(out var s) && !string.IsNullOrWhiteSpace(s.AzureFunctionsVersion().Value))
+                .Select(x => x.Id);
+
+            foreach (var projectModelId in azureFunctionsProjectModelIds.Union(genericProjectModelIds))
             {
-                var project = applicationManager.OutputTargets.First(x => x.Id == model.Id);
+                var project = applicationManager.OutputTargets.First(x => x.Id == projectModelId);
                 registry.RegisterTemplate(TemplateId, project, p => new HostJsonTemplate(p));
             }
         }

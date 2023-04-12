@@ -101,7 +101,7 @@ using Microsoft.Extensions.DependencyInjection;
             {
                 throw new InvalidOperationException(""DbContext not configured in Services Collection in order to ensure that the database is created."");
             }
-            
+
             dbContext.EnsureDbCreated();
         }
     }

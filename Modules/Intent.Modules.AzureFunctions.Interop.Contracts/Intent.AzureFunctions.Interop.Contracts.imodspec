@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.Interop.Contracts</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0-pre.1</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Instructs Azure Functions to dispatch requests to a separate handler via Application Contract interfaces</summary>
   <description>Instructs Azure Functions to dispatch requests to a separate handler via Application Contract interfaces</description>

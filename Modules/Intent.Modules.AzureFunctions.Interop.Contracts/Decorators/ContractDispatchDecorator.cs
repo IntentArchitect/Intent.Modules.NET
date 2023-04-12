@@ -49,7 +49,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
                 var runMethod = @class.FindMethod("Run");
                 runMethod.FindStatement<CSharpTryBlock>(x => true)?
-                    .AddStatement($"{(_template.Model.ReturnType != null ? "var result = " : "")}await _appService.{_template.Model.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});",
+                    .AddStatement($"{(_template.Model.ReturnType != null ? "var result = " : "")}await _appService.{mappedOperation.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});",
                         statement => statement.AddMetadata("service-dispatch-statement", true))
                     .AddStatement(GetReturnStatement());
                 //runMethod.FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))

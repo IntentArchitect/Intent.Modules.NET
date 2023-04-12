@@ -18,11 +18,13 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
     [IntentManaged(Mode.Merge)]
     public class DbContextSaveFunctionDecorator : AzureFunctionClassDecorator
     {
-        [IntentManaged(Mode.Fully)] 
+        [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AzureFunctions.Interop.EntityFrameworkCore.DbContextSaveFunctionDecorator";
 
-        [IntentManaged(Mode.Fully)] 
+        [IntentManaged(Mode.Fully)]
         private readonly AzureFunctionClassTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DbContextSaveFunctionDecorator(AzureFunctionClassTemplate template, IApplication application)
@@ -44,8 +46,8 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
                 });
 
                 var runMethod = @class.FindMethod("Run");
-                
-                
+
+
                 runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
                     ?.InsertBelow($"await _unitOfWork.SaveChangesAsync();");
             }, 10);

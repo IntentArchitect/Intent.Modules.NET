@@ -24,6 +24,9 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates.Db
         {
         }
 
+        // TODO: This template is broken and needs to be fixed.
+        public override bool CanRunTemplate() => false;
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
