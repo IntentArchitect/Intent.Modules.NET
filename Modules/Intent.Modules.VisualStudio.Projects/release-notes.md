@@ -1,4 +1,7 @@
-﻿### Version 3.3.22
+﻿### Version 3.3.24
+- Update : Adjusting `launchSettings.json` to start as Https, made `isSSL` setting more inline with `VS` behaviour.
+
+### Version 3.3.22
 
 - Fixed: Updates to `.csproj` files would not always be applied.
 

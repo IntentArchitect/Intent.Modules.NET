@@ -80,7 +80,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 applicationUrl = request.ApplicationUrl,
                 launchUrl = request.LaunchUrl,
                 publishAllPorts = request.PublishAllPorts,
-                useSSL = request.UseSsl
+                //Schema for json says default value is true
+                useSSL = request.UseSsl == true ? null : false,
             });
 
             if (request.EnvironmentVariables?.Count > 0)
@@ -182,7 +183,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                                 applicationUrl = $"http://localhost:{_randomPort}/;https://localhost:{_randomSslPort}/",
                                 launchUrl = _defaultLaunchUrlPath == null
                                     ? null
-                                    : $"http://localhost:{_randomPort}/{_defaultLaunchUrlPath}"
+                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}" 
                             }
                         },
                         {
@@ -192,7 +193,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                                 launchBrowser = true,
                                 launchUrl = _defaultLaunchUrlPath == null
                                     ? null
-                                    : $"http://localhost:{_randomPort}/{_defaultLaunchUrlPath}"
+                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
                             }
                         }
                     }
@@ -288,7 +289,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         public string applicationUrl { get; set; }
         public string launchUrl { get; set; }
         public bool publishAllPorts { get; set; }
-        public bool useSSL { get; set; }
+        public bool? useSSL { get; set; }
     }
 
     public class EnvironmentVariables
