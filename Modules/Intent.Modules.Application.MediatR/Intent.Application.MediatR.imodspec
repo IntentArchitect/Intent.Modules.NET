@@ -69,7 +69,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="4.1.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.0.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
