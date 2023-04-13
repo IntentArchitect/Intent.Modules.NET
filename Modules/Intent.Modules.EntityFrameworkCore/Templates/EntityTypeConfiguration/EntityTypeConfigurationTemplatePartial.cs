@@ -517,6 +517,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         entityClass.AddConstructor(ctor =>
                         {
+                            ctor.WithComments(new[]
+                            {
+                                "/// <summary>",
+                                "/// Required by Entity Framework.",
+                                "/// </summary>"
+                            });
                             ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             ctor.Protected();
                         });
