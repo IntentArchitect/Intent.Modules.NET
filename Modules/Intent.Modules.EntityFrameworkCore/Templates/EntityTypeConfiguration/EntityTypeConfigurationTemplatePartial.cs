@@ -67,6 +67,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             AddIgnoreForNonPersistent(method, isOwned: false);
                         });
 
+                    EnsureParameterlessConstructorOnEntity(Model);
+
                     foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(x => x.KeyColumns.Any())))
                     {
                         EnsurePrimaryKeysOnEntity(
@@ -502,6 +504,27 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     return settingType;
             }
         }
+
+        private void EnsureParameterlessConstructorOnEntity(ClassModel model)
+        {
+            if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model.Id, out var template))
+            {
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var entityClass = file.Classes.First();
+                    if (entityClass.Constructors.Count > 0 &&
+                        entityClass.Constructors.All(x => x.Parameters.Count > 0))
+                    {
+                        entityClass.AddConstructor(ctor =>
+                        {
+                            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                            ctor.Protected();
+                        });
+                    }
+                });
+            }
+        }
+
 
         public void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
         {

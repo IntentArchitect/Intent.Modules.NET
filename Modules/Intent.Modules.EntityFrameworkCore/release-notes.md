@@ -1,4 +1,8 @@
-﻿### Version 4.2.2
+﻿### Version 4.3.0
+
+- New: A protected parameterless constructor will be added automatically to the entities if one does not exist. This is an EF requirement.
+
+### Version 4.2.2
 
 - Fixed: `MIGRATION_README.txt` did not include the `Idempotent` argument for the `Generate a script which detects the current database schema version and updates it to the latest` commands. Also updated formatting so that the entire lines with commands can be more simply copied without having to de-select the prefixed `VS:` and `CLI:` text.
 
