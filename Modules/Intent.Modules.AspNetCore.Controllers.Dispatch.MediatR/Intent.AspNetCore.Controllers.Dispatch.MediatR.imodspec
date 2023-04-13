@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.MediatR</id>
-  <version>5.0.0</version>
-  <supportedClientVersions>[4.0.0-beta.2, 5.0.0)</supportedClientVersions>
+  <version>5.0.1</version>
+  <supportedClientVersions>[4.0.0-beta.4, 5.0.0)</supportedClientVersions>
   <summary>Instructs ASP.NET Core Controllers to dispatch Commands and Queries to a separate handler via MediatR.</summary>
   <description>Instructs ASP.NET Core Controllers to dispatch Commands and Queries to a separate handler via MediatR.</description>
   <authors>Intent Architect</authors>
