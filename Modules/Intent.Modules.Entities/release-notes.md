@@ -1,4 +1,8 @@
-﻿### Version 4.1.0
+﻿### Version 4.2.0
+
+- Sets default value on properties as per Domain designer
+
+### Version 4.1.0
 
 - Auto-implements operations that are mapped (supported in Intent.Modelers.Domain <= 3.4.0). 
 

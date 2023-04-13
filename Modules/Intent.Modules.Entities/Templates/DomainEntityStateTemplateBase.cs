@@ -71,7 +71,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 property.PrivateSetter();
             }
 
-            if (typeReference.IsCollection)
+            if (model is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
+            {
+                property.WithInitialValue(attribute.Value);
+            }
+            else if (typeReference.IsCollection)
             {
                 property.WithInitialValue($"new {GetTypeName(typeReference, UseType("System.Collections.Generic.List<{0}>")).Replace("?", "")}()");
             }
