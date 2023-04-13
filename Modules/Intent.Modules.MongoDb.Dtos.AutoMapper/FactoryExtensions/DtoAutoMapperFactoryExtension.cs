@@ -87,7 +87,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                                 if (!actionMaps.TryGetValue(actionMapPath, out var mapData))
                                 {
                                     actionMaps.Add(actionMapPath, new ActionMapData(ae, new List<DTOFieldModel> { field }, pathSkip));
-                                    mappingStatement.AddChainStatement($"BeforeMap<{actionMapPath}Action>()");
+                                    mappingStatement.AddChainStatement($"AfterMap<{actionMapPath}MappingAction>()");
                                 }
                                 else
                                 {
@@ -107,7 +107,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
         private static void CreateMappingActionClass(DtoModelTemplate template, CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, KeyValuePair<string, ActionMapData> actionMap)
         {
             var mapData = actionMap.Value;
-            @class.AddNestedClass($"{actionMap.Key}Action", child =>
+            @class.AddNestedClass($"{actionMap.Key}MappingAction", child =>
             {
                 child.Internal();
                 child.ImplementsInterface($"IMappingAction<{template.GetTypeName(entityTemplate)},{template.ClassName}>");
