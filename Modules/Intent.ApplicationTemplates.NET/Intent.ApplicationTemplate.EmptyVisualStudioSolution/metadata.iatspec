@@ -13,6 +13,7 @@
     <relativeOutputLocation>${application.name}</relativeOutputLocation>
     <placeInSameDirectory>false</placeInSameDirectory>
     <separateIntentFiles>true</separateIntentFiles>
+    <setGitIgnoreEntries>false</setGitIgnoreEntries>
   </defaults>
   <componentGroups>
     <group name="Tooling">
