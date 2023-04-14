@@ -1,3 +1,6 @@
+### Version 4.0.3
+- Fixed: Pluralized `Entity` names causing uncompilable `DTO` code.
+
 ### Version 4.0.2
 
 - Change: `AutoMapperDTODecorator` replaced with `AutoMapperDTOFactoryExtension` to take advantage of the new `ICSharpFileBuilderTemplate` paradigm.

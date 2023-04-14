@@ -50,7 +50,8 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                     var entityTemplate = GetEntityTemplate(template, templateModel);
 
                     file.AddUsing("AutoMapper");
-                    @class.ImplementsInterface($"{template.GetTypeName(MapFromInterfaceTemplate.TemplateId)}<{entityTemplate.ClassName}>");
+
+                    @class.ImplementsInterface($"{template.GetTypeName(MapFromInterfaceTemplate.TemplateId)}<{template.GetTypeName(entityTemplate)}>");
 
                     @class.AddMethod("void", "Mapping", method =>
                     {
@@ -61,7 +62,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                             {
                                 var shouldCast = template.GetTypeInfo(field.TypeReference).IsPrimitive
                                                  && field.Mapping.Element?.TypeReference != null
-                                                 && template.GetFullyQualifiedTypeName(field.TypeReference) != entityTemplate.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference);
+                                                 && template.GetFullyQualifiedTypeName(field.TypeReference) != template.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference);
                                 var mappingExpression = GetMappingExpression(template, field);
                                 if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
                                 {
