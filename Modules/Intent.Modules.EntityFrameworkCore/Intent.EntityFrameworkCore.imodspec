@@ -52,7 +52,7 @@
   <interoperability>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.0.0" />
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.0.1" />
       </install>
     </detect>
   </interoperability>
