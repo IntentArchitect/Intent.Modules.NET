@@ -30,9 +30,9 @@ public class ServiceControllerModel : IControllerModel
             .Select(x => new ControllerOperationModel(
                 name: x.Name,
                 element: x.InternalElement,
-                verb: Enum.TryParse(x.GetHttpSettings().Verb().Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post,
+                verb: Enum.TryParse(x.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post,
                 route: x.GetHttpSettings().Route(),
-                mediaType: Enum.TryParse(x.GetHttpSettings().ReturnTypeMediatype().Value, ignoreCase: true, out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
+                mediaType: Enum.TryParse(x.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), ignoreCase: true, out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
                 requiresAuthorization: x.HasSecured(),
                 allowAnonymous: x.HasUnsecured(),
                 authorizationModel: new AuthorizationModel()
