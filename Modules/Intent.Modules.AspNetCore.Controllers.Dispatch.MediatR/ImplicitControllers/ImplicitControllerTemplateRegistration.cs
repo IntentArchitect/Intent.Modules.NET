@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.AspNetCore.Controllers.Dispatch.MediatR.Api;
 using Intent.Engine;
 using Intent.Metadata;
 using Intent.Metadata.Models;
