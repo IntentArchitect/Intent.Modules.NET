@@ -26,8 +26,8 @@ public class MediatRControllerModel : IControllerModel
                 verb: Enum.TryParse(command.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post,
                 route: command.GetHttpSettings().Route(),
                 mediaType: Enum.TryParse(command.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
-                requiresAuthorization: false,
-                allowAnonymous: false,
+                requiresAuthorization: command.HasSecured(),
+                allowAnonymous: command.HasUnsecured(),
                 authorizationModel: new AuthorizationModel(),
                 parameters: command.Properties.Where(x => x.HasParameterSettings() || command.GetHttpSettings().Route()?.Contains($"{{{x.Name.ToCamelCase()}}}") == true)
                     .Select(x => new ControllerParameterModel(
@@ -54,8 +54,8 @@ public class MediatRControllerModel : IControllerModel
                     verb: Enum.TryParse(query.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Get,
                     route: query.GetHttpSettings().Route(),
                     mediaType: Enum.TryParse(query.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
-                    requiresAuthorization: false,
-                    allowAnonymous: false,
+                    requiresAuthorization: query.HasSecured(),
+                    allowAnonymous: query.HasUnsecured(),
                     authorizationModel: new AuthorizationModel(),
                     parameters: query.Properties.Where(x => x.HasParameterSettings() || query.GetHttpSettings().Verb().IsGET())
                         .Select(x => new ControllerParameterModel(
