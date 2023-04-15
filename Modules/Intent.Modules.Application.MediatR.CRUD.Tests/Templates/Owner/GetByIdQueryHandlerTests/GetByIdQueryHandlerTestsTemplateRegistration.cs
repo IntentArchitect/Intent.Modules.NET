@@ -38,7 +38,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(p => p.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase)
+                .Where(p => p.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase)
+                            && p.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }

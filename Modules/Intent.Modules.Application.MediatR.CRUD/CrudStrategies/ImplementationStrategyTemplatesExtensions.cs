@@ -99,23 +99,18 @@ public static class ImplementationStrategyTemplatesExtensions
 
     public static DTOFieldModel GetEntityIdField(this IEnumerable<DTOFieldModel> properties, ClassModel entity)
     {
-        var explicitKeyField = GetExplicitEntityIdField(properties, entity);
+        var explicitKeyField = GetExplicitEntityIdField(properties);
         if (explicitKeyField != null) return explicitKeyField;
         var implicitKeyField = GetImplicitEntityIdField(properties, entity);
         return implicitKeyField;
         
-        DTOFieldModel GetExplicitEntityIdField(IEnumerable<DTOFieldModel> properties, ClassModel entity)
+        DTOFieldModel GetExplicitEntityIdField(IEnumerable<DTOFieldModel> properties)
         {
             var idField = properties
                 .FirstOrDefault(field =>
                 {
                     var attr = field.Mapping?.Element.AsAttributeModel();
-                    if (attr == null)
-                    {
-                        return false;
-                    }
-
-                    return attr.HasPrimaryKey();
+                    return attr != null && attr.HasPrimaryKey();
                 });
             return idField;
         }
