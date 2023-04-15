@@ -30,6 +30,8 @@ Note that the software factory will make changes to all controllers (e.g. renami
 If you run into any issues, please revert your changes and contact our support team via support@intentarchitect.com or your preferred channel`);
 
 let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6"; // Web Api
+let securedId = "a9eade71-1d56-4be7-a80c-81046c0c978b"; // Web Api
+let unsecuredId = "8b65c29e-1448-43ac-a92a-0e0f86efd6c6"; // Web Api
 services.forEach(service =&gt; {
     let serviceRoute = service.getStereotype("Http Service Settings").getProperty("Route").getValue();
     if (serviceRoute == null || serviceRoute == "") {
@@ -47,6 +49,16 @@ services.forEach(service =&gt; {
         httpSettings.getProperty("Verb").setValue(o.getStereotype("Http Settings").getProperty("Verb").getValue());
         httpSettings.getProperty("Route").setValue(`${serviceRoute}${(operationRoute == null || operationRoute == "" ? "" : `/${operationRoute}`)}`);
         httpSettings.getProperty("Return Type Mediatype").setValue(o.getStereotype("Http Settings").getProperty("Return Type Mediatype").getValue());
+
+        if ((service.hasStereotype(securedId) &amp;&amp; !o.hasStereotype(unsecuredId)) || o.hasStereotype(securedId)) {
+            request.addStereotype(securedId);
+            let roles = o.getStereotype(securedId)?.getProperty("Roles").getValue() ??
+                service.getStereotype(securedId)?.getProperty("Roles").getValue();
+            let secured = request.getStereotype(securedId);
+            secured.getProperty("Roles").setValue(roles);
+        } else if (service.hasStereotype(unsecuredId) || o.hasStereotype(unsecuredId)) {
+            request.addStereotype(unsecuredId);
+        }
     });
 
     if (operations.length &gt; 0) {

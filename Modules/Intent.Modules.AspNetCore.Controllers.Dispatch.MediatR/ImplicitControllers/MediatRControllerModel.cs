@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using Intent.Application.MediatR.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -26,9 +27,9 @@ public class MediatRControllerModel : IControllerModel
                 verb: Enum.TryParse(command.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post,
                 route: command.GetHttpSettings().Route(),
                 mediaType: Enum.TryParse(command.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
-                requiresAuthorization: command.HasSecured(),
+                requiresAuthorization: command.HasSecured() || command.HasAuthorize(),
                 allowAnonymous: command.HasUnsecured(),
-                authorizationModel: new AuthorizationModel(),
+                authorizationModel: null,
                 parameters: command.Properties.Where(x => x.HasParameterSettings() || command.GetHttpSettings().Route()?.Contains($"{{{x.Name.ToCamelCase()}}}") == true)
                     .Select(x => new ControllerParameterModel(
                         id: x.Id,
@@ -54,9 +55,9 @@ public class MediatRControllerModel : IControllerModel
                     verb: Enum.TryParse(query.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Get,
                     route: query.GetHttpSettings().Route(),
                     mediaType: Enum.TryParse(query.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
-                    requiresAuthorization: query.HasSecured(),
+                    requiresAuthorization: query.HasSecured() || query.HasAuthorize(),
                     allowAnonymous: query.HasUnsecured(),
-                    authorizationModel: new AuthorizationModel(),
+                    authorizationModel: null,
                     parameters: query.Properties.Where(x => x.HasParameterSettings() || query.GetHttpSettings().Verb().IsGET())
                         .Select(x => new ControllerParameterModel(
                             id: x.Id,
