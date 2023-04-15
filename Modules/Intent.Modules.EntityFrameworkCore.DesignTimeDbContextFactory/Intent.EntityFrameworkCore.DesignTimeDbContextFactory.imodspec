@@ -2,7 +2,7 @@
 <package>
   <id>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</id>
   <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0,5.0.0)</supportedClientVersions>
   <summary>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</summary>
   <description>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</description>
   <authors>Intent Architect</authors>

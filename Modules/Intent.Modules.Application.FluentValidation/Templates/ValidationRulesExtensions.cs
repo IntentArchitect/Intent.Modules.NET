@@ -14,12 +14,17 @@ namespace Intent.Modules.Application.FluentValidation.Templates
 {
     public static class ValidationRulesExtensions
     {
-        public static IEnumerable<string> GetValidationRules<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> properties)
+        public static IEnumerable<string> GetValidationRules(IEnumerable<DTOFieldModel> fields)
         {
-            foreach (var property in properties)
+            return GetValidationRules<object>(null, fields);
+        }
+
+        public static IEnumerable<string> GetValidationRules<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
+        {
+            foreach (var property in fields)
             {
                 var validations = new List<string>();
-                if (!template.Types.Get(property.TypeReference).IsPrimitive && !property.TypeReference.IsNullable)
+                if (!template?.Types.Get(property.TypeReference).IsPrimitive == true && !property.TypeReference.IsNullable)
                 {
                     validations.Add(".NotNull()");
                 }

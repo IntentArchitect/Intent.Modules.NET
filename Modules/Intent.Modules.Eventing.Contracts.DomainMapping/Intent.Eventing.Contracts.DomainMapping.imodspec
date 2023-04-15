@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.Contracts.DomainMapping</id>
   <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0,5.0.0)</supportedClientVersions>
   <summary>Introduces mapping capability from Entities to Messages.</summary>
   <description>Introduces mapping capability from Entities to Messages.</description>
   <authors>Intent Architect</authors>

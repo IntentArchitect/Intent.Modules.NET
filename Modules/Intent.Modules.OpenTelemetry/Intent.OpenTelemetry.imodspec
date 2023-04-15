@@ -2,7 +2,7 @@
 <package>
   <id>Intent.OpenTelemetry</id>
   <version>1.0.0</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.2.0,5.0.0)</supportedClientVersions>
   <summary>Introduces an open framework for collecting and exporting telemetry data.</summary>
   <description>Introduces an open framework for collecting and exporting telemetry data.</description>
   <authors>Intent.Modules.NET</authors>

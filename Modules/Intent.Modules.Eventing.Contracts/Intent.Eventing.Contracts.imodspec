@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.Contracts</id>
   <version>4.0.2</version>
-  <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0,5.0.0)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
   <authors>Intent Architect</authors>

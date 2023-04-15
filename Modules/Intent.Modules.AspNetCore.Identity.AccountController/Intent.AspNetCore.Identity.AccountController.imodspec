@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Identity.AccountController</id>
   <version>1.1.0</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.2.0,5.0.0)</supportedClientVersions>
   <summary>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</summary>
   <description>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</description>
   <authors>Intent.Modules.NET</authors>

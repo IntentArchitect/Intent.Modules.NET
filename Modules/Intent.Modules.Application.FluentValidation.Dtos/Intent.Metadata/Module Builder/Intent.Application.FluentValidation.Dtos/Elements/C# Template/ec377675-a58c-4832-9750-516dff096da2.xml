@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="311751db-14ae-473e-b9ce-38a650699f12" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>ValidationService</name>
-  <display>ValidationService: Single File</display>
+<class id="ec377675-a58c-4832-9750-516dff096da2" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>ValidationServiceInterface</name>
+  <display>ValidationServiceInterface: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="e84d6820-5a26-4445-8e10-3ac4069b37d6">
+  <typeReference id="c754a490-0f74-4a06-86f8-b0971b3522d3">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>a65e7165-2ce6-4bc9-8392-18beeea61dec</parentFolderId>
-  <packageId>a65e7165-2ce6-4bc9-8392-18beeea61dec</packageId>
-  <packageName>Intent.Application.ServiceImplementations.FluentValidation</packageName>
+  <parentFolderId>31c500b7-66f0-46fc-8748-23ac58a8c375</parentFolderId>
+  <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+  <packageName>Intent.Application.FluentValidation.Dtos</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Common.ValidatonService" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Common/Validation" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Common.ValidatonServiceInterface" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

@@ -42,10 +42,44 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
 
                 InstallContractDispatch(template);
+                InstallValidation(template);
                 InstallTransactionWithUnitOfWork(template, application);
                 InstallMessageBus(template, application);
                 InstallMongoDbUnitOfWork(template, application);
             }
+        }
+
+        private void InstallValidation(ControllerTemplate template)
+        {
+            if (!template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
+            {
+                return;
+            }
+
+            if (template.Model.Operations.All(o => o.Parameters.All(x => !template.TryGetTypeName(TemplateFulfillingRoles.Application.Validation.Dto, x.TypeReference.Element, out _))))
+            {
+                return;
+            }
+
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+
+                @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((field, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+
+                foreach (var method in @class.Methods)
+                {
+                    var fromBodyParam = method.Parameters.FirstOrDefault(p =>
+                        p.Attributes.Any(p => p.GetText("")?.Contains("FromBody") == true));
+                    if (fromBodyParam != null)
+                    {
+                        method.InsertStatement(0, $"await _validationService.Handle({fromBodyParam.Name}, cancellationToken);");
+                    }
+                }
+            });
         }
 
         private void InstallContractDispatch(ControllerTemplate template)

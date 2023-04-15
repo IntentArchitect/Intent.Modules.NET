@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationService;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -19,6 +21,16 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates
         public static string GetDTOValidatorName(this IntentTemplateBase template, Intent.Modelers.Services.Api.DTOModel model)
         {
             return template.GetTypeName(DTOValidatorTemplate.TemplateId, model);
+        }
+
+        public static string GetValidationServiceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(ValidationServiceTemplate.TemplateId);
+        }
+
+        public static string GetValidationServiceInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(ValidationServiceInterfaceTemplate.TemplateId);
         }
 
     }

@@ -9,6 +9,14 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DTOValidatorTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.tt">
+      <LastGenOutput>ValidationServiceInterfaceTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
+    <None Update="Templates\ValidationService\ValidationServiceTemplate.tt">
+      <LastGenOutput>ValidationServiceTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +24,16 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DTOValidatorTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ValidationService\ValidationServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

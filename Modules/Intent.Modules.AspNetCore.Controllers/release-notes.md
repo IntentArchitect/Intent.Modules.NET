@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Moved interoperability dependencies for Dispatch.MediatR and Dispatch.Services to this module.
+
 ### Version 5.0.0
 
 - Switched to abstract model type IControllerModel for ControllerTemplate, allowing support for Controllers being created from different sources.

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions</id>
   <version>4.0.0</version>
-  <supportedClientVersions>[3.3.12-pre.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.3.12-pre.0,5.0.0)</supportedClientVersions>
   <summary>CRUD conventions for Azure Functions</summary>
   <description>CRUD conventions for Azure Functions</description>
   <authors>Intent Architect</authors>

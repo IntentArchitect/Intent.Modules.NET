@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates.ValidationServiceInterface;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
+using Intent.Modules.Application.FluentValidation.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
@@ -11,12 +14,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates.ValidationService
+namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationService
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class ValidationServiceTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Application.ServiceImplementations.FluentValidation.ValidationService";
+        public const string TemplateId = "Intent.Application.FluentValidation.Dtos.ValidationService";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidationServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -36,7 +39,7 @@ namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Tem
         {
             var interfaceTemplate = ExecutionContext.FindTemplateInstance<ValidationServiceInterfaceTemplate>(ValidationServiceInterfaceTemplate.TemplateId);
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(ClassName)
-                .WithPriority(5)
+                .WithPriority(10)
                 .ForConcern("Application")
                 .ForInterface(interfaceTemplate.ClassName)
                 .HasDependency(this)

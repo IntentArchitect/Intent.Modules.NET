@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Integration.HttpClients</id>
   <version>3.3.0</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.2.0,5.0.0)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
   <authors>Intent Architect</authors>

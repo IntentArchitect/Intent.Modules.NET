@@ -9,20 +9,12 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>53e21a9c-358c-42e3-b703-a00068034496</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f50c7c04-a1a1-4ae2-85f9-68802d922594</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/WebApiControllerInstallerFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WebApiControllerInstallerFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>57961267-d074-495c-abb9-ac6fb15a0bc1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.ServiceImplementations.FluentValidation.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.ServiceImplementations.FluentValidation.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>57961267-d074-495c-abb9-ac6fb15a0bc1</ProjectId>
@@ -38,78 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#311751db-14ae-473e-b9ce-38a650699f12</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationService/ValidationServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService/ValidationServiceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#311751db-14ae-473e-b9ce-38a650699f12</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationService/ValidationServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService/ValidationServiceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#311751db-14ae-473e-b9ce-38a650699f12</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationService/ValidationServiceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService/ValidationServiceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#311751db-14ae-473e-b9ce-38a650699f12</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationService/ValidationServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService/ValidationServiceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#8d0e69b3-33c7-4715-b96c-b41afb25017f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationServiceInterface/ValidationServiceInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#8d0e69b3-33c7-4715-b96c-b41afb25017f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationServiceInterface/ValidationServiceInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8d0e69b3-33c7-4715-b96c-b41afb25017f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationServiceInterface/ValidationServiceInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>563850fd-8c56-48a0-afce-f7ca49513a5e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8d0e69b3-33c7-4715-b96c-b41afb25017f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationServiceInterface/ValidationServiceInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationServiceInterface/ValidationServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

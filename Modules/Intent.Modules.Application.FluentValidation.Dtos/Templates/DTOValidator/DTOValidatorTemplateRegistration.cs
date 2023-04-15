@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.FluentValidation.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -34,7 +35,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetDTOModels();
+            return _metadataManager.Services(application).GetDTOModels()
+                .Where(x => ValidationRulesExtensions.GetValidationRules(x.Fields).Any());
         }
     }
 }

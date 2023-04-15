@@ -30,9 +30,12 @@
 
         public static class Application
         {
+            public const string DependencyInjection = "Application.DependencyInjection";
+
             public static class Common
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
+                public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
             }
 
             public static class Contracts
@@ -48,6 +51,11 @@
             public static class Eventing
             {
                 public const string EventBusInterface = "Application.Eventing.EventBusInterface";
+            }
+
+            public static class Validation
+            {
+                public const string Dto = "Application.Validation.Dto";
             }
         }
 

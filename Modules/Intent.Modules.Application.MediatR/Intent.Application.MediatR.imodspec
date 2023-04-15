@@ -67,12 +67,7 @@
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <interoperability>
-    <detect id="Intent.AspNetCore.Controllers">
-      <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.0.0" />
-      </install>
-    </detect>
-    <detect id="Intent.AspNetCore">
+	  <detect id="Intent.AspNetCore">
       <install>
         <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.3.7" />
       </install>

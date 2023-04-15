@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c1942dad-ed17-43cb-a935-e393f216d8a0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b1cedb3a-e6f8-4395-98f3-f6c85526e7e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationDependencyInjectionExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationDependencyInjectionExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>39362e67-e432-45bf-8901-84ae3a4dbf08</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
