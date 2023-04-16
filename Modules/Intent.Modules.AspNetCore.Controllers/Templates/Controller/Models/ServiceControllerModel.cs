@@ -37,7 +37,7 @@ public class ServiceControllerModel : IControllerModel
                 allowAnonymous: x.HasUnsecured(),
                 authorizationModel: new AuthorizationModel()
                 {
-                    RolesExpression = x.HasSecured()
+                    RolesExpression = x.HasSecured() && !string.IsNullOrWhiteSpace(x.GetSecured().Roles())
                         ? @$"""{string.Join(",", x.GetSecured().Roles()
                             .Split(',', StringSplitOptions.RemoveEmptyEntries)
                             .Select(s => s.Trim()))}"""
