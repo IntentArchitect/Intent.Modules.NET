@@ -12,7 +12,37 @@
       <typeOrder />
       <macros>
         <macro trigger="on-loaded">
-          <script>let services = lookupTypesOf("Service").filter(x =&gt; x.hasStereotype("Http Service Settings"));
+          <script>let obsoleteHttpSettingsId = "389e3ad2-6063-4777-aa47-5ec9421faf3d";
+let obsoleteParameterSettingsId = "6da057a9-d398-4b57-a6de-cc5558fd2677";
+
+let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6"; // Web Api
+let parameterSettingsId = "d01df110-1208-4af8-a913-92a49d219552"; // Web Api
+let securedId = "a9eade71-1d56-4be7-a80c-81046c0c978b"; // Web Api
+let unsecuredId = "8b65c29e-1448-43ac-a92a-0e0f86efd6c6"; // Web Api
+
+let requests = lookupTypesOf(["Command", "Query"]);
+requests.forEach(request =&gt; {
+    let obsolete = request.getStereotype(obsoleteHttpSettingsId);
+    if (obsolete != null) {
+        let stereotype = request.addStereotype(httpSettingsId);
+        stereotype.getProperty("Verb").setValue(obsolete.getProperty("Verb").getValue())
+        stereotype.getProperty("Route").setValue(obsolete.getProperty("Route").getValue())
+        stereotype.getProperty("Return Type Mediatype").setValue(obsolete.getProperty("Return Type Mediatype").getValue())
+        request.removeStereotype(obsoleteHttpSettingsId);
+    }
+
+    request.getChildren().forEach(property =&gt; {
+        let obsolete = property.getStereotype(obsoleteParameterSettingsId);
+        if (obsolete != null) {
+            let stereotype = property.addStereotype(parameterSettingsId);
+            stereotype.getProperty("Source").setValue(obsolete.getProperty("Source").getValue())
+            stereotype.getProperty("Header Name").setValue(obsolete.getProperty("Header Name").getValue())
+            property.removeStereotype(obsoleteParameterSettingsId);
+        }
+    })
+});
+
+let services = lookupTypesOf("Service").filter(x =&gt; x.hasStereotype("Http Service Settings"));
 if (services.length == 0 || services.filter(x =&gt; x.getChildren("Operation")
     .some(x =&gt; x.isMapped &amp;&amp; (x.getMapping()?.getElement()?.specialization == "Command" || x.getMapping()?.getElement()?.specialization == "Query")))
     .length == 0) {
@@ -29,9 +59,7 @@ Note that the software factory will make changes to all controllers (e.g. renami
 
 If you run into any issues, please revert your changes and contact our support team via support@intentarchitect.com or your preferred channel`);
 
-let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6"; // Web Api
-let securedId = "a9eade71-1d56-4be7-a80c-81046c0c978b"; // Web Api
-let unsecuredId = "8b65c29e-1448-43ac-a92a-0e0f86efd6c6"; // Web Api
+
 services.forEach(service =&gt; {
     let serviceRoute = service.getStereotype("Http Service Settings").getProperty("Route").getValue();
     if (serviceRoute == null || serviceRoute == "") {
