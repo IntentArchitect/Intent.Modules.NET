@@ -1,4 +1,8 @@
-﻿### Version 4.0.2
+﻿### Version 4.0.4
+
+- Update: Included Service Designer comments on `Query`s and `Command`s as documentation on `Query`s, `Command`s and `CommandHandlers` .
+
+### Version 4.0.2
 
 - Update: Updated Module interoperability for integrating with AspNetCore.
 

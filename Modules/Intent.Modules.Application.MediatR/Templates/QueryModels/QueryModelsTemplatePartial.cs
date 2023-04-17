@@ -46,6 +46,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             return string.Join(", ", interfaces);
         }
 
+        private string GetComments(string indentation)
+        {
+            return TemplateHelper.GetXmlDocComments(Model.InternalElement?.Comment, indentation);
+        }
+
         private string GetQueryAttributes()
         {
             if (Model.HasAuthorize())

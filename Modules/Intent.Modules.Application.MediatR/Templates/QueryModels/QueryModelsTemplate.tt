@@ -15,7 +15,7 @@ using System.Collections.Generic;
 
 namespace <#= Namespace #>
 {
-    <#= GetQueryAttributes() #>public class <#= ClassName #> : <#= GetRequestInterface() #>
+    <#= GetComments("    ") #><#= GetQueryAttributes() #>public class <#= ClassName #> : <#= GetRequestInterface() #>
     {
 <#  foreach(var property in Model.Properties) { #>
         public <#= GetTypeName(property) #> <#= property.Name.ToPascalCase() #> { get; set; }

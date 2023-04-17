@@ -43,6 +43,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             this.Write("\r\n{\r\n    ");
             
             #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandModels\CommandModelsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetComments("    ")));
+            
+            #line default
+            #line hidden
+            
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandModels\CommandModelsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCommandAttributes()));
             
             #line default

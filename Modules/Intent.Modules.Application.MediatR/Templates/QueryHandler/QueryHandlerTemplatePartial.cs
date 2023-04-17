@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
@@ -45,6 +47,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     });
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
+                        if (TemplateHelper.HasXmlDocComments(Model.InternalElement?.Comment, out var xmlComments))
+                            method.WithComments(xmlComments);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetQueryModelName(), "request");

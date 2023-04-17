@@ -44,6 +44,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     });
                     @class.AddMethod($"Task<{GetReturnType()}>", "Handle", method =>
                     {
+                        if (TemplateHelper.HasXmlDocComments(Model.InternalElement?.Comment, out var xmlComments))
+                            method.WithComments(xmlComments);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetCommandModelName(), "request");

@@ -65,5 +65,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
 
             return string.Empty;
         }
+
+        private string GetComments(string indentation)
+        {
+            return TemplateHelper.GetXmlDocComments(Model.InternalElement?.Comment, indentation);
+        }
     }
 }
