@@ -1,7 +1,6 @@
 using System.Reflection;
 using AutoMapper;
 using FluentValidation;
-using Integration.HttpClients.TestApplication.Application.Common.Validation;
 using Integration.HttpClients.TestApplication.Application.Implementation;
 using Integration.HttpClients.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -16,9 +15,8 @@ namespace Integration.HttpClients.TestApplication.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IValidationService, ValidationService>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IInvoiceService, InvoiceService>();
             return services;
         }

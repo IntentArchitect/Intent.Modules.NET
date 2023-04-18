@@ -84,14 +84,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#93dc19cd-9bc3-443e-9436-17fc7395b391</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ClassAS/ClassACreateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassAS/ClassACreateDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#3767c15c-9207-47ca-b73f-78adffeb6a8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ClassAS/ClassADTO.cs</ApplicationRelativeFilePath>
@@ -108,26 +100,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3767c15c-9207-47ca-b73f-78adffeb6a8d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ClassAS/ClassADTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassAS/ClassADTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#5e4e8ff8-42e6-4de7-bce5-ed60319fedd7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ClassAS/ClassAUpdateDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClassAS/ClassAUpdateDTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5e4e8ff8-42e6-4de7-bce5-ed60319fedd7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ClassAS/ClassAUpdateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassAS/ClassAUpdateDTOValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -160,22 +136,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>65fcf2e4-6def-41bf-beb2-ea34173b8c44</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>65fcf2e4-6def-41bf-beb2-ea34173b8c44</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

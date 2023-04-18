@@ -115,22 +115,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>46e2ff3c-680e-4e71-9175-dcfec1d3ec64</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>46e2ff3c-680e-4e71-9175-dcfec1d3ec64</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>cc2e2cf1-e802-4326-8c36-dfbe725411af</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

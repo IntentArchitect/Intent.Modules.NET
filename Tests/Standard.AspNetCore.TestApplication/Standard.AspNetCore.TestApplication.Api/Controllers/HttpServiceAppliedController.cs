@@ -22,15 +22,11 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     {
         private readonly IHttpServiceAppliedService _appService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IValidationService _validationService;
 
-        public HttpServiceAppliedController(IHttpServiceAppliedService appService,
-            IUnitOfWork unitOfWork,
-            IValidationService validationService)
+        public HttpServiceAppliedController(IHttpServiceAppliedService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _validationService = validationService;
         }
 
         /// <summary>

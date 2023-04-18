@@ -138,6 +138,34 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="2cc0d30d-2bcd-4c47-ba86-8da88bca1205" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2e3d2a11-b48f-48d3-8d7a-184d8281c3c7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="4bf5aaed-d794-46b5-b3c5-3736456424e4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2e3d2a11-b48f-48d3-8d7a-184d8281c3c7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

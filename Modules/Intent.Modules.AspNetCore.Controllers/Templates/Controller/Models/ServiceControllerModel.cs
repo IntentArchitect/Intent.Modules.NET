@@ -47,12 +47,26 @@ public class ServiceControllerModel : IControllerModel
                     .Select(p => new ControllerParameterModel(id: p.Id,
                         name: p.Name,
                         typeReference: p.TypeReference,
-                        source: Enum.TryParse<SourceOptionsEnum>(p.GetParameterSettings()?.Source().Value, out var source) ? source : SourceOptionsEnum.Default,
+                        source: MapSourceType(p.GetParameterSettings()?.Source()?.AsEnum()) ?? SourceOptionsEnum.Default,
                         headerName: p.GetParameterSettings()?.HeaderName(),
                         mappedPayloadProperty: p.InternalElement.MappedElement?.Element))
                     .ToList<IControllerParameterModel>()
             ))
             .ToList<IControllerOperationModel>();
+    }
+
+    private SourceOptionsEnum? MapSourceType(ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum? existingEnum)
+    {
+        return existingEnum switch
+        {
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.Default => SourceOptionsEnum.Default,
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => SourceOptionsEnum.FromQuery,
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => SourceOptionsEnum.FromBody,
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => SourceOptionsEnum.FromForm,
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => SourceOptionsEnum.FromRoute,
+            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => SourceOptionsEnum.FromHeader,
+            _ => null
+        };
     }
 
     public string Id => _model.Id;

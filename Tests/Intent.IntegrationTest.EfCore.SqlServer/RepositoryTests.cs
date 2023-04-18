@@ -1,7 +1,10 @@
-﻿using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
+﻿using System.Data.Common;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories;
+using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Services;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -11,6 +14,17 @@ public class RepositoryTests : SharedDatabaseFixture<ApplicationDbContext, Repos
 {
     public RepositoryTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
+    }
+
+    protected override ApplicationDbContext CreateContext(DbTransaction transaction = null)
+    {
+        return new ApplicationDbContext(
+            new DbContextOptionsBuilder<ApplicationDbContext>()
+                .LogTo(OutputHelper.WriteLine)
+                .UseSqlServer(Connection)
+                .EnableSensitiveDataLogging()
+                .Options,
+            new DummyDomainEventService());
     }
 
     [IgnoreOnCiBuildFact]

@@ -23,13 +23,11 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     {
         private readonly IClassASService _appService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IValidationService _validationService;
 
-        public ClassASController(IClassASService appService, IUnitOfWork unitOfWork, IValidationService validationService)
+        public ClassASController(IClassASService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _validationService = validationService;
         }
 
         /// <summary>
@@ -42,7 +40,6 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create([FromBody] ClassACreateDTO dto, CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
@@ -96,7 +93,6 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromBody] ClassAUpdateDTO dto,
             CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

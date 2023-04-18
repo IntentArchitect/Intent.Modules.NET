@@ -30,14 +30,14 @@
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="389e3ad2-6063-4777-aa47-5ec9421faf3d" name="Http Settings">
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.AspNetCore.Controllers.Dispatch.MediatR</definitionPackageName>
-      <definitionPackageId>c150a471-8907-4bc4-8be8-f63c8a782e69</definitionPackageId>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
-        <property name="3c8a760e-8340-4749-adce-98a19d422068" display="Verb" value="POST" isActive="true" />
-        <property name="b8e71dbb-eb96-4e36-94c2-cdf87a546862" display="Route" value="api/aggregate-roots/{aggregateRootId}/CompositeManyBS" isActive="true" />
-        <property name="cd4e8d51-d9e4-4f1f-b3e7-6b6a41b6843e" display="Return Type Mediatype" value="application/json" isActive="true" />
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/aggregate-roots/{aggregateRootId}/CompositeManyBS" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

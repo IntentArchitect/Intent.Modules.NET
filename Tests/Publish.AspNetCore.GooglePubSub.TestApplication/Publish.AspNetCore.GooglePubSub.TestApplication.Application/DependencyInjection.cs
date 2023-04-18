@@ -19,9 +19,8 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IValidationService, ValidationService>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IPublishService, PublishService>();
             services.AddTransient<IIntegrationEventHandler<GenericMessage>, GenericEventHandler>();
             return services;

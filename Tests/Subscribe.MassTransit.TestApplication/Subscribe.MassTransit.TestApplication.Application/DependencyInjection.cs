@@ -17,9 +17,8 @@ namespace Subscribe.MassTransit.TestApplication.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IValidationService, ValidationService>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IIntegrationEventHandler<EventStartedEvent>, EventStartedEventHandler>();
             return services;
         }

@@ -17,6 +17,14 @@ namespace CleanArchitecture.TestApplication.Domain.Entities
         {
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected EntityWithCtor()
+        {
+        }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }

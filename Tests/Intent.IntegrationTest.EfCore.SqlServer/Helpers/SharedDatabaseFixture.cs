@@ -65,9 +65,9 @@ public abstract class SharedDatabaseFixture<TDbContext, TTestClass> : IDisposabl
 
     protected TDbContext DbContext { get; private set; }
 
-    private DbConnection Connection { get; set; }
+    protected DbConnection Connection { get; set; }
 
-    private TDbContext CreateContext(DbTransaction transaction = null)
+    protected virtual TDbContext CreateContext(DbTransaction transaction = null)
     {
         var context = (TDbContext)Activator.CreateInstance(typeof(TDbContext),
             new DbContextOptionsBuilder<TDbContext>()

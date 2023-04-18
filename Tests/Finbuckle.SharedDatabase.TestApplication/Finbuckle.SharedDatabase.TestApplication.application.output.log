@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ae63b6ed-a476-47f7-9532-a22e8ac278a3</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b10e9ff-7c9d-4bd4-a6d5-779e38e04508</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#a8d68edd-36fb-4f52-94f8-30234641f3f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -115,22 +123,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2587d7d1-6549-4f0b-b29c-025fd4366e4d</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2587d7d1-6549-4f0b-b29c-025fd4366e4d</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -172,14 +164,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#150a90a2-6011-4781-9e6b-f7a39dc0593f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/CreateUserRoleDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#cabe153e-22ec-476e-ad04-5b9daaac6417</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDto.cs</ApplicationRelativeFilePath>
@@ -188,26 +172,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#cabe153e-22ec-476e-ad04-5b9daaac6417</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UpdateUserRoleDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c767b2b7-dab0-4828-b85c-a5b812c1eee7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c767b2b7-dab0-4828-b85c-a5b812c1eee7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -228,14 +196,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#fad611f2-00cd-42c5-b736-4b2851976b60</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c7fb9e6a-4fa8-436e-ac57-10c0febc2aa7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDto.cs</ApplicationRelativeFilePath>
@@ -252,26 +212,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c7fb9e6a-4fa8-436e-ac57-10c0febc2aa7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserRoleDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#df91cf36-284f-4524-b0bd-62c6420f8e3d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#df91cf36-284f-4524-b0bd-62c6420f8e3d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

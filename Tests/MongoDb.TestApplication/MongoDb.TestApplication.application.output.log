@@ -35,6 +35,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>55e2cf4d-739e-4b8b-b2c7-85d886294cea</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4b82569a-216d-4120-bb61-222435de1743</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -107,22 +115,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23e5c553-c224-4c23-87dd-c5b31e262caf</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>23e5c553-c224-4c23-87dd-c5b31e262caf</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -136,14 +128,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#260337ec-e4fc-47bf-b030-8c805f491305</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -164,14 +148,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1ba3e2ef-f143-4cc3-9350-c3c67b1f2215</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#1e622080-fbd1-4d9d-807a-226e727f3488</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidUpdateDto.cs</ApplicationRelativeFilePath>
@@ -180,26 +156,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1e622080-fbd1-4d9d-807a-226e727f3488</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidUpdateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#6137836d-9180-4614-8219-36a5114cbbac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6137836d-9180-4614-8219-36a5114cbbac</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -220,26 +180,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#988dee6c-b686-494b-ba70-3f2c54e251da</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#02d8b2e3-61dd-4ba1-863a-20357dd44a53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#02d8b2e3-61dd-4ba1-863a-20357dd44a53</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

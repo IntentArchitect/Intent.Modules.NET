@@ -208,6 +208,48 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="d518b2b4-5a7e-4310-b02a-8fe2d9c2db99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
+          <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>57f5155c-92a5-440c-ace0-483a10177b91</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2188fd1b-5ac0-4f55-9413-23bd03abe4c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>57f5155c-92a5-440c-ace0-483a10177b91</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="34dbc17b-940c-4d9e-bac5-61b680d90480" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>57f5155c-92a5-440c-ace0-483a10177b91</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

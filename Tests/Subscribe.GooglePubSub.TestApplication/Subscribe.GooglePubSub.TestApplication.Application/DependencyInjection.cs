@@ -18,9 +18,8 @@ namespace Subscribe.GooglePubSub.TestApplication.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IValidationService, ValidationService>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IIntegrationEventHandler<EventStartedEvent>, EventStartedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<GenericMessage>, GenericEventHandler>();
             return services;

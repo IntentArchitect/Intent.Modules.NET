@@ -235,30 +235,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c80012a7-e2a4-4229-9b85-aaa02fa49da5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainCreateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainCreateDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c399b2c9-3ab5-4d04-b076-1fc451f50df4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#335f1f49-8170-4281-aa7b-7218b30b13b0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainUpdateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainUpdateDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>56477774-e375-40da-b00c-4fd3944ce41c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#56477774-e375-40da-b00c-4fd3944ce41c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

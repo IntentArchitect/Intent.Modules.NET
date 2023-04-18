@@ -4,6 +4,7 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using Finbuckle.SeparateDatabase.TestApplication.Api.Controllers.ResponseTypes;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
@@ -24,13 +25,11 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
     {
         private readonly IUsersService _appService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IValidationService _validationService;
 
-        public UsersController(IUsersService appService, IUnitOfWork unitOfWork, IValidationService validationService)
+        public UsersController(IUsersService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _validationService = validationService;
         }
 
         /// <summary>
@@ -38,12 +37,12 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
-        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> Create([FromBody] UserCreateDto dto, CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -52,7 +51,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
-            return Created(string.Empty, result);
+            return Created(string.Empty, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
@@ -98,7 +97,6 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
             [FromBody] UserUpdateDto dto,
             CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

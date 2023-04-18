@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDb.TestApplication.Api.Controllers.ResponseTypes;
 using MongoDb.TestApplication.Application.Common.Validation;
 using MongoDb.TestApplication.Application.IdTypeGuids;
 using MongoDb.TestApplication.Application.Interfaces;
@@ -24,17 +25,14 @@ namespace MongoDb.TestApplication.Api.Controllers
     {
         private readonly IIdTypeGuidsService _appService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IValidationService _validationService;
         private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
         public IdTypeGuidsController(IIdTypeGuidsService appService,
             IUnitOfWork unitOfWork,
-            IValidationService validationService,
             IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _validationService = validationService;
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
@@ -43,14 +41,14 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
-        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> Create(
             [FromBody] IdTypeGuidCreateDto dto,
             CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -60,7 +58,7 @@ namespace MongoDb.TestApplication.Api.Controllers
                 transaction.Complete();
             }
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            return Created(string.Empty, result);
+            return Created(string.Empty, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
@@ -106,7 +104,6 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeGuidUpdateDto dto,
             CancellationToken cancellationToken)
         {
-            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

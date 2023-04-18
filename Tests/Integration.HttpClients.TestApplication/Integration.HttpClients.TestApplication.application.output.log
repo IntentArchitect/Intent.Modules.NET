@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5ee095eb-93c9-47f5-b64a-dfd3869f5dd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5d10b245-c1b9-4179-8774-71f13923e29c</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -107,22 +115,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -196,14 +188,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#07c4044d-da72-4e8d-9cae-3a14a8e1e948</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceCreateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceCreateDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#cfdb7a21-350c-4cd0-84d2-202166ddafd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceDTO.cs</ApplicationRelativeFilePath>
@@ -212,26 +196,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#cfdb7a21-350c-4cd0-84d2-202166ddafd1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceDTOValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#1861b20a-30e9-41a0-a63b-b85c7a334e0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceUpdateDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/InvoiceUpdateDTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1861b20a-30e9-41a0-a63b-b85c7a334e0e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceUpdateDTOValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceUpdateDTOValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
