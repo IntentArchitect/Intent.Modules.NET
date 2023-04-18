@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Finbuckle.SharedDatabase.TestApplication.Api.Controllers.ResponseTypes;
-using Finbuckle.SharedDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SharedDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Application.Users;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common.Interfaces;

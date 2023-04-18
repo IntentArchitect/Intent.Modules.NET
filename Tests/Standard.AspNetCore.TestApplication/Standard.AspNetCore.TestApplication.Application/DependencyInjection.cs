@@ -3,7 +3,6 @@ using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using Standard.AspNetCore.TestApplication.Application.Common.Validation;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 

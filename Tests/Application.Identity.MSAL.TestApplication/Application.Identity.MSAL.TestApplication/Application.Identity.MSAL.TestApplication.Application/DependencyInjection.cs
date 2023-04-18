@@ -1,5 +1,4 @@
 using System.Reflection;
-using Application.Identity.MSAL.TestApplication.Application.Common.Validation;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

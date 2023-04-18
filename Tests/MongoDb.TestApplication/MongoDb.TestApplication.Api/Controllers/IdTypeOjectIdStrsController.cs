@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDb.TestApplication.Api.Controllers.ResponseTypes;
-using MongoDb.TestApplication.Application.Common.Validation;
 using MongoDb.TestApplication.Application.IdTypeOjectIdStrs;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Domain.Common.Interfaces;

@@ -4,7 +4,6 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Eventing;
-using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Validation;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Implementation;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.IntegrationEventHandlers;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.IntegrationEvents;

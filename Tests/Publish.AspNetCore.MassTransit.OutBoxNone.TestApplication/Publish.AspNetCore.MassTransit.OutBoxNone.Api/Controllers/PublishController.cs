@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Eventing;
-using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Validation;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Common.Interfaces;
 

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Eventing;
-using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Validation;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Interfaces;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 

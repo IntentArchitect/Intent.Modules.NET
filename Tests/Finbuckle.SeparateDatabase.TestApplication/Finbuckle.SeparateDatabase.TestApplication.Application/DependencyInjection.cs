@@ -1,6 +1,5 @@
 using System.Reflection;
 using AutoMapper;
-using Finbuckle.SeparateDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Implementation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using FluentValidation;

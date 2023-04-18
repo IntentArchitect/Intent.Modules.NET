@@ -5,7 +5,6 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
-using Subscribe.GooglePubSub.TestApplication.Application.Common.Validation;
 using Subscribe.GooglePubSub.TestApplication.Application.IntegrationEventHandlers;
 using Subscribe.GooglePubSub.TestApplication.Application.IntegrationEvents;
 

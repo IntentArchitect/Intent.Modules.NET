@@ -3,7 +3,6 @@ using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDb.TestApplication.Application.Common.Validation;
 using MongoDb.TestApplication.Application.Implementation;
 using MongoDb.TestApplication.Application.Interfaces;
 

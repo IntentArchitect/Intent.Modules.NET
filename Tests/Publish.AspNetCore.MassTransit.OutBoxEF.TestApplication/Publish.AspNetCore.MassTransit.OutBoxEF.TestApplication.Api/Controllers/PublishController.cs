@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Eventing;
-using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Validation;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.Interfaces;
 

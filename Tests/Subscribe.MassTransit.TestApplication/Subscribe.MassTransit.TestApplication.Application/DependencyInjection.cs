@@ -5,7 +5,6 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
-using Subscribe.MassTransit.TestApplication.Application.Common.Validation;
 using Subscribe.MassTransit.TestApplication.Application.IntegrationEventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
