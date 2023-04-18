@@ -16,18 +16,34 @@ using Intent.Templates;
 
 namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
 {
-    [IntentManaged(Mode.Ignore)]
-    public class HttpClientTemplate : HttpClientTemplateBase
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class HttpClientTemplate : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Integration.HttpClients.HttpClient";
 
-        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(
-            templateId: TemplateId,
-            outputTarget: outputTarget,
-            model: model,
-            httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
-            jsonResponseTemplateId: JsonResponseTemplate.TemplateId)
-        { }
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
+        {
+            CSharpFile = HttpClientGenerator.CreateCSharpFile(
+                template: this,
+                httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
+                jsonResponseTemplateId: JsonResponseTemplate.TemplateId);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
     }
 }
