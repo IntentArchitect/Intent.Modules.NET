@@ -173,8 +173,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement
         var computedValueSql = attribute.GetComputedValue()?.SQL();
         if (!string.IsNullOrWhiteSpace(computedValueSql))
         {
+
             statements.Add(
-                $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+                $".HasComputedColumnSql(\"{Escape(computedValueSql)}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
         }
 
         if (attribute.HasRowVersion())
@@ -183,5 +184,11 @@ public class EfCoreFieldConfigStatement : CSharpStatement
         }
 
         return statements;
+    }
+
+    private string Escape(string computedValueSql)
+    {
+        string result = computedValueSql.Trim('"');
+        return result.Replace("\"", "\\\"");
     }
 }
