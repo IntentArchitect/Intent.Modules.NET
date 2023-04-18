@@ -4,6 +4,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
@@ -12,11 +13,11 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates;
 
 internal static class MappingExtensionHelper
 {
-    public static IEnumerable<CSharpStatement> GetPropertyAssignments(
+    public static IEnumerable<CSharpStatement> GetPropertyAssignments<TModel>(
         string domainEntityVar,
         ClassModel domainModel,
         IEnumerable<IElement> properties,
-        IntentTemplateBase template)
+        CSharpTemplateBase<TModel> template)
     {
         var codeLines = new List<CSharpStatement>();
         foreach (var property in properties)
@@ -60,6 +61,7 @@ internal static class MappingExtensionHelper
                     }
                     else
                     {
+                        template.AddUsing("System.Linq");
                         codeLines.Add(
                             $"{property.Name.ToPascalCase()} = {sourcePath}{(association.IsNullable ? "?" : "")}.Select({GetMapToMethodName(property, template)}).ToList(),");
                     }
