@@ -93,36 +93,48 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 .ToArray();
             foreach (var commandHandler in commandHandlers)
             {
-                var messageTemplate = commandHandler.Template.GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, commandHandler.Message);
-                var @class = commandHandler.Template.CSharpFile.Classes.First();
+                commandHandler.Template.CSharpFile.AfterBuild(file =>
+                    PerformConventionCodeInjection(commandHandler.Template, commandHandler.Convention,
+                        commandHandler.Message, commandHandler.Entity, application));
+            }
+        }
 
-                if (commandHandler.Convention == "create")
-                {
-                    InjectEventBusCode(@class, commandHandler.Template);
-                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
+        private void PerformConventionCodeInjection(
+            ICSharpFileBuilderTemplate template, 
+            string convention, 
+            MessageModel message, 
+            ClassModel entity, 
+            IApplication application)
+        {
+            var messageTemplate = template.GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, message);
+            var @class = template.CSharpFile.Classes.First();
+            
+            switch (convention)
+            {
+                case "create":
+                    InjectEventBusCode(@class, template);
+                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(new{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
-                } 
-                else if (commandHandler.Convention == "update")
-                {
-                    InjectEventBusCode(@class, commandHandler.Template);
-                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
+                        ?.InsertAbove($"_eventBus.Publish(new{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    break;
+                case "update":
+                    InjectEventBusCode(@class, template);
+                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(existing{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
-                }
-                else if (commandHandler.Convention == "delete")
-                {
-                    InjectEventBusCode(@class, commandHandler.Template);
-                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
+                        ?.InsertAbove($"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    break;
+                case "delete":
+                    InjectEventBusCode(@class, template);
+                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(existing{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
-                }
+                        ?.InsertAbove($"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    break;
             }
         }
 
@@ -144,9 +156,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
         {
             return name.ToLower() switch
             {
-                var x when x.StartsWith("create", StringComparison.OrdinalIgnoreCase) || x.StartsWith("new", StringComparison.OrdinalIgnoreCase) || x.StartsWith("add", StringComparison.OrdinalIgnoreCase) => "create",
-                var x when x.StartsWith("update", StringComparison.OrdinalIgnoreCase) || x.StartsWith("edit", StringComparison.OrdinalIgnoreCase) => "update",
-                var x when x.StartsWith("delete", StringComparison.OrdinalIgnoreCase) || x.StartsWith("remove", StringComparison.OrdinalIgnoreCase) => "delete",
+                var x when x.Contains("create", StringComparison.OrdinalIgnoreCase) || x.StartsWith("new", StringComparison.OrdinalIgnoreCase) || x.Contains("add", StringComparison.OrdinalIgnoreCase) => "create",
+                var x when x.Contains("update", StringComparison.OrdinalIgnoreCase) || x.Contains("edit", StringComparison.OrdinalIgnoreCase) => "update",
+                var x when x.Contains("delete", StringComparison.OrdinalIgnoreCase) || x.Contains("remove", StringComparison.OrdinalIgnoreCase) => "delete",
                 _ => null
             };
         }
