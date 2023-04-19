@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Intent.Metadata.Models;
-using Intent.Metadata.WebApi.Api;
 using Intent.Modules.Common.Types.Api;
-using Intent.SdkEvolutionHelpers;
-using JetBrains.Annotations;
+using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 
@@ -24,7 +21,7 @@ public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetad
     ITypeReference ReturnType { get; }
     HttpVerb Verb { get; }
     string Route { get; }
-    MediaTypeOptions MediaType { get; }
+    HttpMediaType? MediaType { get; }
     bool RequiresAuthorization { get; }
     bool AllowAnonymous { get; }
     IAuthorizationModel AuthorizationModel { get; }
@@ -34,8 +31,8 @@ public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetad
 
 public interface IControllerParameterModel : IHasName, IHasTypeReference, IMetadataModel
 {
-    SourceOptionsEnum Source { get; }
-    [CanBeNull] string HeaderName { get; }
+    HttpInputSource? Source { get; }
+    string HeaderName { get; }
     ICanBeReferencedType MappedPayloadProperty { get; }
 }
 
@@ -55,29 +52,4 @@ public interface IAuthorizationModel
     /// Gets or sets the Roles that determines access to this Resource. Note the format will generate exactly in C#.
     ///</summary>
     public string RolesExpression { get; }
-}
-
-public enum HttpVerb
-{
-    Get,
-    Post,
-    Put,
-    Patch,
-    Delete,
-}
-
-public enum MediaTypeOptions
-{
-    Default,
-    ApplicationJson,
-}
-
-public enum SourceOptionsEnum
-{
-    Default,
-    FromQuery,
-    FromBody,
-    FromForm,
-    FromRoute,
-    FromHeader,
 }

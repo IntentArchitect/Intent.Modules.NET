@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Application.Contracts.Clients.Templates;
@@ -11,8 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using OperationModel = Intent.Modelers.Services.Api.OperationModel;
-using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
+using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 
@@ -21,7 +19,7 @@ public class HttpClientGenerator
     private readonly CSharpTemplateBase<ServiceProxyModel> _template;
     private readonly string _httpClientRequestExceptionTemplateId;
     private readonly string _jsonResponseTemplateId;
-    private readonly MappedModel _mappedModel;
+    private readonly IReadOnlyCollection<IHttpEndpointModel> _endpoints;
 
     private HttpClientGenerator(
         CSharpTemplateBase<ServiceProxyModel> template,
@@ -31,6 +29,7 @@ public class HttpClientGenerator
         _template = template;
         _httpClientRequestExceptionTemplateId = httpClientRequestExceptionTemplateId;
         _jsonResponseTemplateId = jsonResponseTemplateId;
+        _endpoints = template.Model.GetMappedEndpoints().ToArray();
     }
 
     public static CSharpFile CreateCSharpFile(
@@ -43,8 +42,6 @@ public class HttpClientGenerator
 
     private CSharpFile Create()
     {
-        ServiceMetadataQueries.Validate(_template, _template.Model);
-
         _template.AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
         _template.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
@@ -78,28 +75,32 @@ public class HttpClientGenerator
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };"));
 
-                foreach (var operation in _mappedModel.Operations)
+                foreach (var endpoint in _endpoints)
                 {
-                    @class.AddMethod(GetReturnType(operation), GetOperationName(operation), method =>
+                    var inputsBySource = endpoint.Inputs
+                        .GroupBy(x => x.Source)
+                        .ToDictionary(x => x.Key, x => x.ToArray());
+
+                    @class.AddMethod(GetReturnType(endpoint), $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async", method =>
                     {
                         method.Async();
 
-                        foreach (var parameter in operation.Parameters)
+                        foreach (var input in endpoint.Inputs)
                         {
-                            method.AddParameter(_template.GetTypeName(parameter.Type), parameter.Name.ToParameterName());
+                            method.AddParameter(_template.GetTypeName(input.TypeReference), input.Name.ToParameterName());
                         }
 
                         method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
 
                         // We're leveraging the C# $"" notation to actually take leverage of the parameters
                         // that are meant to be Route-based.
-                        method.AddStatement($"var relativeUri = $\"{operation.RelativeUri}\";");
+                        method.AddStatement($"var relativeUri = $\"{endpoint.Route}\";");
 
-                        if (HasQueryParameter(operation))
+                        if (inputsBySource.TryGetValue(HttpInputSource.FromQuery, out var queryParams))
                         {
                             method.AddStatement("var queryParams = new Dictionary<string, string>();", s => s.SeparatedFromPrevious());
 
-                            foreach (var queryParameter in GetQueryParameters(operation))
+                            foreach (var queryParameter in queryParams)
                             {
                                 method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
                             }
@@ -107,24 +108,28 @@ public class HttpClientGenerator
                             method.AddStatement("relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);");
                         }
 
-                        method.AddStatement($"var request = new HttpRequestMessage({GetHttpVerb(operation)}, relativeUri);");
+                        method.AddStatement($"var request = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
                         method.AddStatement("request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
 
-                        foreach (var headerParameter in GetHeaderParameters(operation))
+                        foreach (var headerParameter in inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams)
+                                     ? headerParams
+                                     : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            method.AddStatement($"request.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Parameter.Name.ToParameterName()});");
+                            method.AddStatement($"request.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
                         }
 
-                        if (HasBodyParameter(operation))
+                        if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
                         {
-                            method.AddStatement($"var content = JsonSerializer.Serialize({GetBodyParameterName(operation)}, _serializerOptions);", s => s.SeparatedFromPrevious());
+                            var bodyParam = bodyParams.Single();
+
+                            method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
                             method.AddStatement("request.Content = new StringContent(content, Encoding.Default, \"application/json\");");
                         }
-                        else if (HasFormUrlEncodedParameter(operation))
+                        else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
                         {
                             method.AddStatement("var formVariables = new List<KeyValuePair<string, string>>();", s => s.SeparatedFromPrevious());
 
-                            foreach (var formParameter in GetFormUrlEncodedParameters(operation))
+                            foreach (var formParameter in formParams)
                             {
                                 method.AddStatement($"formVariables.Add(new KeyValuePair<string, string>(\"{formParameter.Name.ToPascalCase()}\", {GetParameterValueExpression(formParameter)}));");
                             }
@@ -141,39 +146,47 @@ public class HttpClientGenerator
                                 .AddStatement($"throw await {_template.GetTypeName(_httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);")
                             );
 
-                            if (HasResponseType(operation))
+                            if (endpoint.ReturnType == null)
                             {
-                                usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
-                                    .AddStatement("return default;")
-                                );
-
-                                usingResponseBlock.AddStatementBlock("using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))", usingContentStreamBlock =>
-                                {
-                                    usingContentStreamBlock.SeparatedFromPrevious();
-
-                                    if (HasWrappedReturnType(operation) && (IsReturnTypePrimitive(operation) || operation.ReturnType.HasStringType()))
-                                    {
-                                        usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{_template.GetTypeName(_jsonResponseTemplateId)}<{_template.GetTypeName(operation.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
-                                        usingContentStreamBlock.AddStatement("return wrappedObj.Value;");
-                                    }
-                                    else if (!HasWrappedReturnType(operation) && operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
-                                    {
-                                        usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
-                                        usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
-                                        usingContentStreamBlock.AddStatement("return str;");
-                                    }
-                                    else if (!HasWrappedReturnType(operation) && IsReturnTypePrimitive(operation))
-                                    {
-                                        usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
-                                        usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
-                                        usingContentStreamBlock.AddStatement($"return {_template.GetTypeName(operation.ReturnType)}.Parse(str);");
-                                    }
-                                    else
-                                    {
-                                        usingContentStreamBlock.AddStatement($"return await JsonSerializer.DeserializeAsync<{_template.GetTypeName(operation.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
-                                    }
-                                });
+                                return;
                             }
+
+                            usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
+                                .AddStatement("return default;")
+                            );
+
+                            usingResponseBlock.AddStatementBlock("using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))", usingContentStreamBlock =>
+                            {
+                                var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
+                                var returnsCollection = endpoint.ReturnType.IsCollection;
+                                var returnsString = endpoint.ReturnType.HasStringType();
+                                var returnsPrimitive = _template.GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
+                                                       !returnsCollection;
+
+                                usingContentStreamBlock.SeparatedFromPrevious();
+
+                                if (isWrappedReturnType && (returnsPrimitive || returnsString))
+                                {
+                                    usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{_template.GetTypeName(_jsonResponseTemplateId)}<{_template.GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement("return wrappedObj.Value;");
+                                }
+                                else if (!isWrappedReturnType && returnsString && !returnsCollection)
+                                {
+                                    usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
+                                    usingContentStreamBlock.AddStatement("return str;");
+                                }
+                                else if (!isWrappedReturnType && returnsPrimitive)
+                                {
+                                    usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
+                                    usingContentStreamBlock.AddStatement($"return {_template.GetTypeName(endpoint.ReturnType)}.Parse(str);");
+                                }
+                                else
+                                {
+                                    usingContentStreamBlock.AddStatement($"return await JsonSerializer.DeserializeAsync<{_template.GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                }
+                            });
                         });
                     });
                 }
@@ -182,80 +195,17 @@ public class HttpClientGenerator
             });
     }
 
-    private string GetReturnType(MappedOperation operation)
+    private string GetReturnType(IHttpEndpointModel endpoint)
     {
-        if (operation.ReturnType == null)
-        {
-            return "Task";
-        }
-
-        return $"Task<{_template.GetTypeName(operation.ReturnType)}>";
+        return endpoint.ReturnType == null
+            ? "Task"
+            : $"Task<{_template.GetTypeName(endpoint.ReturnType)}>";
     }
 
-    private static string GetOperationName(MappedOperation operation)
+    private static string GetParameterValueExpression(IHttpEndpointInputModel input)
     {
-        return $"{operation.Name.ToPascalCase().RemoveSuffix("Async")}Async";
-    }
-
-    private bool HasQueryParameter(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetQueryParameters(_template, operation).Any();
-    }
-
-    private IEnumerable<ParameterModel> GetQueryParameters(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetQueryParameters(_template, operation);
-    }
-
-    private static string GetHttpVerb(OperationModel operation)
-    {
-        return $"HttpMethod.{ServiceMetadataQueries.GetHttpVerb(operation)}";
-    }
-
-    private static IEnumerable<ServiceMetadataQueries.HeaderParameter> GetHeaderParameters(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetHeaderParameters(operation);
-    }
-
-    private bool HasBodyParameter(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetBodyParameter(_template, operation) != null;
-    }
-
-    private string GetBodyParameterName(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetBodyParameter(_template, operation).Name.ToParameterName();
-    }
-
-    private static bool HasFormUrlEncodedParameter(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetFormUrlEncodedParameters(operation).Any();
-    }
-
-    private static IEnumerable<ParameterModel> GetFormUrlEncodedParameters(OperationModel operation)
-    {
-        return ServiceMetadataQueries.GetFormUrlEncodedParameters(operation);
-    }
-
-    private static bool HasResponseType(OperationModel operation)
-    {
-        return operation.ReturnType != null;
-    }
-
-    private static bool HasWrappedReturnType(OperationModel operationModel)
-    {
-        return ServiceMetadataQueries.HasJsonWrappedReturnType(operationModel);
-    }
-
-    private bool IsReturnTypePrimitive(OperationModel operation)
-    {
-        return _template.GetTypeInfo(operation.ReturnType).IsPrimitive && !operation.ReturnType.IsCollection;
-    }
-
-    private static string GetParameterValueExpression(ParameterModel parameter)
-    {
-        return !parameter.TypeReference.HasStringType()
-            ? $"{parameter.Name.ToParameterName()}.ToString()"
-            : parameter.Name.ToParameterName();
+        return !input.TypeReference.HasStringType()
+            ? $"{input.Name.ToParameterName()}.ToString()"
+            : input.Name.ToParameterName();
     }
 }

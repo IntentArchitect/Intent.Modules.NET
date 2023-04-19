@@ -9,7 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -60,7 +60,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
-                                    var attr = GetParameterBindingAttribute(operation, parameter);
+                                    var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))
                                     {
                                         param.AddAttribute(attr);
@@ -90,29 +90,24 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
-        //public HttpVerb GetHttpVerb(IControllerOperationModel operation)
-        //{
-        //    var verb = operation.GetHttpSettings().Verb();
-
-        //    return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
-        //}
-
-        private IEnumerable<string> GetControllerAttributes()
+        private IEnumerable<CSharpAttribute> GetControllerAttributes()
         {
-            var attributes = new List<string>();
+            var attributes = new List<CSharpAttribute>();
+
             if (IsControllerSecured())
             {
                 attributes.Add(GetAuthorizationAttribute(Model.AuthorizationModel));
             }
             else if (Model.AllowAnonymous)
             {
-                attributes.Add("[AllowAnonymous]");
+                attributes.Add(new CSharpAttribute("[AllowAnonymous]"));
             }
 
             if (Model.Route != null)
             {
-                attributes.Add($@"[Route(""{Model.Route}"")]");
+                attributes.Add(new CSharpAttribute($@"[Route(""{Model.Route}"")]"));
             }
+
             return attributes;
         }
 
@@ -169,9 +164,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return lines;
         }
 
-        private IEnumerable<string> GetOperationAttributes(IControllerOperationModel operation)
+        private IEnumerable<CSharpAttribute> GetOperationAttributes(IControllerOperationModel operation)
         {
-            var attributes = new List<string> { GetHttpVerbAndPath(operation) };
+            var attributes = new List<CSharpAttribute>
+            {
+                GetHttpVerbAndPath(operation)
+            };
+
             if (operation.RequiresAuthorization || operation.AllowAnonymous)
             {
                 if ((!IsControllerSecured() && IsOperationSecured(operation)) ||
@@ -183,16 +182,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                          !IsOperationSecured(operation) &&
                          operation.AllowAnonymous)
                 {
-                    attributes.Add("[AllowAnonymous]");
+                    attributes.Add(new CSharpAttribute("[AllowAnonymous]"));
                 }
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({UseType(GetTypeInfo(operation).WithIsNullable(false))}), " : string.Empty;
-            if (operation.MediaType == MediaTypeOptions.ApplicationJson && operation.ReturnType != null)
+            if (operation.MediaType == HttpMediaType.ApplicationJson && operation.ReturnType != null)
             {
                 // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
                 // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2320
-                attributes.Add($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]");
+                attributes.Add(new CSharpAttribute($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]"));
                 if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
                 {
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
@@ -202,19 +201,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
                     break;
                 case HttpVerb.Post:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
+                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    attributes.Add(operation.ReturnType != null
+                    attributes.Add(new CSharpAttribute(operation.ReturnType != null
                         ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
-                        : @"[ProducesResponseType(StatusCodes.Status204NoContent)]");
+                        : @"[ProducesResponseType(StatusCodes.Status204NoContent)]"));
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -222,49 +221,44 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.Parameters.Any())
             {
-                attributes.Add(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]");
+                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]"));
             }
 
             if (IsOperationSecured(operation))
             {
-                attributes.Add(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]");
-                attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
+                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]"));
+                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
             }
 
             if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
-                attributes.Add(@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
+                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status404NotFound)]"));
             }
 
-            attributes.Add(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]");
+            attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]"));
             return attributes;
         }
 
-        private static string GetAuthorizationAttribute(IAuthorizationModel authorizationModel)
+        private static CSharpAttribute GetAuthorizationAttribute(IAuthorizationModel authorizationModel)
         {
-            var fieldExpressions = new List<string>();
+            var attribute = new CSharpAttribute("Authorize");
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.RolesExpression))
             {
-                fieldExpressions.Add($"Roles = {authorizationModel.RolesExpression}");
+                attribute.Statements.Add($"Roles = {authorizationModel.RolesExpression}");
             }
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
             {
-                fieldExpressions.Add($"Policy = {authorizationModel.Policy}");
+                attribute.Statements.Add($"Policy = {authorizationModel.Policy}");
             }
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.AuthenticationSchemesExpression))
             {
-                fieldExpressions.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
+                attribute.Statements.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
             }
 
-            if (fieldExpressions.Any())
-            {
-                return $"[Authorize ({string.Join(", ", fieldExpressions)})]";
-            }
-
-            return "[Authorize]";
+            return attribute;
         }
 
         private bool IsControllerSecured()
@@ -289,10 +283,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 : operation.RequiresAuthorization;
         }
 
-        private string GetHttpVerbAndPath(IControllerOperationModel o)
+        private CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
-            return
-                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
+            return new CSharpAttribute(
+                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]");
         }
 
         private string GetReturnType(IControllerOperationModel operation)
@@ -308,41 +302,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
-        private static string GetParameterBindingAttribute(IControllerOperationModel operation, IControllerParameterModel parameter)
+        private static string GetParameterBindingAttribute(IControllerParameterModel parameter)
         {
-            if (parameter.Source == SourceOptionsEnum.Default)
-            {
-                if (parameter.TypeReference.Element.IsTypeDefinitionModel() &&
-                    operation.Route?.Contains($"{{{parameter.Name}}}") == true)
-                {
-                    return "[FromRoute]";
-                }
-
-                if ((operation.Verb == HttpVerb.Get || operation.Verb == HttpVerb.Delete) &&
-                    !parameter.TypeReference.Element.IsTypeDefinitionModel())
-                {
-                    return "[FromQuery]";
-                }
-
-                if ((operation.Verb == HttpVerb.Post || operation.Verb == HttpVerb.Put) &&
-                    !parameter.TypeReference.Element.IsTypeDefinitionModel())
-                {
-                    return "[FromBody]";
-                }
-
-                return string.Empty;
-            }
-
             return parameter.Source switch
             {
-                SourceOptionsEnum.FromBody => "[FromBody]",
-                SourceOptionsEnum.FromForm => "[FromForm]",
-                SourceOptionsEnum.FromHeader => $@"[FromHeader(Name = ""{parameter.HeaderName ?? parameter.Name}"")]",
-                SourceOptionsEnum.FromQuery => "[FromQuery]",
-                SourceOptionsEnum.FromRoute => "[FromRoute]",
+                HttpInputSource.FromBody => "[FromBody]",
+                HttpInputSource.FromForm => "[FromForm]",
+                HttpInputSource.FromHeader => $@"[FromHeader(Name = ""{parameter.HeaderName ?? parameter.Name}"")]",
+                HttpInputSource.FromQuery => "[FromQuery]",
+                HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
         }
-
     }
 }

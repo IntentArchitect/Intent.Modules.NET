@@ -16,7 +16,6 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
-    using Intent.Metadata.WebApi.Api;
     using System;
     
     /// <summary>
@@ -36,23 +35,23 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
             this.Write("using System;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembl" +
                     "y: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : IDisposable\r\n    {\r\n");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
 
-    foreach (var o in Model.MappedService.Operations.Where(p => p.HasHttpSettings()))
+    foreach (var endpoint in _endpoints)
     {
 
             
@@ -60,28 +59,28 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
             #line hidden
             this.Write("        ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationReturnType(o)));
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationReturnType(endpoint)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationName(o)));
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationName(endpoint)));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationDefinitionParameters(o)));
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationDefinitionParameters(endpoint)));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
 
     }
 

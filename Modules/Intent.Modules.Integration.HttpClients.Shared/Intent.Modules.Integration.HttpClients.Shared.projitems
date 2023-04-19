@@ -13,7 +13,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientRequestException\HttpClientRequestExceptionTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)templates\MappedModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceMetadataQueries.cs" />
   </ItemGroup>
 </Project>

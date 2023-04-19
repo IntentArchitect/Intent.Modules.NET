@@ -2,13 +2,15 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse
 {
-    public abstract class JsonResponseTemplateBase : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public class JsonResponseTemplateBase : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         protected JsonResponseTemplateBase(string templateId, IOutputTarget outputTarget, object model = null) : base(templateId, outputTarget, model)
         {
@@ -41,8 +43,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse
                 .MetadataManager
                 .ServiceProxies(ExecutionContext.GetApplicationConfig().Id)
                 .GetServiceProxyModels()
-                .SelectMany(s => s.MappedService.Operations)
-                .Any(ServiceMetadataQueries.HasJsonWrappedReturnType);
+                .SelectMany(s => s.GetMappedEndpoints())
+                .Any(x => x.MediaType == HttpMediaType.ApplicationJson);
         }
     }
 }

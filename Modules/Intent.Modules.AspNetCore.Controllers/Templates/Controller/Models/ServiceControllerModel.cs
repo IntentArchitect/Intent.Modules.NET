@@ -4,8 +4,9 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 
@@ -19,54 +20,69 @@ public class ServiceControllerModel : IControllerModel
         {
             throw new Exception($"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
         }
+
         _model = model;
         RequiresAuthorization = model.HasSecured();
         AllowAnonymous = model.HasUnsecured();
-        Route = string.IsNullOrWhiteSpace(model.GetHttpServiceSettings()?.Route())
-            ? "api/[controller]"
-            : model.GetHttpServiceSettings().Route();
+        Route = GetControllerRoute(model.GetHttpServiceSettings()?.Route());
+        AuthorizationModel = GetAuthorizationModel(model.GetSecured()?.Roles());
         Operations = model.Operations
             .Where(x => x.HasHttpSettings())
-            .Select(x => new ControllerOperationModel(
-                name: x.Name,
-                element: x.InternalElement,
-                verb: Enum.TryParse(x.GetHttpSettings().Verb().AsEnum().ToString(), ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post,
-                route: x.GetHttpSettings().Route(),
-                mediaType: Enum.TryParse(x.GetHttpSettings().ReturnTypeMediatype().AsEnum().ToString(), ignoreCase: true, out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default,
-                requiresAuthorization: x.HasSecured(),
-                allowAnonymous: x.HasUnsecured(),
-                authorizationModel: new AuthorizationModel()
-                {
-                    RolesExpression = x.HasSecured() && !string.IsNullOrWhiteSpace(x.GetSecured().Roles())
-                        ? @$"""{string.Join(",", x.GetSecured().Roles()
-                            .Split(',', StringSplitOptions.RemoveEmptyEntries)
-                            .Select(s => s.Trim()))}"""
-                        : null
-                },
-                parameters: x.Parameters
-                    .Select(p => new ControllerParameterModel(id: p.Id,
-                        name: p.Name,
-                        typeReference: p.TypeReference,
-                        source: MapSourceType(p.GetParameterSettings()?.Source()?.AsEnum()) ?? SourceOptionsEnum.Default,
-                        headerName: p.GetParameterSettings()?.HeaderName(),
-                        mappedPayloadProperty: p.InternalElement.MappedElement?.Element))
-                    .ToList<IControllerParameterModel>()
-            ))
-            .ToList<IControllerOperationModel>();
+            .Select(GetOperation)
+            .ToList();
     }
 
-    private SourceOptionsEnum? MapSourceType(ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum? existingEnum)
+    private static AuthorizationModel GetAuthorizationModel(string roles)
     {
-        return existingEnum switch
+        return new AuthorizationModel
         {
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.Default => SourceOptionsEnum.Default,
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => SourceOptionsEnum.FromQuery,
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => SourceOptionsEnum.FromBody,
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => SourceOptionsEnum.FromForm,
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => SourceOptionsEnum.FromRoute,
-            ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => SourceOptionsEnum.FromHeader,
-            _ => null
+            RolesExpression = !string.IsNullOrWhiteSpace(roles)
+                ? @$"""{string.Join(",", roles
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim()))}"""
+                : null
         };
+    }
+
+    private string GetControllerRoute(string route)
+    {
+        var serviceName = _model.Name.RemoveSuffix("Controller", "Service");
+
+        route ??= "api/[controller]";
+        var segments = route
+            .Split('/')
+            .Select(segment => segment.Equals(serviceName, StringComparison.OrdinalIgnoreCase) ? "[controller]" : segment);
+
+        return string.Join('/', segments);
+    }
+
+    private IControllerOperationModel GetOperation(OperationModel model)
+    {
+        var httpEndpoint = HttpEndpointModelFactory.GetEndpoint(model.InternalElement)!;
+
+        return new ControllerOperationModel(
+            name: httpEndpoint.Name,
+            element: model.InternalElement,
+            verb: httpEndpoint.Verb,
+            route: httpEndpoint.SubRoute,
+            mediaType: httpEndpoint.MediaType,
+            requiresAuthorization: httpEndpoint.RequiresAuthorization,
+            allowAnonymous: httpEndpoint.AllowAnonymous,
+            authorizationModel: GetAuthorizationModel(model.GetSecured()?.Roles()),
+            parameters: httpEndpoint.Inputs
+                .Select(GetInput)
+                .ToList());
+    }
+
+    private static IControllerParameterModel GetInput(IHttpEndpointInputModel model)
+    {
+        return new ControllerParameterModel(
+            id: model.Id,
+            name: model.Name,
+            typeReference: model.TypeReference,
+            source: model.Source,
+            headerName: model.HeaderName,
+            mappedPayloadProperty: model.MappedPayloadProperty);
     }
 
     public string Id => _model.Id;
@@ -83,36 +99,12 @@ public class ServiceControllerModel : IControllerModel
 
 public class ControllerOperationModel : IControllerOperationModel
 {
-    //public ControllerOperationModel(OperationModel model)
-    //{
-    //    Id = model.Id;
-    //    Name = model.Name;
-    //    Comment = model.Comment;
-    //    TypeReference = model.TypeReference;
-    //    Verb = Enum.TryParse(model.GetHttpSettings().Verb().Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
-    //    Route = model.GetHttpSettings().Route();
-    //    MediaType = Enum.TryParse(model.GetHttpSettings().ReturnTypeMediatype().Value, ignoreCase: true, out MediaTypeOptions mediaType) ? mediaType : MediaTypeOptions.Default;
-    //    RequiresAuthorization = model.HasSecured();
-    //    AllowAnonymous = model.HasUnsecured();
-    //    AuthorizationModel = new AuthorizationModel()
-    //    {
-    //        RolesExpression = model.HasSecured() ? @$"""{string.Join(",", model.GetSecured().Roles()
-    //            .Split(',', StringSplitOptions.RemoveEmptyEntries)
-    //            .Select(s => s.Trim()))}""" : null
-    //    };
-    //    InternalElement = model.InternalElement;
-    //    Parameters = model.Parameters
-    //        .Where(x => true)
-    //        .Select(x => new ControllerParameterModel(x.Id, x.Name, x.TypeReference, Enum.Parse<SourceOptionsEnum>(x.GetParameterSettings().Source().Value), x.GetParameterSettings().HeaderName(), x.InternalElement.MappedElement?.Element))
-    //        .ToList<IControllerParameterModel>();
-    //}
-
     public ControllerOperationModel(
         string name,
         IElement element,
         HttpVerb verb,
         string route,
-        MediaTypeOptions mediaType,
+        HttpMediaType? mediaType,
         bool requiresAuthorization,
         bool allowAnonymous,
         IAuthorizationModel authorizationModel,
@@ -140,7 +132,7 @@ public class ControllerOperationModel : IControllerOperationModel
     public ITypeReference ReturnType => TypeReference.Element != null ? TypeReference : null;
     public HttpVerb Verb { get; }
     public string Route { get; }
-    public MediaTypeOptions MediaType { get; }
+    public HttpMediaType? MediaType { get; }
     public bool RequiresAuthorization { get; }
     public bool AllowAnonymous { get; }
     public IAuthorizationModel AuthorizationModel { get; }
@@ -153,7 +145,7 @@ public class ControllerParameterModel : IControllerParameterModel
         string id,
         string name,
         ITypeReference typeReference,
-        SourceOptionsEnum source,
+        HttpInputSource? source,
         string headerName,
         ICanBeReferencedType mappedPayloadProperty)
     {
@@ -168,7 +160,7 @@ public class ControllerParameterModel : IControllerParameterModel
     public string Id { get; }
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public SourceOptionsEnum Source { get; }
+    public HttpInputSource? Source { get; }
     public string HeaderName { get; }
     public ICanBeReferencedType MappedPayloadProperty { get; }
 }

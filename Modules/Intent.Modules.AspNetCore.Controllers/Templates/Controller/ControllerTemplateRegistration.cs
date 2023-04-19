@@ -1,15 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata;
-using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
-using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -40,7 +35,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             return _metadataManager.Services(application).GetServiceModels()
                 .Where(p => p.Operations.Any(q => q.HasHttpSettings()))
-                .Select(x => new ServiceControllerModel(x)).ToArray();
+                .Select(x => new ServiceControllerModel(x))
+                .ToArray();
         }
     }
 }

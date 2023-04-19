@@ -9,9 +9,9 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -22,6 +22,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
     partial class ServiceContractTemplate : CSharpTemplateBase<ServiceProxyModel>
     {
         public const string TemplateId = "Intent.Application.Contracts.Clients.ServiceContract";
+        private readonly IReadOnlyCollection<IHttpEndpointModel> _endpoints;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceContractTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
@@ -29,6 +30,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
             AddTypeSource(EnumContractTemplate.TemplateId, "List<{0}>");
             AddTypeSource(DtoContractTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+
+            _endpoints = model.GetMappedEndpoints().ToArray();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -40,29 +43,25 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
                 relativeLocation: $"{this.GetFolderPath(Model.Name.ToPascalCase())}");
         }
 
-        private string GetOperationDefinitionParameters(OperationModel o)
+        private string GetOperationDefinitionParameters(IHttpEndpointModel endpoint)
         {
-            var parameters = new List<string>();
-
-            parameters.AddRange(o.Parameters.Select(s => $"{GetTypeName(s.TypeReference)} {s.Name}"));
-            parameters.Add("CancellationToken cancellationToken = default");
+            var parameters = endpoint.Inputs
+                .Select(s => $"{GetTypeName(s.TypeReference)} {s.Name}")
+                .Append("CancellationToken cancellationToken = default");
 
             return string.Join(", ", parameters);
         }
 
-        private string GetOperationReturnType(OperationModel o)
+        private string GetOperationReturnType(IHttpEndpointModel endpoint)
         {
-            if (o.ReturnType == null)
-            {
-                return "Task";
-            }
-
-            return $"Task<{GetTypeName(o.ReturnType)}>";
+            return endpoint.ReturnType == null
+                ? "Task"
+                : $"Task<{GetTypeName(endpoint.ReturnType)}>";
         }
 
-        private string GetOperationName(OperationModel operation)
+        private static string GetOperationName(IHttpEndpointModel endpoint)
         {
-            return $"{operation.Name.ToPascalCase().RemoveSuffix("Async")}Async";
+            return $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async";
         }
     }
 }

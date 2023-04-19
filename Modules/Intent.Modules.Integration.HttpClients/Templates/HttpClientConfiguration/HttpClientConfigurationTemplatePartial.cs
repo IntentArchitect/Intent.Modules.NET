@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -63,16 +65,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
 
         private string GetMessageHandlers(ServiceProxyModel proxy)
         {
-            var handlers = new List<string>();
-
-            if (ServiceMetadataQueries.ShouldIncludeAccessTokenHandler(proxy))
+            var parentSecured = default(bool?);
+            if (proxy.GetMappedEndpoints()
+                .All(x => !x.RequiresAuthorization || (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true))
             {
-                handlers.Add($@".AddClientAccessTokenHandler(configuration.GetValue<string>(""{GetConfigKey(proxy, "IdentityClientKey")}"") ?? ""default"")");
+                return string.Empty;
             }
 
-            const string newLine = @"
-                ";
-            return string.Join(newLine, handlers);
+            return $".AddClientAccessTokenHandler(configuration.GetValue<string>(\"{GetConfigKey(proxy, "IdentityClientKey")}\") ?? \"default\")";
         }
 
         class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>

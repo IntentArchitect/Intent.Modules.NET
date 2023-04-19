@@ -1,9 +1,6 @@
 using System;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Metadata.WebApi.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
@@ -15,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -251,7 +249,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 throw new ArgumentException($@"{nameof(operationModel.ReturnType)} is expected to be specified with a Type");
             }
 
-            if (operationModel.MediaType == MediaTypeOptions.ApplicationJson
+            if (operationModel.MediaType == HttpMediaType.ApplicationJson
                 && (template.GetTypeInfo(operationModel.ReturnType).IsPrimitive || operationModel.ReturnType.HasStringType()))
             {
                 return $@"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)";

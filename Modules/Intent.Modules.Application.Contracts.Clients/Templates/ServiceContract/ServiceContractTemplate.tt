@@ -7,7 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-<#@ import namespace="Intent.Metadata.WebApi.Api" #>
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,10 +18,10 @@ namespace <#= Namespace #>
     public interface <#= ClassName #> : IDisposable
     {
 <#
-    foreach (var o in Model.MappedService.Operations.Where(p => p.HasHttpSettings()))
+    foreach (var endpoint in _endpoints)
     {
 #>
-        <#= GetOperationReturnType(o) #> <#= GetOperationName(o) #>(<#= GetOperationDefinitionParameters(o) #>);
+        <#= GetOperationReturnType(endpoint) #> <#= GetOperationName(endpoint) #>(<#= GetOperationDefinitionParameters(endpoint) #>);
 <#
     }
 #>
