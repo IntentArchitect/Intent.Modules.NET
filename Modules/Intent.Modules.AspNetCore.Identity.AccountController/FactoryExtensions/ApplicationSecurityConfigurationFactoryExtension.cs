@@ -39,14 +39,13 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                 chainStatement?.Replace(new CSharpInvocationStatement("AddJwtBearer")
                     .AddArgument("JwtBearerDefaults.AuthenticationScheme")
                     .AddArgument(new CSharpLambdaBlock("options")
-                        .AddStatement(new CSharpStatementBlock("options.TokenValidationParameters = new TokenValidationParameters")
-                            .AddStatements($@"
-            ValidateIssuer = true,
-			ValidIssuer = configuration.GetSection(""JwtToken:Issuer"").Get<string>(),
-			ValidateAudience = true,
-			ValidAudience = configuration.GetSection(""JwtToken:Audience"").Get<string>(),
-			ValidateIssuerSigningKey = true,
-			IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
+                        .AddStatement(new CSharpObjectInitializerBlock("options.TokenValidationParameters = new TokenValidationParameters")
+                            .AddInitStatement("ValidateIssuer", "true")
+                            .AddInitStatement("ValidIssuer", @"configuration.GetSection(""JwtToken:Issuer"").Get<string>()")
+                            .AddInitStatement("ValidateAudience", "true")
+                            .AddInitStatement("ValidAudience", @"configuration.GetSection(""JwtToken:Audience"").Get<string>()")
+                            .AddInitStatement("ValidateIssuerSigningKey", "true")
+                            .AddInitStatement("IssuerSigningKey", @"new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
                             .WithSemicolon())
                         .AddStatement("options.SaveToken = true;"))
                     .WithArgumentsOnNewLines());

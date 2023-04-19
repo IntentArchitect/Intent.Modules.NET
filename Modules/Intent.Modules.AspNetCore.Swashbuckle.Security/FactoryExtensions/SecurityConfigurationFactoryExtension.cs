@@ -58,6 +58,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                 return;
             }
 
+            template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
             AddDefaultSecurityScheme(configureSwaggerOptionsBlock);
 
             var swaggerUiOptionsBlock = GetUseSwaggerUiOptionsBlock(@class);
@@ -66,7 +67,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                 return;
             }
 
-            swaggerUiOptionsBlock.AddStatement($@"options.OAuthScopeSeparator("" "");");
             AddAdditionSecurityScheme(configureSwaggerOptionsBlock, swaggerUiOptionsBlock, template, application);
         }
 
@@ -138,14 +138,24 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
         private void AddDefaultSecurityScheme(CSharpLambdaBlock configureSwaggerOptionsBlock)
         {
+            configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                .AddInitStatement("Name", @"""Authorization""")
+                .AddInitStatement("Description", @"""Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`""")
+                .AddInitStatement("In", "ParameterLocation.Header")
+                .AddInitStatement("Type", "SecuritySchemeType.Http")
+                .AddInitStatement("Scheme", @"""bearer""")
+                .AddInitStatement("BearerFormat", @"""JWT""")
+                .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                    .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
+                    .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
+                .WithSemicolon());
             configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
-                .AddArgument(@"""ApiToken""")
-                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme()")
-                    .AddInitStatement("Name", @"""Authorization""")
-                    .AddInitStatement("Description", @"""Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`""")
-                    .AddInitStatement("In", "ParameterLocation.Header")
-                    .AddInitStatement("Type", "SecuritySchemeType.ApiKey")
-                    .AddInitStatement("Scheme", @"""Bearer""")));
+                .AddArgument(@"""Bearer""")
+                .AddArgument("securityScheme"));
+            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
+                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                    .AddKeyAndValue("securityScheme", "Array.Empty<string>()"))
+                .WithArgumentsOnNewLines());
         }
 
         private void Handle(SecureTokenServiceHostedEvent @event)

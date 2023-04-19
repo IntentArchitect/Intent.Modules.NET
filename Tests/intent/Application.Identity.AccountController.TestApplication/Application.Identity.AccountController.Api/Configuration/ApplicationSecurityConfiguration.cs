@@ -38,6 +38,7 @@ namespace Application.Identity.AccountController.Api.Configuration
                             ValidateIssuerSigningKey = true,
                             IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection("JwtToken:SigningKey").Get<string>()!))
                         };
+
                         options.SaveToken = true;
                     });
 

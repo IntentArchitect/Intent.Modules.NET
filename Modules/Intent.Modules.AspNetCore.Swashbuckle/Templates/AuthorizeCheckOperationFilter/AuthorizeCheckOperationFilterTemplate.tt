@@ -7,11 +7,13 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -22,25 +24,27 @@ namespace <#= Namespace #>
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             var hasAuthorize =
-              context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()
-              || context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
+                context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any() ||
+                context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
 
-            if (hasAuthorize)
+            if (!hasAuthorize)
             {
-                operation.Security = new List<OpenApiSecurityRequirement>
+                return;
+            }
+
+            operation.Security.Add(new OpenApiSecurityRequirement
                 {
-                    new OpenApiSecurityRequirement
-                    {
-                        [
-                            new OpenApiSecurityScheme {Reference = new OpenApiReference
+                    [
+                        new OpenApiSecurityScheme 
+                        {
+                            Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "oauth2"}
+                                Id = "Bearer"
                             }
-                        ] = new[] { "api" }
-                    }
-                };
-            }
+                        }
+                    ] = Array.Empty<string>()
+                });
         }
     }
 }

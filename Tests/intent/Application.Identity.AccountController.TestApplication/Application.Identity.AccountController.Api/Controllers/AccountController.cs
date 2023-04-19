@@ -1,11 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.Application.Account;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -132,40 +135,56 @@ namespace Application.Identity.AccountController.Api.Controllers
                 return Forbid();
             }
 
+            var claims = await _userManager.GetClaimsAsync(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim("role", role));
+            }
+
             var token = GetJwtToken(
                 username: email,
                 signingKey: Convert.FromBase64String(_configuration.GetSection("JwtToken:SigningKey").Get<string>()!),
                 issuer: _configuration.GetSection("JwtToken:Issuer").Get<string>()!,
                 audience: _configuration.GetSection("JwtToken:Audience").Get<string>()!,
-                expiration: TimeSpan.FromMinutes(120));
+                expiration: TimeSpan.FromMinutes(120),
+                claims: claims.ToArray());
 
             _logger.LogInformation("User logged in.");
             return Ok(token);
         }
 
-        private static string GetJwtToken(
-            string username,
+        private static string GetJwtToken(string username,
             byte[] signingKey,
             string issuer,
             string audience,
-            TimeSpan expiration)
+            TimeSpan expiration,
+            IReadOnlyCollection<Claim> claims)
         {
-            var claims = new[]
+            var tokenClaims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub,username),
+                new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
+            tokenClaims.AddRange(claims);
 
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
                 expires: DateTime.UtcNow.Add(expiration),
-                claims: claims,
+                claims: tokenClaims,
                 signingCredentials: new(
                     key: new SymmetricSecurityKey(signingKey),
                     algorithm: SecurityAlgorithms.HmacSha256));
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> TestAction()
+        {
+            return Ok();
         }
 
         [HttpPost]
