@@ -184,11 +184,11 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
         if (columns?.Length == 1)
         {
-            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single().Name})");
+            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single().Name.ToPascalCase()})");
             return this;
         }
 
-        RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name))}}})");
+        RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name.ToPascalCase()))}}})");
         return this;
     }
 
