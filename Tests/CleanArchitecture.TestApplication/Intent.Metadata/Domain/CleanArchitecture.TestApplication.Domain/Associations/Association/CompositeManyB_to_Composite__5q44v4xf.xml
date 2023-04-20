@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="0a3ead52-3caf-437c-8f5d-629ab489564e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composite</name>
-    <display>Composite: CompositeSingleBB?</display>
+    <display>Composite: CompositeSingleBB?   [1 --&gt; 0..1]</display>
     <order>4</order>
     <typeReference id="9a5cc462-cf93-49f6-a7de-82e036ed6df0">
       <typeId>856d711f-0890-4d0f-9e3f-013b053052dd</typeId>

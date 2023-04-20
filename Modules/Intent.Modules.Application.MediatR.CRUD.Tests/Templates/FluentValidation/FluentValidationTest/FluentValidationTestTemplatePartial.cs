@@ -144,7 +144,15 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
     {
         foreach (var property in Model.Properties)
         {
-            if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
+            var attribute = property.InternalElement?.MappedElement?.Element?.AsAttributeModel();
+            if (attribute != null && attribute.HasStereotype("Text Constraints") &&
+                attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") != null &&
+                attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+            {
+                var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
+                method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(maxLen)}"";");
+            }
+            else if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
             {
                 method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
             }
@@ -155,16 +163,6 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             else if (property.GetValidations()?.MinLength() != null)
             {
                 method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
-            }
-            else if (property.GetValidations()?.MaxLength() == null && property.InternalElement.IsMapped)
-            {
-                var attribute = property.InternalElement?.MappedElement?.Element?.AsAttributeModel();
-                if (attribute != null && attribute.HasStereotype("Text Constraints") &&
-                    attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
-                {
-                    var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
-                    method.AddStatement($@"testCommand.{property.Name} = ""{GetStringWithLen(maxLen)}"";");
-                }
             }
         }
     }

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="61a5f22b-69f5-446c-ab28-1ff7b59ab9b5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composites</name>
-    <display>Composites: CompositeManyB[*]</display>
+    <display>Composites: CompositeManyB[*]   [1 --&gt; *]</display>
     <order>2</order>
     <typeReference id="5106f0d8-5b1b-49c8-872b-b9db20f3493f">
       <typeId>ef7b22c0-fe8f-4782-9aeb-9fa810eb158a</typeId>

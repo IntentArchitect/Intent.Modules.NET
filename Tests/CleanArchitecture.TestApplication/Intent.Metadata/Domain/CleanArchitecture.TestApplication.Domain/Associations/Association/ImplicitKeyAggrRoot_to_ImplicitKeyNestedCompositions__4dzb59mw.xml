@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="b825ef3f-1085-4169-8082-cf5c33ea15c9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ImplicitKeyNestedCompositions</name>
-    <display>ImplicitKeyNestedCompositions: ImplicitKeyNestedComposition[*]</display>
+    <display>ImplicitKeyNestedCompositions: ImplicitKeyNestedComposition[*]   [1 --&gt; *]</display>
     <order>1</order>
     <typeReference id="76933f3e-fe85-4190-80be-7d3accae7c25">
       <typeId>63711bd5-e375-4318-be8e-ccd531a3bb12</typeId>

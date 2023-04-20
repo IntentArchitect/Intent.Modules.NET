@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="f263fa68-e533-4353-87f3-f4a65bd3faac" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Aggregate</name>
-    <display>Aggregate: AggregateSingleC?</display>
+    <display>Aggregate: AggregateSingleC?   [0..1 --&gt; 0..1]</display>
     <order>4</order>
     <typeReference id="0aade2b5-ae5f-46a4-8c02-ecdbaeb65474">
       <typeId>06e86189-1b74-443d-94b8-8fb9d94c097a</typeId>
