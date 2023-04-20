@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
@@ -106,7 +105,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                codeLines.Add($"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
             else
             {

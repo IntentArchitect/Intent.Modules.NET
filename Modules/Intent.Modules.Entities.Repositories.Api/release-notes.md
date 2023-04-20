@@ -1,4 +1,8 @@
-﻿### Version 4.0.1
+﻿### Version 4.0.2
+
+- Decoupled this module from the Intent.Metadata.RDBMS module.
+
+### Version 4.0.1
 
 - Update: Repository Interface also updated to use new Builder Pattern paradigm.
 

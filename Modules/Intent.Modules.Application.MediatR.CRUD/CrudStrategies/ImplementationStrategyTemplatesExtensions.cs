@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Templates;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
@@ -58,7 +52,7 @@ public static class ImplementationStrategyTemplatesExtensions
 
         EntityIdAttribute GetExplicitEntityIdField(ClassModel entity)
         {
-            return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name, GetKeyTypeName(s.Type))).FirstOrDefault();
+            return entity.Attributes.Where(p => p.IsPrimaryKey()).Select(s => new EntityIdAttribute(s.Name, GetKeyTypeName(s.Type))).FirstOrDefault();
         }
     }
 
@@ -75,12 +69,12 @@ public static class ImplementationStrategyTemplatesExtensions
             var idField = entity.Attributes
                 .FirstOrDefault(attr =>
                 {
-                    if (!attr.HasForeignKey())
+                    if (!attr.IsForeignKey())
                     {
                         return false;
                     }
 
-                    var fkAssociation = attr.GetForeignKey().Association()?.AsAssociationTargetEndModel();
+                    var fkAssociation = attr.GetForeignKeyAssociation();
                     // Backward compatible lookup method
                     if (fkAssociation == null)
                     {
@@ -110,7 +104,7 @@ public static class ImplementationStrategyTemplatesExtensions
                 .FirstOrDefault(field =>
                 {
                     var attr = field.Mapping?.Element.AsAttributeModel();
-                    return attr != null && attr.HasPrimaryKey();
+                    return attr != null && attr.IsPrimaryKey();
                 });
             return idField;
         }
@@ -142,12 +136,12 @@ public static class ImplementationStrategyTemplatesExtensions
                         return false;
                     }
 
-                    if (!attr.HasForeignKey())
+                    if (!attr.IsForeignKey())
                     {
                         return false;
                     }
 
-                    var fkAssociation = attr.GetForeignKey().Association()?.AsAssociationTargetEndModel();
+                    var fkAssociation = attr.GetForeignKeyAssociation();
                     // Backward compatible lookup method
                     if (fkAssociation == null)
                     {
@@ -202,7 +196,8 @@ public static class ImplementationStrategyTemplatesExtensions
     
     private static string GetDefaultSurrogateKeyType(ISoftwareFactoryExecutionContext executionContext)
     {
-        var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+        //var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+        var settingType = "guid"; // GCB - we want to deprecate this asap.
         switch (settingType)
         {
             case "guid":

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
@@ -68,7 +67,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 // This little detour needs to happen since the scenario where in explicit key mode
                 // this query property isn't mapped and so we need to do a simple lookup first
                 var nestedCompOwnerIdField = _template.Model.Properties
-                    .FirstOrDefault(p => foundEntity.Attributes.Any(q => q.HasForeignKey() && q.Name == p.Name));
+                    .FirstOrDefault(p => foundEntity.Attributes.Any(q => q.IsForeignKey() && q.Name == p.Name));
                 if (nestedCompOwnerIdField == null)
                 {
                     nestedCompOwnerIdField = _template.Model.Properties.GetNestedCompositionalOwnerIdField(nestedCompOwner);

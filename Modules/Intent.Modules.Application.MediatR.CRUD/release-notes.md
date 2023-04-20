@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Decoupled this module from the Intent.Metadata.RDBMS module.
+
 ### Version 5.0.0
 
 - Create CQRS CRUD Operations script now will map to constructors for create if the entity has a non-empty one, and will create a command per operation if `Ensure Private Setters` setting is enabled.

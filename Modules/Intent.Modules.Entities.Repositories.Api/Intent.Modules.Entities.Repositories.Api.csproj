@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.0.2</Version>
+    <Version>4.0.3-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -21,7 +21,6 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
-    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.4.2" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>

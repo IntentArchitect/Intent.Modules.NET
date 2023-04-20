@@ -5,7 +5,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Entities.Repositories.Api.Api;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -39,7 +38,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => (x.IsAggregateRoot() && (!x.IsAbstract || x.HasTable())) || x.HasRepository())
+                .Where(x => (x.IsAggregateRoot() && (!x.IsAbstract || x.HasStereotype("Table"))) || x.HasRepository()) // TODO: Change "Table" to DefinitionId of Table stereotype definition
                 .ToArray();
         }
     }
