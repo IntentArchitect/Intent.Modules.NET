@@ -84,12 +84,12 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                     return false;
                 }
 
-                return Equals(x.MappedService, y.MappedService);
+                return Equals(x.Mapping.ElementId, y.Mapping.ElementId);
             }
 
             public int GetHashCode(ServiceProxyModel obj)
             {
-                return obj.MappedService.GetHashCode();
+                return obj.Mapping.ElementId.GetHashCode();
             }
         }
     }

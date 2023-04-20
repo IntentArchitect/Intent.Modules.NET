@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
+using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
@@ -122,9 +123,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                         !x.ReturnType.IsCollection &&
                         x.Parameters.Count() == 1 &&
                         x.Parameters.FirstOrDefault()?.Name == "id");
-                    if (getByIdOperation != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
+                    if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int")
                     {
-                        return $@"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, new {{ Id = result }});";
+                        var value = $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel)}>(result)";
+                        return $@"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {value});";
                     }
                     return operationModel.ReturnType == null ? @"return Created(string.Empty, null);" : @"return Created(string.Empty, result);";
                 case HttpVerb.Put:

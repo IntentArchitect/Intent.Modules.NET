@@ -19,7 +19,7 @@
     <FileLog>
       <ProjectId>5d734aee-2002-4d62-a206-b0bba0ef8948</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#5d734aee-2002-4d62-a206-b0bba0ef8948</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.Contracts.Clients.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.Contracts.Clients.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

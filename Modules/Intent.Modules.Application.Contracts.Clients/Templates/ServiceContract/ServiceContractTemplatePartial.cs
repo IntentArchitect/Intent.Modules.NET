@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
 
         private string GetOperationReturnType(IHttpEndpointModel endpoint)
         {
-            return endpoint.ReturnType == null
+            return endpoint.ReturnType?.Element == null
                 ? "Task"
                 : $"Task<{GetTypeName(endpoint.ReturnType)}>";
         }

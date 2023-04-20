@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -35,7 +36,9 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ServiceProxyModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyModels().ToList();
+            return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+                .Where(p => p.GetMappedEndpoints().Any())
+                .ToArray();
         }
     }
 }

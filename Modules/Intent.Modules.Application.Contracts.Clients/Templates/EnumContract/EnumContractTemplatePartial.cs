@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -13,12 +14,12 @@ using Intent.Templates;
 namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class EnumContractTemplate : CSharpTemplateBase<EnumModel>
+    partial class EnumContractTemplate : CSharpTemplateBase<ServiceProxyEnumModel>
     {
         public const string TemplateId = "Intent.Application.Contracts.Clients.EnumContract";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EnumContractTemplate(IOutputTarget outputTarget, EnumModel model) : base(TemplateId, outputTarget, model)
+        public EnumContractTemplate(IOutputTarget outputTarget, ServiceProxyEnumModel model) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -27,8 +28,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
+                relativeLocation: $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}");
         }
     }
 }

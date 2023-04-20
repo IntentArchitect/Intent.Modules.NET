@@ -17,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EnumContractTemplateRegistration : FilePerModelTemplateRegistration<EnumModel>
+    public class EnumContractTemplateRegistration : FilePerModelTemplateRegistration<ServiceProxyEnumModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -28,13 +28,13 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
 
         public override string TemplateId => EnumContractTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EnumModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceProxyEnumModel model)
         {
             return new EnumContractTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<EnumModel> GetModels(IApplication application)
+        public override IEnumerable<ServiceProxyEnumModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetProxyMappedEnumModels();
         }

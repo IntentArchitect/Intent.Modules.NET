@@ -79,6 +79,7 @@ public class HttpClientGenerator
                 {
                     var inputsBySource = endpoint.Inputs
                         .GroupBy(x => x.Source)
+                        .Where(x => x.Key != null)
                         .ToDictionary(x => x.Key, x => x.ToArray());
 
                     @class.AddMethod(GetReturnType(endpoint), $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async", method =>
@@ -146,7 +147,7 @@ public class HttpClientGenerator
                                 .AddStatement($"throw await {_template.GetTypeName(_httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);")
                             );
 
-                            if (endpoint.ReturnType == null)
+                            if (endpoint.ReturnType?.Element == null)
                             {
                                 return;
                             }
@@ -197,7 +198,7 @@ public class HttpClientGenerator
 
     private string GetReturnType(IHttpEndpointModel endpoint)
     {
-        return endpoint.ReturnType == null
+        return endpoint.ReturnType?.Element == null
             ? "Task"
             : $"Task<{_template.GetTypeName(endpoint.ReturnType)}>";
     }

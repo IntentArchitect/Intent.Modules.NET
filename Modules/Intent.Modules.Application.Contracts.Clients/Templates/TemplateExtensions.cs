@@ -13,32 +13,32 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDtoContractName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel
+        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDtoContractName(this IntentTemplateBase template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel model)
+        public static string GetDtoContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel model)
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, model);
         }
 
-        public static string GetEnumContractName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyEnumModel
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEnumContractName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        public static string GetEnumContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyEnumModel model)
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, model);
         }
 
-        public static string GetServiceContractName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetServiceContractName(this IntentTemplateBase template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
+        public static string GetServiceContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }
