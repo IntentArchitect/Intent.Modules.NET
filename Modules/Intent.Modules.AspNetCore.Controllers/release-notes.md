@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.
+
 ### Version 5.0.1
 
 - Moved interoperability dependencies for Dispatch.MediatR and Dispatch.Services to this module.

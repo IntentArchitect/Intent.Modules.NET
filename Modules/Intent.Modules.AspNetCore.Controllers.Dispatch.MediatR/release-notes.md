@@ -1,4 +1,9 @@
-﻿### Version 4.1.0
+﻿### Version 5.0.3
+
+- Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.
+- Fixed return type of "create" commands on controllers to return `JsonResponse<T>` as opposed to `{ "id": value }`.
+
+### Version 4.1.0
 
 - Update: Module renamed from `Intent.AspNetCore.Controllers.Interop.MediatR`.
 - Update: Catered for scenario for our Auto CRUD implementation to auto-wireup a Query field.

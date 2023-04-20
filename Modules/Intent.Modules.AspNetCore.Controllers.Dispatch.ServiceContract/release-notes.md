@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.
+
 ### Version 4.1.0
 
 - Update: Module combined from `Intent.AspNetCore.Controllers.Interop.Contracts` and `Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore`.

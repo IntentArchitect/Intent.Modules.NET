@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- Updated to work with `Intent.Metadata.WebApi` version 4+.
+
 ### Version 3.3.11
 
 - Enums will now generate comments captured in designers.

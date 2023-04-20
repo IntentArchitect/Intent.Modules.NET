@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- Updated to work with `Intent.Metadata.WebApi` version 4+.
+
 ### Version 3.3.0
 
 - New: Generates an Http client that's modeled in the `Service Proxies` designer using the .NET Http Client Factory.
