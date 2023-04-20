@@ -20,7 +20,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
             {
                 Email = email,
                 Username = username,
-                Roles = roles,
+                Roles = roles
             };
         }
 

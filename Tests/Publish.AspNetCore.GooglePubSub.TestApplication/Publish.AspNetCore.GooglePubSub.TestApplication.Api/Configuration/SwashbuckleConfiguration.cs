@@ -25,7 +25,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Publish.AspNetCore.GooglePubSub.TestApplication API",
+                            Title = "Publish.AspNetCore.GooglePubSub.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

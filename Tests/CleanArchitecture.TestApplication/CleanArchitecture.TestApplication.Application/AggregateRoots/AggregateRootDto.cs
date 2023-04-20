@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 AggregateAttr = aggregateAttr,
                 Composites = composites,
                 Composite = composite,
-                Aggregate = aggregate,
+                Aggregate = aggregate
             };
         }
 

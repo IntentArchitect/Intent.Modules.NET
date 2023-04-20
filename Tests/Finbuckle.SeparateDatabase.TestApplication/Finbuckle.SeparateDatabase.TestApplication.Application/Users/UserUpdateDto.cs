@@ -21,7 +21,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
                 Id = id,
                 Email = email,
                 Username = username,
-                Roles = roles,
+                Roles = roles
             };
         }
 

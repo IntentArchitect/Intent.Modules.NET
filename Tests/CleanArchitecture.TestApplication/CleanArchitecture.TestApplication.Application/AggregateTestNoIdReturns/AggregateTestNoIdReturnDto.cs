@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
             return new AggregateTestNoIdReturnDto
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

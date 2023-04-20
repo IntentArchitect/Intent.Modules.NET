@@ -25,7 +25,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Subscribe.GooglePubSub.TestApplication API",
+                            Title = "Subscribe.GooglePubSub.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

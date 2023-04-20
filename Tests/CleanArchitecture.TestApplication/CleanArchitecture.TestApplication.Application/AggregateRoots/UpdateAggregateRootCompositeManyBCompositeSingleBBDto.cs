@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             return new UpdateAggregateRootCompositeManyBCompositeSingleBBDto
             {
                 CompositeAttr = compositeAttr,
-                Id = id,
+                Id = id
             };
         }
 

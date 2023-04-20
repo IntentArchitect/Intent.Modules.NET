@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             return new AggregateRootAggregateSingleCDto
             {
                 AggregationAttr = aggregationAttr,
-                Id = id,
+                Id = id
             };
         }
 

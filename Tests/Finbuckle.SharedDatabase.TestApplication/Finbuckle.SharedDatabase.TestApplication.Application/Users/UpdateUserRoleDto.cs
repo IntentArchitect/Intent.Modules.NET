@@ -20,7 +20,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
             {
                 Name = name,
                 UserId = userId,
-                Id = id,
+                Id = id
             };
         }
 

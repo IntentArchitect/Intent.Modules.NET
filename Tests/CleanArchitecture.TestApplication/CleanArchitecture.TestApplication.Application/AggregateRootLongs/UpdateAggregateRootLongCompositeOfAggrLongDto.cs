@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
             return new UpdateAggregateRootLongCompositeOfAggrLongDto
             {
                 Attribute = attribute,
-                Id = id,
+                Id = id
             };
         }
 

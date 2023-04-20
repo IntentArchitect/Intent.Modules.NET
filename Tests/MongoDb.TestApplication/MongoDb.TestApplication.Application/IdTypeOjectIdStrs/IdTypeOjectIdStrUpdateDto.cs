@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Application.IdTypeOjectIdStrs
             return new IdTypeOjectIdStrUpdateDto
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
     }

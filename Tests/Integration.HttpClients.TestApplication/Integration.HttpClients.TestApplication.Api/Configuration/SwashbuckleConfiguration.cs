@@ -25,7 +25,7 @@ namespace Integration.HttpClients.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Integration.HttpClients.TestApplication API",
+                            Title = "Integration.HttpClients.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

@@ -22,7 +22,7 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
             return new SampleDomainDTO
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

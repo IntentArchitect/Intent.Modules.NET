@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
@@ -15,25 +17,27 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Filters
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             var hasAuthorize =
-              context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()
-              || context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
+                context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any() ||
+                context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
 
-            if (hasAuthorize)
+            if (!hasAuthorize)
             {
-                operation.Security = new List<OpenApiSecurityRequirement>
-                {
-                    new OpenApiSecurityRequirement
-                    {
-                        [
-                            new OpenApiSecurityScheme {Reference = new OpenApiReference
+                return;
+            }
+
+            operation.Security.Add(new OpenApiSecurityRequirement
+            {
+                [
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "oauth2"}
+                                Id = "Bearer"
                             }
-                        ] = new[] { "api" }
-                    }
-                };
-            }
+                        }
+                    ] = Array.Empty<string>()
+            });
         }
     }
 }

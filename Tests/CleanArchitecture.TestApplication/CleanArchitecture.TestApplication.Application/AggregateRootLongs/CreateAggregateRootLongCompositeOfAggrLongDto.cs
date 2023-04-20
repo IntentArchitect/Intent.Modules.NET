@@ -18,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
         {
             return new CreateAggregateRootLongCompositeOfAggrLongDto
             {
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

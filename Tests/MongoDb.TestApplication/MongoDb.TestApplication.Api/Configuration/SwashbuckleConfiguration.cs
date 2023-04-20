@@ -25,7 +25,7 @@ namespace MongoDb.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "MongoDb.TestApplication API",
+                            Title = "MongoDb.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

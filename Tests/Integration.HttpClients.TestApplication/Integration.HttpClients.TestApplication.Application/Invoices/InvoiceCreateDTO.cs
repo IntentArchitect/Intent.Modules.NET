@@ -18,7 +18,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
         {
             return new InvoiceCreateDTO
             {
-                Reference = reference,
+                Reference = reference
             };
         }
 

@@ -25,7 +25,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication API",
+                            Title = "Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

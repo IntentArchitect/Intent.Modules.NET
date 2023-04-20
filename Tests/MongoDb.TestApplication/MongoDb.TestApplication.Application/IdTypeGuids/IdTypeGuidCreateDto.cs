@@ -19,7 +19,7 @@ namespace MongoDb.TestApplication.Application.IdTypeGuids
         {
             return new IdTypeGuidCreateDto
             {
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
     }

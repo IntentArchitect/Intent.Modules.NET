@@ -18,7 +18,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
         {
             return new CreateUserRoleDto
             {
-                Name = name,
+                Name = name
             };
         }
 

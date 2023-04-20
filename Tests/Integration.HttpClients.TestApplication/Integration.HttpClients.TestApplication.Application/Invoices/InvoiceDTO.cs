@@ -19,7 +19,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
             return new InvoiceDTO
             {
                 Id = id,
-                Reference = reference,
+                Reference = reference
             };
         }
 

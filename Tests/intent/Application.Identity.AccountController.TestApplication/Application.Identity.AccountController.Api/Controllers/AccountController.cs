@@ -180,13 +180,6 @@ namespace Application.Identity.AccountController.Api.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        [Authorize]
-        [HttpPost]
-        public async Task<IActionResult> TestAction()
-        {
-            return Ok();
-        }
-
         [HttpPost]
         public async Task<IActionResult> ConfirmEmail(ConfirmEmailDto input)
         {

@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
             return new AggregateRootLongCompositeOfAggrLongDto
             {
                 Attribute = attribute,
-                Id = id,
+                Id = id
             };
         }
 

@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             return new AggregateRootCompositeSingleACompositeSingleAADto
             {
                 CompositeAttr = compositeAttr,
-                Id = id,
+                Id = id
             };
         }
 

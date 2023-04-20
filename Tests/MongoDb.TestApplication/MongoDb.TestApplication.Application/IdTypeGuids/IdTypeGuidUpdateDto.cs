@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Application.IdTypeGuids
             return new IdTypeGuidUpdateDto
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
     }

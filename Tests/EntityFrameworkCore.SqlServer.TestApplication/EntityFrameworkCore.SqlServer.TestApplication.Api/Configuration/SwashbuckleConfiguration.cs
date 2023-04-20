@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using EntityFrameworkCore.SqlServer.TestApplication.Api.Filters;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,17 +26,31 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "EntityFrameworkCore.SqlServer.TestApplication API",
+                            Title = "EntityFrameworkCore.SqlServer.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
-                    options.AddSecurityDefinition("ApiToken", new OpenApiSecurityScheme()
+
+                    var securityScheme = new OpenApiSecurityScheme()
                     {
                         Name = "Authorization",
                         Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
                         In = ParameterLocation.Header,
-                        Type = SecuritySchemeType.ApiKey,
-                        Scheme = "Bearer",
-                    });
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "bearer",
+                        BearerFormat = "JWT",
+                        Reference = new OpenApiReference
+                        {
+                            Id = JwtBearerDefaults.AuthenticationScheme,
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    };
+
+                    options.AddSecurityDefinition("Bearer", securityScheme);
+                    options.AddSecurityRequirement(
+                        new OpenApiSecurityRequirement
+                        {
+                            { securityScheme, Array.Empty<string>() }
+                        });
                 });
             return services;
         }
@@ -60,7 +75,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Api.Configuration
                     options.DocExpansion(DocExpansion.List);
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);
-                    options.OAuthScopeSeparator(" ");
                     options.OAuthScopeSeparator(" ");
                 });
         }

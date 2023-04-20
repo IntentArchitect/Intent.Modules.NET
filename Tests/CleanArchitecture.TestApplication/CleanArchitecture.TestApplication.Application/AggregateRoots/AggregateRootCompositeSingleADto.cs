@@ -28,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 CompositeAttr = compositeAttr,
                 Id = id,
                 Composite = composite,
-                Composites = composites,
+                Composites = composites
             };
         }
 

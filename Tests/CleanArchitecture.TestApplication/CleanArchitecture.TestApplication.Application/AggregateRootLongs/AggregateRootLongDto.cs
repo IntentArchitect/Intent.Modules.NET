@@ -26,7 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
             {
                 Id = id,
                 Attribute = attribute,
-                CompositeOfAggrLong = compositeOfAggrLong,
+                CompositeOfAggrLong = compositeOfAggrLong
             };
         }
 

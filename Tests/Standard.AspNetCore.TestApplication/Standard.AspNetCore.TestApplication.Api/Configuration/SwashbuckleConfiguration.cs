@@ -25,7 +25,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Standard.AspNetCore.TestApplication API",
+                            Title = "Standard.AspNetCore.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

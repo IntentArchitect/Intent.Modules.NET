@@ -19,7 +19,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
             return new ClassAUpdateDTO
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

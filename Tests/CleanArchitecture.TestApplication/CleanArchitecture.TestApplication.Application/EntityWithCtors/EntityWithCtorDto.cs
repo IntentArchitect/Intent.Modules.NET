@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithCtors
             return new EntityWithCtorDto
             {
                 Id = id,
-                Name = name,
+                Name = name
             };
         }
 

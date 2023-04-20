@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
             return new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto
             {
                 Attribute = attribute,
-                Id = id,
+                Id = id
             };
         }
 

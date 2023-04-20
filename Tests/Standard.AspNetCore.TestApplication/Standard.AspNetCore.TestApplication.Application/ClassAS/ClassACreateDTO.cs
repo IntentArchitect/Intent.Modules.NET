@@ -18,7 +18,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
         {
             return new ClassACreateDTO
             {
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

@@ -18,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
             return new CreateAggregateRootCompositeSingleACompositeManyAADto
             {
-                CompositeAttr = compositeAttr,
+                CompositeAttr = compositeAttr
             };
         }
 

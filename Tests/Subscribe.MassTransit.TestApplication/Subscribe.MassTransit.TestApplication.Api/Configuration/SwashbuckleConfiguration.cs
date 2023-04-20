@@ -25,7 +25,7 @@ namespace Subscribe.MassTransit.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Subscribe.MassTransit.TestApplication API",
+                            Title = "Subscribe.MassTransit.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                 });

@@ -29,7 +29,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 AggregateRootId = aggregateRootId,
                 Id = id,
                 Composites = composites,
-                Composite = composite,
+                Composite = composite
             };
         }
 

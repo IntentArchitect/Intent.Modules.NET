@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             return new UpdateAggregateRootAggregateSingleCDto
             {
                 AggregationAttr = aggregationAttr,
-                Id = id,
+                Id = id
             };
         }
 

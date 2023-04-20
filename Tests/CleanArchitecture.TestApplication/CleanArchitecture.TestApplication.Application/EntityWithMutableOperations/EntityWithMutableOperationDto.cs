@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.EntityWithMutableOperati
             return new EntityWithMutableOperationDto
             {
                 Id = id,
-                Name = name,
+                Name = name
             };
         }
 

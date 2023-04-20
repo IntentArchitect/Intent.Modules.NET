@@ -22,7 +22,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
             return new ClassADTO
             {
                 Id = id,
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
 

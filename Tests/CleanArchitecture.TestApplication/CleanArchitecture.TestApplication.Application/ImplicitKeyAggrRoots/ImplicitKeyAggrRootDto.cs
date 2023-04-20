@@ -26,7 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
             {
                 Id = id,
                 Attribute = attribute,
-                ImplicitKeyNestedCompositions = implicitKeyNestedCompositions,
+                ImplicitKeyNestedCompositions = implicitKeyNestedCompositions
             };
         }
 

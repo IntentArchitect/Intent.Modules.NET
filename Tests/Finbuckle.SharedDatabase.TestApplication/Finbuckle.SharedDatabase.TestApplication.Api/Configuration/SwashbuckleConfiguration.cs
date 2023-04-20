@@ -25,7 +25,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Configuration
                         new OpenApiInfo
                         {
                             Version = "v1",
-                            Title = "Finbuckle.SharedDatabase.TestApplication API",
+                            Title = "Finbuckle.SharedDatabase.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.OperationFilter<TenantHeaderOperationFilter>();

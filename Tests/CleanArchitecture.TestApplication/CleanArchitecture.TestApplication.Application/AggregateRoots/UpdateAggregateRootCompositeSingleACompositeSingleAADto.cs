@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             return new UpdateAggregateRootCompositeSingleACompositeSingleAADto
             {
                 CompositeAttr = compositeAttr,
-                Id = id,
+                Id = id
             };
         }
 

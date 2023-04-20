@@ -19,7 +19,7 @@ namespace MongoDb.TestApplication.Application.IdTypeOjectIdStrs
         {
             return new IdTypeOjectIdStrCreateDto
             {
-                Attribute = attribute,
+                Attribute = attribute
             };
         }
     }
