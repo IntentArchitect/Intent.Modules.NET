@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -13,7 +13,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
-using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
@@ -37,7 +36,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             foreach (var template in templates)
             {
                 var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
-                if (!templateModel.InternalElement.Package.IsMongoDomainPackageModel())
+                if (!templateModel.InternalElement.Package.HasStereotype("Document Database"))
                 {
                     continue;
                 }
@@ -68,7 +67,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         */
                     }
 
-                    var pks = model.GetExplicitPrimaryKey();
+                    var pks = model.GetPrimaryKeys();
                     if (pks.Any())
                     {
                         var primaryKeyProperties = new List<CSharpProperty>();

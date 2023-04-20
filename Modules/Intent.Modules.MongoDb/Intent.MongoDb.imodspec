@@ -34,23 +34,7 @@
     <factoryExtension id="Intent.MongoDb.DtoAutoMapperFactoryExtension" externalReference="1ff06ef6-6838-40ec-9ffe-8e69965781a2" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
   </factoryExtensions>
-  <moduleSettings>
-    <group id="d5581fe8-7385-4bb6-88dc-8940e20ec1d4" title="MongoDB" externalReference="d5581fe8-7385-4bb6-88dc-8940e20ec1d4">
-      <settings>
-        <setting id="8bcf2b5c-cd35-47d6-8705-7e8e83494083" title="Id Type" type="select">
-          <isRequired>true</isRequired>
-          <hint>The default ID type to apply to newly created classes.</hint>
-          <defaultValue>object-id</defaultValue>
-          <options>
-            <option value="object-id" description="Object ID" />
-            <option value="guid" description="GUID" />
-            <option value="int" description="Integer" />
-            <option value="long" description="Long" />
-          </options>
-        </setting>
-      </settings>
-    </group>
-  </moduleSettings>
+  <moduleSettings />
   <interoperability>
     <detect id="Intent.Modelers.Domain.Events">
       <install>
@@ -62,7 +46,7 @@
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.4.1-pre.1" />
+    <dependency id="Intent.Metadata.DocumentDB" version="1.0.0-pre.0" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
@@ -70,10 +54,8 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <moduleSettingsExtensions />
   <metadata>
-    <install target="Domain" src="modelers/MongoDb Settings.designer.settings" externalReference="232b1576-74b7-45e1-bc24-2ddc42529d5d" />
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
-    <install target="Domain" src="modelers/MongoDb Key Automation Extensions.designer.settings" externalReference="4652d8dc-eea5-49cb-8c08-93ac1972962c" />
   </metadata>
+  <moduleSettingsExtensions />
 </package>

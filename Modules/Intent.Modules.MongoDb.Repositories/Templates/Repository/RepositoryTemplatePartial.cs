@@ -30,7 +30,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddClass($"{Model.Name}Repository", @class =>
+                .AddClass($"{Model.Name}MongoRepository", @class =>
                 {
                     @class.WithBaseType($"{this.GetMongoRepositoryBaseName()}<{EntityInterfaceName}, {EntityName}>");
                     @class.ImplementsInterface(RepositoryContractName);

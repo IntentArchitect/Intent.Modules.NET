@@ -5,8 +5,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -117,7 +117,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
 
             var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>()");
-            var pk = aggregate.GetExplicitPrimaryKey().Single();
+            var pk = aggregate.GetPrimaryKeys().Single();
 
             if (pk.Type.Element.IsStringType())
             {
@@ -143,11 +143,10 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].");
             }
 
-            CSharpClass? entityClass = null;
             if ((TryGetTemplate("Domain.Entity.State", aggregate, out ICSharpFileBuilderTemplate entityTemplate) ||
                  TryGetTemplate("Domain.Entity", aggregate, out entityTemplate)))
             {
-                entityClass = entityTemplate.CSharpFile.Classes.First();
+                var entityClass = entityTemplate.CSharpFile.Classes.First();
                 foreach (var property in entityClass.GetAllProperties())
                 {
                     if (property.TryGetMetadata("non-persistent", out bool nonPersistent))

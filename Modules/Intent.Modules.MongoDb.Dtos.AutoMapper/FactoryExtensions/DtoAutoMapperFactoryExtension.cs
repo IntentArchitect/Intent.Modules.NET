@@ -4,8 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -16,7 +16,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
@@ -189,7 +188,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 {
                     if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
                     {
-                        if (ae.Package.IsMongoDomainPackageModel())
+                        if (ae.Package.HasStereotype("Document Database"))
                         {
                             return true;
                         }
