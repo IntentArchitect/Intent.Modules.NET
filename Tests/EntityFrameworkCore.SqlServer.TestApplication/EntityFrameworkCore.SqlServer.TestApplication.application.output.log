@@ -556,6 +556,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c9e12fc8-154f-4f0a-98db-a1faacfd9a10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/NestedAssociations/Sun.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Sun.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/NestedAssociations/Texture.cs</ApplicationRelativeFilePath>
@@ -568,6 +576,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/NestedAssociations/Tree.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestedAssociations/Tree.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/NestedAssociations/Worm.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Worm.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1292,6 +1308,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c9e12fc8-154f-4f0a-98db-a1faacfd9a10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/NestedAssociations/ISunRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/ISunRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/NestedAssociations/ITextureRepository.cs</ApplicationRelativeFilePath>
@@ -1304,6 +1328,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/NestedAssociations/ITreeRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestedAssociations/ITreeRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/NestedAssociations/IWormRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/IWormRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1996,6 +2028,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0b3016ef-51e4-4770-b39e-93213b4d55b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/NestedAssociations/LeafConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/LeafConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c9e12fc8-154f-4f0a-98db-a1faacfd9a10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/NestedAssociations/SunConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/SunConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/NestedAssociations/TextureConfiguration.cs</ApplicationRelativeFilePath>
@@ -2008,6 +2056,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/NestedAssociations/TreeConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestedAssociations/TreeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/NestedAssociations/WormConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/WormConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2684,6 +2740,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c9e12fc8-154f-4f0a-98db-a1faacfd9a10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/NestedAssociations/SunRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/SunRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/NestedAssociations/TextureRepository.cs</ApplicationRelativeFilePath>
@@ -2696,6 +2760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/NestedAssociations/TreeRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestedAssociations/TreeRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/NestedAssociations/WormRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/WormRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

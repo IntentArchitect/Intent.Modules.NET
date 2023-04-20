@@ -47,5 +47,42 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="99a0011a-8d50-486e-a3b8-d117296c41ac" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SunId</name>
+      <display>SunId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3fd435ee-5e05-4819-945d-d68b190fa202">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0b3016ef-51e4-4770-b39e-93213b4d55b2</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="a5fcf039-4bd7-430d-9306-248f235a4e77" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="SunId" />
+        <entry key="association" value="a5fcf039-4bd7-430d-9306-248f235a4e77" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -29,7 +29,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 .WithMany("Branches")
                 .UsingEntity(x => x.ToTable("BranchInhabitants"));
 
-            builder.OwnsMany(x => x.Leaves, ConfigureLeaves);
+            builder.HasMany(x => x.Leaves)
+                .WithOne()
+                .HasForeignKey(x => x.BranchId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public void ConfigureInternode(OwnedNavigationBuilder<Branch, Internode> builder)
@@ -40,17 +44,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.InternodeAttribute)
-                .IsRequired();
-        }
-
-        public void ConfigureLeaves(OwnedNavigationBuilder<Branch, Leaf> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.BranchId);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.LeafAttribute)
                 .IsRequired();
         }
     }

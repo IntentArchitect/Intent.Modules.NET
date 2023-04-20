@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="40295530-b424-4ddd-ba27-1ab32555c01c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>RootAbstracts</name>
-    <display>RootAbstracts: Poly_RootAbstract[*]</display>
+    <display>RootAbstracts: Poly_RootAbstract[*]   [0..1 --&gt; *]</display>
     <order>1</order>
     <typeReference id="bc66c36c-77ef-4fe7-a8bc-f965bc5c4b98">
       <typeId>d1447c1d-0b27-4879-926a-3e704ad0c9dc</typeId>

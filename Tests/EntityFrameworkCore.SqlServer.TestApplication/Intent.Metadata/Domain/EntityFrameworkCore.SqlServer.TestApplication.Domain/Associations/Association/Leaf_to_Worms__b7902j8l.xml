@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ef1e1894-031b-4cda-b900-be10dd2d0ad0">
+  <sourceEnd id="4ba52044-5d64-40e7-8ba5-8e7e5082bd57" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Leaf</name>
+    <display>Leaf: Leaf?</display>
+    <order>0</order>
+    <typeReference id="a46365bd-eeb7-48e2-ac49-5bbcb6f0de7a">
+      <typeId>0b3016ef-51e4-4770-b39e-93213b4d55b2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ef1e1894-031b-4cda-b900-be10dd2d0ad0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Worms</name>
+    <display>Worms: Worm[*]   [0..1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="a1c19850-b441-424f-9586-3c0320e437ae">
+      <typeId>6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

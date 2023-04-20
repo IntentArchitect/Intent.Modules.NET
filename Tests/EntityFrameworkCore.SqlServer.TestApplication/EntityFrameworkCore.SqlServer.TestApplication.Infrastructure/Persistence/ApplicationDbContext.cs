@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes;
@@ -14,6 +15,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inherita
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Indexes;
@@ -105,6 +107,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
+        public DbSet<Leaf> Leaves { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
@@ -132,8 +135,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<Domain.Entities.TPT.Polymorphic.Poly_TopLevel> TPTPolymorphicPoly_TopLevels { get; set; }
         public DbSet<Domain.Entities.TPC.Polymorphic.Poly_TopLevel> Poly_TopLevels { get; set; }
         public DbSet<StereotypeIndex> StereotypeIndices { get; set; }
+        public DbSet<Sun> Suns { get; set; }
         public DbSet<Texture> Textures { get; set; }
         public DbSet<Tree> Trees { get; set; }
+        public DbSet<Worm> Worms { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -203,6 +208,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
+            modelBuilder.ApplyConfiguration(new LeafConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
@@ -230,8 +236,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new Configurations.TPT.Polymorphic.Poly_TopLevelConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.TPC.Polymorphic.Poly_TopLevelConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new SunConfiguration());
             modelBuilder.ApplyConfiguration(new TextureConfiguration());
             modelBuilder.ApplyConfiguration(new TreeConfiguration());
+            modelBuilder.ApplyConfiguration(new WormConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

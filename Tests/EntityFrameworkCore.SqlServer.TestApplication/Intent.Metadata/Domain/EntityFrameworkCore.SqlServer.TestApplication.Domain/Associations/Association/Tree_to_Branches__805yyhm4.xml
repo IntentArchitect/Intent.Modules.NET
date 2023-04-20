@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="13ced773-1439-4a69-bbea-df2eae189684" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Branches</name>
-    <display>Branches: Branch[*]</display>
+    <display>Branches: Branch[*]   [1 --&gt; *]</display>
     <order>1</order>
     <typeReference id="0a23604e-5729-48bf-86b5-daacabc450f0">
       <typeId>c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</typeId>

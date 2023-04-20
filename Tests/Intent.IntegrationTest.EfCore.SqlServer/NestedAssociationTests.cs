@@ -30,8 +30,18 @@ public class NestedAssociationTests : SharedDatabaseFixture<ApplicationDbContext
 
         branch.Internode = new Internode() { InternodeAttribute = "Internode Attribute" };
 
-        branch.Leaves.Add(new Leaf() { LeafAttribute = "Leaf 1" });
-        branch.Leaves.Add(new Leaf() { LeafAttribute = "Leaf 2" });
+        var onlySun = new Sun();
+        DbContext.Suns.Add(onlySun);
+        
+        var leaf1 = new Leaf() { LeafAttribute = "Leaf 1" };
+        branch.Leaves.Add(leaf1);
+        leaf1.Worms.Add(new Worm() { Color = "Red" });
+        leaf1.Sun = onlySun;
+        
+        var leaf2 = new Leaf() { LeafAttribute = "Leaf 2" };
+        branch.Leaves.Add(leaf2);
+        leaf2.Worms.Add(new Worm() { Color = "Green" });
+        leaf2.Sun = onlySun;
 
         var inhabitant1 = new Inhabitant();
         inhabitant1.InhabitantAttribute = "Inhabitant 1";
@@ -55,5 +65,19 @@ public class NestedAssociationTests : SharedDatabaseFixture<ApplicationDbContext
         Assert.Equal(branch.Texture.TextureAttribute, retrievedBranch.Texture.TextureAttribute);
         Assert.Equal(branch.Inhabitants.Count, retrievedBranch.Inhabitants.Count);
         Assert.Equal(branch.Leaves.Count, retrievedBranch.Leaves.Count);
+        Assert.Equal(onlySun, leaf1.Sun);
+        Assert.Equal(onlySun, leaf2.Sun);
+        Assert.Equal(1, leaf1.Worms.Count);
+        Assert.Equal(1, leaf2.Worms.Count);
+        Assert.Contains(leaf1.Worms, x => x.Color == "Red");
+        Assert.Contains(leaf2.Worms, x => x.Color == "Green");
+
+        branch.Leaves.Remove(leaf1);
+        branch.Leaves.Remove(leaf2);
+        DbContext.SaveChanges();
+
+        Assert.Equal(0, branch.Leaves.Count);
+        Assert.Contains(onlySun, DbContext.Suns);
+        Assert.Equal(2, DbContext.Worms.Count());
     }
 }

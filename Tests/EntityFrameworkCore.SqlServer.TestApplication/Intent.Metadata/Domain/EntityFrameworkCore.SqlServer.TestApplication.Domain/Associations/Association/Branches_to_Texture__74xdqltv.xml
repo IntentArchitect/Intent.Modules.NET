@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="ab299467-b2ee-4073-ad09-d09a34aceb41" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Texture</name>
-    <display>Texture: Texture</display>
+    <display>Texture: Texture   [* --&gt; 1]</display>
     <order>1</order>
     <typeReference id="8a368ebd-b888-41fb-a1a1-c7c3c5ed6a93">
       <typeId>0deadbb5-9406-4718-aedc-bb2454e63ebc</typeId>

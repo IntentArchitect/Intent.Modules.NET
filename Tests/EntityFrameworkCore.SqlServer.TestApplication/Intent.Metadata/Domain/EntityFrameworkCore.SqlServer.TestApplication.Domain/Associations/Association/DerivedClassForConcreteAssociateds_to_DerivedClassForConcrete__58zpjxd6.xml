@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="d3b68a4c-6727-4645-9066-12ba7e78a1fb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForConcrete</name>
-    <display>DerivedClassForConcrete: DerivedClassForConcrete</display>
+    <display>DerivedClassForConcrete: DerivedClassForConcrete   [* --&gt; 1]</display>
     <order>1</order>
     <typeReference id="d93a754a-5a2a-4dca-91f9-079389f83ca8">
       <typeId>1c27fe12-28ae-4542-8cff-60485eeacb2c</typeId>

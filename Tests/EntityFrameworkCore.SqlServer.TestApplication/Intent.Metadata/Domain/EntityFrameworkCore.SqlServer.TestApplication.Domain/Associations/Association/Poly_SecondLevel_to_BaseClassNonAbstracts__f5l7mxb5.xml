@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="6b14b5be-94fa-4741-9b40-d4096c627063" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>BaseClassNonAbstracts</name>
-    <display>BaseClassNonAbstracts: Poly_BaseClassNonAbstract[*]</display>
+    <display>BaseClassNonAbstracts: Poly_BaseClassNonAbstract[*]   [0..1 --&gt; *]</display>
     <order>1</order>
     <typeReference id="5a8896bd-8393-49de-9afd-39535dda1dbb">
       <typeId>97052928-9f5a-4fce-a397-9cc4f0d490f8</typeId>

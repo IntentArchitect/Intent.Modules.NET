@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="b25b7179-8230-4093-93bf-94dc27837911" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>G_MultipleDependents</name>
-    <display>G_MultipleDependents: G_MultipleDependent[*]</display>
+    <display>G_MultipleDependents: G_MultipleDependent[*]   [1 --&gt; *]</display>
     <order>1</order>
     <typeReference id="80d92f78-3460-40b1-9295-bc523f97bd37">
       <typeId>b1739432-87e1-46c3-b88c-969380956639</typeId>

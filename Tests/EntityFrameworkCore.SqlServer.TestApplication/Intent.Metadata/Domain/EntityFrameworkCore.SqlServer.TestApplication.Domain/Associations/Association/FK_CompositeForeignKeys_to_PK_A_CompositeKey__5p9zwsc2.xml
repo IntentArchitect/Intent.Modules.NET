@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="40444c52-ec38-424f-afb2-fdd6c80306dc" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>PK_A_CompositeKey</name>
-    <display>PK_A_CompositeKey: PK_A_CompositeKey</display>
+    <display>PK_A_CompositeKey: PK_A_CompositeKey   [* --&gt; 1]</display>
     <order>0</order>
     <typeReference id="6322f4f5-d1c4-4ff1-9374-cf599ff4fcb9">
       <typeId>3f69120b-3e96-4443-9794-3df7e6696f2b</typeId>

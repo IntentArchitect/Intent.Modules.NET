@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,6 +15,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
         public Guid Id { get; set; }
 
         public string LeafAttribute { get; set; }
+
+        public Guid SunId { get; set; }
+
+        public virtual ICollection<Worm> Worms { get; set; } = new List<Worm>();
+
+        public virtual Sun Sun { get; set; }
 
         public Guid BranchId { get; set; }
     }

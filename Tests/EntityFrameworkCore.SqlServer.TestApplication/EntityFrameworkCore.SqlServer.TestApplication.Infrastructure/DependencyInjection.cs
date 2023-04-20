@@ -1,5 +1,6 @@
 using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Indexes;
@@ -11,6 +12,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.Poly
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Indexes;
