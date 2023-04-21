@@ -46,6 +46,7 @@ steps:
     ignoreLASTEXITCODE: true
     filePath: 'dotnet-pack-all.ps1'
     arguments: '-dotnetPackOutputDirectory $(Build.ArtifactStagingDirectory) -vstsFeedUrl $(vstsFeedUrl)'
+  timeoutInMinutes: 10
 
 # Push the NuGet packages so that regardless of whether or not this build succeeds, they are 
 # available to other pipelines.
