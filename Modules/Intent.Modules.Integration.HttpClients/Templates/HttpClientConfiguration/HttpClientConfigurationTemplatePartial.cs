@@ -67,7 +67,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         {
             var parentSecured = default(bool?);
             if (proxy.GetMappedEndpoints()
-                .All(x => !x.RequiresAuthorization || (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true))
+                .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true))
             {
                 return string.Empty;
             }
