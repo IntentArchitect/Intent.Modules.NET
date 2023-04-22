@@ -1,28 +1,33 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.Templates;
 
-public class CqrsRequestAzureFunctionModel : IAzureFunctionModel
+public class CqrsAzureFunctionModel : IAzureFunctionModel
 {
-    public CqrsRequestAzureFunctionModel(CommandModel command)
+    public CqrsAzureFunctionModel(CommandModel command)
     {
         Id = command.Id;
-        Name = command.Name;
+        Name = command.Name.RemoveSuffix("Command");
         TypeReference = command.TypeReference;
         InternalElement = command.InternalElement;
-        TriggerType = Enum.TryParse<TriggerType>(command.GetAzureFunction().Type().AsEnum().ToString(), out var triggerType) 
-            ? triggerType 
+        TriggerType = Enum.TryParse<TriggerType>(command.GetAzureFunction().Type().AsEnum().ToString(), out var triggerType)
+            ? triggerType
             : throw new Exception($"Unable to determine Azure Function -> Trigger Type value for {command.Name}");
         AuthorizationLevel = command.GetAzureFunction().AuthorizationLevel().Value;
-        Parameters = command.Properties
-            .Select(x => new AzureFunctionParameterModel(x.InternalElement, x.InternalElement.SpecializationType))
-            .ToList<IAzureFunctionParameterModel>();
+        Parameters = command.GetAzureFunction().Type().IsHttpTrigger()
+            ? HttpEndpointModelFactory.GetEndpoint(command.InternalElement)!
+                .Inputs.Select(CqrsAzureFunctionParameterModel.ForHttpTrigger)
+                .ToList<IAzureFunctionParameterModel>()
+            : new List<IAzureFunctionParameterModel>() { CqrsAzureFunctionParameterModel.ForEventTrigger(command) };
         QueueName = command.GetAzureFunction().QueueName();
         Connection = command.GetAzureFunction().Connection();
         ReturnType = command.TypeReference.Element != null ? command.TypeReference : null;
@@ -30,19 +35,21 @@ public class CqrsRequestAzureFunctionModel : IAzureFunctionModel
         Mapping = command.InternalElement.MappedElement;
     }
 
-    public CqrsRequestAzureFunctionModel(QueryModel query)
+    public CqrsAzureFunctionModel(QueryModel query)
     {
         Id = query.Id;
-        Name = query.Name;
+        Name = query.Name.RemoveSuffix("Query");
         TypeReference = query.TypeReference;
         InternalElement = query.InternalElement;
         TriggerType = Enum.TryParse<TriggerType>(query.GetAzureFunction().Type().AsEnum().ToString(), out var triggerType)
             ? triggerType
             : throw new Exception($"Unable to determine Azure Function -> Trigger Type value for {query.Name}");
         AuthorizationLevel = query.GetAzureFunction().AuthorizationLevel().Value;
-        Parameters = query.Properties
-            .Select(x => new AzureFunctionParameterModel(x.InternalElement, x.InternalElement.SpecializationType))
-            .ToList<IAzureFunctionParameterModel>();
+        Parameters = query.GetAzureFunction().Type().IsHttpTrigger()
+            ? HttpEndpointModelFactory.GetEndpoint(query.InternalElement)!
+                .Inputs.Select(CqrsAzureFunctionParameterModel.ForHttpTrigger)
+                .ToList<IAzureFunctionParameterModel>()
+            : new List<IAzureFunctionParameterModel>() { CqrsAzureFunctionParameterModel.ForEventTrigger(query) };
         QueueName = query.GetAzureFunction().QueueName();
         Connection = query.GetAzureFunction().Connection();
         ReturnType = query.TypeReference.Element != null ? query.TypeReference : null;

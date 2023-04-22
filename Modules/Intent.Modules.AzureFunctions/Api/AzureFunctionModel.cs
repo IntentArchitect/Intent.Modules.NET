@@ -56,8 +56,8 @@ namespace Intent.AzureFunctions.Api
         public TriggerType TriggerType => this.GetAzureFunction().Type().AsEnum() switch
         {
             AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger => TriggerType.HttpTrigger,
-            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger => TriggerType.HttpTrigger,
-            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger => TriggerType.HttpTrigger,
+            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger => TriggerType.ServiceBusTrigger,
+            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger => TriggerType.QueueTrigger,
             _ => throw new ArgumentOutOfRangeException()
         };
 

@@ -11,7 +11,6 @@ public static class WebApiQueries
 {
     public static IAzureFunctionParameterModel GetRequestDtoParameter(this IAzureFunctionModel operationModel)
     {
-        var endpointInfo = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement);
         var dtoParams = operationModel.Parameters
             .Where(IsParameterBody)
             .ToArray();
@@ -31,6 +30,6 @@ public static class WebApiQueries
 
     private static bool IsParameterBody(IAzureFunctionParameterModel parameterModel)
     {
-        return parameterModel.GetHttpInputSource() == HttpInputSource.FromBody;
+        return parameterModel.InputSource == HttpInputSource.FromBody;
     }
 }

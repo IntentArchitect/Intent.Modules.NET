@@ -27,15 +27,14 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         _template = template;
         _azureFunctionModel = azureFunctionModel;
         _endpointModel = _azureFunctionModel.GetHttpEndpointModel();
-    }
-
-    public void ApplyMethodParameters(CSharpClassMethod method)
-    { 
         if (_endpointModel == null)
         {
             Logging.Log.Warning($"Http Settings could not be found on Azure Function [{_azureFunctionModel.Name}] that is Http triggered");
-            return;
         }
+    }
+
+    public void ApplyMethodParameters(CSharpClassMethod method)
+    {
         method.AddParameter("HttpRequest", "req", param =>
         {
             param.AddAttribute("HttpTrigger", attr =>
@@ -91,7 +90,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     private IAzureFunctionParameterModel GetRequestInput()
     {
-        return _azureFunctionModel.Parameters.FirstOrDefault(x => x.GetHttpInputSource() == HttpInputSource.FromBody);
+        return _azureFunctionModel.Parameters.FirstOrDefault(x => x.InputSource == HttpInputSource.FromBody);
     }
 
     public string GetRequestDtoType()

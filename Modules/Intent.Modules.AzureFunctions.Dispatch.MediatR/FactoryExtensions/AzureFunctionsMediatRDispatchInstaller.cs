@@ -86,9 +86,9 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 foreach (var mappedParameter in GetMappedParameters(model))
                 {
                     validations.Add($@"
-            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()})
+            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.MappedPath.ToPascalCase()})
             {{
-                return new BadRequestObjectResult(new {{ Message = ""Supplied '{mappedParameter.Name}' does not match '{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()}' from body."" }});
+                return new BadRequestObjectResult(new {{ Message = ""Supplied '{mappedParameter.Name}' does not match '{mappedParameter.MappedPath.ToPascalCase()}' from body."" }});
             }}
             ");
                 }
@@ -97,12 +97,12 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             return validations.Select(x => (CSharpStatement)x).ToList();
         }
 
-        private CSharpStatement GetDispatchViaMediatorStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
+        private CSharpStatement GetDispatchViaMediatorStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel model)
         {
-            var payload = GetPayloadParameter(operationModel)?.Name
-                ?? GetMappedPayload(template, operationModel);
+            var payload = GetPayloadParameter(model)?.Name
+                ?? GetMappedPayload(template, model);
 
-            return operationModel.ReturnType != null
+            return model.ReturnType != null
                 ? $"var result = await _mediator.Send({payload}, cancellationToken);"
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
@@ -142,7 +142,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 case HttpVerb.Patch:
                     return operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);";
                 case HttpVerb.Delete:
-                    return operationModel.ReturnType == null ? @"return new OkObjectResult();" : @"return new OkObjectResult(result);";
+                    return operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -163,7 +163,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
             if (GetMappedParameters(operation).Any())
             {
-                return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.InternalElement.MappedElement.Element.Name.ToPascalCase() + " = " + x.Name))} }}";
+                return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPath.ToPascalCase() + " = " + x.Name.ToParameterName()))} }}";
             }
 
             return $"new {template.GetTypeName(requestType)}()";
@@ -171,7 +171,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
         private IList<IAzureFunctionParameterModel> GetMappedParameters(IAzureFunctionModel operationModel)
         {
-            return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
+            return operationModel.Parameters.Where(x => x.IsMapped).ToList();
         }
     }
 }

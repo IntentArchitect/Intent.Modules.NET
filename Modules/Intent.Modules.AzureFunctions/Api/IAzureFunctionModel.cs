@@ -18,7 +18,9 @@ public interface IAzureFunctionModel : IMetadataModel, IHasName, IHasTypeReferen
     IElementMapping Mapping { get; }
 }
 
-public interface IAzureFunctionParameterModel : IMetadataModel, IHasName, IHasTypeReference, IHttpParameter
+public interface IAzureFunctionParameterModel : IMetadataModel, IHasName, IHasTypeReference
 {
-    ITypeReference Type { get; }
+    HttpInputSource? InputSource { get; }
+    bool IsMapped { get; }
+    string MappedPath { get; }
 }

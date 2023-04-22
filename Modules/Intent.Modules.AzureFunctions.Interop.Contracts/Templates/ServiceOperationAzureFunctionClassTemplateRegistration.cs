@@ -2,25 +2,25 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.Templates
+namespace Intent.Modules.AzureFunctions.Interop.Contracts.Templates
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CqrsAzureFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<IAzureFunctionModel>
+    public class ServiceOperationAzureFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<IAzureFunctionModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public CqrsAzureFunctionClassTemplateRegistration(IMetadataManager metadataManager)
+        public ServiceOperationAzureFunctionClassTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
@@ -35,12 +35,10 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.Templates
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IAzureFunctionModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetCommandModels()
+            return _metadataManager.Services(application).GetServiceModels()
+                .SelectMany(x => x.Operations)
                 .Where(x => x.HasAzureFunction())
-                .Select(x => new CqrsAzureFunctionModel(x))
-                .Concat(_metadataManager.Services(application).GetQueryModels()
-                    .Where(x => x.HasAzureFunction())
-                    .Select(x => new CqrsAzureFunctionModel(x)))
+                .Select(x => new ServiceOperationAzureFunctionModel(x))
                 .ToList();
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -38,7 +39,14 @@ namespace Intent.AzureFunctions.Api
 
         public ITypeReference TypeReference => _element.TypeReference;
 
-        public ITypeReference Type => TypeReference?.Element != null ? TypeReference : null;
+        [IntentManaged(Mode.Ignore)]
+        public HttpInputSource? InputSource => HttpEndpointModelFactory.GetHttpInputSource(InternalElement);
+
+        [IntentManaged(Mode.Ignore)]
+        public bool IsMapped => InternalElement.IsMapped;
+
+        [IntentManaged(Mode.Ignore)]
+        public string MappedPath => InternalElement.MappedElement?.Element.Name;
 
         public IElement InternalElement => _element;
 
