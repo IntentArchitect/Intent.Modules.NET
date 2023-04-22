@@ -46,7 +46,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
                 .GroupBy(x => x.ParentElement);
 
             return elementsGroupedByParent
-                .Select(grouping => new MediatRControllerModel(grouping.Key, grouping))
+                .Select(grouping => new CqrsControllerModel(grouping.Key, grouping))
                 .ToArray<IControllerModel>();
         }
     }

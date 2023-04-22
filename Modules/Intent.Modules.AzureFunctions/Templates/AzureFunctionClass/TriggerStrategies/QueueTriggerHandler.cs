@@ -11,9 +11,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 internal class QueueTriggerHandler : IFunctionTriggerHandler
 {
     private readonly AzureFunctionClassTemplate _template;
-    private readonly AzureFunctionModel _azureFunctionModel;
+    private readonly IAzureFunctionModel _azureFunctionModel;
 
-    public QueueTriggerHandler(AzureFunctionClassTemplate template, AzureFunctionModel azureFunctionModel)
+    public QueueTriggerHandler(AzureFunctionClassTemplate template, IAzureFunctionModel azureFunctionModel)
     {
         _template = template;
         _azureFunctionModel = azureFunctionModel;
@@ -28,11 +28,10 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
             {
                 param.AddAttribute("QueueTrigger", attr =>
                 {
-                    var serviceBusTriggerView = _azureFunctionModel.GetAzureFunction().GetQueueTriggerView();
-                    attr.AddArgument($@"""{serviceBusTriggerView.QueueName()}""");
-                    if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
+                    attr.AddArgument($@"""{_azureFunctionModel.QueueName}""");
+                    if (!string.IsNullOrEmpty(_azureFunctionModel.Connection))
                     {
-                        attr.AddArgument($@"Connection = ""{serviceBusTriggerView.Connection()}""");
+                        attr.AddArgument($@"Connection = ""{_azureFunctionModel.Connection}""");
                     }
                 });
             });

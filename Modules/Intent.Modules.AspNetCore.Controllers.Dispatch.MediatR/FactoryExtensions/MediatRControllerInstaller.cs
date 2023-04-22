@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
+using Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControllers;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
@@ -37,7 +38,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
             var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
             foreach (var template in templates)
             {
-                if (template.Model is not MediatRControllerModel)
+                if (template.Model is not CqrsControllerModel)
                 {
                     continue;
                 }

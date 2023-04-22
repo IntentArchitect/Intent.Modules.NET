@@ -42,6 +42,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#35aaa5d4-1e33-4946-a18a-73c557f1dae5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/CommandExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CommandExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/CommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CommandModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#4e5923fd-78a1-4f07-826b-70c0cb9e03ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
@@ -50,10 +66,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#88c532a8-209b-4888-aa69-aee8666aca33</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e030c97a-e066-40a7-8188-808c275df3cb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#e00928be-7fc4-47ff-9c7d-a06a19aa6ae0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#b78dc242-b6b7-4287-84b9-dc61a1341871</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e71b0662-e29d-4db2-868b-8a12464b25d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueryModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -78,14 +126,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>70100c30-0b7d-427d-92e8-ada8cb069d99</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#02f89497-6ed1-4926-9b80-9f2700455d00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Azure Functions CQRS Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Functions CQRS Extensions.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>70100c30-0b7d-427d-92e8-ada8cb069d99</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#52a3fd07-2ca7-47bb-b836-7bdabb9992c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Azure Functions Services Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Functions Services Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>70100c30-0b7d-427d-92e8-ada8cb069d99</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.DesignerSettings#855ced69-036d-4282-96a6-c63f6b683cad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>modelers/AzureFunctions Extension.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctions Extension.designer.settings</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>modelers/Azure Functions Types.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Functions Types.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

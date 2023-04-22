@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b78dc242-b6b7-4287-84b9-dc61a1341871" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Query Extension</name>
+  <display>Query Extension: Query</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="2c8042c9-b83e-4f0e-b315-bc0a589c1556">
+    <typeId>e71b0662-e29d-4db2-868b-8a12464b25d0</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services.CQRS</typePackageName>
+    <typePackageId>45fb22e9-f493-4de5-9fe0-845f783aa9d4</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>02f89497-6ed1-4926-9b80-9f2700455d00</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="dce04836-a782-4af0-b913-43bd960e3602" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b78dc242-b6b7-4287-84b9-dc61a1341871</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e48e5d5c-0675-421b-9bf4-6335024c156e" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Expose as Azure Function</name>
+          <display>Expose as Azure Function: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="51a3b34f-299b-45c3-a64a-8c5c64da27f4">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>dce04836-a782-4af0-b913-43bd960e3602</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAD4BJREFUeF7tnH18VOWVx3+/OzOZBIiEvJFMeElAFGvVfhS7FBYsbVWqiwSVN8UXrNVl5SVEBZTVyrLbKmIIoPiCAopiDQUCvqy2rq7WsqLVLsUCipAAySRAQhJeTDIv9/TzDARCZu7MvTMTCP1w/53nnOec7z3Puec597lDnLtiIsCYpM8J4xzAGIPgHMB/dICyLfkCeG1ZMfp5TDzB74dNvmG/Iwfiog/o2EtYtnS9Bhrei5ezAT2Cmfx+w7x46eywS1jUzd2S8v8ALo2XsyA+AR0/58UHjsRLZ8cF+NeuMwDMAZgYF2cFjdA4kJfU/TUu+o4r6ZAAZXP3zkDzCoA3x8nZoyAn8tKDq+Ok74SaDgqw2zj4sRxEPKLPA2IBHHWP8mJ4/uEBysbzUuG0rQJwbVycJbZBx3AOqNsTF31tlHS4CJQvzjsfYt8OwBYfhzUXB9RUxUdXsJYOBVAExOfd9oHMiIPDRwEZyCvrvoqDLkMVHQvgppR8UFsXB4e9AOfDlzSXgyoa46Cv4wOUD2FHp7SvILgwDg5/CL9/IgfX746DrrAqOkwEysbUOQBmAUyIyWmiEk7+kJfXuGPSY1K4QwCUP3Tris7acghGmbTbaJgXlBs46OC7MeoxLX7GAQYeHH9Kux3CF0HYTVvedqAA0GQRB9dOi1pHFIJxB5j6VNlA3SlV9ZP7mMo/sik5DR7nGgiuisL+kyKUZfBp0zgs9D43o+jb833QsusK+/wxpnnasw5MK9r5DDVtNCB7NGpT90/L3RjJWNnY7RJ4bZtj6wzJRmicyCE134SaL6No1xAhF4PMEcjvagvyJkWyy+zvcYnAHkV7kxo136MEpgNwHp98q65rYw4W9v6bkTEi0PBx+iEAnc0aHGLcUYAzedWBZ0Lp6Fa08xKbpq0B0E/9LiIeQIqTJOGxisKeMZc4MQNU8Jo034MACgF0bePEVr9NH1c3pe+WUM7Jh2kTQG1lDPAUkfkcVqPmD7rSF+y4HLT/tgVeqwGHQBQl+u3zYoUYM8C0heX/SZHJIeC12PtGTUHeuKCc/6arEzp7Fdg+0QOUZ/GTmvuo2qQhrrSFZaUUjAytXw4J+GxtQd6s6OePsSOdVly2kMC9rZZtkC2ie3rUFl5YGQTwfzIeB1EIgSNKB7YD9uH8aZXhwyr1iR09NKd9bxj9zQIurS3InRKlDdG19I/lPP/DhKil05Lz2j6favxIuKKuwBXUBZF3sjKQ4F8O4PooDT8E4URevX9tJPnUZyp7al7vl4CkG4xtFkFRktjnRrOcLS/hADx476fG+wGkGBi1k5C7DhT0+Tgo8lTd93763YD2nKrcIgEI8ft3ED7Ma/YtNCsbeAprVDesr4FMg04+1clvm28VomWAacW75hJUOc8AHmsI/aYDBXl/BBiUmwLRZ9ffBPBPZgGcMk6wHuCtvHbfUSvyGYv2DBFdXxsmEhsE8kxtQZ/ZVvRaAphevGs+gMkADZYt4PM5c+sfcBnmJe/vMwfbBJ9YMbLV2CZKQg6HVxyMRr5bsbuXDc3hCvxmAZ6vLcgzvZsxBbBH0cakJmbPhIaZEKM2O2t8jXJl/UN55UbOqY6LNGc0AYyiWco6Or2XctjBimjgtcikzN/V227X/mwYiYSy78lEv+03ZpZzRIC5y8sSD9djOgn1wOhmlPOg4xc1hXkfhXPO/1bmJNqwJAoADSSm4tD+1zgG/ijkTxHJKN41VMBlYXJivYjMTxJHUSSIEQGmLyz7FQQqpEPCE6CWOm6qKcz9OFTOa7G8oaRHanIXr3rP29MiAAFl3VHR/jX5uup4nShgRvGuIQK1QzF8OtcDWFRTkPercPaGBZhevGseQFUjGb4d83qb+zQ82L8sEhT/25lFJKdArHZcpILNjh/wxsraSHNY/T1lQVmunTC2PbCcZUnNtD6q4gh5hQSolu3Rw3xAdHkYQFIoSRV5Pm/zlWbgyZrUHnA6lgvwM4tOHmJnW18Oc9dYlDM9/BhEfh42J+p4oksKHi+fmNfUVnEQwEDOO4SpmnCGQNJiyXlKtqQEtpucWZNIWWypbBd6SJnMEfuWmqYR5cCM4j1DBf4wOZEHBfJkclcUt4UYBDBjQflsENON4AVynuDmmoLcj8DgOq+tD/Je90xp0t4D5AdW/BNiiVYvM3i7tXrPyhwnxwrTi8qHioY1BAyChgcBWVhTkPcfrec4BWD64t1PwK+rnBdy2SpBr2h9G6b3Kgv3wGg9gZR2HyHghigcU8s2boeAWuYn9X/nyP2vhbKn6+LyPIdfdoWxtQk2Pl0zJfdE9ycAUG3PfA7/Q35dHhSDOi+Q80T7YcP03uEmOGVueed8p3iOBOWNKGDGTYTEJxxZPcRIoYJo98vnRpFIoFnT+KTDZ/u1KnGocl7jUW26368/CDGq87gTInfXTM/9yGzkKQP9a7Nmkng8bt7HqIjAWuRX30yGbn8dV8/0RWVDoeMlwzqRqCf5pNNnW8CsF/Ze5Wv0rTOCF8h5fo6uKez9v2ZyXouP8mZajnjtnwF0xeh3XMRJrIC3uYBj6hoiKhRh+uLyoaKHyYlEncNpy2fWkj2bfR6/4SFGj+7vd6iw704rkXcs+rIXEnJf/M64RHTbcAAhGwD7XRZrSXZdXJ4bLifandpfFMA1Po//xraz2xM0XPbTbHRKdiyw1+HR1RfTdEKX32X0A+3LBTI4erfjJvk5Gz0/44SD6t2L6Wu0SJJ3HwoaD3l/vfn9Kvg8epCsPUFbze7PVmfqnu/eEeEVLSMSu9hx/oA0pGQmQURV43jao2Hef2cz4lZKNQz0g1nTqM6mnOGLwB9AbbzFyMP1u6Wbw4H7QMyCoHP9/kZ8++daNB3xnfCIGr/QHInXEY+J1rNn1eVNRz3Pii4DVOT1H5SBlIykkw1/ooHAUrsNc1Znho9EKcnIEpv9AwguOqP8hG/Rp0/h+GrD7lAo+0a4pZPt2AuyArTUhALUH2jE9o0HApGo4CUmOyft3Z31xbE68DHRevfZfeHROvngiuE5WUnJwa8pBGiCYOn6HE4NB6bx9axcpwMqZ0bTbY4Lc1WqwIt7MLZqe4QnbtB8I90ym4DawnZq+2PjYS++fLeyOqV78k92bE/7Go9RP6WQzq+TFDThbxAYPjnVDiHBhpmRIjFaElKCBDB7hgBzo9JBfEMfxnNc1ZdW5FXkESjUws9b5QcufdPFE3vzoK1cfpXkEnhdBANDGUCgSXQ8Rzt+sy6L+60YaWasrM25QHz+r0Baf1sn2ErwXo5xW+p4j94rqV4NU3Gs5xkUecft/gw23FLanTtb+xHcjRHhqH24WBcspQFEAOqJtsxhxyPxjkS9JFudIgiqCkzA3+oXmewYW/2hibEnhgRyHjEDArWFTTWQ/Qw67i3Nwea2tXDofqAIrytDr4QkbDRazioSdWDFehfjds5EVrnSxSYqqiM2ets4ukfXOcU2zv0WieB6IwzRUVUyRwQPhIm8Kq8X//x2L5SF2kiENfTnO+Q8Zxdsi5ATn5MGzNjQn4et3Pm2YwPnZEqytwlwgSU9RK2u67Ps4/a9aEVORZ6dmCmCR8PIVTX68f33eqpOTOgr4p3+F7f0shFvhFnOzSBe0DX814bu3GfFidZj5beuawTyephlFEK1NIhgtm18dciDRUa2jKqQNNECZYoqV0LnPGKT14Nb3u7NsM2TiAAhwhHV+J6m40Uy9IMFwGEIXtYT8PCGDOuRKMtzE5HYvEzA8eZvgBwipYDjqtULc9PXNdXSOQl4iDr+zfAlGbHJpuGeNZnYEmn/HxmgMk2EI93oQeBT0LDEaQbwaqmLd5v25vhAeT3rZoGmQHQxKdsk1As1rfoFq2/pRlbK44E3fEY9T0KdrR5cmoXdkeApW80BPO6Vunud/PgmDESlcZluR4HZSAxEn9MzRwD1caGZS51lmWe71R0udwXpCUSeH4+QmGk4CeF2OPG91amM3LE5rsQSQCUzslLUa8mSMMu5GYKXPA7MfSeT1ZGIyMrMy8Rm/4vJm6kL+ITtlkq1UzB9jXBLeqvtWehuu2CTRoxd66Kpo8ktk1sGGFjO1bhINRzDQDwCYqVux8xIkai/5vo9gKtN0BBqcj/HVy0wMfbEkNuqpfMRwSMigWN4oc/zCDaJjl+u7wFVwIc8a2g0p3WAx3Pi6Fq4fB5sEiDHQHkzgTfWuXiH0eSyytVfBNvMAKHwAeRULuQwnGyJmBDMd8tTAFStGjryCLcmGLQ2G3uswrOcA9vaO3qvJHk1fBsuJ4pgxfocTmwrK8/DIV1c6lB4bgQOPgLFvNUd8hhvONl8t6iWmuFLcQjc+mH0j6WGjS4CW1l9Y4X00G0ogeBHBs6Ul7qYFwTwtewbRQLnU9qeqz5lKIGnOMGtdgqWr3y3qFMHIW+QCD5FIsasT2O4E6wR54wZoMqJo6qgluJLYAiIxNjSbJa0tkRKunWV5qQVIPLDWSiCWdoE9zyrLakWnflVMgaCN4JunuBTu4a712RhazTLtrW+2AEGtAlvOIBsmxeftc6JJH68LptBJ7Z8r7rGaoCq+wzfP5MyG45u8zlmawxfmQvzq3AVBCcbDAK3AAPXu1ARK7yYc2DbO/vjMklMceLrwGEkYkrbyAugLsnoojc7FpAIXXATKuc9B0fK/bHBO26dCPOrMRqCpwE0JWfjopWkpdOt4VZJnCLw5BSqbDisoV9pJtVRtqBLVuX8SHQx/IKJlBdwHqdzhPu7iAnIwoAb3DIADnwdqayyoDIwNO4AIxmgr3T9CcCgUOMILoDT8yjHxO9/XSLZE+vvpxWgvJw1TDTtg5DwiCXwJszmxHJ1sPGsuU4bwMA5mdrvVN3Xqw0dP8FSeLSp/MXe0/KRdDzvzmkD6Hsl506NWAQg+dQyQN6FT5vKiRU74unY6dJ1WgDKqszu4rerfyIafopjIu+T2iTeVvHt6XI43vOcHoCvuMaJUBXOrb8v+T/q2m28c+8pb7ni7WB762t3gHXLc1O6ap5lIFv+D0F1O7YQvIe3V2xqbwfbW3+7A/SudF1tE6qW1bGL2EHRp/D2qvj+L2B7kzLQ3+4A9VdyVEF92bH5pdovvMVxR6Wld7dniI2padsVoKzMvlVEe/W4JbXU9Wt5Z9UXpiw7Swa1G0B53tVJEqmaparuO6ADd9nvqHzrLOFi2sx2A+h/2TWFoDof7dEF0+x3Vr5i2qqzaGA7AsxZQeB6atovedve0rOIiSVT2w2gKp6hOxycUBnT56mWvDkDg9sN4Bnw5YxMeQ5gjNjPATwHMEYCMYr/Hcxsosf3AZj3AAAAAElFTkSuQmCC&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="ctrl + shift + z" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;if (!element.hasStereotype(azureFunctionId)) {&#xD;&#xA;    element.addStereotype(azureFunctionId);&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="095c8f18-1fad-499b-b15f-6e8636727e59" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b78dc242-b6b7-4287-84b9-dc61a1341871</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="dc55f35b-a386-4012-a202-f151a19e349e" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f9a10c64-19a8-4d96-8d6f-82424fc47063">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>095c8f18-1fad-499b-b15f-6e8636727e59</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let httpSettingsId = &quot;b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6&quot;; // from WebApi module&#xD;&#xA;let parameterSettingsId = &quot;d01df110-1208-4af8-a913-92a49d219552&quot;; // from WebApi module&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId)?.getProperty(&quot;Type&quot;).getValue() !== &quot;Http Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(httpSettingsId);&#xD;&#xA;    element.getChildren().forEach(x =&gt; x.removeStereotype(parameterSettingsId));&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let httpSettings = element.getStereotype(httpSettingsId) ?? element.addStereotype(httpSettingsId);&#xD;&#xA;&#xD;&#xA;let folderName = element.getParent().getName();&#xD;&#xA;let mappedEntity = element.getMapping()?.getElement()?.getName();&#xD;&#xA;&#xD;&#xA;let serviceRoute = toKebabCase(folderName);&#xD;&#xA;let serviceRouteIdentifier = element.getChildren().some(x =&gt; x.getName().toLowerCase() == `${singularize(folderName.toLowerCase())}id`) &#xD;&#xA;    ? `/{${toCamelCase(singularize(folderName))}Id}`&#xD;&#xA;    : element.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `/{id}` : &quot;&quot;;&#xD;&#xA;let subRoute = mappedEntity &amp;&amp; mappedEntity != singularize(folderName) &amp;&amp; serviceRouteIdentifier != `/{id}` &#xD;&#xA;    ? `/${toKebabCase(pluralize(mappedEntity))}${element.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `/{id}` : &quot;&quot;}` &#xD;&#xA;    : getUnconventionalRoute() != &quot;&quot; ? `/${getUnconventionalRoute()}` : &quot;&quot;;&#xD;&#xA;&#xD;&#xA;httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;httpSettings.getProperty(&quot;Route&quot;).setValue(`${serviceRoute}${serviceRouteIdentifier}${subRoute}`);&#xD;&#xA;&#xD;&#xA;function getUnconventionalRoute() {&#xD;&#xA;    if ((element.getName().startsWith(&quot;Get&quot;) ||&#xD;&#xA;        element.getName().startsWith(&quot;Find&quot;) ||&#xD;&#xA;        element.getName().startsWith(&quot;Lookup&quot;)) &amp;&amp; &#xD;&#xA;        (serviceRouteIdentifier == `/{id}`)) {&#xD;&#xA;        return &quot;&quot;;&#xD;&#xA;    }&#xD;&#xA;    let queryRoute = toKebabCase(removeSuffix(removePrefix(element.getName(), &quot;Get&quot;, &quot;Find&quot;, &quot;Lookup&quot;), &quot;Query&quot;));&#xD;&#xA;    console.warn(queryRoute);&#xD;&#xA;    console.warn(toKebabCase(mappedEntity ?? singularize(folderName)));&#xD;&#xA;    console.warn(serviceRoute);&#xD;&#xA;    return removePrefix(queryRoute, serviceRoute, toKebabCase(mappedEntity ?? singularize(folderName)), &quot;-&quot;);&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

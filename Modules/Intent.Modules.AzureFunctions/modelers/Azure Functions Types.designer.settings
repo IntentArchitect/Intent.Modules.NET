@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <settings version="3.1.1">
   <id>855ced69-036d-4282-96a6-c63f6b683cad</id>
-  <name>AzureFunctions Extension</name>
+  <name>Azure Functions Types</name>
   <designerReferences />
   <packageSettings />
   <packageExtensions>
@@ -166,21 +166,54 @@
           <script>element.getChildren().forEach(x =&gt; {
     x.setName(toCamelCase(x.getName()));
     x.notifyChanged();
-});</script>
+});
+
+let azureFunctionSettingsId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89";
+let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
+if (element.getStereotype(azureFunctionSettingsId).getProperty("Type").getValue() == "Http Trigger") {
+    if (element.hasStereotype(httpSettingsId)) {
+        return;
+    }
+    let httpSettings = element.addStereotype(httpSettingsId);
+
+    if (element.name.toLowerCase().startsWith("get") ||
+        element.name.toLowerCase().startsWith("find") ||
+        element.name.toLowerCase().startsWith("lookup") ||
+        element.name.toLowerCase().startsWith("search")) {
+        httpSettings.getProperty("Verb").setValue("GET");
+    } else {
+        httpSettings.getProperty("Verb").setValue("POST");
+    }
+    if (!httpSettings.getProperty("Route").getValue()) {
+        httpSettings.getProperty("Route").setValue(element.getName().toLowerCase());
+    }
+} else {
+    element.removeStereotype(httpSettingsId);
+}</script>
+        </macro>
+        <macro trigger="on-created">
+          <script>let azureFunctionSettingsId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89";
+element.addStereotype(azureFunctionSettingsId);</script>
         </macro>
         <macro trigger="on-name-changed">
-          <script>var httpVerb = element.getStereotype("Azure Function")?.getProperty("Method")?.value;
+          <script>let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
+let httpSettings = element.getStereotype(httpSettingsId);
+if (!httpSettings) {
+    return;
+}
+
+var httpVerb = httpSettings.getProperty("Verb")?.value;
 if (!httpVerb) {
     if (element.name.toLowerCase().startsWith("get") ||
         element.name.toLowerCase().startsWith("find") ||
         element.name.toLowerCase().startsWith("lookup") ||
         element.name.toLowerCase().startsWith("search")) {
-        element.getStereotype("Azure Function")?.getProperty("Method")?.setValue("GET");
+        httpSettings.getProperty("Verb").setValue("GET");
     } else {
-        element.getStereotype("Azure Function")?.getProperty("Method")?.setValue("POST");
+        httpSettings.getProperty("Verb").setValue("POST");
     }
-    if (element.getStereotype("Azure Function")?.getProperty("Route").getValue() == null) {
-        element.getStereotype("Azure Function")?.getProperty("Route").setValue(element.getName().toLowerCase());
+    if (!httpSettings.getProperty("Route").getValue()) {
+        httpSettings.getProperty("Route").setValue(element.getName().toLowerCase());
     }
 }</script>
         </macro>

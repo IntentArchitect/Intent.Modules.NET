@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,21 +11,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.AzureFunctions.Api
 {
-    public static class AzureFunctionModelStereotypeExtensions
+    public static class QueryModelStereotypeExtensions
     {
-        public static AzureFunction GetAzureFunction(this AzureFunctionModel model)
+        public static AzureFunction GetAzureFunction(this QueryModel model)
         {
             var stereotype = model.GetStereotype("Azure Function");
             return stereotype != null ? new AzureFunction(stereotype) : null;
         }
 
 
-        public static bool HasAzureFunction(this AzureFunctionModel model)
+        public static bool HasAzureFunction(this QueryModel model)
         {
             return model.HasStereotype("Azure Function");
         }
 
-        public static bool TryGetAzureFunction(this AzureFunctionModel model, out AzureFunction stereotype)
+        public static bool TryGetAzureFunction(this QueryModel model, out AzureFunction stereotype)
         {
             if (!HasAzureFunction(model))
             {
@@ -280,5 +281,6 @@ namespace Intent.AzureFunctions.Api
                 ApplicationJson
             }
         }
+
     }
 }

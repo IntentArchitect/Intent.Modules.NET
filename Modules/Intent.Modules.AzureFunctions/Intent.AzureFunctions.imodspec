@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions</id>
-  <version>4.0.0</version>
+  <version>4.0.1-pre.0</version>
   <supportedClientVersions>[3.0.0-alpha.0, 5.0.0)</supportedClientVersions>
   <summary>Provides support to describe Azure Functions in the Services designer</summary>
   <description>Provides support to describe Azure Functions in the Services designer</description>
@@ -58,6 +58,7 @@
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.25" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Metadata.WebApi" version="4.0.1-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.3.8" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
@@ -68,6 +69,8 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.AzureFunctions/Intent.AzureFunctions.pkg.config" externalReference="022dbddc-276c-406b-81e6-5034ad64db72" />
-    <install target="Services" src="modelers/AzureFunctions Extension.designer.settings" externalReference="855ced69-036d-4282-96a6-c63f6b683cad" />
+    <install target="Services" src="modelers/Azure Functions Types.designer.settings" externalReference="855ced69-036d-4282-96a6-c63f6b683cad" />
+    <install target="Services" src="modelers/Azure Functions Services Extensions.designer.settings" externalReference="52a3fd07-2ca7-47bb-b836-7bdabb9992c4" />
+    <install target="Services" src="modelers/Azure Functions CQRS Extensions.designer.settings" externalReference="02f89497-6ed1-4926-9b80-9f2700455d00" />
   </metadata>
 </package>

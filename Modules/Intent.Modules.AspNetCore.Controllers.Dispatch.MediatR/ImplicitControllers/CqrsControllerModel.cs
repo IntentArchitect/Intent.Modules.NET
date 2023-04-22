@@ -2,15 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 
-namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
+namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControllers;
 
-public class MediatRControllerModel : IControllerModel
+public class CqrsControllerModel : IControllerModel
 {
-    public MediatRControllerModel(
+    public CqrsControllerModel(
         IElement parentElement,
         IEnumerable<IElement> elements)
     {

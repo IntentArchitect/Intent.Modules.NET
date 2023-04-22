@@ -33,7 +33,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
             : null;
 
-            if (requestDtoTypeName == null || template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true ||
+            if (requestDtoTypeName == null || template.Model.TriggerType != TriggerType.HttpTrigger ||
                 template.Model.Mapping?.Element?.AsOperationModel() == null)
             {
                 return;

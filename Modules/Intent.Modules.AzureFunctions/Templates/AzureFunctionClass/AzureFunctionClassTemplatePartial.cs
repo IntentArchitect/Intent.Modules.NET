@@ -20,16 +20,15 @@ using Intent.Templates;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class AzureFunctionClassTemplate : CSharpTemplateBase<AzureFunctionModel, AzureFunctionClassDecorator>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore)]
+    public partial class AzureFunctionClassTemplate : CSharpTemplateBase<IAzureFunctionModel, AzureFunctionClassDecorator>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureFunctionClass";
 
-        private readonly bool _hasMultipleServices;
         private readonly IFunctionTriggerHandler _triggerStrategyHandler;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, AzureFunctionModel model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Ignore)]
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, IAzureFunctionModel model) : base(TemplateId, outputTarget, model)
         {
             _triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
 
@@ -91,7 +90,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private string GetRunMethodReturnType()
         {
-            if (Model.GetAzureFunction()?.Type().IsHttpTrigger() == true)
+            if (Model.TriggerType == TriggerType.HttpTrigger)
             {
                 return "Task<IActionResult>";
             }

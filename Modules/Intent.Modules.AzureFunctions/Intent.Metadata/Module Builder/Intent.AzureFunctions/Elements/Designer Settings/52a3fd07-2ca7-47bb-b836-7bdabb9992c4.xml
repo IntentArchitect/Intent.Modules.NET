@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="855ced69-036d-4282-96a6-c63f6b683cad" type="Designer Settings" typeId="7a6411a8-ffef-4209-91c6-8d12755a806a">
-  <name>Azure Functions Types</name>
-  <display>Azure Functions Types</display>
+<class id="52a3fd07-2ca7-47bb-b836-7bdabb9992c4" type="Designer Settings" typeId="7a6411a8-ffef-4209-91c6-8d12755a806a">
+  <name>Azure Functions Services Extensions</name>
+  <display>Azure Functions Services Extensions</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

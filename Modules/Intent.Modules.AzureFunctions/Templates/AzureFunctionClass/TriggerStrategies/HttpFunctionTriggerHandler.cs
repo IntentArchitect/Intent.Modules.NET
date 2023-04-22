@@ -11,39 +11,48 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Utils;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 
 internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 {
-    private readonly AzureFunctionClassTemplate _template;
-    private readonly AzureFunctionModel _azureFunctionModel;
+    private readonly ICSharpFileBuilderTemplate _template;
+    private readonly IAzureFunctionModel _azureFunctionModel;
+    private readonly IHttpEndpointModel _endpointModel;
 
-    public HttpFunctionTriggerHandler(AzureFunctionClassTemplate template, AzureFunctionModel azureFunctionModel)
+    public HttpFunctionTriggerHandler(ICSharpFileBuilderTemplate template, IAzureFunctionModel azureFunctionModel)
     {
         _template = template;
         _azureFunctionModel = azureFunctionModel;
+        _endpointModel = _azureFunctionModel.GetHttpEndpointModel();
     }
 
     public void ApplyMethodParameters(CSharpClassMethod method)
-    {
+    { 
+        if (_endpointModel == null)
+        {
+            Logging.Log.Warning($"Http Settings could not be found on Azure Function [{_azureFunctionModel.Name}] that is Http triggered");
+            return;
+        }
         method.AddParameter("HttpRequest", "req", param =>
         {
             param.AddAttribute("HttpTrigger", attr =>
             {
-                var httpTriggersView = _azureFunctionModel.GetAzureFunction().GetHttpTriggerView();
-                var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
-                    ? $@"""{httpTriggersView.Route()}"""
+
+                var route = !string.IsNullOrWhiteSpace(_endpointModel?.Route)
+                    ? $@"""{_endpointModel.Route}"""
                     : @"""""";
-                attr.AddArgument($"AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}");
-                attr.AddArgument(@$"""{httpTriggersView.Method().Value.ToLower()}""");
+                attr.AddArgument($"AuthorizationLevel.{_azureFunctionModel.AuthorizationLevel}");
+                attr.AddArgument(@$"""{_endpointModel?.Verb.ToString().ToLower() ?? "get"}""");
                 attr.AddArgument($"Route = {route}");
             });
         });
 
-        foreach (var parameterModel in _azureFunctionModel.Parameters.Where(IsParameterRoute))
+        foreach (var parameterModel in _endpointModel.Inputs.Where(x => x.Source is HttpInputSource.FromRoute))
         {
-            method.AddParameter(_template.GetTypeName(parameterModel.Type), parameterModel.Name.ToParameterName());
+            method.AddParameter(_template.GetTypeName(parameterModel.TypeReference), parameterModel.Name.ToParameterName());
         }
 
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
@@ -61,13 +70,13 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                     continue;
                 }
 
-                tryBlock.AddStatement($@"{_template.GetTypeName(param.Type)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
             }
 
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
+                tryBlock.AddStatement($@"var {GetRequestInput().Name} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
             }
         }).AddCatchBlock("FormatException", "exception", catchBlock =>
         {
@@ -80,32 +89,21 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         yield return NuGetPackages.MicrosoftExtensionsHttp;
     }
 
-    private string GetRequestDtoParameterName()
+    private IAzureFunctionParameterModel GetRequestInput()
     {
-        return _azureFunctionModel.GetRequestDtoParameter().Name.ToParameterName();
-    }
-
-    private bool IsParameterRoute(AzureFunctionParameterModel parameterModel)
-    {
-        return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
-               || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                   parameterModel.TypeReference.Element.IsTypeDefinitionModel() &&
-                   _template.Model.GetAzureFunction().Route().Contains($"{{{parameterModel.Name}}}"));
+        return _azureFunctionModel.Parameters.FirstOrDefault(x => x.GetHttpInputSource() == HttpInputSource.FromBody);
     }
 
     public string GetRequestDtoType()
     {
-        var dtoParameter = _azureFunctionModel.GetRequestDtoParameter();
+        var dtoParameter = GetRequestInput();
         return dtoParameter == null
             ? null
             : _template.GetTypeName(dtoParameter.TypeReference.Element.AsTypeReference());
     }
 
-    private IEnumerable<AzureFunctionParameterModel> GetQueryParams()
+    private IEnumerable<IHttpEndpointInputModel> GetQueryParams()
     {
-        return _azureFunctionModel.Parameters
-            .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true || 
-                        (p.GetParameterSetting()?.Source().IsDefault() == true && p.TypeReference.Element.IsTypeDefinitionModel() &&
-                         !_template.Model.GetAzureFunction().Route().Contains($"{{{p.Name}}}")));
+        return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromQuery);
     }
 }

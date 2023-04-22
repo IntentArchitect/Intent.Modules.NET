@@ -15,6 +15,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -43,8 +44,8 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));
             foreach (var template in templates)
             {
-                var mappedCommand = template.Model.Mapping?.Element?.AsCommandModel();
-                var mappedQuery = template.Model.Mapping?.Element?.AsQueryModel();
+                var mappedCommand = template.Model.InternalElement.AsCommandModel() ?? template.Model.Mapping?.Element?.AsCommandModel();
+                var mappedQuery = template.Model.InternalElement.AsQueryModel() ?? template.Model.Mapping?.Element?.AsQueryModel();
 
                 if (mappedCommand != null || mappedQuery != null)
                 {
@@ -76,7 +77,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
         }
 
 
-        private IEnumerable<CSharpStatement> GetValidations(AzureFunctionModel model)
+        private IEnumerable<CSharpStatement> GetValidations(IAzureFunctionModel model)
         {
             var validations = new List<string>();
             var payloadParameter = GetPayloadParameter(model);
@@ -96,7 +97,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             return validations.Select(x => (CSharpStatement)x).ToList();
         }
 
-        private CSharpStatement GetDispatchViaMediatorStatement(ICSharpFileBuilderTemplate template, AzureFunctionModel operationModel)
+        private CSharpStatement GetDispatchViaMediatorStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
         {
             var payload = GetPayloadParameter(operationModel)?.Name
                 ?? GetMappedPayload(template, operationModel);
@@ -106,11 +107,12 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        private CSharpStatement GetReturnStatement(ICSharpFileBuilderTemplate template, AzureFunctionModel operationModel)
+        private CSharpStatement GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
         {
-            switch (operationModel.GetAzureFunction().Method().AsEnum())
+            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement);
+            switch (endpoint?.Verb)
             {
-                case AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET:
+                case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
                         return "return new NoContentResult();";
@@ -122,7 +124,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                     }
 
                     return @"return result != null ? new OkObjectResult(result) : new NotFoundResult();";
-                case AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST:
+                case HttpVerb.Post:
                     var getByIdFunction = (operationModel.InternalElement.ParentElement?.ChildElements ?? operationModel.InternalElement.Package.ChildElements)
                             .Where(x => x.IsAzureFunctionModel())
                             .Select(x => x.AsAzureFunctionModel())
@@ -136,24 +138,24 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                         return $@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});";
                     }
                     return operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);";
-                case AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT:
-                case AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH:
+                case HttpVerb.Put:
+                case HttpVerb.Patch:
                     return operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);";
-                case AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE:
+                case HttpVerb.Delete:
                     return operationModel.ReturnType == null ? @"return new OkObjectResult();" : @"return new OkObjectResult(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private static AzureFunctionParameterModel GetPayloadParameter(AzureFunctionModel operation)
+        private static IAzureFunctionParameterModel GetPayloadParameter(IAzureFunctionModel operation)
         {
             return operation.Parameters.SingleOrDefault(x =>
                 x.TypeReference.Element.SpecializationTypeId == CommandModel.SpecializationTypeId ||
                 x.TypeReference.Element.SpecializationTypeId == QueryModel.SpecializationTypeId);
         }
 
-        private string GetMappedPayload(ICSharpFileBuilderTemplate template, AzureFunctionModel operation)
+        private string GetMappedPayload(ICSharpFileBuilderTemplate template, IAzureFunctionModel operation)
         {
             var requestType = operation.InternalElement.IsCommandModel() || operation.InternalElement.IsQueryModel()
                 ? operation.InternalElement.AsTypeReference()
@@ -167,7 +169,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             return $"new {template.GetTypeName(requestType)}()";
         }
 
-        private IList<AzureFunctionParameterModel> GetMappedParameters(AzureFunctionModel operationModel)
+        private IList<IAzureFunctionParameterModel> GetMappedParameters(IAzureFunctionModel operationModel)
         {
             return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
         }

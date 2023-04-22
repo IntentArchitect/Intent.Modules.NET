@@ -11,6 +11,7 @@ using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -32,7 +33,8 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
         {
             _template = template;
             _application = application;
-            var mappedOperation = _template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null;
+            var mappedOperation = _template.Model.InternalElement.AsOperationModel() ??
+                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null);
             if (mappedOperation == null)
             {
                 return;
@@ -59,28 +61,28 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
         public CSharpStatement GetReturnStatement()
         {
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            if (_template.Model.TriggerType != TriggerType.HttpTrigger)
             {
                 return null;
             }
 
-            var httpTriggersView = _template.Model.GetAzureFunction().GetHttpTriggerView();
-            string result = httpTriggersView.Method().AsEnum() switch
+            var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement);
+            string result = httpTriggersView.Verb switch
             {
-                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
+                HttpVerb.Get => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST =>
+                HttpVerb.Post =>
                     _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
                         : $"return new CreatedResult(string.Empty, {GetResultExpression()});",
-                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT or
-                    AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH => _template.Model.ReturnType ==
+                HttpVerb.Put or
+                    HttpVerb.Patch => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
+                HttpVerb.Delete => _template.Model.ReturnType ==
                     null
                         ? $"return new OkResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
@@ -97,7 +99,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
                 throw new ArgumentException($@"{nameof(_template.Model.ReturnType)} is expected to be specified with a Type");
             }
 
-            if (_template.Model.GetAzureFunction().ReturnTypeMediatype().IsApplicationJson()
+            if (HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement)?.MediaType == HttpMediaType.ApplicationJson
                 && _template.GetTypeInfo(_template.Model.ReturnType).IsPrimitive)
             {
                 return $@"new {_template.GetJsonResponseName()}<{_template.GetTypeName(_template.Model.ReturnType)}>(result)";

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
@@ -12,8 +12,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.AzureFunctions.Api
 {
-    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class AzureFunctionModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder
+    [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
+    public class AzureFunctionModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IAzureFunctionModel
     {
         public const string SpecializationType = "Azure Function";
         public const string SpecializationTypeId = "702f57ca-3b5a-413b-a084-9f2d154154e7";
@@ -52,6 +52,28 @@ namespace Intent.AzureFunctions.Api
 
         public IElement InternalElement => _element;
 
+        [IntentManaged(Mode.Ignore)]
+        public TriggerType TriggerType => this.GetAzureFunction().Type().AsEnum() switch
+        {
+            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger => TriggerType.HttpTrigger,
+            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger => TriggerType.HttpTrigger,
+            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger => TriggerType.HttpTrigger,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        [IntentManaged(Mode.Ignore)]
+        public string AuthorizationLevel => this.GetAzureFunction().AuthorizationLevel().Value;
+
+        [IntentManaged(Mode.Ignore)]
+        IList<IAzureFunctionParameterModel> IAzureFunctionModel.Parameters => Parameters.Cast<IAzureFunctionParameterModel>().ToList();
+
+        [IntentManaged(Mode.Ignore)]
+        public string QueueName => this.GetAzureFunction().QueueName();
+
+        [IntentManaged(Mode.Ignore)]
+        public string Connection => this.GetAzureFunction().Connection();
+
+        [IntentManaged(Mode.Ignore)]
         public IList<AzureFunctionParameterModel> Parameters => _element.ChildElements
             .GetElementsOfType(AzureFunctionParameterModel.SpecializationTypeId)
             .Select(x => new AzureFunctionParameterModel(x))

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,8 +11,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.AzureFunctions.Api
 {
-    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class AzureFunctionParameterModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
+    [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
+    public class AzureFunctionParameterModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IAzureFunctionParameterModel
     {
         public const string SpecializationType = "Azure Function Parameter";
         public const string SpecializationTypeId = "b6d4f537-eebe-4c56-8cb0-7687cf5bbe16";
