@@ -1,6 +1,7 @@
 ### Version 5.0.1
 
 - Decoupled this module from the Intent.Metadata.RDBMS module.
+- Fixed: Duplicate Create and Update methods being generated for properties where shared DTO and Entity types are involved.
 
 ### Version 5.0.0
 

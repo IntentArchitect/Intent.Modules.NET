@@ -161,6 +161,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
                             var targetEntity = association.Element.AsClassModel();
                             var attributeName = association.Name.ToPascalCase();
+                            var createMethodName = GetCreateMethodName(targetEntity.InternalElement);
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)
                             {
@@ -173,34 +174,40 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 if (field.TypeReference.IsNullable)
                                 {
                                     codeLines.Add(
-                                        $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetEntity.InternalElement)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
+                                        $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {createMethodName}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
                                 }
                                 else
                                 {
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetEntity.InternalElement)}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                                    codeLines.Add($"{entityVarExpr}{attributeName} = {createMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
                                 }
                             }
                             else
                             {
-                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetEntity.InternalElement)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetEntity.Name.ToPascalCase()}>()" : "")},");
+                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({createMethodName}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetEntity.Name.ToPascalCase()}>()" : "")},");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod(_template.GetTypeName(targetEntity.InternalElement),
-                                GetCreateMethodName(targetEntity.InternalElement),
-                                method => method.Private()
-                                    .Static()
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                    .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatement($"return new {targetEntity.Name.ToPascalCase()}")
-                                    .AddStatement(new CSharpStatementBlock()
-                                        .AddStatements(GetDTOPropertyAssignments(
-                                            entityVarName: "",
-                                            dtoVarName: $"dto",
-                                            domainModel: targetEntity,
-                                            dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
-                                            skipIdField: true))
-                                        .WithSemicolon()));
+                            var existingMethod = @class.FindMethod(x => x.Name == createMethodName &&
+                                                                        x.ReturnType == _template.GetTypeName(targetEntity.InternalElement) &&
+                                                                        x.Parameters.FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
+                            if (existingMethod == null)
+                            {
+                                @class.AddMethod(_template.GetTypeName(targetEntity.InternalElement),
+                                    createMethodName,
+                                    method => method.Private()
+                                        .Static()
+                                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                        .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
+                                        .AddStatement($"return new {targetEntity.Name.ToPascalCase()}")
+                                        .AddStatement(new CSharpStatementBlock()
+                                            .AddStatements(GetDTOPropertyAssignments(
+                                                entityVarName: "",
+                                                dtoVarName: $"dto",
+                                                domainModel: targetEntity,
+                                                dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
+                                                skipIdField: true))
+                                            .WithSemicolon()));
+                            }
                         }
                         break;
                 }

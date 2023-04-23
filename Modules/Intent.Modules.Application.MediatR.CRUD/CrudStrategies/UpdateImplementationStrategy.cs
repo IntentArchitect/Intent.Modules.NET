@@ -198,28 +198,35 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                             var entityTypeName = _template.GetTypeName(targetEntity.InternalElement);
                             var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod(entityTypeName,
-                                updateMethodName,
-                                method =>
-                                {
-                                    method.Private()
-                                        .Static()
-                                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                        .AddParameter(entityTypeName, "entity")
-                                        .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element),
-                                            "dto")
-                                        .AddStatementBlock("if (dto == null)", s => s
-                                            .AddStatement("return null;")
-                                        )
-                                        .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
-                                        .AddStatements(GetDtoPropertyAssignments(
-                                            entityVarName: "entity",
-                                            dtoVarName: "dto",
-                                            domainModel: targetEntity,
-                                            dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
-                                            skipIdField: true))
-                                        .AddStatement("return entity;", s => s.SeparatedFromPrevious());
-                                });
+
+                            var existingMethod = @class.FindMethod(x => x.Name == updateMethodName &&
+                                                                        x.ReturnType == entityTypeName &&
+                                                                        x.Parameters.FirstOrDefault()?.Type == entityTypeName &&
+                                                                        x.Parameters.Skip(1).FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
+                            if (existingMethod == null)
+                            {
+                                @class.AddMethod(entityTypeName,
+                                    updateMethodName,
+                                    method =>
+                                    {
+                                        method.Private()
+                                            .Static()
+                                            .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                            .AddParameter(entityTypeName, "entity")
+                                            .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
+                                            .AddStatementBlock("if (dto == null)", s => s
+                                                .AddStatement("return null;")
+                                            )
+                                            .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
+                                            .AddStatements(GetDtoPropertyAssignments(
+                                                entityVarName: "entity",
+                                                dtoVarName: "dto",
+                                                domainModel: targetEntity,
+                                                dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
+                                                skipIdField: true))
+                                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                                    });
+                            }
                         }
                         break;
                 }
