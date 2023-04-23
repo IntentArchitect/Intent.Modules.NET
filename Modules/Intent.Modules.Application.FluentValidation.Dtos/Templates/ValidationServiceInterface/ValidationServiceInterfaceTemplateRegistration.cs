@@ -26,7 +26,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
         public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             if (!application.MetadataManager.Services(application).GetDTOModels()
-                    .Any(x => ValidationRulesExtensions.GetValidationRules(x.Fields).Any()))
+                    .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.GetValidationRules(x.Fields).Any()))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;
