@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
@@ -20,12 +21,19 @@ internal class ManualTriggerHandler : IFunctionTriggerHandler
 
     public void ApplyMethodParameters(CSharpClassMethod method)
     {
-        if (_azureFunctionModel.Parameters.Count > 0)
+        if (_azureFunctionModel.Parameters.Count == 0)
         {
-            method.AddParameter(
-                type: _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference),
-                name: _azureFunctionModel.Parameters.Single().Name.ToParameterName());
+            throw new Exception($"Please specify the parameter for the Manually triggered Azure Function [{_azureFunctionModel.Name}]");
         }
+
+        if (_azureFunctionModel.Parameters.Count > 1)
+        {
+            throw new Exception($"Please specify only one parameter for the Manually triggered Azure Function [{_azureFunctionModel.Name}]");
+        }
+
+        method.AddParameter(
+            type: _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference),
+            name: _azureFunctionModel.Parameters.Single().Name.ToParameterName());
 
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }

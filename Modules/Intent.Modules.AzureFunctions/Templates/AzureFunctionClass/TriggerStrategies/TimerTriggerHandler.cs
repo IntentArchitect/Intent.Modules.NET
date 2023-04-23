@@ -30,7 +30,7 @@ internal class TimerTriggerHandler : IFunctionTriggerHandler
         
         method.AddParameter(
             type: "TimerInfo",
-            name: _azureFunctionModel.Parameters.Single().Name.ToParameterName(),
+            name: "timerInfo",
             configure: param =>
             {
                 param.AddAttribute("TimerTrigger", attr =>
