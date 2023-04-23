@@ -26,7 +26,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     {
         _template = template;
         _azureFunctionModel = azureFunctionModel;
-        _endpointModel = _azureFunctionModel.GetHttpEndpointModel();
+        _endpointModel = HttpEndpointModelFactory.GetEndpoint(_azureFunctionModel.InternalElement);
         if (_endpointModel == null)
         {
             Logging.Log.Warning($"Http Settings could not be found on Azure Function [{_azureFunctionModel.Name}] that is Http triggered");
@@ -35,7 +35,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     public void ApplyMethodParameters(CSharpClassMethod method)
     {
-        method.AddParameter("HttpRequest", "req", param =>
+        method.AddParameter(_template.UseType("Microsoft.AspNetCore.Http.HttpRequest"), "req", param =>
         {
             param.AddAttribute("HttpTrigger", attr =>
             {
@@ -43,7 +43,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 var route = !string.IsNullOrWhiteSpace(_endpointModel?.Route)
                     ? $@"""{_endpointModel.Route}"""
                     : @"""""";
-                attr.AddArgument($"AuthorizationLevel.{_azureFunctionModel.AuthorizationLevel}");
+                attr.AddArgument($"{_template.UseType("Microsoft.Azure.WebJobs.Extensions.Http.AuthorizationLevel")}.{_azureFunctionModel.AuthorizationLevel}");
                 attr.AddArgument(@$"""{_endpointModel?.Verb.ToString().ToLower() ?? "get"}""");
                 attr.AddArgument($"Route = {route}");
             });
@@ -75,7 +75,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement($@"var {GetRequestInput().Name} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
+                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("Newtonsoft.Json.JsonConvert")}.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
             }
         }).AddCatchBlock("FormatException", "exception", catchBlock =>
         {

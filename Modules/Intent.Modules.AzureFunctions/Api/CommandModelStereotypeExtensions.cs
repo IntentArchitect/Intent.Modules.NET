@@ -48,9 +48,9 @@ namespace Intent.AzureFunctions.Api
 
             public string Name => _stereotype.Name;
 
-            public TypeOptions Type()
+            public TriggerOptions Trigger()
             {
-                return new TypeOptions(_stereotype.GetProperty<string>("Type"));
+                return new TriggerOptions(_stereotype.GetProperty<string>("Trigger"));
             }
 
             public AuthorizationLevelOptions AuthorizationLevel()
@@ -83,25 +83,41 @@ namespace Intent.AzureFunctions.Api
                 return new ReturnTypeMediatypeOptions(_stereotype.GetProperty<string>("Return Type Mediatype"));
             }
 
-            public class TypeOptions
+            public string ScheduleExpression()
+            {
+                return _stereotype.GetProperty<string>("Schedule Expression");
+            }
+
+            public string EventHubName()
+            {
+                return _stereotype.GetProperty<string>("EventHub Name");
+            }
+
+            public class TriggerOptions
             {
                 public readonly string Value;
 
-                public TypeOptions(string value)
+                public TriggerOptions(string value)
                 {
                     Value = value;
                 }
 
-                public TypeOptionsEnum AsEnum()
+                public TriggerOptionsEnum AsEnum()
                 {
                     switch (Value)
                     {
                         case "Http Trigger":
-                            return TypeOptionsEnum.HttpTrigger;
+                            return TriggerOptionsEnum.HttpTrigger;
                         case "Service Bus Trigger":
-                            return TypeOptionsEnum.ServiceBusTrigger;
+                            return TriggerOptionsEnum.ServiceBusTrigger;
                         case "Queue Trigger":
-                            return TypeOptionsEnum.QueueTrigger;
+                            return TriggerOptionsEnum.QueueTrigger;
+                        case "Timer Trigger":
+                            return TriggerOptionsEnum.TimerTrigger;
+                        case "EventHub Trigger":
+                            return TriggerOptionsEnum.EventHubTrigger;
+                        case "Manual Trigger":
+                            return TriggerOptionsEnum.ManualTrigger;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -119,13 +135,28 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "Queue Trigger";
                 }
+                public bool IsTimerTrigger()
+                {
+                    return Value == "Timer Trigger";
+                }
+                public bool IsEventHubTrigger()
+                {
+                    return Value == "EventHub Trigger";
+                }
+                public bool IsManualTrigger()
+                {
+                    return Value == "Manual Trigger";
+                }
             }
 
-            public enum TypeOptionsEnum
+            public enum TriggerOptionsEnum
             {
                 HttpTrigger,
                 ServiceBusTrigger,
-                QueueTrigger
+                QueueTrigger,
+                TimerTrigger,
+                EventHubTrigger,
+                ManualTrigger
             }
             public class AuthorizationLevelOptions
             {

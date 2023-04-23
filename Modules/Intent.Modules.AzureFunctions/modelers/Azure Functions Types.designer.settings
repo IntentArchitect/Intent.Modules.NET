@@ -169,8 +169,9 @@
 });
 
 let azureFunctionSettingsId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89";
+let azureFunctionTriggerId = "a6411e1f-8199-4b18-b1a1-fd2aa73b1da6";
 let httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
-if (element.getStereotype(azureFunctionSettingsId).getProperty("Type").getValue() == "Http Trigger") {
+if (element.getStereotype(azureFunctionSettingsId).getProperty(azureFunctionTriggerId).getValue() == "Http Trigger") {
     if (element.hasStereotype(httpSettingsId)) {
         return;
     }

@@ -17,6 +17,12 @@ internal static class TriggerStrategyResolver
                 return new AzureServiceBusTriggerHandler(template, model);
             case TriggerType.QueueTrigger:
                 return new QueueTriggerHandler(template, model);
+            case TriggerType.TimerTrigger:
+                return new TimerTriggerHandler(template, model);
+            case TriggerType.EventHubTrigger:
+                return new EventHubTriggerHandler(template, model);
+            case TriggerType.ManualTrigger:
+                return new ManualTriggerHandler(template, model);
             default:
                 throw new ArgumentOutOfRangeException();
         }

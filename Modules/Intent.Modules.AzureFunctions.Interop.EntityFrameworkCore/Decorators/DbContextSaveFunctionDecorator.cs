@@ -31,6 +31,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DbContextSaveFunctionDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
+            _application = application;
             _template = template;
             if (HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement)?.Verb == HttpVerb.Get ||
                 template.Model.Mapping?.Element?.AsOperationModel() == null)

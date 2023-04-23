@@ -4,5 +4,8 @@ public enum TriggerType
 {
     HttpTrigger,
     ServiceBusTrigger,
-    QueueTrigger
+    QueueTrigger,
+    TimerTrigger,
+    EventHubTrigger,
+    ManualTrigger,
 }

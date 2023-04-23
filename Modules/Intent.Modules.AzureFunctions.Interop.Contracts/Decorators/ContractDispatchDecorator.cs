@@ -42,7 +42,6 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
             _template.CSharpFile.OnBuild(file =>
             {
-                file.AddUsing("FluentValidation");
                 var @class = file.Classes.Single();
                 @class.Constructors.First().AddParameter(_template.GetServiceContractName(mappedOperation.ParentService), "appService", param =>
                 {
@@ -50,42 +49,33 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
                 });
 
                 var runMethod = @class.FindMethod("Run");
-                runMethod.FindStatement<CSharpTryBlock>(x => true)?
+                ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod)?
                     .AddStatement($"{(_template.Model.ReturnType != null ? "var result = " : "")}await _appService.{mappedOperation.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});",
                         statement => statement.AddMetadata("service-dispatch-statement", true))
                     .AddStatement(GetReturnStatement());
-                //runMethod.FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
-                //    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
             });
         }
 
         public CSharpStatement GetReturnStatement()
         {
-            if (_template.Model.TriggerType != TriggerType.HttpTrigger)
-            {
-                return null;
-            }
-
             var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement);
-            string result = httpTriggersView.Verb switch
+            string result = httpTriggersView?.Verb switch
             {
-                HttpVerb.Get => _template.Model.ReturnType ==
-                    null
+                HttpVerb.Get => _template.Model.ReturnType == null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                HttpVerb.Post =>
-                    _template.Model.ReturnType == null
+                HttpVerb.Post => _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
                         : $"return new CreatedResult(string.Empty, {GetResultExpression()});",
-                HttpVerb.Put or
-                    HttpVerb.Patch => _template.Model.ReturnType ==
-                    null
+                HttpVerb.Put or HttpVerb.Patch => _template.Model.ReturnType == null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                HttpVerb.Delete => _template.Model.ReturnType ==
-                    null
+                HttpVerb.Delete => _template.Model.ReturnType == null
                         ? $"return new OkResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
+                null => _template.Model.ReturnType == null
+                    ? $"return;"
+                    : $"return result;",
                 _ => throw new ArgumentOutOfRangeException()
             };
 

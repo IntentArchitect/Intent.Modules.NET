@@ -34,14 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#b6d4f537-eebe-4c56-8cb0-7687cf5bbe16</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/AzureFunctionParameterModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctionParameterModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#35aaa5d4-1e33-4946-a18a-73c557f1dae5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/CommandExtensionModel.cs</ApplicationRelativeFilePath>

@@ -5,6 +5,7 @@ using Intent.AzureFunctions.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.AzureFunctions.Interop.Contracts.Templates;
 
@@ -16,16 +17,21 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
         Name = operationModel.Name;
         TypeReference = operationModel.TypeReference;
         InternalElement = operationModel.InternalElement;
-        TriggerType = GetTriggerType(operationModel.GetAzureFunction().Type());
+        TriggerType = Enum.TryParse<TriggerType>(operationModel.GetAzureFunction().Trigger().AsEnum().ToString(), out var triggerType)
+            ? triggerType
+            : throw new Exception($"Unable to determine Azure Function -> Trigger Type value for {operationModel.Name}"); ;
         AuthorizationLevel = operationModel.GetAzureFunction().AuthorizationLevel().Value;
         Parameters = operationModel.Parameters
             .Select(x => new AzureFunctionParameterModel(x.InternalElement, x.InternalElement.SpecializationType))
             .ToList<IAzureFunctionParameterModel>();
         QueueName = operationModel.GetAzureFunction().QueueName();
         Connection = operationModel.GetAzureFunction().Connection();
+        ScheduleExpression = operationModel.GetAzureFunction().ScheduleExpression();
+        EventHubName = operationModel.GetAzureFunction().EventHubName();
         ReturnType = operationModel.TypeReference.Element != null ? operationModel.TypeReference : null;
         IsMapped = operationModel.InternalElement.IsMapped;
         Mapping = operationModel.InternalElement.MappedElement;
+        Folder = operationModel.ParentService.Folder;
     }
 
     public string Id { get; }
@@ -45,21 +51,13 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
     public string QueueName { get; }
 
     public string Connection { get; }
+    public string ScheduleExpression { get; }
+    public string EventHubName { get; }
 
     public ITypeReference ReturnType { get; }
 
     public bool IsMapped { get; }
 
     public IElementMapping Mapping { get; }
-
-    private static TriggerType GetTriggerType(OperationModelStereotypeExtensions.AzureFunction.TypeOptions type)
-    {
-        return type.AsEnum() switch
-        {
-            OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger => TriggerType.HttpTrigger,
-            OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger => TriggerType.ServiceBusTrigger,
-            OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger => TriggerType.QueueTrigger,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
+    public IFolder Folder { get; }
 }

@@ -11,4 +11,7 @@ static class NuGetPackages
     public static readonly INugetPackageInfo MicrosoftAzureServiceBus = new NugetPackageInfo("Microsoft.Azure.ServiceBus", "5.2.0");
     public static readonly INugetPackageInfo MicrosoftAzureWebJobsExtensionsServiceBus = new NugetPackageInfo("Microsoft.Azure.WebJobs.Extensions.ServiceBus", "5.5.1");
     public static readonly INugetPackageInfo MicrosoftAzureWebJobsExtensionsStorageQueues = new NugetPackageInfo("Microsoft.Azure.WebJobs.Extensions.Storage.Queues","5.0.0");
+    public static readonly INugetPackageInfo MicrosoftAzureWebJobsExtensionsEventHubs = new NugetPackageInfo("Microsoft.Azure.WebJobs.Extensions.EventHubs", "5.3.0");
+    public static readonly INugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsTimer = new NugetPackageInfo("Microsoft.Azure.Functions.Worker.Extensions.Timer", "4.2.0");
+    public static readonly INugetPackageInfo AzureMessagingEventHubs = new NugetPackageInfo("Azure.Messaging.EventHubs", "5.9.0");
 }

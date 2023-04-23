@@ -64,14 +64,11 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
 
                         var runMethod = @class.FindMethod("Run");
-                        runMethod.FindStatement<CSharpTryBlock>(x => true)?
+                        ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod)?
                             .AddStatements(GetValidations(template.Model))
                             .AddStatement(GetDispatchViaMediatorStatement(template, template.Model))
-                            .AddStatement(GetReturnStatement(template, template.Model))
-                            ;
+                            .AddStatements(GetReturnStatement(template, template.Model));
                     });
-
-
                 }
             }
         }
@@ -107,7 +104,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        private CSharpStatement GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
+        private IEnumerable<CSharpStatement> GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
         {
             var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement);
             switch (endpoint?.Verb)
@@ -115,15 +112,18 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
-                        return "return new NoContentResult();";
+                        yield return "return new NoContentResult();";
+                        break;
                     }
 
                     if (operationModel.ReturnType.IsCollection)
                     {
-                        return "return new OkObjectResult(result);";
+                        yield return "return new OkObjectResult(result);";
+                        break;
                     }
 
-                    return @"return result != null ? new OkObjectResult(result) : new NotFoundResult();";
+                    yield return @"return result != null ? new OkObjectResult(result) : new NotFoundResult();";
+                    break;
                 case HttpVerb.Post:
                     var getByIdFunction = (operationModel.InternalElement.ParentElement?.ChildElements ?? operationModel.InternalElement.Package.ChildElements)
                             .Where(x => x.IsAzureFunctionModel())
@@ -135,14 +135,24 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                                 x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdFunction != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        return $@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});";
+                        yield return $@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});";
+                        break;
                     }
-                    return operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);";
+                    yield return operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);";
+                    break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);";
+                    yield return operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);";
+                    break;
                 case HttpVerb.Delete:
-                    return operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);";
+                    yield return operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);";
+                    break;
+                case null:
+                    if (operationModel.ReturnType != null)
+                    {
+                        yield return $"return result;";
+                    }
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

@@ -39,6 +39,8 @@ namespace Intent.AzureFunctions.Api
 
         public ITypeReference TypeReference => _element.TypeReference;
 
+        public ITypeReference Type => TypeReference?.Element != null ? TypeReference : null;
+
         [IntentManaged(Mode.Ignore)]
         public HttpInputSource? InputSource => HttpEndpointModelFactory.GetHttpInputSource(InternalElement);
 

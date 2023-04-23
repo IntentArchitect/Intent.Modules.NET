@@ -53,13 +53,9 @@ namespace Intent.AzureFunctions.Api
         public IElement InternalElement => _element;
 
         [IntentManaged(Mode.Ignore)]
-        public TriggerType TriggerType => this.GetAzureFunction().Type().AsEnum() switch
-        {
-            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger => TriggerType.HttpTrigger,
-            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger => TriggerType.ServiceBusTrigger,
-            AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger => TriggerType.QueueTrigger,
-            _ => throw new ArgumentOutOfRangeException()
-        };
+        public TriggerType TriggerType => Enum.TryParse<TriggerType>(this.GetAzureFunction().Trigger().AsEnum().ToString(), out var triggerType)
+            ? triggerType
+            : throw new Exception($"Unable to determine Azure Function -> Trigger Type value for {Name}");
 
         [IntentManaged(Mode.Ignore)]
         public string AuthorizationLevel => this.GetAzureFunction().AuthorizationLevel().Value;
@@ -71,13 +67,22 @@ namespace Intent.AzureFunctions.Api
         public string QueueName => this.GetAzureFunction().QueueName();
 
         [IntentManaged(Mode.Ignore)]
+        public string EventHubName => this.GetAzureFunction().EventHubName();
+
+        [IntentManaged(Mode.Ignore)]
         public string Connection => this.GetAzureFunction().Connection();
+
+        [IntentManaged(Mode.Ignore)]
+        public string ScheduleExpression => this.GetAzureFunction().ScheduleExpression();
 
         [IntentManaged(Mode.Ignore)]
         public IList<AzureFunctionParameterModel> Parameters => _element.ChildElements
             .GetElementsOfType(AzureFunctionParameterModel.SpecializationTypeId)
             .Select(x => new AzureFunctionParameterModel(x))
             .ToList();
+
+        [IntentManaged(Mode.Ignore)]
+        IFolder IHasFolder<IFolder>.Folder => Folder;
 
         public override string ToString()
         {
@@ -101,6 +106,7 @@ namespace Intent.AzureFunctions.Api
         {
             return (_element != null ? _element.GetHashCode() : 0);
         }
+
     }
 
     [IntentManaged(Mode.Fully)]

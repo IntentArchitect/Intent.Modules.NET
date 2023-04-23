@@ -43,17 +43,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.IO")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Microsoft.AspNetCore.Mvc")
-                .AddUsing("Microsoft.AspNetCore.Http")
-                .AddUsing("Microsoft.Azure.WebJobs")
-                .AddUsing("Microsoft.Azure.WebJobs.Extensions.Http")
-                .AddUsing("Microsoft.Extensions.Logging")
-                .AddUsing("Newtonsoft.Json")
                 .AddClass(Model.Name, @class =>
                 {
                     @class.AddConstructor(ctor =>
@@ -63,7 +57,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     @class.AddMethod(GetRunMethodReturnType(), "Run", method =>
                     {
                         method.Async();
-                        method.AddAttribute("FunctionName", attr => attr.AddArgument(@$"""{Model.Name}"""));
+                        method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{Model.Name}"""));
                         _triggerStrategyHandler.ApplyMethodParameters(method);
                         _triggerStrategyHandler.ApplyMethodStatements(method);
                     });
@@ -78,8 +72,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath());
+                @namespace: CSharpFile.Namespace,
+                relativeLocation: CSharpFile.RelativeLocation);
         }
 
         [IntentManaged(Mode.Fully)]
@@ -92,11 +86,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             if (Model.TriggerType == TriggerType.HttpTrigger)
             {
-                return "Task<IActionResult>";
+                return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
 
             return Model.TypeReference.Element != null
-                ? "Task<IActionResult>"
+                ? $"Task<{GetTypeName(Model.TypeReference)}>"
                 : "Task";
         }
     }
