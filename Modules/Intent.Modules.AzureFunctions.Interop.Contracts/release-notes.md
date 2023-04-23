@@ -1,3 +1,11 @@
+### Version 4.0.1
+
+- Support for exposing Service Operations as Azure Functions through the use of Stereotypes.
+
+### Version 4.0.0
+
+- Support for Intent.AzureFunctions 4.0.0.
+
 ## Version 3.3.8
 
 - New: Returning a primitive type with the media type set to application/json will wrap that value in a type that will make consuming that service possible when deserializing from json text.

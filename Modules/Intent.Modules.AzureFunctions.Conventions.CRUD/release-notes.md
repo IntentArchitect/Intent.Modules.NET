@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- Obsolete. This module has been made obsolete by the application oriented CRUD modules. It can safely be uninstalled.
+
 ### Version 3.3.8
 
 - Update: Refactored the CRUD script so that it is easier to read and to follow.

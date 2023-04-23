@@ -1,3 +1,12 @@
+### Version 4.0.1
+
+- Support for multiple paradigms of expressing Azure Functions (i.e. through Stereotypes applied to Commands / Queries / Service Operations / etc.). The appropriate supporting modules will need to be installed to enable this.
+- Supports additional trigger types: Timer Trigger, EventHub Trigger and Manual Trigger for Azure Functions.
+
+### Version 4.0.0
+
+- Changed fundamental paradigm for expressing Azure Functions to explicitly modeling the functions inside of the Services designer.
+
 ### Version 3.3.9
 
 - Update: Azure Service Bus Queues and File Storage Queues are now better supported.
