@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>4.3.2-pre.1</Version>
+    <Version>4.3.2-pre.2</Version>
     <Authors>Intent Architect</Authors>
     <Description>Base classes and helpers for building modules that output C# files for Intent Architect.</Description>
     <Copyright>Copyright 2022</Copyright>
@@ -35,8 +35,8 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
-    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.5.0-pre.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.1-pre.1" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.5.0-pre.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.1-pre.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
