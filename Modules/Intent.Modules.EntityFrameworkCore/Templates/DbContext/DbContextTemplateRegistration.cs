@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -36,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public override IList<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement?.Package?.SpecializationTypeId == DomainPackageModel.SpecializationTypeId)
+                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
                 .ToList();
         }
     }

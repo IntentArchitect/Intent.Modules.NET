@@ -41,7 +41,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => (x.InternalElement?.Package?.SpecializationTypeId == DomainPackageModel.SpecializationTypeId &&
+                .Where(x => (x.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true &&
                              x.IsAggregateRoot() && (!x.IsAbstract || x.HasTable())) || x.HasRepository())
                 .ToArray();
         }

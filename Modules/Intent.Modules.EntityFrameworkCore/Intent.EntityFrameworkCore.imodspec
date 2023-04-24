@@ -60,8 +60,8 @@
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.29" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.4.2" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.10" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.5.0-pre.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.1-pre.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>
