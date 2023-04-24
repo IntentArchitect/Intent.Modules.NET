@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetEntityWithCtorById), new { id = result }, new { Id = result });
+            return CreatedAtAction(nameof(GetEntityWithCtorById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>

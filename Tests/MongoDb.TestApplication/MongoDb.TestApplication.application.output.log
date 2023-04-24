@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa8bc136-6d0a-40aa-ae67-84a0986b56a5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#f502de9e-28c1-48e4-9acc-e2f6329b0806</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d5c5a09e-b98c-4cde-974e-aab350200f10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/IdTypeGuidsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuidsController.cs</ProjectRelativeFilePath>
@@ -28,18 +28,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa8bc136-6d0a-40aa-ae67-84a0986b56a5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#6cfbfee7-38e1-48de-a0d9-232d45759f32</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#586b8d05-adad-4590-8240-48130ff4dd78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/IdTypeOjectIdStrsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrsController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>55e2cf4d-739e-4b8b-b2c7-85d886294cea</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -124,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#260337ec-e4fc-47bf-b030-8c805f491305</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8d80aff7-7ab9-4c98-a84a-06bcb227f96e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidCreateDto.cs</ProjectRelativeFilePath>
@@ -132,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#1ba3e2ef-f143-4cc3-9350-c3c67b1f2215</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#16499db0-ded9-4923-86ee-369015af5ead</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidDto.cs</ProjectRelativeFilePath>
@@ -140,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#1ba3e2ef-f143-4cc3-9350-c3c67b1f2215</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#16499db0-ded9-4923-86ee-369015af5ead</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidDtoMappingExtensions.cs</ProjectRelativeFilePath>
@@ -148,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#1e622080-fbd1-4d9d-807a-226e727f3488</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b44e6e4e-c386-4dfd-b8c8-38ae9dffde34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidUpdateDto.cs</ProjectRelativeFilePath>
@@ -156,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#6137836d-9180-4614-8219-36a5114cbbac</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8d0ea138-e311-497b-90c5-b536b9f87b2e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ProjectRelativeFilePath>
@@ -164,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#988dee6c-b686-494b-ba70-3f2c54e251da</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#343d0629-d001-4b9b-9e44-b2157cde4406</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrDto.cs</ProjectRelativeFilePath>
@@ -172,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#988dee6c-b686-494b-ba70-3f2c54e251da</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#343d0629-d001-4b9b-9e44-b2157cde4406</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrDtoMappingExtensions.cs</ProjectRelativeFilePath>
@@ -180,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#02d8b2e3-61dd-4ba1-863a-20357dd44a53</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#169f49d7-a7f3-469f-868a-40c723ed30ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ProjectRelativeFilePath>
@@ -188,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>998ae63b-f56d-45cc-bf87-d0d8842e25ed</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#f502de9e-28c1-48e4-9acc-e2f6329b0806</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d5c5a09e-b98c-4cde-974e-aab350200f10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Implementation/IdTypeGuidsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeGuidsService.cs</ProjectRelativeFilePath>
@@ -196,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>998ae63b-f56d-45cc-bf87-d0d8842e25ed</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6cfbfee7-38e1-48de-a0d9-232d45759f32</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#586b8d05-adad-4590-8240-48130ff4dd78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Implementation/IdTypeOjectIdStrsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrsService.cs</ProjectRelativeFilePath>
@@ -204,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709cac2b-e50f-4bce-a83d-20f26c41967c</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#f502de9e-28c1-48e4-9acc-e2f6329b0806</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#d5c5a09e-b98c-4cde-974e-aab350200f10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Interfaces/IIdTypeGuidsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIdTypeGuidsService.cs</ProjectRelativeFilePath>
@@ -212,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709cac2b-e50f-4bce-a83d-20f26c41967c</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#6cfbfee7-38e1-48de-a0d9-232d45759f32</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#586b8d05-adad-4590-8240-48130ff4dd78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/Interfaces/IIdTypeOjectIdStrsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIdTypeOjectIdStrsService.cs</ProjectRelativeFilePath>
@@ -692,14 +684,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0dfe2fa9-4576-4ea4-918e-c01646305ad1</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0dfe2fa9-4576-4ea4-918e-c01646305ad1</ProjectId>
       <CorrelationId>Intent.MongoDb.ApplicationMongoDbContext</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Persistence/ApplicationMongoDbContext.cs</ApplicationRelativeFilePath>
@@ -707,171 +691,163 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0dfe2fa9-4576-4ea4-918e-c01646305ad1</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#ca234e9b-c7c1-4b6e-b7fa-414325812901</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/A_RequiredCompositeRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/A_RequiredCompositeRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/A_RequiredCompositeMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/A_RequiredCompositeMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#9a3fa555-12fd-4b67-937e-bf35226bab57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/B_OptionalAggregateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/B_OptionalAggregateRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/B_OptionalAggregateMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/B_OptionalAggregateMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#33c7e3f9-0c88-4a1a-a6a9-bce6baa0a6cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/B_OptionalDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/B_OptionalDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/B_OptionalDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/B_OptionalDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#e1ebc9b5-212a-4787-9c3a-69ab8e709cf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/C_RequireCompositeRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/C_RequireCompositeRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/C_RequireCompositeMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/C_RequireCompositeMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#80cc0805-3ecf-4497-b6be-73cb56cbab61</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/D_MultipleDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/D_MultipleDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/D_MultipleDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/D_MultipleDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#74631058-b663-4cee-9250-0ebf4b5372ef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/D_OptionalAggregateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/D_OptionalAggregateRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/D_OptionalAggregateMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/D_OptionalAggregateMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#cfae57ce-9dfc-48f0-a059-bafeca9c0f84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/E_RequiredCompositeNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/E_RequiredCompositeNavRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/E_RequiredCompositeNavMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/E_RequiredCompositeNavMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#177cc203-7e34-407b-91d7-e4a70f5d7ca8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/F_OptionalAggregateNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/F_OptionalAggregateNavRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/F_OptionalAggregateNavMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/F_OptionalAggregateNavMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#726fb9c5-c68b-473a-94ec-31f79b10e2e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/F_OptionalDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/F_OptionalDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/F_OptionalDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/F_OptionalDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#e13b4898-d03a-40a2-88e9-1e00611444df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/G_RequiredCompositeNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/G_RequiredCompositeNavRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/G_RequiredCompositeNavMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/G_RequiredCompositeNavMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#1e3a68a5-0dcb-43b2-81c7-2b11439183c1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/H_MultipleDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/H_MultipleDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/H_MultipleDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/H_MultipleDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#2436173c-3d94-4f52-a2b1-af0dcb4b4467</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/H_OptionalAggregateNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/H_OptionalAggregateNavRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/H_OptionalAggregateNavMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/H_OptionalAggregateNavMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#3db6744f-16bf-4335-b5a2-600e25063d0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/I_MultipleAggregateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/I_MultipleAggregateRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/I_MultipleAggregateMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/I_MultipleAggregateMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#b3545156-21c6-4459-aeb5-21d6c1761bc6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/I_RequiredDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/I_RequiredDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/I_RequiredDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/I_RequiredDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#40627943-bca7-433e-946b-2aa46a62abf4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/J_MultipleAggregateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/J_MultipleAggregateRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/J_MultipleAggregateMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/J_MultipleAggregateMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#4dbd73d3-e4e5-43f7-a03b-796f03a5e075</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/J_MultipleDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/J_MultipleDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/J_MultipleDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/J_MultipleDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#3c033932-75d2-4042-8e94-ff6e355c0d62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/K_MultipleAggregateNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/K_MultipleAggregateNavRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/K_MultipleAggregateNavMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/K_MultipleAggregateNavMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#db628487-abe6-48e0-9dcf-86f5311f8bd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/K_MultipleDependentRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/K_MultipleDependentRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Associations/K_MultipleDependentMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/K_MultipleDependentMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#b6ebb5b4-166f-4d74-81f6-ba36b1512407</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeGuidRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeGuidRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeGuidMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypes/IdTypeGuidMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#1e3f34eb-5f22-4b21-8ee4-3b978c3c09b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeOjectIdStrRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTypes/IdTypeOjectIdStrRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/IdTypes/IdTypeOjectIdStrMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypes/IdTypeOjectIdStrMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -894,32 +870,16 @@
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#15a20a84-ba00-4188-8fd1-298e0148b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/NestedAssociations/AggregateARepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NestedAssociations/AggregateARepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/NestedAssociations/AggregateAMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/AggregateAMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#46c3e739-1c7a-4578-8d34-6200a7604df2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/NestedAssociations/AggregateBRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NestedAssociations/AggregateBRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/NestedAssociations/AggregateBMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/AggregateBMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

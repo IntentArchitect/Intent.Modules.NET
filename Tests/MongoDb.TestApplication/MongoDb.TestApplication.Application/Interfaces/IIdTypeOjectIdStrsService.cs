@@ -13,15 +13,15 @@ namespace MongoDb.TestApplication.Application.Interfaces
     public interface IIdTypeOjectIdStrsService : IDisposable
     {
 
-        Task<string> Create(IdTypeOjectIdStrCreateDto dto);
+        Task<string> CreateIdTypeOjectIdStr(IdTypeOjectIdStrCreateDto dto);
 
-        Task<IdTypeOjectIdStrDto> FindById(string id);
+        Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(string id);
 
-        Task<List<IdTypeOjectIdStrDto>> FindAll();
+        Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs();
 
-        Task Put(string id, IdTypeOjectIdStrUpdateDto dto);
+        Task UpdateIdTypeOjectIdStr(string id, IdTypeOjectIdStrUpdateDto dto);
 
-        Task<IdTypeOjectIdStrDto> Delete(string id);
+        Task DeleteIdTypeOjectIdStr(string id);
 
     }
 }

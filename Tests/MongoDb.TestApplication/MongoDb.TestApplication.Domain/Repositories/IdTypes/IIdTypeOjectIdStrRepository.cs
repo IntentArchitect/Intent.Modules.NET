@@ -15,11 +15,6 @@ namespace MongoDb.TestApplication.Domain.Repositories.IdTypes
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IIdTypeOjectIdStrRepository : IRepository<IdTypeOjectIdStr, IdTypeOjectIdStr>
     {
-
-        [IntentManaged(Mode.Fully)]
-        List<IdTypeOjectIdStr> SearchText(string searchText, Expression<Func<IdTypeOjectIdStr, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(IdTypeOjectIdStr entity);
         [IntentManaged(Mode.Fully)]
         Task<IdTypeOjectIdStr> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

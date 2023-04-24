@@ -10,16 +10,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
-    public static class SampleDomainDTOMappingExtensions
+    public static class SampleDomainDtoMappingExtensions
     {
-        public static SampleDomainDTO MapToSampleDomainDTO(this SampleDomain projectFrom, IMapper mapper)
+        public static SampleDomainDto MapToSampleDomainDto(this SampleDomain projectFrom, IMapper mapper)
         {
-            return mapper.Map<SampleDomainDTO>(projectFrom);
+            return mapper.Map<SampleDomainDto>(projectFrom);
         }
 
-        public static List<SampleDomainDTO> MapToSampleDomainDTOList(this IEnumerable<SampleDomain> projectFrom, IMapper mapper)
+        public static List<SampleDomainDto> MapToSampleDomainDtoList(this IEnumerable<SampleDomain> projectFrom, IMapper mapper)
         {
-            return projectFrom.Select(x => x.MapToSampleDomainDTO(mapper)).ToList();
+            return projectFrom.Select(x => x.MapToSampleDomainDto(mapper)).ToList();
         }
     }
 }

@@ -8,15 +8,15 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
 
-    public class SampleDomainCreateDTO
+    public class SampleDomainCreateDto
     {
-        public SampleDomainCreateDTO()
+        public SampleDomainCreateDto()
         {
         }
 
-        public static SampleDomainCreateDTO Create(string attribute)
+        public static SampleDomainCreateDto Create(string attribute)
         {
-            return new SampleDomainCreateDTO
+            return new SampleDomainCreateDto
             {
                 Attribute = attribute
             };

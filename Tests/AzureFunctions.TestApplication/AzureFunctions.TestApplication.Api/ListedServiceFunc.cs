@@ -29,7 +29,7 @@ namespace AzureFunctions.TestApplication.Api
 
         [FunctionName("ListedServiceFunc")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listedservicefunc")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "api/listedunlistedservices/listed-unlisted-services/listed-service-func")] HttpRequest req,
             CancellationToken cancellationToken)
         {
             try

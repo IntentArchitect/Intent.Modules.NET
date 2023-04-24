@@ -20,34 +20,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#f254114d-5b0a-49b8-8ec8-6b04ea78ff74</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#8b74d781-d50c-4f35-833b-bfe1bc13026c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Create.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Create.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CreateSampleDomain.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateSampleDomain.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#92bd90f5-32bf-4f6d-bd1f-9ab258da3c79</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#416196df-286d-40af-960a-29b0646acffc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Delete.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Delete.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/DeleteSampleDomain.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteSampleDomain.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#6302fc64-c6e9-4398-a529-a7f17e298a1d</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#fb871417-c9d4-4942-ab42-4cd5dbe1e5b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindAll.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FindAll.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindSampleDomainById.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FindSampleDomainById.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#511170b3-64d7-4c3e-b776-d18f5e805307</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#c8e1e6e6-659f-4a3d-9b4a-8e00c21b666e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindById.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FindById.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindSampleDomains.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FindSampleDomains.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3dcff8d9-3590-43aa-9339-ad76388ca329</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4260a48c-f8ed-476b-8909-1937cfff38ef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/ListedServiceFunc.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ListedServiceFunc.cs</ProjectRelativeFilePath>
@@ -72,6 +72,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/local.settings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>local.settings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#fc3b319b-351b-471f-ac44-e86381258b89</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/MappedAzureFunction.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappedAzureFunction.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -92,10 +100,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#148ddda6-8153-4668-b50b-bd21681aa228</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#8f263703-d904-4888-a0f3-8d01e8ae09a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Update.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Update.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/UpdateSampleDomain.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateSampleDomain.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -172,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d0da6639-d7cd-4cc8-b90b-20d9de940705</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#4385c794-36f4-478f-a96f-17c1244c650b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/SampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainsService.cs</ProjectRelativeFilePath>
@@ -188,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#d0da6639-d7cd-4cc8-b90b-20d9de940705</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#4385c794-36f4-478f-a96f-17c1244c650b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/ISampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISampleDomainsService.cs</ProjectRelativeFilePath>
@@ -204,34 +212,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#c80012a7-e2a4-4229-9b85-aaa02fa49da5</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainCreateDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainCreateDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomains/SampleDomainCreateDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#c399b2c9-3ab5-4d04-b076-1fc451f50df4</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomains/SampleDomainDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#c399b2c9-3ab5-4d04-b076-1fc451f50df4</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDTOMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomains/SampleDomainDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#335f1f49-8170-4281-aa7b-7218b30b13b0</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f784648e-ac13-4e81-a272-4e7c783a498e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainUpdateDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainUpdateDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomains/SampleDomainUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ee7d194f-7f63-4bff-9412-f080d620a5b4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleMappedRequest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomains/SampleMappedRequest.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

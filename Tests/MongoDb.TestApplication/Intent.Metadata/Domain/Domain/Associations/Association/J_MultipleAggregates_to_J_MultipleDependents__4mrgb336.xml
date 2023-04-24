@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c5171943-b0ab-42ec-b863-b34838e86dfc">
+  <sourceEnd id="ddd4424c-d78f-4adc-894f-d2845c668b12" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>J_MultipleAggregates</name>
+    <display>J_MultipleAggregates: J_MultipleAggregate[*]</display>
+    <order>0</order>
+    <typeReference id="1843bf47-b4bf-4d6e-8532-a4c55ea67650">
+      <typeId>40627943-bca7-433e-946b-2aa46a62abf4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c5171943-b0ab-42ec-b863-b34838e86dfc" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>J_MultipleDependents</name>
+    <display>J_MultipleDependents: J_MultipleDependent[*]   [* --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="cce1cba0-7d99-495c-82c5-309fdc56e5f3">
+      <typeId>4dbd73d3-e4e5-43f7-a03b-796f03a5e075</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -8,20 +8,5 @@
   <parentFolderId>36f5ce7e-0227-40ed-81ec-f52dcb573920</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="9c676323-74e2-4558-9e32-ee968838eb59" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
-      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9eeaab4a-0223-4dac-8aaf-56e2c5841131</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

@@ -51,7 +51,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new { Id = result });
+            return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new { Id = result });
+            return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>

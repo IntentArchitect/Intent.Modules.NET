@@ -15,11 +15,6 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IE_RequiredCompositeNavRepository : IRepository<E_RequiredCompositeNav, E_RequiredCompositeNav>
     {
-
-        [IntentManaged(Mode.Fully)]
-        List<E_RequiredCompositeNav> SearchText(string searchText, Expression<Func<E_RequiredCompositeNav, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(E_RequiredCompositeNav entity);
         [IntentManaged(Mode.Fully)]
         Task<E_RequiredCompositeNav> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

@@ -11,15 +11,15 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
 
-    public class SampleDomainDTO : IMapFrom<SampleDomain>
+    public class SampleDomainDto : IMapFrom<SampleDomain>
     {
-        public SampleDomainDTO()
+        public SampleDomainDto()
         {
         }
 
-        public static SampleDomainDTO Create(Guid id, string attribute)
+        public static SampleDomainDto Create(Guid id, string attribute)
         {
-            return new SampleDomainDTO
+            return new SampleDomainDto
             {
                 Id = id,
                 Attribute = attribute
@@ -32,7 +32,7 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<SampleDomain, SampleDomainDTO>();
+            profile.CreateMap<SampleDomain, SampleDomainDto>();
         }
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7874c0a5-e1d3-42c8-96bb-65398c7a2534">
+  <sourceEnd id="5504baa5-8df9-464b-a090-e5f68808cb8b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>D_MultipleDependent</name>
+    <display>D_MultipleDependent: D_MultipleDependent?</display>
+    <order>0</order>
+    <typeReference id="a4aa94d3-d307-4ff9-9961-43c6d0c83413">
+      <typeId>80cc0805-3ecf-4497-b6be-73cb56cbab61</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7874c0a5-e1d3-42c8-96bb-65398c7a2534" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>D_OptionalAggregates</name>
+    <display>D_OptionalAggregates: D_OptionalAggregate[*]   [0..1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="54df7b77-09eb-4de1-8d69-1f44d6a9673b">
+      <typeId>74631058-b663-4cee-9250-0ebf4b5372ef</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -23,37 +23,31 @@ namespace MongoDb.TestApplication.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>((sp, options) =>
-            {
-                options.UseInMemoryDatabase("DefaultConnection");
-                options.UseLazyLoadingProxies();
-            });
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetService<ApplicationMongoDbContext>());
-            services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeRepository>();
-            services.AddTransient<IAggregateARepository, AggregateARepository>();
-            services.AddTransient<IAggregateBRepository, AggregateBRepository>();
-            services.AddTransient<IB_OptionalAggregateRepository, B_OptionalAggregateRepository>();
-            services.AddTransient<IB_OptionalDependentRepository, B_OptionalDependentRepository>();
-            services.AddTransient<IC_RequireCompositeRepository, C_RequireCompositeRepository>();
-            services.AddTransient<ID_MultipleDependentRepository, D_MultipleDependentRepository>();
-            services.AddTransient<ID_OptionalAggregateRepository, D_OptionalAggregateRepository>();
-            services.AddTransient<IE_RequiredCompositeNavRepository, E_RequiredCompositeNavRepository>();
-            services.AddTransient<IF_OptionalAggregateNavRepository, F_OptionalAggregateNavRepository>();
-            services.AddTransient<IF_OptionalDependentRepository, F_OptionalDependentRepository>();
-            services.AddTransient<IG_RequiredCompositeNavRepository, G_RequiredCompositeNavRepository>();
-            services.AddTransient<IH_MultipleDependentRepository, H_MultipleDependentRepository>();
-            services.AddTransient<IH_OptionalAggregateNavRepository, H_OptionalAggregateNavRepository>();
-            services.AddTransient<II_MultipleAggregateRepository, I_MultipleAggregateRepository>();
-            services.AddTransient<II_RequiredDependentRepository, I_RequiredDependentRepository>();
-            services.AddTransient<IIdTypeGuidRepository, IdTypeGuidRepository>();
-            services.AddTransient<IIdTypeOjectIdStrRepository, IdTypeOjectIdStrRepository>();
-            services.AddTransient<IJ_MultipleAggregateRepository, J_MultipleAggregateRepository>();
-            services.AddTransient<IJ_MultipleDependentRepository, J_MultipleDependentRepository>();
-            services.AddTransient<IK_MultipleAggregateNavRepository, K_MultipleAggregateNavRepository>();
-            services.AddTransient<IK_MultipleDependentRepository, K_MultipleDependentRepository>();
+            services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeMongoRepository>();
+            services.AddTransient<IAggregateARepository, AggregateAMongoRepository>();
+            services.AddTransient<IAggregateBRepository, AggregateBMongoRepository>();
+            services.AddTransient<IB_OptionalAggregateRepository, B_OptionalAggregateMongoRepository>();
+            services.AddTransient<IB_OptionalDependentRepository, B_OptionalDependentMongoRepository>();
+            services.AddTransient<IC_RequireCompositeRepository, C_RequireCompositeMongoRepository>();
+            services.AddTransient<ID_MultipleDependentRepository, D_MultipleDependentMongoRepository>();
+            services.AddTransient<ID_OptionalAggregateRepository, D_OptionalAggregateMongoRepository>();
+            services.AddTransient<IE_RequiredCompositeNavRepository, E_RequiredCompositeNavMongoRepository>();
+            services.AddTransient<IF_OptionalAggregateNavRepository, F_OptionalAggregateNavMongoRepository>();
+            services.AddTransient<IF_OptionalDependentRepository, F_OptionalDependentMongoRepository>();
+            services.AddTransient<IG_RequiredCompositeNavRepository, G_RequiredCompositeNavMongoRepository>();
+            services.AddTransient<IH_MultipleDependentRepository, H_MultipleDependentMongoRepository>();
+            services.AddTransient<IH_OptionalAggregateNavRepository, H_OptionalAggregateNavMongoRepository>();
+            services.AddTransient<II_MultipleAggregateRepository, I_MultipleAggregateMongoRepository>();
+            services.AddTransient<II_RequiredDependentRepository, I_RequiredDependentMongoRepository>();
+            services.AddTransient<IIdTypeGuidRepository, IdTypeGuidMongoRepository>();
+            services.AddTransient<IIdTypeOjectIdStrRepository, IdTypeOjectIdStrMongoRepository>();
+            services.AddTransient<IJ_MultipleAggregateRepository, J_MultipleAggregateMongoRepository>();
+            services.AddTransient<IJ_MultipleDependentRepository, J_MultipleDependentMongoRepository>();
+            services.AddTransient<IK_MultipleAggregateNavRepository, K_MultipleAggregateNavMongoRepository>();
+            services.AddTransient<IK_MultipleDependentRepository, K_MultipleDependentMongoRepository>();
             return services;
         }
     }

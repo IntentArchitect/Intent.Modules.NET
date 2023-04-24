@@ -27,46 +27,50 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Guid> Create(SampleDomainCreateDTO dto)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto)
         {
             var newSampleDomain = new SampleDomain
             {
                 Attribute = dto.Attribute,
             };
-
             _sampleDomainRepository.Add(newSampleDomain);
             await _sampleDomainRepository.UnitOfWork.SaveChangesAsync();
             return newSampleDomain.Id;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<SampleDomainDTO> FindById(Guid id)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<SampleDomainDto> FindSampleDomainById(Guid id)
         {
             var element = await _sampleDomainRepository.FindByIdAsync(id);
-            return element.MapToSampleDomainDTO(_mapper);
+            return element.MapToSampleDomainDto(_mapper);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<List<SampleDomainDTO>> FindAll()
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<SampleDomainDto>> FindSampleDomains()
         {
             var elements = await _sampleDomainRepository.FindAllAsync();
-            return elements.MapToSampleDomainDTOList(_mapper);
+            return elements.MapToSampleDomainDtoList(_mapper);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Update(Guid id, SampleDomainUpdateDTO dto)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto)
         {
             var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id);
-            existingSampleDomain.Id = dto.Id;
             existingSampleDomain.Attribute = dto.Attribute;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Delete(Guid id)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task DeleteSampleDomain(Guid id)
         {
             var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id);
             _sampleDomainRepository.Remove(existingSampleDomain);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<string> MappedAzureFunction(SampleMappedRequest request)
+        {
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         public void Dispose()

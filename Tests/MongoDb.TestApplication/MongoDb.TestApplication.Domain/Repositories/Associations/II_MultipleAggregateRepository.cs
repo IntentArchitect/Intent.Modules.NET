@@ -15,11 +15,6 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface II_MultipleAggregateRepository : IRepository<I_MultipleAggregate, I_MultipleAggregate>
     {
-
-        [IntentManaged(Mode.Fully)]
-        List<I_MultipleAggregate> SearchText(string searchText, Expression<Func<I_MultipleAggregate, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(I_MultipleAggregate entity);
         [IntentManaged(Mode.Fully)]
         Task<I_MultipleAggregate> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

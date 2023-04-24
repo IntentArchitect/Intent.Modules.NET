@@ -15,11 +15,6 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ID_MultipleDependentRepository : IRepository<D_MultipleDependent, D_MultipleDependent>
     {
-
-        [IntentManaged(Mode.Fully)]
-        List<D_MultipleDependent> SearchText(string searchText, Expression<Func<D_MultipleDependent, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(D_MultipleDependent entity);
         [IntentManaged(Mode.Fully)]
         Task<D_MultipleDependent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

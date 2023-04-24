@@ -28,7 +28,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<string> Create(IdTypeOjectIdStrCreateDto dto)
+        public async Task<string> CreateIdTypeOjectIdStr(IdTypeOjectIdStrCreateDto dto)
         {
             var newIdTypeOjectIdStr = new IdTypeOjectIdStr
             {
@@ -40,33 +40,31 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<IdTypeOjectIdStrDto> FindById(string id)
+        public async Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(string id)
         {
             var element = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             return element.MapToIdTypeOjectIdStrDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<IdTypeOjectIdStrDto>> FindAll()
+        public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs()
         {
             var elements = await _idTypeOjectIdStrRepository.FindAllAsync();
             return elements.MapToIdTypeOjectIdStrDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Put(string id, IdTypeOjectIdStrUpdateDto dto)
+        public async Task UpdateIdTypeOjectIdStr(string id, IdTypeOjectIdStrUpdateDto dto)
         {
             var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
-            _idTypeOjectIdStrRepository.Update(existingIdTypeOjectIdStr);
             existingIdTypeOjectIdStr.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<IdTypeOjectIdStrDto> Delete(string id)
+        public async Task DeleteIdTypeOjectIdStr(string id)
         {
             var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             _idTypeOjectIdStrRepository.Remove(existingIdTypeOjectIdStr);
-            return existingIdTypeOjectIdStr.MapToIdTypeOjectIdStrDto(_mapper);
         }
 
         public void Dispose()

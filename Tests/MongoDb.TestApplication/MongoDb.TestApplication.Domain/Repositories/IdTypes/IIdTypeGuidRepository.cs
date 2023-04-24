@@ -15,11 +15,6 @@ namespace MongoDb.TestApplication.Domain.Repositories.IdTypes
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IIdTypeGuidRepository : IRepository<IdTypeGuid, IdTypeGuid>
     {
-
-        [IntentManaged(Mode.Fully)]
-        List<IdTypeGuid> SearchText(string searchText, Expression<Func<IdTypeGuid, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(IdTypeGuid entity);
         [IntentManaged(Mode.Fully)]
         Task<IdTypeGuid> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
