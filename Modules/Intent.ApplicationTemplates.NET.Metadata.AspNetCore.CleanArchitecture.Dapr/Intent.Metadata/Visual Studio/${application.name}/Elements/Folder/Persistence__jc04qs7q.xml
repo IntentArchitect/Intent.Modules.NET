@@ -8,20 +8,5 @@
   <parentFolderId>09575dee-80f3-437c-b4e5-d9bc34e52191</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="d1452125-fe1b-4345-8fd8-2efeda0ffa61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.ApplicationMongoDbContext</name>
-      <display>Intent.MongoDb.ApplicationMongoDbContext</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9190a4ec-60fe-4cdd-94ea-a5a74b595b16</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>
