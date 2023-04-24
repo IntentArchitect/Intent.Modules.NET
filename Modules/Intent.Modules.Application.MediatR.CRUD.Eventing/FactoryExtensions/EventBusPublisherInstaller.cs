@@ -146,10 +146,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
 
         private void InjectEventBusCode(CSharpClass @class, ICSharpFileBuilderTemplate template)
         {
-            @class.AddField(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "_eventBus", field => field.PrivateReadOnly());
             var constructor = @class.Constructors.First();
-            constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus");
-            constructor.AddStatement($"_eventBus = eventBus;");
+            constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", ctor => ctor.IntroduceReadonlyField());
         }
 
         private string GetConventionName(string name)
