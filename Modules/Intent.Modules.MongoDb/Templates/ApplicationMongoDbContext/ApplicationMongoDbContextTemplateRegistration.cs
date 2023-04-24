@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -34,7 +35,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         public override IList<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement.Package.HasStereotype("Document Database") && p.IsAggregateRoot())
+                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true && p.IsAggregateRoot())
                 .ToArray();
         }
     }

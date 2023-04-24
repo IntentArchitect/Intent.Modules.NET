@@ -49,13 +49,13 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
             {
                 var templateModel = ((CSharpTemplateBase<DTOModel>)template).Model;
 
-                var dtoNeedsChange = CheckIfDtoNeedsChanges(templateModel);
-
-                if (!dtoNeedsChange)
-                    continue;
-
                 template.CSharpFile.AfterBuild(file =>
                 {
+                    var dtoNeedsChange = CheckIfDtoNeedsChanges(templateModel, application);
+
+                    if (!dtoNeedsChange)
+                        return;
+
                     file.AddUsing("System.Linq");
                     var @class = file.Classes.First();
                     var entityTemplate = GetEntityTemplate(template, templateModel.Mapping.ElementId);
@@ -78,7 +78,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                             }
                             if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
                             {
-                                var statementToRemove = mappingStatement.Statements.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("field", out var currentField) ? currentField.Id == field.Id : false);
+                                var statementToRemove = mappingStatement.Statements.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("field", out var currentField) && currentField.Id == field.Id);
                                 if (statementToRemove != null)
                                 {
                                     mappingStatement.Statements.Remove(statementToRemove);
@@ -115,21 +115,11 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 {
                     throw new Exception($"No repository found for {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
                 }
-                child.AddProperty(repoInterfaceType, "Repository", p =>
-                {
-                    p.WithoutSetter();
-                });
-                child.AddProperty("IMapper", "Mapper", p =>
-                {
-                    p.WithoutSetter();
-                });
 
                 child.AddConstructor(con =>
                 {
-                    con.AddParameter(repoInterfaceType, "repository");
-                    con.AddParameter("IMapper", "mapper");
-                    con.AddStatement("Repository = repository;");
-                    con.AddStatement("Mapper = mapper;");
+                    con.AddParameter(repoInterfaceType, "repository", param => param.IntroduceReadonlyField());
+                    con.AddParameter("IMapper", "mapper", param => param.IntroduceReadonlyField());
                 });
 
                 child.AddMethod("void", "Process", method =>
@@ -138,20 +128,20 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                     method.AddParameter(template.ClassName, "destination");
                     method.AddParameter("ResolutionContext", "context");
 
-                    var fkEntityTemplate = mapData.AssociationEnd.OtherEnd().AsAssociationEndModel().Class;
-                    var fkAttribure = fkEntityTemplate.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == mapData.AssociationEnd.Association.TargetEnd.Id);
+                    var fkEntityModel = mapData.AssociationEnd.OtherEnd().AsAssociationEndModel().Class;
+                    var fkAttribute = fkEntityModel.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == mapData.AssociationEnd.Association.TargetEnd.Id);
 
-                    if (fkAttribure == null)
+                    if (fkAttribute == null)
                     {
-                        throw new Exception($"No Foreign Key found on : {fkEntityTemplate.Name} to load associate Aggregate {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
+                        throw new Exception($"No Foreign Key found on : {fkEntityModel.Name} to load associate Aggregate {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
                     }
 
-                    string fkExpression = fkAttribure.TypeReference.IsCollection ? $"{fkAttribure.Name}.ToArray()" : fkAttribure.Name;
+                    string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}.ToArray()" : fkAttribute.Name.ToPascalCase();
 
-                    method.AddStatement($"var data = Repository.{(fkAttribure.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}(source.{fkExpression}).Result;");
+                    method.AddStatement($"var entity = _repository.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}(source.{fkExpression}).Result;");
                     foreach (var field in mapData.Fields)
                     {
-                        method.AddStatement($"destination.{field.Name} = data.{GetMappingExpression(field, template, mapData)};");
+                        method.AddStatement($"destination.{field.Name} = entity.{GetMappingExpression(field, template, mapData)};");
                     }
                 });
             });
@@ -165,7 +155,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 string pathExpression = GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip));
                 if (pathExpression.Length > 0)
                     pathExpression += ".";
-                return $"{pathExpression}{mapFunction}(Mapper)";
+                return $"{pathExpression}{mapFunction}(_mapper)";
             }
             else
             {
@@ -175,23 +165,28 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
         private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
         {
-            return field.TypeReference.IsCollection ?
-                $"MapTo{template.GetTypeName(field.TypeReference, "{0}")}List"
+            return field.TypeReference.IsCollection 
+                ? $"MapTo{template.GetTypeName(field.TypeReference, "{0}")}List"
                 : $"MapTo{template.GetTypeName(field.TypeReference)}";
         }
 
-        private static bool CheckIfDtoNeedsChanges(DTOModel templateModel)
+        private static bool CheckIfDtoNeedsChanges(DTOModel templateModel, IApplication application)
         {
             foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
             {
                 foreach (var pathPart in field.Mapping.Path)
                 {
+                    var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId);
                     if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
                     {
-                        if (ae.Package.HasStereotype("Document Database"))
+                        if (entityTemplate?.CSharpFile.Classes.First().Properties.All(x => !x.Name.Equals(ae.Name, StringComparison.InvariantCultureIgnoreCase)) == true)
                         {
                             return true;
                         }
+                        //if (ae.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true)
+                        //{
+                        //    return true;
+                        //}
                     }
                 }
             }

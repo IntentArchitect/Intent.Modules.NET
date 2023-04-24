@@ -84,7 +84,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
 
         public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
 
-        public string RepositoryContractName => TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, Model) ?? $"I{ClassName}";
+        public string RepositoryContractName => TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, Model, out var className) ? className : $"I{ClassName}";
         public string DbContextName => TryGetTypeName("Infrastructure.Data.DbContext.MongoDb", out var dbContextName) ? dbContextName : $"{Model.Application.Name}MongoDbContext";
 
 

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Reflection;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -8,7 +9,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -47,7 +47,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                 var inter = repositoryTemplate.CSharpFile.Interfaces.First();
                 var model = inter.GetMetadata<ClassModel>("model");
 
-                if (model.InternalElement?.Package?.SpecializationTypeId != MongoDomainPackageModel.SpecializationTypeId)
+                if (model.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() != true)
                 {
                     continue;
                 }

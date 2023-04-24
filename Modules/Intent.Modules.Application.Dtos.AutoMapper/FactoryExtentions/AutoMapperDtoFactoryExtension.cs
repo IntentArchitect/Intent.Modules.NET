@@ -56,7 +56,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                     @class.AddMethod("void", "Mapping", method =>
                     {
                         method.AddParameter("Profile", "profile");
-                        method.AddMethodChainStatement($"profile.CreateMap <{template.GetTypeName(entityTemplate)}, {template.ClassName}> ()", statement =>
+                        method.AddMethodChainStatement($"profile.CreateMap<{template.GetTypeName(entityTemplate)}, {template.ClassName}>()", statement =>
                         {
                             foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
                             {
