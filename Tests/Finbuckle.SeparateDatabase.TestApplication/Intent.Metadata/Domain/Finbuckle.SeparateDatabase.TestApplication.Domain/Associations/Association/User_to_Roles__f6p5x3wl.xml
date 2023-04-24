@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="18ea37bf-13ac-45eb-b8a7-82265747541b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Roles</name>
-    <display>Roles: Role[*]</display>
+    <display>Roles: Role[*]   [1 --&gt; *]</display>
     <order>3</order>
     <typeReference id="22351f34-df37-4371-84a6-0d063164e825">
       <typeId>18f64b88-752b-4182-8c80-9cf0e0f9f965</typeId>

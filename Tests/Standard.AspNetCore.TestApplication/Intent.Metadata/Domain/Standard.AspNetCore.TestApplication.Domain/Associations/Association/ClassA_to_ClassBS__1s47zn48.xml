@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="0834bc19-600f-4da5-884e-2fc4997fe214" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ClassBS</name>
-    <display>ClassBS: ClassB[*]</display>
+    <display>ClassBS: ClassB[*]   [1 --&gt; *]</display>
     <order>2</order>
     <typeReference id="e3fbb62e-12e0-4588-b7d3-efcc80de77c7">
       <typeId>c3df4f9c-6706-47fd-a5d4-96222e1d7022</typeId>
