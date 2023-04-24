@@ -25,15 +25,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             UpdateRepositoryInterfaceTemplate(application);
         }
@@ -43,28 +35,30 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
             var repositoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));
             foreach (var repositoryTemplate in repositoryTemplates)
             {
-                repositoryTemplate.CSharpFile.AddUsing("System.Linq.Expressions");
-                var inter = repositoryTemplate.CSharpFile.Interfaces.First();
-                var model = inter.GetMetadata<ClassModel>("model");
-
-                if (model.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() != true)
+                repositoryTemplate.CSharpFile.OnBuild(file =>
                 {
-                    continue;
-                }
+                    file.AddUsing("System.Linq.Expressions");
+                    var inter = file.Interfaces.First();
+                    var model = inter.GetMetadata<ClassModel>("model");
 
-                inter.AddMethod($"List<{repositoryTemplate.GetTypeName("Domain.Entity.Interface", model)}>", "SearchText", method =>
-                {
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                    method.AddParameter("string", "searchText");
-                    method.AddParameter($"Expression<Func<{repositoryTemplate.GetTypeName("Domain.Entity", model)}, bool>>", "filterExpression", param => param.WithDefaultValue("null"));
+                    if (model.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() != true)
+                    {
+                        return;
+                    }
 
-                });
+                    inter.AddMethod($"List<{repositoryTemplate.GetTypeName("Domain.Entity.Interface", model)}>", "SearchText", method =>
+                    {
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                        method.AddParameter("string", "searchText");
+                        method.AddParameter($"Expression<Func<{repositoryTemplate.GetTypeName("Domain.Entity", model)}, bool>>", "filterExpression", param => param.WithDefaultValue("null"));
+                    });
 
-                inter.AddMethod("void", "Update", method =>
-                {
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                    method.AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");
-                });
+                    inter.AddMethod("void", "Update", method =>
+                    {
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                        method.AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");
+                    }); 
+                }, 0);
             }
         }
     }

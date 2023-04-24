@@ -51,7 +51,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     foreach (var navigation in toChangeNavigationProperies)
                     {
                         //Remove the "Entity" Properties
-                        var property = @class.GetAllProperties().FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
+                        var property = @class.GetAllProperties()
+                            .FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
                         @class.Properties.Remove(property);
 
                         /*
@@ -68,28 +69,33 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     }
 
                     var pks = model.GetPrimaryKeys();
-                    if (pks.Any())
+                    if (!pks.Any())
                     {
-                        var primaryKeyProperties = new List<CSharpProperty>();
-                        foreach (var attribute in pks)
-                        {
-                            var existingPk = @class.GetAllProperties().FirstOrDefault(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
-                            if (!model.IsAggregateRoot())
-                            {
-                                @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
-                            }
-                            if (!model.IsAggregateRoot())
-                            {
-                                existingPk.Getter.WithExpressionImplementation($"_id ??= Guid.NewGuid()");
-                                existingPk.Setter.WithExpressionImplementation($"_id = value");
-                            }
+                        return;
+                    }
 
-                            primaryKeyProperties.Add(existingPk);
-                        }
-                        if (!@class.TryGetMetadata("primary-keys", out var keys))
+                    var primaryKeyProperties = new List<CSharpProperty>();
+                    foreach (var attribute in pks)
+                    {
+                        var existingPk = @class.GetAllProperties().FirstOrDefault(x =>
+                            x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                        if (!model.IsAggregateRoot())
                         {
-                            @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
+                            @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
                         }
+
+                        if (!model.IsAggregateRoot())
+                        {
+                            existingPk.Getter.WithExpressionImplementation($"_id ??= Guid.NewGuid()");
+                            existingPk.Setter.WithExpressionImplementation($"_id = value");
+                        }
+
+                        primaryKeyProperties.Add(existingPk);
+                    }
+
+                    if (!@class.TryGetMetadata("primary-keys", out var keys))
+                    {
+                        @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
                 });
             }
@@ -109,21 +115,5 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                             (x.Association.SourceEnd.IsCollection || x.Association.SourceEnd.IsNullable))
                 .ToArray();
         }
-
-        /*
-        private void LogAggregateRelationshipsAsError(ClassModel model)
-        {
-            var notSupportedAssociations = model
-                .AssociationEnds()
-                .Where(x => x.Association.SourceEnd.Element.Id == model.Id &&
-                            (x.Association.SourceEnd.IsCollection || x.Association.SourceEnd.IsNullable))
-                .ToArray();
-            foreach (var association in notSupportedAssociations)
-            {
-                var sourceClass = model;
-                var targetClass = association.Class;
-                Logging.Log.Failure($"Association not supported between {sourceClass.Name} and {targetClass.Name}. Ensure the source end is set to not be Is Nullable and not Is Collection.");
-            }
-        }*/
     }
 }
