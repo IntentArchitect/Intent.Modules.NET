@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.NestedAssociations
     public interface IAggregateBRepository : IRepository<AggregateB, AggregateB>
     {
         [IntentManaged(Mode.Fully)]
+        List<AggregateB> SearchText(string searchText, Expression<Func<AggregateB, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(AggregateB entity);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateB> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateB>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

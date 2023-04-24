@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IK_MultipleDependentRepository : IRepository<K_MultipleDependent, K_MultipleDependent>
     {
         [IntentManaged(Mode.Fully)]
+        List<K_MultipleDependent> SearchText(string searchText, Expression<Func<K_MultipleDependent, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(K_MultipleDependent entity);
+        [IntentManaged(Mode.Fully)]
         Task<K_MultipleDependent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<K_MultipleDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

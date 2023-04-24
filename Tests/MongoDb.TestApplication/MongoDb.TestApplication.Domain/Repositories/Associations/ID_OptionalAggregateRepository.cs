@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface ID_OptionalAggregateRepository : IRepository<D_OptionalAggregate, D_OptionalAggregate>
     {
         [IntentManaged(Mode.Fully)]
+        List<D_OptionalAggregate> SearchText(string searchText, Expression<Func<D_OptionalAggregate, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(D_OptionalAggregate entity);
+        [IntentManaged(Mode.Fully)]
         Task<D_OptionalAggregate> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<D_OptionalAggregate>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

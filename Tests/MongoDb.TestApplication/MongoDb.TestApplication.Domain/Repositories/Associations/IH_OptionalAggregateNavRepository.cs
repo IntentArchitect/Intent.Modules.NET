@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IH_OptionalAggregateNavRepository : IRepository<H_OptionalAggregateNav, H_OptionalAggregateNav>
     {
         [IntentManaged(Mode.Fully)]
+        List<H_OptionalAggregateNav> SearchText(string searchText, Expression<Func<H_OptionalAggregateNav, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(H_OptionalAggregateNav entity);
+        [IntentManaged(Mode.Fully)]
         Task<H_OptionalAggregateNav> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<H_OptionalAggregateNav>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

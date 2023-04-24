@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IK_MultipleAggregateNavRepository : IRepository<K_MultipleAggregateNav, K_MultipleAggregateNav>
     {
         [IntentManaged(Mode.Fully)]
+        List<K_MultipleAggregateNav> SearchText(string searchText, Expression<Func<K_MultipleAggregateNav, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(K_MultipleAggregateNav entity);
+        [IntentManaged(Mode.Fully)]
         Task<K_MultipleAggregateNav> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<K_MultipleAggregateNav>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

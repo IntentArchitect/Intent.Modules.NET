@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IB_OptionalDependentRepository : IRepository<B_OptionalDependent, B_OptionalDependent>
     {
         [IntentManaged(Mode.Fully)]
+        List<B_OptionalDependent> SearchText(string searchText, Expression<Func<B_OptionalDependent, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(B_OptionalDependent entity);
+        [IntentManaged(Mode.Fully)]
         Task<B_OptionalDependent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<B_OptionalDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

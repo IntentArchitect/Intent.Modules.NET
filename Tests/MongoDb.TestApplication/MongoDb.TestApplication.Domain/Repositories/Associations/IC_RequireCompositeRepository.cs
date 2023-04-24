@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IC_RequireCompositeRepository : IRepository<C_RequireComposite, C_RequireComposite>
     {
         [IntentManaged(Mode.Fully)]
+        List<C_RequireComposite> SearchText(string searchText, Expression<Func<C_RequireComposite, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(C_RequireComposite entity);
+        [IntentManaged(Mode.Fully)]
         Task<C_RequireComposite> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<C_RequireComposite>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

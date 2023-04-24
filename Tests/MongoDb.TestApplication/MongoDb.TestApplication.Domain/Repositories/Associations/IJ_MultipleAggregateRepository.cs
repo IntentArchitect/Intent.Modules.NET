@@ -16,6 +16,10 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
     public interface IJ_MultipleAggregateRepository : IRepository<J_MultipleAggregate, J_MultipleAggregate>
     {
         [IntentManaged(Mode.Fully)]
+        List<J_MultipleAggregate> SearchText(string searchText, Expression<Func<J_MultipleAggregate, bool>> filterExpression = null);
+        [IntentManaged(Mode.Fully)]
+        void Update(J_MultipleAggregate entity);
+        [IntentManaged(Mode.Fully)]
         Task<J_MultipleAggregate> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<J_MultipleAggregate>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
