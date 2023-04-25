@@ -58,7 +58,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 */
             });
 
-            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.Replace(".", "_")}", string.Empty));
+            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.ToCSharpIdentifier()}", string.Empty));
 
 
             application.EventDispatcher.Publish(ContainerRegistrationRequest
