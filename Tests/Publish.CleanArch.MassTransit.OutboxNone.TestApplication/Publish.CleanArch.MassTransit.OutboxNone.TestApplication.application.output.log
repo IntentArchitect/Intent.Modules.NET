@@ -43,6 +43,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1b3f4f36-d6a6-469a-89bd-be009988eb9f</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3cadb33c-01c5-47a0-9aff-063c83a20edf</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="12af4c58-8120-4164-be3a-17c8a9361b47" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</name>
+      <display>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</display>
+      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f9158722-462b-442e-9d0a-5abcf4ff151a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

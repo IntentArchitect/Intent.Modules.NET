@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Api.Configuration;
+using EntityFrameworkCore.Repositories.TestApplication.Api.Filters;
 using EntityFrameworkCore.Repositories.TestApplication.Application;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -32,7 +33,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EntityFrameworkCore.CosmosDb.TestApplication.Api.Configuration;
+using EntityFrameworkCore.CosmosDb.TestApplication.Api.Filters;
 using EntityFrameworkCore.CosmosDb.TestApplication.Api.StartupJobs;
 using EntityFrameworkCore.CosmosDb.TestApplication.Application;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure;
@@ -33,7 +34,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);

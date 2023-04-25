@@ -51,6 +51,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9025252c-eef4-4902-90da-638aaabfbafa</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>da5f0669-b518-4fda-a417-260033d06ce8</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e732a5fa-7a19-46dd-a32a-9edccecf9703" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>FluentValidationDependencyInjectionExtension</name>
+  <display>FluentValidationDependencyInjectionExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19ac3196-c353-44e0-ba44-2e1930175b1f</parentFolderId>
+  <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+  <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

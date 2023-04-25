@@ -199,5 +199,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="81086f7f-f0f2-45c9-8fd9-1b63af519ecd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.StaticContentOutputReadme</name>
+      <display>Intent.ModuleBuilder.Templates.StaticContentOutputReadme</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f70df819-b1a1-460c-ad99-567cf48a1a99</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

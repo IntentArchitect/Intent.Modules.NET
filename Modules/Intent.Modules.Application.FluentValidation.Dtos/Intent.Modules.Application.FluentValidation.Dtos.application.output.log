@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6aab952d-bc7a-41c7-b68c-b8631ce70a7e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#188e19a7-f817-45ee-bf30-486d68acac9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationDependencyInjectionExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationDependencyInjectionExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,6 +70,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#64ed2acc-7de1-40b8-8cf9-ff5f05895528</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FluentValidationFilter/FluentValidationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter/FluentValidationFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#64ed2acc-7de1-40b8-8cf9-ff5f05895528</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FluentValidationFilter/FluentValidationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter/FluentValidationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

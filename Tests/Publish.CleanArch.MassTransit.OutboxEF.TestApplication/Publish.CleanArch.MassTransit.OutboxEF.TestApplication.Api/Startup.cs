@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configuration;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Filters;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure;
 using Serilog;
@@ -32,7 +33,11 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);

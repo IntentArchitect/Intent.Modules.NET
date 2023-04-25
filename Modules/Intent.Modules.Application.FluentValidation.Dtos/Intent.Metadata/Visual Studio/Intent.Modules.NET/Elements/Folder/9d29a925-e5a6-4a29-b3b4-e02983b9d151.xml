@@ -72,23 +72,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="cd3c226e-27b4-4194-9c52-c1cfdead6087" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</name>
-      <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>4</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</parentFolderId>
-      <packageId>c3af7375-c08c-4312-9365-001f629f501d</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="14880fbb-67f0-4823-8725-74917d90ee69" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</display>
@@ -243,6 +226,34 @@
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1a9b808f-9304-4965-bafe-9cfbec5bc963" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation</name>
+      <display>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d276d884-c5dd-4e82-beff-53dabfafef4c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.FileTemplateT4</name>
+      <display>Intent.ModuleBuilder.Templates.FileTemplateT4</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

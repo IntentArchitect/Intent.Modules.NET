@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Configuration;
+using CleanArchitecture.TestApplication.Api.Filters;
 using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
@@ -34,7 +35,11 @@ namespace CleanArchitecture.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);
