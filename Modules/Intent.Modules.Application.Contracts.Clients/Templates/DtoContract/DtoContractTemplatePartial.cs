@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
+                @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase().RemoveSuffix())}",
                 relativeLocation: $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}");
         }
 

@@ -5,9 +5,11 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -36,7 +38,17 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyDTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetProxyMappedServiceDTOModels();
+            return _metadataManager.ServiceProxies(application).GetProxyMappedServiceDTOModels()
+                .Where(x =>
+                {
+                    if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
+                    {
+                        return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
+                    }
+
+                    return true;
+                })
+                .ToList();
         }
     }
 }
