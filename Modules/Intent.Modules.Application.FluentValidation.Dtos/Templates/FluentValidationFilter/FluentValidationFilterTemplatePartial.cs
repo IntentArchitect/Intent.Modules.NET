@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.FluentValid
         public FluentValidationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("FluentValidationFilter")
+                .AddUsing("FluentValidation")
                 .AddUsing("Microsoft.AspNetCore.Mvc")
                 .AddUsing("Microsoft.AspNetCore.Mvc.Filters")
                 .AddClass($"FluentValidationFilter", @class =>
