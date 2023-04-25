@@ -10,6 +10,7 @@ using CleanArchitecture.TestApplication.Application.AggregateRootLongs.DeleteAgg
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAggregateRootLongById;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
+using CleanArchitecture.TestApplication.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -105,14 +106,20 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified List&lt;AggregateRootLongDto&gt;.</response>
+        /// <response code="200">Returns the specified PagedResult&lt;AggregateRootLongDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">Can't find an PagedResult&lt;AggregateRootLongDto&gt; with the parameters provided.</response>
         [HttpGet("api/aggregate-root-longs")]
-        [ProducesResponseType(typeof(List<AggregateRootLongDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PagedResult<AggregateRootLongDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<AggregateRootLongDto>>> GetAggregateRootLongs(CancellationToken cancellationToken)
+        public async Task<ActionResult<PagedResult<AggregateRootLongDto>>> GetAggregateRootLongs(
+            [FromBody] GetAggregateRootLongsQuery query,
+            CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetAggregateRootLongsQuery(), cancellationToken);
-            return Ok(result);
+            var result = await _mediator.Send(query, cancellationToken);
+            return result != null ? Ok(result) : NotFound();
         }
     }
 }

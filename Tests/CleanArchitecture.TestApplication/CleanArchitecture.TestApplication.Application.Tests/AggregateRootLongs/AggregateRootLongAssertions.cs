@@ -70,34 +70,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
-        public static void AssertEquivalent(
-            IEnumerable<AggregateRootLongDto> actualDtos,
-            IEnumerable<AggregateRootLong> expectedEntities)
-        {
-            if (expectedEntities == null)
-            {
-                actualDtos.Should().BeNullOrEmpty();
-                return;
-            }
-
-            actualDtos.Should().HaveSameCount(actualDtos);
-            for (int i = 0; i < expectedEntities.Count(); i++)
-            {
-                var entity = expectedEntities.ElementAt(i);
-                var dto = actualDtos.ElementAt(i);
-                if (entity == null)
-                {
-                    dto.Should().BeNull();
-                    continue;
-                }
-
-                dto.Should().NotBeNull();
-                dto.Id.Should().Be(entity.Id);
-                dto.Attribute.Should().Be(entity.Attribute);
-                AssertEquivalent(dto.CompositeOfAggrLong, entity.CompositeOfAggrLong);
-            }
-        }
-
         public static void AssertEquivalent(CreateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)
         {
             if (expectedDto == null)

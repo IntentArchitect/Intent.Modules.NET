@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="b6c38348-e150-4d08-a171-7e7392655ee8" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
   <name>GetAggregateRootLongsQuery</name>
-  <display>GetAggregateRootLongsQuery: AggregateRootLongDto[*]</display>
+  <display>GetAggregateRootLongsQuery: PagedResult&lt;AggregateRootLongDto&gt;</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="9f09c61a-2525-405c-a7d1-2a211f2e2251">
-    <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
+    <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
-    <isCollection>true</isCollection>
+    <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <typePackageName>Intent.Application.Dtos.Pagination</typePackageName>
+    <typePackageId>9baa3476-269d-4a87-a854-34e150a93bc8</typePackageId>
     <stereotypes />
-    <genericTypeParameters />
+    <genericTypeParameters>
+      <genericTypeParameter id="302caa68-95a2-415a-aa94-54f33208d594">
+        <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </genericTypeParameter>
+    </genericTypeParameters>
   </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>319ebd03-bdb7-46a1-99ee-5d2a5bd0e410</parentFolderId>
@@ -34,5 +48,90 @@
   <metadata>
     <entry key="baseName" value="AggregateRootLongs" />
   </metadata>
-  <childElements />
+  <childElements>
+    <childElement id="a61b9ec5-9f09-44f5-9d81-d47009788416" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>pageNo</name>
+      <display>pageNo: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="77eb3c12-087c-4c9a-b8af-ca869a4d0399">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b6c38348-e150-4d08-a171-7e7392655ee8</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="true" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="true" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f0017f35-111f-407e-a50e-d3d211633c75" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>pageSize</name>
+      <display>pageSize: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b308ac15-3833-494d-9575-b5ed1681f88f">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b6c38348-e150-4d08-a171-7e7392655ee8</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="true" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="true" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

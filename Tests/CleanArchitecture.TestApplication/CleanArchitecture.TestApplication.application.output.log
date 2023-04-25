@@ -180,14 +180,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#b6c38348-e150-4d08-a171-7e7392655ee8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#1ce12daa-edbb-417d-aa8c-53ff8f9aee13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/UpdateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>

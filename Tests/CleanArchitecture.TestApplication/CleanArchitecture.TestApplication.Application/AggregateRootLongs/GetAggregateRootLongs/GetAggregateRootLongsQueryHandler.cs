@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Pagination;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -13,7 +14,7 @@ using MediatR;
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAggregateRootLongs
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetAggregateRootLongsQueryHandler : IRequestHandler<GetAggregateRootLongsQuery, List<AggregateRootLongDto>>
+    public class GetAggregateRootLongsQueryHandler : IRequestHandler<GetAggregateRootLongsQuery, PagedResult<AggregateRootLongDto>>
     {
         private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
         private readonly IMapper _mapper;
@@ -26,12 +27,15 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<AggregateRootLongDto>> Handle(
+        public async Task<PagedResult<AggregateRootLongDto>> Handle(
             GetAggregateRootLongsQuery request,
             CancellationToken cancellationToken)
         {
-            var aggregateRootLongs = await _aggregateRootLongRepository.FindAllAsync(cancellationToken);
-            return aggregateRootLongs.MapToAggregateRootLongDtoList(_mapper);
+            var results = await _aggregateRootLongRepository.FindAllAsync(
+                pageNo: request.PageNo,
+                pageSize: request.PageSize,
+                cancellationToken: cancellationToken);
+            return results.MapToPagedResult(x => x.MapToAggregateRootLongDto(_mapper));
         }
     }
 }
