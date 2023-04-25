@@ -43,6 +43,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d6a92866-f727-4aea-aefa-527d5a88adbb</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

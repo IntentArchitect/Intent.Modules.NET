@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Api.Configuration;
+using Publish.AspNetCore.GooglePubSub.TestApplication.Api.Filters;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure;
 using Serilog;
@@ -32,7 +33,11 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddOptions();
             services.AddApplication();
             services.AddInfrastructure(Configuration);

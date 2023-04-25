@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Finbuckle.SeparateDatabase.TestApplication.Api.Configuration;
+using Finbuckle.SeparateDatabase.TestApplication.Api.Filters;
 using Finbuckle.SeparateDatabase.TestApplication.Application;
 using Finbuckle.SeparateDatabase.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -32,7 +33,11 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

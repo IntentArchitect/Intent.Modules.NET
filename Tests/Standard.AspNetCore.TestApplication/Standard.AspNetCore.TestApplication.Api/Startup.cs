@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Standard.AspNetCore.TestApplication.Api.Configuration;
+using Standard.AspNetCore.TestApplication.Api.Filters;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Infrastructure;
 
@@ -32,7 +33,11 @@ namespace Standard.AspNetCore.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

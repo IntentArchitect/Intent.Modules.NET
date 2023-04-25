@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Identity.Jwt.TestApplication.Api.Configuration;
+using Application.Identity.Jwt.TestApplication.Api.Filters;
 using Application.Identity.Jwt.TestApplication.Application;
 using Application.Identity.Jwt.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -32,7 +33,11 @@ namespace Application.Identity.Jwt.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);

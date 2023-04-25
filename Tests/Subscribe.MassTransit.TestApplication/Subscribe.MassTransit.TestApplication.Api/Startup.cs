@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Subscribe.MassTransit.TestApplication.Api.Configuration;
+using Subscribe.MassTransit.TestApplication.Api.Filters;
 using Subscribe.MassTransit.TestApplication.Application;
 using Subscribe.MassTransit.TestApplication.Infrastructure;
 
@@ -32,7 +33,11 @@ namespace Subscribe.MassTransit.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

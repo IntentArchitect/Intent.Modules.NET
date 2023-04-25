@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Subscribe.GooglePubSub.TestApplication.Api.Configuration;
+using Subscribe.GooglePubSub.TestApplication.Api.Filters;
 using Subscribe.GooglePubSub.TestApplication.Application;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure;
 
@@ -32,7 +33,11 @@ namespace Subscribe.GooglePubSub.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddOptions();
             services.AddApplication();
             services.AddInfrastructure(Configuration);

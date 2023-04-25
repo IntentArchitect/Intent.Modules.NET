@@ -1,4 +1,5 @@
-using FluentValidationFilter;
+using FluentValidation;
+
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

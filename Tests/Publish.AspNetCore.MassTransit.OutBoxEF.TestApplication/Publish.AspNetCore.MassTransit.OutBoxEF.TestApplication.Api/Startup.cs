@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Configuration;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Filters;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure;
 using Serilog;
@@ -32,7 +33,11 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

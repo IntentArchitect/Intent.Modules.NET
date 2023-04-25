@@ -1,13 +1,12 @@
 using FluentValidation;
-
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.FluentValidationFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.FluentValidationFilter", Version = "1.0")]
 
-namespace EntityFrameworkCore.SqlServer.TestApplication.Api.Filters
+namespace Application.Identity.Jwt.TestApplication.Api.Filters
 {
     public class FluentValidationFilter : IExceptionFilter
     {

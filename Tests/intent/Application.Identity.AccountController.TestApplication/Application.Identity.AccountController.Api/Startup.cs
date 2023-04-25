@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.Api.Configuration;
+using Application.Identity.AccountController.Api.Filters;
 using Application.Identity.AccountController.Application;
 using Application.Identity.AccountController.Application.Account;
 using Application.Identity.AccountController.Infrastructure;
@@ -33,7 +34,11 @@ namespace Application.Identity.AccountController.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.ConfigureIdentity();
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
