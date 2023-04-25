@@ -59,9 +59,9 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         Enabled = true,
                         ClientId = $"ClientCredential_Client",
                         ClientName = $"{_appName} Client-Credential Client",
-                        Description = "See more: https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/. To generate secret: https://www.liavaag.org/English/SHA-Generator/",
+                        Description = "See more: https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/. To generate secret: https://www.liavaag.org/English/SHA-Generator/ (SHA-256 and Base-64 output). Current secret is 'secret'.",
                         RequireClientSecret = true,
-                        ClientSecrets = new []{ new { Value = "secret" } },
+                        ClientSecrets = new []{ new { Value = "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=" } },
                         AllowedGrantTypes = new []{ "client_credentials" },
                         AllowedScopes = new []{ "api" }
                     },
