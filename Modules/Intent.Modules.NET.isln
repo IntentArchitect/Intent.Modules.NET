@@ -83,7 +83,6 @@
     <application id="510a23ce-6417-46e7-bf54-7ff862e535a5" name="AspNetCore.Identity.AccountController" relativePath="Intent.Modules.AspNetCore.Identity.AccountController/Intent.Modules.AspNetCore.Identity.AccountController.application.config" />
     <application id="55fab815-1172-48e8-b36a-c34d6468f928" name="Intent.Modules.MongoDb" relativePath="Intent.Modules.MongoDb/Intent.Modules.MongoDb.application.config" />
     <application id="e406684b-ac67-4f35-8f6c-c02af49695d4" name="Intent.Modules.MongoDb.Repositories" relativePath="Intent.Modules.MongoDb.Repositories/Intent.Modules.MongoDb.Repositories.application.config" />
-    <application id="2d9fa7ff-7549-4b1b-991a-174bc43774d7" name="Intent.Modules.MongoDb.Finbuckle" relativePath="Intent.Modules.MongoDb.Finbuckle/Intent.Modules.MongoDb.Finbuckle.application.config" />
     <application id="e52f40cb-16cd-44c7-bd67-987f2b672c32" name="Intent.Modules.Eventing.GoogleCloud.PubSub" relativePath="Intent.Modules.Eventing.GoogleCloud.PubSub/Intent.Modules.Eventing.GoogleCloud.PubSub.application.config" />
     <application id="a69e29bd-a26c-4598-9469-9058cd1f1658" name="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing/Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.application.config" />
     <application id="b4e9c0f4-3f0a-4f58-aabd-dc50a903bc84" name="Intent.Modules.Dapr.AspNetCore" relativePath="Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Intent.Modules.Dapr.AspNetCore.ServiceInvocation.application.config" />
@@ -96,7 +95,6 @@
     <application id="03e0114e-4f03-474f-a16e-57fa1d247007" name="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.application.config" />
     <application id="78c253bf-6722-4fe4-bdbf-4c5b1621e503" name="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.application.config" />
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
-    <application id="4f29486d-476e-44ea-ae9c-f8d0fa2cb17e" name="Intent.Modules.MongoDb.Dtos.AutoMapper" relativePath="intent/Intent.Modules.MongoDb.Dtos.AutoMapper/Intent.Modules.MongoDb.Dtos.AutoMapper.application.config" />
     <application id="a9b4b39d-2b2e-4212-89c9-e639f7219900" name="Intent.Modules.AzureFunctions.Dispatch.MediatR" relativePath="intent/Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.application.config" />
     <application id="dba57f83-0e39-4484-bf7a-b65de87e557f" name="Intent.Modules.DomainServices" relativePath="Intent.Modules.DomainServices/Intent.Modules.DomainServices.application.config" />
   </applications>
