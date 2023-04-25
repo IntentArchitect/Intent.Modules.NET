@@ -143,3 +143,9 @@ foreach ($project in $projects) {
     Invoke-Expression "dotnet build $project --verbosity normal"
     Invoke-Expression "dotnet pack $project --verbosity normal$packOutputParam"
 }
+
+Write-Host "dotnet processes:"
+
+Get-Process | Where-Object { $_.ProcessName.StartsWith("dotnet", "InvariantCultureIgnoreCase") }
+
+Write-Host "Execution complete"
