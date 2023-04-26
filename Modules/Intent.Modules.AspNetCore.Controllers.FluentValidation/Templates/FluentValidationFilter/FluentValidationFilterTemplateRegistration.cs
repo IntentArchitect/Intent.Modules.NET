@@ -11,7 +11,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.FluentValidationFilter
+namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.Templates.FluentValidationFilter
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class FluentValidationFilterTemplateRegistration : SingleFileTemplateRegistration

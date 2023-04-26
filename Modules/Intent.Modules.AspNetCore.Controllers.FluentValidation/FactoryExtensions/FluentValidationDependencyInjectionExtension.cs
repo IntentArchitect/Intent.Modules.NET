@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Application.MediatR.FluentValidation.Templates;
+using Intent.Modules.AspNetCore.Controllers.FluentValidation.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,12 +12,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
+namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class FluentValidationDependencyInjectionExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Application.MediatR.FluentValidation.FluentValidationDependencyInjectionExtension";
+        public override string Id => "Intent.AspNetCore.Controllers.FluentValidation.FluentValidationDependencyInjectionExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

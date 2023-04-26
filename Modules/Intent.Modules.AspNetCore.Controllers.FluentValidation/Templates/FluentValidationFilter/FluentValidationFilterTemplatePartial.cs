@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -10,12 +11,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.FluentValidationFilter
+namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.Templates.FluentValidationFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class FluentValidationFilterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Application.FluentValidation.Dtos.FluentValidationFilter";
+        public const string TemplateId = "Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public FluentValidationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

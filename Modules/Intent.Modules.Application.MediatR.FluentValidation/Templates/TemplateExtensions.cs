@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
-using Intent.Modules.Application.MediatR.FluentValidation.Templates.FluentValidationFilter;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryValidator;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.Common.Templates;
@@ -21,11 +20,6 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
         public static string GetCommandValidatorName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
         {
             return template.GetTypeName(CommandValidatorTemplate.TemplateId, model);
-        }
-
-        public static string GetFluentValidationFilterName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(FluentValidationFilterTemplate.TemplateId);
         }
 
         public static string GetQueryValidatorName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel

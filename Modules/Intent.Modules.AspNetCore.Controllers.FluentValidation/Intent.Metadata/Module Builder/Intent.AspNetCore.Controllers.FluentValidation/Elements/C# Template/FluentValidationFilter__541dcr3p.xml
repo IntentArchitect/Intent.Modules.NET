@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="64ed2acc-7de1-40b8-8cf9-ff5f05895528" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="fbd83b4a-d632-4534-ac2d-da00f8fdeff4" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>FluentValidationFilter</name>
   <display>FluentValidationFilter: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="08f393b5-d54f-4f18-94d3-d86a098a284c">
+  <typeReference id="6c408c6a-ecb0-4f54-a459-1c0b7740d2ad">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>31c500b7-66f0-46fc-8748-23ac58a8c375</parentFolderId>
-  <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
-  <packageName>Intent.Application.FluentValidation.Dtos</packageName>
+  <parentFolderId>8451a689-7ff2-4e27-b9f4-eed70d24d4f6</parentFolderId>
+  <packageId>8451a689-7ff2-4e27-b9f4-eed70d24d4f6</packageId>
+  <packageName>Intent.AspNetCore.Controllers.FluentValidation</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

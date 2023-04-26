@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.14" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.17" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -97,5 +97,6 @@
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
     <application id="a9b4b39d-2b2e-4212-89c9-e639f7219900" name="Intent.Modules.AzureFunctions.Dispatch.MediatR" relativePath="intent/Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.application.config" />
     <application id="dba57f83-0e39-4484-bf7a-b65de87e557f" name="Intent.Modules.DomainServices" relativePath="Intent.Modules.DomainServices/Intent.Modules.DomainServices.application.config" />
+    <application id="8f985483-e0b9-4e58-baf0-632e6bb28fc6" name="Intent.Modules.AspNetCore.Controllers.FluentValidation" relativePath="Intent.Modules.AspNetCore.Controllers.FluentValidation/Intent.Modules.AspNetCore.Controllers.FluentValidation.application.config" />
   </applications>
 </solution>
