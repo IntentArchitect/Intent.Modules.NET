@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack</id>
-  <version>4.0.13</version>
+  <version>4.0.12-pre.0</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0)</supportedClientVersions>
   <displayName>Standard ASP.NET Core Web Application</displayName>
   <shortDescription>Create a standard web API application with a clean separation of concerns using .NET.</shortDescription>
