@@ -38,7 +38,7 @@
   <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Contracts.Clients" version="4.0.0-pre.0" />
+    <dependency id="Intent.Application.Contracts.Clients" version="4.0.0-pre.2" />
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />

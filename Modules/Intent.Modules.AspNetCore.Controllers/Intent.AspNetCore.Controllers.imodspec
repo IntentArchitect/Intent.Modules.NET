@@ -48,7 +48,7 @@
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.30" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.Metadata.WebApi" version="4.0.1-pre.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.0.1-pre.5" />
     <dependency id="Intent.Modelers.Services" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>

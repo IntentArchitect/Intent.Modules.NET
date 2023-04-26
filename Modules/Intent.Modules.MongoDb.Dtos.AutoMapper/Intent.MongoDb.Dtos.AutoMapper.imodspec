@@ -19,7 +19,7 @@
     <dependency id="Intent.Common" version="3.4.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.1" />
-    <dependency id="Intent.MongoDb" version="1.0.0-pre.8" />
+    <dependency id="Intent.MongoDb" version="1.0.0-pre.11" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

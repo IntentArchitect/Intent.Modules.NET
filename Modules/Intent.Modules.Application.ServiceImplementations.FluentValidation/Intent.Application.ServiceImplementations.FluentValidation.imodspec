@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.FluentValidation</id>
   <version>4.1.0-pre.0</version>
@@ -13,7 +13,7 @@
   <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation.Dtos" version="3.4.0-pre.0" />
+    <dependency id="Intent.Application.FluentValidation.Dtos" version="3.4.0-pre.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

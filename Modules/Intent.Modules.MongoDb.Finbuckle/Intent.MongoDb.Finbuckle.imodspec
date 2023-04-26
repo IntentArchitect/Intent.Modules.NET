@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb.Finbuckle</id>
   <version>1.0.0-pre.0</version>
@@ -26,9 +26,9 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.32-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.MongoDb" version="1.0.0-pre.0" />
+    <dependency id="Intent.MongoDb" version="1.0.0-pre.11" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
     <dependency id="Intent.Modules.AspNetCore.MultiTenancy" version="4.0.1" />
   </dependencies>

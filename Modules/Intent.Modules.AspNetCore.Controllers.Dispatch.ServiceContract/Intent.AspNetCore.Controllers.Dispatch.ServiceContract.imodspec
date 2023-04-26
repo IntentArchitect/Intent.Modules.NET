@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</id>
   <version>5.0.2-pre.0</version>
@@ -16,7 +16,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts" version="4.0.0" />
-    <dependency id="Intent.AspNetCore.Controllers" version="5.0.3-pre.0" />
+    <dependency id="Intent.AspNetCore.Controllers" version="5.0.3-pre.2" />
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
