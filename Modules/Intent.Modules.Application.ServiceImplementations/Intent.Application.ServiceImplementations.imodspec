@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations</id>
-  <version>4.1.2</version>
+  <version>4.1.3-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Provides a standard service implementation pattern for Application Contracts</summary>
   <description>Provides a standard service implementation pattern for Application Contracts</description>
@@ -20,7 +20,7 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Application.Contracts" version="4.0.1" />
+    <dependency id="Intent.Application.Contracts" version="4.0.2" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
