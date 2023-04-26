@@ -23,7 +23,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.0" />
+    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.1" />
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.CSharp" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.6" />

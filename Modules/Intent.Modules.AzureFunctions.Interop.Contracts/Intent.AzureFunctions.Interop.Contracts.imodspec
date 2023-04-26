@@ -16,7 +16,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts" version="3.3.8" />
-    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.0" />
+    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.1" />
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
   </dependencies>

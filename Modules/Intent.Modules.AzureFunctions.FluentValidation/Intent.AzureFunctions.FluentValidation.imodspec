@@ -33,7 +33,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.FluentValidation" version="3.4.0" />
-    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.0" />
+    <dependency id="Intent.AzureFunctions" version="4.0.1-pre.1" />
     <dependency id="Intent.Common" version="3.3.19" />
     <dependency id="Intent.Common.CSharp" version="3.3.32-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
