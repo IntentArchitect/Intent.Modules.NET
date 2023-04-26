@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.FluentValidationFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter", Version = "1.0")]
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Filters
 {
