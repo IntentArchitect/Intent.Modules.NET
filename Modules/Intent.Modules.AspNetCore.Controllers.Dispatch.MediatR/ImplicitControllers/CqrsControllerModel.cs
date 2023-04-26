@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -36,7 +37,7 @@ public class CqrsControllerModel : IControllerModel
             mediaType: httpEndpointModel.MediaType,
             requiresAuthorization: httpEndpointModel.RequiresAuthorization,
             allowAnonymous: httpEndpointModel.AllowAnonymous,
-            authorizationModel: null,
+            authorizationModel: GetAuthorizationModel(element),
             parameters: httpEndpointModel.Inputs
                 .Select(x => new ControllerParameterModel(
                     id: x.Id,
@@ -46,6 +47,23 @@ public class CqrsControllerModel : IControllerModel
                     headerName: x.HeaderName,
                     mappedPayloadProperty: x.MappedPayloadProperty))
                 .ToList<IControllerParameterModel>());
+    }
+
+    private static AuthorizationModel GetAuthorizationModel(IElement element)
+    {
+        if (!element.HasStereotype("Secured") || string.IsNullOrEmpty(element.GetStereotype("Secured").GetProperty<string>("Roles", null)))
+        {
+            return null;
+        }
+        var roles = element.GetStereotype("Secured").GetProperty<string>("Roles");
+        return new AuthorizationModel
+        {
+            RolesExpression = !string.IsNullOrWhiteSpace(roles)
+                ? @$"""{string.Join(",", roles
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim()))}"""
+                : null
+        };
     }
 
     public string Id { get; }
