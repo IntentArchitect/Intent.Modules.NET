@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9241132c-9878-40de-9522-a97d00020f91</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>

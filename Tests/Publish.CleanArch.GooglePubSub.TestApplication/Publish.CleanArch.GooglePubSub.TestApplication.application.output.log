@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9025252c-eef4-4902-90da-638aaabfbafa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>

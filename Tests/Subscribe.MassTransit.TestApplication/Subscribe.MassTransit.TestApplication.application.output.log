@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ad426191-289e-4544-89a5-c45130897c5a</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
