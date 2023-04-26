@@ -30,7 +30,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.AspNetCore" version="4.0.0" metadataOnly="false">
+            <module id="Intent.AspNetCore" version="4.0.1-pre.0" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>

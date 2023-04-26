@@ -130,7 +130,7 @@
         <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.5-pre.0" />
       </install>
     </detect>
-    <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
+    <detect id="Intent.Modelers.Services.CRUD.ServiceDispatch">
       <install>
         <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.0" />
       </install>
