@@ -145,7 +145,12 @@ foreach ($project in $projects) {
 }
 
 Write-Host "dotnet processes:"
+Get-Process | Where-Object { $_.ProcessName.StartsWith("dotnet", "InvariantCultureIgnoreCase") }
 
+Write-Host "Stopping dotnet processes:"
+Stop-Process -Name "dotnet"
+
+Write-Host "dotnet processes:"
 Get-Process | Where-Object { $_.ProcessName.StartsWith("dotnet", "InvariantCultureIgnoreCase") }
 
 Write-Host "Execution complete"
