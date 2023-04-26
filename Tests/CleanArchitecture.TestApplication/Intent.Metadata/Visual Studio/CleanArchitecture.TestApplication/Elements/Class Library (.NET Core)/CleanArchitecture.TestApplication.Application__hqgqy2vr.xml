@@ -215,47 +215,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4125cf4c-222c-464b-85c8-599e3d039aaf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
-      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>200c87e3-90dc-414e-bb27-53f91deca874</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="95f0e94f-83fc-4336-a6a4-869b82e67cc8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>200c87e3-90dc-414e-bb27-53f91deca874</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="b9c5e966-1e09-4636-b07d-263e1f0bf195" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>200c87e3-90dc-414e-bb27-53f91deca874</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>
