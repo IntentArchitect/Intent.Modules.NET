@@ -43,6 +43,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4b82569a-216d-4120-bb61-222435de1743</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>36f5ce7e-0227-40ed-81ec-f52dcb573920</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36f5ce7e-0227-40ed-81ec-f52dcb573920</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

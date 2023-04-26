@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDb.TestApplication.Api.Configuration;
+using MongoDb.TestApplication.Api.Filters;
 using MongoDb.TestApplication.Application;
 using MongoDb.TestApplication.Infrastructure;
 using Serilog;
@@ -32,7 +33,11 @@ namespace MongoDb.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<FluentValidationFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
