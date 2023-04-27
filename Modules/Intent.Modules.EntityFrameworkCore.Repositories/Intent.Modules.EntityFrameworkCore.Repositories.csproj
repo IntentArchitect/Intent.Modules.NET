@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.1.0</Version>
+    <Version>4.2.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -22,7 +22,7 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.2" />
-    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.3.2-pre.2" />
+    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.3.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

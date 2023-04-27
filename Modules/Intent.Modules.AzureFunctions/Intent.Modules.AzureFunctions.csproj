@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>4.0.1-pre.0</PackageVersion>
+    <PackageVersion>4.0.1</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
@@ -19,8 +19,8 @@
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
-    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.8-pre.0" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.8" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>

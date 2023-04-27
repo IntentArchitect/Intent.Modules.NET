@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.4.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
