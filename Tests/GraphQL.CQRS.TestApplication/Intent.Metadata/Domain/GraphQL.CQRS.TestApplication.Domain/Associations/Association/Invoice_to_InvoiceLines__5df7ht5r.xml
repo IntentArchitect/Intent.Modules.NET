@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7164254e-0044-452a-b39b-d6c95efefc27">
+  <sourceEnd id="526a304a-47ed-494b-8ed3-4bd9c7844e25" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="f132a967-9180-4f9f-a518-3d495fcffa8e">
+      <typeId>e9295fd6-c250-428e-b4b2-3757104b45b8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GraphQL.CQRS.TestApplication.Domain</typePackageName>
+      <typePackageId>82d30973-e6b7-47fc-b170-6491f45bf9f3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7164254e-0044-452a-b39b-d6c95efefc27" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InvoiceLines</name>
+    <display>InvoiceLines: InvoiceLine[*]</display>
+    <order>4</order>
+    <typeReference id="4190f75f-ad81-47eb-b813-d783d8a4d3e7">
+      <typeId>4ac3bf2f-c6de-4a70-a5fa-750ee30786b7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GraphQL.CQRS.TestApplication.Domain</typePackageName>
+      <typePackageId>82d30973-e6b7-47fc-b170-6491f45bf9f3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

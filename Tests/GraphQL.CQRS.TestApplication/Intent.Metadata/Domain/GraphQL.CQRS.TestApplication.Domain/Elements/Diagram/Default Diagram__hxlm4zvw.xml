@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0feb62e6-2ca2-4575-bb35-5cd8115df3c2" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82d30973-e6b7-47fc-b170-6491f45bf9f3</parentFolderId>
+  <packageId>82d30973-e6b7-47fc-b170-6491f45bf9f3</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>82d30973-e6b7-47fc-b170-6491f45bf9f3</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
