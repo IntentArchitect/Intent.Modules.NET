@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 

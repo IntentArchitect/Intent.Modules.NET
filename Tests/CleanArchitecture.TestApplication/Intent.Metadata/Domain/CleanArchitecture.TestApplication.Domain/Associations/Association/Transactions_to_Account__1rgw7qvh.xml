@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b9a76d19-54d0-4024-a857-6562aa902228">
+  <sourceEnd id="db129c8e-1aef-4c17-9e77-7a4fe887790c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Transactions</name>
+    <display>Transactions: Transaction[*]</display>
+    <order>0</order>
+    <typeReference id="65d15aa7-5b40-4830-b576-04a8d78f8c8d">
+      <typeId>8998a129-b219-4f74-b2ff-582a48074c5d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b9a76d19-54d0-4024-a857-6562aa902228" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Account</name>
+    <display>Account: Account   [* --&gt; 1]</display>
+    <order>4</order>
+    <typeReference id="89b10cf1-90ae-475a-ac78-3efd399631d1">
+      <typeId>43071d5b-3c4b-4a6a-9e21-4094f37d9a48</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

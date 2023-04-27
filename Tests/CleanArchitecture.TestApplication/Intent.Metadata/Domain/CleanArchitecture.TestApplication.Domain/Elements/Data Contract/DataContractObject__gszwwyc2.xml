@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a353cd6-cd4b-428f-91b7-617c431e60df" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>DataContractObject</name>
+  <display>DataContractObject</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="54dd03dc-049f-4e4e-af3b-c53c11cf914f">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>086ef0af-9891-49d0-b2fe-0ea6e2c14196</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

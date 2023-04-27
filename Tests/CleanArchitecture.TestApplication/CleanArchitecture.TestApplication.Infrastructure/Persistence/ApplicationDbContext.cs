@@ -5,7 +5,11 @@ using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
+using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +27,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountHolder> AccountHolders { get; set; }
+
         public DbSet<AggregateRoot> AggregateRoots { get; set; }
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
@@ -31,9 +38,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
-        public DbSet<EntityWithCtor> EntityWithCtors { get; set; }
-        public DbSet<EntityWithMutableOperation> EntityWithMutableOperations { get; set; }
+        public DbSet<DataContractClass> DataContractClasses { get; set; }
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -46,6 +53,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
@@ -54,9 +63,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
-            modelBuilder.ApplyConfiguration(new EntityWithCtorConfiguration());
-            modelBuilder.ApplyConfiguration(new EntityWithMutableOperationConfiguration());
+            modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

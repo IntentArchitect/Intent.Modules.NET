@@ -1,8 +1,12 @@
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
+using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories;
+using CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD;
+using CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +28,14 @@ namespace CleanArchitecture.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             services.AddTransient<IAggregateTestNoIdReturnRepository, AggregateTestNoIdReturnRepository>();
-            services.AddTransient<IEntityWithCtorRepository, EntityWithCtorRepository>();
-            services.AddTransient<IEntityWithMutableOperationRepository, EntityWithMutableOperationRepository>();
+            services.AddTransient<IDataContractClassRepository, DataContractClassRepository>();
             services.AddTransient<IImplicitKeyAggrRootRepository, ImplicitKeyAggrRootRepository>();
+            services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

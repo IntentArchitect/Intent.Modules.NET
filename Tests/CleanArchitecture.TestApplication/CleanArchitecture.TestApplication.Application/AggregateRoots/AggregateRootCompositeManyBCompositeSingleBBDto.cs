@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

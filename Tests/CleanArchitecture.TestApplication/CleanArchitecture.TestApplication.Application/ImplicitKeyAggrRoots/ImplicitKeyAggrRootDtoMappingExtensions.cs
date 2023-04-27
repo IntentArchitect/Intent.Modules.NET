@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
