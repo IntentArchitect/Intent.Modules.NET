@@ -1548,6 +1548,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3596299b-12e1-41f1-bb94-d1541e6ca8aa</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EventHandlers/DataContractDomainEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContractDomainEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3596299b-12e1-41f1-bb94-d1541e6ca8aa</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.AggregateManager#ef229a2c-3961-4466-ab21-99aae3e3bf58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EventHandlers/DDD/AccountHolderManager.cs</ApplicationRelativeFilePath>
@@ -2040,6 +2048,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DDD/Transaction.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/Transaction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b8ac139-e009-486f-b671-8d6d2e50d3e9</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Events/DataContractDomainEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContractDomainEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

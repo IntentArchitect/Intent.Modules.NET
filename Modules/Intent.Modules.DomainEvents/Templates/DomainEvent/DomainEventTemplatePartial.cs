@@ -4,6 +4,7 @@ using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -24,7 +25,8 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
             AddTypeSource("Domain.Entity");
-            AddTypeSource("Intent.ValueObjects.ValueObject"); // Let's move over to Role name (once its unique)
+            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
