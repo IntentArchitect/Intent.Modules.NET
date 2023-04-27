@@ -11,16 +11,13 @@ namespace CleanArchitecture.TestApplication.Domain.Events.DDD
 {
     public class AccountTransferStarted : DomainEvent
     {
-        public AccountTransferStarted(string toAccNumber, Money amount, string description)
+        public AccountTransferStarted(string toAccNumber, string description)
         {
             ToAccNumber = toAccNumber;
-            Amount = amount;
             Description = description;
         }
 
         public string ToAccNumber { get; }
-
-        public Money Amount { get; }
 
         public string Description { get; }
     }

@@ -36,30 +36,6 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="eb4255ae-2dc0-412f-af4e-eab9d15926ea" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
-      <name>Amount</name>
-      <display>Amount: Money</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="49999303-a5b0-49b0-9911-30c76e9993fb">
-        <typeId>8bd47d3c-86a9-4beb-a6cf-368646e905b7</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
-        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>bc8005a7-7ed3-4835-8e9a-3f1a7cb6afd4</parentFolderId>
-      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
-      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="51b13fb3-b90d-4a82-bae7-be49311562ae" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
       <name>Description</name>
       <display>Description: string</display>
