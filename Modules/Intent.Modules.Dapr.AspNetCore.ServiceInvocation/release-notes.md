@@ -1,3 +1,3 @@
-### Version 1.0.2-pre.0
+### Version 1.0.1
 
 - Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.

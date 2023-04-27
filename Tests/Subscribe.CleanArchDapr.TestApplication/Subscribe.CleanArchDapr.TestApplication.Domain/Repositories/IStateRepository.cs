@@ -10,7 +10,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Domain.Repositories
     public interface IStateRepository
     {
         void Update<T>(string id, T state);
-        Task<T> Get<T>(string id);
+        Task<T> Get<T>(string id, CancellationToken cancellationToken = default);
         void Delete(string id);
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }

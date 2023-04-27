@@ -79,9 +79,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
             });
         }
 
-        public async Task<T> Get<T>(string id)
+        public async Task<T> Get<T>(string id, CancellationToken cancellationToken = default)
         {
-            return await _daprClient.GetStateAsync<T>(StateStoreName, id);
+            return await _daprClient.GetStateAsync<T>(StateStoreName, id, cancellationToken: cancellationToken);
         }
 
         public void Delete(string id)

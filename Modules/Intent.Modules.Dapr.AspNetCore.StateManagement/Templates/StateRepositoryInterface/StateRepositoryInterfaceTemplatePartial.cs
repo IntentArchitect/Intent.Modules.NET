@@ -32,6 +32,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
                     .AddMethod("Task<T>", "Get", method => method
                         .AddGenericParameter("T")
                         .AddParameter("string", "id")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                     )
                     .AddMethod("void", "Delete", method => method
                         .AddParameter("string", "id")
