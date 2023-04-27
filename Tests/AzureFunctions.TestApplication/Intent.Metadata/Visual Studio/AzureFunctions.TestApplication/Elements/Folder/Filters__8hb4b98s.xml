@@ -8,20 +8,5 @@
   <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="f8b70b35-55ed-4840-965d-14cde85044cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</name>
-      <display>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>da32e87a-2fb3-42b8-9224-5a4412283585</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

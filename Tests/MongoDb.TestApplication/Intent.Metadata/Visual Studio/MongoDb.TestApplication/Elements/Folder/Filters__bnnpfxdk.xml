@@ -23,20 +23,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1a9da594-2eb0-4599-98ca-bcc091dc1e2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</name>
-      <display>Intent.Application.FluentValidation.Dtos.FluentValidationFilter</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4b82569a-216d-4120-bb61-222435de1743</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="cb30a605-fa0f-4777-bf6d-d2360f5f940f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
       <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>

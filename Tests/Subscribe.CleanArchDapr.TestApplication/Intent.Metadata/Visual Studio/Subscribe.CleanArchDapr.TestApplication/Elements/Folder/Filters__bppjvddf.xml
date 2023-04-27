@@ -9,20 +9,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="7088c439-e760-4b97-bc89-f6db0f1a33c4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</name>
-      <display>Intent.Application.MediatR.FluentValidation.FluentValidationFilter</display>
-      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6647d19a-038b-405a-a0fb-636281d4f9fc</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="d310be81-6bde-4d90-88de-88a49891b902" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
       <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>
