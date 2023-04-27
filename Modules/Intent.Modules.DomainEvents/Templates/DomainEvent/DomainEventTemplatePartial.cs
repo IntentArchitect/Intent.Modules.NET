@@ -24,6 +24,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
             AddTypeSource("Domain.Entity");
+            AddTypeSource("Intent.ValueObjects.ValueObject"); // Let's move over to Role name (once its unique)
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
