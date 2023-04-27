@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eb73e182-0e27-421d-812f-85adb44021fb" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>a899c575-0c95-4d87-9683-bee962acdec8</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2e1d5a3d-f79d-4595-b773-2e75538910d5</parentFolderId>
+  <packageId>2e1d5a3d-f79d-4595-b773-2e75538910d5</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>2e1d5a3d-f79d-4595-b773-2e75538910d5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{A56BD15E-8841-4833-822A-F631636A88FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{D601860E-7938-442A-BE69-CD440C1B04DD}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config.yaml = dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{4882B159-A7A3-4BDB-AB9D-A24F64F02012}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0F2DEC41-BB50-4D3A-9C76-60AB03379AA4}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Subscribe.CleanArchDapr.TestApplication.Api", "Subscribe.CleanArchDapr.TestApplication.Api\Subscribe.CleanArchDapr.TestApplication.Api.csproj", "{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{B4E27713-21BA-46E2-95DF-81B3FD0E5A50}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Application", "Subscribe.CleanArchDapr.TestApplication.Application\Subscribe.CleanArchDapr.TestApplication.Application.csproj", "{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{595C7AEB-F9BC-4780-8682-8EA3D2088727}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Domain", "Subscribe.CleanArchDapr.TestApplication.Domain\Subscribe.CleanArchDapr.TestApplication.Domain.csproj", "{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{55820FC5-C178-495D-B42B-82AAC7409B4F}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Infrastructure", "Subscribe.CleanArchDapr.TestApplication.Infrastructure\Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj", "{9A02C2C1-32C1-4DFA-AD06-519222669804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A02C2C1-32C1-4DFA-AD06-519222669804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A02C2C1-32C1-4DFA-AD06-519222669804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A02C2C1-32C1-4DFA-AD06-519222669804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A02C2C1-32C1-4DFA-AD06-519222669804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D601860E-7938-442A-BE69-CD440C1B04DD} = {A56BD15E-8841-4833-822A-F631636A88FF}
+		{4882B159-A7A3-4BDB-AB9D-A24F64F02012} = {D601860E-7938-442A-BE69-CD440C1B04DD}
+		{E5A755D8-C526-4B5E-8B91-06A2E8187ACE} = {0F2DEC41-BB50-4D3A-9C76-60AB03379AA4}
+		{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE} = {B4E27713-21BA-46E2-95DF-81B3FD0E5A50}
+		{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C} = {595C7AEB-F9BC-4780-8682-8EA3D2088727}
+		{9A02C2C1-32C1-4DFA-AD06-519222669804} = {55820FC5-C178-495D-B42B-82AAC7409B4F}
+	EndGlobalSection
+EndGlobal

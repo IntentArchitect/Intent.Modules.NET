@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f46e4eb0-4f3b-437c-9696-c6369e467621" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>MyProxy</name>
+  <display>MyProxy</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>11c8cc47-1133-4a1f-84a2-cbf0c097e62c</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="3f763df0-a134-4460-b12c-76f0df862016" name="Publish.CleanArchDapr.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="8e162cce-45ac-496a-b939-cb19c16be951" name="Orders" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>dbb613db-bd8c-4278-a7db-7d6c2958e361</parentFolderId>
+  <packageId>dbb613db-bd8c-4278-a7db-7d6c2958e361</packageId>
+  <packageName>ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6bfb09f9-958b-4762-9ba7-d79e98fa87b0" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>OrderConfirmed</name>
+      <display>OrderConfirmed(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6457287f-69e1-4bb2-b04f-ea8615e7f267">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="92f79f57-e9f8-4c08-ba70-ec4cb7c440d7" name="OrderConfirmed" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>f46e4eb0-4f3b-437c-9696-c6369e467621</parentFolderId>
+      <packageId>dbb613db-bd8c-4278-a7db-7d6c2958e361</packageId>
+      <packageName>ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

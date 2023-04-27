@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d1be2c6c-d34a-4e34-ace5-565e845d5e02">
+  <sourceEnd id="6b65a664-a469-429b-b237-fa39ad31b3d6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Orders</name>
+    <display>Orders: Order[*]</display>
+    <order>0</order>
+    <typeReference id="8a4058e8-dba8-4bee-a70c-7c05b7f82836">
+      <typeId>008652e2-30b9-471a-a9ce-fd80c45713a5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Domain</typePackageName>
+      <typePackageId>2e1d5a3d-f79d-4595-b773-2e75538910d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d1be2c6c-d34a-4e34-ace5-565e845d5e02" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Customer</name>
+    <display>Customer: Customer   [* --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="a89afdb0-26ea-47b9-a88b-43f5d0384b5d">
+      <typeId>754c4749-183b-4dc3-b98a-49e3164d6c2a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Domain</typePackageName>
+      <typePackageId>2e1d5a3d-f79d-4595-b773-2e75538910d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

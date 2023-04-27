@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f740cfc1-6366-45b8-a3ff-c5ca811d7360">
+  <sourceEnd id="99a96e44-efda-4556-85e4-e2a584d6d859" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
+    <name>Subscribe.CleanArchDapr.TestApplication</name>
+    <display>subscriber: Subscribe.CleanArchDapr.TestApplication</display>
+    <order>0</order>
+    <typeReference id="96bbfdf5-35c8-43b7-ab50-ad1b3c2561fc">
+      <typeId>4b87afa2-2cf3-474c-a24d-661d4a2ef760</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.CleanArchDapr.TestApplication.Eventing</typePackageName>
+      <typePackageId>1aca4f82-935a-4421-9d10-39338c96a321</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f740cfc1-6366-45b8-a3ff-c5ca811d7360" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
+    <name>OrderCreated</name>
+    <display>subscribe: OrderCreated</display>
+    <order>0</order>
+    <typeReference id="b0ed663a-c6d6-4458-b13d-1bb0dd8ff68e">
+      <typeId>7b93e001-85a0-4e3d-8333-9777a4789c9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Subscribe Assocation</associationType>
+  <associationTypeId>50e0bed1-1387-4d67-8f66-1194763296b1</associationTypeId>
+  <stereotypes />
+</association>

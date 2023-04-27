@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="de39a8bb-d1ab-418c-9c5b-522a9381eaab">
+  <sourceEnd id="584701eb-b10c-46ca-b412-c97474d5c016" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArchDapr.TestApplication</name>
+    <display>publisher: Publish.CleanArchDapr.TestApplication</display>
+    <order>0</order>
+    <typeReference id="cb43f1d4-8642-4978-9b52-bd3ba9568623">
+      <typeId>222a1125-7f47-49ab-a9e0-f9414701e490</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing</typePackageName>
+      <typePackageId>1366e6e8-892a-429d-ae9a-96104fce1cd7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="de39a8bb-d1ab-418c-9c5b-522a9381eaab" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>OrderCreated</name>
+    <display>publish: OrderCreated</display>
+    <order>0</order>
+    <typeReference id="d219eb2a-69c1-4fbc-8c45-82b54cdfbf30">
+      <typeId>7b93e001-85a0-4e3d-8333-9777a4789c9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

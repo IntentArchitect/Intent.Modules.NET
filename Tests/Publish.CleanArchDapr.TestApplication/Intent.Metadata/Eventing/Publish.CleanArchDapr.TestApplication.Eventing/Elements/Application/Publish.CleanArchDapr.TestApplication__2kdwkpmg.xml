@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="222a1125-7f47-49ab-a9e0-f9414701e490" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.CleanArchDapr.TestApplication</name>
+  <display>Publish.CleanArchDapr.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1366e6e8-892a-429d-ae9a-96104fce1cd7</parentFolderId>
+  <packageId>1366e6e8-892a-429d-ae9a-96104fce1cd7</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication.Eventing</packageName>
+  <diagram>
+    <targetPackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

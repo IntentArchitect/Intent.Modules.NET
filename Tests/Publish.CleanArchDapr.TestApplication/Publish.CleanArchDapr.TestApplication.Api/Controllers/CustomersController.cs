@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Net.Mime;
+using System.Threading;
+using System.Threading.Tasks;
+using Intent.RoslynWeaver.Attributes;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Publish.CleanArchDapr.TestApplication.Api.Controllers.ResponseTypes;
+using Publish.CleanArchDapr.TestApplication.Application.Customers;
+using Publish.CleanArchDapr.TestApplication.Application.Customers.CreateCustomer;
+using Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCustomer;
+using Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustomerById;
+using Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustomers;
+using Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCustomer;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
+
+namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
+{
+    [ApiController]
+    public class CustomersController : ControllerBase
+    {
+        private readonly ISender _mediator;
+
+        public CustomersController(ISender mediator)
+        {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        [HttpPost("api/customers")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<Guid>> CreateCustomer(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new CreateCustomerCommand(), cancellationToken);
+            return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Successfully deleted.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpDelete("api/customers/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(new DeleteCustomerCommand { Id = id }, cancellationToken);
+            return Ok();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpPut("api/customers/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(new UpdateCustomerCommand { Id = id }, cancellationToken);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified CustomerDto.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">Can't find an CustomerDto with the parameters provided.</response>
+        [HttpGet("api/customers/{id}")]
+        [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CustomerDto>> GetCustomerById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
+            return result != null ? Ok(result) : NotFound();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        [HttpGet("api/customers")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
+            return Ok(result);
+        }
+    }
+}
