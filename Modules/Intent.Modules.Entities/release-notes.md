@@ -1,4 +1,8 @@
-﻿### Version 4.2.0
+﻿### Version 4.2.1
+
+- Fixed unresolved namespaces for Domain types like Data Contracts.
+
+### Version 4.2.0
 
 - Sets default value on properties as per Domain designer
 

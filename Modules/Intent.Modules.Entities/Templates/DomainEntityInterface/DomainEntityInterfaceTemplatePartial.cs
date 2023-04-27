@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
@@ -45,6 +46,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             AddTypeSource(TemplateId);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
+            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
         }
 
         public override void OnCreated()
