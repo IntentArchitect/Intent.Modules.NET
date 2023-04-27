@@ -210,7 +210,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
             method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
                 .InsertAbove(
-                    $@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
+                    $@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info."");");
         });
     }
 
