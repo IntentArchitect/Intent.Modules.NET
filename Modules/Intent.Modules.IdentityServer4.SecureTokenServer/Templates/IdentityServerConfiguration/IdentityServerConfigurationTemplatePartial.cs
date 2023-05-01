@@ -27,7 +27,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentitySer
         public IdentityServerConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.IdentityServer4);
-            base.Project.Application.EventDispatcher.Subscribe<CertificateSpecifiedEvent>(evt =>
+            base.Project.ExecutionContext.EventDispatcher.Subscribe<CertificateSpecifiedEvent>(evt =>
             {
                 _hasCertificateSpecified = true;
             });

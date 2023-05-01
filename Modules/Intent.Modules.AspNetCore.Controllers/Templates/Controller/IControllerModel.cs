@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.Types.Api;
@@ -41,6 +42,7 @@ public interface IAuthorizationModel
     ///<summary>
     /// Gets or sets the Authentication Schemes that determines access to this resource. Note the format will generate exactly in C#.
     ///</summary>
+    [Obsolete("Set the authorization scheme through a factory extension. This will be removed in later versions.")]
     public string AuthenticationSchemesExpression { get; }
 
     ///<summary>

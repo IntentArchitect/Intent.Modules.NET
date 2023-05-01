@@ -2,6 +2,13 @@
 {
     public static class TemplateFulfillingRoles
     {
+        public static class Distribution
+        {
+            public static class WebApi
+            {
+                public const string Controller = "Distribution.WebApi.Controller";
+            }
+        }
         public static class Domain
         {
             public const string Enum = "Domain.Enum";

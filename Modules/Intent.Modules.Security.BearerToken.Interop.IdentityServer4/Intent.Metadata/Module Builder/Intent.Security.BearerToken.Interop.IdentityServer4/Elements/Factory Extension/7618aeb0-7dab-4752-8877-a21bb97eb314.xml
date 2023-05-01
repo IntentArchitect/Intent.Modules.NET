@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7618aeb0-7dab-4752-8877-a21bb97eb314" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ControllerJwtAuthenticationSchemeExtention</name>
+  <display>ControllerJwtAuthenticationSchemeExtention</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>01be688b-cbcb-4f94-8e14-c74fe55c499c</parentFolderId>
+  <packageId>01be688b-cbcb-4f94-8e14-c74fe55c499c</packageId>
+  <packageName>Intent.Security.BearerToken.Interop.IdentityServer4</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

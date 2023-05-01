@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae</CorrelationId>
+      <ProjectId>1c8b40a8-2181-479b-9a8a-2dbff1c2a569</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#7618aeb0-7dab-4752-8877-a21bb97eb314</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ControllerAuthenticationSchemesDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ControllerAuthenticationSchemesDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ControllerJwtAuthenticationSchemeExtention.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerJwtAuthenticationSchemeExtention.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
