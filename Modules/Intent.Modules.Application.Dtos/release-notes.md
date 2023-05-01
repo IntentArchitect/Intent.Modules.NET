@@ -1,4 +1,8 @@
-﻿### Version 4.0.0
+﻿### Version 4.0.1
+
+- Fixed: `[DataMember]` attributes on DTO properties causing incorrect C# syntax errors.
+
+### Version 4.0.0
 
 - Upgrade : `DtoModelTemplate` upgraded to use the `ICSharpFileBuilderTemplate` paradigm.
 - Enums will now generate comments captured in designers.
