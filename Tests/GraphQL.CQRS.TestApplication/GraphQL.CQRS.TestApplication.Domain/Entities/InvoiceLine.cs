@@ -11,8 +11,6 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class InvoiceLine
     {
-        public Guid Id { get; set; }
-
         public Guid ProductId { get; set; }
 
         public Guid InvoiceId { get; set; }

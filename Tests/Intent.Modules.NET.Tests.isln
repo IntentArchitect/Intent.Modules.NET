@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr" version="1.0.8-pre.1" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.2.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -30,8 +30,8 @@
     <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
     <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
     <application id="997b0d31-c393-4b42-9652-3bf4a12e9633" name="Application.Identity.AccountController.TestApplication" relativePath="intent/Application.Identity.AccountController.TestApplication/Application.Identity.AccountController.TestApplication.application.config" />
-    <application id="0b17cfb1-6e4c-4bcb-8f0d-f9c22cd3d782" name="GraphQL.CQRS.TestApplication" relativePath="GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.application.config" />
     <application id="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" name="Publish.CleanArchDapr.TestApplication" relativePath="Publish.CleanArchDapr.TestApplication/Publish.CleanArchDapr.TestApplication.application.config" />
     <application id="a905a5c6-22ed-4c81-aba6-e2d01e40c02a" name="Subscribe.CleanArchDapr.TestApplication" relativePath="Subscribe.CleanArchDapr.TestApplication/Subscribe.CleanArchDapr.TestApplication.application.config" />
+    <application id="96524c15-c348-4dce-8274-e62c5773ac50" name="GraphQL.CQRS.TestApplication" relativePath="intent/GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.application.config" />
   </applications>
 </solution>

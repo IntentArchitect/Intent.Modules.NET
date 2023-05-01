@@ -29,8 +29,6 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence.Configurations
                 .WithMany()
                 .HasForeignKey(x => x.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Ignore(e => e.DomainEvents);
         }
 
         public void ConfigureInvoiceLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
@@ -38,13 +36,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence.Configurations
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);
 
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.ProductId)
-                .IsRequired();
-
-            builder.Property(x => x.InvoiceId)
-                .IsRequired();
+            builder.HasKey(x => new { x.ProductId, x.InvoiceId });
 
             builder.Property(x => x.No)
                 .IsRequired();

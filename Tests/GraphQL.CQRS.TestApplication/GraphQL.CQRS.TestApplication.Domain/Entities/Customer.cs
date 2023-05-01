@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using GraphQL.CQRS.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +9,7 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
-    public class Customer : IHasDomainEvent
+    public class Customer
     {
         public Guid Id { get; set; }
 
@@ -20,7 +18,5 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
         public string Surname { get; set; }
 
         public string Email { get; set; }
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }
