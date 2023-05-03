@@ -50,10 +50,17 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
                     foreach (var navigation in toChangeNavigationProperies)
                     {
-                        //Remove the "Entity" Properties
+                        //Remove the "Entity" Properties and backing fields
                         var property = @class.GetAllProperties()
                             .FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
                         @class.Properties.Remove(property);
+
+                        var field = @class.Fields
+                            .FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
+                        if (field != null)
+                        {
+                            @class.Fields.Remove(field);
+                        }
 
                         /*
                         var key = navigation.Class.GetExplicitPrimaryKey().Single();

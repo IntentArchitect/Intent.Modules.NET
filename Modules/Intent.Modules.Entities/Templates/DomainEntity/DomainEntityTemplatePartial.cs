@@ -91,11 +91,30 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             ctor.TryAddXmlDocComments(operation.InternalElement);
                             foreach (var parameter in operation.Parameters)
                             {
-                                ctor.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
-                                if (parameter.InternalElement.IsMapped)
+                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
+                                if (!parameter.InternalElement.IsMapped)
                                 {
-                                    ctor.AddStatement($"{parameter.InternalElement.MappedElement.Element.Name} = {parameter.Name.ToCamelCase()};");
+                                    continue;
                                 }
+
+                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name;
+                                if (!parameter.TypeReference.IsCollection)
+                                {
+                                    ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
+                                    continue;
+                                }
+
+                                if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                                {
+                                    assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                                }
+
+                                var mappedTypeAsList = GetTypeName(
+                                        typeReference: parameter.InternalElement.MappedElement.Element.TypeReference,
+                                        collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
+                                    .Replace("?", string.Empty);
+
+                                ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
                             }
                         });
                     }
@@ -106,15 +125,41 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             method.TryAddXmlDocComments(operation.InternalElement);
 
                             var hasImplementation = false;
+
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name,
+                                var parameterName = parameter.Name.ToCamelCase();
+                                method.AddParameter(GetOperationTypeName(parameter), parameterName,
                                     parm => parm.WithDefaultValue(parameter.Value));
-                                if (parameter.InternalElement.IsMapped)
+                                if (!parameter.InternalElement.IsMapped)
                                 {
-                                    method.AddStatement($"{parameter.InternalElement.MappedElement.Element.Name} = {parameter.Name.ToCamelCase()};");
-                                    hasImplementation = true;
+                                    continue;
                                 }
+
+                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name;
+                                if (!parameter.TypeReference.IsCollection)
+                                {
+                                    method.AddStatement($"{assignmentTarget} = {parameterName};");
+                                    hasImplementation = true;
+                                    continue;
+                                }
+
+                                if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                                {
+                                    assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                                    method.AddStatement($"{assignmentTarget}.Clear();");
+                                    method.AddStatement($"{assignmentTarget}.AddRange({parameterName});");
+                                    hasImplementation = true;
+                                    continue;
+                                }
+
+                                method.AddStatement($"{assignmentTarget}.Clear();");
+
+                                method.AddStatementBlock($"foreach (var item in {parameterName})", sb => sb
+                                    .AddStatement($"{assignmentTarget}.Add(item);")
+                                    .SeparatedFromPrevious());
+
+                                hasImplementation = true;
                             }
 
                             if (!hasImplementation)

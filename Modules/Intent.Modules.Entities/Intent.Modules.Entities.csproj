@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.3.0-pre.2</Version>
+    <Version>4.3.0-pre.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -59,7 +59,13 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
     protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element)
     {
-        @class.AddProperty(GetTypeName(typeReference), propertyName.ToPascalCase(), property =>
+        var isPrivateSetterCollection = typeReference.IsCollection &&
+                                            ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters();
+        var propertyType = isPrivateSetterCollection
+            ? GetTypeName(typeReference, UseType("System.Collections.Generic.IReadOnlyCollection<{0}>"))
+            : GetTypeName(typeReference);
+
+        @class.AddProperty(propertyType, propertyName.ToPascalCase(), property =>
         {
             property.TryAddXmlDocComments(element);
             property.AddMetadata("model", model);
@@ -67,6 +73,27 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             {
                 property.Virtual();
             }
+
+            if (isPrivateSetterCollection)
+            {
+                var fieldName = propertyName.ToPrivateMemberName();
+                @class.AddField(AsListType(), fieldName, field =>
+                {
+                    field.AddMetadata("model", model);
+                    field.WithAssignment($"new {AsListType()}()");
+                });
+
+                property.Getter
+                    .WithExpressionImplementation($"{fieldName}.AsReadOnly()");
+                
+                property.Setter
+                    .WithExpressionImplementation($"{fieldName} = new {AsListType()}(value)")
+                    .Private()
+                    ;
+
+                return;
+            }
+
             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
             {
                 property.PrivateSetter();
@@ -78,7 +105,12 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             }
             else if (typeReference.IsCollection)
             {
-                property.WithInitialValue($"new {GetTypeName(typeReference, UseType("System.Collections.Generic.List<{0}>")).Replace("?", "")}()");
+                property.WithInitialValue($"new {AsListType()}()");
+            }
+
+            string AsListType()
+            {
+                return GetTypeName(typeReference, UseType("System.Collections.Generic.List<{0}>")).Replace("?", "");
             }
         });
     }

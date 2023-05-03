@@ -1,7 +1,8 @@
 ### Version 4.3.0
 
 - Default Values are now populated on Operation Parameters and Constructor Parameters.
-- Update : Comments on `Entity`s and their members are now added as XmlDocComments to generated code. 
+- Update: When `Ensure Private Property Setters` is enabled, association collections are now generated as `IReadOnlyCollection`s.
+- Update: Comments on `Entity`s and their members are now added as XmlDocComments to generated code. 
 
 ### Version 4.2.2
 
