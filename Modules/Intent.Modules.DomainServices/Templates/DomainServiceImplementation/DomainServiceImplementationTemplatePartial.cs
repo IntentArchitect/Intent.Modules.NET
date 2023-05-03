@@ -46,10 +46,12 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                     {
                         @class.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
                         {
+                            if (operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase))
+                                method.Async();
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase());
+                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName());
                             }
                             method.AddStatement("throw new NotImplementedException(\"Implement your domain service logic here...\");");
                         });
