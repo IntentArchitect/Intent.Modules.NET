@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aac8a446-047c-468b-809b-ca28989b558b" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>DTO Settings</name>
+  <display>DTO Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</parentFolderId>
+  <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+  <packageName>Intent.Application.Dtos</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1d1a8aae-d3f7-42ee-84b3-cf62d7da4d1e" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Type</name>
+      <display>Type</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aac8a446-047c-468b-809b-ca28989b558b</parentFolderId>
+      <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+      <packageName>Intent.Application.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="class" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5f9532aa-5dd3-4d6d-8d89-cb82653a24b3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>class</name>
+          <display>class</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1d1a8aae-d3f7-42ee-84b3-cf62d7da4d1e</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3a071664-643f-4927-99dc-d6a30b641bca" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>record</name>
+          <display>record</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1d1a8aae-d3f7-42ee-84b3-cf62d7da4d1e</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1b43bdbc-c11b-4e81-8285-6ca5c0876158" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Property Setter Accessibility</name>
+      <display>Property Setter Accessibility</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aac8a446-047c-468b-809b-ca28989b558b</parentFolderId>
+      <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+      <packageName>Intent.Application.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="public" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5373e9be-0d4f-4acf-a83a-366b3620c3a4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>init</name>
+          <display>init</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b43bdbc-c11b-4e81-8285-6ca5c0876158</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="428209c9-647a-4dde-be75-7fe9bd3e39a4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>internal</name>
+          <display>internal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b43bdbc-c11b-4e81-8285-6ca5c0876158</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="72f40a0e-218a-4060-8943-29d388c785d5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>private</name>
+          <display>private</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b43bdbc-c11b-4e81-8285-6ca5c0876158</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cbf1d72b-5c14-4d3c-8ba5-affc1fc7d728" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>protected</name>
+          <display>protected</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b43bdbc-c11b-4e81-8285-6ca5c0876158</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="98b20e3c-21e1-4165-836d-037503120239" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>public</name>
+          <display>public</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b43bdbc-c11b-4e81-8285-6ca5c0876158</parentFolderId>
+          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+          <packageName>Intent.Application.Dtos</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Dtos.Settings;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -32,13 +33,13 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
             AddTypeSource(ContractEnumModelTemplate.TemplateId, "List<{0}>");
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"{Model.Name}")
-                .OnBuild((Action<CSharpFile>)(file =>
+            var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+            AddTypeDeclartion(csharpFile);
+            csharpFile.OnBuild((Action<CSharpFile>)(file =>
                 {
                     file.AddUsing("System");
                     file.AddUsing("System.Collections.Generic");
-                    var @class = file.Classes.First();
+                    var @class = file.TypeDeclarations.First();
 
                     ConfigureClass(@class);
 
@@ -57,11 +58,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
-                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}", block => 
+                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}", block =>
                             {
                                 foreach (var field in Model.Fields)
                                 {
-                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToCamelCase(reservedWordEscape: true));
+                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
                                 }
                                 block.WithSemicolon();
                             });
@@ -72,6 +73,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     {
                         @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
                         {
+                            SetAccessLevel(property.Setter);
                             property.WithComments(field.GetXmlDocLines());
                             property.AddMetadata("model", field);
                             AddPropertyAttributes(property, field);
@@ -82,6 +84,45 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     foreach (var line in exitClass)
                         @class.AddCodeBlock(line);
                 }));
+            CSharpFile = csharpFile;
+        }
+
+        private void SetAccessLevel(CSharpPropertyAccessor setter)
+        {
+            var setting = ExecutionContext.Settings.GetDTOSettings().PropertySetterAccessibility().AsEnum();
+            switch (setting)
+            {
+                case DTOSettings.PropertySetterAccessibilityOptionsEnum.Init:
+                    setter.Init();
+                    break;
+                case DTOSettings.PropertySetterAccessibilityOptionsEnum.Internal:
+                    setter.Internal();
+                    break;
+                case DTOSettings.PropertySetterAccessibilityOptionsEnum.Private:
+                    setter.Private();
+                    break;
+                case DTOSettings.PropertySetterAccessibilityOptionsEnum.Protected:
+                    setter.Protected();
+                    break;
+                case DTOSettings.PropertySetterAccessibilityOptionsEnum.Public:
+                default:
+                    //This property is public so don't want to duplicate the accessor
+                    //setter.Public();
+                    break;
+            }
+        }
+
+        private void AddTypeDeclartion(CSharpFile csharpFile)
+        {
+            var typeDeclarationSetting = ExecutionContext.Settings.GetDTOSettings().Type();
+            if (typeDeclarationSetting.IsRecord())
+            {
+                csharpFile.AddRecord($"{Model.Name}");
+            }
+            else
+            {
+                csharpFile.AddClass($"{Model.Name}");
+            }
         }
 
         private void AddPropertyAttributes(CSharpProperty property, DTOFieldModel field)
@@ -167,7 +208,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
         }
 
-        private List<string> GetDecorators( Func<DtoModelDecorator, string> decoratorAction)
+        private List<string> GetDecorators(Func<DtoModelDecorator, string> decoratorAction)
         {
             return GetDecorators()
                     .Select(x => decoratorAction(x))
@@ -189,5 +230,6 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             return CSharpFile.ToString();
         }
+
     }
 }
