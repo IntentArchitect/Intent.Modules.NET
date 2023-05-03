@@ -29,6 +29,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Api.Configuration
                             Title = "EntityFrameworkCore.SqlServer.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

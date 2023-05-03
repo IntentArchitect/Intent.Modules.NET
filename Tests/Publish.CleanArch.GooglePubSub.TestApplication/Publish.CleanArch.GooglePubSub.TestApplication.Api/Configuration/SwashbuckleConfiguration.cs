@@ -29,6 +29,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Configuration
                             Title = "Publish.CleanArch.GooglePubSub.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

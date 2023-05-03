@@ -29,6 +29,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
                             Title = "Publish.CleanArch.MassTransit.OutboxEF.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
