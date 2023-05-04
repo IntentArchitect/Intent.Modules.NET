@@ -1,4 +1,6 @@
-﻿namespace Intent.Modules.Constants
+﻿using System;
+
+namespace Intent.Modules.Constants
 {
     public static class TemplateFulfillingRoles
     {
@@ -33,11 +35,19 @@
         public static class Repository
         {
             public const string PagedList = "Repository.Implementation.PagedList";
+
+            public static class Interface
+            {
+                public const string Entity = "Repository.Interface.Entity";
+                public const string PagedResult = "Repository.Interface.PagedResult";
+            }
         }
 
         public static class Application
         {
             public const string DependencyInjection = "Application.DependencyInjection";
+            public const string Query = "Application.Query";
+            public const string Command = "Application.Command";
 
             public static class Common
             {
@@ -52,7 +62,9 @@
             
             public static class Services
             {
+                [Obsolete("Üse Distribution.WebApi.Controller")]
                 public const string Controllers = "Intent.AspNetCore.Controllers.Controller";
+                public const string Interface = "Application.Contracts";
             }
             
             public static class Eventing

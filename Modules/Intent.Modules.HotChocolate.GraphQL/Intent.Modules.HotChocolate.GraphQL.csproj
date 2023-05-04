@@ -1,38 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\MutationResolver\MutationResolverTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MutationResolverTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\QueryResolver\QueryResolverTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>QueryResolverTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\MutationResolver\MutationResolverTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MutationResolverTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\QueryResolver\QueryResolverTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>QueryResolverTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.9" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.3.7" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.GraphQL" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -47,6 +25,10 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
 </Project>

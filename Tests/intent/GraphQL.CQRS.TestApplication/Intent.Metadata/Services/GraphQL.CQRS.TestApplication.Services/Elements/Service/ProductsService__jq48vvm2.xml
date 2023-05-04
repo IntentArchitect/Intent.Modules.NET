@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ProductsService</name>
+  <display>ProductsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>938547ab-30fd-4ac7-8603-e3cd287d048a</parentFolderId>
+  <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ed991605-c2d3-49f5-bf4d-2b2e9f3a0483" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateProduct</name>
+      <display>CreateProduct(dto: ProductCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4c5edf23-7e7f-4a0d-b56d-389ea67142f2">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7c26d23f-e4c8-4f79-b4f8-0def27c33e1c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ProductCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0eae2089-212c-4408-8aa6-444159438873">
+            <typeId>41f828b2-4984-4fa8-9b61-5fc392e11ea4</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+            <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ed991605-c2d3-49f5-bf4d-2b2e9f3a0483</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="51bfa3fc-4ecb-41e5-a366-e88c18ac97a5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindProductById</name>
+      <display>FindProductById(id: guid): ProductDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="eda50a3d-79b0-4300-b6ed-4051cd41aa9f">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="63fc88a3-04af-4500-aa80-29f4df12afee" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8533ec23-8a71-4f7a-b71a-ccbab0b55dfc">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>51bfa3fc-4ecb-41e5-a366-e88c18ac97a5</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1b95ef27-c717-4694-bd83-9179b36e1777" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindProducts</name>
+      <display>FindProducts(): ProductDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="31e5815f-d1f0-465a-ad79-71fbaba22787">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf158220-9334-4307-bbf8-70966fbb7138" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateProduct</name>
+      <display>UpdateProduct(id: guid, dto: ProductUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6ccd16dc-1614-43b1-b0bc-37f484e061da">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fa29c857-723d-4eeb-bae6-d508f3416825" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="65f5c6f4-27e6-48c2-8515-666d9e1e96c1">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>bf158220-9334-4307-bbf8-70966fbb7138</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7e725577-4a6a-43ac-b0f1-5ccd724f74c1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ProductUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d1399b86-f0be-40d3-9998-ab4d58d932bd">
+            <typeId>17482f13-98d2-42b0-b2fe-dac20c18d8d3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+            <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>bf158220-9334-4307-bbf8-70966fbb7138</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a54b07ad-ac56-43f5-9873-ccf796c6d0d7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteProduct</name>
+      <display>DeleteProduct(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f86f409a-8e4d-44d9-99e5-b6fd57adfcfc">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="27a8c671-167f-4e3d-8dfd-8c8f8df50417" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="15148062-681e-48a0-a18a-2baf694cf2dd">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a54b07ad-ac56-43f5-9873-ccf796c6d0d7</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

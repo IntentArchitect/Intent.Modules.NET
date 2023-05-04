@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>29280c3e-8c72-48c9-8bd3-fd0d42342315</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#fc4f5f3f-b40d-497b-b568-fc7d87508634</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>59597b8b-ac6b-4d8a-8de7-a9c8ca11516e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#4a85692a-40d5-4252-a25f-122e08812922</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/GraphQLMediatRDispatchExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GraphQLMediatRDispatchExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1d7c5084-a09e-47e2-812e-474532076426</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.HotChocolate.GraphQL.Dispatch.MediatR.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.HotChocolate.GraphQL.Dispatch.MediatR.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1d7c5084-a09e-47e2-812e-474532076426</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#1d7c5084-a09e-47e2-812e-474532076426</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1d7c5084-a09e-47e2-812e-474532076426</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

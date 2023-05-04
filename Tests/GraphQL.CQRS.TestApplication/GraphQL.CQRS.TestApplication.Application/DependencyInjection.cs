@@ -2,6 +2,8 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using GraphQL.CQRS.TestApplication.Application.Common.Behaviours;
+using GraphQL.CQRS.TestApplication.Application.Implementation;
+using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +25,7 @@ namespace GraphQL.CQRS.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
+            services.AddTransient<IProductsService, ProductsService>();
             return services;
         }
     }

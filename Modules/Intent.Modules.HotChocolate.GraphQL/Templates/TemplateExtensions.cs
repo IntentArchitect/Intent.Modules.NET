@@ -12,22 +12,22 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMutationResolverName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
+        public static string GetMutationResolverName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel
         {
             return template.GetTypeName(MutationResolverTemplate.TemplateId, template.Model);
         }
 
-        public static string GetMutationResolverName(this IntentTemplateBase template, Intent.Modelers.Services.Api.ServiceModel model)
+        public static string GetMutationResolverName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
         {
             return template.GetTypeName(MutationResolverTemplate.TemplateId, model);
         }
 
-        public static string GetQueryResolverName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
+        public static string GetQueryResolverName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel
         {
             return template.GetTypeName(QueryResolverTemplate.TemplateId, template.Model);
         }
 
-        public static string GetQueryResolverName(this IntentTemplateBase template, Intent.Modelers.Services.Api.ServiceModel model)
+        public static string GetQueryResolverName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
         {
             return template.GetTypeName(QueryResolverTemplate.TemplateId, model);
         }

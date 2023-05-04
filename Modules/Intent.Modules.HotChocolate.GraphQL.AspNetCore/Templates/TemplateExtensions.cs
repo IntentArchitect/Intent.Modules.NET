@@ -11,7 +11,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetConfigureGraphQLName<T>(this IntentTemplateBase<T> template)
+        public static string GetConfigureGraphQLName(this IIntentTemplate template)
         {
             return template.GetTypeName(ConfigureGraphQLTemplate.TemplateId);
         }

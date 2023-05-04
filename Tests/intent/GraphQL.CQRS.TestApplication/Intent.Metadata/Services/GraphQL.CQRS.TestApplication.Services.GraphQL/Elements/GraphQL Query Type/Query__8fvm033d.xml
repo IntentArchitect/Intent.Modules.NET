@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="24b8387a-9c06-46cb-8c28-8c5264ade1a7" type="GraphQL Query Type" typeId="4504e87f-d092-46d6-bbb9-2b39c7307d41">
+  <name>Query</name>
+  <display>Query</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>80b5bb2e-7a84-4a97-91de-64f4dcaf271a</parentFolderId>
+  <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="36052b3d-3044-4aab-8047-3b5f8c371799" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <name>GetInvoices</name>
+      <display>GetInvoices: [InvoiceDto]!</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="67602913-ca81-4a65-90eb-d07fb9e46985">
+        <typeId>d0136969-4f0d-4b83-a8b0-9c8e7578a64e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d0e76c06-b1dd-4de8-b740-93f608e4fc2a" name="GetInvoicesQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
+      <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="00b6e913-cc7f-4617-a325-d59c74f55246" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <name>GetCustomers</name>
+      <display>GetCustomers: [CustomerDto]!</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e995f4dd-2b80-48b3-8977-78f15fc76d69">
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="5bd7cf9f-4d22-425b-abac-a1bfb54c4c6c" name="GetCustomersQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
+      <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8af0dd27-b7a9-4883-bfd3-d622172cfd39" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <name>GetCustomersById</name>
+      <display>GetCustomersById(Id: guid!): CustomerDto!</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3e04752d-e7bb-48e4-b8f8-751586cb86ab">
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="25432201-7330-41f7-8ed0-510f1e14222f" name="GetCustomerByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
+      <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="53b2b58c-5851-4334-8ccb-9ca108c22469" type="GraphQL Parameter" typeId="22565fd3-564a-4406-a502-81d2b6b0691f">
+          <name>Id</name>
+          <display>in : Id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="047922b6-d524-47ba-94fd-fec3be9a48da">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="560ae89e-9f92-4b87-bdb0-fa3285241887" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8af0dd27-b7a9-4883-bfd3-d622172cfd39</parentFolderId>
+          <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="21878891-731b-4f5b-a538-9b0c60849d34" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <name>GetProducts</name>
+      <display>GetProducts: [ProductDto]!</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc7b0353-e3b0-4455-b169-40130e97888d">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" />
+          <target id="1b95ef27-c717-4694-bd83-9179b36e1777" name="FindProducts" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
+      <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="06c381eb-ea84-4432-8ead-65eb4bd84bac" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <name>GetProductById</name>
+      <display>GetProductById(id: guid!): ProductDto!</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="8f31be16-70ee-41cb-b08b-95fdc24d3d50">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" />
+          <target id="51bfa3fc-4ecb-41e5-a366-e88c18ac97a5" name="FindProductById" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
+      <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="26962774-4262-44c6-86d8-2d0bacd44d9a" type="GraphQL Parameter" typeId="22565fd3-564a-4406-a502-81d2b6b0691f">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b290567d-2d6d-4c24-b062-49c53b8141f6">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="63fc88a3-04af-4500-aa80-29f4df12afee" name="id" type="element" specialization="Parameter" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>06c381eb-ea84-4432-8ead-65eb4bd84bac</parentFolderId>
+          <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

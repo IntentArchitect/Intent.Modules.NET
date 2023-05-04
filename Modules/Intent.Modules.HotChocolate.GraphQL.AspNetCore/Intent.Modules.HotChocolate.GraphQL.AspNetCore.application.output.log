@@ -35,7 +35,7 @@
     <FileLog>
       <ProjectId>77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

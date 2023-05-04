@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4a85692a-40d5-4252-a25f-122e08812922" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>GraphQLMediatRDispatchExtension</name>
+  <display>GraphQLMediatRDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c579fb07-37c6-47dc-a136-c6a2010c2eca</parentFolderId>
+  <packageId>c579fb07-37c6-47dc-a136-c6a2010c2eca</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.Dispatch.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

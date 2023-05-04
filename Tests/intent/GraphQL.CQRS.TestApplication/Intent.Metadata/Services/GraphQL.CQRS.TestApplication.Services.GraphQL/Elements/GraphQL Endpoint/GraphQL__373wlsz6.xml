@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="80b5bb2e-7a84-4a97-91de-64f4dcaf271a" type="GraphQL Endpoint" typeId="c394de2e-9c3b-4633-b6df-702904ad9914">
+  <name>GraphQL</name>
+  <display>GraphQL</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>460a5fe8-c40a-4544-8fe1-242a49428571</parentFolderId>
+  <packageId>460a5fe8-c40a-4544-8fe1-242a49428571</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.Services.GraphQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

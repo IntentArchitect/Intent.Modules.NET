@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="20b16a18-ad06-4f1f-90af-54b8803f12da" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>GraphQLServiceDispatchExtension</name>
+  <display>GraphQLServiceDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4da197c7-6b64-4e7f-9a50-660fe67c563d</parentFolderId>
+  <packageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.Dispatch.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
