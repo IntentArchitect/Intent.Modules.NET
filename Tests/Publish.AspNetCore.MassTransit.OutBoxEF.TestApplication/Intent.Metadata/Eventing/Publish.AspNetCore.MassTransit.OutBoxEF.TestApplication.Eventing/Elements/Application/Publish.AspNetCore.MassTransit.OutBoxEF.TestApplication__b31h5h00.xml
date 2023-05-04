@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bd361d92-ad85-4e14-95d1-d4cb69ba1354" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</name>
+  <display>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>be2b3393-d537-48f1-ae82-e3087cf35dad</parentFolderId>
+  <diagram>
+    <targetPackageId>1bdbc50c-653d-4ab1-8941-ffa1809d11d6</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

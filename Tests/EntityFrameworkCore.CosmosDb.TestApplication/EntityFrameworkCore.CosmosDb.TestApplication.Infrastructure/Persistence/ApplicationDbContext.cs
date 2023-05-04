@@ -10,12 +10,14 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +62,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
         public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
         public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
+        public DbSet<DictionaryWithKvPNormal> DictionaryWithKvPNormals { get; set; }
+        public DbSet<DictionaryWithKvPSerialized> DictionaryWithKvPSerializeds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<ExplicitKeyClass> ExplicitKeyClasses { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
@@ -72,6 +76,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
+        public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
@@ -110,6 +116,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteAssociatedConfiguration());
+            modelBuilder.ApplyConfiguration(new DictionaryWithKvPNormalConfiguration());
+            modelBuilder.ApplyConfiguration(new DictionaryWithKvPSerializedConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new ExplicitKeyClassConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
@@ -122,6 +130,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonWithAddressNormalConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonWithAddressSerializedConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());

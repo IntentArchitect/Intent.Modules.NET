@@ -8,6 +8,9 @@ namespace CleanArchitecture.TestApplication.Domain.DDD
 {
     public class Money : ValueObject
     {
+        protected Money()
+        {
+        }
         public Money(string currency, decimal amount)
         {
             Currency = currency;

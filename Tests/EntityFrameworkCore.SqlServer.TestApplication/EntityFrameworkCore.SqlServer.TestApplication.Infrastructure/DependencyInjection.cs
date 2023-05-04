@@ -11,6 +11,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.Inhe
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Associations;
@@ -23,6 +24,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPH.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;

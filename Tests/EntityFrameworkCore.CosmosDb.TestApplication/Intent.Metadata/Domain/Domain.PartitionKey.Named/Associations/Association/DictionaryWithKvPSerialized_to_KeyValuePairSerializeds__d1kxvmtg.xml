@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="52d05dae-e68e-4df5-b549-5e0d6c357e81">
+  <sourceEnd id="b53c9ac7-5b21-4c5c-86d0-0de7ec82bf3b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DictionaryWithKvPSerialized</name>
+    <display>DictionaryWithKvPSerialized: DictionaryWithKvPSerialized</display>
+    <order>0</order>
+    <typeReference id="a088891d-75b7-430b-a873-8809215dbcc0">
+      <typeId>216d507a-4aad-479b-b075-156f26ee8b7b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="52d05dae-e68e-4df5-b549-5e0d6c357e81" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>KeyValuePairSerializeds</name>
+    <display>KeyValuePairSerializeds: KeyValuePairSerialized[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="2013d541-2d4c-462b-a066-7a8dcec4e859">
+      <typeId>eefbeaa9-44b3-4c5d-9743-f30218ec941d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

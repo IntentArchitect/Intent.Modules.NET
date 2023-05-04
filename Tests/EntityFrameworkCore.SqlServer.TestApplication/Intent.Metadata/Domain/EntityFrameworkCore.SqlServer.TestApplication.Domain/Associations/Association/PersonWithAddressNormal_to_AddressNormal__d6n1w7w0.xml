@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4475bbb0-2c92-497f-91bd-bc8690f918aa">
+  <sourceEnd id="87bcb5b3-1e46-4e2b-8a9a-1535962501a8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>PersonWithAddressNormal</name>
+    <display>PersonWithAddressNormal: PersonWithAddressNormal</display>
+    <order>0</order>
+    <typeReference id="f6e5a359-e6da-4d86-9e77-0c6aadedba0b">
+      <typeId>2e79df83-b6d8-4bc6-a891-f443e1a90186</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4475bbb0-2c92-497f-91bd-bc8690f918aa" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AddressNormal</name>
+    <display>AddressNormal: AddressNormal   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="605fac0e-0cf1-437b-9316-a6a69ba68812">
+      <typeId>f0e16920-fecc-438e-8578-c8a66f65a682</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

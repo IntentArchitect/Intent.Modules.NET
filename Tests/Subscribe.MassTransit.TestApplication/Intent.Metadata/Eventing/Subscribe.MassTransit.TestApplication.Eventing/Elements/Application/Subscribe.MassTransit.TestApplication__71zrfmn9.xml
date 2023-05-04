@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="efbd3666-73a1-4650-972d-df5bf64391bc" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Subscribe.MassTransit.TestApplication</name>
+  <display>Subscribe.MassTransit.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6d27949e-1cf0-436d-abdd-0096ef10b9cc</parentFolderId>
+  <diagram>
+    <targetPackageId>8c17fe39-706e-4f83-8f40-eefe5dcc4f9b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

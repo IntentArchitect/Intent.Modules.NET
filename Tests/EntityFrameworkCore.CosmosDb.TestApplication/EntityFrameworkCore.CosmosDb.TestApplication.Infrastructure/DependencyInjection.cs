@@ -6,6 +6,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inheritan
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Associations;
@@ -13,6 +14,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.I
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -55,6 +57,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IDerivedClassForAbstractAssociatedRepository, DerivedClassForAbstractAssociatedRepository>();
             services.AddTransient<IDerivedClassForConcreteRepository, DerivedClassForConcreteRepository>();
             services.AddTransient<IDerivedClassForConcreteAssociatedRepository, DerivedClassForConcreteAssociatedRepository>();
+            services.AddTransient<IDictionaryWithKvPNormalRepository, DictionaryWithKvPNormalRepository>();
+            services.AddTransient<IDictionaryWithKvPSerializedRepository, DictionaryWithKvPSerializedRepository>();
             services.AddTransient<IE_RequiredCompositeNavRepository, E_RequiredCompositeNavRepository>();
             services.AddTransient<IExplicitKeyClassRepository, ExplicitKeyClassRepository>();
             services.AddTransient<IF_OptionalAggregateNavRepository, F_OptionalAggregateNavRepository>();
@@ -67,6 +71,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IJ_RequiredDependentRepository, J_RequiredDependentRepository>();
             services.AddTransient<IK_SelfReferenceRepository, K_SelfReferenceRepository>();
             services.AddTransient<IM_SelfReferenceBiNavRepository, M_SelfReferenceBiNavRepository>();
+            services.AddTransient<IPersonWithAddressNormalRepository, PersonWithAddressNormalRepository>();
+            services.AddTransient<IPersonWithAddressSerializedRepository, PersonWithAddressSerializedRepository>();
             services.AddTransient<IPoly_ConcreteARepository, Poly_ConcreteARepository>();
             services.AddTransient<IPoly_ConcreteBRepository, Poly_ConcreteBRepository>();
             services.AddTransient<IPoly_SecondLevelRepository, Poly_SecondLevelRepository>();

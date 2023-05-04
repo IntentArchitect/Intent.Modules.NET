@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
-namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories
+namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.InheritanceAssociations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class StandaloneDerivedRepository : RepositoryBase<StandaloneDerived, StandaloneDerived, ApplicationDbContext>, IStandaloneDerivedRepository

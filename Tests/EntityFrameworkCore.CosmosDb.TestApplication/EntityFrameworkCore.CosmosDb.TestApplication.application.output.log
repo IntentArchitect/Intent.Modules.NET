@@ -580,6 +580,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#78ce90a1-c453-443f-85e7-31cb3c9e8c1c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/InheritanceAssociations/StandaloneAbstract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/StandaloneAbstract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/InheritanceAssociations/StandaloneDerived.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/StandaloneDerived.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ac315ad3-af1a-4809-98e2-97bd54f7593f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/NestedComposition/ClassA.cs</ApplicationRelativeFilePath>
@@ -652,18 +668,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#78ce90a1-c453-443f-85e7-31cb3c9e8c1c</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntity#fae993a4-a3f8-453e-a3d9-8cf7e54d431c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/StandaloneAbstract.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StandaloneAbstract.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/ValueObjects/DictionaryWithKvPNormal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPNormal.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntity#216d507a-4aad-479b-b075-156f26ee8b7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/StandaloneDerived.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StandaloneDerived.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/ValueObjects/DictionaryWithKvPSerialized.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPSerialized.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0a4ad0d1-6848-47a5-8395-e7605f860993</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/ValueObjects/PersonWithAddressNormal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressNormal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#85f7c0e0-e3f8-42bc-afdb-796a542cdd97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/ValueObjects/PersonWithAddressSerialized.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressSerialized.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -916,6 +948,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/InheritanceAssociations/IStandaloneDerivedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/IStandaloneDerivedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
@@ -928,14 +968,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/IStandaloneDerivedRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IStandaloneDerivedRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -968,6 +1000,78 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/Polymorphic/IPoly_SecondLevelRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/IPoly_SecondLevelRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#fae993a4-a3f8-453e-a3d9-8cf7e54d431c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/ValueObjects/IDictionaryWithKvPNormalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/IDictionaryWithKvPNormalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#216d507a-4aad-479b-b075-156f26ee8b7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/ValueObjects/IDictionaryWithKvPSerializedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/IDictionaryWithKvPSerializedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0a4ad0d1-6848-47a5-8395-e7605f860993</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/ValueObjects/IPersonWithAddressNormalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/IPersonWithAddressNormalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#85f7c0e0-e3f8-42bc-afdb-796a542cdd97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/ValueObjects/IPersonWithAddressSerializedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/IPersonWithAddressSerializedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObject.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#a820112d-3d2c-44ae-b4cf-0be770ede396</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/AddressNormal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/AddressNormal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#06fca2dd-5941-4667-a0eb-4bd95124ffe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/AddressSerialized.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/AddressSerialized.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#7f444f44-1f1b-4bb5-aa75-f102a68ef091</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairNormal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/KeyValuePairNormal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#eefbeaa9-44b3-4c5d-9743-f30218ec941d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairSerialized.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/KeyValuePairSerialized.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1252,6 +1356,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/InheritanceAssociations/StandaloneDerivedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/StandaloneDerivedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ac315ad3-af1a-4809-98e2-97bd54f7593f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/NestedComposition/ClassAConfiguration.cs</ApplicationRelativeFilePath>
@@ -1292,10 +1404,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fae993a4-a3f8-453e-a3d9-8cf7e54d431c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/StandaloneDerivedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StandaloneDerivedConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/ValueObjects/DictionaryWithKvPNormalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPNormalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#216d507a-4aad-479b-b075-156f26ee8b7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/ValueObjects/DictionaryWithKvPSerializedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPSerializedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0a4ad0d1-6848-47a5-8395-e7605f860993</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/ValueObjects/PersonWithAddressNormalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressNormalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#85f7c0e0-e3f8-42bc-afdb-796a542cdd97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/ValueObjects/PersonWithAddressSerializedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressSerializedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1548,6 +1684,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/InheritanceAssociations/StandaloneDerivedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/StandaloneDerivedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ac315ad3-af1a-4809-98e2-97bd54f7593f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/NestedComposition/ClassARepository.cs</ApplicationRelativeFilePath>
@@ -1596,10 +1740,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#fae993a4-a3f8-453e-a3d9-8cf7e54d431c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/StandaloneDerivedRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StandaloneDerivedRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/ValueObjects/DictionaryWithKvPNormalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPNormalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#216d507a-4aad-479b-b075-156f26ee8b7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/ValueObjects/DictionaryWithKvPSerializedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/DictionaryWithKvPSerializedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#0a4ad0d1-6848-47a5-8395-e7605f860993</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/ValueObjects/PersonWithAddressNormalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressNormalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#85f7c0e0-e3f8-42bc-afdb-796a542cdd97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/ValueObjects/PersonWithAddressSerializedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObjects/PersonWithAddressSerializedRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2ba5d083-9cff-403a-975f-ee12758d6a25">
+  <sourceEnd id="5f770cd8-af5e-4fcc-90ef-92bd94acac52" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DictionaryWithKvPNormal</name>
+    <display>DictionaryWithKvPNormal: DictionaryWithKvPNormal</display>
+    <order>0</order>
+    <typeReference id="9b8f9f23-3a04-4935-aaf4-3d9de5568c85">
+      <typeId>fae993a4-a3f8-453e-a3d9-8cf7e54d431c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2ba5d083-9cff-403a-975f-ee12758d6a25" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>KeyValuePairNormals</name>
+    <display>KeyValuePairNormals: KeyValuePairNormal[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="1e473889-fdf7-4227-96de-bfca40e7203b">
+      <typeId>7f444f44-1f1b-4bb5-aa75-f102a68ef091</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
