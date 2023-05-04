@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -75,5 +76,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return executionContext.FindTemplateInstance(TemplateFulfillingRoles.Domain.ValueObject, type.Id) != null;
         }
 
+        internal static bool IsValueObject(this ICanBeReferencedType type,
+            ISoftwareFactoryExecutionContext executionContext, out ICSharpFileBuilderTemplate builderTemplate)
+        {
+            builderTemplate =
+                executionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                    TemplateFulfillingRoles.Domain.ValueObject, type.Id);
+            return builderTemplate != null;
+        }
     }
 }

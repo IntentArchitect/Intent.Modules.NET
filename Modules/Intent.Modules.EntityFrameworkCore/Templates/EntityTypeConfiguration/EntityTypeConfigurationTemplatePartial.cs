@@ -176,6 +176,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetKeyMappings(classModel));
             }
 
+            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
+                HasSerializationType(valueObjectTemplate, out var serializationType) &&
+                serializationType == "JSON")
+            {
+                statements.Add("builder.ToJson();");
+            }
+
             statements.AddRange(GetAttributes(targetType)
                 .Where(RequiresConfiguration)
                 .Select(x => GetAttributeMapping(x, @class)));
@@ -185,6 +192,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .Select(x => GetAssociationMapping(x, @class)));
 
             return statements.Where(x => x != null).ToList();
+        }
+
+        private static bool HasSerializationType(ICSharpFileBuilderTemplate valueObjectTemplate, out string serializationType)
+        {
+            return valueObjectTemplate.CSharpFile.Classes.First().TryGetMetadata<string>("serialization", out serializationType);
         }
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)

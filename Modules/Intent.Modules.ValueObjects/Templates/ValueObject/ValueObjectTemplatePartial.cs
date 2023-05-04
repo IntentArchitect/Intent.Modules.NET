@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -15,11 +16,12 @@ using Intent.Templates;
 namespace Intent.Modules.ValueObjects.Templates.ValueObject
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ValueObjectTemplate : CSharpTemplateBase<ValueObjectModel>, ICSharpFileBuilderTemplate
+    public partial class ValueObjectTemplate : CSharpTemplateBase<ValueObjectModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.ValueObjects.ValueObject";
 
-        public CSharpFile CSharpFile { get; set; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValueObjectTemplate(IOutputTarget outputTarget, ValueObjectModel model) : base(TemplateId, outputTarget, model)
@@ -28,7 +30,11 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                 .AddClass(Model.Name, @class =>
                 {
                     @class.WithBaseType(this.GetValueObjectBaseName());
-                    
+                    if (Model.HasSerializationSettings())
+                    {
+                        @class.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
+                    }
+
                     if (Model.Attributes.Any())
                     {
                         @class.AddConstructor(ctor =>
