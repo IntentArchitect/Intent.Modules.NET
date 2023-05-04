@@ -29,6 +29,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Configuration
                             Title = "Publish.CleanArchDapr.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

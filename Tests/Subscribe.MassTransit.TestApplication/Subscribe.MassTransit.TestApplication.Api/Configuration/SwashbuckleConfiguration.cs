@@ -28,6 +28,7 @@ namespace Subscribe.MassTransit.TestApplication.Api.Configuration
                             Title = "Subscribe.MassTransit.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

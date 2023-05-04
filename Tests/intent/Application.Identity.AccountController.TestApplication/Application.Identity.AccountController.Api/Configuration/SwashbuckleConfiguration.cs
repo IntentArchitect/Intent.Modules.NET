@@ -29,6 +29,7 @@ namespace Application.Identity.AccountController.Api.Configuration
                             Title = "Application.Identity.AccountController.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

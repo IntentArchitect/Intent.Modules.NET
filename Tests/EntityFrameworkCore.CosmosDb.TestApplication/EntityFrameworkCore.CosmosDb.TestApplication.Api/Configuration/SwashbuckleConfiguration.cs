@@ -29,6 +29,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api.Configuration
                             Title = "EntityFrameworkCore.CosmosDb.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

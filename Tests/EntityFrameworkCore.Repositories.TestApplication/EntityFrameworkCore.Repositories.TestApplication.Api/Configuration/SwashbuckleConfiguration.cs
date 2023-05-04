@@ -29,6 +29,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Api.Configuration
                             Title = "EntityFrameworkCore.Repositories.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

@@ -28,6 +28,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Configuration
                             Title = "Subscribe.GooglePubSub.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

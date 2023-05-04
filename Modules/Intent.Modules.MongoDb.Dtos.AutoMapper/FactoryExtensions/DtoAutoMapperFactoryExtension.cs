@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
@@ -18,6 +19,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Application.Dtos.Settings;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
@@ -57,13 +59,15 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                         return;
 
                     file.AddUsing("System.Linq");
-                    var @class = file.Classes.First();
+                    var @class = file.TypeDeclarations.First();
                     var entityTemplate = GetEntityTemplate(template, templateModel.Mapping.ElementId);
 
                     var method = @class.FindMethod("Mapping");
                     var mappingStatement = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
 
                     var actionMaps = new Dictionary<string, ActionMapData>();
+
+                    var needToElevatePropertyAccessors = NeedToElevatePropertyAccessors(application);
 
                     foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
                     {
@@ -95,12 +99,31 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                             }
                         }
                     }
+                    if (needToElevatePropertyAccessors)
+                    {
+                        foreach (var mapData in actionMaps) 
+                        {
+                            foreach (var field in mapData.Value.Fields) 
+                            {
+                                var property = @class.Properties.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("model", out var currentField) && currentField.Id == field.Id);
+                                if (property != null)
+                                    property.Setter.Internal();
+                            }
+                        }
+                    }
+
                     foreach (var actionMap in actionMaps)
                     {
                         CreateMappingActionClass(template, @class, entityTemplate, actionMap);
                     }
                 }, 10);
             }
+        }
+
+        private static bool NeedToElevatePropertyAccessors(IApplication application)
+        {
+            var setting = application.Settings.GetDTOSettings().PropertySetterAccessibility();
+            return setting.IsPrivate() || setting.IsInit();
         }
 
         private static void CreateMappingActionClass(DtoModelTemplate template, CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, KeyValuePair<string, ActionMapData> actionMap)
@@ -183,10 +206,6 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                         {
                             return true;
                         }
-                        //if (ae.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true)
-                        //{
-                        //    return true;
-                        //}
                     }
                 }
             }

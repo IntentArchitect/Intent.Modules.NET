@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
             {
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    var @class = file.Classes.First();
+                    var @class = file.TypeDeclarations.First();
                     var templateModel = ((CSharpTemplateBase<DTOModel>)template).Model;
 
                     if (!templateModel.HasMapFromDomainMapping())

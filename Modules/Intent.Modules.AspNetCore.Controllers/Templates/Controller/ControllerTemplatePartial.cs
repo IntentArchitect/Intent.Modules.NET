@@ -173,8 +173,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.RequiresAuthorization || operation.AllowAnonymous)
             {
-                if ((!IsControllerSecured() && IsOperationSecured(operation)) ||
-                    operation.AuthorizationModel != null)
+                if (!IsControllerSecured() && IsOperationSecured(operation))
                 {
                     attributes.Add(GetAuthorizationAttribute(operation.AuthorizationModel));
                 }

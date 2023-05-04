@@ -16,6 +16,7 @@ using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 namespace Standard.AspNetCore.TestApplication.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class HttpServiceAppliedController : ControllerBase
     {
@@ -31,9 +32,13 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified string.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         /// <response code="404">Can't find an string with the parameters provided.</response>
         [HttpGet]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> GetValue(CancellationToken cancellationToken)
@@ -48,6 +53,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

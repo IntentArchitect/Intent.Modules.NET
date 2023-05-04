@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Fixed: Security being applied to operations that have the Unsecured stereotype applied.
+
 ### Version 5.0.3
 
 - Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.

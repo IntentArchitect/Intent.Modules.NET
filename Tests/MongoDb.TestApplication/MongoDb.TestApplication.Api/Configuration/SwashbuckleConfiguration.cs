@@ -28,6 +28,7 @@ namespace MongoDb.TestApplication.Api.Configuration
                             Title = "MongoDb.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

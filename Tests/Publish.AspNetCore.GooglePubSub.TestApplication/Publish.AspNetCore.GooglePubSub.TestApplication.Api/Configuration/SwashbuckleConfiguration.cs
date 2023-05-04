@@ -28,6 +28,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api.Configuration
                             Title = "Publish.AspNetCore.GooglePubSub.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

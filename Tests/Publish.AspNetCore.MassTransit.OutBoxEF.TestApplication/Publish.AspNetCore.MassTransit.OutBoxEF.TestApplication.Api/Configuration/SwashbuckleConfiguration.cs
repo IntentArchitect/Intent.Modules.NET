@@ -28,6 +28,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Configurat
                             Title = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

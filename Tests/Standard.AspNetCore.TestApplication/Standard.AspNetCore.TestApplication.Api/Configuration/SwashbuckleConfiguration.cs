@@ -28,6 +28,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                             Title = "Standard.AspNetCore.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

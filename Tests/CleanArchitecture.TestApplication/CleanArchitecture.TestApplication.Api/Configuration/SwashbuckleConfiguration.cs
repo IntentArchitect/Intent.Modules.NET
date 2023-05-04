@@ -29,6 +29,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
                             Title = "CleanArchitecture.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

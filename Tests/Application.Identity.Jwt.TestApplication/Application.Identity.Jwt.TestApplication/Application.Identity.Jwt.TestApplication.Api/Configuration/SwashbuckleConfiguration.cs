@@ -29,6 +29,7 @@ namespace Application.Identity.Jwt.TestApplication.Api.Configuration
                             Title = "Application.Identity.Jwt.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

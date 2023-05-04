@@ -28,6 +28,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Configuration
                             Title = "Finbuckle.SharedDatabase.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                     options.OperationFilter<TenantHeaderOperationFilter>();
                 });
             return services;

@@ -29,6 +29,7 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
                             Title = "Application.Identity.MSAL.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {

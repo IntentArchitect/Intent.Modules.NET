@@ -28,6 +28,7 @@ namespace Integration.HttpClients.TestApplication.Api.Configuration
                             Title = "Integration.HttpClients.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }

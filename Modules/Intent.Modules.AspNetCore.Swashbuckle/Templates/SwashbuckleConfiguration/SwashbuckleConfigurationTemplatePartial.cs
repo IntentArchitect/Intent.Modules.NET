@@ -56,6 +56,8 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                                 )
                                 .AddStatement(
                                     $@"options.OperationFilter<{GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>();")
+                                .AddStatement(
+                                    $@"options.CustomSchemaIds(x => x.FullName);")
                             )
                             .WithArgumentsOnNewLines()
                             .AddMetadata("AddSwaggerGen", true)
