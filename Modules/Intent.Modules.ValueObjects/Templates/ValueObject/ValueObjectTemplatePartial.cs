@@ -28,6 +28,14 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                 .AddClass(Model.Name, @class =>
                 {
                     @class.WithBaseType(this.GetValueObjectBaseName());
+                    
+                    if (Model.Attributes.Any())
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.Protected();
+                        });
+                    }
 
                     @class.AddConstructor(ctor =>
                     {
