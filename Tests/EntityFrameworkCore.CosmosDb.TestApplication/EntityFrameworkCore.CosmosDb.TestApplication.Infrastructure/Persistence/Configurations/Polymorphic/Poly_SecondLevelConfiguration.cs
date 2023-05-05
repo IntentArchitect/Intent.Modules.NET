@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             builder.HasOne(x => x.BaseClassNonAbstracts)
                 .WithOne()
-                .HasForeignKey<Poly_SecondLevel>(x => x.Id)
+                .HasForeignKey<Poly_BaseClassNonAbstract>(x => x.Id)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 

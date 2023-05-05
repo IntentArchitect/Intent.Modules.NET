@@ -1,6 +1,7 @@
 ﻿using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+using FluentAssertions;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
@@ -390,5 +391,24 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext, Genera
         Assert.Equal(pk, fk.PK_CompositeKey);
         Assert.Equal(pk.CompositeKeyA, fk.PK_CompositeKeyCompositeKeyA);
         Assert.Equal(pk.CompositeKeyB, fk.PK_CompositeKeyCompositeKeyB);
+    }
+
+    [IgnoreOnCiBuildFact]
+    public async Task Test_N_ComplexRoot()
+    {
+        var root = new N_ComplexRoot();
+        root.ComplexAttr = "ComplexRoot_" + Guid.NewGuid();
+        root.N_CompositeOne = new N_CompositeOne() { CompositeOneAttr = "Composite One" };
+        root.N_CompositeTwo = new N_CompositeTwo() { CompositeTwoAttr = "Composite Two" };
+        root.N_CompositeManies.Add(new N_CompositeMany() { ManyAttr = "Item 1" });
+        root.N_CompositeManies.Add(new N_CompositeMany() { ManyAttr = "Item 2" });
+        root.N_CompositeManies.Add(new N_CompositeMany() { ManyAttr = "Item 3" });
+
+        DbContext.N_ComplexRoots.Add(root);
+        await DbContext.SaveChangesAsync();
+
+        var retrieved = DbContext.N_ComplexRoots.FirstOrDefault(p => p.Id == root.Id);
+        retrieved.Should().NotBeNull();
+        retrieved.Should().BeEquivalentTo(root);
     }
 }

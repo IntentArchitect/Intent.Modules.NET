@@ -178,7 +178,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             }
             else
             {
-                genericType = _associationEnd.OtherEnd().Class.Name;
+                genericType = _associationEnd.Class.Name;
             }
         }
 

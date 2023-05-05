@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
 
             builder.HasOne(x => x.AggregateRoot4Single)
                 .WithOne()
-                .HasForeignKey<AggregateRoot4AggNullable>(x => x.Id)
+                .HasForeignKey<AggregateRoot4Single>(x => x.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(x => x.AggregateRoot4Collections)

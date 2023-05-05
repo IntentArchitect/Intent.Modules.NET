@@ -1,6 +1,7 @@
 ﻿### Version 4.4.0
 
 - Update: Value Objects can now be serialized to a JSON column.
+- Fixed: One-to-one relationships with the `Table` stereotype didn't provide the correct foreign key relationship.
 
 ### Version 4.3.2
 

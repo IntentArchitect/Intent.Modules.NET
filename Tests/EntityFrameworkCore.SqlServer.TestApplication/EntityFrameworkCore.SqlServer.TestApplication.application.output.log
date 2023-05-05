@@ -452,6 +452,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/N_ComplexRoot.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_ComplexRoot.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#8a0837dd-b468-465a-a1ed-b50ec046ba49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/N_CompositeMany.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_CompositeMany.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#20f4fa86-6dfe-41cb-9882-34b00da8db53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/N_CompositeOne.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_CompositeOne.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a1407724-b0bf-4779-b2d1-6d29b93250f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/N_CompositeTwo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_CompositeTwo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/ExplicitKeys/FK_A_CompositeForeignKey.cs</ApplicationRelativeFilePath>
@@ -1240,6 +1272,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Associations/IM_SelfReferenceBiNavRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/IM_SelfReferenceBiNavRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Associations/IN_ComplexRootRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/IN_ComplexRootRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2044,6 +2084,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Associations/N_ComplexRootConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_ComplexRootConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#20f4fa86-6dfe-41cb-9882-34b00da8db53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Associations/N_CompositeOneConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_CompositeOneConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a1407724-b0bf-4779-b2d1-6d29b93250f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Associations/N_CompositeTwoConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_CompositeTwoConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/ExplicitKeys/FK_A_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
@@ -2792,6 +2856,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Associations/M_SelfReferenceBiNavRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/M_SelfReferenceBiNavRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Associations/N_ComplexRootRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/N_ComplexRootRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

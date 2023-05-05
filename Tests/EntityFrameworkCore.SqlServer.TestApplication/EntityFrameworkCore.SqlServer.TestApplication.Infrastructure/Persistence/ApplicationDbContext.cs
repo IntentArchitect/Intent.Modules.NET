@@ -113,6 +113,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<Leaf> Leaves { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<N_ComplexRoot> N_ComplexRoots { get; set; }
+        public DbSet<N_CompositeOne> N_CompositeOnes { get; set; }
+        public DbSet<N_CompositeTwo> N_CompositeTwos { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
         public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
@@ -218,6 +221,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new LeafConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new N_ComplexRootConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeOneConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeTwoConfiguration());
             modelBuilder.ApplyConfiguration(new PersonWithAddressNormalConfiguration());
             modelBuilder.ApplyConfiguration(new PersonWithAddressSerializedConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
