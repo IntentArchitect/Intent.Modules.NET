@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behaviours
 {
     public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
+        where TRequest : notnull
     {
         private readonly ILogger _logger;
         private readonly ICurrentUserService _currentUserService;
@@ -21,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behav
             _currentUserService = currentUserService;
         }
 
-        public async Task Process(TRequest request, CancellationToken cancellationToken)
+        public Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
             var userId = _currentUserService.UserId ?? string.Empty;
@@ -29,6 +30,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behav
 
             _logger.LogInformation("EntityFrameworkCore.SqlServer.TestApplication Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
+            return Task.CompletedTask;
         }
     }
 }
