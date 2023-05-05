@@ -48,24 +48,24 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
             
             #line default
             #line hidden
-            this.Write("<TRequest> : IRequestPreProcessor<TRequest>\r\n    {\r\n        private readonly ILog" +
-                    "ger _logger;\r\n        private readonly ");
+            this.Write("<TRequest> : IRequestPreProcessor<TRequest>\r\n        where TRequest : notnull\r\n  " +
+                    "  {\r\n        private readonly ILogger _logger;\r\n        private readonly ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
             this.Write(" _currentUserService;\r\n\r\n        public ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(ILogger<TRequest> logger, ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
             _currentUserService = currentUserService;
         }
 
-        public async Task Process(TRequest request, CancellationToken cancellationToken)
+        public Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
             var userId = _currentUserService.UserId ?? string.Empty;
@@ -84,13 +84,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
 
             _logger.LogInformation(""");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ExecutionContext.GetApplicationConfig().Name));
             
             #line default
             #line hidden
             this.Write(" Request: {Name} {@UserId} {@UserName} {@Request}\",\r\n                requestName," +
-                    " userId, userName, request);\r\n        }\r\n    }\r\n}");
+                    " userId, userName, request);\r\n            return Task.CompletedTask;\r\n        }\r" +
+                    "\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
