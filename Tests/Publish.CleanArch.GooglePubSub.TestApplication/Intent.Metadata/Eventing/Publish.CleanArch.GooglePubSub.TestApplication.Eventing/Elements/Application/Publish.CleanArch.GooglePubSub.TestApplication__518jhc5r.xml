@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="05e1f048-f7e6-4b82-865f-f41b49b2737a" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.CleanArch.GooglePubSub.TestApplication</name>
+  <display>Publish.CleanArch.GooglePubSub.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa066722-843e-4767-a728-cbd1fbee3c4b</parentFolderId>
+  <diagram>
+    <targetPackageId>118966f0-a907-412f-bd38-5f760d237144</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

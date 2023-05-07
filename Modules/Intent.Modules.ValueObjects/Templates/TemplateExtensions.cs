@@ -12,17 +12,17 @@ namespace Intent.Modules.ValueObjects.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetValueObjectName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel
+        public static string GetValueObjectName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel
         {
             return template.GetTypeName(ValueObjectTemplate.TemplateId, template.Model);
         }
 
-        public static string GetValueObjectName(this IntentTemplateBase template, Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel model)
+        public static string GetValueObjectName(this IIntentTemplate template, Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel model)
         {
             return template.GetTypeName(ValueObjectTemplate.TemplateId, model);
         }
 
-        public static string GetValueObjectBaseName<T>(this IntentTemplateBase<T> template)
+        public static string GetValueObjectBaseName(this IIntentTemplate template)
         {
             return template.GetTypeName(ValueObjectBaseTemplate.TemplateId);
         }

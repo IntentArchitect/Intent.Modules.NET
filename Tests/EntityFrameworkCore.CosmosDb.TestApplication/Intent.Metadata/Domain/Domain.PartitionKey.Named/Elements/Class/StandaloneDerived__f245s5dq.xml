@@ -6,7 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9e512d5a-048e-470d-ae7b-b02162bf1b20</parentFolderId>
+  <parentFolderId>8c7aa727-1beb-4b31-9346-55524350824f</parentFolderId>
   <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
   <packageName>Domain.PartitionKey.Named</packageName>
   <stereotypes />

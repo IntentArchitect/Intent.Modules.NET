@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="709b3fd2-a6e6-4ab2-89a2-a51f65c5dfdb">
+  <sourceEnd id="da51dad1-f5bc-4d9c-acb8-0e7b5fcc7dc7" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>N_ComplexRoot</name>
+    <display>N_ComplexRoot: N_ComplexRoot</display>
+    <order>0</order>
+    <typeReference id="c26aad66-1a1a-4236-8399-9d56c073edd0">
+      <typeId>0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="709b3fd2-a6e6-4ab2-89a2-a51f65c5dfdb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>N_CompositeTwo</name>
+    <display>N_CompositeTwo: N_CompositeTwo   [1 --&gt; 1]</display>
+    <order>3</order>
+    <typeReference id="8b30f625-0cea-49b6-ae69-a772f3e66ed4">
+      <typeId>a1407724-b0bf-4779-b2d1-6d29b93250f3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

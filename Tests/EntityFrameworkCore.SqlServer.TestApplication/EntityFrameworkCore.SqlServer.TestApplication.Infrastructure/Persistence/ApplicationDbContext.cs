@@ -15,6 +15,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inherita
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ExplicitKeys;
@@ -26,6 +27,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.C
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPH.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPT.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -82,6 +84,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.DerivedClassForConcreteAssociated> TPCInheritanceAssociationsDerivedClassForConcreteAssociateds { get; set; }
         public DbSet<Domain.Entities.TPT.InheritanceAssociations.DerivedClassForConcreteAssociated> TPTInheritanceAssociationsDerivedClassForConcreteAssociateds { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
+        public DbSet<DictionaryWithKvPNormal> DictionaryWithKvPNormals { get; set; }
+        public DbSet<DictionaryWithKvPSerialized> DictionaryWithKvPSerializeds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
@@ -109,6 +113,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<Leaf> Leaves { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<N_ComplexRoot> N_ComplexRoots { get; set; }
+        public DbSet<N_CompositeOne> N_CompositeOnes { get; set; }
+        public DbSet<N_CompositeTwo> N_CompositeTwos { get; set; }
+        public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
+        public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
@@ -183,6 +192,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new Configurations.TPC.InheritanceAssociations.DerivedClassForConcreteAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.TPT.InheritanceAssociations.DerivedClassForConcreteAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.TPH.InheritanceAssociations.DerivedClassForConcreteAssociatedConfiguration());
+            modelBuilder.ApplyConfiguration(new DictionaryWithKvPNormalConfiguration());
+            modelBuilder.ApplyConfiguration(new DictionaryWithKvPSerializedConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
@@ -210,6 +221,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new LeafConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new N_ComplexRootConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeOneConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeTwoConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonWithAddressNormalConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonWithAddressSerializedConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());

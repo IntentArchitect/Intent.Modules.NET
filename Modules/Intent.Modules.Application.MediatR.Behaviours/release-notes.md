@@ -1,3 +1,6 @@
+### Version 4.1.2
+- Fixed: Removed some warnings from the `LoggingBehaviour`.
+
 ### Version 4.1.0
 
 - Update: EventBusPublisherBehaviour added.

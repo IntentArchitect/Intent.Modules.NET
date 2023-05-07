@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f42e03df-32d7-4d19-bc61-5fad568bd920">
+  <sourceEnd id="da38a261-3814-43af-a509-4382f86c05c5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DictionaryWithKvPNormal</name>
+    <display>DictionaryWithKvPNormal: DictionaryWithKvPNormal</display>
+    <order>0</order>
+    <typeReference id="c636354a-a271-4d37-a91f-cd5c9394e8a1">
+      <typeId>04f20922-4739-4c6a-9782-4d6401257eca</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f42e03df-32d7-4d19-bc61-5fad568bd920" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>KeyValuePairNormals</name>
+    <display>KeyValuePairNormals: KeyValuePairNormal[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="ad262dd6-73eb-433d-bf0d-71b799df725f">
+      <typeId>56955495-b6dc-41b6-8dea-ac63724ab697</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

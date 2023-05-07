@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddAttribute("IntentManaged(Mode.Ignore)");
+                        ctor.AddAttribute("IntentManaged(Mode.Merge)");
                     });
                     @class.AddMethod($"Task<{GetReturnType()}>", "Handle", method =>
                     {

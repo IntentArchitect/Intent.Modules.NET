@@ -11,7 +11,7 @@
     <FileLog>
       <ProjectId>be53d805-6699-498d-a281-05f24e1b3e58</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#be53d805-6699-498d-a281-05f24e1b3e58</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.ValueObjects.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.ValueObjects.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

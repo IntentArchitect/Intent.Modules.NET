@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="944bfdce-c7c3-4e40-9515-737e6bc5e2d5">
+  <sourceEnd id="1768e3a3-c7de-4f0b-9abf-65ea93f6bcbc" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>N_ComplexRoot</name>
+    <display>N_ComplexRoot: N_ComplexRoot</display>
+    <order>0</order>
+    <typeReference id="bae0c306-1c55-4f5b-9cc0-811f7b6c64b2">
+      <typeId>0ec3ed5a-0320-42aa-884b-f6e4bfdfd40d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="944bfdce-c7c3-4e40-9515-737e6bc5e2d5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>N_CompositeManies</name>
+    <display>N_CompositeManies: N_CompositeMany[*]   [1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="10bb6414-81b3-43fe-a9d0-96ae45ef2237">
+      <typeId>8a0837dd-b468-465a-a1ed-b50ec046ba49</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

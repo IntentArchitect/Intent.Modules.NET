@@ -10,8 +10,10 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
@@ -176,6 +178,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetKeyMappings(classModel));
             }
 
+            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
+                HasSerializationType(valueObjectTemplate, out var serializationType) &&
+                serializationType == "JSON" &&
+                HasSerializationSupport())
+            {
+                statements.Add("builder.ToJson();");
+            }
+
             statements.AddRange(GetAttributes(targetType)
                 .Where(RequiresConfiguration)
                 .Select(x => GetAttributeMapping(x, @class)));
@@ -185,6 +195,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .Select(x => GetAssociationMapping(x, @class)));
 
             return statements.Where(x => x != null).ToList();
+        }
+
+        private bool HasSerializationSupport()
+        {
+            var proj = OutputTarget.GetProject();
+            return proj switch
+            {
+                _ when proj.IsNetCore2App() => false,
+                _ when proj.IsNetCore3App() => false,
+                _ when proj.IsNetApp(4) => false,
+                _ when proj.IsNetApp(5) => false,
+                _ when proj.IsNetApp(6) => false,
+                _ => true // Only .NET 7+ supports this (safe to assume EF Core 7 for .NET 7)
+            };
+        }
+
+        private static bool HasSerializationType(ICSharpFileBuilderTemplate valueObjectTemplate, out string serializationType)
+        {
+            return valueObjectTemplate.CSharpFile.Classes.First().TryGetMetadata<string>("serialization", out serializationType);
         }
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0aea3cbd-3935-4560-9ab5-b72f3e69ccbe">
+  <sourceEnd id="4e1a2fe6-b85a-4b2f-a892-97073999b478" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DictionaryWithKvPSerialized</name>
+    <display>DictionaryWithKvPSerialized: DictionaryWithKvPSerialized</display>
+    <order>0</order>
+    <typeReference id="8b595ada-3283-4bc9-97ff-5c32450a6155">
+      <typeId>2b0b7788-0da3-4dac-b121-4e2e2a29a3ef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0aea3cbd-3935-4560-9ab5-b72f3e69ccbe" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>KeyValuePairSerializeds</name>
+    <display>KeyValuePairSerializeds: KeyValuePairSerialized[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="a6b72b09-4367-4d97-b86f-b6e10dc5cff4">
+      <typeId>1c0461dc-98d9-43ef-8f73-4e73938dedea</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
