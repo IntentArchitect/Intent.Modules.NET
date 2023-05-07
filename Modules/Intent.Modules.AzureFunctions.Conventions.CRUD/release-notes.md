@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Updated supported client version to [4.0.0-beta.0, 5.0.0).
+
 ### Version 4.0.0
 
 - Obsolete. This module has been made obsolete by the application oriented CRUD modules. It can safely be uninstalled.

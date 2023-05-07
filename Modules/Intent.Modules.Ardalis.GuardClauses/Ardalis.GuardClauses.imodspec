@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Ardalis.GuardClauses</id>
-  <version>4.0.0</version>
-  <supportedClientVersions>[3.4.0-pre.0,5.0.0)</supportedClientVersions>
+  <version>4.0.1</version>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
   <summary>Install guard clauses for Domain Entities</summary>
   <description>Install guard clauses for Domain Entities</description>
   <authors>Intent Architect</authors>

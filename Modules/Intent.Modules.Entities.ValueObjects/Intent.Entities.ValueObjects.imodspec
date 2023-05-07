@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.ValueObjects</id>
-  <version>3.3.2</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <version>3.3.3</version>
+  <supportedClientVersions>[3.2.0, 4.0.0)</supportedClientVersions>
+  <releaseNotes>release-notes.md</releaseNotes>
   <summary>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</summary>
   <description>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</description>
   <authors>Intent.Modules.NET</authors>
