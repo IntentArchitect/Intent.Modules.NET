@@ -40,6 +40,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             foreach (var template in queryTypeTemplates.Concat(mutationTypeTemplates))
             {
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
+                template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -60,12 +61,14 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             foreach (var template in dtoTemplates)
             {
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
+                template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
                     foreach (var method in @class.Methods)
                     {
-                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && (model.Mapping?.Element.IsQueryModel() == true || model.Mapping?.Element.IsCommandModel() == true))
+                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && 
+                            (model.Mapping?.Element.IsQueryModel() == true || model.Mapping?.Element.IsCommandModel() == true))
                         {
                             var queryRef = EnsureAndGetQueryObject(template, method, model);
                             method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
