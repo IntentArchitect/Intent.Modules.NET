@@ -29,7 +29,14 @@
   <parentFolderId>9ca9a958-f212-41d5-abae-d85292788baa</parentFolderId>
   <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
   <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea187e1a-7df2-48d1-b523-4720a4b69b5b" name="GraphQL Enabled">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.MediatR</definitionPackageName>
+      <definitionPackageId>c579fb07-37c6-47dc-a136-c6a2010c2eca</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata>
     <entry key="baseName" value="Customers" />
   </metadata>

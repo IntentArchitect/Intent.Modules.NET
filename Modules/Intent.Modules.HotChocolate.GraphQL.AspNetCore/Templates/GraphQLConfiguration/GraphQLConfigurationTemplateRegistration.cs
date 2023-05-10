@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.ConfigureGraphQL
+namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ConfigureGraphQLTemplateRegistration : SingleFileTemplateRegistration
+    public class GraphQLConfigurationTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => ConfigureGraphQLTemplate.TemplateId;
+        public override string TemplateId => GraphQLConfigurationTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new ConfigureGraphQLTemplate(outputTarget);
+            return new GraphQLConfigurationTemplate(outputTarget);
         }
     }
 }

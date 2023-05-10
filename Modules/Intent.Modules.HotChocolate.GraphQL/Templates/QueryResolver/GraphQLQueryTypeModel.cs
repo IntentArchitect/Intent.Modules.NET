@@ -34,7 +34,7 @@ class GraphQLResolverModel : IGraphQLResolverModel
     {
         Name = model.Name;
         TypeReference = model.TypeReference;
-        Mapping = model.Mapping;
+        MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement)).ToList();
     }
 
@@ -42,14 +42,14 @@ class GraphQLResolverModel : IGraphQLResolverModel
     {
         Name = model.Name;
         TypeReference = model.TypeReference;
-        Mapping = model.Mapping;
+        MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement)).ToList();
     }
 
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public IElementMapping Mapping { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
+    public IElement MappedElement { get; }
 }
 
 class GraphQLParameterModel : IGraphQLParameterModel

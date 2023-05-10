@@ -5,21 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\ConfigureGraphQL\ConfigureGraphQLTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ConfigureGraphQLTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\ConfigureGraphQL\ConfigureGraphQLTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ConfigureGraphQLTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />

@@ -3,10 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.CQRS.TestApplication.Application.Customers;
 using GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer;
+using GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer;
 using GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer;
-using GraphQL.CQRS.TestApplication.Application.Interfaces;
-using GraphQL.CQRS.TestApplication.Application.Invoices.CreateInvoice;
-using GraphQL.CQRS.TestApplication.Application.Products;
 using HotChocolate;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -18,7 +16,7 @@ using MediatR;
 namespace GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers
 {
     [ExtendObjectType(Name = "Mutation")]
-    public class Mutation
+    public class CustomerMutations
     {
         public async Task<Guid> CreateCustomer(
             CreateCustomerCommand input,
@@ -28,13 +26,8 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers
             return await mediator.Send(input, cancellationToken);
         }
 
-        public async Task<Guid> CreateProduct(ProductCreateDto input, [Service] IProductsService service)
-        {
-            return await service.CreateProduct(input);
-        }
-
-        public async Task<Guid> CreateInvoice(
-            CreateInvoiceCommand input,
+        public async Task<CustomerDto> DeleteCustomer(
+            DeleteCustomerCommand input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {

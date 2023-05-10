@@ -1,12 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.CQRS.TestApplication.Application.Customers;
-using GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer;
-using GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer;
-using GraphQL.CQRS.TestApplication.Application.Interfaces;
+using GraphQL.CQRS.TestApplication.Application.Invoices;
 using GraphQL.CQRS.TestApplication.Application.Invoices.CreateInvoice;
-using GraphQL.CQRS.TestApplication.Application.Products;
+using GraphQL.CQRS.TestApplication.Application.Invoices.DeleteInvoice;
+using GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice;
 using HotChocolate;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -18,21 +16,8 @@ using MediatR;
 namespace GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers
 {
     [ExtendObjectType(Name = "Mutation")]
-    public class Mutation
+    public class InvoiceMutations
     {
-        public async Task<Guid> CreateCustomer(
-            CreateCustomerCommand input,
-            CancellationToken cancellationToken,
-            [Service] ISender mediator)
-        {
-            return await mediator.Send(input, cancellationToken);
-        }
-
-        public async Task<Guid> CreateProduct(ProductCreateDto input, [Service] IProductsService service)
-        {
-            return await service.CreateProduct(input);
-        }
-
         public async Task<Guid> CreateInvoice(
             CreateInvoiceCommand input,
             CancellationToken cancellationToken,
@@ -41,8 +26,16 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers
             return await mediator.Send(input, cancellationToken);
         }
 
-        public async Task<CustomerDto> UpdateCustomer(
-            UpdateCustomerCommand input,
+        public async Task<InvoiceDto> DeleteInvoice(
+            DeleteInvoiceCommand input,
+            CancellationToken cancellationToken,
+            [Service] ISender mediator)
+        {
+            return await mediator.Send(input, cancellationToken);
+        }
+
+        public async Task<InvoiceDto> UpdateInvoice(
+            UpdateInvoiceCommand input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {

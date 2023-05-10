@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -11,22 +12,24 @@ using MediatR;
 namespace GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand>
+    public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, CustomerDto>
     {
         private readonly ICustomerRepository _customerRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<CustomerDto> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
             _customerRepository.Remove(existingCustomer);
-            return Unit.Value;
+            return existingCustomer.MapToCustomerDto(_mapper);
         }
     }
 }

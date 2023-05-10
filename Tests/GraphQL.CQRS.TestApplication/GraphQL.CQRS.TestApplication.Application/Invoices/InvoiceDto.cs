@@ -27,21 +27,29 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
         public int No { get; set; }
         public DateTime Created { get; set; }
         public Guid CustomerId { get; set; }
+        public List<InvoiceInvoiceLineDto> InvoiceLines { get; set; }
 
-        public static InvoiceDto Create(Guid id, int no, DateTime created, Guid customerId)
+        public static InvoiceDto Create(
+            Guid id,
+            int no,
+            DateTime created,
+            Guid customerId,
+            List<InvoiceInvoiceLineDto> invoiceLines)
         {
             return new InvoiceDto
             {
                 Id = id,
                 No = no,
                 Created = created,
-                CustomerId = customerId
+                CustomerId = customerId,
+                InvoiceLines = invoiceLines
             };
         }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Invoice, InvoiceDto>();
+            profile.CreateMap<Invoice, InvoiceDto>()
+                .ForMember(d => d.InvoiceLines, opt => opt.MapFrom(src => src.InvoiceLines));
         }
 
         //public async Task<CustomerDto> GetCustomer(

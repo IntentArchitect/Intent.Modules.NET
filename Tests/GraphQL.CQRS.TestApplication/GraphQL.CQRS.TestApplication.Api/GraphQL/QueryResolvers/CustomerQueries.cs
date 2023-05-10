@@ -5,10 +5,6 @@ using System.Threading.Tasks;
 using GraphQL.CQRS.TestApplication.Application.Customers;
 using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomerById;
 using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomers;
-using GraphQL.CQRS.TestApplication.Application.Interfaces;
-using GraphQL.CQRS.TestApplication.Application.Invoices;
-using GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoices;
-using GraphQL.CQRS.TestApplication.Application.Products;
 using HotChocolate;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -20,23 +16,22 @@ using MediatR;
 namespace GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers
 {
     [ExtendObjectType(Name = "Query")]
-    public class Query
+    public class CustomerQueries
     {
-        public async Task<IReadOnlyList<InvoiceDto>> GetInvoices(
+        public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
+            GetCustomersQuery input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetInvoicesQuery(), cancellationToken);
+            return await mediator.Send(input, cancellationToken);
         }
 
-        public async Task<IReadOnlyList<ProductDto>> GetProducts([Service] IProductsService service)
+        public async Task<CustomerDto> GetCustomersById(
+            Guid id,
+            CancellationToken cancellationToken,
+            [Service] ISender mediator)
         {
-            return await service.FindProducts();
-        }
-
-        public async Task<ProductDto> GetProductById(Guid id, [Service] IProductsService service)
-        {
-            return await service.FindProductById(id);
+            return await mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
         }
     }
 }

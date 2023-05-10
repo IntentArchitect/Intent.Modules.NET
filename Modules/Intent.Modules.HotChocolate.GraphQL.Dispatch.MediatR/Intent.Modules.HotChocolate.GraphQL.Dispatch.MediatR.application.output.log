@@ -9,6 +9,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d12afcb7-09c7-4edb-8cec-ebe1452f441f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/CommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CommandModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d12afcb7-09c7-4edb-8cec-ebe1452f441f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e71b0662-e29d-4db2-868b-8a12464b25d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueryModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>59597b8b-ac6b-4d8a-8de7-a9c8ca11516e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#4a85692a-40d5-4252-a25f-122e08812922</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

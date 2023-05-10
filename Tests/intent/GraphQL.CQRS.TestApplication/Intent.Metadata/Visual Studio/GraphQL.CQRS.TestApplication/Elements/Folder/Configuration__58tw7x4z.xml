@@ -70,5 +70,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3a5bde87-8f9e-4cf1-8573-6b29c3487a67" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration</name>
+      <display>Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration</display>
+      <externalReference>Intent.HotChocolate.GraphQL.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

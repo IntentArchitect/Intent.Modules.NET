@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GraphQLConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
@@ -61,8 +69,36 @@
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/CustomerMutations.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerMutations.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/InvoiceMutations.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceMutations.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/Mutation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Mutation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/CustomerQueries.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerQueries.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/InvoiceQueries.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -550,6 +586,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/InvoiceDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a888cb11-23fb-4c96-ac3a-79d33339b0bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceInvoiceLineDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/InvoiceInvoiceLineDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#a888cb11-23fb-4c96-ac3a-79d33339b0bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceInvoiceLineDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/InvoiceInvoiceLineDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

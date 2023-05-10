@@ -50,34 +50,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/GraphQLConfiguration/GraphQLConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GraphQLConfiguration/GraphQLConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

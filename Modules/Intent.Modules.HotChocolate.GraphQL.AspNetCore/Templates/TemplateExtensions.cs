@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.ConfigureGraphQL;
+using Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfiguration;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,9 +11,9 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetConfigureGraphQLName(this IIntentTemplate template)
+        public static string GetGraphQLConfigurationName(this IIntentTemplate template)
         {
-            return template.GetTypeName(ConfigureGraphQLTemplate.TemplateId);
+            return template.GetTypeName(GraphQLConfigurationTemplate.TemplateId);
         }
 
     }

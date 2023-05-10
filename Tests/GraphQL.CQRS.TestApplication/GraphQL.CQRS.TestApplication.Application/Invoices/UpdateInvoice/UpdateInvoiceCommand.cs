@@ -9,7 +9,7 @@ using MediatR;
 
 namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
 {
-    public class UpdateInvoiceCommand : IRequest, ICommand
+    public class UpdateInvoiceCommand : IRequest<InvoiceDto>, ICommand
     {
         public Guid Id { get; set; }
 

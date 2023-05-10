@@ -16,11 +16,16 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.0" />
+    <dependency id="Intent.Modelers.Services" version="3.3.9" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="4.0.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.HotChocolate.GraphQL.Dispatch.MediatR/Intent.HotChocolate.GraphQL.Dispatch.MediatR.pkg.config" externalReference="c579fb07-37c6-47dc-a136-c6a2010c2eca" />
+  </metadata>
 </package>

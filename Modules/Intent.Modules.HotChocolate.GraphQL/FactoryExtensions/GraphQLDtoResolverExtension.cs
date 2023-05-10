@@ -55,13 +55,13 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                                     method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToCamelCase());
                                 }
 
-                                if (resolver.Mapping?.Element.IsClassModel() == true && 
+                                if (resolver.MappedElement?.IsClassModel() == true && 
                                     resolver.Parameters.Count() == 1 &&
                                     resolver.GetMatchingInDtoParameters(dtoModel).Count() == 1 &&
                                     resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
                                 {
                                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                                    method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.Mapping.ElementId), "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
+                                    method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.MappedElement.Id), "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                                     method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                                     method.AddStatement($"var entity = await repository.FindByIdAsync({resolver.Parameters.First().Name.ToPascalCase()}, cancellationToken);");
                                     method.AddStatement($"return entity.MapTo{resolver.TypeReference.Element.Name.ToPascalCase()}(mapper);");

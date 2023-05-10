@@ -9,7 +9,7 @@ using MediatR;
 
 namespace GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer
 {
-    public class DeleteCustomerCommand : IRequest, ICommand
+    public class DeleteCustomerCommand : IRequest<CustomerDto>, ICommand
     {
         public Guid Id { get; set; }
 

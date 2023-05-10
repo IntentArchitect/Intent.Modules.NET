@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="11ccd199-ff6c-4446-bb54-c5bd4892e7d2" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>UpdateInvoiceCommand</name>
-  <display>UpdateInvoiceCommand: void</display>
+  <display>UpdateInvoiceCommand: InvoiceDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="4a39c60b-b552-40ea-a634-6bcb17e21e57">
+    <typeId>d0136969-4f0d-4b83-a8b0-9c8e7578a64e</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
+    <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+    <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -18,7 +21,7 @@
     <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <autoSyncTypeReference>false</autoSyncTypeReference>
     <mappedPath>
       <target id="e9295fd6-c250-428e-b4b2-3757104b45b8" name="Invoice" type="element" specialization="Class" />
     </mappedPath>
@@ -26,7 +29,14 @@
   <parentFolderId>2ee06a54-b9f0-48b1-8af0-63ffc09b6f40</parentFolderId>
   <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
   <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea187e1a-7df2-48d1-b523-4720a4b69b5b" name="GraphQL Enabled">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.MediatR</definitionPackageName>
+      <definitionPackageId>c579fb07-37c6-47dc-a136-c6a2010c2eca</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata>
     <entry key="baseName" value="Invoice" />
   </metadata>

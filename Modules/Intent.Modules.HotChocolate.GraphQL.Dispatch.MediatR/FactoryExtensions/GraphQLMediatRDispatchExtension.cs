@@ -46,7 +46,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
                     var @class = file.Classes.First();
                     foreach (var method in @class.Methods)
                     {
-                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && (model.Mapping?.Element.IsQueryModel() == true || model.Mapping?.Element.IsCommandModel() == true))
+                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && (model.MappedElement?.IsQueryModel() == true || model.MappedElement?.IsCommandModel() == true))
                         {
                             var queryRef = EnsureAndGetQueryObject(template, method, model);
                             method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
@@ -67,8 +67,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
                     var @class = file.Classes.First();
                     foreach (var method in @class.Methods)
                     {
-                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && 
-                            (model.Mapping?.Element.IsQueryModel() == true || model.Mapping?.Element.IsCommandModel() == true))
+                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) &&
+                            (model.MappedElement?.IsQueryModel() == true || model.MappedElement?.IsCommandModel() == true))
                         {
                             var queryRef = EnsureAndGetQueryObject(template, method, model);
                             method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
@@ -85,7 +85,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             var dtoModel = template is ITemplateWithModel templateWithModel
                 ? templateWithModel.Model as DTOModel
                 : null;
-            var mappedQuery = (IElement)model.Mapping.Element;
+            var mappedQuery = model.MappedElement;
             var queryType = template.GetTypeName(mappedQuery.AsTypeReference());
             if (mappedQuery.ChildElements.All(x => model.Parameters.Any(p => p.Mapping.ElementId == x.Id)))
             {
@@ -110,8 +110,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             var dtoModel = template is ITemplateWithModel templateWithModel
                 ? templateWithModel.Model as DTOModel
                 : null;
-            return dtoModel != null && model.GetMatchingInDtoParameters(dtoModel).Any(p => p.Equals(parameter)) 
-                ? parameter.Name.ToPascalCase() 
+            return dtoModel != null && model.GetMatchingInDtoParameters(dtoModel).Any(p => p.Equals(parameter))
+                ? parameter.Name.ToPascalCase()
                 : parameter.Name.ToParameterName();
         }
     }

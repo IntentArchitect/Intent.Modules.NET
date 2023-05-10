@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -11,22 +12,24 @@ using MediatR;
 namespace GraphQL.CQRS.TestApplication.Application.Invoices.DeleteInvoice
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand>
+    public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand, InvoiceDto>
     {
         private readonly IInvoiceRepository _invoiceRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public DeleteInvoiceCommandHandler(IInvoiceRepository invoiceRepository)
+        public DeleteInvoiceCommandHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
+        public async Task<InvoiceDto> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
             _invoiceRepository.Remove(existingInvoice);
-            return Unit.Value;
+            return existingInvoice.MapToInvoiceDto(_mapper);
         }
     }
 }

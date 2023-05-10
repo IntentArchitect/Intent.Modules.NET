@@ -17,7 +17,7 @@ public interface IGraphQLQueryTypeModel : IHasName
 public interface IGraphQLResolverModel : IHasName, IHasTypeReference
 {
     IEnumerable<IGraphQLParameterModel> Parameters { get; }
-    IElementMapping Mapping { get; }
+    IElement MappedElement { get; }
 }
 
 public interface IGraphQLParameterModel : IHasName, IHasTypeReference

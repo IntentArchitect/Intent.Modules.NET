@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="79f528ec-7567-4f78-a651-2665b71d942c" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>ConfigureGraphQL</name>
-  <display>ConfigureGraphQL: Single File</display>
+  <name>GraphQLConfiguration</name>
+  <display>GraphQLConfiguration: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="cd2b5327-e11c-4163-a8cf-c8fce37533bc">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
@@ -26,7 +25,7 @@
       <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
-        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="T4 Template" isActive="true" />
+        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="C# File Builder" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">

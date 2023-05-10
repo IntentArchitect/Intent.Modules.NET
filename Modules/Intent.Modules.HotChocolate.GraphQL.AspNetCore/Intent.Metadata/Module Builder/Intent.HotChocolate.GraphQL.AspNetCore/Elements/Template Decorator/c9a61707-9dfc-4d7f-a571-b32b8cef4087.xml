@@ -3,7 +3,6 @@
   <name>GraphQLStartupDecorator</name>
   <display>GraphQLStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="8e2624f0-0e24-4f0b-a05a-4031a2bd9929">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
