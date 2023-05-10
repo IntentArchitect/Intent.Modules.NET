@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 5.0.4
 
 - Fixed: Security being applied to operations that have the Unsecured stereotype applied.

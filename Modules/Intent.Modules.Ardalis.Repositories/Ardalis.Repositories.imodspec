@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Ardalis.Repositories</id>
-  <version>4.0.1</version>
-  <supportedClientVersions>[3.2.0, 5.0.0)</supportedClientVersions>
+  <version>4.0.2</version>
+  <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Extend the existing EF Core Repositories Module to the Ardalis version</summary>
   <description>Extend the existing EF Core Repositories Module to the Ardalis version</description>
   <authors>Intent Architect</authors>
@@ -24,12 +24,12 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.17" />
-    <dependency id="Intent.Common.CSharp" version="3.3.27" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.EntityFrameworkCore.Repositories" version="4.0.2" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.10" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.8" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.EntityFrameworkCore.Repositories" version="4.2.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

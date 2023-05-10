@@ -1,4 +1,8 @@
-﻿### Version 3.4.2
+### Version 3.5.1
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
+### Version 3.4.2
 
 - Fixed: Would throw an exception when encountering a mapped parameter.
 

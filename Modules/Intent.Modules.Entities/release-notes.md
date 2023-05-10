@@ -1,4 +1,8 @@
-﻿### Version 4.2.1
+### Version 4.2.2
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
+### Version 4.2.1
 
 - Fixed unresolved namespaces for Domain types like Data Contracts.
 

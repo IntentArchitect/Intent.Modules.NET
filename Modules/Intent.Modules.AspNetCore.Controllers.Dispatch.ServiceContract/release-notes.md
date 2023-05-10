@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 5.0.2
 
 - Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.

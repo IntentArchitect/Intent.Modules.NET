@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
-  <version>1.0.1</version>
-  <supportedClientVersions>[3.2.0,5.0.0)</supportedClientVersions>
+  <version>1.0.2</version>
+  <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an open framework for collecting and exporting telemetry data.</summary>
   <description>Introduces an open framework for collecting and exporting telemetry data.</description>
   <authors>Intent Architect</authors>
@@ -43,10 +43,10 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.29" />
-    <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 4.0.1
 
 - Support for multiple paradigms of expressing Azure Functions (i.e. through Stereotypes applied to Commands / Queries / Service Operations / etc.). The appropriate supporting modules will need to be installed to enable this.

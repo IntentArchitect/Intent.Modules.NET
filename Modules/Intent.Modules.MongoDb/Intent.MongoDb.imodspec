@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MongoDb</id>
   <version>1.0.0-pre.11</version>
-  <supportedClientVersions>[4.0.0-beta.10, 5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</summary>
   <description>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</description>
   <authors>Intent Architect</authors>

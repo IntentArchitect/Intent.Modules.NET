@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 5.0.1
 
 - Decoupled this module from the Intent.Metadata.RDBMS module.

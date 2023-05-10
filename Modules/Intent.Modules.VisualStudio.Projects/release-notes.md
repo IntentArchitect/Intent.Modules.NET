@@ -1,4 +1,8 @@
-﻿### Version 3.3.24
+### Version 3.3.25
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
+### Version 3.3.24
 - Update : Adjusting `launchSettings.json` to start as Https, made `isSSL` setting more inline with `VS` behaviour.
 
 ### Version 3.3.22
