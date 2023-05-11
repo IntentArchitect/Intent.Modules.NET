@@ -1,6 +1,7 @@
 ### Version 3.3.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Normalized methods to have `Async` suffix.
 
 ### Version 3.3.1
 

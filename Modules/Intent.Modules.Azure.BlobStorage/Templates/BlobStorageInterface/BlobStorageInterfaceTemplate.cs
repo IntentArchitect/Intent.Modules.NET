@@ -51,10 +51,10 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.BlobStorageInterface
     {
         Task<Stream> DownloadContentAsync(Uri cloudStorageLocation, CancellationToken cancellationToken = default);
         Task<Stream> DownloadContentAsync(string containerName, string blobName, CancellationToken cancellationToken = default);
-        Task UploadContent(Uri cloudStorageLocation, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
-        Task UploadContent(string containerName, string blobName, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
-        Task DeleteContent(Uri cloudStorageLocation, CancellationToken cancellationToken = default);
-        Task DeleteContent(string containerName, string blobName, CancellationToken cancellationToken = default);
+        Task UploadContentAsync(Uri cloudStorageLocation, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
+        Task UploadContentAsync(string containerName, string blobName, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
+        Task DeleteContentAsync(Uri cloudStorageLocation, CancellationToken cancellationToken = default);
+        Task DeleteContentAsync(string containerName, string blobName, CancellationToken cancellationToken = default);
     }
 }");
             return this.GenerationEnvironment.ToString();
