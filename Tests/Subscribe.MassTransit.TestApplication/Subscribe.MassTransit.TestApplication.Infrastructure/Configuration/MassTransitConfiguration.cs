@@ -1,5 +1,4 @@
 using System.Reflection;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.Configuration;

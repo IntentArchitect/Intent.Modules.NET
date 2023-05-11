@@ -1,6 +1,5 @@
 using System.Reflection;
 using AutoMapper;
-using Eventing;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;

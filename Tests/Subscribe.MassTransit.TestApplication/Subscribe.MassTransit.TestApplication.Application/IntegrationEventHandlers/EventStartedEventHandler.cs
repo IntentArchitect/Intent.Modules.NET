@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
