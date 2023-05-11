@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="462bf080-763b-4f08-9fba-7d9991e41e90" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.CleanArch.GooglePubSub.TestApplication</name>
+  <display>Publish.CleanArch.GooglePubSub.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>50197970-0af4-4610-87f4-66897943c176</parentFolderId>
+  <packageId>50197970-0af4-4610-87f4-66897943c176</packageId>
+  <packageName>Publish.CleanArch.GooglePubSub.TestApplication.Eventing</packageName>
+  <diagram>
+    <targetPackageId>c95cb26e-d0c5-407d-8804-0e962acc419a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

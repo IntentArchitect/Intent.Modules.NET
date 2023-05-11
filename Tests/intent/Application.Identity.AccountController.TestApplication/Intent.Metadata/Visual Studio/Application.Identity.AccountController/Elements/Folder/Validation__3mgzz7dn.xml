@@ -20,38 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="30a1848e-403f-4c12-9779-21221f605f3d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>425f8034-e538-4313-ad3d-b825d60e43d6</parentFolderId>
-      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
-      <packageName>Application.Identity.AccountController</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="763fc6a7-4366-464a-8e9c-b8c4742c2cf0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>425f8034-e538-4313-ad3d-b825d60e43d6</parentFolderId>
-      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
-      <packageName>Application.Identity.AccountController</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

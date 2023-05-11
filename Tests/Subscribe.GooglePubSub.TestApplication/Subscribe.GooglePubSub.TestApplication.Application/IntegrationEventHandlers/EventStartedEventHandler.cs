@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
+using Subscribe.GooglePubSub.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.IntegrationEventHandlerImplementation", Version = "1.0")]

@@ -1,8 +1,8 @@
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Eventing;
+using Publish.AspNetCore.GooglePubSub.TestApplication.Eventing.Messages;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

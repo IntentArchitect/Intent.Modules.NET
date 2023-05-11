@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82ff7ead-e344-42b4-8be7-bce08e654ae2" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</name>
+  <display>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>80fccba8-764d-4ce9-87c8-c53c2930f479</parentFolderId>
+  <packageId>80fccba8-764d-4ce9-87c8-c53c2930f479</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Eventing</packageName>
+  <diagram>
+    <targetPackageId>0c32bb19-d081-4ef5-9514-541213b25ee1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]

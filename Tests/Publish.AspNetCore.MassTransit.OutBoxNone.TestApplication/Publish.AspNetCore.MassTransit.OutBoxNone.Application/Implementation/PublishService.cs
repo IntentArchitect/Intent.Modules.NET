@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Interfaces;
+using Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]

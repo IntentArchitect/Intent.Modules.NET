@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
 using Subscribe.MassTransit.TestApplication.Application.IntegrationEventHandlers;
+using Subscribe.MassTransit.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]

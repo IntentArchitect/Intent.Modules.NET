@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="55c77b2d-08c1-4e05-bc83-240649152955">
+  <sourceEnd id="2548f368-08db-4771-aa6b-1895df936f0f" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</name>
+    <display>publisher: Publish.CleanArch.MassTransit.OutboxEF.TestApplication</display>
+    <order>0</order>
+    <typeReference id="480d61be-399c-4c10-84a8-3cf8837f2ef8">
+      <typeId>82ff7ead-e344-42b4-8be7-bce08e654ae2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Eventing</typePackageName>
+      <typePackageId>80fccba8-764d-4ce9-87c8-c53c2930f479</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="55c77b2d-08c1-4e05-bc83-240649152955" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="1c46c024-1e3d-4f95-9353-9d0c931a2013">
+      <typeId>ea8529e7-af5a-42c1-af42-a67e21a8e620</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>0c32bb19-d081-4ef5-9514-541213b25ee1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

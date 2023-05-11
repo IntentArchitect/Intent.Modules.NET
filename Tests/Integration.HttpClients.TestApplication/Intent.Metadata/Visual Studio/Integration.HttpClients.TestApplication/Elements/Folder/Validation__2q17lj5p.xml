@@ -20,38 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="9066efe5-d638-45ea-a4f5-f526e41ca296" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</parentFolderId>
-      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
-      <packageName>Integration.HttpClients.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="84bb41ae-b9f7-4557-924a-e7cdc7ca7171" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</parentFolderId>
-      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
-      <packageName>Integration.HttpClients.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

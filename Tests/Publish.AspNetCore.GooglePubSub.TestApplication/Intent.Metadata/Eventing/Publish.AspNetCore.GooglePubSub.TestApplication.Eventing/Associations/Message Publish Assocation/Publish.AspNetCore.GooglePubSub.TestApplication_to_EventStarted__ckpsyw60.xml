@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ab706ca7-8b42-4c03-9232-33e38336bc81">
+  <sourceEnd id="abde520d-f7ec-4f4e-b866-95462f538882" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.AspNetCore.GooglePubSub.TestApplication</name>
+    <display>publisher: Publish.AspNetCore.GooglePubSub.TestApplication</display>
+    <order>0</order>
+    <typeReference id="58eeb5e5-0ff6-4122-871c-2180857357cd">
+      <typeId>0f21ac65-3335-44a9-9d5d-2db1e0c609dd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.GooglePubSub.TestApplication.Eventing</typePackageName>
+      <typePackageId>2af108b4-98cc-4ae6-8a8f-e4ebeb7dee41</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ab706ca7-8b42-4c03-9232-33e38336bc81" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="ea9bc7c9-80e8-4486-aa3a-e6feba8898eb">
+      <typeId>8a89cea6-2202-4576-96c2-5c0383bda33a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.GooglePubSub.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>55a39223-908d-4e92-bbee-23ed64c6c4b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

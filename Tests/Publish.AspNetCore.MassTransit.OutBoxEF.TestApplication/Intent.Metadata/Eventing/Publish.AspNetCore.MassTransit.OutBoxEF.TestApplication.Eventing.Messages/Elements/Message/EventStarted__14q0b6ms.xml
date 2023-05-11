@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4ee3aa10-de3d-4d47-ada0-9421549c6f5d" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>EventStarted</name>
+  <display>EventStarted</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ae66f6e-4751-48d0-b0f0-9f30d88f4acc</parentFolderId>
+  <packageId>5ae66f6e-4751-48d0-b0f0-9f30d88f4acc</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7dcdebe2-bb37-4878-bbcf-8f9fdc8b1338" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7629ecd2-e773-4ce4-ba9e-6277e99fe506">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4ee3aa10-de3d-4d47-ada0-9421549c6f5d</parentFolderId>
+      <packageId>5ae66f6e-4751-48d0-b0f0-9f30d88f4acc</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

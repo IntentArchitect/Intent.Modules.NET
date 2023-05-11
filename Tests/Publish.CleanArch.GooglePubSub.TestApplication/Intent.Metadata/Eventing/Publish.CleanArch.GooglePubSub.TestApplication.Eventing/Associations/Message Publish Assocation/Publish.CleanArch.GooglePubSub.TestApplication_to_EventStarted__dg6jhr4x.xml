@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4b3643b4-03e6-4f79-86a6-53b6dd01e077">
+  <sourceEnd id="8ce6acad-da92-4d39-b0d2-1ebc051e3e22" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.GooglePubSub.TestApplication</name>
+    <display>publisher: Publish.CleanArch.GooglePubSub.TestApplication</display>
+    <order>0</order>
+    <typeReference id="8c0a63fe-e727-4b41-97da-63475d7d3d34">
+      <typeId>462bf080-763b-4f08-9fba-7d9991e41e90</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.GooglePubSub.TestApplication.Eventing</typePackageName>
+      <typePackageId>50197970-0af4-4610-87f4-66897943c176</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4b3643b4-03e6-4f79-86a6-53b6dd01e077" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="9cfa33b9-586c-4ba8-8a7c-1051ace62d31">
+      <typeId>f2f2c695-4f29-4bef-8317-714535000f22</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.GooglePubSub.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>c95cb26e-d0c5-407d-8804-0e962acc419a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>
