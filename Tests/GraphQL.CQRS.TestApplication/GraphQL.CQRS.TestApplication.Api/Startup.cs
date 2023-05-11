@@ -74,8 +74,10 @@ namespace GraphQL.CQRS.TestApplication.Api
             app.UseSerilogRequestLogging();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseCors();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

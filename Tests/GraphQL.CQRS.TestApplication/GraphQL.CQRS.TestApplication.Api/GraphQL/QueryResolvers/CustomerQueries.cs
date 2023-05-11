@@ -18,20 +18,19 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers
     [ExtendObjectType(Name = "Query")]
     public class CustomerQueries
     {
-        public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
-            GetCustomersQuery input,
-            CancellationToken cancellationToken,
-            [Service] ISender mediator)
-        {
-            return await mediator.Send(input, cancellationToken);
-        }
-
-        public async Task<CustomerDto> GetCustomersById(
+        public async Task<CustomerDto> GetCustomerById(
             Guid id,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
             return await mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
+        }
+        public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
+            string? name,
+            CancellationToken cancellationToken,
+            [Service] ISender mediator)
+        {
+            return await mediator.Send(new GetCustomersQuery { Name = name }, cancellationToken);
         }
     }
 }

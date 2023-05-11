@@ -22,5 +22,6 @@ public interface IGraphQLResolverModel : IHasName, IHasTypeReference
 
 public interface IGraphQLParameterModel : IHasName, IHasTypeReference
 {
-    IElementMapping Mapping { get; }
+    IElement MappedElement { get; }
+    string[] MappedPath { get; }
 }

@@ -87,11 +87,11 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
                 : null;
             var mappedQuery = model.MappedElement;
             var queryType = template.GetTypeName(mappedQuery.AsTypeReference());
-            if (mappedQuery.ChildElements.All(x => model.Parameters.Any(p => p.Mapping.ElementId == x.Id)))
+            if (mappedQuery.ChildElements.All(x => model.Parameters.Any(p => p.MappedElement?.Id == x.Id)))
             {
                 if (model.Parameters.Any())
                 {
-                    return $"new {queryType} {{ {string.Join(", ", model.Parameters.Select(x => string.Join(".", x.Mapping.Path.Select(p => p.Name.ToPascalCase())) + " = " + GetPropertyAssignmentValue(template, model, x)))} }}";
+                    return $"new {queryType} {{ {string.Join(", ", model.Parameters.Select(x => string.Join(".", x.MappedPath) + " = " + GetPropertyAssignmentValue(template, model, x)))} }}";
                 }
                 else
                 {

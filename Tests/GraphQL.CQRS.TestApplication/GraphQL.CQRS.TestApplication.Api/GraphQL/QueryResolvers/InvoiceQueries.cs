@@ -20,19 +20,19 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers
     public class InvoiceQueries
     {
         public async Task<InvoiceDto> GetInvoiceById(
-            GetInvoiceByIdQuery input,
+            Guid id,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(input, cancellationToken);
+            return await mediator.Send(new GetInvoiceByIdQuery { Id = id }, cancellationToken);
         }
 
         public async Task<IReadOnlyList<InvoiceDto>> GetInvoicesForCustomer(
-            GetInvoicesForCustomerQuery input,
+            Guid customerId,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(input, cancellationToken);
+            return await mediator.Send(new GetInvoicesForCustomerQuery { CustomerId = customerId }, cancellationToken);
         }
 
         public async Task<IReadOnlyList<InvoiceDto>> GetInvoices(

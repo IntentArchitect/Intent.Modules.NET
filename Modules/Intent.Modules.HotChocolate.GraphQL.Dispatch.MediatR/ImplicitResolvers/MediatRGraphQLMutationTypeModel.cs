@@ -3,9 +3,9 @@ using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers;
 
-public class MediatRGraphQLQueryTypeModel : IGraphQLQueryTypeModel
+public class MediatRGraphQLMutationTypeModel : IGraphQLMutationTypeModel
 {
-    public MediatRGraphQLQueryTypeModel(string name, IEnumerable<IGraphQLResolverModel> resolvers)
+    public MediatRGraphQLMutationTypeModel(string name, IEnumerable<IGraphQLResolverModel> resolvers)
     {
         Name = name;
         Resolvers = resolvers;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Templates;
@@ -13,7 +14,11 @@ public class QueryGraphQLResolverModel : IGraphQLResolverModel
     {
         Name = query.Name.RemoveSuffix("Query");
         TypeReference = query.TypeReference;
-        Parameters = Array.Empty<IGraphQLParameterModel>();
+        Parameters = query.Properties.Select(x => new GraphQLParameterModel(
+            name: x.Name.ToCamelCase(),
+            typeReference: x.TypeReference,
+            mappedElement: x.InternalElement,
+            mappedPath: new[] { x.Name }));
         MappedElement = query.InternalElement;
     }
     public string Name { get; }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
@@ -52,16 +53,23 @@ class GraphQLResolverModel : IGraphQLResolverModel
     public IElement MappedElement { get; }
 }
 
-class GraphQLParameterModel : IGraphQLParameterModel
+public class GraphQLParameterModel : IGraphQLParameterModel
 {
-    public GraphQLParameterModel(string name, ITypeReference typeReference, IElementMapping mapping)
+    public GraphQLParameterModel(string name, ITypeReference typeReference, IElement mappedElement, string[] mappedPath)
     {
         Name = name;
         TypeReference = typeReference;
-        Mapping = mapping;
+        MappedElement = mappedElement;
+        MappedPath = mappedPath;
+    }
+
+    public GraphQLParameterModel(string name, ITypeReference typeReference, IElementMapping mapping) 
+        : this(name, typeReference, mapping?.Element as IElement, mapping?.Path.Select(x => x.Name.ToPascalCase()).ToArray())
+    {
     }
 
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public IElementMapping Mapping { get; }
+    public IElement MappedElement { get; }
+    public string[] MappedPath { get; }
 }
