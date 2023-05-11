@@ -1,4 +1,9 @@
+### Version 4.0.4
+
+- Fixed: Multiple `options.DefaultModelsExpandDepth(...)` lines were being generated.
+
 ### Version 4.0.3
+
 - Change: Swagger Generation using full Type names in schema, to avoid naming conflicts.
 
 ### Version 4.0.1
