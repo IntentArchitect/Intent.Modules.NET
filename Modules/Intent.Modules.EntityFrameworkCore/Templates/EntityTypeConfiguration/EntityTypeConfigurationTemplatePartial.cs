@@ -452,7 +452,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
 
-                if (index.IncludedColumns.Length > 0)
+                if (dbSupportsIncludedProperties && index.IncludedColumns.Length > 0)
                 {
                     sb.Append($@"
                 .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
