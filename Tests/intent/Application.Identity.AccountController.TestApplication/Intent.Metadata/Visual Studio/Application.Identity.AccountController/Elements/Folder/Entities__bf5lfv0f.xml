@@ -5,7 +5,7 @@
   <externalReference>45a2c76c-21c3-422b-a937-ab95106c6267</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1c2ed9ba-ec13-4b0d-a1a8-66d4bbc80974</parentFolderId>
@@ -23,6 +23,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="e3ac6467-0be2-4cb6-93e2-12362078c7ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser</name>
+      <display>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser</display>
+      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cce8d796-d633-4668-9634-193ee6a7c31e</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="4883b65a-bb04-44cc-ba30-0f9c408a114e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.DomainEntity</name>
       <display>Intent.Entities.DomainEntity</display>

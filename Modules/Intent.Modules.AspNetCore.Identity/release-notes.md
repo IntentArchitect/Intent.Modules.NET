@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- When applying `Identity` stereotype on a Class, it didn't update everywhere the appropriate Identity class.
+
 ### Version 4.0.4
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

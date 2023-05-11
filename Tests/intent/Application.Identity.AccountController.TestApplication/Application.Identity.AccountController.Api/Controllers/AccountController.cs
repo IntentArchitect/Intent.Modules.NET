@@ -6,7 +6,9 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Identity.AccountController.Api.Services;
 using Application.Identity.AccountController.Application.Account;
+using Application.Identity.AccountController.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -26,30 +28,31 @@ namespace Application.Identity.AccountController.Api.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
+        private readonly SignInManager<ApplicationIdentityUser> _signInManager;
+        private readonly UserManager<ApplicationIdentityUser> _userManager;
+        private readonly IUserStore<ApplicationIdentityUser> _userStore;
         private readonly ILogger<AccountController> _logger;
         private readonly IAccountEmailSender _accountEmailSender;
-        private readonly IConfiguration _configuration;
+        private readonly ITokenService _tokenService;
 
         public AccountController(
-            SignInManager<IdentityUser> signInManager,
-            IUserStore<IdentityUser> userStore,
-            UserManager<IdentityUser> userManager,
+            SignInManager<ApplicationIdentityUser> signInManager,
+            IUserStore<ApplicationIdentityUser> userStore,
+            UserManager<ApplicationIdentityUser> userManager,
             ILogger<AccountController> logger,
             IAccountEmailSender accountEmailSender,
-            IConfiguration configuration)
+            ITokenService tokenService)
         {
             _signInManager = signInManager;
             _userStore = userStore;
             _userManager = userManager;
             _logger = logger;
             _accountEmailSender = accountEmailSender;
-            _configuration = configuration;
+            _tokenService = tokenService;
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterDto input)
         {
             if (string.IsNullOrWhiteSpace(input.Email))
@@ -67,7 +70,7 @@ namespace Application.Identity.AccountController.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new IdentityUser();
+            var user = new ApplicationIdentityUser();
 
             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
             await _userManager.SetEmailAsync(user, input.Email);
@@ -101,7 +104,8 @@ namespace Application.Identity.AccountController.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDto input)
+        [AllowAnonymous]
+        public async Task<ActionResult<TokenResultDto>> Login(LoginDto input)
         {
             if (string.IsNullOrWhiteSpace(input.Email))
             {
@@ -142,45 +146,48 @@ namespace Application.Identity.AccountController.Api.Controllers
                 claims.Add(new Claim("role", role));
             }
 
-            var token = GetJwtToken(
-                username: email,
-                signingKey: Convert.FromBase64String(_configuration.GetSection("JwtToken:SigningKey").Get<string>()!),
-                issuer: _configuration.GetSection("JwtToken:Issuer").Get<string>()!,
-                audience: _configuration.GetSection("JwtToken:Audience").Get<string>()!,
-                expiration: TimeSpan.FromMinutes(120),
-                claims: claims.ToArray());
+            var token = _tokenService.GenerateAccessToken(username: email, claims: claims.ToArray());
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = newRefreshToken.Token;
+            user.RefreshTokenExpired = newRefreshToken.Expiry;
+            await _userManager.UpdateAsync(user);
 
             _logger.LogInformation("User logged in.");
-            return Ok(token);
-        }
 
-        private static string GetJwtToken(string username,
-            byte[] signingKey,
-            string issuer,
-            string audience,
-            TimeSpan expiration,
-            IReadOnlyCollection<Claim> claims)
-        {
-            var tokenClaims = new List<Claim>
+            return Ok(new TokenResultDto
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
-            tokenClaims.AddRange(claims);
-
-            var token = new JwtSecurityToken(
-                issuer: issuer,
-                audience: audience,
-                expires: DateTime.UtcNow.Add(expiration),
-                claims: tokenClaims,
-                signingCredentials: new(
-                    key: new SymmetricSecurityKey(signingKey),
-                    algorithm: SecurityAlgorithms.HmacSha256));
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+                AuthenticationToken = token,
+                RefreshToken = newRefreshToken.Token
+            });
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult<TokenResultDto>> RefreshToken(string authenticationToken, string refreshToken)
+        {
+            var principal = _tokenService.GetPrincipalFromExpiredToken(authenticationToken);
+            var username = principal.Identity.Name;
+
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null || user.RefreshToken != refreshToken) return BadRequest();
+
+            var newJwtToken = _tokenService.GenerateAccessToken(username, principal.Claims);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = newRefreshToken.Token;
+            user.RefreshTokenExpired = newRefreshToken.Expiry;
+            await _userManager.UpdateAsync(user);
+
+            return Ok(new TokenResultDto
+            {
+                AuthenticationToken = newJwtToken,
+                RefreshToken = newRefreshToken.Token
+            });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(ConfirmEmailDto input)
         {
             if (string.IsNullOrWhiteSpace(input.UserId))
@@ -217,6 +224,26 @@ namespace Application.Identity.AccountController.Api.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            var username = User.Identity?.Name;
+            var user = await _userManager.FindByNameAsync(username);
+            user.RefreshToken = null;
+            user.RefreshTokenExpired = null;
+            await _userManager.UpdateAsync(user);
+
+            _logger.LogInformation($"User [{username}] logged out the system.");
+            return Ok();
+        }
+    }
+
+    public class TokenResultDto
+    {
+        public string? AuthenticationToken { get; set; }
+        public string? RefreshToken { get; set; }
     }
 
     public class RegisterDto

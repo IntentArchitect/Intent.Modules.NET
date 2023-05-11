@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity.AccountController</id>
-  <version>1.1.2</version>
+  <version>2.0.0-pre.0</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</summary>
   <description>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</description>
@@ -33,17 +33,50 @@
       <role>Application</role>
       <location>Account</location>
     </template>
+    <template id="Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser" externalReference="044a871c-3e32-4738-a16f-15074fa657e5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.Entity.ApplicationIdentityUser</role>
+      <location></location>
+    </template>
+    <template id="Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUserConfiguration" externalReference="d574e85d-be2c-4dae-a720-2376366685c7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure</role>
+      <location>Persistence\Configurations</location>
+    </template>
+    <template id="Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete" externalReference="2e1a4fa0-a2da-437f-95e9-85c5bcecae81">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Services</location>
+    </template>
+    <template id="Intent.AspNetCore.Identity.AccountController.TokenServiceInterface" externalReference="a06334f3-a3ac-4036-8a05-f1f1d5c2dbc6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Services</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Identity.AccountController.ApplicationSecurityConfigurationFactoryExtension" externalReference="b369949a-03ff-4cb6-a99b-b7c3ba692613" />
+    <factoryExtension id="Intent.AspNetCore.Identity.AccountController.DbContextApplicationIdentityUserFactoryExtension" externalReference="13865168-61e7-42fb-a40f-8996295a6a4b" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Identity" version="4.0.4" />
     <dependency id="Intent.Application.Identity" version="3.4.1" />
+    <dependency id="Intent.AspNetCore.Identity" version="4.0.5-pre.0" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

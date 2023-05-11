@@ -1,4 +1,5 @@
 using System;
+using Application.Identity.AccountController.Domain.Entities;
 using Application.Identity.AccountController.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +14,7 @@ namespace Application.Identity.AccountController.Api.Configuration
     {
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            services.AddIdentityWithoutCookieAuth<IdentityUser, IdentityRole>()
+            services.AddIdentityWithoutCookieAuth<ApplicationIdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(
