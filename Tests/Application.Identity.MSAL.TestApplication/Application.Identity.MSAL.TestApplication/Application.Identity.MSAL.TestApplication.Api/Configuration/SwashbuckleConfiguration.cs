@@ -70,7 +70,6 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
                     options.OAuthAppName("Application.Identity.MSAL.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

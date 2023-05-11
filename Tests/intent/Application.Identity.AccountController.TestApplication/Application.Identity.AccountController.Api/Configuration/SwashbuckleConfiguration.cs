@@ -70,7 +70,6 @@ namespace Application.Identity.AccountController.Api.Configuration
                     options.OAuthAppName("Application.Identity.AccountController.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

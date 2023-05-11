@@ -70,7 +70,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Configura
                     options.OAuthAppName("Publish.CleanArch.MassTransit.OutboxNone.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

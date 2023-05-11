@@ -70,7 +70,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Api.Configuration
                     options.OAuthAppName("EntityFrameworkCore.SqlServer.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);
