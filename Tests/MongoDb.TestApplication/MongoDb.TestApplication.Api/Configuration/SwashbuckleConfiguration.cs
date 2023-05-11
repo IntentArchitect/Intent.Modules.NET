@@ -35,7 +35,10 @@ namespace MongoDb.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger();
+            app.UseSwagger(
+                options =>
+                {
+                });
             app.UseSwaggerUI(
                 options =>
                 {
