@@ -432,6 +432,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             var statements = new List<string>();
+            var databaseProvider = ExecutionContext.Settings.GetDatabaseSettings()?.DatabaseProvider()?.AsEnum();
+            var dbSupportsIncludedProperties = databaseProvider switch
+            {
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => true,
+                _ => false
+            };
+
+            if (!dbSupportsIncludedProperties && indexes.Any(i => i.IncludedColumns.Any()))
+            {
+                Logging.Log.Warning($"{model.Name} has one or more indexes with \"Included\" columns which is unsupported by the selected database provider ({databaseProvider}).");
+            }
 
             foreach (var index in indexes)
             {

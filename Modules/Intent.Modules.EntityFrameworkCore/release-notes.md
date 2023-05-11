@@ -1,4 +1,8 @@
-﻿### Version 4.4.0
+﻿### Version 4.4.1
+
+- Fixed: When an index had an `Included` column, `.IncludeProperties(...)` was always generated which would result in uncompilable code for database providers besides `SQL Server`. Instead of generating uncompilable code, the Software Factory will now show a warning.
+
+### Version 4.4.0
 
 - Update: Value Objects can now be serialized to a JSON column.
 - Fixed: One-to-one relationships with the `Table` stereotype didn't provide the correct foreign key relationship.
