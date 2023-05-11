@@ -24,20 +24,75 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IStateRepository", @class => @class
-                    .AddMethod("void", "Update", method => method
-                        .AddGenericParameter("T")
-                        .AddParameter("string", "id")
-                        .AddParameter("T", "state")
+                    .WithComments(new[]
+                    {
+                        "/// <summary>",
+                        "/// A generic repository for working with values by key against an underlying key/value state store.",
+                        "/// </summary>"
+                    })
+                    .AddMethod("void", "Upsert", method => method
+                        .WithComments(new[]
+                        {
+                            "/// <summary>",
+                            "/// Upserts the provided <paramref name=\"value\" /> associated with the provided <paramref name=\"key\" /> to the state",
+                            "/// store.",
+                            "/// </summary>",
+                            "/// <remarks>",
+                            "/// The implementation of this interface follows a unit of work pattern. Calling this",
+                            "/// method internally queues up a work action which is only executed when",
+                            "/// <see cref=\"FlushAllAsync\"/> is called.",
+                            "/// </remarks>",
+                            "/// <typeparam name=\"TValue\">The type of the data that will be JSON serialized and stored in the state store.</typeparam>",
+                            "/// <param name=\"key\">The state key.</param>",
+                            "/// <param name=\"value\">The data that will be JSON serialized and stored in the state store.</param>"
+                        })
+                        .AddGenericParameter("TValue")
+                        .AddParameter("string", "key")
+                        .AddParameter("TValue", "value")
                     )
-                    .AddMethod("Task<T>", "Get", method => method
-                        .AddGenericParameter("T")
-                        .AddParameter("string", "id")
+                    .AddMethod("Task<TValue>", "GetAsync", method => method
+                        .WithComments(new[]
+                        {
+                            "",
+                            "/// <summary>",
+                            "/// Gets the current value associated with the <paramref name=\"key\" /> from the state store.",
+                            "/// </summary>",
+                            "/// <typeparam name=\"TValue\">The data type of the value to read.</typeparam>",
+                            "/// <param name=\"key\">The state key.</param>",
+                            "/// <param name=\"cancellationToken\">A <see cref=\"CancellationToken\" /> that can be used to cancel the operation.</param>",
+                            "/// <returns>A <see cref=\"Task{T}\" /> that will return the value when the operation has completed.</returns>"
+                        })
+                        .AddGenericParameter("TValue")
+                        .AddParameter("string", "key")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                     )
                     .AddMethod("void", "Delete", method => method
-                        .AddParameter("string", "id")
+                        .WithComments(new[]
+                        {
+                            "",
+                            "/// <summary>",
+                            "/// Deletes the value associated with the provided <paramref name=\"key\" /> in the state store.",
+                            "/// </summary>",
+                            "/// <remarks>",
+                            "/// The implementation of this interface follows a unit of work pattern. Calling this",
+                            "/// method internally queues up a work action which is only executed when",
+                            "/// <see cref=\"FlushAllAsync\"/> is called.",
+                            "/// </remarks>",
+                            "/// <param name=\"key\">The state key.</param>",
+                            "/// <returns>A <see cref=\"Task\" /> that will complete when the operation has completed.</returns>"
+                        })
+                        .AddParameter("string", "key")
                     )
                     .AddMethod("Task", "FlushAllAsync", method => method
+                        .WithComments(new[]
+                        {
+                            "",
+                            "/// <summary>",
+                            "/// Executes any work actions which were placed in the internal queue.",
+                            "/// </summary>",
+                            "/// <param name=\"cancellationToken\">A <see cref=\"CancellationToken\" /> that can be used to cancel the operation.</param>",
+                            "/// <returns>A <see cref=\"Task\" /> that will complete when the operation has completed.</returns>",
+                        })
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                     )
                 );
