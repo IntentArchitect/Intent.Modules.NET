@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.EntityFrameworkCore.SoftDelete</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <summary>Implements the Soft Delete pattern introduced by Justin James.</summary>
+  <description>Implements the Soft Delete pattern introduced by Justin James.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates>
+    <template id="Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface" externalReference="255a6b33-32b8-4559-a863-1a5ae5f56afd">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain</role>
+      <location>Common/Interfaces</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInstallerFactoryExtension" externalReference="6e77c54e-0aac-41d0-a908-211243b81c07" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.3.21" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.1" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore.SoftDelete/Intent.EntityFrameworkCore.SoftDelete.pkg.config" externalReference="c2469c4c-0dd6-4f7f-9c07-c13268331fcf" />
+    <install target="Domain" src="modelers/Soft Delete Settings.designer.settings" externalReference="6233bac2-8524-441a-ae4f-1fef1a38abe6" />
+  </metadata>
+</package>

@@ -75,6 +75,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="72d4ff34-d437-4a89-999d-5fb8537439f1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.ContractEnumModel</name>
+      <display>Intent.Application.Dtos.ContractEnumModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>51de1101-fbbe-495b-b316-4384bd8e6179</parentFolderId>
+      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="ac6ae23e-147f-4c71-ba37-221f3723c949" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.DtoModel</name>
       <display>Intent.Application.Dtos.DtoModel</display>
@@ -199,20 +215,6 @@
       <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="72d4ff34-d437-4a89-999d-5fb8537439f1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.ContractEnumModel</name>
-      <display>Intent.Application.Dtos.ContractEnumModel</display>
-      <externalReference>Intent.Application.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>51de1101-fbbe-495b-b316-4384bd8e6179</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

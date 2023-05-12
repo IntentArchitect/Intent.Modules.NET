@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.InheritanceAssociations;
@@ -21,6 +23,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.C
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPC.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPH.InheritanceAssociations;
@@ -31,6 +34,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.C
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -61,6 +65,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         public DbSet<Branch> Branches { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
+        public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
         public DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
         public DbSet<Domain.Entities.TPT.InheritanceAssociations.ConcreteBaseClass> TPTInheritanceAssociationsConcreteBaseClasses { get; set; }
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.ConcreteBaseClass> TPCInheritanceAssociationsConcreteBaseClasses { get; set; }
@@ -151,6 +156,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
+            SetSoftDeleteProperties();
             await DispatchEvents();
             return await base.SaveChangesAsync(cancellationToken);
         }
@@ -169,6 +175,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithSoftDeleteConfiguration());
             modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.TPT.InheritanceAssociations.ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.TPC.InheritanceAssociations.ConcreteBaseClassConfiguration());
@@ -286,6 +293,26 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity);
+            }
+        }
+
+        private void SetSoftDeleteProperties()
+        {
+            ChangeTracker.DetectChanges();
+
+            var entities = ChangeTracker
+                .Entries()
+                .Where(t => t.Entity is ISoftDelete && t.State == EntityState.Deleted)
+                .ToArray();
+            if (!entities.Any())
+            {
+                return;
+            }
+            foreach (var entry in entities)
+            {
+                var entity = (ISoftDelete)entry.Entity;
+                entity.IsDeleted = true;
+                entry.State = EntityState.Modified;
             }
         }
     }

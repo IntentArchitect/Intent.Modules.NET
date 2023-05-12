@@ -10,6 +10,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Associations;
@@ -17,6 +18,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Co
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -52,6 +54,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<BaseAssociated> BaseAssociateds { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ClassA> ClassAs { get; set; }
+        public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
         public DbSet<Composite> Composites { get; set; }
         public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
@@ -87,6 +90,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
+            SetSoftDeleteProperties();
             await DispatchEvents();
             return await base.SaveChangesAsync(cancellationToken);
         }
@@ -106,6 +110,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new ClassAConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithSoftDeleteConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
@@ -177,6 +182,26 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity);
+            }
+        }
+
+        private void SetSoftDeleteProperties()
+        {
+            ChangeTracker.DetectChanges();
+
+            var entities = ChangeTracker
+                .Entries()
+                .Where(t => t.Entity is ISoftDelete && t.State == EntityState.Deleted)
+                .ToArray();
+            if (!entities.Any())
+            {
+                return;
+            }
+            foreach (var entry in entities)
+            {
+                var entity = (ISoftDelete)entry.Entity;
+                entity.IsDeleted = true;
+                entry.State = EntityState.Modified;
             }
         }
     }
