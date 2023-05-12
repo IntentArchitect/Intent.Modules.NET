@@ -48,7 +48,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRoot(
             [FromBody] CreateImplicitKeyAggrRootCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new JsonResponse<Guid>(result));
@@ -66,7 +66,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromBody] CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (implicitKeyAggrRootId != command.ImplicitKeyAggrRootId)
             {
@@ -85,7 +85,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteImplicitKeyAggrRoot([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteImplicitKeyAggrRoot(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteImplicitKeyAggrRootCommand { Id = id }, cancellationToken);
             return Ok();
@@ -102,7 +104,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> DeleteImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
             return Ok();
@@ -119,7 +121,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateImplicitKeyAggrRoot(
             [FromRoute] Guid id,
             [FromBody] UpdateImplicitKeyAggrRootCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (id != command.Id)
             {
@@ -142,7 +144,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
             [FromBody] UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (implicitKeyAggrRootId != command.ImplicitKeyAggrRootId)
             {
@@ -169,7 +171,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ImplicitKeyAggrRootDto>> GetImplicitKeyAggrRootById(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootByIdQuery { Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -188,7 +190,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>> GetImplicitKeyAggrRootImplicitKeyNestedCompositionById(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -204,7 +206,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>>> GetImplicitKeyAggrRootImplicitKeyNestedCompositions(
             [FromRoute] Guid implicitKeyAggrRootId,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery { ImplicitKeyAggrRootId = implicitKeyAggrRootId }, cancellationToken);
             return Ok(result);
@@ -216,7 +218,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/implicit-key-aggr-roots")]
         [ProducesResponseType(typeof(List<ImplicitKeyAggrRootDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<ImplicitKeyAggrRootDto>>> GetImplicitKeyAggrRoots(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<ImplicitKeyAggrRootDto>>> GetImplicitKeyAggrRoots(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootsQuery(), cancellationToken);
             return Ok(result);

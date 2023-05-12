@@ -44,7 +44,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<long>> CreateAggregateRootLong(
             [FromBody] CreateAggregateRootLongCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetAggregateRootLongById), new { id = result }, new JsonResponse<long>(result));
@@ -58,7 +58,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteAggregateRootLong([FromRoute] long id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteAggregateRootLong(
+            [FromRoute] long id,
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteAggregateRootLongCommand { Id = id }, cancellationToken);
             return Ok();
@@ -75,7 +77,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateAggregateRootLong(
             [FromRoute] long id,
             [FromBody] UpdateAggregateRootLongCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (id != command.Id)
             {
@@ -98,7 +100,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateRootLongDto>> GetAggregateRootLongById(
             [FromRoute] long id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootLongByIdQuery { Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -116,7 +118,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<AggregateRootLongDto>>> GetAggregateRootLongs(
             [FromBody] GetAggregateRootLongsQuery query,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(query, cancellationToken);
             return result != null ? Ok(result) : NotFound();

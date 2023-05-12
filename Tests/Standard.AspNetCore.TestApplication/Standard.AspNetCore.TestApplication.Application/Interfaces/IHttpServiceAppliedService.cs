@@ -11,11 +11,8 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface IHttpServiceAppliedService : IDisposable
     {
-
         Task<string> GetValue();
-
         Task PostValue(string value);
-
         Task NonAppliedOperation();
 
     }

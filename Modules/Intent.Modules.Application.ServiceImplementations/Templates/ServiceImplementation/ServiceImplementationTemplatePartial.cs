@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -54,7 +55,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name);
+                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, parm => parm.WithDefaultValue(parameter.Value));
                             }
                             method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
                         });

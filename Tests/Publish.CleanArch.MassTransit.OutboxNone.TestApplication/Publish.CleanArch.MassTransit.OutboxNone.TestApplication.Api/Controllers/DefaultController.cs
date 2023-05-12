@@ -35,7 +35,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> TestPublish(
             [FromBody] TestPublishCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);

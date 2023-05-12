@@ -40,7 +40,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> CreateAggregateTestNoIdReturn(
             [FromBody] CreateAggregateTestNoIdReturnCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);
@@ -56,7 +56,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateTestNoIdReturn(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteAggregateTestNoIdReturnCommand { Id = id }, cancellationToken);
             return Ok();
@@ -73,7 +73,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateAggregateTestNoIdReturn(
             [FromRoute] Guid id,
             [FromBody] UpdateAggregateTestNoIdReturnCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (id != command.Id)
             {
@@ -96,7 +96,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateTestNoIdReturnDto>> GetAggregateTestNoIdReturnById(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateTestNoIdReturnByIdQuery { Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -108,7 +108,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/aggregate-test-no-id-returns")]
         [ProducesResponseType(typeof(List<AggregateTestNoIdReturnDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<AggregateTestNoIdReturnDto>>> GetAggregateTestNoIdReturns(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<AggregateTestNoIdReturnDto>>> GetAggregateTestNoIdReturns(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateTestNoIdReturnsQuery(), cancellationToken);
             return Ok(result);

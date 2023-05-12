@@ -39,7 +39,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateCustomer(CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> CreateCustomer(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new CreateCustomerCommand(), cancellationToken);
             return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
@@ -53,7 +53,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteCustomerCommand { Id = id }, cancellationToken);
             return Ok();
@@ -67,7 +67,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new UpdateCustomerCommand { Id = id }, cancellationToken);
             return NoContent();
@@ -85,7 +85,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CustomerDto>> GetCustomerById(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -97,7 +97,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [HttpGet("api/customers")]
         [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
             return Ok(result);

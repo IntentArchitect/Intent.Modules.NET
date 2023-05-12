@@ -1,3 +1,7 @@
+### Version 4.3.0
+
+- Default Values are now populated on Operation Parameters and Constructor Parameters.
+
 ### Version 4.2.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

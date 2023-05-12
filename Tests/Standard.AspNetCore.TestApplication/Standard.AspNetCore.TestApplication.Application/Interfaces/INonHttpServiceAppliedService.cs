@@ -11,7 +11,6 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface INonHttpServiceAppliedService : IDisposable
     {
-
         Task Operation1();
 
     }

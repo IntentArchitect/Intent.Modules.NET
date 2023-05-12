@@ -44,7 +44,9 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Create([FromBody] InvoiceCreateDTO dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Create(
+            [FromBody] InvoiceCreateDTO dto,
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -70,7 +72,9 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<InvoiceDTO>> FindById([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<InvoiceDTO>> FindById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
             result = await _appService.FindById(id);
@@ -87,7 +91,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<InvoiceDTO>>> FindAll(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<InvoiceDTO>>> FindAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<InvoiceDTO>);
             result = await _appService.FindAll();
@@ -109,7 +113,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult> Update(
             [FromRoute] Guid id,
             [FromBody] InvoiceUpdateDTO dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -133,7 +137,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -162,7 +166,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<InvoiceDTO>> QueryParamOp(
             [FromQuery] string param1,
             [FromQuery] int param2,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
             result = await _appService.QueryParamOp(param1, param2);
@@ -183,7 +187,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> HeaderParamOp(
             [FromHeader(Name = "MY-HEADER")] string param1,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -210,7 +214,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult> FormParamOp(
             [FromForm] string param1,
             [FromForm] int param2,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -234,7 +238,9 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> RouteParamOp([FromRoute] string param1, CancellationToken cancellationToken)
+        public async Task<ActionResult> RouteParamOp(
+            [FromRoute] string param1,
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -258,7 +264,9 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> BodyParamOp([FromBody] InvoiceDTO param1, CancellationToken cancellationToken)
+        public async Task<ActionResult> BodyParamOp(
+            [FromBody] InvoiceDTO param1,
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -280,7 +288,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken)
+        public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -305,7 +313,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
             result = await _appService.GetWrappedPrimitiveGuid();
@@ -325,7 +333,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> GetWrappedPrimitiveString(CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> GetWrappedPrimitiveString(CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = await _appService.GetWrappedPrimitiveString();
@@ -345,7 +353,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<int>> GetWrappedPrimitiveInt(CancellationToken cancellationToken)
+        public async Task<ActionResult<int>> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default)
         {
             var result = default(int);
             result = await _appService.GetWrappedPrimitiveInt();
@@ -364,7 +372,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
             result = await _appService.GetPrimitiveGuid();
@@ -383,7 +391,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> GetPrimitiveString(CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> GetPrimitiveString(CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = await _appService.GetPrimitiveString();
@@ -402,7 +410,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<int>> GetPrimitiveInt(CancellationToken cancellationToken)
+        public async Task<ActionResult<int>> GetPrimitiveInt(CancellationToken cancellationToken = default)
         {
             var result = default(int);
             result = await _appService.GetPrimitiveInt();
@@ -419,7 +427,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<string>>> GetPrimitiveStringList(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<string>>> GetPrimitiveStringList(CancellationToken cancellationToken = default)
         {
             var result = default(List<string>);
             result = await _appService.GetPrimitiveStringList();
@@ -439,7 +447,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<InvoiceDTO>> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken)
+        public async Task<ActionResult<InvoiceDTO>> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
             result = await _appService.GetInvoiceOpWithReturnTypeWrapped();

@@ -12,15 +12,10 @@ namespace MongoDb.TestApplication.Application.Interfaces
 
     public interface IIdTypeGuidsService : IDisposable
     {
-
         Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto);
-
         Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id);
-
         Task<List<IdTypeGuidDto>> FindIdTypeGuids();
-
         Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto);
-
         Task DeleteIdTypeGuid(Guid id);
 
     }

@@ -12,15 +12,10 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface IClassASService : IDisposable
     {
-
         Task Create(ClassACreateDTO dto);
-
         Task<ClassADTO> FindById(Guid id);
-
         Task<List<ClassADTO>> FindAll();
-
         Task Update(Guid id, ClassAUpdateDTO dto);
-
         Task Delete(Guid id);
 
     }

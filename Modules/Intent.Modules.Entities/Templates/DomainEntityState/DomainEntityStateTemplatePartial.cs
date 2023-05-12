@@ -39,7 +39,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             {
                 FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Interface);
             }
-            
+
             AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
             AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);

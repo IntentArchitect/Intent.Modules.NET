@@ -149,7 +149,8 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 method.WithoutAccessModifier();
                 foreach (var parameter in operation.Parameters)
                 {
-                    method.AddParameter(InterfaceTemplate.GetOperationTypeName(parameter), parameter.Name);
+                    method.AddParameter(InterfaceTemplate.GetOperationTypeName(parameter), parameter.Name,
+                        parm => parm.WithDefaultValue(parameter.Value));
                 }
 
                 method.AddStatement(

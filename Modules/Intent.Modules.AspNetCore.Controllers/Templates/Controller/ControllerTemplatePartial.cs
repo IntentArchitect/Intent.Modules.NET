@@ -60,6 +60,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
+                                    param.WithDefaultValue(parameter.Value);
                                     var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))
                                     {
@@ -68,7 +69,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
-                            method.AddParameter("CancellationToken", "cancellationToken");
+                            method.AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
                         });
                     }
                 });

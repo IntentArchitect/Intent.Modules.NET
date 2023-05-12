@@ -41,7 +41,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> GetValue(CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> GetValue(CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = await _appService.GetValue();
@@ -57,7 +57,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PostValue(string value, CancellationToken cancellationToken)
+        public async Task<ActionResult> PostValue(string value, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

@@ -7,9 +7,11 @@ using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
+using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +36,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
         public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
+        public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
@@ -59,6 +62,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateTestNoIdReturnConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeManyBConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());

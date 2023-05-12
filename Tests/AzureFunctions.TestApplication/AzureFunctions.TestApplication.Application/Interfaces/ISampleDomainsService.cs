@@ -12,17 +12,11 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
 
     public interface ISampleDomainsService : IDisposable
     {
-
         Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto);
-
         Task<SampleDomainDto> FindSampleDomainById(Guid id);
-
         Task<List<SampleDomainDto>> FindSampleDomains();
-
         Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto);
-
         Task DeleteSampleDomain(Guid id);
-
         Task<string> MappedAzureFunction(SampleMappedRequest request);
 
     }

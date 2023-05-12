@@ -51,7 +51,8 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName());
+                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),
+                                    parm => parm.WithDefaultValue(parameter.Value));
                             }
                             method.AddStatement("throw new NotImplementedException(\"Implement your domain service logic here...\");");
                         });
