@@ -58,10 +58,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {

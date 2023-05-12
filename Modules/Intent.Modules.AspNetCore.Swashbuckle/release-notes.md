@@ -1,6 +1,7 @@
 ### Version 4.0.4
 
 - Fixed: Multiple `options.DefaultModelsExpandDepth(...)` lines were being generated.
+- Fixed: `app.UseSwagger()` would needlessly add the options parameter with an empty statement block.
 
 ### Version 4.0.3
 

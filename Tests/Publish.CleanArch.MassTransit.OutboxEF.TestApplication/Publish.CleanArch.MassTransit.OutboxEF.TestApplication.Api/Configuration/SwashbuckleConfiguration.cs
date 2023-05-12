@@ -58,10 +58,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {

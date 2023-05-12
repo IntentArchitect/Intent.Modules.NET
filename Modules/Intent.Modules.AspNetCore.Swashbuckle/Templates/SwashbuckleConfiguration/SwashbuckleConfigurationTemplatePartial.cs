@@ -69,8 +69,6 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                     method.Static();
                     method.AddParameter("IApplicationBuilder", "app", conf => conf.WithThisModifier());
                     method.AddStatement(new CSharpInvocationStatement("app.UseSwagger")
-                        .AddArgument(new CSharpLambdaBlock("options"))
-                        .WithArgumentsOnNewLines()
                         .AddMetadata("UseSwagger", true));
 
                     method.AddStatement(new CSharpInvocationStatement("app.UseSwaggerUI")

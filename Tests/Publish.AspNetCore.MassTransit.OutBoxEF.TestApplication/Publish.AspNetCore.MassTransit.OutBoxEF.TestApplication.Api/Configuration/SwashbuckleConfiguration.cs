@@ -35,10 +35,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Configurat
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
