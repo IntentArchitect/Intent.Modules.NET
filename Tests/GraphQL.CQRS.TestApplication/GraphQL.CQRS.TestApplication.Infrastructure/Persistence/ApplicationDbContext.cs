@@ -18,6 +18,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProfitCenter> ProfitCenters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +28,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProfitCenterConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

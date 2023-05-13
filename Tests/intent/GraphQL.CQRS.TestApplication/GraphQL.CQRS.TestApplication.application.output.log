@@ -88,6 +88,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/ProductsMutations.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductsMutations.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/CustomerQueries.cs</ApplicationRelativeFilePath>
@@ -99,6 +106,13 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/InvoiceQueries.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceQueries.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/ProductsQueries.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductsQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -717,6 +731,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ab792ef0-4c06-43f9-af94-0be3fad08376</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5f880285-e3d9-41e0-9b27-a424a903351c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Domain/Entities/ProfitCenter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProfitCenter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>0074d2b0-7ac9-42c4-9f32-6d181341a6db</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#0074d2b0-7ac9-42c4-9f32-6d181341a6db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -754,6 +776,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Domain/Repositories/IProductRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6eb3cb5e-ec2f-4487-bff3-36a22604448d</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5f880285-e3d9-41e0-9b27-a424a903351c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Domain/Repositories/IProfitCenterRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IProfitCenterRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -813,6 +843,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>72a5cea3-eb18-4387-9f1e-bc4dde5d89e1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5f880285-e3d9-41e0-9b27-a424a903351c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Infrastructure/Persistence/Configurations/ProfitCenterConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProfitCenterConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c6b8f324-f9b5-45c9-b5da-09dd19559aec</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -850,6 +888,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Infrastructure/Repositories/ProductRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a879d443-4bdb-4bac-84e9-1e7c50745e97</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5f880285-e3d9-41e0-9b27-a424a903351c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Infrastructure/Repositories/ProfitCenterRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProfitCenterRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

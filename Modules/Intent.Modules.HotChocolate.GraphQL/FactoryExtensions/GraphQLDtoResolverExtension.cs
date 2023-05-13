@@ -14,7 +14,6 @@ using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modelers.Services.CQRS.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -55,26 +54,31 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                                     method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToCamelCase());
                                 }
 
-                                if (resolver.MappedElement?.IsClassModel() == true && 
-                                    resolver.Parameters.Count() == 1 &&
-                                    resolver.GetMatchingInDtoParameters(dtoModel).Count() == 1 &&
-                                    resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
+                                if (resolver.MappedElement?.IsClassModel() == true &&
+                                    template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.MappedElement.Id, out var repositoryInterface))
                                 {
                                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                                    method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.MappedElement.Id), "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                                    method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                                    method.AddStatement($"var entity = await repository.FindByIdAsync({resolver.Parameters.First().Name.ToPascalCase()}, cancellationToken);");
-                                    method.AddStatement($"return entity.MapTo{resolver.TypeReference.Element.Name.ToPascalCase()}(mapper);");
+                                    method.AddParameter(repositoryInterface, "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
+
+                                    if (template.TryGetTemplate<IIntentTemplate>(TemplateFulfillingRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _))
+                                    {
+                                        method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
+                                        
+                                        if (resolver.Parameters.Count() == 1 &&
+                                                resolver.GetMatchingInDtoParameters(dtoModel).Count() == 1 &&
+                                                resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
+                                        {
+                                            method.AddStatement($"var entity = await repository.FindByIdAsync({resolver.Parameters.First().Name.ToPascalCase()}, cancellationToken);");
+                                            method.AddStatement($"return entity.MapTo{resolver.TypeReference.Element.Name.ToPascalCase()}(mapper);");
+                                        }
+                                        else if (!resolver.Parameters.Any() &&
+                                                 resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
+                                        {
+                                            method.AddStatement($"var entities = await repository.FindAllAsync(cancellationToken);");
+                                            method.AddStatement($"return entities.MapTo{resolver.TypeReference.Element.Name.ToPascalCase()}List(mapper);");
+                                        }
+                                    }
                                 }
-                                //else if (resolver.Mapping?.Element.IsClassModel() == true &&
-                                //         resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
-                                //{
-                                //    method.AddParameter(template.UseType("CancellationToken"), "cancellationToken");
-                                //    method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.Mapping.ElementId), "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                                //    method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                                //    method.AddStatement($"var entity = await repository.FindByIdAsync({resolver.Parameters.First().Name.ToPascalCase()}, cancellationToken);");
-                                //    method.AddStatement($"return entity.MapTo{resolver.TypeReference.Element.Name.ToPascalCase()}(mapper);");
-                                //}
                             });
                         }, 199);
                     }

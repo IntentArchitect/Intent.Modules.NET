@@ -33,7 +33,14 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements>
         <childElement id="7c26d23f-e4c8-4f79-b4f8-0def27c33e1c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
@@ -83,7 +90,14 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements>
         <childElement id="63fc88a3-04af-4500-aa80-29f4df12afee" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
@@ -132,7 +146,14 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -154,7 +175,14 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements>
         <childElement id="fa29c857-723d-4eeb-bae6-d508f3416825" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
@@ -225,7 +253,14 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements>
         <childElement id="27a8c671-167f-4e3d-8dfd-8c8f8df50417" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">

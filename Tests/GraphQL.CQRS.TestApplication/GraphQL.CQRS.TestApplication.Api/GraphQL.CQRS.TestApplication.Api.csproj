@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GraphQL.CQRS.TestApplication.Application\GraphQL.CQRS.TestApplication.Application.csproj" />
     <ProjectReference Include="..\GraphQL.CQRS.TestApplication.Infrastructure\GraphQL.CQRS.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\GraphQL.CQRS.TestApplication.Domain\GraphQL.CQRS.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

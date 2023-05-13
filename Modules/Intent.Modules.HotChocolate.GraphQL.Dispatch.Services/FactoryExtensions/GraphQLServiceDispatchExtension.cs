@@ -2,12 +2,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
 using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
@@ -40,7 +38,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                     var @class = file.Classes.First();
                     foreach (var method in @class.Methods)
                     {
-                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) && 
+                        if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) &&
                             model.MappedElement?.IsOperationModel() == true)
                         {
                             if (model.Parameters.Count() > 1)

@@ -25,6 +25,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProfitCenterRepository, ProfitCenterRepository>();
             return services;
         }
     }

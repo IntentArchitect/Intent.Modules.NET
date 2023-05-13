@@ -76,6 +76,8 @@ namespace Intent.Modules.Constants
             {
                 public const string Dto = "Application.Validation.Dto";
             }
+
+            public const string Mappings = "Application.Mappings";
         }
 
         public static class Infrastructure

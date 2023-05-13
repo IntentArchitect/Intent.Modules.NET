@@ -30,7 +30,8 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                 .AddQueryType(x => x.Name("Query"))
                 .AddTypeExtension<Query>()
                 .AddTypeExtension<CustomerQueries>()
-                .AddTypeExtension<InvoiceQueries>();
+                .AddTypeExtension<InvoiceQueries>()
+                .AddTypeExtension<ProductsQueries>();
         }
 
         private static IRequestExecutorBuilder AddGraphQLMutations(this IRequestExecutorBuilder builder)
@@ -39,7 +40,8 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                 .AddMutationType(x => x.Name("Mutation"))
                 .AddTypeExtension<Mutation>()
                 .AddTypeExtension<CustomerMutations>()
-                .AddTypeExtension<InvoiceMutations>();
+                .AddTypeExtension<InvoiceMutations>()
+                .AddTypeExtension<ProductsMutations>();
         }
 
     }

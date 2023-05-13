@@ -16,11 +16,14 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Modelers.Services" version="3.4.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.HotChocolate.GraphQL.Dispatch.Services/Intent.HotChocolate.GraphQL.Dispatch.Services.pkg.config" externalReference="4da197c7-6b64-4e7f-9a50-660fe67c563d" />
+  </metadata>
 </package>

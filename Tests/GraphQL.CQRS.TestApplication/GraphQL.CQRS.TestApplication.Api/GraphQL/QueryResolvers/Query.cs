@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using GraphQL.CQRS.TestApplication.Application.Customers;
 using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomerById;
 using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomers;
@@ -9,6 +10,7 @@ using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using GraphQL.CQRS.TestApplication.Application.Invoices;
 using GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoices;
 using GraphQL.CQRS.TestApplication.Application.Products;
+using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using HotChocolate;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -37,6 +39,25 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers
         public async Task<ProductDto> GetProductById(Guid id, [Service] IProductsService service)
         {
             return await service.FindProductById(id);
+        }
+
+        public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
+            CancellationToken cancellationToken,
+            [Service] ICustomerRepository repository,
+            [Service] IMapper mapper)
+        {
+            var entities = await repository.FindAllAsync(cancellationToken);
+            return entities.MapToCustomerDtoList(mapper);
+        }
+
+        public async Task<CustomerDto> GetCustomer(
+            Guid id,
+            CancellationToken cancellationToken,
+            [Service] ICustomerRepository repository,
+            [Service] IMapper mapper)
+        {
+            var entity = await repository.FindByIdAsync(id, cancellationToken);
+            return entity.MapToCustomerDto(mapper);
         }
     }
 }
