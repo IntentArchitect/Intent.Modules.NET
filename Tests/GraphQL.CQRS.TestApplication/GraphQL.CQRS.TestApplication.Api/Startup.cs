@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.CQRS.TestApplication.Api.Configuration;
 using GraphQL.CQRS.TestApplication.Api.Filters;
-using GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers;
 using GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers;
 using GraphQL.CQRS.TestApplication.Application;
 using GraphQL.CQRS.TestApplication.Application.Customers;
@@ -74,6 +73,7 @@ namespace GraphQL.CQRS.TestApplication.Api
             app.UseSerilogRequestLogging();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseWebSockets();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors();

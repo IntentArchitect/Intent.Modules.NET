@@ -13,8 +13,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
-using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -35,8 +35,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var queryTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(QueryResolverTemplate.TemplateId));
-            var mutationTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(MutationResolverTemplate.TemplateId));
+            var queryTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(QueryTypeTemplate.TemplateId));
+            var mutationTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(MutationTypeTemplate.TemplateId));
             foreach (var template in queryTypeTemplates.Concat(mutationTypeTemplates))
             {
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Query);

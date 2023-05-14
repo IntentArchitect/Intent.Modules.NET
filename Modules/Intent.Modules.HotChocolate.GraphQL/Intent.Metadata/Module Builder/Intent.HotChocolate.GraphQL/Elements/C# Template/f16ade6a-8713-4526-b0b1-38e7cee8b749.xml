@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="f16ade6a-8713-4526-b0b1-38e7cee8b749" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>MutationResolver</name>
-  <display>MutationResolver: File Per Model</display>
+  <name>MutationType</name>
+  <display>MutationType: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="3521fb2a-1738-4b59-abfe-261424e99b9d">
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="81104ae6-2bc5-4bae-b05a-f987b0372d81" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="02864de4-afe0-42a1-a655-1eeb68c8a098" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Api.GraphQL.MutationResolver" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="GraphQL/MutationResolvers" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Api.GraphQL.MutationType" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="GraphQL/Mutations" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

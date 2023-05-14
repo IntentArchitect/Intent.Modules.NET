@@ -6,8 +6,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -54,7 +54,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
                             .AddChainStatement("AddQueryType(x => x.Name(\"Query\"))"), statement =>
                             {
-                                var queryResolvers = ExecutionContext.FindTemplateInstances(QueryResolverTemplate.TemplateId, (t) => true);
+                                var queryResolvers = ExecutionContext.FindTemplateInstances(QueryTypeTemplate.TemplateId, (t) => true);
                                 var chain = (CSharpMethodChainStatement)statement;
                                 foreach (var queryResolver in queryResolvers)
                                 {
@@ -70,7 +70,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
                             .AddChainStatement("AddMutationType(x => x.Name(\"Mutation\"))"), statement =>
                         {
-                            var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationResolverTemplate.TemplateId, (t) => true);
+                            var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true);
                             var chain = (CSharpMethodChainStatement)statement;
                             foreach (var mutationResolver in mutationResolvers)
                             {
@@ -99,8 +99,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
 
         private string GetGraphQLRegistrations()
         {
-            var queryResolvers = ExecutionContext.FindTemplateInstances(QueryResolverTemplate.TemplateId, (t) => true);
-            var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationResolverTemplate.TemplateId, (t) => true);
+            var queryResolvers = ExecutionContext.FindTemplateInstances(QueryTypeTemplate.TemplateId, (t) => true);
+            var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true);
             return $@"
                 .AddMutationType(x => x.Name(""Mutation"")){(mutationResolvers.Any() ? $@"
                     {string.Join(@"

@@ -6,7 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,11 +25,11 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => QueryResolverTemplate.TemplateId;
+        public override string TemplateId => QueryTypeTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IGraphQLQueryTypeModel model)
         {
-            return new QueryResolverTemplate(outputTarget, model);
+            return new QueryTypeTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -38,7 +38,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             return _metadataManager.Services(application).GetQueryModels()
                 .Where(x => x.HasGraphQLEnabled())
                 .GroupBy(x => x.InternalElement.ParentElement)
-                .Select(x => new MediatRGraphQLQueryTypeModel($"{x.Key.Name.Singularize()}Queries", x.Select(q => new QueryGraphQLResolverModel(q)).ToList()))
+                .Select(x => new MediatRGraphQLQueryTypeModel(x.Key.Id, $"{x.Key.Name.Singularize()}Queries", x.Select(q => new QueryGraphQLResolverModel(q)).ToList()))
                 .ToList();
         }
     }

@@ -269,8 +269,9 @@
       <childElements />
     </childElement>
     <childElement id="c48ec01a-46c6-487b-b38a-037fd9a41f2b" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
+      <comment>Retrieves the product associated with this invoice</comment>
       <name>GetProduct</name>
-      <display>GetProduct(productId: guid!): ProductDto!</display>
+      <display>GetProduct(productId: guid): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

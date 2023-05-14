@@ -9,7 +9,7 @@ using MediatR;
 
 namespace GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer
 {
-    public class CreateCustomerCommand : IRequest<Guid>, ICommand
+    public class CreateCustomerCommand : IRequest<CustomerDto>, ICommand
     {
         public string Name { get; set; }
 

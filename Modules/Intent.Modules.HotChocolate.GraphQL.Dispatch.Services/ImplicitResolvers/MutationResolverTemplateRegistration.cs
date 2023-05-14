@@ -7,8 +7,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.ImplicitResolvers;
-using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -28,11 +28,11 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => MutationResolverTemplate.TemplateId;
+        public override string TemplateId => MutationTypeTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IGraphQLMutationTypeModel model)
         {
-            return new MutationResolverTemplate(outputTarget, model);
+            return new MutationTypeTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -41,6 +41,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             return _metadataManager.Services(application).GetServiceModels()
                 .Where(x => x.Operations.Any(o => o.HasGraphQLEnabled()))
                 .Select(x => new ServiceGraphQLMutationTypeModel(
+                    id: x.Id,
                     name: $"{x.Name.RemoveSuffix("Service")}Mutations",
                     resolvers: x.Operations.Where(o => o.HasGraphQLEnabled() && IsMutationOperation(o)).Select(o => new OperationGraphQLResolverModel(o)).ToList()))
                 .ToList();

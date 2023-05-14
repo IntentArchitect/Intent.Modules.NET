@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e9aaaa0-46d3-439a-b9d7-bede17194b03" type="GraphQL Subscription Type" typeId="b09d3b7f-63ad-4518-9a6a-5c7401c57c1b">
+  <name>Subscription</name>
+  <display>Subscription</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</parentFolderId>
+  <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="81ee5330-22b8-4ab8-90ca-aa28c653a53c" type="GraphQL Subscription" typeId="37e9cf40-ac8e-4880-9a4a-92b540a4fea7">
+      <name>CustomerCreated</name>
+      <display>CustomerCreated(customer: CustomerDto): CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6869fc8e-ccf9-4694-a072-525056072f93">
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e9aaaa0-46d3-439a-b9d7-bede17194b03</parentFolderId>
+      <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7341929a-77fd-4075-8801-f7f54c3a9016" type="GraphQL Event Message" typeId="e68932de-3dcf-4b2f-8796-59ff28a81efa">
+          <name>customer</name>
+          <display>in : customer: CustomerDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="db61baa5-2481-4c1f-8a16-da63b33897e0">
+            <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+            <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>81ee5330-22b8-4ab8-90ca-aa28c653a53c</parentFolderId>
+          <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

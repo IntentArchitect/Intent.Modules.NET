@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,24 +13,34 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMutationResolverName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel
+        public static string GetMutationTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel
         {
-            return template.GetTypeName(MutationResolverTemplate.TemplateId, template.Model);
+            return template.GetTypeName(MutationTypeTemplate.TemplateId, template.Model);
         }
 
-        public static string GetMutationResolverName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
+        public static string GetMutationTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
         {
-            return template.GetTypeName(MutationResolverTemplate.TemplateId, model);
+            return template.GetTypeName(MutationTypeTemplate.TemplateId, model);
         }
 
-        public static string GetQueryResolverName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel
+        public static string GetQueryTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel
         {
-            return template.GetTypeName(QueryResolverTemplate.TemplateId, template.Model);
+            return template.GetTypeName(QueryTypeTemplate.TemplateId, template.Model);
         }
 
-        public static string GetQueryResolverName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
+        public static string GetQueryTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
         {
-            return template.GetTypeName(QueryResolverTemplate.TemplateId, model);
+            return template.GetTypeName(QueryTypeTemplate.TemplateId, model);
+        }
+
+        public static string GetSubscriptionTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel
+        {
+            return template.GetTypeName(SubscriptionTypeTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetSubscriptionTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel model)
+        {
+            return template.GetTypeName(SubscriptionTypeTemplate.TemplateId, model);
         }
 
     }

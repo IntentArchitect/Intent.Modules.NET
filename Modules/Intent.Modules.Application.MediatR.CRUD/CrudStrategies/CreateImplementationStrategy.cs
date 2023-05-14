@@ -54,6 +54,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
             handleMethod.AddStatements(GetImplementation());
+            if (_matchingElementDetails.Value.DtoToReturn != null)
+            {
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+            }
         }
 
         public IEnumerable<CSharpStatement> GetImplementation()

@@ -38,6 +38,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
             };
         }
 
+        [GraphQLDescription("Retrieves the product associated with this invoice")]
         public async Task<ProductDto> GetProduct([Service] IProductsService service)
         {
             return await service.FindProductById(ProductId);

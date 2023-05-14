@@ -134,6 +134,11 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Repositories
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
+        public IQueryable<TDomain> GetQueryable()
+        {
+            return GetSet();
+        }
+
         protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>> filterExpression)
         {
             var queryable = CreateQuery();

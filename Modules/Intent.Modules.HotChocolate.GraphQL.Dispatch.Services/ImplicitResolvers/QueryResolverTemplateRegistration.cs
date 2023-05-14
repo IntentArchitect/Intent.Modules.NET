@@ -6,7 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.ImplicitResolvers;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,11 +25,11 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => QueryResolverTemplate.TemplateId;
+        public override string TemplateId => QueryTypeTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IGraphQLQueryTypeModel model)
         {
-            return new QueryResolverTemplate(outputTarget, model);
+            return new QueryTypeTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -38,6 +38,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers
             return _metadataManager.Services(application).GetServiceModels()
                 .Where(x => x.Operations.Any(o => o.HasGraphQLEnabled()))
                 .Select(x => new ServiceGraphQLQueryTypeModel(
+                    id: x.Id,
                     name: $"{x.Name.RemoveSuffix("Service")}Queries",
                     resolvers: x.Operations.Where(o => o.HasGraphQLEnabled() &&
                                                        IsQueryOperation(o)).Select(o => new OperationGraphQLResolverModel(o)).ToList()))

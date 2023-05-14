@@ -1,6 +1,7 @@
 using System;
-using GraphQL.CQRS.TestApplication.Api.GraphQL.MutationResolvers;
-using GraphQL.CQRS.TestApplication.Api.GraphQL.QueryResolvers;
+using GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations;
+using GraphQL.CQRS.TestApplication.Api.GraphQL.Queries;
+using GraphQL.CQRS.TestApplication.Api.GraphQL.Subscriptions;
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -17,8 +18,13 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         {
             services
                 .AddGraphQLServer()
+                .AddInMemorySubscriptions()
                 .AddGraphQLQueries()
                 .AddGraphQLMutations()
+                .AddGraphQLSubscriptions()
+                .AddFiltering()
+                .AddSorting()
+                .AddProjections()
                 .BindRuntimeType<string, StringType>()
                 .BindRuntimeType<Guid, IdType>();
             return services;
@@ -42,6 +48,13 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                 .AddTypeExtension<CustomerMutations>()
                 .AddTypeExtension<InvoiceMutations>()
                 .AddTypeExtension<ProductsMutations>();
+        }
+
+        private static IRequestExecutorBuilder AddGraphQLSubscriptions(this IRequestExecutorBuilder builder)
+        {
+            return builder
+                .AddSubscriptionType(x => x.Name("Subscription"))
+                .AddTypeExtension<Subscription>();
         }
 
     }

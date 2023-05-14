@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d0d9022-52c7-4e41-94ac-234708c75152" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>IGraphQLMutationTypeModel</name>
+  <display>IGraphQLMutationTypeModel</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</parentFolderId>
+  <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+  <packageName>Intent.HotChocolate.GraphQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -15,17 +15,17 @@
   <childElements>
     <childElement id="f6d870fd-8550-4127-bbdd-c68af2539ac9" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
       <name>CreateCustomer</name>
-      <display>CreateCustomer: guid!</display>
+      <display>CreateCustomer: CustomerDto!</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="d6c8cb66-7a22-44de-9d35-6fdfe317dfc3">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

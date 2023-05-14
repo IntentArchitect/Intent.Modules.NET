@@ -3,6 +3,10 @@ using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.RoslynWeaver.Attributes;
 using System.Linq;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -33,6 +37,14 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Decorators
                 @class.Methods.First(x => x.Name == "Configure")
                     .Statements.OfType<EndpointsStatement>().First()
                     .AddEndpointConfiguration(new CSharpStatement("endpoints.MapGraphQL();").AddMetadata("configure-endpoints-graphql", true));
+                if (application
+                    .FindTemplateInstances<ITemplate>(
+                        TemplateDependency.OnTemplate(SubscriptionTypeTemplate.TemplateId)).Any())
+                {
+                    @class.Methods.First(x => x.Name == "Configure")
+                        .Statements.FirstOrDefault(x => x.GetText(string.Empty).Trim().Equals("app.UseRouting();"))
+                        ?.InsertBelow("app.UseWebSockets();");
+                }
             });
         }
 

@@ -32,7 +32,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</ProjectId>
@@ -68,58 +68,74 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.MutationType#9ca9a958-f212-41d5-abae-d85292788baa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/CustomerMutations.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/CustomerMutations.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerMutations.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.MutationType#2ee06a54-b9f0-48b1-8af0-63ffc09b6f40</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/InvoiceMutations.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/InvoiceMutations.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceMutations.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.MutationType#8320d9fc-fb5b-4ba5-87c6-7a643173d30c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/Mutation.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/Mutation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Mutation.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.MutationType#c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/MutationResolvers/ProductsMutations.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/ProductsMutations.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsMutations.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#9ca9a958-f212-41d5-abae-d85292788baa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/CustomerQueries.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/CustomerQueries.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#2ee06a54-b9f0-48b1-8af0-63ffc09b6f40</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/InvoiceQueries.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/InvoiceQueries.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/ProductsQueries.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/ProductsQueries.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#24b8387a-9c06-46cb-8c28-8c5264ade1a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/QueryResolvers/Query.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/Query.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Query.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>32ae160c-2515-4c49-b923-be96be07c808</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.SubscriptionType#6e9aaaa0-46d3-439a-b9d7-bede17194b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Subscriptions/Subscription.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Subscription.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -572,6 +588,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e66052fc-e264-4b0e-aaa4-c9d734348d24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/GetInvoicesPaged/GetInvoicesPagedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoicesPaged/GetInvoicesPagedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e66052fc-e264-4b0e-aaa4-c9d734348d24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/GetInvoicesPaged/GetInvoicesPagedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoicesPaged/GetInvoicesPagedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#e66052fc-e264-4b0e-aaa4-c9d734348d24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/GetInvoicesPaged/GetInvoicesPagedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoicesPaged/GetInvoicesPagedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#6ce28783-f5c3-400c-a1da-898cfc932eae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceCustomerDto.cs</ApplicationRelativeFilePath>
@@ -792,7 +832,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3fb81f71-9ce2-463d-b586-c4026e6d58d2</ProjectId>
@@ -904,7 +944,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#0856bf34-b8ca-4b71-b85d-9f328d486e41</CorrelationId>

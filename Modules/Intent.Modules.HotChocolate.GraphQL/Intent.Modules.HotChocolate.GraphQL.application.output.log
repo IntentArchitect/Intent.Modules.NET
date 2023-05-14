@@ -44,33 +44,49 @@
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MutationType/MutationTypeTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MutationType/MutationTypeTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MutationType/MutationTypeTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MutationType/MutationTypeTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/QueryType/QueryTypeTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryType/QueryTypeTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/QueryType/QueryTypeTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryType/QueryTypeTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0daa91d9-8c70-4140-9c95-98355846416a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SubscriptionType/SubscriptionTypeTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SubscriptionType/SubscriptionTypeTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#0daa91d9-8c70-4140-9c95-98355846416a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SubscriptionType/SubscriptionTypeTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SubscriptionType/SubscriptionTypeTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8320d9fc-fb5b-4ba5-87c6-7a643173d30c" type="GraphQL Mutation Type" typeId="02864de4-afe0-42a1-a655-1eeb68c8a098">
+  <name>Mutation</name>
+  <display>Mutation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</parentFolderId>
+  <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+  <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f6d870fd-8550-4127-bbdd-c68af2539ac9" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
+      <name>CreateCustomer</name>
+      <display>CreateCustomer(): CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d6c8cb66-7a22-44de-9d35-6fdfe317dfc3">
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="22c57ce2-e013-4093-abc9-b9043ce459b8" name="CreateCustomerCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8320d9fc-fb5b-4ba5-87c6-7a643173d30c</parentFolderId>
+      <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6ec288b7-c70e-4780-a2c8-6135b6ab78c4" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
+      <name>CreateProduct</name>
+      <display>CreateProduct(input: ProductCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="28c121b7-b3d8-4cc0-af47-762f2a687323">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" />
+          <target id="ed991605-c2d3-49f5-bf4d-2b2e9f3a0483" name="CreateProduct" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8320d9fc-fb5b-4ba5-87c6-7a643173d30c</parentFolderId>
+      <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="52cbdd2f-07a6-4968-b52e-00dc5c7dc7bc" type="GraphQL Parameter" typeId="22565fd3-564a-4406-a502-81d2b6b0691f">
+          <name>input</name>
+          <display>in : input: ProductCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dc998da2-6852-4b07-9b0a-87d215da097b">
+            <typeId>41f828b2-4984-4fa8-9b61-5fc392e11ea4</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+            <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="7c26d23f-e4c8-4f79-b4f8-0def27c33e1c" name="dto" type="element" specialization="Parameter" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>6ec288b7-c70e-4780-a2c8-6135b6ab78c4</parentFolderId>
+          <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="44a3e480-ead5-4002-9ac6-4cd98ea0235d" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
+      <name>CreateInvoice</name>
+      <display>CreateInvoice(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bb0bb989-3c8f-4044-893f-a37f1d04d7e6">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f9677e9b-b57e-4f67-9532-2b9a802b90ed" name="CreateInvoiceCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8320d9fc-fb5b-4ba5-87c6-7a643173d30c</parentFolderId>
+      <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4156c297-ad80-4a9f-bdba-eeaca1a92f7d" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
+      <name>UpdateCustomer</name>
+      <display>UpdateCustomer(): CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc0adb35-1a9a-4eb1-a1b0-e2161ee20244">
+        <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="defcc51f-623c-433b-88b0-f128d26557cc" name="UpdateCustomerCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8320d9fc-fb5b-4ba5-87c6-7a643173d30c</parentFolderId>
+      <packageId>6da50c6a-600b-4cc3-a6cf-3151f69d39b7</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.GraphQL</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

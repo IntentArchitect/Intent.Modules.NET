@@ -221,7 +221,7 @@
     </childElement>
     <childElement id="de50f502-26fe-4184-ac7e-ad5b3e1a30a3" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
       <name>GetInvoices</name>
-      <display>GetInvoices(id: guid!): [InvoiceDto]!</display>
+      <display>GetInvoices(id: guid): InvoiceDto[*]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="22c57ce2-e013-4093-abc9-b9043ce459b8" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateCustomerCommand</name>
-  <display>CreateCustomerCommand: guid</display>
+  <display>CreateCustomerCommand: CustomerDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="dffb370d-1317-4b9b-ad3b-f702f922541e">
-    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <typeId>be074957-2839-4681-8436-17dff12563d1</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Common.Types</typePackageName>
-    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+    <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

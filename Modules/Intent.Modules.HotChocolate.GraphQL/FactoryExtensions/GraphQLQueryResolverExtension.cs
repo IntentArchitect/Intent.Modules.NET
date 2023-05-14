@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -9,12 +8,12 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.MutationResolver;
+using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -32,7 +31,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var queryTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(QueryResolverTemplate.TemplateId));
+            var queryTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(QueryTypeTemplate.TemplateId));
             foreach (var template in queryTypeTemplates)
             {
                 template.CSharpFile.OnBuild(file =>
@@ -49,21 +48,30 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                                 method.AddParameter(repositoryInterface, "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
 
-                                if (template.TryGetTemplate<IIntentTemplate>(TemplateFulfillingRoles.Application.Mappings, model.TypeReference.Element.Id, out var _))
+                                if (model.Parameters.Count() == 1 &&
+                                    model.Parameters.Single().Name.Equals("id", StringComparison.InvariantCultureIgnoreCase))
                                 {
-                                    method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-
-                                    if (model.Parameters.Count() == 1 &&
-                                        model.Parameters.Single().Name.Equals("id", StringComparison.InvariantCultureIgnoreCase) &&
-                                        model.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
+                                    method.AddStatement($"var entity = await repository.FindByIdAsync({model.Parameters.First().Name.ToCamelCase()}, cancellationToken);");
+                                    if (model.TypeReference.Element.IsClassModel())
                                     {
-                                        method.AddStatement($"var entity = await repository.FindByIdAsync({model.Parameters.First().Name.ToCamelCase()}, cancellationToken);");
+                                        method.AddStatement("return entity;");
+                                    }
+                                    else if (ReturnsMappedDto(model, template))
+                                    {
+                                        method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                                         method.AddStatement($"return entity.MapTo{model.TypeReference.Element.Name.ToPascalCase()}(mapper);");
                                     }
-                                    else if (!model.Parameters.Any() &&
-                                             model.TypeReference.Element.AsDTOModel()?.Mapping.Element.IsClassModel() == true)
+                                }
+                                else if (model.TypeReference.IsCollection)
+                                {
+                                    method.AddStatement($"var entities = await repository.FindAllAsync(cancellationToken);");
+                                    if (model.TypeReference.Element.IsClassModel())
                                     {
-                                        method.AddStatement($"var entities = await repository.FindAllAsync(cancellationToken);");
+                                        method.AddStatement("return entities;");
+                                    }
+                                    else if (ReturnsMappedDto(model, template))
+                                    {
+                                        method.AddParameter(template.UseType("AutoMapper.IMapper"), "mapper", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                                         method.AddStatement($"return entities.MapTo{model.TypeReference.Element.Name.ToPascalCase()}List(mapper);");
                                     }
                                 }
@@ -72,6 +80,13 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                     }
                 }, 200);
             }
+        }
+
+        private static bool ReturnsMappedDto(IGraphQLResolverModel resolver, ICSharpFileBuilderTemplate template)
+        {
+            return resolver.TypeReference.Element.IsDTOModel() &&
+                   template.TryGetTemplate<IIntentTemplate>(TemplateFulfillingRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _) &&
+                   resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element == resolver.MappedElement;
         }
     }
 }
