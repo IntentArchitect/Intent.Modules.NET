@@ -51,6 +51,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
             handleMethod.AddStatements(GetImplementation());
+            if (_matchingElementDetails.Value.DtoToReturn != null)
+            {
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+            }
         }
 
         public IEnumerable<CSharpStatement> GetImplementation()
@@ -82,15 +86,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
                 codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
-                codeLines.Add("return Unit.Value;");
-
                 return codeLines;
             }
 
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
             codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
 
-            codeLines.Add($"return Unit.Value;");
+            var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
+            codeLines.Add(dtoToReturn != null
+                ? $@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                : $"return Unit.Value;");
 
             return codeLines;
 
@@ -135,7 +140,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, idField, repository);
+            var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
+
+            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn);
         }
 
         private IList<CSharpStatement> GetDtoPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
@@ -235,22 +242,24 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return codeLines.ToList();
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository)
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdField = idField;
                 Repository = repository;
+                DtoToReturn = dtoToReturn;
             }
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
             public DTOFieldModel IdField { get; }
             public RequiredService Repository { get; }
+            public DTOModel DtoToReturn { get; }
         }
     }
 }

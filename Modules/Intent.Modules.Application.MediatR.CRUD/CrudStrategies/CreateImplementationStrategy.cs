@@ -102,10 +102,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
             }
 
+
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
+                codeLines.Add(dtoToReturn != null
+                    ? $"return new{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                    : $"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
             else
             {
@@ -243,7 +247,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, repository);
+            var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
+
+            return new StrategyData(true, foundEntity, repository, dtoToReturn);
 
         }
 
@@ -252,20 +258,22 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return $"Create{classModel.Name.ToPascalCase()}";
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, RequiredService repository)
+            public StrategyData(bool isMatch, ClassModel foundEntity, RequiredService repository, DTOModel dtoToReturn)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 Repository = repository;
+                DtoToReturn = dtoToReturn;
             }
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
             public RequiredService Repository { get; }
+            public DTOModel DtoToReturn { get; }
         }
     }
 }

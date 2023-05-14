@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var idField = _matchingElementDetails.Value.IdField;
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
 
-            var codeLines = new CSharpStatementAggregator();
+            var codeLines = new CSharpStatementAggregator(); // swap back to list.
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {

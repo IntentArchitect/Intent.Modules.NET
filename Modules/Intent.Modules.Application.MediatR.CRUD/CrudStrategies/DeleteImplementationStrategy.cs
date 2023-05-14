@@ -48,6 +48,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
             handleMethod.AddStatements(GetImplementation());
+            if (_matchingElementDetails.Value.DtoToReturn != null)
+            {
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+            }
         }
 
         public IEnumerable<CSharpStatement> GetImplementation()
@@ -90,7 +94,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
             codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
-            codeLines.Add($"return Unit.Value;");
+            var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
+            codeLines.Add(dtoToReturn != null
+                ? $@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                : $"return Unit.Value;");
 
             return codeLines.ToList();
         }
@@ -130,25 +137,29 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, idField, repository);
+            var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
+
+            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn);
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository)
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdField = idField;
                 Repository = repository;
+                DtoToReturn = dtoToReturn;
             }
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
             public DTOFieldModel IdField { get; }
             public RequiredService Repository { get; }
+            public DTOModel DtoToReturn { get; }
         }
     }
 }
