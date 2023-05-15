@@ -1,6 +1,7 @@
 ﻿### Version 4.4.1
 
 - Fixed: When an index had an `Included` column, `.IncludeProperties(...)` was always generated which would result in uncompilable code for database providers besides `SQL Server`. Instead of generating uncompilable code, the Software Factory will now show a warning.
+- Fixed: When using `Cosmos DB` as the database provider, the `DbContext` template was not generating a required `using System.Threading;` declaration.
 
 ### Version 4.4.0
 

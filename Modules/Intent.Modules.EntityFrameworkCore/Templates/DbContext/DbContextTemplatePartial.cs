@@ -80,7 +80,7 @@ modelBuilder.Entity<Car>().HasData(
 
                     if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
                     {
-                        @class.AddMethod("Task", "EnsureDbCreatedAsync", method =>
+                        @class.AddMethod(UseType("System.Threading.Tasks.Task"), "EnsureDbCreatedAsync", method =>
                         {
                             method.Async();
                             method.WithComments(@"
