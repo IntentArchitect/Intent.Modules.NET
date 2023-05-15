@@ -133,5 +133,7 @@ namespace Intent.Modules.Application.Dtos.Settings
             Protected,
             Public,
         }
+
+        public bool Sealed() => bool.TryParse(_groupSettings.GetSetting("9fd57931-91b4-45ba-aca4-eb38d91b7f97")?.Value.ToPascalCase(), out var result) && result;
     }
 }
