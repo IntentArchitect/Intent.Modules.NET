@@ -28,6 +28,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
+            AddTypeSource("Application.Contract.Dto");
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")

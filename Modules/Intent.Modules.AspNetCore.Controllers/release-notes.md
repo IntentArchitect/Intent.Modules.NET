@@ -1,6 +1,7 @@
 ### Version 5.1.0
 
 - Service Operations can now have Default values.
+- Fixed: When only a minimalist set of modules was installed, `Application.Contract.Dto` was missing as a type source for controllers.
 
 ### Version 5.0.5
 
