@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.ImplicitResolvers;
 

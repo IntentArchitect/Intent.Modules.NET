@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;

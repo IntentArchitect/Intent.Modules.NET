@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
 using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
@@ -51,7 +52,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
                             var queryRef = EnsureAndGetQueryObject(template, method, model);
                             method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                             method.AddParameter(template.UseType("MediatR.ISender"), "mediator", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                            method.AddStatement($"return await mediator.Send({queryRef}, cancellationToken);");
+                            method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await mediator.Send({queryRef}, cancellationToken);");
                         }
                     }
                 }, 200);

@@ -1,24 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 
-namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+namespace Intent.Modules.HotChocolate.GraphQL.Models;
 
-class GraphQLMutationTypeModel : IGraphQLMutationTypeModel
-{
-    public GraphQLMutationTypeModel(Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
-    {
-        Id = model.Id;
-        Name = model.Name;
-        Resolvers = model.Mutations.Select(x => new GraphQLResolverModel(x)).ToList();
-    }
-    public string Id { get; }
-    public string Name { get; }
-    public IEnumerable<IGraphQLResolverModel> Resolvers { get; }
-}
 class GraphQLQueryTypeModel : IGraphQLQueryTypeModel
 {
     public GraphQLQueryTypeModel(Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
@@ -63,7 +50,7 @@ class GraphQLResolverModel : IGraphQLResolverModel
 
 public class GraphQLParameterModel : IGraphQLParameterModel
 {
-    public GraphQLParameterModel(string name, ITypeReference typeReference, IElement mappedElement, string[] mappedPath, string description )
+    public GraphQLParameterModel(string name, ITypeReference typeReference, IElement mappedElement, string[] mappedPath, string description)
     {
         Name = name;
         TypeReference = typeReference;
@@ -72,7 +59,7 @@ public class GraphQLParameterModel : IGraphQLParameterModel
         Description = description;
     }
 
-    public GraphQLParameterModel(string name, ITypeReference typeReference, IElementMapping mapping, string description) 
+    public GraphQLParameterModel(string name, ITypeReference typeReference, IElementMapping mapping, string description)
         : this(name, typeReference, mapping?.Element as IElement, mapping?.Path.Select(x => x.Name.ToPascalCase()).ToArray(), description)
     {
     }

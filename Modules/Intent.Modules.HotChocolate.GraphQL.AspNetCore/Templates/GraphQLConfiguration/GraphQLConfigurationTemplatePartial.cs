@@ -53,10 +53,16 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                     {
                         method.Private().Static();
                         method.AddParameter("IRequestExecutorBuilder", "builder", param => param.WithThisModifier());
+                        var queryResolvers = ExecutionContext.FindTemplateInstances(QueryTypeTemplate.TemplateId, (t) => true).ToList();
+                        if (!queryResolvers.Any())
+                        {
+                            method.AddStatement("// Queries will be configured here");
+                            method.AddStatement("return builder;");
+                            return;
+                        }
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
                             .AddChainStatement("AddQueryType()"), statement =>
                             {
-                                var queryResolvers = ExecutionContext.FindTemplateInstances(QueryTypeTemplate.TemplateId, (t) => true);
                                 var chain = (CSharpMethodChainStatement)statement;
                                 foreach (var queryResolver in queryResolvers)
                                 {
@@ -69,10 +75,16 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                     {
                         method.Private().Static();
                         method.AddParameter("IRequestExecutorBuilder", "builder", param => param.WithThisModifier());
+                        var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true).ToList();
+                        if (!mutationResolvers.Any())
+                        {
+                            method.AddStatement("// Mutations will be configured here");
+                            method.AddStatement("return builder;");
+                            return;
+                        }
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
                             .AddChainStatement("AddMutationType()"), statement =>
                             {
-                                var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true);
                                 var chain = (CSharpMethodChainStatement)statement;
                                 foreach (var mutationResolver in mutationResolvers)
                                 {
@@ -85,13 +97,19 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                     {
                         method.Private().Static();
                         method.AddParameter("IRequestExecutorBuilder", "builder", param => param.WithThisModifier());
+                        var subscriptionTypes = ExecutionContext.FindTemplateInstances(SubscriptionTypeTemplate.TemplateId, (t) => true).ToList();
+                        if (!subscriptionTypes.Any())
+                        {
+                            method.AddStatement("// Subscriptions will be configured here");
+                            method.AddStatement("return builder;");
+                            return;
+                        }
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
                             .AddChainStatement("AddInMemorySubscriptions()") // make configurable
                             .AddChainStatement("AddSubscriptionType()"), statement =>
                             {
-                                var mutationResolvers = ExecutionContext.FindTemplateInstances(SubscriptionTypeTemplate.TemplateId, (t) => true);
                                 var chain = (CSharpMethodChainStatement)statement;
-                                foreach (var mutationResolver in mutationResolvers)
+                                foreach (var mutationResolver in subscriptionTypes)
                                 {
                                     chain.AddChainStatement($"AddTypeExtension<{GetTypeName(mutationResolver)}>()");
                                 }

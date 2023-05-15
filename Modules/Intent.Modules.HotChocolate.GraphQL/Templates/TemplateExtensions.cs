@@ -13,22 +13,22 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMutationTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel
+        public static string GetMutationTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.HotChocolate.GraphQL.Models.IGraphQLMutationTypeModel
         {
             return template.GetTypeName(MutationTypeTemplate.TemplateId, template.Model);
         }
 
-        public static string GetMutationTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
+        public static string GetMutationTypeName(this IIntentTemplate template, Intent.Modules.HotChocolate.GraphQL.Models.IGraphQLMutationTypeModel model)
         {
             return template.GetTypeName(MutationTypeTemplate.TemplateId, model);
         }
 
-        public static string GetQueryTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel
+        public static string GetQueryTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.HotChocolate.GraphQL.Models.IGraphQLQueryTypeModel
         {
             return template.GetTypeName(QueryTypeTemplate.TemplateId, template.Model);
         }
 
-        public static string GetQueryTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
+        public static string GetQueryTypeName(this IIntentTemplate template, Intent.Modules.HotChocolate.GraphQL.Models.IGraphQLQueryTypeModel model)
         {
             return template.GetTypeName(QueryTypeTemplate.TemplateId, model);
         }

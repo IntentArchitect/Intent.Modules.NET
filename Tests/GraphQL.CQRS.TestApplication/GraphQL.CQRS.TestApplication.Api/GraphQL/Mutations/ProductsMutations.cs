@@ -1,17 +1,19 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using GraphQL.CQRS.TestApplication.Application.Products;
 using HotChocolate;
+using HotChocolate.Language;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.HotChocolate.GraphQL.MutationResolver", Version = "1.0")]
+[assembly: IntentTemplate("Intent.HotChocolate.GraphQL.MutationType", Version = "1.0")]
 
 namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
 {
-    [ExtendObjectType(Name = "Mutation")]
+    [ExtendObjectType(OperationType.Mutation)]
     public class ProductsMutations
     {
         public async Task<Guid> CreateProduct(ProductCreateDto dto, [Service] IProductsService service)

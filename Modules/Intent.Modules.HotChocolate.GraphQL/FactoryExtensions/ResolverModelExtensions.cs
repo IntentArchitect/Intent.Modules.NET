@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
 

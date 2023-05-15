@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3d0d9022-52c7-4e41-94ac-234708c75152" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
-  <name>IGraphQLMutationTypeModel</name>
-  <display>IGraphQLMutationTypeModel</display>
+<class id="da307f4a-2f8b-4f8a-9661-1a3c7a4d1963" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>IGraphQLQueryTypeModel</name>
+  <display>IGraphQLQueryTypeModel</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

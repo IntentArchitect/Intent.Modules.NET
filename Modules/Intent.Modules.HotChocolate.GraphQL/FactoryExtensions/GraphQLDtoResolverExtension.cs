@@ -10,7 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;

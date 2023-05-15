@@ -96,7 +96,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/ProductsMutations.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsMutations.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</ProjectId>

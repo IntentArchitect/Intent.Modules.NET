@@ -14,6 +14,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

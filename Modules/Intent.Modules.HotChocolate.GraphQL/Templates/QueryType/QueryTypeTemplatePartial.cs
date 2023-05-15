@@ -8,7 +8,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -40,14 +40,17 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
 
                     foreach (var resolver in Model.Resolvers)
                     {
-                        @class.AddMethod($"Task<{GetTypeName(resolver)}>", resolver.Name.ToPascalCase(), method =>
+                        @class.AddMethod($"{GetTypeName(resolver)}", resolver.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", resolver);
                             if (!string.IsNullOrWhiteSpace(resolver.Description))
                             {
-                                @method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{resolver.Description}"""));
+                                method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{resolver.Description}"""));
                             }
-                            method.Async();
+                            if (!method.ReturnType.StartsWith("IQueryable"))
+                            {
+                                method.Async();
+                            }
                             foreach (var parameter in resolver.Parameters)
                             {
 

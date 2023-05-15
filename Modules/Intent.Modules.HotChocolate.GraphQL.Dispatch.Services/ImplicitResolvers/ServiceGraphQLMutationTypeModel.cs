@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers;
 

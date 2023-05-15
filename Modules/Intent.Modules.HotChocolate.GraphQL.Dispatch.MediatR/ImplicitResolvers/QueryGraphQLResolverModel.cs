@@ -4,7 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.ImplicitResolvers;
 

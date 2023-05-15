@@ -1,11 +1,11 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

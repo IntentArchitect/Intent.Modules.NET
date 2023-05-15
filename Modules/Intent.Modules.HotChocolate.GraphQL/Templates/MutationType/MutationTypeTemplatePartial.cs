@@ -11,7 +11,7 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
-using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -43,14 +43,16 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
 
                     foreach (var mutation in Model.Resolvers)
                     {
-                        @class.AddMethod($"Task<{GetTypeName(mutation)}>", mutation.Name.ToPascalCase(), method =>
+                        @class.AddMethod($"{GetTypeName(mutation)}", mutation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", mutation);
                             if (!string.IsNullOrWhiteSpace(mutation.Description))
                             {
-                                @method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{mutation.Description}"""));
+                                method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{mutation.Description}"""));
                             }
+
                             method.Async();
+
                             foreach (var parameter in mutation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>

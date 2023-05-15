@@ -8,6 +8,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
+using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
 using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
 using Intent.Plugins.FactoryExtensions;
@@ -47,7 +48,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                             }
                             var serviceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, model.MappedElement.ParentElement);
                             method.AddParameter(serviceType, "service", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                            method.AddStatement($"return await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => x.Name.ToParameterName()))});");
+                            method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => x.Name.ToParameterName()))});");
                         }
                     }
                 }, 200);
