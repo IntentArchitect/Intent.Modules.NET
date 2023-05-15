@@ -18,7 +18,6 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         {
             services
                 .AddGraphQLServer()
-                .AddInMemorySubscriptions()
                 .AddGraphQLQueries()
                 .AddGraphQLMutations()
                 .AddGraphQLSubscriptions()
@@ -33,7 +32,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLQueries(this IRequestExecutorBuilder builder)
         {
             return builder
-                .AddQueryType(x => x.Name("Query"))
+                .AddQueryType()
                 .AddTypeExtension<Query>()
                 .AddTypeExtension<CustomerQueries>()
                 .AddTypeExtension<InvoiceQueries>()
@@ -43,7 +42,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLMutations(this IRequestExecutorBuilder builder)
         {
             return builder
-                .AddMutationType(x => x.Name("Mutation"))
+                .AddMutationType()
                 .AddTypeExtension<Mutation>()
                 .AddTypeExtension<CustomerMutations>()
                 .AddTypeExtension<InvoiceMutations>()
@@ -53,7 +52,8 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLSubscriptions(this IRequestExecutorBuilder builder)
         {
             return builder
-                .AddSubscriptionType(x => x.Name("Subscription"))
+                .AddInMemorySubscriptions()
+                .AddSubscriptionType()
                 .AddTypeExtension<Subscription>();
         }
 
