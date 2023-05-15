@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d889fa4f-2052-424a-bef4-b11d34e614ff" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CreateInvoiceDto</name>
+  <display>CreateInvoiceDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>91314c5a-9257-4a6a-be08-432ccf2940d7</parentFolderId>
+  <packageId>91314c5a-9257-4a6a-be08-432ccf2940d7</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="fba01a12-c575-42a8-843b-24dab733b436" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Date</name>
+      <display>Date: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2761ea2e-9fe1-413d-bb95-dc977c515a94">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d889fa4f-2052-424a-bef4-b11d34e614ff</parentFolderId>
+      <packageId>91314c5a-9257-4a6a-be08-432ccf2940d7</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="62791d14-debf-4d65-b3e8-3b02ed8d39ed" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>TagIds</name>
+      <display>TagIds: string[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="58d3c700-1c98-4e86-8e5a-343b8860499b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d889fa4f-2052-424a-bef4-b11d34e614ff</parentFolderId>
+      <packageId>91314c5a-9257-4a6a-be08-432ccf2940d7</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="602fcdc2-e420-4553-9d82-5fac8790db15" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Lines</name>
+      <display>Lines: CreateInvoiceLineDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b5c18a96-82d3-4372-97f5-9753e91edd37">
+        <typeId>9e3becde-ef8e-4eaf-850d-cec2fc079936</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Services</typePackageName>
+        <typePackageId>91314c5a-9257-4a6a-be08-432ccf2940d7</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d889fa4f-2052-424a-bef4-b11d34e614ff</parentFolderId>
+      <packageId>91314c5a-9257-4a6a-be08-432ccf2940d7</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

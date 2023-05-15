@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7b885831-36a1-417a-800a-b68382ee3153" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>TagService</name>
+  <display>TagService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</parentFolderId>
+  <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+  <packageName>Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/tag" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ca4a9d26-eacd-43aa-b2fe-aee99b1563ab" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Create</name>
+      <display>Create(dto: CreateTagDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="43f509a1-faa2-4bb2-bd7a-92b38bcde49b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7b885831-36a1-417a-800a-b68382ee3153</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2cf48c8e-c6a8-4fd9-b045-1ddea73cc722" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateTagDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dbd31548-9e97-4643-8192-89750e90e677">
+            <typeId>1edc6057-1bce-4272-903b-4a12b58c117a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+            <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ca4a9d26-eacd-43aa-b2fe-aee99b1563ab</parentFolderId>
+          <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+          <packageName>Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3ffc770f-76d5-4a86-862e-17c9a83ad577" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAll</name>
+      <display>GetAll(): TagDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3e7549a3-c340-4f8a-a332-28608dd4fee6">
+        <typeId>74b53cde-c677-4f7a-bb95-82bbf452098a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7b885831-36a1-417a-800a-b68382ee3153</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

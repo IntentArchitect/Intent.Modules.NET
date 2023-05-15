@@ -1,0 +1,26 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{FEF590E6-AA12-44AA-AFFD-F8E41FBDB200}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.TestApplication.Domain", "Entities.PrivateSetters.TestApplication.Domain\Entities.PrivateSetters.TestApplication.Domain.csproj", "{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9E29C3A-1C96-4F73-B8E6-5AF75211821E} = {FEF590E6-AA12-44AA-AFFD-F8E41FBDB200}
+	EndGlobalSection
+EndGlobal

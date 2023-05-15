@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ff87d77f-24e4-4dcd-b905-1b2512e2fd7e">
+  <sourceEnd id="533b762b-8917-420e-a2f9-0b70c05cb027" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoices</name>
+    <display>Invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="08dcd700-77d5-46e1-a379-4bedf038c786">
+      <typeId>562d3bb7-74c8-4d46-9e22-2d335e32caaf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ff87d77f-24e4-4dcd-b905-1b2512e2fd7e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Tags</name>
+    <display>Tags: Tag[*]   [* --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="7bf2d030-7cbf-40f6-aea3-86351577463b">
+      <typeId>fbe6ac53-a292-46a9-9ba6-5a645230625f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
