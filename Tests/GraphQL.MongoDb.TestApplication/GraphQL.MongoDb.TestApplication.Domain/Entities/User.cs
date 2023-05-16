@@ -13,12 +13,12 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class User : IHasDomainEvent
     {
-        public User(string name, string surname, string email, ICollection<AssignedPrivilege> assignedPrivileges)
+        public User(string name, string surname, string email, IEnumerable<AssignedPrivilege> assignedPrivileges)
         {
             Name = name;
             Surname = surname;
             Email = email;
-            AssignedPrivileges = assignedPrivileges;
+            AssignedPrivileges = new List<AssignedPrivilege>(assignedPrivileges);
         }
 
         public string Id { get; set; }
