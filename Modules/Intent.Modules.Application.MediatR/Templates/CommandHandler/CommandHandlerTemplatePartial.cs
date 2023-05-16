@@ -25,7 +25,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatRContracts);
+            AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")

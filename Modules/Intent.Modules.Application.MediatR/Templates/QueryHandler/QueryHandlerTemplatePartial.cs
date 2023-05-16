@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatRContracts);
+            AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")

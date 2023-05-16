@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatRContracts);
+            AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
             FulfillsRole("Application.Contract.Command");
