@@ -84,7 +84,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.4" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
