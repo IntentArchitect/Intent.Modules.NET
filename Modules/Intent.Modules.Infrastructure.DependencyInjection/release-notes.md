@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Fixed: Under certain circumstances the generated solution would not compile due to the `Microsoft.Extensions.DependencyInjection` NuGet package not being installed.
+
 ### Version 4.0.3
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
