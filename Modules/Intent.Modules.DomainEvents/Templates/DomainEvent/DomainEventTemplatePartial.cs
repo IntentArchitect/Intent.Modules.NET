@@ -50,6 +50,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
                                 arg.IntroduceProperty(property => 
                                 {
                                     property.TryAddXmlDocComments(propertyModel.InternalElement);
+                                    property.ReadOnly();
                                 });
                             });
                         }

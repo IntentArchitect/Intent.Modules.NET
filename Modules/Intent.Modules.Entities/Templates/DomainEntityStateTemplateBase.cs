@@ -35,7 +35,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
     {
         foreach (var attribute in Model.Attributes)
         {
-            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute.InternalElement);
+            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
@@ -47,7 +47,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
         {
-            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd.InternalAssociationEnd);
+            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !GetTypeName(associationEnd).Equals(InterfaceTemplate.GetTypeName(associationEnd)))
@@ -57,11 +57,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         }
     }
 
-    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IElement model)
+    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element)
     {
         @class.AddProperty(GetTypeName(typeReference), propertyName.ToPascalCase(), property =>
         {
-            property.TryAddXmlDocComments(model);
+            property.TryAddXmlDocComments(element);
             property.AddMetadata("model", model);
             if (typeReference.Element.IsClassModel()) // not the most robust. Needed for lazy loading proxies (so should move to EF).
             {
