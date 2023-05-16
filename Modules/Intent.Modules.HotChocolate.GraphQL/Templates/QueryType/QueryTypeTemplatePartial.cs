@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,6 +14,7 @@ using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -40,6 +43,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
 
                     foreach (var resolver in Model.Resolvers)
                     {
+                        if (resolver.TypeReference.Element == null)
+                        {
+                            Logging.Log.Warning($"GraphQL queries must define a return type. {Model.Name}.{resolver.Name} does not specify a return type. This operation may not show in the GraphQL schema for this reason.");
+                        }
                         @class.AddMethod($"{GetTypeName(resolver)}", resolver.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", resolver);
@@ -53,7 +60,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
                             }
                             foreach (var parameter in resolver.Parameters)
                             {
-
+                                if (parameter.TypeReference.Element.AsDTOModel()?.Fields.Count == 0)
+                                {
+                                    Logging.Log.Warning($"GraphQL query {Model.Name}.{resolver.Name} has an empty complex type parameter [{parameter.Name}: {parameter.TypeReference.Element.Name}]. This may cause errors.");
+                                }
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
                                     if (!string.IsNullOrWhiteSpace(parameter.Description))

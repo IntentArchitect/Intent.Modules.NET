@@ -15,6 +15,7 @@ using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -43,6 +44,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
 
                     foreach (var mutation in Model.Resolvers)
                     {
+                        if (mutation.TypeReference.Element == null)
+                        {
+                            Logging.Log.Warning($"GraphQL mutations must define a return type. {Model.Name}.{mutation.Name} does not specify a return type. This operation may not show in the GraphQL schema for this reason.");
+                        }
                         @class.AddMethod($"{GetTypeName(mutation)}", mutation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", mutation);
@@ -55,6 +60,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
 
                             foreach (var parameter in mutation.Parameters)
                             {
+                                if (parameter.TypeReference.Element.AsDTOModel()?.Fields.Count == 0)
+                                {
+                                    Logging.Log.Warning($"GraphQL mutation {Model.Name}.{mutation.Name} has an empty complex type parameter [{parameter.Name}: {parameter.TypeReference.Element.Name}]. This may cause errors.");
+                                }
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
                                     if (!string.IsNullOrWhiteSpace(parameter.Description))

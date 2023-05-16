@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -20,6 +21,7 @@ using Intent.Modules.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -83,9 +85,6 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
 
         private string EnsureAndGetQueryObject(ICSharpFileBuilderTemplate template, CSharpClassMethod method, IGraphQLResolverModel model)
         {
-            var dtoModel = template is ITemplateWithModel templateWithModel
-                ? templateWithModel.Model as DTOModel
-                : null;
             var mappedQuery = model.MappedElement;
             var queryType = template.GetTypeName(mappedQuery.AsTypeReference());
             if (mappedQuery.ChildElements.All(x => model.Parameters.Any(p => p.MappedElement?.Id == x.Id)))
@@ -101,6 +100,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             }
             else
             {
+                if (mappedQuery.AsQueryModel()?.Properties.Count == 0 || mappedQuery.AsCommandModel()?.Properties.Count == 0)
+                {
+                    Logging.Log.Warning($"GraphQL operation {model.Name} has an empty complex type parameter [input: {model.Name}]. This may cause errors.");
+                }
                 method.AddParameter(queryType, "input");
                 return "input";
             }
