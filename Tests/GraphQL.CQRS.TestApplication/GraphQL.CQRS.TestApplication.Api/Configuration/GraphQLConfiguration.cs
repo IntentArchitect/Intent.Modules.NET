@@ -21,9 +21,6 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                 .AddGraphQLQueries()
                 .AddGraphQLMutations()
                 .AddGraphQLSubscriptions()
-                .AddFiltering()
-                .AddSorting()
-                .AddProjections()
                 .BindRuntimeType<string, StringType>()
                 .BindRuntimeType<Guid, IdType>();
             return services;

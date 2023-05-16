@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Models;
 
 class GraphQLQueryTypeModel : IGraphQLQueryTypeModel
 {
-    public GraphQLQueryTypeModel(Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
+    public GraphQLQueryTypeModel(Intent.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
     {
         Id = model.Id;
         Name = model.Name;

@@ -24,12 +24,9 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
         public async Task<CustomerDto> CreateCustomer(
             CreateCustomerCommand input,
             CancellationToken cancellationToken,
-            [Service] ISender mediator,
-            [Service] ITopicEventSender sender)
+            [Service] ISender mediator)
         {
-            var result = await mediator.Send(input, cancellationToken);
-            await sender.SendAsync(nameof(Subscription.CustomerCreated), result, cancellationToken);
-            return result;
+            return await mediator.Send(input, cancellationToken);
         }
 
         public async Task<CustomerDto> DeleteCustomer(

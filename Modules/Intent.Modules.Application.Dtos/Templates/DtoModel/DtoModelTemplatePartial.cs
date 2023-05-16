@@ -234,6 +234,5 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             return CSharpFile.ToString();
         }
-
     }
 }

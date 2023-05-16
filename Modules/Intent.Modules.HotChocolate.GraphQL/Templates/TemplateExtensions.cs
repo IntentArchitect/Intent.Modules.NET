@@ -33,12 +33,12 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates
             return template.GetTypeName(QueryTypeTemplate.TemplateId, model);
         }
 
-        public static string GetSubscriptionTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel
+        public static string GetSubscriptionTypeName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel
         {
             return template.GetTypeName(SubscriptionTypeTemplate.TemplateId, template.Model);
         }
 
-        public static string GetSubscriptionTypeName(this IIntentTemplate template, Intent.Modules.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel model)
+        public static string GetSubscriptionTypeName(this IIntentTemplate template, Intent.Modelers.Services.GraphQL.Api.GraphQLSubscriptionTypeModel model)
         {
             return template.GetTypeName(SubscriptionTypeTemplate.TemplateId, model);
         }

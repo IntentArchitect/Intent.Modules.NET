@@ -32,7 +32,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</ProjectId>
@@ -72,7 +72,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/CustomerMutations.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerMutations.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2a95a835-34f8-4ff7-8e93-128f4042fc66</ProjectId>

@@ -5,7 +5,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Models;
 
 class GraphQLMutationTypeModel : IGraphQLMutationTypeModel
 {
-    public GraphQLMutationTypeModel(Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
+    public GraphQLMutationTypeModel(Intent.Modelers.Services.GraphQL.Api.GraphQLMutationTypeModel model)
     {
         Id = model.Id;
         Name = model.Name;

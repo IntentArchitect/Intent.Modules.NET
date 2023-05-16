@@ -11,7 +11,8 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.Models;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
+using Intent.Modules.HotChocolate.GraphQL.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -46,6 +47,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                         var @class = file.Classes.First();
                         foreach (var resolver in extensionModel.Resolvers.Select(x => new GraphQLResolverModel(x)).ToList<IGraphQLResolverModel>())
                         {
+                            template.AddNugetDependency(NuGetPackages.HotChocolate);
 
                             @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<{template.GetTypeName(resolver.TypeReference)}>", resolver.Name.ToPascalCase(), method =>
                             {

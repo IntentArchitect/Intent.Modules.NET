@@ -17,7 +17,8 @@ using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
 using Intent.Modules.HotChocolate.GraphQL.Models;
 using Intent.Modules.HotChocolate.GraphQL.Templates.MutationType;
 using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
+using Intent.Modules.HotChocolate.GraphQL.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -44,6 +45,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             {
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
+                template.AddNugetDependency(NuGetPackages.HotChocolate);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -65,6 +67,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             {
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
                 template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
+                template.AddNugetDependency(NuGetPackages.HotChocolate);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();

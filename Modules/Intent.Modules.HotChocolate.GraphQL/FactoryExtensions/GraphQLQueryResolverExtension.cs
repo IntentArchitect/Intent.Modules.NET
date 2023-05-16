@@ -9,7 +9,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.Templates.QueryType;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;

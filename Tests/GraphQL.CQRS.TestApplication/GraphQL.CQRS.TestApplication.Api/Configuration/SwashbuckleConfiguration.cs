@@ -29,6 +29,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                             Title = "GraphQL.CQRS.TestApplication API"
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.CustomSchemaIds(x => x.FullName);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
@@ -57,10 +58,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
@@ -69,7 +67,6 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                     options.OAuthAppName("GraphQL.CQRS.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

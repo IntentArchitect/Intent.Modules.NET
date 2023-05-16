@@ -1,5 +1,7 @@
 ﻿### Version 4.0.5
-- Update : Changed default `IntentManged` on `ServiceCallHandler` template to be Merge.
+
+- Update: NuGet dependency on MediatR.Contracts
+- Update: Changed default `IntentManged` on `ServiceCallHandler` template to be Merge.
 
 ### Version 4.0.4
 

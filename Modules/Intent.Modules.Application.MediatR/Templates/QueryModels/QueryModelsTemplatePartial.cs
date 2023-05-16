@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
+            AddNugetDependency(NuGetPackages.MediatRContracts);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
             FulfillsRole("Application.Contract.Query");

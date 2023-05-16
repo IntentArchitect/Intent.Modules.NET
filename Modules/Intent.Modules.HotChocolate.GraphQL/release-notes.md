@@ -1,3 +1,8 @@
+### Version 4.0.0
+
+- Overhaul of GraphQL approach to support explicit Queries, Mutations and Subscriptions from the Intent.Modelers.Services.GraphQL module.
+- Uses the v13 HotChocolate framework APIs.
+
 ### Version 3.3.7
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

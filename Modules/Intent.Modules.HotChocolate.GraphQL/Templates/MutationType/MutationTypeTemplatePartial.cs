@@ -12,7 +12,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.HotChocolate.GraphQL.FactoryExtensions;
 using Intent.Modules.HotChocolate.GraphQL.Models;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -30,6 +30,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MutationTypeTemplate(IOutputTarget outputTarget, IGraphQLMutationTypeModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.HotChocolate);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);

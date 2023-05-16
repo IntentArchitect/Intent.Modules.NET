@@ -6,7 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Modelers.Services.GraphQL.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

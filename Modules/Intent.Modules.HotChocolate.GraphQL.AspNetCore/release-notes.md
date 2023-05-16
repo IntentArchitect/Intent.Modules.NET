@@ -1,3 +1,8 @@
+### Version 4.0.0
+
+- Support for the latest version of the Intent.HotChocolate.GraphQL module.
+- Uses the v13 HotChocolate framework APIs.
+
 ### Version 3.3.8
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
