@@ -177,12 +177,13 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
         private void ConfigureClass(CSharpClass @class)
         {
+            bool isTypeSealed = ExecutionContext.Settings.GetDTOSettings().Sealed();
             @class.AddMetadata("model", Model);
             if (Model.IsAbstract)
             {
                 @class.Abstract();
             }
-            if (ExecutionContext.Settings.GetDTOSettings().Sealed())
+            if (isTypeSealed)
             {
                 @class.Sealed();
             }
@@ -197,6 +198,14 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             if (Model.ParentDtoTypeReference != null)
             {
                 @class.WithBaseType(GetTypeName(Model.ParentDtoTypeReference));
+                if (isTypeSealed)
+                {
+                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Contracts.Dto, Model.ParentDtoTypeReference.Element, out var template))
+                    {
+                        var parentClass = template.CSharpFile.TypeDeclarations.First();
+                        parentClass.Unsealed();
+                    }
+                }
             }
             else if (GetDecorators().Any(x => !string.IsNullOrWhiteSpace(x.BaseClass())))
             {
