@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1f47c344-ab48-4e1b-9e1d-8a36fc46dd00" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>GraphQL</name>
+  <display>GraphQL</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8e7ffd1c-c720-4129-835c-461134115f05</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

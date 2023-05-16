@@ -55,7 +55,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType
                                         param.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{subscription.EventMessage.Comment}"""));
                                     }
 
-                                    param.AddAttribute("EventMessage");
+                                    param.AddAttribute(UseType("HotChocolate.EventMessage"));
                                 });
                                 if (subscription.EventMessage.TypeReference.Element == subscription.TypeReference.Element)
                                 {

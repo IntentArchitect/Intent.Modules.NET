@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9aa84d4d-3889-4f2c-90a9-ac506626d4bb">
+  <sourceEnd id="92698961-35e8-4a98-9299-bdb2bf3239a1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AssignedPrivileges</name>
+    <display>AssignedPrivileges: AssignedPrivilege[*]</display>
+    <order>0</order>
+    <typeReference id="a8768347-d01a-41b8-ac6f-a9863a54bbdb">
+      <typeId>ebfaf6af-f22c-4d69-9444-3a6d4d62d845</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GraphQL.MongoDb.TestApplication.Domain</typePackageName>
+      <typePackageId>eaa5a33d-be53-4842-8656-0b1a80928baf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9aa84d4d-3889-4f2c-90a9-ac506626d4bb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Privilege</name>
+    <display>Privilege: Privilege   [* --&gt; 1]</display>
+    <order>1</order>
+    <typeReference id="144207a3-7304-49fa-9f41-9ca4766a9690">
+      <typeId>45508427-7011-4c62-a82a-52ce43058b9d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GraphQL.MongoDb.TestApplication.Domain</typePackageName>
+      <typePackageId>eaa5a33d-be53-4842-8656-0b1a80928baf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

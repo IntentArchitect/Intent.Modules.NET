@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2360fe66-68de-41b2-a1b3-4bd1db7f79d7" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eaa5a33d-be53-4842-8656-0b1a80928baf</parentFolderId>
+  <packageId>eaa5a33d-be53-4842-8656-0b1a80928baf</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>eaa5a33d-be53-4842-8656-0b1a80928baf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

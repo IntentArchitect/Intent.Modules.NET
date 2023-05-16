@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraphQL.MongoDb.TestApplication.Domain\GraphQL.MongoDb.TestApplication.Domain.csproj" />
+    <ProjectReference Include="..\GraphQL.MongoDb.TestApplication.Application\GraphQL.MongoDb.TestApplication.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="MongoFramework" Version="0.28.1" />
+  </ItemGroup>
+
+</Project>

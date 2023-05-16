@@ -134,6 +134,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Repositories
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
+        [IntentManaged(Mode.Ignore)]
         public IQueryable<TDomain> GetQueryable()
         {
             return GetSet();

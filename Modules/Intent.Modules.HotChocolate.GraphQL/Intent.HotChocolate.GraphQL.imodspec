@@ -58,7 +58,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
     <dependency id="Intent.Modelers.Services.GraphQL" version="1.0.0-pre.0" />

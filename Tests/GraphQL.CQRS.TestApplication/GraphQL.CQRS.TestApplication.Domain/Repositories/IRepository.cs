@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.CQRS.TestApplication.Domain.Repositories
 {
-    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IRepository<TDomain, TPersistence>
     {
         IUnitOfWork UnitOfWork { get; }

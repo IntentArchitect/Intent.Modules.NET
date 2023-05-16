@@ -26,6 +26,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
         {
             return await mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
         }
+
         public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
             string? name,
             CancellationToken cancellationToken,

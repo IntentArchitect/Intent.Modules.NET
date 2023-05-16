@@ -17,7 +17,6 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
     [ExtendObjectType(OperationType.Query)]
     public class ProductsQueries
     {
-
         public async Task<ProductDto> FindProductById(Guid id, [Service] IProductsService service)
         {
             return await service.FindProductById(id);

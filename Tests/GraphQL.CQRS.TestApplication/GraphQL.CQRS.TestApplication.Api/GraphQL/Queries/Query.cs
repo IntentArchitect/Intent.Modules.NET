@@ -5,8 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using GraphQL.CQRS.TestApplication.Application.Customers;
-using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomerById;
-using GraphQL.CQRS.TestApplication.Application.Customers.GetCustomers;
 using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using GraphQL.CQRS.TestApplication.Application.Invoices;
 using GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoices;
@@ -14,7 +12,6 @@ using GraphQL.CQRS.TestApplication.Application.Products;
 using GraphQL.CQRS.TestApplication.Domain.Entities;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using HotChocolate;
-using HotChocolate.Data;
 using HotChocolate.Language;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
@@ -63,11 +60,9 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             return entities.MapToCustomerDtoList(mapper);
         }
 
-        [IntentManaged(Mode.Ignore)]
-        [UsePaging]
-        [UseSorting]
-        [UseFiltering]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IQueryable<Invoice> GetSpecialInvoices(
+            CancellationToken cancellationToken,
             [Service] IInvoiceRepository repository)
         {
             return repository.GetQueryable();

@@ -1,14 +1,12 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.CQRS.TestApplication.Api.GraphQL.Subscriptions;
 using GraphQL.CQRS.TestApplication.Application.Customers;
 using GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer;
 using GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer;
 using GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer;
 using HotChocolate;
 using HotChocolate.Language;
-using HotChocolate.Subscriptions;
 using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
