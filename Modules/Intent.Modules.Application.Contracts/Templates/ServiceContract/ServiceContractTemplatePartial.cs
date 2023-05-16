@@ -55,9 +55,10 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     {
         if (o.ReturnType == null)
         {
-            return o.IsAsync() ? "Task" : "void";
+            return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
         }
-        return o.IsAsync() ? $"Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
+
+        return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
     }
 
     [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
