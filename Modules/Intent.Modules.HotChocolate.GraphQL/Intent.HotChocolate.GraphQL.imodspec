@@ -13,7 +13,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Api.GraphQL.MutationType</role>
+      <role>Distribution.GraphQL.MutationType</role>
       <location>GraphQL/Mutations</location>
     </template>
     <template id="Intent.HotChocolate.GraphQL.QueryType" externalReference="fb116229-1053-44c4-b939-ae32d05cc2ec">
@@ -21,7 +21,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Api.GraphQL.QueryType</role>
+      <role>Distribution.GraphQL.QueryType</role>
       <location>GraphQL/Queries</location>
     </template>
     <template id="Intent.HotChocolate.GraphQL.SubscriptionType" externalReference="0daa91d9-8c70-4140-9c95-98355846416a">
@@ -29,7 +29,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Api.GraphQL.SubscriptionType</role>
+      <role>Distribution.GraphQL.SubscriptionType</role>
       <location>GraphQL/Subscriptions</location>
     </template>
   </templates>
