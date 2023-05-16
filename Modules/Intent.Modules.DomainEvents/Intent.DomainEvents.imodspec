@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>4.0.3</version>
+  <version>4.0.4-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>
@@ -49,7 +49,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.2" />
     <dependency id="Intent.Modelers.Domain.Events" version="3.4.2" />

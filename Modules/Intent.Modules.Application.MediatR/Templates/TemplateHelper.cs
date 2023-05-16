@@ -1,6 +1,7 @@
 ﻿using Intent.Metadata.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -8,11 +9,6 @@ namespace Intent.Modules.Application.MediatR.Templates
 {
     internal class TemplateHelper
     {
-        internal static bool HasXmlDocComments(string plainTextComment,  out string comments)
-        {
-            return HasXmlDocComments(plainTextComment, null, out comments);
-        }
-
         internal static string GetXmlDocComments(string plainTextComment, string indentation)
         {
             if (HasXmlDocComments(plainTextComment, indentation, out var comments))
@@ -30,6 +26,7 @@ namespace Intent.Modules.Application.MediatR.Templates
                 return false;
             }
 
+            //if (Containers summary dont add summary)
             comments = string.Concat(Enumerable.Empty<string>()
                 .Append("<summary>")
                 .Concat(comment.Replace("\r\n", "\n").Split('\n'))

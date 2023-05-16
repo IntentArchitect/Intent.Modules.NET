@@ -1,6 +1,7 @@
 ### Version 4.3.0
 
 - Default Values are now populated on Operation Parameters and Constructor Parameters.
+- Update : Comments on `Entity`s and their members are now added as XmlDocComments to generated code. 
 
 ### Version 4.2.2
 

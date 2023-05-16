@@ -37,6 +37,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                     @class.AddMetadata("model", model.InternalElement);
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     @class.ImplementsInterface(this.GetDomainServiceInterfaceName());
+                    @class.TryAddXmlDocComments(model.InternalElement);
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge().WithBodyIgnored());
@@ -46,6 +47,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                     {
                         @class.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
                         {
+                            method.TryAddXmlDocComments(operation.InternalElement);
                             if (operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase))
                                 method.Async();
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());

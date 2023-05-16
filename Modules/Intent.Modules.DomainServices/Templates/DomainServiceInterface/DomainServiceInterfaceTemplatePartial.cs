@@ -31,10 +31,12 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name}", @interface =>
                 {
+                    @interface.TryAddXmlDocComments(Model.InternalElement);
                     foreach (var operation in Model.Operations)
                     {
                         @interface.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
                         {
+                            method.TryAddXmlDocComments(operation.InternalElement);
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),

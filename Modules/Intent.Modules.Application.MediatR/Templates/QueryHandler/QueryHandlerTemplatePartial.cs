@@ -47,8 +47,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     });
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
-                        if (TemplateHelper.HasXmlDocComments(Model.InternalElement?.Comment, out var xmlComments))
-                            method.WithComments(xmlComments);
+                        method.TryAddXmlDocComments(Model.InternalElement);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetQueryModelName(), "request");

@@ -54,6 +54,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     @class.AddMetadata("model", Model);
                     @class.AddMetadata(IsMerged, true);
                     @class.WithPropertiesSeparated();
+                    @class.TryAddXmlDocComments(Model.InternalElement);
 
                     if (Model.IsAbstract)
                     {
@@ -87,6 +88,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         @class.AddConstructor(ctor =>
                         {
+                            ctor.TryAddXmlDocComments(operation.InternalElement);
                             foreach (var parameter in operation.Parameters)
                             {
                                 ctor.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
@@ -101,6 +103,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
                         {
+                            method.TryAddXmlDocComments(operation.InternalElement);
+
                             var hasImplementation = false;
                             foreach (var parameter in operation.Parameters)
                             {
