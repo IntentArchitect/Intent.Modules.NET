@@ -35,13 +35,13 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", inter =>
             {
                 inter.ImplementsInterfaces(new[] { UseType("System.IDisposable") });
-                inter.WithComments(Model.GetXmlDocLines().Select(s => $"/// {s}"));
+                inter.TryAddXmlDocComments(Model.InternalElement);
                 foreach (var operationModel in Model.Operations)
                 {
                     inter.AddMethod(GetOperationReturnType(operationModel), operationModel.Name.ToPascalCase(),
                         method =>
                         {
-                            method.WithComments(operationModel.GetXmlDocLines().Select(s => $"/// {s}"));
+                            method.TryAddXmlDocComments(operationModel.InternalElement  );
                             foreach (var parameterModel in operationModel.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name);
@@ -55,9 +55,10 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     {
         if (o.ReturnType == null)
         {
-            return o.IsAsync() ? "Task" : "void";
+            return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
         }
-        return o.IsAsync() ? $"Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
+
+        return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
     }
 
     [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }

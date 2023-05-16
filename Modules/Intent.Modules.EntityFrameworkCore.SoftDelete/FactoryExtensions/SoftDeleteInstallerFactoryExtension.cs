@@ -75,7 +75,8 @@ public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
         }, 100);
     }
 
-    private void AddSetSoftDeletePropertiesMethod(ICSharpFileBuilderTemplate template,
+    private static void AddSetSoftDeletePropertiesMethod(
+        ICSharpFileBuilderTemplate template,
         CSharpClass priClass)
     {
         priClass.AddMethod("void", "SetSoftDeleteProperties", method =>
@@ -87,12 +88,20 @@ public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
                 .AddChainStatement(
                     $"Where(t => t.Entity is {template.GetSoftDeleteInterfaceName()} && t.State == EntityState.Deleted)")
                 .AddChainStatement("ToArray()"));
-            method.AddIfStatement("!entities.Any()", stmt => stmt
-                .AddStatement("return;"));
-            method.AddForEachStatement("entry", "entities", stmt => stmt
-                .AddStatement($"var entity = ({template.GetSoftDeleteInterfaceName()})entry.Entity;")
-                .AddStatement("entity.IsDeleted = true;")
-                .AddStatement("entry.State = EntityState.Modified;"));
+
+            method.AddIfStatement("!entities.Any()", stmt =>
+            {
+                stmt.SeparatedFromPrevious();
+                stmt.AddStatement("return;");
+            });
+
+            method.AddForEachStatement("entry", "entities", stmt =>
+            {
+                stmt.SeparatedFromPrevious();
+                stmt.AddStatement($"var entity = ({template.GetSoftDeleteInterfaceName()})entry.Entity;");
+                stmt.AddStatement("entity.IsDeleted = true;");
+                stmt.AddStatement("entry.State = EntityState.Modified;");
+            });
         });
     }
 

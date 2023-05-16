@@ -183,6 +183,11 @@ public class EfCoreFieldConfigStatement : CSharpStatement
             statements.Add($".IsRowVersion()");
         }
 
+        if (!string.IsNullOrEmpty(attribute.InternalElement?.Comment))
+        {
+            statements.Add($".HasComment(\"{Escape(attribute.InternalElement?.Comment)}\")");
+        }
+
         return statements;
     }
 

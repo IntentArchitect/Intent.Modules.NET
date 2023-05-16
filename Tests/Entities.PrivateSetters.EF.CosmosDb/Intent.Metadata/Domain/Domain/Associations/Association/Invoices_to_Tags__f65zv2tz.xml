@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0a58fdbe-ed72-493c-a848-53c84ff72c50">
+  <comment />
+  <sourceEnd id="a96ab0ed-b3e4-4224-914e-3b2ca7741464" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <comment />
+    <name>Invoices</name>
+    <display>Invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="5dcbb2c9-b728-4ec7-8a2d-c4764807caa2">
+      <typeId>87892ef1-c976-4169-b2f9-13f5338198f9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>ed0479cb-39c2-4495-aeaa-205d18ee602b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0a58fdbe-ed72-493c-a848-53c84ff72c50" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <comment />
+    <name>Tags</name>
+    <display>Tags: Tag[*]   [* --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="08a309e9-778f-4986-b913-e51a200bf52a">
+      <typeId>63933d11-eec8-48b2-b105-e4d8895665c8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>ed0479cb-39c2-4495-aeaa-205d18ee602b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

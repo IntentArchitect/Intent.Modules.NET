@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="01638048-2dc7-4343-b7e4-07c76f4d521f">
+  <sourceEnd id="5492ff4b-a1e8-49bd-bd1e-2daa4d5be336" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="7d5c057d-d3cd-4845-bbec-76258da3bb27">
+      <typeId>562d3bb7-74c8-4d46-9e22-2d335e32caaf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="01638048-2dc7-4343-b7e4-07c76f4d521f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Lines</name>
+    <display>Lines: Line[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="54b55853-b1e1-415e-ab89-3e404f93eb6b">
+      <typeId>c1e377b0-1bef-4ab9-8530-13773c217194</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -41,6 +41,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 {
                     var priClass = file.Classes.First();
                     priClass.AddMetadata("model", Model);
+                    priClass.TryAddXmlDocComments(Model.InternalElement);
                     priClass.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     priClass.ImplementsInterface(GetServiceInterfaceName());
                     priClass.AddConstructor(ctor =>
@@ -51,6 +52,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     {
                         priClass.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(), method =>
                         {
+                            method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                             foreach (var parameter in operation.Parameters)

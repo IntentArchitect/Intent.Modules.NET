@@ -73,6 +73,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     {
                         @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
                         {
+                            property.TryAddXmlDocComments(field.InternalElement);
                             SetAccessLevel(property.Setter);
                             property.WithComments(field.GetXmlDocLines());
                             property.AddMetadata("model", field);
@@ -185,6 +186,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             {
                 @class.Sealed();
             }
+            @class.TryAddXmlDocComments(Model.InternalElement);
             if (Model.GenericTypes.Any())
             {
                 foreach (var genericType in Model.GenericTypes)

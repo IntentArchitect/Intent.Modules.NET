@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ac1f4582-9d88-4203-9e8c-614d34f99fe7" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>InvoiceDto</name>
+  <display>InvoiceDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>c2da5748-bfe9-4bb3-8abc-2805a19fb50e</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="87892ef1-c976-4169-b2f9-13f5338198f9" name="Invoice" type="element" specialization="Class" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</parentFolderId>
+  <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e672eefd-7de8-4a2c-8a7a-5409f5a706e0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="43272f41-7f79-4671-b608-9a3806a31647">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="01e8418f-18db-45c0-952e-5b5d467ac109" name="Id" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b2ea9a19-9d77-414e-b704-5d36a0f91f87" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Date</name>
+      <display>Date: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d1a43e7d-bb78-48ad-9319-78c2574a2299">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ebf1721f-6415-488b-96a2-22b35601e83e" name="Date" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b3a6cde2-d524-448e-b270-f66e15c0e27d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Lines</name>
+      <display>Lines: LineDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="302af237-33b4-4c02-b7c3-68505990fa45">
+        <typeId>67b5a434-c90e-45e3-bd32-90d0f91b19ed</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="48c02139-5460-46fe-b3d4-e0d0f5a98000" name="Lines" type="association" specialization="Association" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fa8ca846-11d3-44c4-81ca-434bb93bf30f" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Tags</name>
+      <display>Tags: TagDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a2b9ab75-c168-45c8-bf8f-24e44fe025d9">
+        <typeId>74b53cde-c677-4f7a-bb95-82bbf452098a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="0a58fdbe-ed72-493c-a848-53c84ff72c50" name="Tags" type="association" specialization="Association" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
+      <packageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

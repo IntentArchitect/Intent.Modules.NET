@@ -193,10 +193,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                 .Entries()
                 .Where(t => t.Entity is ISoftDelete && t.State == EntityState.Deleted)
                 .ToArray();
+
             if (!entities.Any())
             {
                 return;
             }
+
             foreach (var entry in entities)
             {
                 var entity = (ISoftDelete)entry.Entity;

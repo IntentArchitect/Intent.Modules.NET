@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="48c02139-5460-46fe-b3d4-e0d0f5a98000">
+  <sourceEnd id="7d4e6f0c-b0b2-4ff9-a10e-1741c4c5cf31" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="54033030-b2ea-47a6-b24d-6b0b2bbdb7ab">
+      <typeId>87892ef1-c976-4169-b2f9-13f5338198f9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>ed0479cb-39c2-4495-aeaa-205d18ee602b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="48c02139-5460-46fe-b3d4-e0d0f5a98000" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Lines</name>
+    <display>Lines: Line[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="83a1af5a-dfcb-41b0-884f-b178300cfa32">
+      <typeId>fc2ee315-c7a7-4245-9616-44bec1c9444e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>ed0479cb-39c2-4495-aeaa-205d18ee602b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

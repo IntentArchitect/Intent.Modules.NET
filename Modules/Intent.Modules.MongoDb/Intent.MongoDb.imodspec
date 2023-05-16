@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb</id>
-  <version>1.0.0-pre.12</version>
+  <version>1.0.0-pre.13</version>
   <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</summary>
   <description>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</description>
