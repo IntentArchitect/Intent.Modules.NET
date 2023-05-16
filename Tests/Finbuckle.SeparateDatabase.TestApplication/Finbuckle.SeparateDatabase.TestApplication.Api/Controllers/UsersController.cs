@@ -40,7 +40,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> Create([FromBody] UserCreateDto dto, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> Create(
+            [FromBody] UserCreateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -63,7 +65,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<UserDto>> FindById([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<UserDto>> FindById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             var result = default(UserDto);
             result = await _appService.FindById(id);
@@ -76,7 +80,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<UserDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<UserDto>>> FindAll(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<UserDto>>> FindAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<UserDto>);
             result = await _appService.FindAll();
@@ -94,7 +98,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         public async Task<ActionResult> Put(
             [FromRoute] Guid id,
             [FromBody] UserUpdateDto dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -114,7 +118,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<UserDto>> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<UserDto>> Delete([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             var result = default(UserDto);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

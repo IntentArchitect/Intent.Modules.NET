@@ -32,9 +32,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Threading;\r\nusing " +
-                    "System.Threading.Tasks;\r\nusing Dapr.Client;\r\n\r\n[assembly: DefaultIntentManaged(M" +
-                    "ode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing System.Collections.Concurrent;\r\nusing System.Threading;\r\nusi" +
+                    "ng System.Threading.Tasks;\r\nusing Dapr.Client;\r\n\r\n[assembly: DefaultIntentManage" +
+                    "d(Mode.Fully)]\r\n\r\nnamespace ");
             
             #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
@@ -56,8 +56,8 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private const string StateStoreName = \"statestore\";\r\n        pri" +
-                    "vate readonly DaprClient _daprClient;\r\n        private readonly Queue<Func<Task>" +
-                    "> _actions = new();\r\n\r\n        public ");
+                    "vate readonly DaprClient _daprClient;\r\n        private readonly ConcurrentQueue<" +
+                    "Func<CancellationToken, Task>> _actions = new();\r\n\r\n        public ");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -69,26 +69,26 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
             _daprClient = daprClient;
         }
 
-        public void Update<T>(string id, T state)
+        public void Upsert<TValue>(string key, TValue state)
         {
-            _actions.Enqueue(async () =>
+            _actions.Enqueue(async cancellationToken =>
             {
-                var currentState = await _daprClient.GetStateEntryAsync<T>(StateStoreName, id);
+                var currentState = await _daprClient.GetStateEntryAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
                 currentState.Value = state;
-                await currentState.SaveAsync();
+                await currentState.SaveAsync(cancellationToken: cancellationToken);
             });
         }
 
-        public async Task<T> Get<T>(string id, CancellationToken cancellationToken = default)
+        public async Task<TValue> GetAsync<TValue>(string key, CancellationToken cancellationToken = default)
         {
-            return await _daprClient.GetStateAsync<T>(StateStoreName, id, cancellationToken: cancellationToken);
+            return await _daprClient.GetStateAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
         }
 
-        public void Delete(string id)
+        public void Delete(string key)
         {
-            _actions.Enqueue(async () =>
+            _actions.Enqueue(async cancellationToken =>
             {
-                await _daprClient.DeleteStateAsync(StateStoreName, id);
+                await _daprClient.DeleteStateAsync(StateStoreName, key, cancellationToken: cancellationToken);
             });
         }
 
@@ -96,7 +96,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
         {
             while (_actions.TryDequeue(out var action))
             {
-                await action();
+                await action(cancellationToken);
             }
         }
     }

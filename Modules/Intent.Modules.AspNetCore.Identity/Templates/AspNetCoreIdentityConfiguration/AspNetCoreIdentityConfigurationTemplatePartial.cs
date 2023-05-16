@@ -40,7 +40,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                         {
                             param.WithThisModifier();
                         });
-                        method.AddStatement(new CSharpMethodChainStatement("services.AddIdentityWithoutCookieAuth<IdentityUser, IdentityRole>()")
+                        method.AddStatement(new CSharpMethodChainStatement($"services.AddIdentityWithoutCookieAuth<{this.GetIdentityUserClass()}, {this.GetIdentityRoleClass()}>()")
                             .AddChainStatement($@"AddEntityFrameworkStores<{this.GetTypeName("Infrastructure.Data.DbContext")}>()")
                             .AddChainStatement($@"AddDefaultTokenProviders()"));
                         method.AddStatement(new CSharpInvocationStatement("services.Configure<IdentityOptions>")

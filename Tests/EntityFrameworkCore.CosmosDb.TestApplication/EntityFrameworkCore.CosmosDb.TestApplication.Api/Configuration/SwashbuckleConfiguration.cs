@@ -58,10 +58,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
@@ -70,7 +67,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api.Configuration
                     options.OAuthAppName("EntityFrameworkCore.CosmosDb.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

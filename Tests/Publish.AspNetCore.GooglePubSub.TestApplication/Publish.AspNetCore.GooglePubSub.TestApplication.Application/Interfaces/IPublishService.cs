@@ -11,7 +11,6 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Application.Interfaces
 
     public interface IPublishService : IDisposable
     {
-
         Task TestPublish(string message);
 
     }

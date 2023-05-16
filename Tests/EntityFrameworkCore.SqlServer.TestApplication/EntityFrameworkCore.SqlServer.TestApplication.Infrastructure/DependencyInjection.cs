@@ -5,6 +5,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associat
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.InheritanceAssociations;
@@ -18,6 +19,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPC.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.TPH.InheritanceAssociations;

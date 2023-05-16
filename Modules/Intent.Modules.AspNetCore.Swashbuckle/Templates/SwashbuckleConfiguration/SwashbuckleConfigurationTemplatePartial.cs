@@ -21,8 +21,7 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
     public const string TemplateId = "Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration";
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-        outputTarget, model)
+    public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
         AddUsing("System");
@@ -70,8 +69,6 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                     method.Static();
                     method.AddParameter("IApplicationBuilder", "app", conf => conf.WithThisModifier());
                     method.AddStatement(new CSharpInvocationStatement("app.UseSwagger")
-                        .AddArgument(new CSharpLambdaBlock("options"))
-                        .WithArgumentsOnNewLines()
                         .AddMetadata("UseSwagger", true));
 
                     method.AddStatement(new CSharpInvocationStatement("app.UseSwaggerUI")
@@ -82,7 +79,6 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                             .AddStatement($@"options.OAuthAppName(""{OutputTarget.ApplicationName()} API"");")
                             .AddStatement($@"options.EnableDeepLinking();")
                             .AddStatement($@"options.DisplayOperationId();")
-                            .AddStatement($@"options.DefaultModelsExpandDepth(-1);")
                             .AddStatement($@"options.DefaultModelsExpandDepth(2);")
                             .AddStatement($@"options.DefaultModelRendering(ModelRendering.Model);")
                             .AddStatement($@"options.DocExpansion(DocExpansion.List);")

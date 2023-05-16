@@ -1,4 +1,8 @@
-﻿### Version 4.1.0
+### Version 4.1.2
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
+### Version 4.1.0
 
 - New: Integration with Swagger to add the Tentant Id HTTP Header if that Strategy is chosen.
 - New: Multi-tenancy now supports Shared Database isolation.

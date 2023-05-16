@@ -11,12 +11,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetControllerName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
+        public static string GetControllerName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetControllerName(this IntentTemplateBase template, Intent.Modelers.Services.Api.ServiceModel model)
+        public static string GetControllerName(this IIntentTemplate template, Intent.Modelers.Services.Api.ServiceModel model)
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
         }

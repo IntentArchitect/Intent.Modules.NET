@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.CRUD.Eventing</id>
-  <version>1.0.1</version>
-  <supportedClientVersions>[3.2.0,5.0.0)</supportedClientVersions>
+  <version>1.0.2</version>
+  <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
+  <releaseNotes>release-notes.md</releaseNotes>
   <summary>Wires up the auto CRUD Event Publishing for the Standard Service Implementation.</summary>
   <description>Wires up the auto CRUD Event Publishing for the Standard Service Implementation.</description>
   <authors>Intent Architect</authors>
@@ -14,11 +15,11 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="4.0.2" />
-    <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28" />
-    <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.0.2" />
+    <dependency id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="4.0.4" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

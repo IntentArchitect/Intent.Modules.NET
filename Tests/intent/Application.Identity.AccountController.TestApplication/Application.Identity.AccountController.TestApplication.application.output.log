@@ -99,6 +99,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7b7951c5-9cb4-4fe6-b7b9-203419e177b8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.AccountController.TokenServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Api/Services/ITokenService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITokenService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b7951c5-9cb4-4fe6-b7b9-203419e177b8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Api/Services/TokenService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>30871ca4-075f-4584-9d9f-61d4affafb04</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -235,6 +251,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cce8d796-d633-4668-9634-193ee6a7c31e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Domain/Entities/ApplicationIdentityUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e021eec2-adf8-4353-89b3-f6330be07682</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -272,6 +296,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05eb66b1-f552-44b0-98af-4212e95b124f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUserConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

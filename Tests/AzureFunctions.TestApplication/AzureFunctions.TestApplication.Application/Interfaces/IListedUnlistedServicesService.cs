@@ -11,9 +11,7 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
 
     public interface IListedUnlistedServicesService : IDisposable
     {
-
         Task ListedServiceFunc(string param);
-
         Task UnlistedServiceFunc();
 
     }

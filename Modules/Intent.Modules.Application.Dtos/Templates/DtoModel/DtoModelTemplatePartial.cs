@@ -181,6 +181,10 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             {
                 @class.Abstract();
             }
+            if (ExecutionContext.Settings.GetDTOSettings().Sealed())
+            {
+                @class.Sealed();
+            }
             if (Model.GenericTypes.Any())
             {
                 foreach (var genericType in Model.GenericTypes)

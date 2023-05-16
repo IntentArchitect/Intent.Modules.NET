@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>38fb3267-e318-4914-8504-3fb65d8c1198</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#13865168-61e7-42fb-a40f-8996295a6a4b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DbContextApplicationIdentityUserFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextApplicationIdentityUserFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e989d79e-d842-4e1f-8cdb-cadc324296db</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -138,10 +146,74 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#044a871c-3e32-4738-a16f-15074fa657e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#044a871c-3e32-4738-a16f-15074fa657e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d574e85d-be2c-4dae-a720-2376366685c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#d574e85d-be2c-4dae-a720-2376366685c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2e1a4fa0-a2da-437f-95e9-85c5bcecae81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceConcrete/TokenServiceConcreteTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceConcrete/TokenServiceConcreteTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2e1a4fa0-a2da-437f-95e9-85c5bcecae81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceConcrete/TokenServiceConcreteTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceConcrete/TokenServiceConcreteTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a06334f3-a3ac-4036-8a05-f1f1d5c2dbc6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a06334f3-a3ac-4036-8a05-f1f1d5c2dbc6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

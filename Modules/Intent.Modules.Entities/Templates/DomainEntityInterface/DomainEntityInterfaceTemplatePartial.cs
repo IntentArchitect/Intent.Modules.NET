@@ -113,7 +113,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                         {
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
+                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name, parm => parm.WithDefaultValue(parameter.Value));
                             }
                         });
                     }

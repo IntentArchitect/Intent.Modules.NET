@@ -28,6 +28,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
+            AddTypeSource("Application.Contract.Dto");
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -60,6 +61,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
+                                    param.WithDefaultValue(parameter.Value);
                                     var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))
                                     {
@@ -68,7 +70,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
-                            method.AddParameter("CancellationToken", "cancellationToken");
+                            method.AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
                         });
                     }
                 });

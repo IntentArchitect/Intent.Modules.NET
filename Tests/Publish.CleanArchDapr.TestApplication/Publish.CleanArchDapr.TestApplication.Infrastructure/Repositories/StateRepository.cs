@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Dapr.Client;
@@ -15,33 +15,33 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories
     {
         private const string StateStoreName = "statestore";
         private readonly DaprClient _daprClient;
-        private readonly Queue<Func<Task>> _actions = new();
+        private readonly ConcurrentQueue<Func<CancellationToken, Task>> _actions = new();
 
         public StateRepository(DaprClient daprClient)
         {
             _daprClient = daprClient;
         }
 
-        public void Update<T>(string id, T state)
+        public void Upsert<TValue>(string key, TValue state)
         {
-            _actions.Enqueue(async () =>
+            _actions.Enqueue(async cancellationToken =>
             {
-                var currentState = await _daprClient.GetStateEntryAsync<T>(StateStoreName, id);
+                var currentState = await _daprClient.GetStateEntryAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
                 currentState.Value = state;
-                await currentState.SaveAsync();
+                await currentState.SaveAsync(cancellationToken: cancellationToken);
             });
         }
 
-        public async Task<T> Get<T>(string id, CancellationToken cancellationToken = default)
+        public async Task<TValue> GetAsync<TValue>(string key, CancellationToken cancellationToken = default)
         {
-            return await _daprClient.GetStateAsync<T>(StateStoreName, id, cancellationToken: cancellationToken);
+            return await _daprClient.GetStateAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
         }
 
-        public void Delete(string id)
+        public void Delete(string key)
         {
-            _actions.Enqueue(async () =>
+            _actions.Enqueue(async cancellationToken =>
             {
-                await _daprClient.DeleteStateAsync(StateStoreName, id);
+                await _daprClient.DeleteStateAsync(StateStoreName, key, cancellationToken: cancellationToken);
             });
         }
 
@@ -49,7 +49,7 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories
         {
             while (_actions.TryDequeue(out var action))
             {
-                await action();
+                await action(cancellationToken);
             }
         }
     }

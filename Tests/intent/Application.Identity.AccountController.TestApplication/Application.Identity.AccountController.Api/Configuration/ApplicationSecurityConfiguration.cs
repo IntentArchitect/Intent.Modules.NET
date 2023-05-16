@@ -20,6 +20,7 @@ namespace Application.Identity.AccountController.Api.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
@@ -36,7 +37,8 @@ namespace Application.Identity.AccountController.Api.Configuration
                             ValidateAudience = true,
                             ValidAudience = configuration.GetSection("JwtToken:Audience").Get<string>(),
                             ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection("JwtToken:SigningKey").Get<string>()!))
+                            IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection("JwtToken:SigningKey").Get<string>()!)),
+                            NameClaimType = "sub"
                         };
 
                         options.SaveToken = true;

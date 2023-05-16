@@ -93,20 +93,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e9ebee71-82e8-4872-aee2-384033b9eb61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MediatR.EventBusPublishBehaviour</name>
-      <display>Intent.Eventing.MassTransit.MediatR.EventBusPublishBehaviour</display>
-      <externalReference>Intent.Eventing.MassTransit.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>67ae9b4e-1739-4984-a49b-f7d28ef0e5da</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="1af25eee-bc59-4204-9b56-bb90a1042988" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>

@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#776ed726-1c93-4436-8ebd-51888993cb7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/DefaultValueController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#6e8a89ec-0f71-4b18-8158-68a73bab48e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/HttpServiceAppliedController.cs</ApplicationRelativeFilePath>
@@ -164,6 +172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#776ed726-1c93-4436-8ebd-51888993cb7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/DefaultValueService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6e8a89ec-0f71-4b18-8158-68a73bab48e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/HttpServiceAppliedService.cs</ApplicationRelativeFilePath>
@@ -184,6 +200,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IClassASService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IClassASService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#776ed726-1c93-4436-8ebd-51888993cb7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IDefaultValueService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDefaultValueService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

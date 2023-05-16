@@ -26,6 +26,8 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
+        AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(OutputTarget));
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"DependencyInjection")
             .OnBuild(file =>

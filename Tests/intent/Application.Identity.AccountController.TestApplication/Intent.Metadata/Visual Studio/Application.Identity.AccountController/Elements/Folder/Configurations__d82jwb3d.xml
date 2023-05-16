@@ -21,6 +21,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="8969abeb-154d-4e51-a92a-80e523bfb641" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUserConfiguration</name>
+      <display>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUserConfiguration</display>
+      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>05eb66b1-f552-44b0-98af-4212e95b124f</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="818f7a0e-924d-4ec6-a18c-80bb283d8533" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.EntityTypeConfiguration</name>
       <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>

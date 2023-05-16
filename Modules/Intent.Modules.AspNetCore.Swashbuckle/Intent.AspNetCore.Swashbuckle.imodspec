@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>4.0.3-pre.0</version>
-  <supportedClientVersions>[3.3.0-pre.0, 5.0.0)</supportedClientVersions>
+  <version>4.0.4-pre.3</version>
+  <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
   <authors>Intent Architect</authors>
@@ -32,22 +32,22 @@
     <decorator id="Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator" externalReference="ff189556-1a54-46dc-9cfb-e86ba6f4e67b" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="4.0.0" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
+    <dependency id="Intent.AspNetCore" version="4.0.2" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.25" />
   </dependencies>
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.1" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.3" />
       </install>
     </detect>
     <detect id="Intent.Security.MSAL">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.1" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.3" />
       </install>
     </detect>
   </interoperability>

@@ -11,12 +11,12 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAuthorizeCheckOperationFilterName<T>(this IntentTemplateBase<T> template)
+        public static string GetAuthorizeCheckOperationFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId);
         }
 
-        public static string GetSwashbuckleConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetSwashbuckleConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(SwashbuckleConfigurationTemplate.TemplateId);
         }

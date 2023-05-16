@@ -82,7 +82,8 @@ public class ServiceControllerModel : IControllerModel
             typeReference: model.TypeReference,
             source: model.Source,
             headerName: model.HeaderName,
-            mappedPayloadProperty: model.MappedPayloadProperty);
+            mappedPayloadProperty: model.MappedPayloadProperty,
+            value: model.Value);
     }
 
     public string Id => _model.Id;
@@ -147,7 +148,8 @@ public class ControllerParameterModel : IControllerParameterModel
         ITypeReference typeReference,
         HttpInputSource? source,
         string headerName,
-        ICanBeReferencedType mappedPayloadProperty)
+        ICanBeReferencedType mappedPayloadProperty,
+        string value)
     {
         Id = id;
         Name = name;
@@ -155,6 +157,7 @@ public class ControllerParameterModel : IControllerParameterModel
         Source = source;
         HeaderName = headerName;
         MappedPayloadProperty = mappedPayloadProperty;
+        Value = value;
     }
 
     public string Id { get; }
@@ -163,4 +166,5 @@ public class ControllerParameterModel : IControllerParameterModel
     public HttpInputSource? Source { get; }
     public string HeaderName { get; }
     public ICanBeReferencedType MappedPayloadProperty { get; }
+    public string Value { get; }
 }

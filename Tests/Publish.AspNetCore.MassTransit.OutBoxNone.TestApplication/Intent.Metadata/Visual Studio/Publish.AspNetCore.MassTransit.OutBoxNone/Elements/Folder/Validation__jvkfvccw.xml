@@ -20,38 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="06a937ed-f3b3-4966-b667-80ea607937a7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c287e7f3-72d4-4285-8182-ad2cbc44be02</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="96f32909-96fc-41bc-a40e-a1dd24bda88e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</name>
-      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</display>
-      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c287e7f3-72d4-4285-8182-ad2cbc44be02</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

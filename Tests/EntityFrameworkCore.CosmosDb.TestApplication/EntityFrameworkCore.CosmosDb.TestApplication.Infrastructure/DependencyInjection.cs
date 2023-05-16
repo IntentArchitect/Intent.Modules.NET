@@ -6,6 +6,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inheritan
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories;
@@ -14,6 +15,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.I
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.NestedComposition;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Polymorphic;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -48,6 +50,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IBaseAssociatedRepository, BaseAssociatedRepository>();
             services.AddTransient<IC_RequiredCompositeRepository, C_RequiredCompositeRepository>();
             services.AddTransient<IClassARepository, ClassARepository>();
+            services.AddTransient<IClassWithSoftDeleteRepository, ClassWithSoftDeleteRepository>();
             services.AddTransient<IConcreteBaseClassRepository, ConcreteBaseClassRepository>();
             services.AddTransient<IConcreteBaseClassAssociatedRepository, ConcreteBaseClassAssociatedRepository>();
             services.AddTransient<ID_MultipleDependentRepository, D_MultipleDependentRepository>();

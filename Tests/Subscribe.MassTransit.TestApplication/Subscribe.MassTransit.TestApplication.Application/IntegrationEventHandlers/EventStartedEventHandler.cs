@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
+using Subscribe.MassTransit.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation", Version = "1.0")]

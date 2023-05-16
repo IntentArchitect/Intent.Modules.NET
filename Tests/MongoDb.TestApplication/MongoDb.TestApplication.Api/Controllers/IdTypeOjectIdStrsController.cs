@@ -40,7 +40,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateIdTypeOjectIdStr(
             [FromBody] IdTypeOjectIdStrCreateDto dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = await _appService.CreateIdTypeOjectIdStr(dto);
@@ -60,7 +60,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrById(
             [FromRoute] string id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = default(IdTypeOjectIdStrDto);
             result = await _appService.FindIdTypeOjectIdStrById(id);
@@ -73,7 +73,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<IdTypeOjectIdStrDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<IdTypeOjectIdStrDto>>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<IdTypeOjectIdStrDto>>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
             var result = default(List<IdTypeOjectIdStrDto>);
             result = await _appService.FindIdTypeOjectIdStrs();
@@ -91,7 +91,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateIdTypeOjectIdStr(
             [FromRoute] string id,
             [FromBody] IdTypeOjectIdStrUpdateDto dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _appService.UpdateIdTypeOjectIdStr(id, dto);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
@@ -106,7 +106,9 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteIdTypeOjectIdStr([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteIdTypeOjectIdStr(
+            [FromRoute] string id,
+            CancellationToken cancellationToken = default)
         {
             await _appService.DeleteIdTypeOjectIdStr(id);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);

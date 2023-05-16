@@ -42,22 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>da124516-6d72-4b18-b065-419ac6b83dd0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f6981dd6-09ab-429f-9a86-ba62d02f307c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ServiceContract/ServiceContractTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceContract/ServiceContractTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>da124516-6d72-4b18-b065-419ac6b83dd0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f6981dd6-09ab-429f-9a86-ba62d02f307c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ServiceContract/ServiceContractTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceContract/ServiceContractTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>da124516-6d72-4b18-b065-419ac6b83dd0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f6981dd6-09ab-429f-9a86-ba62d02f307c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ServiceContract/ServiceContractTemplatePartial.cs</ApplicationRelativeFilePath>

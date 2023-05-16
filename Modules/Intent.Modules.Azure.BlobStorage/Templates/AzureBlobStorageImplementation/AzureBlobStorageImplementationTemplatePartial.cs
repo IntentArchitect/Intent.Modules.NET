@@ -23,6 +23,7 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.AzureBlobStorageImplementat
         public AzureBlobStorageImplementationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.AzureStorageBlobs);
+            AddNugetDependency(NuGetPackages.MicrosoftExtensionsConfigurationBinder(OutputTarget));
         }
 
         public override void BeforeTemplateExecution()

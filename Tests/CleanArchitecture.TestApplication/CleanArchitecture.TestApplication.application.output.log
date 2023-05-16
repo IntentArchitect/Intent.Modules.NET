@@ -411,6 +411,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>13593b0a-b508-414b-a2ed-b30db193b119</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1548,18 +1556,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>3596299b-12e1-41f1-bb94-d1541e6ca8aa</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EventHandlers/DataContractDomainEventHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DataContractDomainEventHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3596299b-12e1-41f1-bb94-d1541e6ca8aa</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.AggregateManager#ef229a2c-3961-4466-ab21-99aae3e3bf58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EventHandlers/DDD/AccountHolderManager.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolderManager.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3596299b-12e1-41f1-bb94-d1541e6ca8aa</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/EventHandlers/DDD/DataContractDomainEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/DataContractDomainEventHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2051,11 +2059,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5b8ac139-e009-486f-b671-8d6d2e50d3e9</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEvent#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Events/DataContractDomainEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DataContractDomainEvent.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DefaultDiagram/ClassWithDefault.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefault.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2064,6 +2072,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Events/DDD/AccountTransferStarted.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountTransferStarted.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b8ac139-e009-486f-b671-8d6d2e50d3e9</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#46f726c5-3ef0-41e0-b1e7-712b4b36d8a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Events/DDD/DataContractDomainEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/DataContractDomainEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2132,6 +2148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DefaultDiagram/IClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/IClassWithDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
@@ -2176,6 +2200,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DDD/IDataContractDomainService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/IDataContractDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#7ce55354-a1b4-4955-b7bf-2f037e97bd23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DefaultDiagram/DomainServiceWithDefault.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/DomainServiceWithDefault.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#7ce55354-a1b4-4955-b7bf-2f037e97bd23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DefaultDiagram/IDomainServiceWithDefault.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/IDomainServiceWithDefault.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2315,6 +2355,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DefaultDiagram/ClassWithDefaultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaultConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2384,6 +2432,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DDD/TransactionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/TransactionRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DefaultDiagram/ClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaultRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

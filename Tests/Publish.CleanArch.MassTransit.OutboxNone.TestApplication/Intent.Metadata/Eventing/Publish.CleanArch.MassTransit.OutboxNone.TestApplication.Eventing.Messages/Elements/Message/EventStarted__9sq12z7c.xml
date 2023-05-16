@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd88c18d-9dda-404e-970c-b3df4985885e" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>EventStarted</name>
+  <display>EventStarted</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f8e33cb-9f65-4038-b797-f86a2abafe10</parentFolderId>
+  <packageId>4f8e33cb-9f65-4038-b797-f86a2abafe10</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b2c28307-7db0-48ea-ab2f-c14ea00a1e51" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="94dee510-5851-4354-9471-b971d50742cd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dd88c18d-9dda-404e-970c-b3df4985885e</parentFolderId>
+      <packageId>4f8e33cb-9f65-4038-b797-f86a2abafe10</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

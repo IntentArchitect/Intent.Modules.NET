@@ -11,12 +11,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetServiceImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
+        public static string GetServiceImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
         {
             return template.GetTypeName(ServiceImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetServiceImplementationName(this IntentTemplateBase template, Intent.Modelers.Services.Api.ServiceModel model)
+        public static string GetServiceImplementationName(this IIntentTemplate template, Intent.Modelers.Services.Api.ServiceModel model)
         {
             return template.GetTypeName(ServiceImplementationTemplate.TemplateId, model);
         }

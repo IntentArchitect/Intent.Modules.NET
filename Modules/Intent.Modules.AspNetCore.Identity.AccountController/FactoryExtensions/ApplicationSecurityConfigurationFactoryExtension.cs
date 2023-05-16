@@ -1,5 +1,7 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenServiceConcrete;
+using Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -32,8 +34,11 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             template.CSharpFile.AfterBuild(file =>
             {
                 var priClass = file.Classes.First();
-                var authStatement = priClass.FindMethod("ConfigureApplicationSecurity")
-                    .FindStatement(stmt => stmt.HasMetadata("add-authentication")) as CSharpMethodChainStatement;
+                var securityMethod = priClass.FindMethod("ConfigureApplicationSecurity");
+
+                securityMethod.Statements.Insert(0, $@"services.AddTransient<{template.GetTypeName(TokenServiceInterfaceTemplate.TemplateId)}, {template.GetTypeName(TokenServiceConcreteTemplate.TemplateId)}>();");
+
+                var authStatement = securityMethod.FindStatement(stmt => stmt.HasMetadata("add-authentication")) as CSharpMethodChainStatement;
                 var chainStatement = authStatement?.Statements.SingleOrDefault(x => x.ToString().StartsWith("AddJwtBearer("));
 
                 chainStatement?.Replace(new CSharpInvocationStatement("AddJwtBearer")
@@ -46,6 +51,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                             .AddInitStatement("ValidAudience", @"configuration.GetSection(""JwtToken:Audience"").Get<string>()")
                             .AddInitStatement("ValidateIssuerSigningKey", "true")
                             .AddInitStatement("IssuerSigningKey", @"new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
+                            .AddInitStatement("NameClaimType", @"""sub""")
                             .WithSemicolon())
                         .AddStatement("options.SaveToken = true;"))
                     .WithArgumentsOnNewLines());

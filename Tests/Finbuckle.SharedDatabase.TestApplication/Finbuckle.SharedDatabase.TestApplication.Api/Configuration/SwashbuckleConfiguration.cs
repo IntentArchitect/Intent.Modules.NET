@@ -36,10 +36,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
@@ -48,7 +45,6 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Configuration
                     options.OAuthAppName("Finbuckle.SharedDatabase.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Identity.AccountController.Application\Application.Identity.AccountController.Application.csproj" />
     <ProjectReference Include="..\Application.Identity.AccountController.Infrastructure\Application.Identity.AccountController.Infrastructure.csproj" />
+    <ProjectReference Include="..\Application.Identity.AccountController.Domain\Application.Identity.AccountController.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

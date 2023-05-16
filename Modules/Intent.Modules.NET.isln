@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.18" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.21" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -100,5 +100,6 @@
     <application id="8f985483-e0b9-4e58-baf0-632e6bb28fc6" name="Intent.Modules.AspNetCore.Controllers.FluentValidation" relativePath="Intent.Modules.AspNetCore.Controllers.FluentValidation/Intent.Modules.AspNetCore.Controllers.FluentValidation.application.config" />
     <application id="29280c3e-8c72-48c9-8bd3-fd0d42342315" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR/Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.application.config" />
     <application id="6e3ac6b3-6b47-4b2c-acde-a84838179c41" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services/Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.application.config" />
+    <application id="f305457e-36af-497b-94e8-8fe242cf83b6" name="Intent.Modules.EntityFrameworkCore.SoftDelete" relativePath="Intent.Modules.EntityFrameworkCore.SoftDelete/Intent.Modules.EntityFrameworkCore.SoftDelete.application.config" />
   </applications>
 </solution>

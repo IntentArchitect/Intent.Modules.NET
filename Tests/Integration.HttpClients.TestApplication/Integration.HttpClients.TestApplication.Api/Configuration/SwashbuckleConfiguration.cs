@@ -35,10 +35,7 @@ namespace Integration.HttpClients.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
@@ -47,7 +44,6 @@ namespace Integration.HttpClients.TestApplication.Api.Configuration
                     options.OAuthAppName("Integration.HttpClients.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

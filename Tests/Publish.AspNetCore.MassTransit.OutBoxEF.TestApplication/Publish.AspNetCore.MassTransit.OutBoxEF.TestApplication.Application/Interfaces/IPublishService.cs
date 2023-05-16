@@ -11,7 +11,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.In
 
     public interface IPublishService : IDisposable
     {
-
         Task TestPublish(string message);
 
     }

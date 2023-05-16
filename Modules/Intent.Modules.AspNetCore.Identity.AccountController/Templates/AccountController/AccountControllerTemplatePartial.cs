@@ -33,7 +33,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
             {
                 Issuer = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
                 Audience = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
-                SigningKey = Convert.ToBase64String(randomBytesBuffer)
+                SigningKey = Convert.ToBase64String(randomBytesBuffer),
+                AuthTokenExpiryMinutes = 120,
+                RefreshTokenExpiryMinutes = 3
             });
         }
 

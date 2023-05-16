@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Ardalis.GuardClauses</id>
-  <version>4.0.0</version>
-  <supportedClientVersions>[3.4.0-pre.0,5.0.0)</supportedClientVersions>
+  <version>4.0.2</version>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Install guard clauses for Domain Entities</summary>
   <description>Install guard clauses for Domain Entities</description>
   <authors>Intent Architect</authors>
@@ -15,9 +15,9 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.17" />
-    <dependency id="Intent.Common.CSharp" version="3.3.25" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

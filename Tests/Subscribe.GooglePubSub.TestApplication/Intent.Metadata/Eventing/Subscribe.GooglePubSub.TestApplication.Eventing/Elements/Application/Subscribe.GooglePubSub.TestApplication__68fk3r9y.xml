@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6abdc05a-c2eb-4b6b-83cd-5d86308413e7" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Subscribe.GooglePubSub.TestApplication</name>
+  <display>Subscribe.GooglePubSub.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41f4e98d-7eb7-4718-a0a8-b34044be0963</parentFolderId>
+  <packageId>41f4e98d-7eb7-4718-a0a8-b34044be0963</packageId>
+  <packageName>Subscribe.GooglePubSub.TestApplication.Eventing</packageName>
+  <diagram>
+    <targetPackageId>1484811c-5e64-4454-97c2-d4faecbf2a1c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -33,7 +33,9 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> TestPublish([FromBody] TestPublish command, CancellationToken cancellationToken)
+        public async Task<ActionResult> TestPublish(
+            [FromBody] TestPublish command,
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);

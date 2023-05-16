@@ -89,7 +89,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         {
                             foreach (var parameter in operation.Parameters)
                             {
-                                ctor.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase());
+                                ctor.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
                                 if (parameter.InternalElement.IsMapped)
                                 {
                                     ctor.AddStatement($"{parameter.InternalElement.MappedElement.Element.Name} = {parameter.Name.ToCamelCase()};");
@@ -104,7 +104,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             var hasImplementation = false;
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
+                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name,
+                                    parm => parm.WithDefaultValue(parameter.Value));
                                 if (parameter.InternalElement.IsMapped)
                                 {
                                     method.AddStatement($"{parameter.InternalElement.MappedElement.Element.Name} = {parameter.Name.ToCamelCase()};");

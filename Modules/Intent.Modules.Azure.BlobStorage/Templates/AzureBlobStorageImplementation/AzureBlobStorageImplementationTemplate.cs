@@ -74,27 +74,27 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.AzureBlobStorageImplementat
                     "t(containerName);\r\n            var blobClient = containerClient.GetBlobClient(bl" +
                     "obName);\r\n            var result = await blobClient.DownloadAsync(cancellationTo" +
                     "ken: cancellationToken).ConfigureAwait(false);\r\n            return result.Value." +
-                    "Content;\r\n        }\r\n\r\n        public Task UploadContent(Uri cloudStorageLocatio" +
-                    "n, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationT" +
-                    "oken = default)\r\n        {\r\n            var blobUriBuilder = new BlobUriBuilder(" +
-                    "cloudStorageLocation);\r\n            return UploadContent(blobUriBuilder.BlobCont" +
-                    "ainerName, blobUriBuilder.BlobName, streamToUpload, overwrite, cancellationToken" +
-                    ");\r\n        }\r\n\r\n        public async Task UploadContent(string containerName, s" +
-                    "tring blobName, Stream streamToUpload, bool overwrite = true, CancellationToken " +
-                    "cancellationToken = default)\r\n        {\r\n            var containerClient = _clie" +
-                    "nt.GetBlobContainerClient(containerName);\r\n            var blobClient = containe" +
-                    "rClient.GetBlobClient(blobName);\r\n            await blobClient.UploadAsync(strea" +
-                    "mToUpload, overwrite, cancellationToken).ConfigureAwait(false);\r\n        }\r\n\r\n  " +
-                    "      public Task DeleteContent(Uri cloudStorageLocation, CancellationToken canc" +
-                    "ellationToken = default)\r\n        {\r\n            var blobUriBuilder = new BlobUr" +
-                    "iBuilder(cloudStorageLocation);\r\n            return DeleteContent(blobUriBuilder" +
-                    ".BlobContainerName, blobUriBuilder.BlobName, cancellationToken);\r\n        }\r\n\r\n " +
-                    "       public async Task DeleteContent(string containerName, string blobName, Ca" +
-                    "ncellationToken cancellationToken = default)\r\n        {\r\n            var contain" +
-                    "erClient = _client.GetBlobContainerClient(containerName);\r\n            var blobC" +
-                    "lient = containerClient.GetBlobClient(blobName);\r\n            await blobClient.D" +
-                    "eleteAsync(cancellationToken: cancellationToken).ConfigureAwait(false);\r\n       " +
-                    " }\r\n    }\r\n}");
+                    "Content;\r\n        }\r\n\r\n        public Task UploadContentAsync(Uri cloudStorageLo" +
+                    "cation, Stream streamToUpload, bool overwrite = true, CancellationToken cancella" +
+                    "tionToken = default)\r\n        {\r\n            var blobUriBuilder = new BlobUriBui" +
+                    "lder(cloudStorageLocation);\r\n            return UploadContentAsync(blobUriBuilde" +
+                    "r.BlobContainerName, blobUriBuilder.BlobName, streamToUpload, overwrite, cancell" +
+                    "ationToken);\r\n        }\r\n\r\n        public async Task UploadContentAsync(string c" +
+                    "ontainerName, string blobName, Stream streamToUpload, bool overwrite = true, Can" +
+                    "cellationToken cancellationToken = default)\r\n        {\r\n            var containe" +
+                    "rClient = _client.GetBlobContainerClient(containerName);\r\n            var blobCl" +
+                    "ient = containerClient.GetBlobClient(blobName);\r\n            await blobClient.Up" +
+                    "loadAsync(streamToUpload, overwrite, cancellationToken).ConfigureAwait(false);\r\n" +
+                    "        }\r\n\r\n        public Task DeleteContentAsync(Uri cloudStorageLocation, Ca" +
+                    "ncellationToken cancellationToken = default)\r\n        {\r\n            var blobUri" +
+                    "Builder = new BlobUriBuilder(cloudStorageLocation);\r\n            return DeleteCo" +
+                    "ntentAsync(blobUriBuilder.BlobContainerName, blobUriBuilder.BlobName, cancellati" +
+                    "onToken);\r\n        }\r\n\r\n        public async Task DeleteContentAsync(string cont" +
+                    "ainerName, string blobName, CancellationToken cancellationToken = default)\r\n    " +
+                    "    {\r\n            var containerClient = _client.GetBlobContainerClient(containe" +
+                    "rName);\r\n            var blobClient = containerClient.GetBlobClient(blobName);\r\n" +
+                    "            await blobClient.DeleteAsync(cancellationToken: cancellationToken).C" +
+                    "onfigureAwait(false);\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

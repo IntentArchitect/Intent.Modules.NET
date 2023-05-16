@@ -1,3 +1,11 @@
+### Version 4.0.4
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
+### Version 4.0.3
+
+- Updated supported client version to [3.4.0-pre.0, 5.0.0).
+
 ### Version 4.0.2
 
 - Enums will now generate comments captured in designers.

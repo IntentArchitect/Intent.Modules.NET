@@ -34,10 +34,11 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                     foreach (var operation in Model.Operations)
                     {
                         @interface.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
-                        {                         
+                        {
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName());
+                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),
+                                    parm => parm.WithDefaultValue(parameter.Value));
                             }
                         });
                     }

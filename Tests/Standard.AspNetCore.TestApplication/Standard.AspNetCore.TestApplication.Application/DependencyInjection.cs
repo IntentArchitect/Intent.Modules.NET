@@ -18,6 +18,7 @@ namespace Standard.AspNetCore.TestApplication.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IClassASService, ClassASService>();
+            services.AddTransient<IDefaultValueService, DefaultValueService>();
             services.AddTransient<IHttpServiceAppliedService, HttpServiceAppliedService>();
             services.AddTransient<INonHttpServiceAppliedService, NonHttpServiceAppliedService>();
             return services;

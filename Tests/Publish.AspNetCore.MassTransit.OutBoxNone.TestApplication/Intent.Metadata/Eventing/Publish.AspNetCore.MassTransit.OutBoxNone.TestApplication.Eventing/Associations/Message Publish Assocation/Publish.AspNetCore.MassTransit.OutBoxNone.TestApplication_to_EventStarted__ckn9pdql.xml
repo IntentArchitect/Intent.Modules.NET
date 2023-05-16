@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="caaf66a7-77c1-426b-8e8c-8a613a147143">
+  <sourceEnd id="6f2c80e2-4499-460f-8734-37f04180c708" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication</name>
+    <display>publisher: Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="ae685443-fd30-4422-94d0-f7c468938d1a">
+      <typeId>6f9abc15-a366-48fb-8dab-fac7f9d525be</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Eventing</typePackageName>
+      <typePackageId>8184411c-df39-4939-8fd0-93c8714e1e60</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="caaf66a7-77c1-426b-8e8c-8a613a147143" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="50b1d655-b83b-4957-a21e-96200bae206c">
+      <typeId>59f75f3c-cded-46d9-bc19-a9bd07292890</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>e6ec0b04-4bee-4225-9a3a-495051116a68</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

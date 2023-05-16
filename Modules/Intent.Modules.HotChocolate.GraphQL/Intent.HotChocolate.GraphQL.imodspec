@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL</id>
   <version>4.0.0-pre.0</version>
-  <supportedClientVersions>[4.0.0-beta.10, 5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL implementation using Hot Chocolate.</summary>
   <description>GraphQL implementation using Hot Chocolate.</description>
   <authors>Intent Architect</authors>
@@ -56,14 +56,12 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.34-pre.2" />
-    <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.0" />
-    <dependency id="Intent.Modelers.Services" version="3.4.1" />
-    <dependency id="Intent.Modules.Modelers.Services.GraphQL" version="1.0.0-pre.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
-  </dependencies>
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Services" version="3.4.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.Modules.Modelers.Services.GraphQL" version="1.0.0-pre.0" />  </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

@@ -40,7 +40,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateIdTypeGuid(
             [FromBody] IdTypeGuidCreateDto dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
             result = await _appService.CreateIdTypeGuid(dto);
@@ -60,7 +60,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IdTypeGuidDto>> FindIdTypeGuidById(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = default(IdTypeGuidDto);
             result = await _appService.FindIdTypeGuidById(id);
@@ -73,7 +73,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<IdTypeGuidDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<IdTypeGuidDto>>> FindIdTypeGuids(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<IdTypeGuidDto>>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
             var result = default(List<IdTypeGuidDto>);
             result = await _appService.FindIdTypeGuids();
@@ -91,7 +91,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateIdTypeGuid(
             [FromRoute] Guid id,
             [FromBody] IdTypeGuidUpdateDto dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _appService.UpdateIdTypeGuid(id, dto);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
@@ -106,7 +106,9 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteIdTypeGuid([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteIdTypeGuid(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             await _appService.DeleteIdTypeGuid(id);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);

@@ -1,3 +1,12 @@
+### Version 5.1.0
+
+- Service Operations can now have Default values.
+- Fixed: When only a minimalist set of modules was installed, `Application.Contract.Dto` was missing as a type source for controllers.
+
+### Version 5.0.5
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 5.0.4
 
 - Fixed: Security being applied to operations that have the Unsecured stereotype applied.

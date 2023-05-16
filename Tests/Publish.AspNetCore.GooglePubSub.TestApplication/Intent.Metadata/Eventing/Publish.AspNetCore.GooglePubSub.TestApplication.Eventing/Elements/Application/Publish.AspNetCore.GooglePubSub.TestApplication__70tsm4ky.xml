@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0f21ac65-3335-44a9-9d5d-2db1e0c609dd" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.AspNetCore.GooglePubSub.TestApplication</name>
+  <display>Publish.AspNetCore.GooglePubSub.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2af108b4-98cc-4ae6-8a8f-e4ebeb7dee41</parentFolderId>
+  <packageId>2af108b4-98cc-4ae6-8a8f-e4ebeb7dee41</packageId>
+  <packageName>Publish.AspNetCore.GooglePubSub.TestApplication.Eventing</packageName>
+  <diagram>
+    <targetPackageId>55a39223-908d-4e92-bbee-23ed64c6c4b0</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

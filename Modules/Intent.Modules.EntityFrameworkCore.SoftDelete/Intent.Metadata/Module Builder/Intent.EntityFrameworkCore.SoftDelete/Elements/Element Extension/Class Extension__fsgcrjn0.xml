@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f16d84c7-197d-4ba4-ab13-44a5ed2ccb0c" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Class Extension</name>
+  <display>Class Extension: Class</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="ad5e354f-3bc6-4670-b56d-6976bb923e20">
+    <typeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>6233bac2-8524-441a-ae4f-1fef1a38abe6</parentFolderId>
+  <packageId>c2469c4c-0dd6-4f7f-9c07-c13268331fcf</packageId>
+  <packageName>Intent.EntityFrameworkCore.SoftDelete</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f16886aa-fbf3-4b51-b902-314a54948863" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f16d84c7-197d-4ba4-ab13-44a5ed2ccb0c</parentFolderId>
+      <packageId>c2469c4c-0dd6-4f7f-9c07-c13268331fcf</packageId>
+      <packageName>Intent.EntityFrameworkCore.SoftDelete</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c8374689-1c49-49da-b391-d3e7ea3d2e59" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c605277b-d468-4435-9415-6f70f36a5f19">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f16886aa-fbf3-4b51-b902-314a54948863</parentFolderId>
+          <packageId>c2469c4c-0dd6-4f7f-9c07-c13268331fcf</packageId>
+          <packageName>Intent.EntityFrameworkCore.SoftDelete</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;65860af3-8805-4a63-9fb9-3884b80f4380&quot;;&#xD;&#xA;const boolTypeId = &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;;&#xD;&#xA;&#xD;&#xA;if (element.hasStereotype(stereotypeId)) {&#xD;&#xA;    let isDeleteAttr = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0] ||&#xD;&#xA;        createElement(&quot;Attribute&quot;, &quot;IsDeleted&quot;, element.id);&#xD;&#xA;    isDeleteAttr.typeReference.setType(boolTypeId);&#xD;&#xA;    isDeleteAttr.setMetadata(&quot;soft-delete&quot;, true);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let isDeleteAttr = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0];&#xD;&#xA;if (isDeleteAttr) {&#xD;&#xA;    isDeleteAttr.delete();&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -37,7 +37,9 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Create([FromBody] ClassACreateDTO dto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Create(
+            [FromBody] ClassACreateDTO dto,
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -59,7 +61,9 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ClassADTO>> FindById([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult<ClassADTO>> FindById(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             var result = default(ClassADTO);
             result = await _appService.FindById(id);
@@ -72,7 +76,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<ClassADTO>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<ClassADTO>>> FindAll(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<ClassADTO>>> FindAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<ClassADTO>);
             result = await _appService.FindAll();
@@ -90,7 +94,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult> Update(
             [FromRoute] Guid id,
             [FromBody] ClassAUpdateDTO dto,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -110,7 +114,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

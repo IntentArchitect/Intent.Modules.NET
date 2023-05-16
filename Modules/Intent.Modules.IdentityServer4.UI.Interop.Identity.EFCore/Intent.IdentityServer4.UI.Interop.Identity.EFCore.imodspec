@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI.Interop.Identity.EFCore</id>
-  <version>4.0.1</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0)</supportedClientVersions>
+  <version>4.0.3</version>
+  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <releaseNotes>release-notes.md</releaseNotes>
   <summary>Allow the UI Controllers to use the Identity SignInManager instead</summary>
   <description>Allow the UI Controllers to use the Identity SignInManager instead</description>
   <authors>Intent Architect</authors>
@@ -14,10 +15,10 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.IdentityServer4.Identity.EFCore" version="4.0.1" />
-    <dependency id="Intent.IdentityServer4.UI" version="4.0.0" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.IdentityServer4.Identity.EFCore" version="4.0.3" />
+    <dependency id="Intent.IdentityServer4.UI" version="4.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

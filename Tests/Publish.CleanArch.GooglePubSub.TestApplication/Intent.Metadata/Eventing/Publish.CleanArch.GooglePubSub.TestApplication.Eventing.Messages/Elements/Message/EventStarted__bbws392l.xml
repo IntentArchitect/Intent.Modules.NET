@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f2f2c695-4f29-4bef-8317-714535000f22" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>EventStarted</name>
+  <display>EventStarted</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c95cb26e-d0c5-407d-8804-0e962acc419a</parentFolderId>
+  <packageId>c95cb26e-d0c5-407d-8804-0e962acc419a</packageId>
+  <packageName>Publish.CleanArch.GooglePubSub.TestApplication.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b7337115-4c00-4112-bdd2-99e83b0bab84" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1ee5d660-c3c7-439f-a319-2a71ed9b2a17">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f2f2c695-4f29-4bef-8317-714535000f22</parentFolderId>
+      <packageId>c95cb26e-d0c5-407d-8804-0e962acc419a</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

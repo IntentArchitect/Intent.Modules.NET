@@ -35,10 +35,7 @@ namespace Subscribe.MassTransit.TestApplication.Api.Configuration
 
         public static void UseSwashbuckle(this IApplicationBuilder app)
         {
-            app.UseSwagger(
-                options =>
-                {
-                });
+            app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
                 {
@@ -47,7 +44,6 @@ namespace Subscribe.MassTransit.TestApplication.Api.Configuration
                     options.OAuthAppName("Subscribe.MassTransit.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
-                    options.DefaultModelsExpandDepth(-1);
                     options.DefaultModelsExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Model);
                     options.DocExpansion(DocExpansion.List);

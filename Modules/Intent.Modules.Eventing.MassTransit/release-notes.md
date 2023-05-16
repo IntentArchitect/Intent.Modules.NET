@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 4.0.4
 
 - New: Interoperability with Open Telemetry Module.

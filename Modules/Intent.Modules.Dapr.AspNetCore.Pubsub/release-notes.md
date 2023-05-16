@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+
 ### Version 1.0.2
 
 - Fixed: Wasn't automatically installing `Intent.Application.MediatR.CRUD.Eventing` and `Intent.Application.ServiceImplementations.CRUD.Eventing` when appropriate.

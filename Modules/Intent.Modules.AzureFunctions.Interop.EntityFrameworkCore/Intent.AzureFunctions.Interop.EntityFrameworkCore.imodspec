@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.Interop.EntityFrameworkCore</id>
-  <version>4.0.1</version>
-  <supportedClientVersions>[4.0.0-beta.0,5.0.0)</supportedClientVersions>
+  <version>4.0.2</version>
+  <supportedClientVersions>[4.0.0-beta.0, 5.0.0-a)</supportedClientVersions>
+  <releaseNotes>release-notes.md</releaseNotes>
   <summary>Supplies Azure Functions with start-up configuration to perform Database start-up routines and to apply the Unit Of Work pattern</summary>
   <description>Supplies Azure Functions with start-up configuration to perform Database start-up routines and to apply the Unit Of Work pattern</description>
   <authors>Intent Architect</authors>
@@ -23,12 +24,12 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AzureFunctions" version="4.0.1" />
-    <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.18" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.14" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
+    <dependency id="Intent.AzureFunctions" version="4.0.2" />
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.EntityFrameworkCore" version="4.4.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

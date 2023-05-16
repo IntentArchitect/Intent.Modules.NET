@@ -1,10 +1,10 @@
 using System.Reflection;
-using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
+using Subscribe.MassTransit.TestApplication.Eventing.Messages;
 using Subscribe.MassTransit.TestApplication.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

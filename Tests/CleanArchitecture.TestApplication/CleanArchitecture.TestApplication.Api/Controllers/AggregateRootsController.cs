@@ -48,7 +48,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateAggregateRoot(
             [FromBody] CreateAggregateRootCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetAggregateRootById), new { id = result }, new JsonResponse<Guid>(result));
@@ -66,7 +66,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<Guid>> CreateAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (aggregateRootId != command.AggregateRootId)
             {
@@ -85,7 +85,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteAggregateRoot([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteAggregateRoot(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteAggregateRootCommand { Id = id }, cancellationToken);
             return Ok();
@@ -102,7 +104,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> DeleteAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteAggregateRootCompositeManyBCommand { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
             return Ok();
@@ -119,7 +121,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult> UpdateAggregateRoot(
             [FromRoute] Guid id,
             [FromBody] UpdateAggregateRootCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (id != command.Id)
             {
@@ -142,7 +144,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
             [FromBody] UpdateAggregateRootCompositeManyBCommand command,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (aggregateRootId != command.AggregateRootId)
             {
@@ -169,7 +171,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateRootDto>> GetAggregateRootById(
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootByIdQuery { Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -188,7 +190,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<AggregateRootCompositeManyBDto>> GetAggregateRootCompositeManyBById(
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootCompositeManyBByIdQuery { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
             return result != null ? Ok(result) : NotFound();
@@ -204,7 +206,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<AggregateRootCompositeManyBDto>>> GetAggregateRootCompositeManyBS(
             [FromRoute] Guid aggregateRootId,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootCompositeManyBSQuery { AggregateRootId = aggregateRootId }, cancellationToken);
             return Ok(result);
@@ -216,7 +218,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/aggregate-roots")]
         [ProducesResponseType(typeof(List<AggregateRootDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<AggregateRootDto>>> GetAggregateRoots(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<AggregateRootDto>>> GetAggregateRoots(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootsQuery(), cancellationToken);
             return Ok(result);
