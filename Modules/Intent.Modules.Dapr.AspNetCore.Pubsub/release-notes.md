@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Fixed: Software Factory executions on case-sensitive file systems would fail due to file not found errors.
+
 ### Version 1.0.4
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
