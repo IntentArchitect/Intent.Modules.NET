@@ -1,6 +1,7 @@
 ### Version 1.0.5
 
 - Fixed: Software Factory executions on case-sensitive file systems would fail due to file not found errors.
+- Fixed: Under certain circumstances the `EventHandlerController` file would not be generated.
 
 ### Version 1.0.4
 

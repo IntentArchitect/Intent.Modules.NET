@@ -20,7 +20,6 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class DaprEventHandlerControllerTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        private readonly bool _canRunTemplate;
         public const string TemplateId = "Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -28,10 +27,6 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
         {
             AddNugetDependency(NuGetPackages.DaprAspNetCore);
             AddNugetDependency(NuGetPackages.MediatR);
-
-            var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
-                .ToArray();
-            _canRunTemplate = eventHandlerTemplates.Any();
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")
@@ -50,6 +45,9 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                         .AddConstructor(constructor => constructor
                             .AddParameter("ISender", "mediatr", p => p.IntroduceReadonlyField())
                         );
+
+                    var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+                        .ToArray();
 
                     foreach (var eventHandler in eventHandlerTemplates)
                     {
@@ -101,7 +99,10 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
 
         public override bool CanRunTemplate()
         {
-            return _canRunTemplate && base.CanRunTemplate();
+            var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+                .ToArray();
+            
+            return eventHandlerTemplates.Any() && base.CanRunTemplate();
         }
 
         [IntentManaged(Mode.Fully)]
