@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.5" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.6" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services.GraphQL" Version="1.0.0-pre.2" />
@@ -20,10 +20,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Events\" />
   </ItemGroup>
 
   <ItemGroup>
