@@ -2,7 +2,7 @@
 <association id="5fc1c02d-1714-420a-b99d-b4e46f4a401b">
   <sourceEnd id="230ca0d2-5bb6-40ae-bbc1-bb64e87c22ac" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>DerivedClassForAbstractAssociateds</name>
-    <display>DerivedClassForAbstractAssociateds: DerivedClassForAbstractAssociated[*]</display>
+    <display>DerivedClassForAbstractAssociateds: TPH_DerivedClassForAbstractAssociated[*]</display>
     <order>0</order>
     <typeReference id="712b4eb4-d840-479c-9ee0-2cff622f433a">
       <typeId>dd0f9fe1-7900-468a-8f81-02ea33a5ca98</typeId>
@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="5fc1c02d-1714-420a-b99d-b4e46f4a401b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForAbstract</name>
-    <display>DerivedClassForAbstract: DerivedClassForAbstract   [* --&gt; 1]</display>
+    <display>DerivedClassForAbstract: TPH_DerivedClassForAbstract   [* --&gt; 1]</display>
     <order>1</order>
     <typeReference id="b4fe0a77-92ea-48d9-808b-7c29c2b06c74">
       <typeId>488ba739-52ee-490e-81b1-d9d435becec1</typeId>

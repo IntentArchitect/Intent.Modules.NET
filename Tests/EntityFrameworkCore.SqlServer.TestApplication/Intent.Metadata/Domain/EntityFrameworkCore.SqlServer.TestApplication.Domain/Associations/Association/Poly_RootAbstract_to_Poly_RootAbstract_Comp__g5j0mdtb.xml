@@ -2,7 +2,7 @@
 <association id="77159e06-63da-429c-9c98-7f9c6a4e0547">
   <sourceEnd id="54fc0206-0e93-42ec-a0bc-cd524452edec" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Poly_RootAbstract</name>
-    <display>Poly_RootAbstract: Poly_RootAbstract</display>
+    <display>Poly_RootAbstract: TPT_Poly_RootAbstract</display>
     <order>0</order>
     <typeReference id="61c79232-da56-4d9c-937a-5923c79c0d18">
       <typeId>d1447c1d-0b27-4879-926a-3e704ad0c9dc</typeId>
@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="77159e06-63da-429c-9c98-7f9c6a4e0547" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Poly_RootAbstract_Comp</name>
-    <display>Poly_RootAbstract_Comp: Poly_RootAbstract_Comp?   [1 --&gt; 0..1]</display>
+    <display>Poly_RootAbstract_Comp: TPT_Poly_RootAbstract_Comp?   [1 --&gt; 0..1]</display>
     <order>2</order>
     <typeReference id="15bc1630-c7a3-4561-aa88-b86af5862537">
       <typeId>6d75e2f8-df74-43ca-8e52-4cfeb2f297ff</typeId>

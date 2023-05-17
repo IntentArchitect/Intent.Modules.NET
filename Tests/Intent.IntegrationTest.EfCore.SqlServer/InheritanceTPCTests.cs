@@ -16,100 +16,100 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_AbstractBaseClass()
     {
-        var derived = new DerivedClassForAbstract();
+        var derived = new TPC_DerivedClassForAbstract();
         derived.BaseAttribute = "Base Value";
         derived.DerivedAttribute = "Base Value";
-        DbContext.DerivedClassForAbstracts.Add(derived);
+        DbContext.TPC_DerivedClassForAbstracts.Add(derived);
 
-        var derivedAssociated = new DerivedClassForAbstractAssociated();
+        var derivedAssociated = new TPC_DerivedClassForAbstractAssociated();
         derivedAssociated.AssociatedField = "Derived Associated Value";
         derivedAssociated.DerivedClassForAbstract = derived;
-        DbContext.TPCInheritanceAssociationsDerivedClassForAbstractAssociateds.Add(derivedAssociated);
+        DbContext.TPC_DerivedClassForAbstractAssociateds.Add(derivedAssociated);
 
         DbContext.SaveChanges();
 
-        Assert.Equal(derived, DbContext.DerivedClassForAbstracts.Single(p => p.Id == derived.Id));
-        Assert.Equal(derived, DbContext.TPCInheritanceAssociationsDerivedClassForAbstractAssociateds.Single(p => p.Id == derivedAssociated.Id).DerivedClassForAbstract);
+        Assert.Equal(derived, DbContext.TPC_DerivedClassForAbstracts.Single(p => p.Id == derived.Id));
+        Assert.Equal(derived, DbContext.TPC_DerivedClassForAbstractAssociateds.Single(p => p.Id == derivedAssociated.Id).DerivedClassForAbstract);
     }
 
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_ConcreteBaseClass()
     {
-        var concreteBase = new ConcreteBaseClass();
+        var concreteBase = new TPC_ConcreteBaseClass();
         concreteBase.BaseAttribute = "Base Value";
-        DbContext.TPCInheritanceAssociationsConcreteBaseClasses.Add(concreteBase);
+        DbContext.TPC_ConcreteBaseClasses.Add(concreteBase);
 
-        var concreteBaseAssociated = new ConcreteBaseClassAssociated();
+        var concreteBaseAssociated = new TPC_ConcreteBaseClassAssociated();
         concreteBaseAssociated.AssociatedField = "Associated Value";
         concreteBaseAssociated.ConcreteBaseClass = concreteBase;
-        DbContext.ConcreteBaseClassAssociateds.Add(concreteBaseAssociated);
+        DbContext.TPC_ConcreteBaseClassAssociateds.Add(concreteBaseAssociated);
 
         DbContext.SaveChanges();
 
-        Assert.Equal((object)concreteBase, (object)DbContext.TPCInheritanceAssociationsConcreteBaseClasses.SingleOrDefault(p => p.Id == concreteBase.Id));
-        Assert.Equal(concreteBase, DbContext.ConcreteBaseClassAssociateds.Single(p => p.Id == concreteBaseAssociated.Id).ConcreteBaseClass);
+        Assert.Equal((object)concreteBase, (object)DbContext.TPC_ConcreteBaseClasses.SingleOrDefault(p => p.Id == concreteBase.Id));
+        Assert.Equal(concreteBase, DbContext.TPC_ConcreteBaseClassAssociateds.Single(p => p.Id == concreteBaseAssociated.Id).ConcreteBaseClass);
 
-        var derived = new DerivedClassForConcrete();
+        var derived = new TPC_DerivedClassForConcrete();
         derived.BaseAttribute = "Derived Value";
         derived.DerivedAttribute = "Derived Value";
-        DbContext.TPCInheritanceAssociationsDerivedClassForConcretes.Add(derived);
+        DbContext.TPC_DerivedClassForConcretes.Add(derived);
 
-        var derivedAssociated = new DerivedClassForConcreteAssociated();
+        var derivedAssociated = new TPC_DerivedClassForConcreteAssociated();
         derivedAssociated.AssociatedField = "Associated Value";
         derivedAssociated.DerivedClassForConcrete = derived;
-        DbContext.TPCInheritanceAssociationsDerivedClassForConcreteAssociateds.Add(derivedAssociated);
+        DbContext.TPC_DerivedClassForConcreteAssociateds.Add(derivedAssociated);
 
-        var concreteBaseAssociatedForDerived = new ConcreteBaseClassAssociated();
+        var concreteBaseAssociatedForDerived = new TPC_ConcreteBaseClassAssociated();
         concreteBaseAssociatedForDerived.AssociatedField = "Associated Value";
         concreteBaseAssociatedForDerived.ConcreteBaseClass = derived;
-        DbContext.ConcreteBaseClassAssociateds.Add(concreteBaseAssociatedForDerived);
+        DbContext.TPC_ConcreteBaseClassAssociateds.Add(concreteBaseAssociatedForDerived);
 
         DbContext.SaveChanges();
 
-        Assert.Equal(derived, DbContext.TPCInheritanceAssociationsDerivedClassForConcretes.Single(p => p.Id == derived.Id));
-        Assert.Equal(derived, DbContext.TPCInheritanceAssociationsDerivedClassForConcreteAssociateds.Single(p => p.Id == derivedAssociated.Id).DerivedClassForConcrete);
-        Assert.Equal(derived, DbContext.ConcreteBaseClassAssociateds.Single(p => p.Id == concreteBaseAssociatedForDerived.Id).ConcreteBaseClass);
+        Assert.Equal(derived, DbContext.TPC_DerivedClassForConcretes.Single(p => p.Id == derived.Id));
+        Assert.Equal(derived, DbContext.TPC_DerivedClassForConcreteAssociateds.Single(p => p.Id == derivedAssociated.Id).DerivedClassForConcrete);
+        Assert.Equal(derived, DbContext.TPC_ConcreteBaseClassAssociateds.Single(p => p.Id == concreteBaseAssociatedForDerived.Id).ConcreteBaseClass);
     }
 
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_CompositeForeignKey()
     {
-        var baseClass = new FkBaseClass();
+        var baseClass = new TPC_FkBaseClass();
         baseClass.CompositeKeyA = Guid.NewGuid();
         baseClass.CompositeKeyB = Guid.NewGuid();
-        DbContext.TPCInheritanceAssociationsFkBaseClasses.Add(baseClass);
+        DbContext.TPC_FkBaseClasses.Add(baseClass);
 
-        var baseAssociated = new FkBaseClassAssociated();
+        var baseAssociated = new TPC_FkBaseClassAssociated();
         baseAssociated.AssociatedField = "Associated Value";
         baseAssociated.FkBaseClass = baseClass;
-        DbContext.TPCInheritanceAssociationsFkBaseClassAssociateds.Add(baseAssociated);
+        DbContext.TPC_FkBaseClassAssociateds.Add(baseAssociated);
 
         DbContext.SaveChanges();
 
-        Assert.Equal(baseClass, DbContext.TPCInheritanceAssociationsFkBaseClasses.Single(p => p.CompositeKeyA == baseClass.CompositeKeyA && p.CompositeKeyB == baseClass.CompositeKeyB));
-        Assert.Equal(baseClass, DbContext.TPCInheritanceAssociationsFkBaseClassAssociateds.Single(p => p.Id == baseAssociated.Id).FkBaseClass);
+        Assert.Equal(baseClass, DbContext.TPC_FkBaseClasses.Single(p => p.CompositeKeyA == baseClass.CompositeKeyA && p.CompositeKeyB == baseClass.CompositeKeyB));
+        Assert.Equal(baseClass, DbContext.TPC_FkBaseClassAssociateds.Single(p => p.Id == baseAssociated.Id).FkBaseClass);
 
-        var derived = new FkDerivedClass();
+        var derived = new TPC_FkDerivedClass();
         derived.CompositeKeyA = Guid.NewGuid();
         derived.CompositeKeyB = Guid.NewGuid();
         derived.DerivedField = "Derived Value";
-        DbContext.TPCInheritanceAssociationsFkDerivedClasses.Add(derived);
+        DbContext.TPC_FkDerivedClasses.Add(derived);
 
-        var associated = new FkAssociatedClass();
+        var associated = new TPC_FkAssociatedClass();
         associated.FkDerivedClass = derived;
         associated.AssociatedField = "Associated Value";
-        DbContext.FkAssociatedClasses.Add(associated);
+        DbContext.TPC_FkAssociatedClasses.Add(associated);
 
-        var baseAssociated2 = new FkBaseClassAssociated();
+        var baseAssociated2 = new TPC_FkBaseClassAssociated();
         baseAssociated2.AssociatedField = "Associated Value";
         baseAssociated2.FkBaseClass = derived;
-        DbContext.TPCInheritanceAssociationsFkBaseClassAssociateds.Add(baseAssociated2);
+        DbContext.TPC_FkBaseClassAssociateds.Add(baseAssociated2);
 
         DbContext.SaveChanges();
 
-        Assert.Equal(derived, DbContext.TPCInheritanceAssociationsFkDerivedClasses.Single(p => p.CompositeKeyA == derived.CompositeKeyA && p.CompositeKeyB == derived.CompositeKeyB));
-        Assert.Equal(derived, DbContext.FkAssociatedClasses.Single(p => p.Id == associated.Id).FkDerivedClass);
-        Assert.Equal(derived, DbContext.TPCInheritanceAssociationsFkBaseClassAssociateds.Single(p => p.Id == baseAssociated2.Id).FkBaseClass);
+        Assert.Equal(derived, DbContext.TPC_FkDerivedClasses.Single(p => p.CompositeKeyA == derived.CompositeKeyA && p.CompositeKeyB == derived.CompositeKeyB));
+        Assert.Equal(derived, DbContext.TPC_FkAssociatedClasses.Single(p => p.Id == associated.Id).FkDerivedClass);
+        Assert.Equal(derived, DbContext.TPC_FkBaseClassAssociateds.Single(p => p.Id == baseAssociated2.Id).FkBaseClass);
     }
 
     [IgnoreOnCiBuildFact]
@@ -124,12 +124,12 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
         // DbContext.Poly_TopLevels.Add(topLevel);
 
         var secondLevelConcretes = CreateNewPolyClasses();
-        var secondLevel = new Poly_SecondLevel();
+        var secondLevel = new TPC_Poly_SecondLevel();
         secondLevel.SecondField = "Second Level Value";
         secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item2);
         secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item3);
         secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item4);
-        DbContext.Poly_SecondLevels.Add(secondLevel);
+        DbContext.TPC_Poly_SecondLevels.Add(secondLevel);
         
         DbContext.SaveChanges();
 
@@ -141,7 +141,7 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
         //     Assert.Equal(topLevelConcretes.Item1.Id, rootAbstract.Poly_RootAbstract_Aggr.Id);
         // }
         
-        var retrievedSecondLevel = DbContext.Poly_SecondLevels.Single(p => p.Id == secondLevel.Id);
+        var retrievedSecondLevel = DbContext.TPC_Poly_SecondLevels.Single(p => p.Id == secondLevel.Id);
         Assert.Equal(secondLevel.BaseClassNonAbstracts.Count, retrievedSecondLevel.BaseClassNonAbstracts.Count);
         foreach (var nonAbstract in retrievedSecondLevel.BaseClassNonAbstracts)
         {
@@ -149,33 +149,33 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
             Assert.Equal(secondLevelConcretes.Item1.Id, nonAbstract.Poly_RootAbstract_Aggr.Id);
         }
         
-        (Poly_RootAbstract_Aggr, Poly_BaseClassNonAbstract, Poly_ConcreteA, Poly_ConcreteB) CreateNewPolyClasses()
+        (TPC_Poly_RootAbstract_Aggr, TPC_Poly_BaseClassNonAbstract, TPC_Poly_ConcreteA, TPC_Poly_ConcreteB) CreateNewPolyClasses()
         {
-            var rootAbstractAggr = new Poly_RootAbstract_Aggr();
+            var rootAbstractAggr = new TPC_Poly_RootAbstract_Aggr();
             rootAbstractAggr.AggrField = "Root Abstract Aggregate Value";
-            DbContext.TPCPolymorphicPoly_RootAbstract_Aggrs.Add(rootAbstractAggr);
+            DbContext.TPC_Poly_RootAbstract_Aggrs.Add(rootAbstractAggr);
             
-            var baseClass = new Poly_BaseClassNonAbstract();
+            var baseClass = new TPC_Poly_BaseClassNonAbstract();
             baseClass.AbstractField = "Base Class Non Abstract Value";
             baseClass.BaseField = "Base Class Non Abstract Value";
-            baseClass.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Base Class Non Abstract Value" };
+            baseClass.Poly_RootAbstract_Comp = new TPC_Poly_RootAbstract_Comp() { CompField = "Base Class Non Abstract Value" };
             baseClass.Poly_RootAbstract_Aggr = rootAbstractAggr;
         
-            var concreteA = new Poly_ConcreteA();
+            var concreteA = new TPC_Poly_ConcreteA();
             concreteA.ConcreteField = "Concrete Value";
             concreteA.AbstractField = "Concrete Value";
             concreteA.BaseField = "Concrete Value";
-            concreteA.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
+            concreteA.Poly_RootAbstract_Comp = new TPC_Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
             concreteA.Poly_RootAbstract_Aggr = rootAbstractAggr;
-            DbContext.TPCPolymorphicPoly_ConcreteAs.Add(concreteA);
+            DbContext.TPC_Poly_ConcreteAs.Add(concreteA);
         
-            var concreteB = new Poly_ConcreteB();
+            var concreteB = new TPC_Poly_ConcreteB();
             concreteB.ConcreteField = "Concrete Value";
             concreteB.AbstractField = "Concrete Value";
             concreteB.BaseField = "Concrete Value";
-            concreteB.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
+            concreteB.Poly_RootAbstract_Comp = new TPC_Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
             concreteB.Poly_RootAbstract_Aggr = rootAbstractAggr;
-            DbContext.TPCPolymorphicPoly_ConcreteBs.Add(concreteB);
+            DbContext.TPC_Poly_ConcreteBs.Add(concreteB);
             
             return (rootAbstractAggr, baseClass, concreteA, concreteB);
         }

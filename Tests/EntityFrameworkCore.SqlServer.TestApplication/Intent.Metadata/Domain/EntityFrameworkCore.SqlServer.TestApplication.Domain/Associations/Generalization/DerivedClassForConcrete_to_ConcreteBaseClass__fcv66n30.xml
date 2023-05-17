@@ -2,7 +2,7 @@
 <association id="10a9a0c1-d3c8-4b1d-91a7-d3f636199359">
   <sourceEnd id="18ac4270-2b07-4621-87ef-40fa555811c1" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>DerivedClassForConcrete</name>
-    <display>DerivedClassForConcrete: DerivedClassForConcrete</display>
+    <display>DerivedClassForConcrete: TPC_DerivedClassForConcrete</display>
     <order>0</order>
     <typeReference id="44776f65-3bb6-40b4-b4e5-70f49a05974a">
       <typeId>1b712c85-c882-42ab-aec7-d687d3a74035</typeId>
@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="10a9a0c1-d3c8-4b1d-91a7-d3f636199359" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>ConcreteBaseClass</name>
-    <display>ConcreteBaseClass: ConcreteBaseClass</display>
+    <display>ConcreteBaseClass: TPC_ConcreteBaseClass</display>
     <order>1</order>
     <typeReference id="a04f6f30-843d-460e-aa68-4eb6f73bb9c9">
       <typeId>39b16986-2975-4614-ae5e-3f342e411232</typeId>

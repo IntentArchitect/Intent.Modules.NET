@@ -2,7 +2,7 @@
 <association id="d3b68a4c-6727-4645-9066-12ba7e78a1fb">
   <sourceEnd id="6fdb5d43-b625-46be-8914-98edc5092b89" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>DerivedClassForConcreteAssociateds</name>
-    <display>DerivedClassForConcreteAssociateds: DerivedClassForConcreteAssociated[*]</display>
+    <display>DerivedClassForConcreteAssociateds: TPT_DerivedClassForConcreteAssociated[*]</display>
     <order>0</order>
     <typeReference id="0fe2330f-27b1-4a27-a9e9-b2b55ffd896f">
       <typeId>3a65b252-d8cc-406c-9a2f-a7e5b7114a80</typeId>
@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="d3b68a4c-6727-4645-9066-12ba7e78a1fb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForConcrete</name>
-    <display>DerivedClassForConcrete: DerivedClassForConcrete   [* --&gt; 1]</display>
+    <display>DerivedClassForConcrete: TPT_DerivedClassForConcrete   [* --&gt; 1]</display>
     <order>1</order>
     <typeReference id="d93a754a-5a2a-4dca-91f9-079389f83ca8">
       <typeId>1c27fe12-28ae-4542-8cff-60485eeacb2c</typeId>

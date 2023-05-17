@@ -2,7 +2,7 @@
 <association id="6a4204d0-a54f-436f-bdba-b30d9f845813">
   <sourceEnd id="de57e392-c19e-4dac-bb80-d4928710445e" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>Poly_ConcreteB</name>
-    <display>Poly_ConcreteB: Poly_ConcreteB</display>
+    <display>Poly_ConcreteB: TPT_Poly_ConcreteB</display>
     <order>0</order>
     <typeReference id="67f45c10-78fc-487c-befd-c5ebe4f63ec0">
       <typeId>daba366c-a445-41aa-8084-3b470f582423</typeId>
@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="6a4204d0-a54f-436f-bdba-b30d9f845813" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>Poly_BaseClassNonAbstract</name>
-    <display>Poly_BaseClassNonAbstract: Poly_BaseClassNonAbstract</display>
+    <display>Poly_BaseClassNonAbstract: TPT_Poly_BaseClassNonAbstract</display>
     <order>1</order>
     <typeReference id="70e8fbff-5177-479a-a6f3-3045836ab246">
       <typeId>e876b83a-029f-4b5f-9065-eb85b97cf2b6</typeId>

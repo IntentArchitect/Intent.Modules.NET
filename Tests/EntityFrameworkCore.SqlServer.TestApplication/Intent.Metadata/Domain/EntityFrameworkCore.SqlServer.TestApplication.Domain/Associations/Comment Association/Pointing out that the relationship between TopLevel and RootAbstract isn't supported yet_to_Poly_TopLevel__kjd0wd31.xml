@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="2ee09ffd-8547-4a75-9c60-4c26239c27f3" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
     <name>Poly_TopLevel</name>
-    <display>Poly_TopLevel: Poly_TopLevel</display>
+    <display>Poly_TopLevel: TPC_Poly_TopLevel</display>
     <order>0</order>
     <typeReference id="8fc6fc17-193e-46ed-aa24-4c3d16bffbe5">
       <typeId>c2d307e8-a068-45d5-8953-ba0cb2670d78</typeId>
