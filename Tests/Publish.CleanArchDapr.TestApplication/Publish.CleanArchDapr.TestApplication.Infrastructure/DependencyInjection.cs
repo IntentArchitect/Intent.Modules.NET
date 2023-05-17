@@ -2,9 +2,11 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.CleanArchDapr.TestApplication.Application.Common.Eventing;
 using Publish.CleanArchDapr.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
+using Publish.CleanArchDapr.TestApplication.Infrastructure.Eventing;
 using Publish.CleanArchDapr.TestApplication.Infrastructure.Persistence;
 using Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories;
 using Publish.CleanArchDapr.TestApplication.Infrastructure.Services;
@@ -27,6 +29,7 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IStateRepository, StateRepository>();
             return services;
         }

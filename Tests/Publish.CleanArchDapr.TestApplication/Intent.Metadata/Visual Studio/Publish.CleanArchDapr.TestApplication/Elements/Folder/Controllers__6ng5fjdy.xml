@@ -23,7 +23,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="73c83a72-3074-4581-bab8-553017dd9282" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="47109d45-9882-40a9-a7a7-9aa18922ed35" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController</name>
       <display>Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController</display>
       <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>

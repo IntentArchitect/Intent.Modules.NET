@@ -2,6 +2,7 @@
 
 - Fixed: Software Factory executions on case-sensitive file systems would fail due to file not found errors.
 - Fixed: Under certain circumstances the `EventHandlerController` file would not be generated.
+- Fixed: `EventBusImplementation` was incorrectly being generated into the `Application` project instead of the `Infrastructure` project.
 
 ### Version 1.0.4
 

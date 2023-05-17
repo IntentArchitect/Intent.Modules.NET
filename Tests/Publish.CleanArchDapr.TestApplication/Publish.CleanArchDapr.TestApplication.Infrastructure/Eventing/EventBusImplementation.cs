@@ -3,11 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dapr.Client;
 using Intent.RoslynWeaver.Attributes;
+using Publish.CleanArchDapr.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation", Version = "1.0")]
 
-namespace Subscribe.CleanArchDapr.TestApplication.Application.Common.Eventing
+namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Eventing
 {
     public class EventBusImplementation : IEventBus
     {

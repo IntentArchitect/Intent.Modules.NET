@@ -9,34 +9,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="b645bec7-4375-444e-9a98-486ac9161425" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation</name>
-      <display>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation</display>
-      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="4556a61d-5635-430b-a002-bda0e7d86d4e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.Pubsub.EventInterface</name>
-      <display>Intent.Dapr.AspNetCore.Pubsub.EventInterface</display>
-      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="d5f470fd-7847-43f1-b651-fd493a2069a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Contracts.EventBusInterface</name>
       <display>Intent.Eventing.Contracts.EventBusInterface</display>
@@ -55,6 +27,20 @@
       <name>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</name>
       <display>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c8a9d844-3bc3-4bf3-a6d9-6fe2452d86c3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.EventInterface</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.EventInterface</display>
+      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

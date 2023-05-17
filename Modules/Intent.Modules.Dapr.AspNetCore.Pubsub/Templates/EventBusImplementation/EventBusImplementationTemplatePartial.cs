@@ -68,8 +68,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
                 .ToRegister(ClassName)
                 .WithPerServiceCallLifeTime()
                 .ForInterface(this.GetEventBusInterfaceName())
-                .WithPriority(6)
-                .ForConcern("Application")
+                .WithPriority(4)
+                .ForConcern("Infrastructure")
                 .HasDependency(this)
                 .HasDependency(ExecutionContext.FindTemplateInstance<ITemplate>(EventInterfaceTemplate.TemplateId)));
         }

@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours;
-using Publish.CleanArchDapr.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -26,7 +25,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(StateRepositoryUnitOfWorkBehaviour<,>));
-            services.AddScoped<IEventBus, EventBusImplementation>();
             return services;
         }
     }

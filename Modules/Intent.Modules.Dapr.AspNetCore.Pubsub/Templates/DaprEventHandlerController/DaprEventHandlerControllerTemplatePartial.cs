@@ -101,7 +101,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
         {
             var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
                 .ToArray();
-            
+
             return eventHandlerTemplates.Any() && base.CanRunTemplate();
         }
 
