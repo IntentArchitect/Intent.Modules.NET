@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -13,7 +12,6 @@ namespace AzureFunctions.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class ListedUnlistedServicesService : IListedUnlistedServicesService
     {
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ListedUnlistedServicesService()
         {

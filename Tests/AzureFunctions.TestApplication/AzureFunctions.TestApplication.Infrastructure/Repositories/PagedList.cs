@@ -13,11 +13,6 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
 {
     public class PagedList<T> : List<T>, IPagedResult<T>
     {
-        public int TotalCount { get; private set; }
-        public int PageCount { get; private set; }
-        public int PageNo { get; private set; }
-        public int PageSize { get; private set; }
-
         public PagedList(IQueryable<T> source, int pageNo, int pageSize)
         {
             TotalCount = source.Count();
@@ -42,6 +37,21 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             AddRange(results);
         }
 
+        public int TotalCount { get; private set; }
+        public int PageCount { get; private set; }
+        public int PageNo { get; private set; }
+        public int PageSize { get; private set; }
+
+        private int GetPageCount(int pageSize, int totalCount)
+        {
+            if (pageSize == 0)
+            {
+                return 0;
+            }
+            var remainder = totalCount % pageSize;
+            return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
+        }
+
         public static async Task<IPagedResult<T>> CreateAsync(
             IQueryable<T> source,
             int pageNo,
@@ -56,16 +66,6 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
             return new PagedList<T>(count, pageNo, pageSize, results);
-        }
-
-        private int GetPageCount(int pageSize, int totalCount)
-        {
-            if (pageSize == 0)
-            {
-                return 0;
-            }
-            var remainder = totalCount % pageSize;
-            return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
         }
     }
 }

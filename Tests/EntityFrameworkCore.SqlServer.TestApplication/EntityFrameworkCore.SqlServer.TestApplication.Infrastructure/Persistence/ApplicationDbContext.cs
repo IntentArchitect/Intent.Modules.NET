@@ -67,19 +67,19 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
         public DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
-        public DbSet<Domain.Entities.TPT.InheritanceAssociations.ConcreteBaseClass> TPTInheritanceAssociationsConcreteBaseClasses { get; set; }
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.ConcreteBaseClass> TPCInheritanceAssociationsConcreteBaseClasses { get; set; }
-        public DbSet<Domain.Entities.TPH.InheritanceAssociations.ConcreteBaseClass> ConcreteBaseClasses { get; set; }
-        public DbSet<Domain.Entities.TPH.InheritanceAssociations.ConcreteBaseClassAssociated> TPHInheritanceAssociationsConcreteBaseClassAssociateds { get; set; }
+        public DbSet<Domain.Entities.TPH.InheritanceAssociations.ConcreteBaseClass> TPHInheritanceAssociationsConcreteBaseClasses { get; set; }
+        public DbSet<Domain.Entities.TPT.InheritanceAssociations.ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         public DbSet<Domain.Entities.TPT.InheritanceAssociations.ConcreteBaseClassAssociated> TPTInheritanceAssociationsConcreteBaseClassAssociateds { get; set; }
-        public DbSet<Domain.Entities.TPC.InheritanceAssociations.ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
+        public DbSet<Domain.Entities.TPC.InheritanceAssociations.ConcreteBaseClassAssociated> TPCInheritanceAssociationsConcreteBaseClassAssociateds { get; set; }
+        public DbSet<Domain.Entities.TPH.InheritanceAssociations.ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         public DbSet<CustomIndex> CustomIndices { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public DbSet<DefaultIndex> DefaultIndices { get; set; }
+        public DbSet<Domain.Entities.TPC.InheritanceAssociations.DerivedClassForAbstract> TPCInheritanceAssociationsDerivedClassForAbstracts { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.DerivedClassForAbstract> TPHInheritanceAssociationsDerivedClassForAbstracts { get; set; }
-        public DbSet<Domain.Entities.TPT.InheritanceAssociations.DerivedClassForAbstract> TPTInheritanceAssociationsDerivedClassForAbstracts { get; set; }
-        public DbSet<Domain.Entities.TPC.InheritanceAssociations.DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        public DbSet<Domain.Entities.TPT.InheritanceAssociations.DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.DerivedClassForAbstractAssociated> TPCInheritanceAssociationsDerivedClassForAbstractAssociateds { get; set; }
         public DbSet<Domain.Entities.TPT.InheritanceAssociations.DerivedClassForAbstractAssociated> TPTInheritanceAssociationsDerivedClassForAbstractAssociateds { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
@@ -96,18 +96,18 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
         public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
+        public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkAssociatedClass> TPCInheritanceAssociationsFkAssociatedClasses { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.FkAssociatedClass> TPHInheritanceAssociationsFkAssociatedClasses { get; set; }
-        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkAssociatedClass> TPTInheritanceAssociationsFkAssociatedClasses { get; set; }
-        public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkAssociatedClass> FkAssociatedClasses { get; set; }
+        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkAssociatedClass> FkAssociatedClasses { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.FkBaseClass> TPHInheritanceAssociationsFkBaseClasses { get; set; }
-        public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkBaseClass> TPCInheritanceAssociationsFkBaseClasses { get; set; }
-        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkBaseClass> FkBaseClasses { get; set; }
+        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkBaseClass> TPTInheritanceAssociationsFkBaseClasses { get; set; }
+        public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkBaseClass> FkBaseClasses { get; set; }
         public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkBaseClassAssociated> TPTInheritanceAssociationsFkBaseClassAssociateds { get; set; }
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkBaseClassAssociated> TPCInheritanceAssociationsFkBaseClassAssociateds { get; set; }
         public DbSet<Domain.Entities.TPH.InheritanceAssociations.FkBaseClassAssociated> FkBaseClassAssociateds { get; set; }
-        public DbSet<Domain.Entities.TPH.InheritanceAssociations.FkDerivedClass> TPHInheritanceAssociationsFkDerivedClasses { get; set; }
+        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkDerivedClass> TPTInheritanceAssociationsFkDerivedClasses { get; set; }
         public DbSet<Domain.Entities.TPC.InheritanceAssociations.FkDerivedClass> TPCInheritanceAssociationsFkDerivedClasses { get; set; }
-        public DbSet<Domain.Entities.TPT.InheritanceAssociations.FkDerivedClass> FkDerivedClasses { get; set; }
+        public DbSet<Domain.Entities.TPH.InheritanceAssociations.FkDerivedClass> FkDerivedClasses { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
@@ -138,13 +138,13 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<Domain.Entities.TPT.Polymorphic.Poly_ConcreteB> Poly_ConcreteBs { get; set; }
         public DbSet<Domain.Entities.TPT.Polymorphic.Poly_RootAbstract> TPTPolymorphicPoly_RootAbstracts { get; set; }
         public DbSet<Domain.Entities.TPH.Polymorphic.Poly_RootAbstract> TPHPolymorphicPoly_RootAbstracts { get; set; }
-        public DbSet<Domain.Entities.TPH.Polymorphic.Poly_RootAbstract_Aggr> TPHPolymorphicPoly_RootAbstract_Aggrs { get; set; }
         public DbSet<Domain.Entities.TPC.Polymorphic.Poly_RootAbstract_Aggr> TPCPolymorphicPoly_RootAbstract_Aggrs { get; set; }
-        public DbSet<Domain.Entities.TPT.Polymorphic.Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
+        public DbSet<Domain.Entities.TPT.Polymorphic.Poly_RootAbstract_Aggr> TPTPolymorphicPoly_RootAbstract_Aggrs { get; set; }
+        public DbSet<Domain.Entities.TPH.Polymorphic.Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         public DbSet<Domain.Entities.TPT.Polymorphic.Poly_RootAbstract_Comp> Poly_RootAbstract_Comps { get; set; }
-        public DbSet<Domain.Entities.TPT.Polymorphic.Poly_SecondLevel> TPTPolymorphicPoly_SecondLevels { get; set; }
+        public DbSet<Domain.Entities.TPC.Polymorphic.Poly_SecondLevel> TPCPolymorphicPoly_SecondLevels { get; set; }
         public DbSet<Domain.Entities.TPH.Polymorphic.Poly_SecondLevel> TPHPolymorphicPoly_SecondLevels { get; set; }
-        public DbSet<Domain.Entities.TPC.Polymorphic.Poly_SecondLevel> Poly_SecondLevels { get; set; }
+        public DbSet<Domain.Entities.TPT.Polymorphic.Poly_SecondLevel> Poly_SecondLevels { get; set; }
         public DbSet<Domain.Entities.TPH.Polymorphic.Poly_TopLevel> TPHPolymorphicPoly_TopLevels { get; set; }
         public DbSet<Domain.Entities.TPT.Polymorphic.Poly_TopLevel> TPTPolymorphicPoly_TopLevels { get; set; }
         public DbSet<Domain.Entities.TPC.Polymorphic.Poly_TopLevel> Poly_TopLevels { get; set; }

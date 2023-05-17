@@ -7,12 +7,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
-
     public class SampleDomainUpdateDto
     {
         public SampleDomainUpdateDto()
         {
         }
+
+        public Guid Id { get; set; }
+        public string Attribute { get; set; }
 
         public static SampleDomainUpdateDto Create(Guid id, string attribute)
         {
@@ -22,10 +24,5 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
                 Attribute = attribute
             };
         }
-
-        public Guid Id { get; set; }
-
-        public string Attribute { get; set; }
-
     }
 }

@@ -14,7 +14,6 @@ namespace AzureFunctions.TestApplication.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ISampleDomainRepository : IRepository<SampleDomain, SampleDomain>
     {
-
         [IntentManaged(Mode.Fully)]
         Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

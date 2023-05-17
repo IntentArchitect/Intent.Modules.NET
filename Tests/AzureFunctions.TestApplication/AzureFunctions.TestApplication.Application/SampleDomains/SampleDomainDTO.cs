@@ -10,12 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
-
     public class SampleDomainDto : IMapFrom<SampleDomain>
     {
         public SampleDomainDto()
         {
         }
+
+        public Guid Id { get; set; }
+        public string Attribute { get; set; }
 
         public static SampleDomainDto Create(Guid id, string attribute)
         {
@@ -25,10 +27,6 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
                 Attribute = attribute
             };
         }
-
-        public Guid Id { get; set; }
-
-        public string Attribute { get; set; }
 
         public void Mapping(Profile profile)
         {

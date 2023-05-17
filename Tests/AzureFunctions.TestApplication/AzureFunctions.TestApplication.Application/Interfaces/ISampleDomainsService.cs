@@ -9,7 +9,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Interfaces
 {
-
     public interface ISampleDomainsService : IDisposable
     {
         Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto);
@@ -18,6 +17,5 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto);
         Task DeleteSampleDomain(Guid id);
         Task<string> MappedAzureFunction(SampleMappedRequest request);
-
     }
 }
