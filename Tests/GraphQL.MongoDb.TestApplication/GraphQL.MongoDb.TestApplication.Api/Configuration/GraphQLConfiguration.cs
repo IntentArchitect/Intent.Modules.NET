@@ -36,6 +36,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLMutations(this IRequestExecutorBuilder builder)
         {
             return builder
+                .AddMutationConventions()
                 .AddMutationType()
                 .AddTypeExtension<PrivilegeMutations>()
                 .AddTypeExtension<UserMutations>();

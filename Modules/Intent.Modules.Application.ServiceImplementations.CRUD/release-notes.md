@@ -1,3 +1,7 @@
+### Version 4.2.3
+
+- Support for DTO return types on Create, Update and Delete operations.
+
 ### Version 4.2.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

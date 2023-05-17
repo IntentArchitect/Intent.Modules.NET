@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="36052b3d-3044-4aab-8047-3b5f8c371799" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
-      <name>GetInvoicesAsync</name>
-      <display>GetInvoicesAsync(): InvoiceDto[*]</display>
+      <name>GetInvoicesMapped</name>
+      <display>GetInvoicesMapped(): InvoiceDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="67602913-ca81-4a65-90eb-d07fb9e46985">
@@ -46,8 +46,8 @@
       <childElements />
     </childElement>
     <childElement id="21878891-731b-4f5b-a538-9b0c60849d34" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
-      <name>GetProductsAsync</name>
-      <display>GetProductsAsync(): ProductDto[*]</display>
+      <name>GetProductsMapped</name>
+      <display>GetProductsMapped(): ProductDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="fc7b0353-e3b0-4455-b169-40130e97888d">
@@ -80,8 +80,8 @@
       <childElements />
     </childElement>
     <childElement id="06c381eb-ea84-4432-8ead-65eb4bd84bac" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
-      <name>GetProductByIdAsync</name>
-      <display>GetProductByIdAsync(id: guid): ProductDto</display>
+      <name>GetProductByIdMapped</name>
+      <display>GetProductByIdMapped(id: guid): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -147,8 +147,8 @@
       </childElements>
     </childElement>
     <childElement id="ca39856e-72b6-4ea8-bf1f-45a550b42ecf" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
-      <name>GetCustomer</name>
-      <display>GetCustomer(id: guid): Customer</display>
+      <name>GetCustomerMapped</name>
+      <display>GetCustomerMapped(id: guid): Customer</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -213,8 +213,8 @@
       </childElements>
     </childElement>
     <childElement id="50994793-8969-4d71-a72f-98d6249e3ec9" type="GraphQL Schema Field" typeId="150aa241-479b-442e-9962-21b79de85648">
-      <name>GetCustomers</name>
-      <display>GetCustomers(): CustomerDto[*]</display>
+      <name>GetCustomersMapped</name>
+      <display>GetCustomersMapped(): CustomerDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ed57a1ef-79d0-46e9-b4aa-af38ac7b36d9">

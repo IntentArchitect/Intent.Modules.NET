@@ -74,9 +74,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 .AddStatements(GetDTOPropertyAssignments("", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields))
                 .WithSemicolon());
             codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Add(new{domainTypePascalCased});");
-            codeLines.Add($@"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync();");
-            codeLines.Add(
-                $"return new{domainTypePascalCased}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+            if (operationModel.TypeReference.Element != null)
+            {
+                codeLines.Add($@"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync();");
+                var dtoToReturn = operationModel.TypeReference.Element.AsDTOModel();
+                codeLines.Add(dtoToReturn != null
+                    ? $"return new{domainTypePascalCased}.MapTo{_template.GetTypeName(dtoToReturn.InternalElement)}(_mapper);"
+                    : $"return new{domainTypePascalCased}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+            }
             
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
@@ -94,6 +99,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             if (ctor.Parameters.All(p => p.Name != repositoryFieldName))
             {
                 ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
+            }
+            if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper"))
+            {
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
             }
         }
         

@@ -25,24 +25,24 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
     [ExtendObjectType(OperationType.Query)]
     public class Query
     {
-        public async Task<IReadOnlyList<InvoiceDto>> GetInvoicesAsync(
+        public async Task<IReadOnlyList<InvoiceDto>> GetInvoicesMapped(
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
             return await mediator.Send(new GetInvoicesQuery(), cancellationToken);
         }
 
-        public async Task<IReadOnlyList<ProductDto>> GetProductsAsync([Service] IProductsService service)
+        public async Task<IReadOnlyList<ProductDto>> GetProductsMapped([Service] IProductsService service)
         {
             return await service.FindProducts();
         }
 
-        public async Task<ProductDto> GetProductByIdAsync(Guid id, [Service] IProductsService service)
+        public async Task<ProductDto> GetProductByIdMapped(Guid id, [Service] IProductsService service)
         {
             return await service.FindProductById(id);
         }
 
-        public async Task<Customer> GetCustomer(
+        public async Task<Customer> GetCustomerMapped(
             Guid id,
             CancellationToken cancellationToken,
             [Service] ICustomerRepository repository)
@@ -51,7 +51,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             return entity;
         }
 
-        public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
+        public async Task<IReadOnlyList<CustomerDto>> GetCustomersMapped(
             CancellationToken cancellationToken,
             [Service] ICustomerRepository repository,
             [Service] IMapper mapper)

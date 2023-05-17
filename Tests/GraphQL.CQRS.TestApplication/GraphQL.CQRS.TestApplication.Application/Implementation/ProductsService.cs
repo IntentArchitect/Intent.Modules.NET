@@ -28,7 +28,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> CreateProduct(ProductCreateDto dto)
+        public async Task<ProductDto> CreateProduct(ProductCreateDto dto)
         {
             var newProduct = new Product
             {
@@ -38,7 +38,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
             };
             _productRepository.Add(newProduct);
             await _productRepository.UnitOfWork.SaveChangesAsync();
-            return newProduct.Id;
+            return newProduct.MapToProductDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -56,19 +56,21 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task UpdateProduct(Guid id, ProductUpdateDto dto)
+        public async Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
             existingProduct.Name = dto.Name;
             existingProduct.Description = dto.Description;
             existingProduct.IsActive = dto.IsActive;
+            return existingProduct.MapToProductDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteProduct(Guid id)
+        public async Task<ProductDto> DeleteProduct(Guid id)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
             _productRepository.Remove(existingProduct);
+            return existingProduct.MapToProductDto(_mapper);
         }
 
         public void Dispose()

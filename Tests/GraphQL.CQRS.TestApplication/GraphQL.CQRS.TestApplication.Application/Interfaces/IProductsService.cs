@@ -12,11 +12,11 @@ namespace GraphQL.CQRS.TestApplication.Application.Interfaces
 
     public interface IProductsService : IDisposable
     {
-        Task<Guid> CreateProduct(ProductCreateDto dto);
+        Task<ProductDto> CreateProduct(ProductCreateDto dto);
         Task<ProductDto> FindProductById(Guid id);
         Task<List<ProductDto>> FindProducts();
-        Task UpdateProduct(Guid id, ProductUpdateDto dto);
-        Task DeleteProduct(Guid id);
+        Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto);
+        Task<ProductDto> DeleteProduct(Guid id);
 
     }
 }

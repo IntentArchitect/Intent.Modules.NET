@@ -21,7 +21,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
     [ExtendObjectType(OperationType.Mutation)]
     public class Mutation
     {
-        public async Task<CustomerDto> CreateCustomer(
+        public async Task<CustomerDto> CreateCustomerMapped(
             CreateCustomerCommand input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
@@ -29,12 +29,12 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
             return await mediator.Send(input, cancellationToken);
         }
 
-        public async Task<Guid> CreateProduct(ProductCreateDto input, [Service] IProductsService service)
+        public async Task<ProductDto> CreateProductMapped(ProductCreateDto input, [Service] IProductsService service)
         {
             return await service.CreateProduct(input);
         }
 
-        public async Task<Guid> CreateInvoice(
+        public async Task<Guid> CreateInvoiceMapped(
             CreateInvoiceCommand input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
@@ -42,7 +42,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
             return await mediator.Send(input, cancellationToken);
         }
 
-        public async Task<CustomerDto> UpdateCustomer(
+        public async Task<CustomerDto> UpdateCustomerMapped(
             UpdateCustomerCommand input,
             CancellationToken cancellationToken,
             [Service] ISender mediator)
