@@ -21,7 +21,7 @@ variables:
   value: '##vso[task.logissue type=error;]{@m} {@x}\n'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
 
