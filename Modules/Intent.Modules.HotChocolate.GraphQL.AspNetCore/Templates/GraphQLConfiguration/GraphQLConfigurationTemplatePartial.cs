@@ -83,6 +83,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                             return;
                         }
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
+                            .AddChainStatement("AddMutationConventions()")
                             .AddChainStatement("AddMutationType()"), statement =>
                             {
                                 var chain = (CSharpMethodChainStatement)statement;

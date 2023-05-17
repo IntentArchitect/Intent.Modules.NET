@@ -39,6 +39,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLMutations(this IRequestExecutorBuilder builder)
         {
             return builder
+                .AddMutationConventions()
                 .AddMutationType()
                 .AddTypeExtension<Mutation>()
                 .AddTypeExtension<CustomerMutations>()

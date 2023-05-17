@@ -14,18 +14,18 @@
   <childElements>
     <childElement id="ed991605-c2d3-49f5-bf4d-2b2e9f3a0483" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>CreateProduct</name>
-      <display>CreateProduct(dto: ProductCreateDto): guid</display>
+      <display>CreateProduct(dto: ProductCreateDto): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="4c5edf23-7e7f-4a0d-b56d-389ea67142f2">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -159,15 +159,18 @@
     </childElement>
     <childElement id="bf158220-9334-4307-bbf8-70966fbb7138" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>UpdateProduct</name>
-      <display>UpdateProduct(id: guid, dto: ProductUpdateDto): void</display>
+      <display>UpdateProduct(id: guid, dto: ProductUpdateDto): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="6ccd16dc-1614-43b1-b0bc-37f484e061da">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -237,15 +240,18 @@
     </childElement>
     <childElement id="a54b07ad-ac56-43f5-9873-ccf796c6d0d7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeleteProduct</name>
-      <display>DeleteProduct(id: guid): void</display>
+      <display>DeleteProduct(id: guid): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="f86f409a-8e4d-44d9-99e5-b6fd57adfcfc">
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

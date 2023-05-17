@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="f6d870fd-8550-4127-bbdd-c68af2539ac9" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
-      <name>CreateCustomer</name>
-      <display>CreateCustomer(): CustomerDto</display>
+      <name>CreateCustomerMapped</name>
+      <display>CreateCustomerMapped(): CustomerDto</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="d6c8cb66-7a22-44de-9d35-6fdfe317dfc3">
@@ -46,19 +46,19 @@
       <childElements />
     </childElement>
     <childElement id="6ec288b7-c70e-4780-a2c8-6135b6ab78c4" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
-      <name>CreateProduct</name>
-      <display>CreateProduct(input: ProductCreateDto): guid</display>
+      <name>CreateProductMapped</name>
+      <display>CreateProductMapped(input: ProductCreateDto): ProductDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="28c121b7-b3d8-4cc0-af47-762f2a687323">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeId>80ca8299-2395-45f2-888e-5400970b8e4b</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <typePackageName>GraphQL.CQRS.TestApplication.Services</typePackageName>
+        <typePackageId>938547ab-30fd-4ac7-8603-e3cd287d048a</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -113,8 +113,8 @@
       </childElements>
     </childElement>
     <childElement id="44a3e480-ead5-4002-9ac6-4cd98ea0235d" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
-      <name>CreateInvoice</name>
-      <display>CreateInvoice(): guid</display>
+      <name>CreateInvoiceMapped</name>
+      <display>CreateInvoiceMapped(): guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="bb0bb989-3c8f-4044-893f-a37f1d04d7e6">
@@ -146,8 +146,8 @@
       <childElements />
     </childElement>
     <childElement id="4156c297-ad80-4a9f-bdba-eeaca1a92f7d" type="GraphQL Mutation" typeId="66cca984-b1dc-445c-9685-e3abb4e5795a">
-      <name>UpdateCustomer</name>
-      <display>UpdateCustomer(): CustomerDto</display>
+      <name>UpdateCustomerMapped</name>
+      <display>UpdateCustomerMapped(): CustomerDto</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="fc0adb35-1a9a-4eb1-a1b0-e2161ee20244">

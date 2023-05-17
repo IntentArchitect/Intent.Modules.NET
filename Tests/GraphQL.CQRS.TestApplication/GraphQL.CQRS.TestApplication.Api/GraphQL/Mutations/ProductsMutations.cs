@@ -16,20 +16,19 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
     [ExtendObjectType(OperationType.Mutation)]
     public class ProductsMutations
     {
-        public async Task<Guid> CreateProduct(ProductCreateDto dto, [Service] IProductsService service)
+        public async Task<ProductDto> CreateProduct(ProductCreateDto dto, [Service] IProductsService service)
         {
             return await service.CreateProduct(dto);
         }
 
-        [UseMutationConvention]
-        public async Task UpdateProduct(Guid id, ProductUpdateDto dto, [Service] IProductsService service)
+        public async Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto, [Service] IProductsService service)
         {
-            await service.UpdateProduct(id, dto);
+            return await service.UpdateProduct(id, dto);
         }
 
-        public async Task DeleteProduct(Guid id, [Service] IProductsService service)
+        public async Task<ProductDto> DeleteProduct(Guid id, [Service] IProductsService service)
         {
-            await service.DeleteProduct(id);
+            return await service.DeleteProduct(id);
         }
     }
 }
