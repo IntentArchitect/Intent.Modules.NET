@@ -22,8 +22,6 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AspNetCoreIdentityConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureIdentity").HasDependency(this));
-
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(outputTarget.GetProject()));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -65,6 +63,12 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                             .WithArgumentsOnNewLines());
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureIdentity").HasDependency(this));
+            base.BeforeTemplateExecution();
         }
 
         [IntentManaged(Mode.Fully)]

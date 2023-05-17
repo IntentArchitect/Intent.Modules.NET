@@ -1,6 +1,7 @@
 ### Version 4.0.5
 
-- When applying `Identity` stereotype on a Class, it didn't update everywhere the appropriate Identity class.
+- Fixed: Under certain circumstances `Startup.cs` would not have `services.ConfigureIdentity();` added to it.
+- Fixed: When applying `Identity` stereotype on a Class, it didn't update everywhere the appropriate Identity class.
 
 ### Version 4.0.4
 
