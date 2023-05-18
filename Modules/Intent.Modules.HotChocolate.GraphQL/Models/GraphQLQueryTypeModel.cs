@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
@@ -29,6 +30,8 @@ class GraphQLResolverModel : IGraphQLResolverModel
         MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement, x.Comment)).ToList();
         Description = model.Comment;
+        RequiresAuthorization = false;
+        AuthorizationDetails = null;
     }
 
     public GraphQLResolverModel(GraphQLMutationModel model)
@@ -39,10 +42,14 @@ class GraphQLResolverModel : IGraphQLResolverModel
         MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement, x.Comment)).ToList();
         Description = model.Comment;
+        RequiresAuthorization = false;
+        AuthorizationDetails = null;
     }
 
     public string Name { get; }
     public ITypeReference TypeReference { get; }
+    public bool RequiresAuthorization { get; }
+    public IAuthorizationModel AuthorizationDetails { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
     public IElement MappedElement { get; }
     public string Description { get; }
@@ -69,4 +76,15 @@ public class GraphQLParameterModel : IGraphQLParameterModel
     public IElement MappedElement { get; }
     public string[] MappedPath { get; }
     public string Description { get; }
+}
+
+public class AuthorizationModel : IAuthorizationModel
+{
+    public AuthorizationModel(IEnumerable<string> roles, string policy)
+    {
+        Roles = roles ?? Array.Empty<string>();
+        Policy = policy;
+    }
+    public IEnumerable<string> Roles { get; }
+    public string Policy { get; }
 }

@@ -17,6 +17,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.Configuration
         {
             services
                 .AddGraphQLServer()
+                .AddAuthorization()
                 .AddGraphQLQueries()
                 .AddGraphQLMutations()
                 .AddGraphQLSubscriptions()
@@ -36,7 +37,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.Configuration
         private static IRequestExecutorBuilder AddGraphQLMutations(this IRequestExecutorBuilder builder)
         {
             return builder
-                .AddMutationConventions()
+                .AddMutationConventions(applyToAllMutations: false)
                 .AddMutationType()
                 .AddTypeExtension<PrivilegeMutations>()
                 .AddTypeExtension<UserMutations>();

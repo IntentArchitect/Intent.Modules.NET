@@ -21,6 +21,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Mutations
             return await service.CreateProduct(dto);
         }
 
+        [UseMutationConvention]
         public async Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto, [Service] IProductsService service)
         {
             return await service.UpdateProduct(id, dto);

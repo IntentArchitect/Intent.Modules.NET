@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.0.2" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.6" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.0.0" />

@@ -42,10 +42,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                         if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) &&
                             model.MappedElement?.IsOperationModel() == true)
                         {
-                            //if (model.Parameters.Count() > 1)
-                            //{
-                            //    method.AddAttribute($"[{template.UseType("UseMutationConvention")}]");
-                            //}
+                            if (model.Parameters.Count() > 1)
+                            {
+                                method.AddAttribute($"[{template.UseType("UseMutationConvention")}]");
+                            }
                             var serviceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, model.MappedElement.ParentElement);
                             method.AddParameter(serviceType, "service", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                             method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => x.Name.ToParameterName()))});");

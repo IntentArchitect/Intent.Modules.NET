@@ -26,6 +26,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
         public GraphQLConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.HotChocolateAspNetCore);
+            AddNugetDependency(NuGetPackages.HotChocolateAspNetCoreAuthorization);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -40,6 +41,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddStatement(new CSharpMethodChainStatement("services")
                             .AddChainStatement("AddGraphQLServer()")
+                            .AddChainStatement("AddAuthorization()")
                             .AddChainStatement("AddGraphQLQueries()")
                             .AddChainStatement("AddGraphQLMutations()")
                             .AddChainStatement("AddGraphQLSubscriptions()")
@@ -83,7 +85,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
                             return;
                         }
                         method.AddStatement(new CSharpMethodChainStatement("return builder")
-                            .AddChainStatement("AddMutationConventions()")
+                            .AddChainStatement("AddMutationConventions(applyToAllMutations: false)")
                             .AddChainStatement("AddMutationType()"), statement =>
                             {
                                 var chain = (CSharpMethodChainStatement)statement;

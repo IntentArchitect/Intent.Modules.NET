@@ -23,9 +23,13 @@ public class OperationGraphQLResolverModel : IGraphQLResolverModel
             description: x.Comment));
         MappedElement = operation.InternalElement;
         Description = operation.Comment;
+        RequiresAuthorization = false;
+        AuthorizationDetails = null;
     }
     public string Name { get; }
     public ITypeReference TypeReference { get; }
+    public bool RequiresAuthorization { get; }
+    public IAuthorizationModel AuthorizationDetails { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
     public IElement MappedElement { get; }
     public string Description { get; }

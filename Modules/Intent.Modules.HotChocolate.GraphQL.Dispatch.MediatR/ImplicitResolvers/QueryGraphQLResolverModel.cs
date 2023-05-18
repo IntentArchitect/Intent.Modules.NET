@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Application.MediatR.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Templates;
@@ -22,9 +23,13 @@ public class QueryGraphQLResolverModel : IGraphQLResolverModel
             description: x.Comment));
         MappedElement = query.InternalElement;
         Description = query.Comment;
+        RequiresAuthorization = query.HasAuthorize();
+        AuthorizationDetails = query.HasAuthorize() ? new AuthorizationModel(query.GetAuthorize().Roles()?.Split(',', StringSplitOptions.RemoveEmptyEntries), query.GetAuthorize().Policy()) : null;
     }
     public string Name { get; }
     public ITypeReference TypeReference { get; }
+    public bool RequiresAuthorization { get; }
+    public IAuthorizationModel AuthorizationDetails { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
     public IElement MappedElement { get; }
     public string Description { get; }
@@ -39,9 +44,13 @@ public class CommandGraphQLResolverModel : IGraphQLResolverModel
         Parameters = Array.Empty<IGraphQLParameterModel>();
         MappedElement = command.InternalElement;
         Description = command.Comment;
+        RequiresAuthorization = command.HasAuthorize();
+        AuthorizationDetails = command.HasAuthorize() ? new AuthorizationModel(command.GetAuthorize().Roles()?.Split(',', StringSplitOptions.RemoveEmptyEntries), command.GetAuthorize().Policy()) : null;
     }
     public string Name { get; }
     public ITypeReference TypeReference { get; }
+    public bool RequiresAuthorization { get; }
+    public IAuthorizationModel AuthorizationDetails { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
     public IElement MappedElement { get; }
     public string Description { get; }

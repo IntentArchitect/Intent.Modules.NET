@@ -55,6 +55,21 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
                             {
                                 method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{resolver.Description}"""));
                             }
+                            if (resolver.RequiresAuthorization)
+                            {
+                                method.AddAttribute(UseType("HotChocolate.Authorization.Authorize"), attr =>
+                                {
+                                    if (resolver.AuthorizationDetails.Roles?.Any() == true)
+                                    {
+                                        attr.AddArgument($"Roles = new [] {{ {string.Join(", ", resolver.AuthorizationDetails.Roles.Select(x => $"\"{x.Trim()}\""))} }}");
+                                    }
+                                    else if (!string.IsNullOrWhiteSpace(resolver.AuthorizationDetails?.Policy))
+                                    {
+                                        attr.AddArgument($"Policy = \"{resolver.AuthorizationDetails.Policy}\"");
+                                    }
+                                });
+                            }
+
                             if (!method.ReturnType.StartsWith("IQueryable"))
                             {
                                 method.Async();
