@@ -222,9 +222,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                             .AddAttribute(CSharpIntentManagedAttribute.Fully())
                                             .AddParameter(entityTypeName, "entity")
                                             .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                            .AddStatementBlock("if (dto == null)", s => s
-                                                .AddStatement("return null;")
-                                            )
                                             .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
                                             .AddStatements(GetDtoPropertyAssignments(
                                                 entityVarName: "entity",
