@@ -15,8 +15,8 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName #>
     {
-        string UserId { get; }
-        string UserName { get; }
+        string? UserId { get; }
+        string? UserName { get; }
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

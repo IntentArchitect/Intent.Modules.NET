@@ -47,9 +47,9 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        string UserId { get; }\r\n        string UserName { get; }\r\n      " +
-                    "  Task<bool> IsInRoleAsync(string role);\r\n        Task<bool> AuthorizeAsync(stri" +
-                    "ng policy);\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        string? UserId { get; }\r\n        string? UserName { get; }\r\n    " +
+                    "    Task<bool> IsInRoleAsync(string role);\r\n        Task<bool> AuthorizeAsync(st" +
+                    "ring policy);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
