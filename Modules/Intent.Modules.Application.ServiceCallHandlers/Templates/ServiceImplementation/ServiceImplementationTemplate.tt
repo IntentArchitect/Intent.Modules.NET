@@ -39,7 +39,7 @@ namespace <#=Namespace#>
 
 #>        public <#= GetOperationReturnType(o) #> <#= o.Name#>(<#= GetOperationDefinitionParameters(o) #>)
         {
-            var sch = (<#= GetHandlerClassName(o) #>)_serviceProvider.GetService(typeof(<#= GetHandlerClassName(o) #>));
+            var sch = (<#= GetHandlerClassName(o) #>)_serviceProvider.GetRequiredService(typeof(<#= GetHandlerClassName(o) #>));
             <#
         if (o.TypeReference.Element != null)
         {

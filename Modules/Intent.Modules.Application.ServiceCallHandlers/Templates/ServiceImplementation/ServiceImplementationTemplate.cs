@@ -119,7 +119,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
             
             #line default
             #line hidden
-            this.Write(")_serviceProvider.GetService(typeof(");
+            this.Write(")_serviceProvider.GetRequiredService(typeof(");
             
             #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceCallHandlers\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetHandlerClassName(o)));
