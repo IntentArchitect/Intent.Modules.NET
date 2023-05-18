@@ -36,7 +36,7 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 file.AddUsing("Microsoft.AspNetCore.Http");
 
                 var priClass = file.Classes.First();
-                priClass.AddField("ClaimsPrincipal", "_claimsPrincipal", prop => prop.PrivateReadOnly());
+                priClass.AddField("ClaimsPrincipal?", "_claimsPrincipal", prop => prop.PrivateReadOnly());
                 var ctor = priClass.Constructors.First();
                 ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
                 ctor.AddStatement($@"_claimsPrincipal = httpContextAccessor?.HttpContext?.User;");
@@ -52,6 +52,7 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
 
                 var authMethod = priClass.FindMethod("AuthorizeAsync");
                 authMethod.Statements.Clear();
+                authMethod.Statements.Add("if (_claimsPrincipal == null) return false;");
                 authMethod.Statements.Add("return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;");
 
                 var roleMethod = priClass.FindMethod("IsInRoleAsync");
