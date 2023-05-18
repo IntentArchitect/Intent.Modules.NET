@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Intent.Engine;
+using Intent.EntityFrameworkCore.Repositories.Api;
+using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+
+namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class CustomRepositoryTemplate : CSharpTemplateBase<RepositoryModel>, ICSharpFileBuilderTemplate
+    {
+        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.CustomRepository";
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public CustomRepositoryTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
+        {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddClass($"{Model.Name.EnsureSuffixedWith("Repository")}", @class =>
+                {
+                    @class.ImplementsInterface(this.GetCustomRepositoryInterfaceName());
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
+                    });
+
+                    var storedProcedures = StoredProcedureHelpers.GetStoredProcedureModels(Model);
+                    if (!storedProcedures.Any())
+                    {
+                        return;
+                    }
+
+                    StoredProcedureHelpers.ApplyImplementationMethods(this, storedProcedures);
+                });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!TryGetTemplate<IClassProvider>(CustomRepositoryInterfaceTemplate.TemplateId, Model, out var contractTemplate))
+            {
+                return;
+            }
+
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .ForInterface(contractTemplate));
+        }
+
+        public string DbContextName => TryGetTypeName("Infrastructure.Data.DbContext", out var dbContextName) ? dbContextName : $"{Model.InternalElement.Application.Name}DbContext";
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
+    }
+}

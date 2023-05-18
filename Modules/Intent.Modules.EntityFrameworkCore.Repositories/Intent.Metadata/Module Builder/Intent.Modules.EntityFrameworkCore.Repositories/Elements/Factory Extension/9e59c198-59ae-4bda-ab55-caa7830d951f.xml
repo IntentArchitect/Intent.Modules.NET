@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e59c198-59ae-4bda-ab55-caa7830d951f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>StoredProcedureFactoryExtension</name>
+  <display>StoredProcedureFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
+  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

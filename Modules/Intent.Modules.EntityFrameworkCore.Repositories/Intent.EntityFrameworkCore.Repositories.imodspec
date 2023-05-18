@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>4.2.1</version>
+  <version>4.2.2-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Repositories for Domain Entities</summary>
   <description>Generates Repositories for Domain Entities</description>
@@ -11,6 +11,22 @@
   <tags>EntityFrameworkCore Repositories EntityFramework Core</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
+    <template id="Intent.EntityFrameworkCore.Repositories.CustomRepository" externalReference="fd326fd3-172e-4ac9-be6d-5128e4f785cf">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface" externalReference="9b97d975-2d5b-4183-a3a2-9843b814cfc3">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Entity</role>
+      <location>Repositories</location>
+    </template>
     <template id="Intent.EntityFrameworkCore.Repositories.PagedList" externalReference="09506297-8b03-44b4-9f6b-09c0cdeaa5ef">
       <role>Repository.Implementation.PagedList</role>
       <location>Repositories</location>
@@ -34,12 +50,13 @@
   <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.6" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.4" />
     <dependency id="Intent.EntityFrameworkCore" version="4.4.1-pre.1" />
     <dependency id="Intent.Metadata.RDBMS" version="3.5.2-pre.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3-pre.0" />
+    <dependency id="Intent.Modelers.Domain.Repositories" version="3.3.3-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
@@ -47,9 +64,13 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettings />
-  <metadata />
+  <metadata>
+    <install target="Domain" src="modelers/Domain Extensions.designer.settings" externalReference="832ed209-7f66-4714-9228-7705564004e8" />
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.pkg.config" externalReference="5869084c-2a08-4e40-a5c9-ff26220470c8" />
+  </metadata>
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.PagedListFactoryExtension" externalReference="5a0baf83-b93a-428d-8f47-3bf1b6a67f99" />
+    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.StoredProcedureFactoryExtension" externalReference="9e59c198-59ae-4bda-ab55-caa7830d951f" />
   </factoryExtensions>
 </package>

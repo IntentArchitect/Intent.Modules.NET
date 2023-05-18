@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef47e1fc-dd25-4974-a04c-03ef84854a1b" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
+  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
