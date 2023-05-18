@@ -65,7 +65,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                             var rootEntity = file.Classes.First().GetRootEntity();
                             if (rootEntity.HasSinglePrimaryKey())
                             {
-                                @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
+                                @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}?>", "FindByIdAsync", method =>
                                 {
                                     var pk = rootEntity.GetPropertyWithPrimaryKey();
                                     method.Async();

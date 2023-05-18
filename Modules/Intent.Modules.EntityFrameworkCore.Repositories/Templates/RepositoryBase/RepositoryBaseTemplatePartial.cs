@@ -74,7 +74,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddStatement($"GetSet().Add(({tPersistence})entity);");
                     });
 
-                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
@@ -82,7 +82,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return await QueryInternal(filterExpression).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
-                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();

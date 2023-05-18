@@ -6,6 +6,8 @@
 	- On a repository you can create `Stored Procedure`s.
 	- At this time, the module supports a Stored Procedure returning: nothing, an existing `Class` or a `Data Contract` (`Domain Object`).
 	- The Software Factory will generate methods on the Repositories for calling the Stored Procedures.
+- Update: Removes some warnings from generated code.
+
 
 ### Version 4.2.1
 

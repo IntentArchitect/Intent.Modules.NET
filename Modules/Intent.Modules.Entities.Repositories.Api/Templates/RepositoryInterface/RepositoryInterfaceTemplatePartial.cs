@@ -46,12 +46,12 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
                         {
                             method.AddParameter(tDomain, "entity");
                         })
-                        .AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                         {
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                                 .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
                         })
-                        .AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                         {
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                                 .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
