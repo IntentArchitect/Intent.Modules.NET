@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-[assembly: DefaultIntentManaged(Mode.Ignore)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
@@ -35,8 +35,12 @@ namespace <#= Namespace #>
 
         private INotification GetNotificationCorrespondingToDomainEvent(<#= GetDomainEventBaseType() #> domainEvent)
         {
-            return (INotification)Activator.CreateInstance(
+            var result = Activator.CreateInstance(
                 typeof(<#= GetDomainEventNotificationType() #><>).MakeGenericType(domainEvent.GetType()), domainEvent);
+            if (result == null)
+                throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>");
+
+            return (INotification)result;
         }
     }
 }

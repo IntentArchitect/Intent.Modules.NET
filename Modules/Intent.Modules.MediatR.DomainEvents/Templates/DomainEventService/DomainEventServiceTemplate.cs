@@ -33,7 +33,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         public override string TransformText()
         {
             this.Write("using MediatR;\r\nusing Microsoft.Extensions.Logging;\r\nusing System;\r\nusing System." +
-                    "Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Ignore)]\r\n\r\nnamespace ");
+                    "Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
             #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
@@ -96,15 +96,22 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
             
             #line default
             #line hidden
-            this.Write(" domainEvent)\r\n        {\r\n            return (INotification)Activator.CreateInsta" +
-                    "nce(\r\n                typeof(");
+            this.Write(" domainEvent)\r\n        {\r\n            var result = Activator.CreateInstance(\r\n   " +
+                    "             typeof(");
             
             #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventNotificationType()));
             
             #line default
             #line hidden
-            this.Write("<>).MakeGenericType(domainEvent.GetType()), domainEvent);\r\n        }\r\n    }\r\n}");
+            this.Write(@"<>).MakeGenericType(domainEvent.GetType()), domainEvent);
+            if (result == null)
+                throw new Exception($""Unable to create DomainEventNotification<{domainEvent.GetType().Name}>"");
+
+            return (INotification)result;
+        }
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }
