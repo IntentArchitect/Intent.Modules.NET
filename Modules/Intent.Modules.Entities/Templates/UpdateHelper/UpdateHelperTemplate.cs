@@ -56,10 +56,6 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
             Func<TOriginal, TChanged, TOriginal> assignmentAction)
             where TOriginal : class, new()
         {
-            if (changedCollection == null)
-            {
-                return null;
-            }
 
             baseCollection ??= new List<TOriginal>()!;
 
