@@ -65,14 +65,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                             var rootEntity = file.Classes.First().GetRootEntity();
                             if (rootEntity.HasSinglePrimaryKey())
                             {
-                                @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}?>", "FindByIdAsync", method =>
+                                @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
                                 {
                                     var pk = rootEntity.GetPropertyWithPrimaryKey();
                                     method.Async();
                                     method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
+                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken) ?? throw new Exception(\"Id not found.\");");
                                 });
                                 @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
                                 {
