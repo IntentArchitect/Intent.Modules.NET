@@ -101,5 +101,6 @@
     <application id="29280c3e-8c72-48c9-8bd3-fd0d42342315" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR/Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.application.config" />
     <application id="6e3ac6b3-6b47-4b2c-acde-a84838179c41" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services/Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.application.config" />
     <application id="f305457e-36af-497b-94e8-8fe242cf83b6" name="Intent.Modules.EntityFrameworkCore.SoftDelete" relativePath="Intent.Modules.EntityFrameworkCore.SoftDelete/Intent.Modules.EntityFrameworkCore.SoftDelete.application.config" />
+    <application id="e0883b5f-a179-42b4-b3fc-e34086dad042" name="Intent.Modules.Entities.Constants" relativePath="Intent.Modules.Entities.Constants/Intent.Modules.Entities.Constants.application.config" />
   </applications>
 </solution>

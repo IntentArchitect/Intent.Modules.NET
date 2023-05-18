@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d2e10d2-3254-4257-85bb-1e3f79708202" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>TextConstraintFactoryExtension</name>
+  <display>TextConstraintFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0d8b9cc2-c08c-411e-8887-06c5d36d462d</parentFolderId>
+  <packageId>0d8b9cc2-c08c-411e-8887-06c5d36d462d</packageId>
+  <packageName>Intent.Entities.Constants</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

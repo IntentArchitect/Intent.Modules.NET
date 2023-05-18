@@ -13,7 +13,7 @@ using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeMo
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
-public class EfCoreFieldConfigStatement : CSharpStatement
+public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 {
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
 
@@ -61,9 +61,15 @@ public class EfCoreFieldConfigStatement : CSharpStatement
         AddMetadata("model", model);
     }
 
+    private void InnerAddStatement(CSharpStatement statement)
+    {
+        statement.Parent = this;
+        Statements.Add(statement);
+    }
+
     public EfCoreFieldConfigStatement AddStatement(CSharpStatement statement)
     {
-        Statements.Add(statement);
+        InnerAddStatement(statement);
         return this;
     }
 
@@ -71,7 +77,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement
     {
         foreach (var statement in statements)
         {
-            Statements.Add(statement);
+            InnerAddStatement(statement);
         }
         return this;
     }

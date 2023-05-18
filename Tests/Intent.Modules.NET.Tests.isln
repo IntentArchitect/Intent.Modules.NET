@@ -38,5 +38,6 @@
     <application id="fd35607d-60bc-40aa-a91c-c7fad672ee3b" name="Entities.PrivateSetters.MongoDb" relativePath="Entities.PrivateSetters.MongoDb/Entities.PrivateSetters.MongoDb.application.config" />
     <application id="96524c15-c348-4dce-8274-e62c5773ac50" name="GraphQL.CQRS.TestApplication" relativePath="intent/GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.application.config" />
     <application id="23798812-f78d-459a-bfcc-22283674988e" name="GraphQL.MongoDb.TestApplication" relativePath="GraphQL.MongoDb.TestApplication/GraphQL.MongoDb.TestApplication.application.config" />
+    <application id="ffccab6d-dd24-4eb8-b4a4-907665740f35" name="Entities.Constants.TestApplication" relativePath="Entities.Constants.TestApplication/Entities.Constants.TestApplication.application.config" />
   </applications>
 </solution>

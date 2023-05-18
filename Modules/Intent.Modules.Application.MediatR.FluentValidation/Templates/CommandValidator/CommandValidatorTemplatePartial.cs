@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.FluentValidation.Api;
@@ -6,6 +7,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.FluentValidation.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -17,7 +19,7 @@ using Intent.Templates;
 namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class CommandValidatorTemplate : CSharpTemplateBase<CommandModel>
+    public partial class CommandValidatorTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.FluentValidation.CommandValidator";
@@ -26,43 +28,77 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
         public CommandValidatorTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);
+
+            var csharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), this.GetFolderPath(additionalFolders: Model.GetConceptName()));
+            csharpFile.AddClass($"{Model.Name}Validator");
+            csharpFile.OnBuild((Action<CSharpFile>)(file =>
+            {
+                file.AddUsing("System");
+                file.AddUsing("FluentValidation");
+
+                var @class = file.Classes.First();
+                @class.WithBaseType($"AbstractValidator <{GetCommandModel()}>");
+
+                @class.AddConstructor(ctor =>
+                {
+                    ctor.AddStatement("ConfigureValidationRules();");
+                    ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored().WithSignatureMerge());
+
+                });
+
+                @class.AddMethod("void", "ConfigureValidationRules", method =>
+                {
+                    method.Private();
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+
+                    foreach (var propertyStatement in this.GetValidationRulesStatements(Model.Properties))
+                    {
+                        method.AddStatement(propertyStatement);
+                    }
+                });
+
+                foreach (var property in Model.Properties)
+                {
+                    if (property.HasValidations() && property.GetValidations().HasCustomValidation())
+                    {
+                        file.AddUsing("System.Threading");
+                        file.AddUsing("System.Threading.Tasks");
+
+                        @class.AddMethod("Task<bool>", $"Validate{property.Name}Async", method =>
+                        {
+                            method
+                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                .Private()
+                                .Async();
+                            method.AddParameter(GetCommandModel(), "command");
+                            method.AddParameter(GetTypeName(property), "value");
+                            method.AddParameter("CancellationToken", "cancellationToken");
+                            method.AddStatement("throw new NotImplementedException(\"our custom validation rules here...\");");
+                        });
+                    }
+                }
+            }));
+            CSharpFile = csharpFile;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}Validator",
-                @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
-                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
+            return CSharpFile.GetConfig();
         }
 
-        public bool HasValidations()
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
         {
-            return this.GetValidationRules(Model.Properties).Any();
+            return CSharpFile.ToString();
         }
 
         private string GetCommandModel()
         {
             return GetTypeName(CommandModelsTemplate.TemplateId, Model);
-        }
-
-        private IEnumerable<string> GetCustomValidationMethods()
-        {
-            foreach (var property in Model.Properties)
-            {
-                if (property.HasValidations() && property.GetValidations().HasCustomValidation())
-                {
-                    AddUsing("System.Threading");
-                    AddUsing("System.Threading.Tasks");
-                    yield return $@"
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private async Task<bool> Validate{property.Name}Async({GetCommandModel()} command, {GetTypeName(property)} value, CancellationToken cancellationToken)
-        {{
-            throw new NotImplementedException(""Your custom validation rules here..."");
-        }}";
-                }
-            }
         }
     }
 }

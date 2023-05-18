@@ -34,22 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#499883b5-ee38-4e92-8c12-436eef8b2c0d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CommandValidator/CommandValidatorTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandValidator/CommandValidatorTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#499883b5-ee38-4e92-8c12-436eef8b2c0d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CommandValidator/CommandValidatorTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandValidator/CommandValidatorTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#499883b5-ee38-4e92-8c12-436eef8b2c0d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -62,22 +46,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandValidator/CommandValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandValidator/CommandValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2a07c7a7-23a6-4f1b-8f6b-328726764628</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryValidator/QueryValidatorTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryValidator/QueryValidatorTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2a07c7a7-23a6-4f1b-8f6b-328726764628</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryValidator/QueryValidatorTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryValidator/QueryValidatorTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
