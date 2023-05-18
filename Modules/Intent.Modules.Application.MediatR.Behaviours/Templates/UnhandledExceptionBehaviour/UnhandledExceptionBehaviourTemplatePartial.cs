@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public UnhandledExceptionBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsLogging);
+            AddNugetDependency(NuGetPackages.MicrosoftExtensionsLogging(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
