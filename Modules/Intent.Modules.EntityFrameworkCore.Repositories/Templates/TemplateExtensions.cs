@@ -13,22 +13,22 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetPagedListName<T>(this IntentTemplateBase<T> template)
+        public static string GetPagedListName(this IIntentTemplate template)
         {
             return template.GetTypeName(PagedListTemplate.TemplateId);
         }
 
-        public static string GetRepositoryName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(RepositoryTemplate.TemplateId, template.Model);
         }
 
-        public static string GetRepositoryName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(RepositoryTemplate.TemplateId, model);
         }
 
-        public static string GetRepositoryBaseName<T>(this IntentTemplateBase<T> template)
+        public static string GetRepositoryBaseName(this IIntentTemplate template)
         {
             return template.GetTypeName(RepositoryBaseTemplate.TemplateId);
         }
