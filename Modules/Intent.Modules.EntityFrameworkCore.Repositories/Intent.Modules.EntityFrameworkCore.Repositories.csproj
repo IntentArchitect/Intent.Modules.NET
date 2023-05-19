@@ -11,14 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Templates\Repository\RepositoryTemplate.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Templates\Repository\RepositoryTemplate.tt" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.6" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.2" />
