@@ -11,6 +11,7 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -155,7 +156,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
             if (GetMappedParameters(operation).Any())
             {
-                return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPayloadProperty.Name.ToPascalCase() + " = " + x.Name))} }}";
+                //return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPayloadProperty.Name.ToPascalCase() + " = " + x.Name))} }}";
+                return $"new {template.GetTypeName(requestType)} ( {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPayloadProperty.Name.ToParameterName() + " : " + x.Name))} )";
             }
 
             return $"new {template.GetTypeName(requestType)}()";

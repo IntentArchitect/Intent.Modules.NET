@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>4.0.6-pre.1</Version>
+    <Version>4.0.6-pre.2</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -29,14 +29,6 @@
     <None Update="Templates\QueryModel\QueryModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryModelTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\CommandModels\CommandModelsTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CommandModelsTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\QueryModels\QueryModelsTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>QueryModelsTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -78,16 +70,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>QueryModelTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\CommandModels\CommandModelsTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CommandModelsTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\QueryModels\QueryModelsTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>QueryModelsTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -106,10 +88,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.9" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.3.7" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.0.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

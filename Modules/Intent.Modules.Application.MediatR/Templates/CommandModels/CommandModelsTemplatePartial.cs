@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.Application.MediatR.Templates.CommandModels
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class CommandModelsTemplate : CSharpTemplateBase<CommandModel>
+    public partial class CommandModelsTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.CommandModels";
@@ -23,30 +25,47 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
+            CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+                .AddClass($"{Model.Name}", @class =>
+                {
+                    @class.TryAddXmlDocComments(Model.InternalElement);
+                    AddAuthorization(@class);
+                    @class.ImplementsInterface(Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest");
+                    @class.ImplementsInterface(this.GetCommandInterfaceName());
+
+                    @class.AddConstructor(ctor =>
+                    {
+                        foreach (var property in Model.Properties)
+                        {
+                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p => 
+                            {
+                                p.IntroduceProperty();
+                            });
+                        }
+                    });
+                });
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
             FulfillsRole("Application.Contract.Command");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
-                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
+            return CSharpFile.GetConfig();
         }
 
-        private string GetRequestInterface()
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
         {
-            var interfaces = new List<string>();
-            interfaces.Add(Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest");
-            interfaces.Add(this.GetCommandInterfaceName());
-            return string.Join(", ", interfaces);
+            return CSharpFile.ToString();
         }
 
-        private string GetCommandAttributes()
+        private void AddAuthorization(CSharpClass @class)
         {
             if (Model.HasAuthorize())
             {
@@ -59,16 +78,14 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                 {
                     rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
                 }
-                return $@"[{TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize"}{(rolesPolicies.Any() ? $"({string.Join(", ", rolesPolicies)})" : "")}]
-    ";
+                @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
+                {
+                    foreach (var arg in rolesPolicies)
+                    {
+                        att.AddArgument(arg);
+                    }
+                });
             }
-
-            return string.Empty;
-        }
-
-        private string GetComments(string indentation)
-        {
-            return TemplateHelper.GetXmlDocComments(Model.InternalElement?.Comment, indentation);
         }
     }
 }

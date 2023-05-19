@@ -1,4 +1,8 @@
-﻿### Version 4.0.5
+﻿### Version 4.0.6
+
+- Update: `Command ModelTemplate` and `QueryModelTemplate` upgraded to CSharpFileBuilder.
+
+### Version 4.0.5
 
 - Update: NuGet dependency on MediatR.Contracts
 - Update: Changed default `IntentManged` on `ServiceCallHandler` template to be Merge.
