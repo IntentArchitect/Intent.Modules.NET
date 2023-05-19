@@ -1,0 +1,1759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc21ece7-57fc-4676-a1dd-79a06f31072b" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>AggregateRoot1Repository</name>
+  <display>AggregateRoot1Repository&lt;AggregateRoot1&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="efd575f1-baf1-41cc-b7f0-76db4d7937b8">
+    <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+    <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="047cd80c-02e1-472a-8a42-30895d9a9063" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsD_collection0_schemaName0</name>
+      <display>sp_params0_returnsD_collection0_schemaName0(): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d0fc3168-768c-417c-835c-6d2239aebee6">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2af0a546-5907-49dd-a667-50a0a15eb3eb" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsD_collection0_schemaName1</name>
+      <display>sp_params0_returnsD_collection0_schemaName1(): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e869cc61-5881-47dd-88c8-a35aad803f3f">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="751f347f-a4db-4813-8d4f-1be3eb8bc86c" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsD_collection1_schemaName0</name>
+      <display>sp_params0_returnsD_collection1_schemaName0(): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4e075328-d8e1-43b0-a1c5-f3a3f847bb9b">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="665a72b2-8b1b-4fa2-8bc6-39388f9fa3ea" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsD_collection1_schemaName1</name>
+      <display>sp_params0_returnsD_collection1_schemaName1(): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d8f6a324-f226-459c-935b-cfadfca43f85">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="dd691277-fd53-4ab9-b728-b2f77cbb86b5" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsE_collection0_schemaName0</name>
+      <display>sp_params0_returnsE_collection0_schemaName0(): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5f4b2e56-0dfa-474c-be34-46752af34909">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="46fb1664-0333-4684-b5f5-508447e43ceb" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsE_collection0_schemaName1</name>
+      <display>sp_params0_returnsE_collection0_schemaName1(): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5a8037db-17eb-4d89-b0e8-8ba41b8d0cd5">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1ebc5070-874a-4c83-a934-4ff609ae49b9" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsE_collection1_schemaName0</name>
+      <display>sp_params0_returnsE_collection1_schemaName0(): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a8c3df7c-c935-4731-a4a0-e95a21c48735">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="93577004-4471-412c-bec1-ec5d9d7097cd" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsE_collection1_schemaName1</name>
+      <display>sp_params0_returnsE_collection1_schemaName1(): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7b5110cf-fd8c-4d32-939c-5acfa2a9c0d3">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="58811e6c-c9ed-4a29-8b6c-d90ed5132df0" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsV_collection0_schemaName0</name>
+      <display>sp_params0_returnsV_collection0_schemaName0(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a67645d7-58e0-4143-af00-c2309cf35672">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0f81af48-063e-4514-952b-4ade406befdb" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params0_returnsV_collection0_schemaName1</name>
+      <display>sp_params0_returnsV_collection0_schemaName1(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="16617d65-43ce-42f0-8d7e-d8c06024d128">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fcce1faf-09af-4e8b-a0fe-27d1d15639bf" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsD_collection0_schemaName0</name>
+      <display>sp_params1_returnsD_collection0_schemaName0(param1: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="1bcb9ce9-2cda-4733-b737-cbd3cb772748">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0ea2f6d2-80e5-4bb7-914b-6c91611eeed4" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="44608724-e744-4c7e-a963-bbe5baf066ee">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fcce1faf-09af-4e8b-a0fe-27d1d15639bf</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="37abf2ca-be35-4e3b-91e7-3e8b6f1154bc" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsD_collection0_schemaName1</name>
+      <display>sp_params1_returnsD_collection0_schemaName1(param1: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="cc6460b7-6364-4227-93fe-7293fdf11806">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="787e7eac-ad85-42e7-a891-9d926c7f501f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4d058674-0c1a-482b-a141-c0e0c7787489">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>37abf2ca-be35-4e3b-91e7-3e8b6f1154bc</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="035a0575-7fe1-460b-865b-ec2738ae6965" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsD_collection1_schemaName0</name>
+      <display>sp_params1_returnsD_collection1_schemaName0(param1: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="0270d0b2-94ab-4ebb-b9a6-05a321abc4e3">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f6b0789a-18a8-4dea-9f1f-c3ccecf23bcf" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="95f62388-524d-4ac1-8837-3effe8c277ca">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>035a0575-7fe1-460b-865b-ec2738ae6965</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="34cb37a2-ece0-4daf-bbe1-dfbfebe8111d" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsD_collection1_schemaName1</name>
+      <display>sp_params1_returnsD_collection1_schemaName1(param1: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="d59f8452-9184-46b8-964a-57c413c3a447">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0dfe8d74-b1e8-4470-bd82-d66e348f115f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cd982931-ebf5-44d7-9a7e-d9e7f9cc821b">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>34cb37a2-ece0-4daf-bbe1-dfbfebe8111d</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2dab1d36-d962-45e8-9bc9-10fa6005ddd7" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsE_collection0_schemaName0</name>
+      <display>sp_params1_returnsE_collection0_schemaName0(param1: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="439f2871-a48c-41b3-8a59-9a6ba207f40b">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4b2cc688-632d-4d65-8e46-6e77d47fce2f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a12f2eef-c59a-405a-94e9-82906fdd9863">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2dab1d36-d962-45e8-9bc9-10fa6005ddd7</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ff94f789-6ff7-4f01-be9c-383a315671a9" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsE_collection0_schemaName1</name>
+      <display>sp_params1_returnsE_collection0_schemaName1(param1: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="f0569969-1d5f-4936-9ba7-415abf19e243">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1a63f414-25b0-4511-a6f1-ea53c88b7791" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a73594e4-7081-40be-978f-7c4c4489ee26">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ff94f789-6ff7-4f01-be9c-383a315671a9</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="deda7543-872a-4d46-b6a6-e174b459b5a3" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsE_collection1_schemaName0</name>
+      <display>sp_params1_returnsE_collection1_schemaName0(param1: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="0a63b5e6-3dc2-420e-82ea-027f03b11d26">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="bdcaa4e7-d78b-41bf-8dce-4601a80c8073" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c4408aae-c737-4f8c-857b-ca5d16747922">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>deda7543-872a-4d46-b6a6-e174b459b5a3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="01aa62b9-18ee-44c3-b99b-25fbbca05dd5" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsE_collection1_schemaName1</name>
+      <display>sp_params1_returnsE_collection1_schemaName1(param1: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="81ac1ad2-0d36-4833-a728-c2480953ee61">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6973496e-7884-4ffb-b88c-79bb2d954a99" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d8d99290-3c16-4918-81ca-3030212d458a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>01aa62b9-18ee-44c3-b99b-25fbbca05dd5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="169f87ae-434f-4861-b1f2-a48c5d6fcd12" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsV_collection0_schemaName0</name>
+      <display>sp_params1_returnsV_collection0_schemaName0(param1: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="f16775e6-2e9d-47a4-a65e-73f40b023221">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b911b5f6-f783-4282-b6eb-ad6305c902b5" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="84b217af-1dfe-4a79-bcc9-63943e89e4b7">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>169f87ae-434f-4861-b1f2-a48c5d6fcd12</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f3cb93f8-a0e9-42fb-8685-888215106bd7" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params1_returnsV_collection0_schemaName1</name>
+      <display>sp_params1_returnsV_collection0_schemaName1(param1: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="b550422f-3af5-4761-acb7-773517114bee">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1422b09e-0b29-4a8f-8618-8175d275be72" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="02a0cb7c-3398-454e-af3a-7b14dd325c90">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f3cb93f8-a0e9-42fb-8685-888215106bd7</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="04eac1d3-b3a2-4b84-ae61-d4dd61936eb5" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsD_collection0_schemaName0</name>
+      <display>sp_params2_returnsD_collection0_schemaName0(param1: string, param2: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="b43c0931-940d-4402-ad22-509d19962f91">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="899cf85e-d160-4f3a-8c6d-86ef465ed67b" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="98c10c43-82db-4228-b78b-886defd6a11e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>04eac1d3-b3a2-4b84-ae61-d4dd61936eb5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="82eeedcf-1662-425e-8ec6-ffdf76d4c998" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="160a3edf-1e86-48cc-832b-7bbb3c97139a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>04eac1d3-b3a2-4b84-ae61-d4dd61936eb5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1091cbe6-f880-4dd0-9fe8-366f74b6086c" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsD_collection0_schemaName1</name>
+      <display>sp_params2_returnsD_collection0_schemaName1(param1: string, param2: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="4a335330-f33c-468b-bca6-70735b6fdc38">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="924119e7-c49c-4bcd-92fd-25f0af7f6235" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="78ccaee7-4f64-45a3-b530-44eec54d31ff">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1091cbe6-f880-4dd0-9fe8-366f74b6086c</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f518a048-e1a0-48c1-a602-357361e7e91b" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="94494162-276d-43bd-978a-fd83c5d647a6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1091cbe6-f880-4dd0-9fe8-366f74b6086c</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="711c2fa0-6832-4fcf-b5f2-ec325b8ed8f0" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsD_collection1_schemaName0</name>
+      <display>sp_params2_returnsD_collection1_schemaName0(param1: string, param2: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="f26ab735-5a41-409d-9877-ef46ec7e73ec">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="447a22b0-a3bc-473d-be47-3d3057d6521c" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d320e7e4-9319-4f69-a541-8f3983a7de7e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>711c2fa0-6832-4fcf-b5f2-ec325b8ed8f0</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="119a0870-a36c-4ab0-8109-428c796efd2e" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9ba8d951-38e2-4e63-892e-c01d14215bb8">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>711c2fa0-6832-4fcf-b5f2-ec325b8ed8f0</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="03f7acf0-9cfd-4df9-a708-950acad8213d" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsD_collection1_schemaName1</name>
+      <display>sp_params2_returnsD_collection1_schemaName1(param1: string, param2: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="0c5c808e-bf8f-447d-af62-7d6a6fd3e2a8">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ee263c92-1269-45e6-b669-d27f7475443d" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="87142773-a293-46c5-ab01-456a369ecdf6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>03f7acf0-9cfd-4df9-a708-950acad8213d</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="653a356d-cce1-4745-bcd0-4e8fa8b01f3f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4fbf0853-bacc-4539-8250-1d0795ed9364">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>03f7acf0-9cfd-4df9-a708-950acad8213d</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a0271673-719d-4f85-838e-8593123520fb" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsE_collection0_schemaName0</name>
+      <display>sp_params2_returnsE_collection0_schemaName0(param1: string, param2: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="ae880df5-bd4c-4f34-91d4-d56b46a40682">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1601ade6-9346-40d9-be79-c075880c6102" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="be79c554-5f90-4274-a87b-1628175e571c">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a0271673-719d-4f85-838e-8593123520fb</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8c5e9664-b0ae-45bb-a60d-ae3540f93266" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b32cb064-5387-4594-a9d0-4df902010953">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a0271673-719d-4f85-838e-8593123520fb</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="74f13bab-17fd-4ead-8317-0a0d5fd766fd" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsE_collection0_schemaName1</name>
+      <display>sp_params2_returnsE_collection0_schemaName1(param1: string, param2: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="f6086806-d2c3-4c74-b7dc-88de17909d75">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f4a8658e-3ec1-44ae-9557-06a7e22c6db1" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cc04a6f6-91d4-4829-abbe-f770e7a67253">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>74f13bab-17fd-4ead-8317-0a0d5fd766fd</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="98fd9e92-3af7-4d0c-ad6d-323325f80960" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b12ec63b-8c65-41c7-a2da-5d55aeed6447">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>74f13bab-17fd-4ead-8317-0a0d5fd766fd</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="34e075c2-7ed0-4425-a0d1-3ec72d1cabe3" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsE_collection1_schemaName0</name>
+      <display>sp_params2_returnsE_collection1_schemaName0(param1: string, param2: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="e169f929-8391-4e41-a3f1-bedd6f292c34">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0dc4d3f6-a519-4437-8383-7c141b8c9673" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="17497157-e6d1-43ab-8dc0-5ff1d1f197bc">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>34e075c2-7ed0-4425-a0d1-3ec72d1cabe3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fe1f3de1-8f8f-42f6-acd5-ceeb080cc409" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="630070c2-ff05-4fa7-b273-65485f8bea6a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>34e075c2-7ed0-4425-a0d1-3ec72d1cabe3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4d991478-9b33-4821-95ae-f14895314751" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsE_collection1_schemaName1</name>
+      <display>sp_params2_returnsE_collection1_schemaName1(param1: string, param2: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="293802ad-b41a-4bee-92c2-e5b040b54e30">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="56598495-d005-4dac-a63d-5b8d6761ab70" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="30916b30-bab9-4be4-8277-95c299bccc6d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4d991478-9b33-4821-95ae-f14895314751</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="75ba2c4e-19dd-49f8-a568-1ef4aa0495ab" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dca184f6-5650-4545-b2eb-fa3c358b31e6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4d991478-9b33-4821-95ae-f14895314751</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="bcf0a12f-28b0-4f11-912f-9a182fd37e0a" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsV_collection0_schemaName0</name>
+      <display>sp_params2_returnsV_collection0_schemaName0(param1: string, param2: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="ae1bd760-00c5-4b79-a284-03c9d41d5734">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a75567a9-de79-4e70-89c6-34887fd671dd" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="69004eaf-f958-43e7-8be8-7a32acf5db67">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>bcf0a12f-28b0-4f11-912f-9a182fd37e0a</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="750541a1-759b-428b-a313-6c2dc7e4b8e2" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="77444c5f-6679-4928-b92d-9983ef70fb16">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>bcf0a12f-28b0-4f11-912f-9a182fd37e0a</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9445d1f3-68fd-4010-80fc-d4edf60342f1" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>sp_params2_returnsV_collection0_schemaName1</name>
+      <display>sp_params2_returnsV_collection0_schemaName1(param1: string, param2: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="470c4dfa-9b5f-42de-b897-1bcccec8586f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="dbo.sp_custom" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="55f22d27-952f-4390-9111-7d3d84005b83" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param1</name>
+          <display>param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cc42adda-6ca2-4578-8c8c-32873781a06d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9445d1f3-68fd-4010-80fc-d4edf60342f1</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="18957324-9327-4f43-a961-4518da311137" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>param2</name>
+          <display>param2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0bd7ab5f-a640-49fe-90c4-34f15a79d0e3">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9445d1f3-68fd-4010-80fc-d4edf60342f1</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

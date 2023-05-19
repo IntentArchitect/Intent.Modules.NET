@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,27 +10,17 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.CustomRepository", Version = "1.0")]
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class AggregateRoot1Repository : RepositoryBase<AggregateRoot1, AggregateRoot1, ApplicationDbContext>, IAggregateRoot1Repository
+    public class CustomRepository : ICustomRepository
     {
         private readonly ApplicationDbContext _dbContext;
-        public AggregateRoot1Repository(ApplicationDbContext dbContext) : base(dbContext)
+
+        public CustomRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
-        }
-
-        public async Task<AggregateRoot1> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<AggregateRoot1>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
 
         public async Task<SpResult> Sp_params0_returnsD_collection0_schemaName0(CancellationToken cancellationToken = default)
@@ -70,7 +59,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<AggregateRoot1> Sp_params0_returnsE_collection0_schemaName0(CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params0_returnsE_collection0_schemaName0")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -79,7 +68,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<AggregateRoot1> Sp_params0_returnsE_collection0_schemaName1(CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -88,7 +77,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<IReadOnlyCollection<AggregateRoot1>> Sp_params0_returnsE_collection1_schemaName0(CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params0_returnsE_collection1_schemaName0")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
@@ -96,7 +85,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<IReadOnlyCollection<AggregateRoot1>> Sp_params0_returnsE_collection1_schemaName1(CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
@@ -158,7 +147,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param1,
             CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params1_returnsE_collection0_schemaName0 {param1}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -169,7 +158,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param1,
             CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom {param1}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -180,7 +169,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param1,
             CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params1_returnsE_collection1_schemaName0 {param1}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
@@ -190,7 +179,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param1,
             CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom {param1}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
@@ -261,7 +250,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param2,
             CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params2_returnsE_collection0_schemaName0 {param1}, {param2}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -273,7 +262,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param2,
             CancellationToken cancellationToken = default)
         {
-            return (await GetSet()
+            return (await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom {param1}, {param2}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
@@ -285,7 +274,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param2,
             CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE sp_params2_returnsE_collection1_schemaName0 {param1}, {param2}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
@@ -296,7 +285,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string param2,
             CancellationToken cancellationToken = default)
         {
-            return await GetSet()
+            return await _dbContext.AggregateRoot1s
                 .FromSqlInterpolated($"EXECUTE dbo.sp_custom {param1}, {param2}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);

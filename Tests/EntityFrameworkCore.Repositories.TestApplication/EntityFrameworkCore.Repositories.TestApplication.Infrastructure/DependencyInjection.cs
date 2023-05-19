@@ -26,6 +26,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddTransient<ICustomRepository, CustomRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();
             services.AddTransient<IAggregateRoot2CompositionRepository, AggregateRoot2CompositionRepository>();
             services.AddTransient<IAggregateRoot3AggCollectionRepository, AggregateRoot3AggCollectionRepository>();

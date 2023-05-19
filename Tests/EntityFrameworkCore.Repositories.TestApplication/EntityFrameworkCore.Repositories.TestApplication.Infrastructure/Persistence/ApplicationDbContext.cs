@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
@@ -22,6 +23,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         {
             _domainEventService = domainEventService;
         }
+
+        public DbSet<SpResult> SpResults { get; set; }
 
         public DbSet<AggregateRoot1> AggregateRoot1s { get; set; }
         public DbSet<AggregateRoot2Composition> AggregateRoot2Compositions { get; set; }
@@ -46,6 +49,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.Entity<SpResult>().HasNoKey().ToView(null);
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());

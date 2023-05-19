@@ -283,6 +283,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#ac220ea1-4718-4f07-986f-bc72141bb099</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/SpResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -504,6 +512,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IAggregateRoot5Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5Repository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ICustomRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -736,6 +752,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/AggregateRoot5Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5Repository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/CustomRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
