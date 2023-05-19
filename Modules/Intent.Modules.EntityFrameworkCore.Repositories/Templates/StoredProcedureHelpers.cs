@@ -19,6 +19,7 @@ internal class StoredProcedureHelpers
         IReadOnlyCollection<StoredProcedureModel> storedProcedures)
     {
         template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+        template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
 
         template.CSharpFile
@@ -55,6 +56,7 @@ internal class StoredProcedureHelpers
         IReadOnlyCollection<StoredProcedureModel> storedProcedures)
     {
         template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+        template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
 
         template.CSharpFile
@@ -105,7 +107,7 @@ internal class StoredProcedureHelpers
                         if (returnTypeElement == null)
                         {
                             file.AddUsing("Microsoft.EntityFrameworkCore");
-                            method.AddMethodChainStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
+                            method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
                             return;
                         }
 
@@ -125,6 +127,7 @@ internal class StoredProcedureHelpers
 
                             if (!isCollection)
                             {
+                                file.AddUsing("System.Linq");
                                 mcs.AddChainStatement(storedProcedure.TypeReference.IsNullable
                                     ? "SingleOrDefault()"
                                     : "Single()");

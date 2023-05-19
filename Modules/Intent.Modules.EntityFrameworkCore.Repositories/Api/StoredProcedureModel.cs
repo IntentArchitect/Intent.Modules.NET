@@ -37,6 +37,8 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
 
         public ITypeReference TypeReference => _element.TypeReference;
 
+        public ITypeReference ReturnType => TypeReference?.Element != null ? TypeReference : null;
+
 
         public IElement InternalElement => _element;
 
