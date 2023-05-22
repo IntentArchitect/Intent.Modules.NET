@@ -18,5 +18,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
         public string Tag { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
+        public AggregateRoot1 Operation(object param1)
+        {
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

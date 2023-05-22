@@ -380,7 +380,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0ea2f6d2-80e5-4bb7-914b-6c91611eeed4" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="0ea2f6d2-80e5-4bb7-914b-6c91611eeed4" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -439,7 +439,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="787e7eac-ad85-42e7-a891-9d926c7f501f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="787e7eac-ad85-42e7-a891-9d926c7f501f" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -498,7 +498,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f6b0789a-18a8-4dea-9f1f-c3ccecf23bcf" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="f6b0789a-18a8-4dea-9f1f-c3ccecf23bcf" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -557,7 +557,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0dfe8d74-b1e8-4470-bd82-d66e348f115f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="0dfe8d74-b1e8-4470-bd82-d66e348f115f" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -616,7 +616,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4b2cc688-632d-4d65-8e46-6e77d47fce2f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="4b2cc688-632d-4d65-8e46-6e77d47fce2f" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -675,7 +675,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1a63f414-25b0-4511-a6f1-ea53c88b7791" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="1a63f414-25b0-4511-a6f1-ea53c88b7791" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -734,7 +734,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bdcaa4e7-d78b-41bf-8dce-4601a80c8073" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="bdcaa4e7-d78b-41bf-8dce-4601a80c8073" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -793,7 +793,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6973496e-7884-4ffb-b88c-79bb2d954a99" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="6973496e-7884-4ffb-b88c-79bb2d954a99" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -849,7 +849,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b911b5f6-f783-4282-b6eb-ad6305c902b5" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="b911b5f6-f783-4282-b6eb-ad6305c902b5" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -905,7 +905,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1422b09e-0b29-4a8f-8618-8175d275be72" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="1422b09e-0b29-4a8f-8618-8175d275be72" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -964,7 +964,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="899cf85e-d160-4f3a-8c6d-86ef465ed67b" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="899cf85e-d160-4f3a-8c6d-86ef465ed67b" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -988,7 +988,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="82eeedcf-1662-425e-8ec6-ffdf76d4c998" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="82eeedcf-1662-425e-8ec6-ffdf76d4c998" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1047,7 +1047,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="924119e7-c49c-4bcd-92fd-25f0af7f6235" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="924119e7-c49c-4bcd-92fd-25f0af7f6235" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1071,7 +1071,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f518a048-e1a0-48c1-a602-357361e7e91b" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="f518a048-e1a0-48c1-a602-357361e7e91b" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1130,7 +1130,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="447a22b0-a3bc-473d-be47-3d3057d6521c" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="447a22b0-a3bc-473d-be47-3d3057d6521c" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1154,7 +1154,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="119a0870-a36c-4ab0-8109-428c796efd2e" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="119a0870-a36c-4ab0-8109-428c796efd2e" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1213,7 +1213,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ee263c92-1269-45e6-b669-d27f7475443d" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="ee263c92-1269-45e6-b669-d27f7475443d" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1237,7 +1237,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="653a356d-cce1-4745-bcd0-4e8fa8b01f3f" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="653a356d-cce1-4745-bcd0-4e8fa8b01f3f" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1296,7 +1296,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1601ade6-9346-40d9-be79-c075880c6102" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="1601ade6-9346-40d9-be79-c075880c6102" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1320,7 +1320,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8c5e9664-b0ae-45bb-a60d-ae3540f93266" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="8c5e9664-b0ae-45bb-a60d-ae3540f93266" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1379,7 +1379,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f4a8658e-3ec1-44ae-9557-06a7e22c6db1" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="f4a8658e-3ec1-44ae-9557-06a7e22c6db1" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1403,7 +1403,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="98fd9e92-3af7-4d0c-ad6d-323325f80960" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="98fd9e92-3af7-4d0c-ad6d-323325f80960" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1462,7 +1462,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0dc4d3f6-a519-4437-8383-7c141b8c9673" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="0dc4d3f6-a519-4437-8383-7c141b8c9673" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1486,7 +1486,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe1f3de1-8f8f-42f6-acd5-ceeb080cc409" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="fe1f3de1-8f8f-42f6-acd5-ceeb080cc409" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1545,7 +1545,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="56598495-d005-4dac-a63d-5b8d6761ab70" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="56598495-d005-4dac-a63d-5b8d6761ab70" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1569,7 +1569,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="75ba2c4e-19dd-49f8-a568-1ef4aa0495ab" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="75ba2c4e-19dd-49f8-a568-1ef4aa0495ab" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1625,7 +1625,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a75567a9-de79-4e70-89c6-34887fd671dd" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="a75567a9-de79-4e70-89c6-34887fd671dd" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1649,7 +1649,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="750541a1-759b-428b-a313-6c2dc7e4b8e2" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="750541a1-759b-428b-a313-6c2dc7e4b8e2" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>
@@ -1705,7 +1705,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="55f22d27-952f-4390-9111-7d3d84005b83" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="55f22d27-952f-4390-9111-7d3d84005b83" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param1</name>
           <display>param1: string</display>
           <isAbstract>false</isAbstract>
@@ -1729,7 +1729,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="18957324-9327-4f43-a961-4518da311137" type="Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+        <childElement id="18957324-9327-4f43-a961-4518da311137" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
           <name>param2</name>
           <display>param2: string</display>
           <isAbstract>false</isAbstract>

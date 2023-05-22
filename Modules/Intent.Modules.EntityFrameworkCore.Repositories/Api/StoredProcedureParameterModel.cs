@@ -11,14 +11,14 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.EntityFrameworkCore.Repositories.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class ParameterModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
+    public class StoredProcedureParameterModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
     {
-        public const string SpecializationType = "Parameter";
+        public const string SpecializationType = "Stored Procedure Parameter";
         public const string SpecializationTypeId = "5823b192-eb03-47c8-90d8-5501c922e9a5";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public ParameterModel(IElement element, string requiredType = SpecializationType)
+        public StoredProcedureParameterModel(IElement element, string requiredType = SpecializationType)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {
@@ -45,7 +45,7 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
             return _element.ToString();
         }
 
-        public bool Equals(ParameterModel other)
+        public bool Equals(StoredProcedureParameterModel other)
         {
             return Equals(_element, other?._element);
         }
@@ -55,7 +55,7 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((ParameterModel)obj);
+            return Equals((StoredProcedureParameterModel)obj);
         }
 
         public override int GetHashCode()
@@ -65,17 +65,17 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
     }
 
     [IntentManaged(Mode.Fully)]
-    public static class ParameterModelExtensions
+    public static class StoredProcedureParameterModelExtensions
     {
 
-        public static bool IsParameterModel(this ICanBeReferencedType type)
+        public static bool IsStoredProcedureParameterModel(this ICanBeReferencedType type)
         {
-            return type != null && type is IElement element && element.SpecializationTypeId == ParameterModel.SpecializationTypeId;
+            return type != null && type is IElement element && element.SpecializationTypeId == StoredProcedureParameterModel.SpecializationTypeId;
         }
 
-        public static ParameterModel AsParameterModel(this ICanBeReferencedType type)
+        public static StoredProcedureParameterModel AsStoredProcedureParameterModel(this ICanBeReferencedType type)
         {
-            return type.IsParameterModel() ? new ParameterModel((IElement)type) : null;
+            return type.IsStoredProcedureParameterModel() ? new StoredProcedureParameterModel((IElement)type) : null;
         }
     }
 }

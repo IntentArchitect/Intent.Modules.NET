@@ -47,5 +47,55 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="02288513-f3f2-493f-839b-b2f30744351b" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation</name>
+      <display>Operation(param1: object): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="dd8df5f2-36a4-4147-8e8e-53ea5eabf9c8">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="32879d71-49f9-41f8-8655-0a62a0413bb5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param1</name>
+          <display>in : param1: object</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fc41c7b2-5bcf-4139-8b6f-99793817372d">
+            <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>02288513-f3f2-493f-839b-b2f30744351b</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

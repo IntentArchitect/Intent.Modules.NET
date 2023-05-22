@@ -42,9 +42,9 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
 
         public IElement InternalElement => _element;
 
-        public IList<ParameterModel> Parameters => _element.ChildElements
-            .GetElementsOfType(ParameterModel.SpecializationTypeId)
-            .Select(x => new ParameterModel(x))
+        public IList<StoredProcedureParameterModel> Parameters => _element.ChildElements
+            .GetElementsOfType(StoredProcedureParameterModel.SpecializationTypeId)
+            .Select(x => new StoredProcedureParameterModel(x))
             .ToList();
 
         public override string ToString()
