@@ -1,4 +1,9 @@
+### Version 4.1.3
+
+- Upgrade: Made the `Microsoft.Extensions.Logging` Nuget Package dependency .Net version aware.
+
 ### Version 4.1.2
+
 - Fixed: Removed some warnings from the `LoggingBehaviour`.
 
 ### Version 4.1.0

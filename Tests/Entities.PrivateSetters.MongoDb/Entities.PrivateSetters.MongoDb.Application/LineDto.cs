@@ -14,10 +14,12 @@ namespace Entities.PrivateSetters.MongoDb.Application
     {
         public LineDto()
         {
+            Id = null!;
+            Description = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string Id { get; set; }
+        public string Description { get; set; }
         public int Quantity { get; set; }
 
         public static LineDto Create(string id, string description, int quantity)

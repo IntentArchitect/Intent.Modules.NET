@@ -1,3 +1,7 @@
+### Version 4.2.3
+
+- Update: Removed various compiler warnings.
+
 ### Version 4.2.2
 
 - Added support for executing Stored Procedures. To use a Stored Procedure:

@@ -1,3 +1,7 @@
+
+### Version 4.0.4
+- Upgrade : Removed various compiler warnings.
+
 ### Version 4.0.3
 
 - Upgrade : Added configurable `sealed` access modifier support for `DTOs`.

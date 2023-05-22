@@ -12,6 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
     {
         public UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto()
         {
+            Attribute = null!;
         }
 
         public static UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto Create(string attribute, Guid id)
@@ -23,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
             };
         }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public Guid Id { get; set; }
 

@@ -12,6 +12,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
     {
         public ClassAUpdateDTO()
         {
+            Attribute = null!;
         }
 
         public static ClassAUpdateDTO Create(Guid id, string attribute)
@@ -25,7 +26,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
 
         public Guid Id { get; set; }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
     }
 }

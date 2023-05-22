@@ -12,6 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
     {
         public UpdateAggregateRootLongCompositeOfAggrLongDto()
         {
+            Attribute = null!;
         }
 
         public static UpdateAggregateRootLongCompositeOfAggrLongDto Create(string attribute, long id)
@@ -23,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
             };
         }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public long Id { get; set; }
 

@@ -16,6 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public AggregateRootAggregateSingleCDto()
         {
+            AggregationAttr = null!;
         }
 
         public static AggregateRootAggregateSingleCDto Create(string aggregationAttr, Guid id)
@@ -27,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string AggregationAttr { get; set; } = null!;
+        public string AggregationAttr { get; set; }
 
         public Guid Id { get; set; }
 

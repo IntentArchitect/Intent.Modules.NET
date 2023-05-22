@@ -12,6 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public UpdateAggregateRootCompositeManyBCompositeSingleBBDto()
         {
+            CompositeAttr = null!;
         }
 
         public static UpdateAggregateRootCompositeManyBCompositeSingleBBDto Create(string compositeAttr, Guid id)
@@ -23,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; } = null!;
+        public string CompositeAttr { get; set; }
 
         public Guid Id { get; set; }
 

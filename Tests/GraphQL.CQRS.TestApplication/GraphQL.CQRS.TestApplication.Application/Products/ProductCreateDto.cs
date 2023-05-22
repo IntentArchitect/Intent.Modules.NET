@@ -11,10 +11,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Products
     {
         public ProductCreateDto()
         {
+            Name = null!;
+            Description = null!;
         }
 
-        public string Name { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string Name { get; set; }
+        public string Description { get; set; }
         public bool IsActive { get; set; }
 
         public static ProductCreateDto Create(string name, string description, bool isActive)

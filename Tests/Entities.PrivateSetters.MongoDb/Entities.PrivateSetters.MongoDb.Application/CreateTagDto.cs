@@ -11,9 +11,10 @@ namespace Entities.PrivateSetters.MongoDb.Application
     {
         public CreateTagDto()
         {
+            Name = null!;
         }
 
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
 
         public static CreateTagDto Create(string name)
         {

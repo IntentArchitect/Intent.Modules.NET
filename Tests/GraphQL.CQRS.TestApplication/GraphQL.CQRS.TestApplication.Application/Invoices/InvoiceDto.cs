@@ -21,13 +21,14 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
     {
         public InvoiceDto()
         {
+            InvoiceLines = null!;
         }
 
         public Guid Id { get; set; }
         public int No { get; set; }
         public DateTime Created { get; set; }
         public Guid CustomerId { get; set; }
-        public List<InvoiceInvoiceLineDto> InvoiceLines { get; set; } = null!;
+        public List<InvoiceInvoiceLineDto> InvoiceLines { get; set; }
 
         public static InvoiceDto Create(
             Guid id,

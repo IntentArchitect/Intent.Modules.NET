@@ -15,6 +15,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
     {
         public UserRoleDto()
         {
+            Name = null!;
         }
 
         public static UserRoleDto Create(Guid userId, string name, Guid id)
@@ -29,7 +30,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
 
         public Guid UserId { get; set; }
 
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
 
         public Guid Id { get; set; }
 

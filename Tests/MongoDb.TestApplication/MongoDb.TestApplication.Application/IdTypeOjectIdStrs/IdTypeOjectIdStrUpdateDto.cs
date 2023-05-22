@@ -11,10 +11,12 @@ namespace MongoDb.TestApplication.Application.IdTypeOjectIdStrs
     {
         public IdTypeOjectIdStrUpdateDto()
         {
+            Id = null!;
+            Attribute = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Attribute { get; set; } = null!;
+        public string Id { get; set; }
+        public string Attribute { get; set; }
 
         public static IdTypeOjectIdStrUpdateDto Create(string id, string attribute)
         {

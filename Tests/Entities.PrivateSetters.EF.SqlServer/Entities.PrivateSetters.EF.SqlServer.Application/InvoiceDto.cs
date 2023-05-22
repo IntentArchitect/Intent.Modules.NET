@@ -14,12 +14,14 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
     {
         public InvoiceDto()
         {
+            Lines = null!;
+            Tags = null!;
         }
 
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
-        public List<LineDto> Lines { get; set; } = null!;
-        public List<TagDto> Tags { get; set; } = null!;
+        public List<LineDto> Lines { get; set; }
+        public List<TagDto> Tags { get; set; }
 
         public static InvoiceDto Create(Guid id, DateTime date, List<LineDto> lines, List<TagDto> tags)
         {

@@ -15,6 +15,9 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
     {
         public UserDto()
         {
+            Email = null!;
+            Username = null!;
+            Roles = null!;
         }
 
         public static UserDto Create(Guid id, string email, string username, List<UserRoleDto> roles)
@@ -30,11 +33,11 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
 
         public Guid Id { get; set; }
 
-        public string Email { get; set; } = null!;
+        public string Email { get; set; }
 
-        public string Username { get; set; } = null!;
+        public string Username { get; set; }
 
-        public List<UserRoleDto> Roles { get; set; } = null!;
+        public List<UserRoleDto> Roles { get; set; }
 
         public void Mapping(Profile profile)
         {

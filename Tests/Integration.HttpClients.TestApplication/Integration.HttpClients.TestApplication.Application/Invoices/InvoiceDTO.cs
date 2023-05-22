@@ -12,6 +12,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
     {
         public InvoiceDTO()
         {
+            Reference = null!;
         }
 
         public static InvoiceDTO Create(Guid id, string reference)
@@ -25,7 +26,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
 
         public Guid Id { get; set; }
 
-        public string Reference { get; set; } = null!;
+        public string Reference { get; set; }
 
     }
 }

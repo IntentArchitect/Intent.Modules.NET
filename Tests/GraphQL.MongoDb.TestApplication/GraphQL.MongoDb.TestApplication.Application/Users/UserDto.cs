@@ -14,13 +14,18 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users
     {
         public UserDto()
         {
+            Id = null!;
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+            AssignedPrivileges = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Name { get; set; } = null!;
-        public string Surname { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public List<UserAssignedPrivilegeDto> AssignedPrivileges { get; set; } = null!;
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public List<UserAssignedPrivilegeDto> AssignedPrivileges { get; set; }
 
         public static UserDto Create(
             string id,

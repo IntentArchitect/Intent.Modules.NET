@@ -12,6 +12,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
     {
         public CreateUserRoleDto()
         {
+            Name = null!;
         }
 
         public static CreateUserRoleDto Create(string name)
@@ -22,7 +23,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
             };
         }
 
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
 
     }
 }

@@ -11,9 +11,10 @@ namespace Entities.PrivateSetters.MongoDb.Application
     {
         public CreateInvoiceLineDto()
         {
+            Description = null!;
         }
 
-        public string Description { get; set; } = null!;
+        public string Description { get; set; }
         public int Quantity { get; set; }
 
         public static CreateInvoiceLineDto Create(string description, int quantity)

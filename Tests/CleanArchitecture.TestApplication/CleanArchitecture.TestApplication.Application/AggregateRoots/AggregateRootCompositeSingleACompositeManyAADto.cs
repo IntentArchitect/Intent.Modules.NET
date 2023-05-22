@@ -16,6 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public AggregateRootCompositeSingleACompositeManyAADto()
         {
+            CompositeAttr = null!;
         }
 
         public static AggregateRootCompositeSingleACompositeManyAADto Create(
@@ -31,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; } = null!;
+        public string CompositeAttr { get; set; }
 
         public Guid CompositeSingleAId { get; set; }
 

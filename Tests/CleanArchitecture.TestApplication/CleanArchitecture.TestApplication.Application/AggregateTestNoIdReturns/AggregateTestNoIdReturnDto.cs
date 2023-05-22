@@ -16,6 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
     {
         public AggregateTestNoIdReturnDto()
         {
+            Attribute = null!;
         }
 
         public static AggregateTestNoIdReturnDto Create(Guid id, string attribute)
@@ -29,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 
         public Guid Id { get; set; }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public void Mapping(Profile profile)
         {

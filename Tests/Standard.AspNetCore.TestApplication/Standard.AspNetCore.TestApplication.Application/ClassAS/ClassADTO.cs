@@ -15,6 +15,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
     {
         public ClassADTO()
         {
+            Attribute = null!;
         }
 
         public static ClassADTO Create(Guid id, string attribute)
@@ -28,7 +29,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
 
         public Guid Id { get; set; }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public void Mapping(Profile profile)
         {

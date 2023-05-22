@@ -14,10 +14,11 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application
     {
         public TagDto()
         {
+            Name = null!;
         }
 
         public Guid Id { get; set; }
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
 
         public static TagDto Create(Guid id, string name)
         {

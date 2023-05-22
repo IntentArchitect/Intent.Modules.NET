@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Update: Changed `DomainEventServiceTemplate` to be `Fully` managed from `Ignore`.
+
 ### Version 4.0.4
 
 - Fixed: Multiple `options.DefaultModelsExpandDepth(...)` lines were being generated.

@@ -11,10 +11,11 @@ namespace MongoDb.TestApplication.Application.IdTypeGuids
     {
         public IdTypeGuidUpdateDto()
         {
+            Attribute = null!;
         }
 
         public Guid Id { get; set; }
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public static IdTypeGuidUpdateDto Create(Guid id, string attribute)
         {

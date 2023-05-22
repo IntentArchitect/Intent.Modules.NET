@@ -16,13 +16,17 @@ namespace Entities.PrivateSetters.MongoDb.Application
     {
         public InvoiceDto()
         {
+            Id = null!;
+            TagsIds = null!;
+            Lines = null!;
+            Tags = null!;
         }
 
-        public string Id { get; set; } = null!;
+        public string Id { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<string> TagsIds { get; set; } = null!;
-        public List<LineDto> Lines { get; set; } = null!;
-        public List<TagDto> Tags { get; set; } = null!;
+        public IEnumerable<string> TagsIds { get; set; }
+        public List<LineDto> Lines { get; set; }
+        public List<TagDto> Tags { get; set; }
 
         public static InvoiceDto Create(
             string id,

@@ -14,15 +14,21 @@ namespace Entities.Constants.TestApplication.Application.TestClasses
     {
         public TestClassDto()
         {
+            Att100 = null!;
+            VarChar200 = null!;
+            NVarChar300 = null!;
+            AttMax = null!;
+            VarCharMax = null!;
+            NVarCharMax = null!;
         }
 
         public Guid Id { get; set; }
-        public string Att100 { get; set; } = null!;
-        public string VarChar200 { get; set; } = null!;
-        public string NVarChar300 { get; set; } = null!;
-        public string AttMax { get; set; } = null!;
-        public string VarCharMax { get; set; } = null!;
-        public string NVarCharMax { get; set; } = null!;
+        public string Att100 { get; set; }
+        public string VarChar200 { get; set; }
+        public string NVarChar300 { get; set; }
+        public string AttMax { get; set; }
+        public string VarCharMax { get; set; }
+        public string NVarCharMax { get; set; }
 
         public static TestClassDto Create(
             Guid id,

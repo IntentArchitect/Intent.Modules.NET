@@ -14,10 +14,12 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges
     {
         public PrivilegeDto()
         {
+            Id = null!;
+            Name = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Name { get; set; } = null!;
+        public string Id { get; set; }
+        public string Name { get; set; }
         public string? Description { get; set; }
 
         public static PrivilegeDto Create(string id, string name, string? description)

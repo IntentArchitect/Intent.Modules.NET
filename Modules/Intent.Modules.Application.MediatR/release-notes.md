@@ -1,6 +1,6 @@
-﻿### Version 4.0.6
-
+﻿### Version 4.0.7
 - Update: `Command ModelTemplate` and `QueryModelTemplate` upgraded to CSharpFileBuilder.
+- Version bump for dependencies.
 
 ### Version 4.0.5
 

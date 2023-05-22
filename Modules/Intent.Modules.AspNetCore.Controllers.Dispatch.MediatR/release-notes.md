@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Updated: using constructors to instantiate `Command`s and `Query`s. This was a change in pattern to reduce compiler warnings.
+
 ### Version 5.1.0
 
 - Support default values parameters for Domain Entities, Domain Services, and Service Controllers.

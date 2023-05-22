@@ -16,6 +16,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public AggregateRootCompositeSingleADto()
         {
+            CompositeAttr = null!;
+            Composites = null!;
         }
 
         public static AggregateRootCompositeSingleADto Create(
@@ -33,13 +35,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; } = null!;
+        public string CompositeAttr { get; set; }
 
         public Guid Id { get; set; }
 
         public AggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
 
-        public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; } = null!;
+        public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
 
         public void Mapping(Profile profile)
         {

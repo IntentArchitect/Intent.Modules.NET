@@ -1,3 +1,6 @@
+### Version 4.0.5
+- Update: Removed various compiler warnings.
+
 ### Version 4.0.4
 
 - Fixed: Under certain circumstances the generated solution would not compile due to the `Microsoft.Extensions.DependencyInjection` NuGet package not being installed.

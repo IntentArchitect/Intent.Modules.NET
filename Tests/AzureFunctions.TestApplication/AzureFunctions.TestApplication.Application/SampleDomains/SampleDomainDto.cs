@@ -14,10 +14,11 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
     {
         public SampleDomainDto()
         {
+            Attribute = null!;
         }
 
         public Guid Id { get; set; }
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public static SampleDomainDto Create(Guid id, string attribute)
         {

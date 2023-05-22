@@ -12,6 +12,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
     {
         public InvoiceCreateDTO()
         {
+            Reference = null!;
         }
 
         public static InvoiceCreateDTO Create(string reference)
@@ -22,7 +23,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
             };
         }
 
-        public string Reference { get; set; } = null!;
+        public string Reference { get; set; }
 
     }
 }

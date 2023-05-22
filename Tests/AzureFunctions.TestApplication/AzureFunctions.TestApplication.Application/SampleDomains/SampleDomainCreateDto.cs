@@ -11,9 +11,10 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
     {
         public SampleDomainCreateDto()
         {
+            Attribute = null!;
         }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
         public static SampleDomainCreateDto Create(string attribute)
         {

@@ -12,6 +12,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public CreateAggregateRootCompositeManyBDto()
         {
+            CompositeAttr = null!;
+            Composites = null!;
         }
 
         public static CreateAggregateRootCompositeManyBDto Create(
@@ -29,13 +31,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; } = null!;
+        public string CompositeAttr { get; set; }
 
         public DateTime? SomeDate { get; set; }
 
         public CreateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
 
-        public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; } = null!;
+        public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
     }
 }

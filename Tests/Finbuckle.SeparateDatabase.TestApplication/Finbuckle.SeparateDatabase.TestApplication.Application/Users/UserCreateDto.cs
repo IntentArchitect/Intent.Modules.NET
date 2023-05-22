@@ -12,6 +12,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
     {
         public UserCreateDto()
         {
+            Email = null!;
+            Username = null!;
+            Roles = null!;
         }
 
         public static UserCreateDto Create(string email, string username, List<CreateUserRoleDto> roles)
@@ -24,11 +27,11 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
             };
         }
 
-        public string Email { get; set; } = null!;
+        public string Email { get; set; }
 
-        public string Username { get; set; } = null!;
+        public string Username { get; set; }
 
-        public List<CreateUserRoleDto> Roles { get; set; } = null!;
+        public List<CreateUserRoleDto> Roles { get; set; }
 
     }
 }

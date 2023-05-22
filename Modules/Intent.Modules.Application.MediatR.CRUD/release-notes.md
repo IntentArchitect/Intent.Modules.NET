@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Update: Removed various compiler warnings.
+
 ### Version 5.0.3
 
 - Support for DTO return types on Create, Update and Delete requests.

@@ -12,6 +12,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
     {
         public UpdateUserRoleDto()
         {
+            Name = null!;
         }
 
         public static UpdateUserRoleDto Create(string name, Guid userId, Guid id)
@@ -24,7 +25,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
             };
         }
 
-        public string Name { get; set; } = null!;
+        public string Name { get; set; }
 
         public Guid UserId { get; set; }
 

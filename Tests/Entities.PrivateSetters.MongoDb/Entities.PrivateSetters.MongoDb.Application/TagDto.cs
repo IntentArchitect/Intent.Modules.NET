@@ -14,10 +14,12 @@ namespace Entities.PrivateSetters.MongoDb.Application
     {
         public TagDto()
         {
+            Id = null!;
+            Name = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Name { get; set; } = null!;
+        public string Id { get; set; }
+        public string Name { get; set; }
 
         public static TagDto Create(string id, string name)
         {

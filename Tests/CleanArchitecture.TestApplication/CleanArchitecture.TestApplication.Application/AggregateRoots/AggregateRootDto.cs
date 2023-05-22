@@ -16,6 +16,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public AggregateRootDto()
         {
+            AggregateAttr = null!;
+            Composites = null!;
         }
 
         public static AggregateRootDto Create(
@@ -37,9 +39,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public Guid Id { get; set; }
 
-        public string AggregateAttr { get; set; } = null!;
+        public string AggregateAttr { get; set; }
 
-        public List<AggregateRootCompositeManyBDto> Composites { get; set; } = null!;
+        public List<AggregateRootCompositeManyBDto> Composites { get; set; }
 
         public AggregateRootCompositeSingleADto? Composite { get; set; }
 

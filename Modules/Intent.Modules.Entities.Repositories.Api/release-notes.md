@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- Update: Removed various compiler warnings.
+
 ### Version 4.0.4
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

@@ -11,9 +11,10 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users
     {
         public CreateUserAssignedPrivilegeDto()
         {
+            PrivilegeId = null!;
         }
 
-        public string PrivilegeId { get; set; } = null!;
+        public string PrivilegeId { get; set; }
 
         public static CreateUserAssignedPrivilegeDto Create(string privilegeId)
         {

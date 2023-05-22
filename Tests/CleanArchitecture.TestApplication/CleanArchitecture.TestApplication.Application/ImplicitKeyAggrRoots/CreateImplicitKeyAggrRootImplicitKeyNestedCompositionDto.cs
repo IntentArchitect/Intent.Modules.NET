@@ -12,6 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
     {
         public CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto()
         {
+            Attribute = null!;
         }
 
         public static CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto Create(string attribute)
@@ -22,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
             };
         }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
     }
 }

@@ -12,6 +12,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     {
         public UpdateAggregateRootCompositeManyBDto()
         {
+            CompositeAttr = null!;
+            Composites = null!;
         }
 
         public static UpdateAggregateRootCompositeManyBDto Create(
@@ -33,7 +35,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; } = null!;
+        public string CompositeAttr { get; set; }
 
         public DateTime? SomeDate { get; set; }
 
@@ -43,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public UpdateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
 
-        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; } = null!;
+        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
     }
 }

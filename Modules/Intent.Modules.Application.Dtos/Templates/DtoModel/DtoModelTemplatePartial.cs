@@ -48,8 +48,20 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     foreach (var line in enterClass)
                         @class.AddCodeBlock(line);
 
-                    @class.AddConstructor();
-
+                    @class.AddConstructor(ctor =>
+                    {
+                        foreach (var field in Model.Fields)
+                        {
+                            if (string.IsNullOrWhiteSpace(field.Value))
+                            {
+                                var typeInfo = GetTypeInfo(field.TypeReference);
+                                if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
+                                {
+                                    ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
+                                }
+                            }
+                        }
+                    });
                     if (!Model.IsAbstract)
                     {
                         @class.AddMethod(base.GetTypeName(this), "Create", method =>
@@ -82,14 +94,6 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             if (!string.IsNullOrWhiteSpace(field.Value))
                             {
                                 property.WithInitialValue(field.Value);
-                            }
-                            else 
-                            {
-                                var typeInfo = GetTypeInfo(field.TypeReference);
-                                if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
-                                {
-                                    property.WithInitialValue("null!");
-                                }
                             }
                         });
                     }

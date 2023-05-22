@@ -12,6 +12,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
     {
         public ClassACreateDTO()
         {
+            Attribute = null!;
         }
 
         public static ClassACreateDTO Create(string attribute)
@@ -22,7 +23,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
             };
         }
 
-        public string Attribute { get; set; } = null!;
+        public string Attribute { get; set; }
 
     }
 }

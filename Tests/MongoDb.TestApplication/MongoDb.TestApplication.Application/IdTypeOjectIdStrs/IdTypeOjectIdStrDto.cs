@@ -14,10 +14,12 @@ namespace MongoDb.TestApplication.Application.IdTypeOjectIdStrs
     {
         public IdTypeOjectIdStrDto()
         {
+            Id = null!;
+            Attribute = null!;
         }
 
-        public string Id { get; set; } = null!;
-        public string Attribute { get; set; } = null!;
+        public string Id { get; set; }
+        public string Attribute { get; set; }
 
         public static IdTypeOjectIdStrDto Create(string id, string attribute)
         {

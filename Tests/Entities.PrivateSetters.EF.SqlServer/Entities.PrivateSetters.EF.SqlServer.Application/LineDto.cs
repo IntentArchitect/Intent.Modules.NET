@@ -14,10 +14,11 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
     {
         public LineDto()
         {
+            Description = null!;
         }
 
         public Guid Id { get; set; }
-        public string Description { get; set; } = null!;
+        public string Description { get; set; }
         public int Quantity { get; set; }
 
         public static LineDto Create(Guid id, string description, int quantity)
