@@ -34,13 +34,29 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                     @interface.TryAddXmlDocComments(Model.InternalElement);
                     foreach (var operation in Model.Operations)
                     {
-                        @interface.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
+                        var isAsync = operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase);
+                        var returnType = GetTypeName(operation);
+
+                        if (isAsync)
+                        {
+                            returnType = operation.ReturnType?.Element == null
+                                ? UseType("System.Threading.Tasks.Task")
+                                : $"{UseType("System.Threading.Tasks.Task")}<{returnType}>";
+                        }
+
+                        @interface.AddMethod(returnType, operation.Name.ToPascalCase(), method =>
                         {
                             method.TryAddXmlDocComments(operation.InternalElement);
+
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),
                                     parm => parm.WithDefaultValue(parameter.Value));
+                            }
+
+                            if (isAsync)
+                            {
+                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
                         });
                     }

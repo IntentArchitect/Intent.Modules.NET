@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Domain.Services;
 using CleanArchitecture.TestApplication.Domain.Services.DDD;
 using CleanArchitecture.TestApplication.Domain.Services.DefaultDiagram;
 using FluentValidation;
@@ -27,6 +28,7 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
+            services.AddTransient<IDomainService, DomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
             return services;
         }

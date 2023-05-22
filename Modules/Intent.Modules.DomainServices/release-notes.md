@@ -1,4 +1,8 @@
-﻿### Version 1.1.0
+﻿### Version 1.1.1
+
+- Asynchronous methods now have `CancellationToken cancellationToken = default` parameter.
+
+### Version 1.1.0
 
 - Default Values are now populated on Operation Parameters.
 

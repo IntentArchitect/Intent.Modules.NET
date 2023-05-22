@@ -2219,6 +2219,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/IDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

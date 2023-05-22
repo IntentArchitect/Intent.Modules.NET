@@ -48,14 +48,22 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                         @class.AddMethod(GetTypeName(operation), operation.Name.ToPascalCase(), method =>
                         {
                             method.TryAddXmlDocComments(operation.InternalElement);
-                            if (operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase))
-                                method.Async();
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),
                                     parm => parm.WithDefaultValue(parameter.Value));
                             }
+
+                            if (operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase))
+                            {
+                                AddUsing("System.Threading.Tasks");
+                                method
+                                    .Async()
+                                    .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                            }
+
                             method.AddStatement("throw new NotImplementedException(\"Implement your domain service logic here...\");");
                         });
                     }
