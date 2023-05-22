@@ -29,13 +29,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; }
+        public string CompositeAttr { get; set; } = null!;
 
         public DateTime? SomeDate { get; set; }
 
         public CreateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
 
-        public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
+        public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; } = null!;
 
     }
 }

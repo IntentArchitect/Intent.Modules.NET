@@ -17,8 +17,8 @@ namespace GraphQL.CQRS.TestApplication.Application.Products
         }
 
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = null!;
+        public string Description { get; set; } = null!;
         public bool IsActive { get; set; }
 
         public static ProductDto Create(Guid id, string name, string description, bool isActive)

@@ -21,9 +21,9 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
         {
         }
 
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
+        public string Name { get; set; } = null!;
+        public string Surname { get; set; } = null!;
+        public string Email { get; set; } = null!;
         public Guid Id { get; set; }
 
         public static InvoiceCustomerDto Create(string name, string surname, string email, Guid id)

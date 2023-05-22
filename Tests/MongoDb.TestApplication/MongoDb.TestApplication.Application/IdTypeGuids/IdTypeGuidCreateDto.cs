@@ -13,7 +13,7 @@ namespace MongoDb.TestApplication.Application.IdTypeGuids
         {
         }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
         public static IdTypeGuidCreateDto Create(string attribute)
         {

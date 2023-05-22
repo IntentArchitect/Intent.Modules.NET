@@ -13,7 +13,7 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         {
         }
 
-        public string Field { get; set; }
+        public string Field { get; set; } = null!;
 
         public static SampleMappedRequest Create(string field)
         {

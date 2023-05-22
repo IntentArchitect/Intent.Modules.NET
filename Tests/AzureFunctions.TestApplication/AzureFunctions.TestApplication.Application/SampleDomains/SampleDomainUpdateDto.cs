@@ -14,7 +14,7 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         }
 
         public Guid Id { get; set; }
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
         public static SampleDomainUpdateDto Create(Guid id, string attribute)
         {

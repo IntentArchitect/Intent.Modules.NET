@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; }
+        public string CompositeAttr { get; set; } = null!;
 
         public Guid Id { get; set; }
 

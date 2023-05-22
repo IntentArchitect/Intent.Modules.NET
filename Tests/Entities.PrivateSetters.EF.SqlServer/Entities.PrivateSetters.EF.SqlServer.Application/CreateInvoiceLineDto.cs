@@ -13,7 +13,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
         {
         }
 
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
         public int Quantity { get; set; }
 
         public static CreateInvoiceLineDto Create(string description, int quantity)

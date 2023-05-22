@@ -33,13 +33,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; }
+        public string CompositeAttr { get; set; } = null!;
 
         public Guid Id { get; set; }
 
         public AggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
 
-        public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
+        public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; } = null!;
 
         public void Mapping(Profile profile)
         {

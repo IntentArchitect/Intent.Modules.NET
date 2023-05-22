@@ -13,7 +13,7 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         {
         }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
         public static SampleDomainCreateDto Create(string attribute)
         {

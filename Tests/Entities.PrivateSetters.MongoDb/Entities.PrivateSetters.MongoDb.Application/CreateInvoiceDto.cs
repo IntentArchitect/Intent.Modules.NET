@@ -14,8 +14,8 @@ namespace Entities.PrivateSetters.MongoDb.Application
         }
 
         public DateTime Date { get; set; }
-        public IEnumerable<string> TagIds { get; set; }
-        public List<CreateInvoiceLineDto> Lines { get; set; }
+        public IEnumerable<string> TagIds { get; set; } = null!;
+        public List<CreateInvoiceLineDto> Lines { get; set; } = null!;
 
         public static CreateInvoiceDto Create(DateTime date, IEnumerable<string> tagIds, List<CreateInvoiceLineDto> lines)
         {

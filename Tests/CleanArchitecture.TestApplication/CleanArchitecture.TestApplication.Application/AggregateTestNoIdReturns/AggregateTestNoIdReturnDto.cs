@@ -29,7 +29,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 
         public Guid Id { get; set; }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
         public void Mapping(Profile profile)
         {

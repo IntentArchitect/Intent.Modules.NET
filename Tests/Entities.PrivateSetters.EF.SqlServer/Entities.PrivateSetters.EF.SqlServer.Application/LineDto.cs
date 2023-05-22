@@ -17,7 +17,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
         }
 
         public Guid Id { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
         public int Quantity { get; set; }
 
         public static LineDto Create(Guid id, string description, int quantity)

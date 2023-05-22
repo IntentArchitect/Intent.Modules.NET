@@ -22,7 +22,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
             };
         }
 
-        public string Reference { get; set; }
+        public string Reference { get; set; } = null!;
 
     }
 }

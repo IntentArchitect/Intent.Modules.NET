@@ -25,7 +25,7 @@ namespace Integration.HttpClients.TestApplication.Application.Invoices
 
         public Guid Id { get; set; }
 
-        public string Reference { get; set; }
+        public string Reference { get; set; } = null!;
 
     }
 }

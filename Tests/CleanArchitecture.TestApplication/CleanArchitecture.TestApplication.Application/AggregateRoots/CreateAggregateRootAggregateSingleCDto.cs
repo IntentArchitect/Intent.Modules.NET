@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string AggregationAttr { get; set; }
+        public string AggregationAttr { get; set; } = null!;
 
     }
 }

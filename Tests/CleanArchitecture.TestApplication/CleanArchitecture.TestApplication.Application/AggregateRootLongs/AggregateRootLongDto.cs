@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
 
         public long Id { get; set; }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
         public AggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
 

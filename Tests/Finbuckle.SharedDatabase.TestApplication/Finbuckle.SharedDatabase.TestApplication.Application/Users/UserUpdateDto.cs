@@ -27,11 +27,11 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
 
         public Guid Id { get; set; }
 
-        public string Email { get; set; }
+        public string Email { get; set; } = null!;
 
-        public string Username { get; set; }
+        public string Username { get; set; } = null!;
 
-        public List<UpdateUserRoleDto> Roles { get; set; }
+        public List<UpdateUserRoleDto> Roles { get; set; } = null!;
 
     }
 }

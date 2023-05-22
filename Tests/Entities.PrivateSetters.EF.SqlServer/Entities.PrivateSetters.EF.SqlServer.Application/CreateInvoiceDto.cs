@@ -14,8 +14,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
         }
 
         public DateTime Date { get; set; }
-        public IEnumerable<Guid> TagIds { get; set; }
-        public List<CreateInvoiceLineDto> Lines { get; set; }
+        public IEnumerable<Guid> TagIds { get; set; } = null!;
+        public List<CreateInvoiceLineDto> Lines { get; set; } = null!;
 
         public static CreateInvoiceDto Create(DateTime date, IEnumerable<Guid> tagIds, List<CreateInvoiceLineDto> lines)
         {

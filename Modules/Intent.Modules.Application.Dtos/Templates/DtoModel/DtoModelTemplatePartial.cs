@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
@@ -78,6 +79,18 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             property.WithComments(field.GetXmlDocLines());
                             property.AddMetadata("model", field);
                             AddPropertyAttributes(property, field);
+                            if (!string.IsNullOrWhiteSpace(field.Value))
+                            {
+                                property.WithInitialValue(field.Value);
+                            }
+                            else 
+                            {
+                                var typeInfo = GetTypeInfo(field.TypeReference);
+                                if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
+                                {
+                                    property.WithInitialValue("null!");
+                                }
+                            }
                         });
                     }
 

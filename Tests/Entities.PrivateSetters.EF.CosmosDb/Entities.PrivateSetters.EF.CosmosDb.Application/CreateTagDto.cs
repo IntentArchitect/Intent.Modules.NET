@@ -13,7 +13,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application
         {
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         public static CreateTagDto Create(string name)
         {

@@ -18,11 +18,11 @@ namespace Entities.PrivateSetters.MongoDb.Application
         {
         }
 
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
         public DateTime Date { get; set; }
-        public IEnumerable<string> TagsIds { get; set; }
-        public List<LineDto> Lines { get; set; }
-        public List<TagDto> Tags { get; set; }
+        public IEnumerable<string> TagsIds { get; set; } = null!;
+        public List<LineDto> Lines { get; set; } = null!;
+        public List<TagDto> Tags { get; set; } = null!;
 
         public static InvoiceDto Create(
             string id,

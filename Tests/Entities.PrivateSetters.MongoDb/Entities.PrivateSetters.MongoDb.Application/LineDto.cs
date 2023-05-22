@@ -16,8 +16,8 @@ namespace Entities.PrivateSetters.MongoDb.Application
         {
         }
 
-        public string Id { get; set; }
-        public string Description { get; set; }
+        public string Id { get; set; } = null!;
+        public string Description { get; set; } = null!;
         public int Quantity { get; set; }
 
         public static LineDto Create(string id, string description, int quantity)

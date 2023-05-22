@@ -22,7 +22,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users
         {
         }
 
-        public string PrivilegeId { get; set; }
+        public string PrivilegeId { get; set; } = null!;
 
         public static UserAssignedPrivilegeDto Create(string privilegeId)
         {

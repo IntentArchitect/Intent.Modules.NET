@@ -17,7 +17,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application
         }
 
         public Guid InvoiceId { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
         public int Quantity { get; set; }
 
         public static LineDto Create(Guid invoiceId, string description, int quantity)

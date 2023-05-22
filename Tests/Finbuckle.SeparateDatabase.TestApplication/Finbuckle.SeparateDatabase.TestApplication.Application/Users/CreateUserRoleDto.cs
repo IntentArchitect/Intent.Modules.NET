@@ -22,7 +22,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
             };
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
     }
 }

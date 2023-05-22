@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             };
         }
 
-        public string CompositeAttr { get; set; }
+        public string CompositeAttr { get; set; } = null!;
 
         public DateTime? SomeDate { get; set; }
 
@@ -43,7 +43,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public UpdateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
 
-        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
+        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; } = null!;
 
     }
 }

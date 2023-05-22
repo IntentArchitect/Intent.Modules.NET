@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
             };
         }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
     }
 }

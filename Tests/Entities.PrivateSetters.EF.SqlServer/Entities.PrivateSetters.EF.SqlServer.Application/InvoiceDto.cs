@@ -18,8 +18,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
 
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
-        public List<LineDto> Lines { get; set; }
-        public List<TagDto> Tags { get; set; }
+        public List<LineDto> Lines { get; set; } = null!;
+        public List<TagDto> Tags { get; set; } = null!;
 
         public static InvoiceDto Create(Guid id, DateTime date, List<LineDto> lines, List<TagDto> tags)
         {

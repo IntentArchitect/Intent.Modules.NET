@@ -22,7 +22,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
             };
         }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
     }
 }

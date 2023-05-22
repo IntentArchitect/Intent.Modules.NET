@@ -25,7 +25,7 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
 
         public Guid Id { get; set; }
 
-        public string Attribute { get; set; }
+        public string Attribute { get; set; } = null!;
 
     }
 }

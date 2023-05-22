@@ -24,7 +24,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
             };
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         public Guid UserId { get; set; }
 
