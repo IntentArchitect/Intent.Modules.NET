@@ -1,3 +1,7 @@
+### Version 3.5.2
+
+- Update: Upgraded fluentvalidations to support `CSharpFileBuilder` template paradigm.
+
 ### Version 3.5.1
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
