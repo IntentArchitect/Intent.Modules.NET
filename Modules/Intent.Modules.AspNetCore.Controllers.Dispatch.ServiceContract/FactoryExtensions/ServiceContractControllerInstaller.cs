@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
@@ -96,17 +98,29 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 {
                     if (method.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
+                        var await = string.Empty;
+                        var arguments = template.GetArguments(operationModel.Parameters);
+
+                        if (!operationModel.InternalElement.HasStereotype("Synchronous"))
+                        {
+                            @await = "await ";
+                            arguments = string.IsNullOrEmpty(arguments)
+                                ? "cancellationToken"
+                                : $"{arguments}, cancellationToken";
+                        }
+
                         if (operationModel.ReturnType != null)
                         {
                             method.AddStatement($"var result = default({template.GetTypeName(operationModel)});");
-                            method.AddStatement($@"result = await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});",
+                            method.AddStatement($@"result = {@await}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
                         else
                         {
-                            method.AddStatement($@"await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});",
+                            method.AddStatement($@"{@await}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
+
                         method.AddStatement(GetReturnStatement(template, operationModel));
                     }
                 }

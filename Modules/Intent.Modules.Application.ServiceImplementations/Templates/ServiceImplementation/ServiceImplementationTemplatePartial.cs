@@ -35,7 +35,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
-                .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service")
                 .OnBuild(file =>
                 {
@@ -55,10 +54,19 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                             method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, parm => parm.WithDefaultValue(parameter.Value));
                             }
+
+                            if (operation.IsAsync())
+                            {
+                                method
+                                    .Async()
+                                    .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                            }
+
                             method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
                         });
                     }
@@ -117,11 +125,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         private string GetOperationReturnType(OperationModel o)
         {
-            if (o.TypeReference.Element == null)
+            if (o.ReturnType == null)
             {
-                return o.IsAsync() ? "async Task" : "void";
+                return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
             }
-            return o.IsAsync() ? $"async Task<{GetTypeName(o.TypeReference)}>" : GetTypeName(o.TypeReference);
+
+            return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
         }
 
         public string GetServiceInterfaceName()

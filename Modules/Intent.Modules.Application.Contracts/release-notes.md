@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Asynchronous operations now have `CancellationToken cancellationToken = default` parameter.
+
 ### Version 5.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.

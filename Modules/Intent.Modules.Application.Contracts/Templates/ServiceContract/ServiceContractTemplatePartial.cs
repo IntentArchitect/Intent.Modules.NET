@@ -30,27 +30,33 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     {
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", inter =>
             {
                 inter.ImplementsInterfaces(new[] { UseType("System.IDisposable") });
                 inter.TryAddXmlDocComments(Model.InternalElement);
-                foreach (var operationModel in Model.Operations)
+                foreach (var operation in Model.Operations)
                 {
-                    inter.AddMethod(GetOperationReturnType(operationModel), operationModel.Name.ToPascalCase(),
+                    inter.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(),
                         method =>
                         {
-                            method.TryAddXmlDocComments(operationModel.InternalElement  );
-                            foreach (var parameterModel in operationModel.Parameters)
+                            method.TryAddXmlDocComments(operation.InternalElement);
+
+                            foreach (var parameterModel in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name);
+                            }
+
+                            if (operation.IsAsync())
+                            {
+                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
                         });
                 }
             });
     }
-    
+
     private string GetOperationReturnType(OperationModel o)
     {
         if (o.ReturnType == null)

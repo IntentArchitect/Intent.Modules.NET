@@ -1,4 +1,9 @@
+### Version 4.2.1
+
+- Asynchronous operations now have `CancellationToken cancellationToken = default` parameter.
+
 ### Version 4.2.0
+
 - New: Comments on `Service`s and `Operation`s are added as XmlCodeDocs to generated classes.
 
 ### Version 4.1.4

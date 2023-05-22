@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- CancellationTokens are now passed in as a parameters for asynchronous operations.
+
 ### Version 5.1.0
 
 - Support default values parameters for Domain Entities, Domain Services, and Service Controllers.
