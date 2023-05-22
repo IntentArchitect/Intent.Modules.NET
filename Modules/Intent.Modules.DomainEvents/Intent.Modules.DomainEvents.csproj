@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.3.5" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">

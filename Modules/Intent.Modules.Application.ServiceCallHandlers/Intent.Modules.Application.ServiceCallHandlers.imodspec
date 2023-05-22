@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceCallHandlers</id>
-  <version>4.1.0-pre.0</version>
+  <version>4.1.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Application Layer service call pattern that dispatches services calls to individual Service Call Handler classes.</summary>
@@ -22,9 +22,9 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Common.CSharp" version="3.3.34-pre.4" />
-    <dependency id="Intent.Modelers.Services" version="3.4.3-pre.0" />
-    <dependency id="Intent.Application.Contracts" version="5.0.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.34" />
+    <dependency id="Intent.Modelers.Services" version="3.4.3" />
+    <dependency id="Intent.Application.Contracts" version="5.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
