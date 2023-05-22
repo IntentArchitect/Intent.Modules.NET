@@ -54,8 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidQuery_RetrievesCompositeManyBs(AggregateRoot existingOwnerEntity)
         {
             // Arrange
-            var testQuery = new GetAggregateRootCompositeManyBSQuery();
-            testQuery.AggregateRootId = existingOwnerEntity.Id;
+            var testQuery = new GetAggregateRootCompositeManyBSQuery(existingOwnerEntity.Id);
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 

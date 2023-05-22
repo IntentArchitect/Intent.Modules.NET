@@ -54,8 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public async Task Handle_WithValidQuery_RetrievesImplicitKeyNestedCompositions(ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
-            var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery();
-            testQuery.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
+            var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery(existingOwnerEntity.Id);
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindByIdAsync(testQuery.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
