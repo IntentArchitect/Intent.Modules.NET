@@ -1,6 +1,6 @@
 ### Version 3.5.2
 
-- Update: Upgraded fluentvalidations to support `CSharpFileBuilder` template paradigm.
+- Update: Upgraded Fluent Validations to support `CSharpFileBuilder` template paradigm.
 
 ### Version 3.5.1
 

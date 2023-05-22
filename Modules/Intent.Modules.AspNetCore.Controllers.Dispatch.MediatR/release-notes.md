@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Support default values parameters for Domain Entities, Domain Services, and Service Controllers.
+
 ### Version 5.0.4
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

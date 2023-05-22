@@ -1,5 +1,6 @@
 ### Version 5.0.0
 
+- New: Upgraded Templates to use new Builder Pattern paradigm.
 - Fixed: Under certain circumstances `using System.Threading.Tasks;` was not being generated.
 
 ### Version 4.0.3
