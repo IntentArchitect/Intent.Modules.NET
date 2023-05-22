@@ -1,6 +1,8 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Implementation.ServiceDispatch;
+using CleanArchitecture.TestApplication.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.TestApplication.Domain.Services;
 using CleanArchitecture.TestApplication.Domain.Services.DDD;
 using CleanArchitecture.TestApplication.Domain.Services.DefaultDiagram;
@@ -30,6 +32,7 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
             services.AddTransient<IDomainService, DomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
+            services.AddTransient<IServiceDispatchService, ServiceDispatchService>();
             return services;
         }
     }

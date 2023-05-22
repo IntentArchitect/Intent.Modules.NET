@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using Intent.RoslynWeaver.Attributes;
@@ -11,11 +12,11 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
 {
     public interface ISampleDomainsService : IDisposable
     {
-        Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto);
-        Task<SampleDomainDto> FindSampleDomainById(Guid id);
-        Task<List<SampleDomainDto>> FindSampleDomains();
-        Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto);
-        Task DeleteSampleDomain(Guid id);
-        Task<string> MappedAzureFunction(SampleMappedRequest request);
+        Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto, CancellationToken cancellationToken = default);
+        Task<SampleDomainDto> FindSampleDomainById(Guid id, CancellationToken cancellationToken = default);
+        Task<List<SampleDomainDto>> FindSampleDomains(CancellationToken cancellationToken = default);
+        Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto, CancellationToken cancellationToken = default);
+        Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default);
+        Task<string> MappedAzureFunction(SampleMappedRequest request, CancellationToken cancellationToken = default);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,9 +12,9 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface IHttpServiceAppliedService : IDisposable
     {
-        Task<string> GetValue();
-        Task PostValue(string value);
-        Task NonAppliedOperation();
+        Task<string> GetValue(CancellationToken cancellationToken = default);
+        Task PostValue(string value, CancellationToken cancellationToken = default);
+        Task NonAppliedOperation(CancellationToken cancellationToken = default);
 
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Entities.PrivateSetters.EF.CosmosDb.Application.Interfaces;
@@ -33,7 +34,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Create(CreateInvoiceDto dto)
+        public async Task Create(CreateInvoiceDto dto, CancellationToken cancellationToken = default)
         {
             var tags = await _tagRepository.FindAllAsync();
 
@@ -48,7 +49,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<List<InvoiceDto>> GetAll()
+        public async Task<List<InvoiceDto>> GetAll(CancellationToken cancellationToken = default)
         {
             var results = await _invoiceRepository.FindAllAsync();
 

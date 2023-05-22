@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.IdTypeGuids;
@@ -12,11 +13,11 @@ namespace MongoDb.TestApplication.Application.Interfaces
 
     public interface IIdTypeGuidsService : IDisposable
     {
-        Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto);
-        Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id);
-        Task<List<IdTypeGuidDto>> FindIdTypeGuids();
-        Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto);
-        Task DeleteIdTypeGuid(Guid id);
+        Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto, CancellationToken cancellationToken = default);
+        Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id, CancellationToken cancellationToken = default);
+        Task<List<IdTypeGuidDto>> FindIdTypeGuids(CancellationToken cancellationToken = default);
+        Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto, CancellationToken cancellationToken = default);
+        Task DeleteIdTypeGuid(Guid id, CancellationToken cancellationToken = default);
 
     }
 }

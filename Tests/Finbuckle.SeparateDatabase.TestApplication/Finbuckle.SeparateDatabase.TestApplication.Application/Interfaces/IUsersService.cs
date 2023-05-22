@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
 using Intent.RoslynWeaver.Attributes;
@@ -12,11 +13,11 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces
 
     public interface IUsersService : IDisposable
     {
-        Task<Guid> Create(UserCreateDto dto);
-        Task<UserDto> FindById(Guid id);
-        Task<List<UserDto>> FindAll();
-        Task Put(Guid id, UserUpdateDto dto);
-        Task<UserDto> Delete(Guid id);
+        Task<Guid> Create(UserCreateDto dto, CancellationToken cancellationToken = default);
+        Task<UserDto> FindById(Guid id, CancellationToken cancellationToken = default);
+        Task<List<UserDto>> FindAll(CancellationToken cancellationToken = default);
+        Task Put(Guid id, UserUpdateDto dto, CancellationToken cancellationToken = default);
+        Task<UserDto> Delete(Guid id, CancellationToken cancellationToken = default);
 
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Create(ClassACreateDTO dto)
+        public async Task Create(ClassACreateDTO dto, CancellationToken cancellationToken = default)
         {
             var newClassA = new ClassA
             {
@@ -39,21 +40,21 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<ClassADTO> FindById(Guid id)
+        public async Task<ClassADTO> FindById(Guid id, CancellationToken cancellationToken = default)
         {
             var element = await _classARepository.FindByIdAsync(id);
             return element.MapToClassADTO(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<List<ClassADTO>> FindAll()
+        public async Task<List<ClassADTO>> FindAll(CancellationToken cancellationToken = default)
         {
             var elements = await _classARepository.FindAllAsync();
             return elements.MapToClassADTOList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Update(Guid id, ClassAUpdateDTO dto)
+        public async Task Update(Guid id, ClassAUpdateDTO dto, CancellationToken cancellationToken = default)
         {
             var existingClassA = await _classARepository.FindByIdAsync(id);
             existingClassA.Id = dto.Id;
@@ -61,7 +62,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Delete(Guid id)
+        public async Task Delete(Guid id, CancellationToken cancellationToken = default)
         {
             var existingClassA = await _classARepository.FindByIdAsync(id);
             _classARepository.Remove(existingClassA);

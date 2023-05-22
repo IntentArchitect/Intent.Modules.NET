@@ -44,7 +44,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult<string>> GetValue(CancellationToken cancellationToken = default)
         {
             var result = default(string);
-            result = await _appService.GetValue();
+            result = await _appService.GetValue(cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -62,7 +62,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.PostValue(value);
+                await _appService.PostValue(value, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

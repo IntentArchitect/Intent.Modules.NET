@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Finbuckle.SharedDatabase.TestApplication.Application.Interfaces;
@@ -29,7 +30,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Create(UserCreateDto dto)
+        public async Task<Guid> Create(UserCreateDto dto, CancellationToken cancellationToken = default)
         {
             var newUser = new User
             {
@@ -43,21 +44,21 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<UserDto> FindById(Guid id)
+        public async Task<UserDto> FindById(Guid id, CancellationToken cancellationToken = default)
         {
             var element = await _userRepository.FindByIdAsync(id);
             return element.MapToUserDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<UserDto>> FindAll()
+        public async Task<List<UserDto>> FindAll(CancellationToken cancellationToken = default)
         {
             var elements = await _userRepository.FindAllAsync();
             return elements.MapToUserDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Put(Guid id, UserUpdateDto dto)
+        public async Task Put(Guid id, UserUpdateDto dto, CancellationToken cancellationToken = default)
         {
             var existingUser = await _userRepository.FindByIdAsync(id);
             existingUser.Email = dto.Email;
@@ -66,7 +67,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<UserDto> Delete(Guid id)
+        public async Task<UserDto> Delete(Guid id, CancellationToken cancellationToken = default)
         {
             var existingUser = await _userRepository.FindByIdAsync(id);
             _userRepository.Remove(existingUser);

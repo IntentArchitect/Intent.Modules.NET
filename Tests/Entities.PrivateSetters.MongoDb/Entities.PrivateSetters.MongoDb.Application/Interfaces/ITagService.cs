@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,7 +11,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Interfaces
 {
     public interface ITagService : IDisposable
     {
-        Task Create(CreateTagDto dto);
-        Task<List<TagDto>> GetAll();
+        Task Create(CreateTagDto dto, CancellationToken cancellationToken = default);
+        Task<List<TagDto>> GetAll(CancellationToken cancellationToken = default);
     }
 }

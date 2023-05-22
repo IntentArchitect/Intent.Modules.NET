@@ -43,7 +43,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
-            result = await _appService.CreateIdTypeGuid(dto);
+            result = await _appService.CreateIdTypeGuid(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, result);
         }
@@ -63,7 +63,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(IdTypeGuidDto);
-            result = await _appService.FindIdTypeGuidById(id);
+            result = await _appService.FindIdTypeGuidById(id, cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -76,7 +76,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         public async Task<ActionResult<List<IdTypeGuidDto>>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
             var result = default(List<IdTypeGuidDto>);
-            result = await _appService.FindIdTypeGuids();
+            result = await _appService.FindIdTypeGuids(cancellationToken);
             return Ok(result);
         }
 
@@ -93,7 +93,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeGuidUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            await _appService.UpdateIdTypeGuid(id, dto);
+            await _appService.UpdateIdTypeGuid(id, dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
@@ -110,7 +110,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _appService.DeleteIdTypeGuid(id);
+            await _appService.DeleteIdTypeGuid(id, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto)
+        public async Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto, CancellationToken cancellationToken = default)
         {
             var newIdTypeGuid = new IdTypeGuid
             {
@@ -40,28 +41,28 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id)
+        public async Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id, CancellationToken cancellationToken = default)
         {
             var element = await _idTypeGuidRepository.FindByIdAsync(id);
             return element.MapToIdTypeGuidDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<IdTypeGuidDto>> FindIdTypeGuids()
+        public async Task<List<IdTypeGuidDto>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
             var elements = await _idTypeGuidRepository.FindAllAsync();
             return elements.MapToIdTypeGuidDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto)
+        public async Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto, CancellationToken cancellationToken = default)
         {
             var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id);
             existingIdTypeGuid.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteIdTypeGuid(Guid id)
+        public async Task DeleteIdTypeGuid(Guid id, CancellationToken cancellationToken = default)
         {
             var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id);
             _idTypeGuidRepository.Remove(existingIdTypeGuid);

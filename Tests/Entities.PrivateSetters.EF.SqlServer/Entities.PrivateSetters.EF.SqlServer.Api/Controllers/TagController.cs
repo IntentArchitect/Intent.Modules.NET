@@ -41,7 +41,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Create(dto);
+                await _appService.Create(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -57,7 +57,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
         public async Task<ActionResult<List<TagDto>>> GetAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<TagDto>);
-            result = await _appService.GetAll();
+            result = await _appService.GetAll(cancellationToken);
             return Ok(result);
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using GraphQL.CQRS.TestApplication.Application.Interfaces;
@@ -28,7 +29,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<ProductDto> CreateProduct(ProductCreateDto dto)
+        public async Task<ProductDto> CreateProduct(ProductCreateDto dto, CancellationToken cancellationToken = default)
         {
             var newProduct = new Product
             {
@@ -42,21 +43,24 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<ProductDto> FindProductById(Guid id)
+        public async Task<ProductDto> FindProductById(Guid id, CancellationToken cancellationToken = default)
         {
             var element = await _productRepository.FindByIdAsync(id);
             return element.MapToProductDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ProductDto>> FindProducts()
+        public async Task<List<ProductDto>> FindProducts(CancellationToken cancellationToken = default)
         {
             var elements = await _productRepository.FindAllAsync();
             return elements.MapToProductDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto)
+        public async Task<ProductDto> UpdateProduct(
+            Guid id,
+            ProductUpdateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
             existingProduct.Name = dto.Name;
@@ -66,7 +70,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<ProductDto> DeleteProduct(Guid id)
+        public async Task<ProductDto> DeleteProduct(Guid id, CancellationToken cancellationToken = default)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
             _productRepository.Remove(existingProduct);

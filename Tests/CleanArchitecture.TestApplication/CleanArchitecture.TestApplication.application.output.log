@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ServiceDispatch/ServiceDispatchController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceDispatch/ServiceDispatchController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1571,6 +1579,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceDispatch/ServiceDispatchService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f25e0a78-82b1-4574-b473-e36da1f13b3f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1856,6 +1872,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Interfaces/ServiceDispatch/IServiceDispatchService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceDispatch/IServiceDispatchService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

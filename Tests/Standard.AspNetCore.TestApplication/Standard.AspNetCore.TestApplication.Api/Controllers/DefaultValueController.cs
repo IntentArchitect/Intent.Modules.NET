@@ -43,7 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.OperationWithDefaultValue(param1);
+                await _appService.OperationWithDefaultValue(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

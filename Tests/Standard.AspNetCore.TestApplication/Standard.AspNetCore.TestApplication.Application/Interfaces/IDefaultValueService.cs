@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,7 +12,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface IDefaultValueService : IDisposable
     {
-        Task OperationWithDefaultValue(string param1);
+        Task OperationWithDefaultValue(string param1, CancellationToken cancellationToken = default);
 
     }
 }

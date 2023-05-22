@@ -40,7 +40,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
             [FromBody] CreateInvoiceDto dto,
             CancellationToken cancellationToken = default)
         {
-            await _appService.Create(dto);
+            await _appService.Create(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }
@@ -54,7 +54,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         public async Task<ActionResult<List<InvoiceDto>>> GetAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<InvoiceDto>);
-            result = await _appService.GetAll();
+            result = await _appService.GetAll(cancellationToken);
             return Ok(result);
         }
     }

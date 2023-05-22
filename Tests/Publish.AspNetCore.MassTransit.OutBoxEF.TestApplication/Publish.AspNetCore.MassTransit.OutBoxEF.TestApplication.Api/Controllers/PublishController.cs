@@ -44,7 +44,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.TestPublish(message);
+                await _appService.TestPublish(message, cancellationToken);
                 await _eventBus.FlushAllAsync(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();

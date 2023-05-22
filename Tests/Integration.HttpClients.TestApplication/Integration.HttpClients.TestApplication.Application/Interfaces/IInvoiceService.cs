@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Integration.HttpClients.TestApplication.Application.Invoices;
 using Intent.RoslynWeaver.Attributes;
@@ -12,26 +13,26 @@ namespace Integration.HttpClients.TestApplication.Application.Interfaces
 
     public interface IInvoiceService : IDisposable
     {
-        Task Create(InvoiceCreateDTO dto);
-        Task<InvoiceDTO> FindById(Guid id);
-        Task<List<InvoiceDTO>> FindAll();
-        Task Update(Guid id, InvoiceUpdateDTO dto);
-        Task Delete(Guid id);
-        Task<InvoiceDTO> QueryParamOp(string param1, int param2);
-        Task HeaderParamOp(string param1);
-        Task FormParamOp(string param1, int param2);
-        Task RouteParamOp(string param1);
-        Task BodyParamOp(InvoiceDTO param1);
-        Task ThrowsException();
-        Task<Guid> GetWrappedPrimitiveGuid();
-        Task<string> GetWrappedPrimitiveString();
-        Task<int> GetWrappedPrimitiveInt();
-        Task<Guid> GetPrimitiveGuid();
-        Task<string> GetPrimitiveString();
-        Task<int> GetPrimitiveInt();
-        Task<List<string>> GetPrimitiveStringList();
-        Task NonHttpSettingsOperation();
-        Task<InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped();
+        Task Create(InvoiceCreateDTO dto, CancellationToken cancellationToken = default);
+        Task<InvoiceDTO> FindById(Guid id, CancellationToken cancellationToken = default);
+        Task<List<InvoiceDTO>> FindAll(CancellationToken cancellationToken = default);
+        Task Update(Guid id, InvoiceUpdateDTO dto, CancellationToken cancellationToken = default);
+        Task Delete(Guid id, CancellationToken cancellationToken = default);
+        Task<InvoiceDTO> QueryParamOp(string param1, int param2, CancellationToken cancellationToken = default);
+        Task HeaderParamOp(string param1, CancellationToken cancellationToken = default);
+        Task FormParamOp(string param1, int param2, CancellationToken cancellationToken = default);
+        Task RouteParamOp(string param1, CancellationToken cancellationToken = default);
+        Task BodyParamOp(InvoiceDTO param1, CancellationToken cancellationToken = default);
+        Task ThrowsException(CancellationToken cancellationToken = default);
+        Task<Guid> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default);
+        Task<string> GetWrappedPrimitiveString(CancellationToken cancellationToken = default);
+        Task<int> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default);
+        Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default);
+        Task<string> GetPrimitiveString(CancellationToken cancellationToken = default);
+        Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default);
+        Task<List<string>> GetPrimitiveStringList(CancellationToken cancellationToken = default);
+        Task NonHttpSettingsOperation(CancellationToken cancellationToken = default);
+        Task<InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default);
 
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
@@ -20,19 +21,19 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<string> GetValue()
+        public async Task<string> GetValue(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task PostValue(string value)
+        public async Task PostValue(string value, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task NonAppliedOperation()
+        public async Task NonAppliedOperation(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }

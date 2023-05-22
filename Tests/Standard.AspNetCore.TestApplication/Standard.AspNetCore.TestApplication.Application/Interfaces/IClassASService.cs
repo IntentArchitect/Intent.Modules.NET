@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Standard.AspNetCore.TestApplication.Application.ClassAS;
@@ -12,11 +13,11 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 
     public interface IClassASService : IDisposable
     {
-        Task Create(ClassACreateDTO dto);
-        Task<ClassADTO> FindById(Guid id);
-        Task<List<ClassADTO>> FindAll();
-        Task Update(Guid id, ClassAUpdateDTO dto);
-        Task Delete(Guid id);
+        Task Create(ClassACreateDTO dto, CancellationToken cancellationToken = default);
+        Task<ClassADTO> FindById(Guid id, CancellationToken cancellationToken = default);
+        Task<List<ClassADTO>> FindAll(CancellationToken cancellationToken = default);
+        Task Update(Guid id, ClassAUpdateDTO dto, CancellationToken cancellationToken = default);
+        Task Delete(Guid id, CancellationToken cancellationToken = default);
 
     }
 }

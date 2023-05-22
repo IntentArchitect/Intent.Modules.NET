@@ -44,7 +44,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Create(dto);
+                await _appService.Create(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -66,7 +66,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(ClassADTO);
-            result = await _appService.FindById(id);
+            result = await _appService.FindById(id, cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -79,7 +79,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult<List<ClassADTO>>> FindAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<ClassADTO>);
-            result = await _appService.FindAll();
+            result = await _appService.FindAll(cancellationToken);
             return Ok(result);
         }
 
@@ -99,7 +99,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Update(id, dto);
+                await _appService.Update(id, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -119,7 +119,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Delete(id);
+                await _appService.Delete(id, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

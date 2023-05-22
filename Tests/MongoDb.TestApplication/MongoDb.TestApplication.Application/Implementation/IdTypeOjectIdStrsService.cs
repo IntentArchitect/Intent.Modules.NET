@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,9 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<string> CreateIdTypeOjectIdStr(IdTypeOjectIdStrCreateDto dto)
+        public async Task<string> CreateIdTypeOjectIdStr(
+            IdTypeOjectIdStrCreateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var newIdTypeOjectIdStr = new IdTypeOjectIdStr
             {
@@ -40,28 +43,33 @@ namespace MongoDb.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(string id)
+        public async Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(
+            string id,
+            CancellationToken cancellationToken = default)
         {
             var element = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             return element.MapToIdTypeOjectIdStrDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs()
+        public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
             var elements = await _idTypeOjectIdStrRepository.FindAllAsync();
             return elements.MapToIdTypeOjectIdStrDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task UpdateIdTypeOjectIdStr(string id, IdTypeOjectIdStrUpdateDto dto)
+        public async Task UpdateIdTypeOjectIdStr(
+            string id,
+            IdTypeOjectIdStrUpdateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             existingIdTypeOjectIdStr.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteIdTypeOjectIdStr(string id)
+        public async Task DeleteIdTypeOjectIdStr(string id, CancellationToken cancellationToken = default)
         {
             var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             _idTypeOjectIdStrRepository.Remove(existingIdTypeOjectIdStr);

@@ -43,7 +43,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(string);
-            result = await _appService.CreateIdTypeOjectIdStr(dto);
+            result = await _appService.CreateIdTypeOjectIdStr(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, result);
         }
@@ -63,7 +63,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(IdTypeOjectIdStrDto);
-            result = await _appService.FindIdTypeOjectIdStrById(id);
+            result = await _appService.FindIdTypeOjectIdStrById(id, cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -76,7 +76,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         public async Task<ActionResult<List<IdTypeOjectIdStrDto>>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
             var result = default(List<IdTypeOjectIdStrDto>);
-            result = await _appService.FindIdTypeOjectIdStrs();
+            result = await _appService.FindIdTypeOjectIdStrs(cancellationToken);
             return Ok(result);
         }
 
@@ -93,7 +93,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeOjectIdStrUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            await _appService.UpdateIdTypeOjectIdStr(id, dto);
+            await _appService.UpdateIdTypeOjectIdStr(id, dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
@@ -110,7 +110,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
         {
-            await _appService.DeleteIdTypeOjectIdStr(id);
+            await _appService.DeleteIdTypeOjectIdStr(id, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
         }

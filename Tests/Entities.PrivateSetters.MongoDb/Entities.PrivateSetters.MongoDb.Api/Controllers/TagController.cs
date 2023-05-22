@@ -38,7 +38,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create([FromBody] CreateTagDto dto, CancellationToken cancellationToken = default)
         {
-            await _appService.Create(dto);
+            await _appService.Create(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }
@@ -52,7 +52,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         public async Task<ActionResult<List<TagDto>>> GetAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<TagDto>);
-            result = await _appService.GetAll();
+            result = await _appService.GetAll(cancellationToken);
             return Ok(result);
         }
     }

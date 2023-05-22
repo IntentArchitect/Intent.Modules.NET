@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj" />
     <ProjectReference Include="..\CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

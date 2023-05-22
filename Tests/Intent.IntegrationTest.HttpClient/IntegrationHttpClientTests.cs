@@ -285,18 +285,18 @@ public class IntegrationHttpClientTests
         {
         }
 
-        public async Task Create(BackendDto.InvoiceCreateDTO dto)
+        public async Task Create(BackendDto.InvoiceCreateDTO dto, CancellationToken cancellationToken = default)
         {
             Assert.Equal(ReferenceNumber, dto.Reference);
         }
 
-        public async Task<BackendDto.InvoiceDTO> FindById(Guid id)
+        public async Task<BackendDto.InvoiceDTO> FindById(Guid id, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultId, id);
             return BackendDto.InvoiceDTO.Create(id, ReferenceNumber);
         }
 
-        public async Task<List<BackendDto.InvoiceDTO>> FindAll()
+        public async Task<List<BackendDto.InvoiceDTO>> FindAll(CancellationToken cancellationToken = default)
         {
             return new List<BackendDto.InvoiceDTO>
             {
@@ -304,92 +304,92 @@ public class IntegrationHttpClientTests
             };
         }
 
-        public async Task Update(Guid id, BackendDto.InvoiceUpdateDTO dto)
+        public async Task Update(Guid id, BackendDto.InvoiceUpdateDTO dto, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultId, id);
             Assert.Equal(ReferenceNumber, dto.Reference);
         }
 
-        public async Task Delete(Guid id)
+        public async Task Delete(Guid id, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultId, id);
         }
 
-        public async Task<BackendDto.InvoiceDTO> QueryParamOp(string param1, int param2)
+        public async Task<BackendDto.InvoiceDTO> QueryParamOp(string param1, int param2, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultString, param1);
             Assert.Equal(DefaultInt, param2);
             return BackendDto.InvoiceDTO.Create(DefaultId, ReferenceNumber);
         }
 
-        public async Task HeaderParamOp(string param1)
+        public async Task HeaderParamOp(string param1, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultString, param1);
         }
 
-        public async Task FormParamOp(string param1, int param2)
+        public async Task FormParamOp(string param1, int param2, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultString, param1);
             Assert.Equal(DefaultInt, param2);
         }
 
-        public async Task RouteParamOp(string param1)
+        public async Task RouteParamOp(string param1, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultString, param1);
         }
 
-        public async Task BodyParamOp(BackendDto.InvoiceDTO param1)
+        public async Task BodyParamOp(BackendDto.InvoiceDTO param1, CancellationToken cancellationToken = default)
         {
             Assert.Equal(DefaultId, param1.Id);
             Assert.Equal(ReferenceNumber, param1.Reference);
         }
 
-        public async Task ThrowsException()
+        public async Task ThrowsException(CancellationToken cancellationToken = default)
         {
             throw new Exception(ExceptionMessage);
         }
 
-        public Task<Guid> GetWrappedPrimitiveGuid()
+        public Task<Guid> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultGuid);
         }
 
-        public Task<string> GetWrappedPrimitiveString()
+        public Task<string> GetWrappedPrimitiveString(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultString);
         }
 
-        public Task<int> GetWrappedPrimitiveInt()
+        public Task<int> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultInt);
         }
 
-        public Task<Guid> GetPrimitiveGuid()
+        public Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultGuid);
         }
 
-        public Task<string> GetPrimitiveString()
+        public Task<string> GetPrimitiveString(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultString);
         }
 
-        public Task<int> GetPrimitiveInt()
+        public Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(DefaultInt);
         }
 
-        public Task<List<string>> GetPrimitiveStringList()
+        public Task<List<string>> GetPrimitiveStringList(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(new List<string> { DefaultString });
         }
 
-        public Task NonHttpSettingsOperation()
+        public Task NonHttpSettingsOperation(CancellationToken cancellationToken = default)
         {
             return Task.CompletedTask;
         }
 
-        public Task<BackendDto.InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped()
+        public Task<BackendDto.InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default)
         {
             return Task.FromResult(BackendDto.InvoiceDTO.Create(DefaultId, ReferenceNumber));
         }

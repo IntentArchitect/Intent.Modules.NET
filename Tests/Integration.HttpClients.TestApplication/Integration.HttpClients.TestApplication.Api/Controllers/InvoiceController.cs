@@ -51,7 +51,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Create(dto);
+                await _appService.Create(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -77,7 +77,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
-            result = await _appService.FindById(id);
+            result = await _appService.FindById(id, cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -94,7 +94,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<List<InvoiceDTO>>> FindAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<InvoiceDTO>);
-            result = await _appService.FindAll();
+            result = await _appService.FindAll(cancellationToken);
             return Ok(result);
         }
 
@@ -118,7 +118,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Update(id, dto);
+                await _appService.Update(id, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -142,7 +142,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.Delete(id);
+                await _appService.Delete(id, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -169,7 +169,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
-            result = await _appService.QueryParamOp(param1, param2);
+            result = await _appService.QueryParamOp(param1, param2, cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -192,7 +192,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.HeaderParamOp(param1);
+                await _appService.HeaderParamOp(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -219,7 +219,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.FormParamOp(param1, param2);
+                await _appService.FormParamOp(param1, param2, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -245,7 +245,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.RouteParamOp(param1);
+                await _appService.RouteParamOp(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -271,7 +271,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.BodyParamOp(param1);
+                await _appService.BodyParamOp(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -293,7 +293,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.ThrowsException();
+                await _appService.ThrowsException(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -316,7 +316,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<Guid>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
-            result = await _appService.GetWrappedPrimitiveGuid();
+            result = await _appService.GetWrappedPrimitiveGuid(cancellationToken);
             return new JsonResponse<Guid>(result) != null ? Ok(new JsonResponse<Guid>(result)) : NotFound();
         }
 
@@ -336,7 +336,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<string>> GetWrappedPrimitiveString(CancellationToken cancellationToken = default)
         {
             var result = default(string);
-            result = await _appService.GetWrappedPrimitiveString();
+            result = await _appService.GetWrappedPrimitiveString(cancellationToken);
             return new JsonResponse<string>(result) != null ? Ok(new JsonResponse<string>(result)) : NotFound();
         }
 
@@ -356,7 +356,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<int>> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default)
         {
             var result = default(int);
-            result = await _appService.GetWrappedPrimitiveInt();
+            result = await _appService.GetWrappedPrimitiveInt(cancellationToken);
             return new JsonResponse<int>(result) != null ? Ok(new JsonResponse<int>(result)) : NotFound();
         }
 
@@ -375,7 +375,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
-            result = await _appService.GetPrimitiveGuid();
+            result = await _appService.GetPrimitiveGuid(cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -394,7 +394,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<string>> GetPrimitiveString(CancellationToken cancellationToken = default)
         {
             var result = default(string);
-            result = await _appService.GetPrimitiveString();
+            result = await _appService.GetPrimitiveString(cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -413,7 +413,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<int>> GetPrimitiveInt(CancellationToken cancellationToken = default)
         {
             var result = default(int);
-            result = await _appService.GetPrimitiveInt();
+            result = await _appService.GetPrimitiveInt(cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -430,7 +430,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<List<string>>> GetPrimitiveStringList(CancellationToken cancellationToken = default)
         {
             var result = default(List<string>);
-            result = await _appService.GetPrimitiveStringList();
+            result = await _appService.GetPrimitiveStringList(cancellationToken);
             return Ok(result);
         }
 
@@ -450,7 +450,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         public async Task<ActionResult<InvoiceDTO>> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default)
         {
             var result = default(InvoiceDTO);
-            result = await _appService.GetInvoiceOpWithReturnTypeWrapped();
+            result = await _appService.GetInvoiceOpWithReturnTypeWrapped(cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
     }

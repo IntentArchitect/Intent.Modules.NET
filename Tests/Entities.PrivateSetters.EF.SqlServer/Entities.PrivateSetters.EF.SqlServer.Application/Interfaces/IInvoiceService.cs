@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,8 +12,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application.Interfaces
 
     public interface IInvoiceService : IDisposable
     {
-        Task Create(CreateInvoiceDto dto);
-        Task<List<InvoiceDto>> GetAll();
+        Task Create(CreateInvoiceDto dto, CancellationToken cancellationToken = default);
+        Task<List<InvoiceDto>> GetAll(CancellationToken cancellationToken = default);
 
     }
 }

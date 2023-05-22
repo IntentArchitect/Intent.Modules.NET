@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Eventing;
@@ -23,7 +24,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task TestPublish(string message)
+        public async Task TestPublish(string message, CancellationToken cancellationToken = default)
         {
             _eventBus.Publish(new EventStartedEvent() { Message = message });
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,7 +12,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.In
 
     public interface IPublishService : IDisposable
     {
-        Task TestPublish(string message);
+        Task TestPublish(string message, CancellationToken cancellationToken = default);
 
     }
 }
