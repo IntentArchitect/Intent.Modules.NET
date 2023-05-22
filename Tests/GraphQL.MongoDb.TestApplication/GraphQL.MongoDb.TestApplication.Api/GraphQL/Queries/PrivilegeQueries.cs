@@ -24,7 +24,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetPrivilegeByIdQuery { Id = id }, cancellationToken);
+            return await mediator.Send(new GetPrivilegeByIdQuery(id: id), cancellationToken);
         }
 
         public async Task<IReadOnlyList<PrivilegeDto>> GetPrivileges(

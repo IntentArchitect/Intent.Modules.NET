@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
 
         public async Task<DataContractClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<DataContractClass>> FindByIdsAsync(

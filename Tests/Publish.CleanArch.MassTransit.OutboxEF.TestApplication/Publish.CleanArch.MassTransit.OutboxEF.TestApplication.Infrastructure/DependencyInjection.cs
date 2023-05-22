@@ -26,9 +26,9 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetService<MassTransitEventBus>());
+            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             return services;

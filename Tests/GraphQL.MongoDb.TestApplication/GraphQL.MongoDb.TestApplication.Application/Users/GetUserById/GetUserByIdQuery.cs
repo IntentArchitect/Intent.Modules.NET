@@ -11,6 +11,10 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUserById
 {
     public class GetUserByIdQuery : IRequest<UserDto>, IQuery
     {
+        public GetUserByIdQuery(string id)
+        {
+            Id = id;
+        }
         public string Id { get; set; }
 
     }

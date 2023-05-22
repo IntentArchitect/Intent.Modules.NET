@@ -27,7 +27,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetInvoiceByIdQuery { Id = id }, cancellationToken);
+            return await mediator.Send(new GetInvoiceByIdQuery(id: id), cancellationToken);
         }
 
         public async Task<IReadOnlyList<InvoiceDto>> GetInvoicesForCustomer(
@@ -35,7 +35,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetInvoicesForCustomerQuery { CustomerId = customerId }, cancellationToken);
+            return await mediator.Send(new GetInvoicesForCustomerQuery(customerId: customerId), cancellationToken);
         }
 
         [GraphQLDescription("Returns the paged result of invoices")]
@@ -45,7 +45,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetInvoicesPagedQuery { PageIndex = pageIndex, PageSize = pageSize }, cancellationToken);
+            return await mediator.Send(new GetInvoicesPagedQuery(pageIndex: pageIndex, pageSize: pageSize), cancellationToken);
         }
 
         public async Task<IReadOnlyList<InvoiceDto>> GetInvoices(

@@ -40,10 +40,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
             CompositeOfAggrLong entity,
             UpdateAggregateRootLongCompositeOfAggrLongDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeOfAggrLong();
             entity.Attribute = dto.Attribute;

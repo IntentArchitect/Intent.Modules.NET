@@ -11,6 +11,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.CreateInvoice
 {
     public class CreateInvoiceCommand : IRequest<Guid>, ICommand
     {
+        public CreateInvoiceCommand(int no, DateTime created, Guid customerId)
+        {
+            No = no;
+            Created = created;
+            CustomerId = customerId;
+        }
         public int No { get; set; }
 
         public DateTime Created { get; set; }

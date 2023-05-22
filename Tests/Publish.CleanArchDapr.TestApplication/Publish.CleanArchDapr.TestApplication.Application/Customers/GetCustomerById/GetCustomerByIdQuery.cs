@@ -11,6 +11,10 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustome
 {
     public class GetCustomerByIdQuery : IRequest<CustomerDto>, IQuery
     {
+        public GetCustomerByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

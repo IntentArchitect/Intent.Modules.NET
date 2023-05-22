@@ -11,5 +11,8 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivileges
 {
     public class GetPrivilegesQuery : IRequest<List<PrivilegeDto>>, IQuery
     {
+        public GetPrivilegesQuery()
+        {
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
 
         public async Task<Poly_ConcreteA> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<Poly_ConcreteA>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)

@@ -42,10 +42,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyB entity,
             UpdateAggregateRootCompositeManyBDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeManyB();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -62,10 +58,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyBB entity,
             UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeManyBB();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -79,10 +71,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeSingleBB entity,
             UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeSingleBB();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -95,10 +83,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeSingleA entity,
             UpdateAggregateRootCompositeSingleADto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeSingleA();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -113,10 +97,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeSingleAA entity,
             UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeSingleAA();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -129,10 +109,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyAA entity,
             UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new CompositeManyAA();
             entity.CompositeAttr = dto.CompositeAttr;

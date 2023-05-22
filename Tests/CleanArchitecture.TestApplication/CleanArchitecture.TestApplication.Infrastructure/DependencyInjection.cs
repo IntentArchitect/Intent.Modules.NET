@@ -29,7 +29,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();

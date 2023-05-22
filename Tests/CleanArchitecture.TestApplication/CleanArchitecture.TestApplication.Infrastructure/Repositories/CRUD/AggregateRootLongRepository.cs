@@ -25,7 +25,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD
 
         public async Task<AggregateRootLong> FindByIdAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<AggregateRootLong>> FindByIdsAsync(

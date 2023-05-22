@@ -40,10 +40,6 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
             ImplicitKeyNestedComposition entity,
             UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new ImplicitKeyNestedComposition();
             entity.Attribute = dto.Attribute;

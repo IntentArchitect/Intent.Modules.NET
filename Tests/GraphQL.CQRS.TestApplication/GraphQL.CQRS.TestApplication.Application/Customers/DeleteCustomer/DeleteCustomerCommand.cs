@@ -11,6 +11,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer
 {
     public class DeleteCustomerCommand : IRequest<CustomerDto>, ICommand
     {
+        public DeleteCustomerCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

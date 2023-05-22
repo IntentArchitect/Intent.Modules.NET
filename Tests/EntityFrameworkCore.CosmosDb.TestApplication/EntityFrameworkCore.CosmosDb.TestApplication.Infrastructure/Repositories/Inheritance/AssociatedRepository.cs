@@ -23,7 +23,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
 
         public async Task<Associated> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<Associated>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)

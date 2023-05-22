@@ -11,6 +11,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.GetCustomers
 {
     public class GetCustomersQuery : IRequest<List<CustomerDto>>, IQuery
     {
+        public GetCustomersQuery(string? name)
+        {
+            Name = name;
+        }
         public string? Name { get; set; }
     }
 }

@@ -11,6 +11,10 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
 {
     public class DeleteOrderCommand : IRequest, ICommand
     {
+        public DeleteOrderCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

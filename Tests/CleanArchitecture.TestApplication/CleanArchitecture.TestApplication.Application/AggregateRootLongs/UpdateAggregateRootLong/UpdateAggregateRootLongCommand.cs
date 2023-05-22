@@ -11,6 +11,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
 {
     public class UpdateAggregateRootLongCommand : IRequest, ICommand
     {
+        public UpdateAggregateRootLongCommand(long id,
+            string attribute,
+            UpdateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong)
+        {
+            Id = id;
+            Attribute = attribute;
+            CompositeOfAggrLong = compositeOfAggrLong;
+        }
         public long Id { get; set; }
 
         public string Attribute { get; set; }

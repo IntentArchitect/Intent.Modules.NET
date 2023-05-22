@@ -11,6 +11,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
 {
     public class GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery : IRequest<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>, IQuery
     {
+        public GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery(Guid implicitKeyAggrRootId, Guid id)
+        {
+            ImplicitKeyAggrRootId = implicitKeyAggrRootId;
+            Id = id;
+        }
         public Guid ImplicitKeyAggrRootId { get; set; }
 
         public Guid Id { get; set; }

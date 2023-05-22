@@ -11,6 +11,18 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
 {
     public class CreateAggregateRootCompositeManyBCommand : IRequest<Guid>, ICommand
     {
+        public CreateAggregateRootCompositeManyBCommand(Guid aggregateRootId,
+            string compositeAttr,
+            DateTime? someDate,
+            CreateAggregateRootCompositeManyBCompositeSingleBBDto? composite,
+            List<CreateAggregateRootCompositeManyBCompositeManyBBDto> composites)
+        {
+            AggregateRootId = aggregateRootId;
+            CompositeAttr = compositeAttr;
+            SomeDate = someDate;
+            Composite = composite;
+            Composites = composites;
+        }
         public Guid AggregateRootId { get; set; }
 
         public string CompositeAttr { get; set; }

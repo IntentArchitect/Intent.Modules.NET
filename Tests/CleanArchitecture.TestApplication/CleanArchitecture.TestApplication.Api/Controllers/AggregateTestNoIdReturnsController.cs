@@ -58,7 +58,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteAggregateTestNoIdReturnCommand { Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteAggregateTestNoIdReturnCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -98,7 +98,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetAggregateTestNoIdReturnByIdQuery { Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetAggregateTestNoIdReturnByIdQuery(id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 

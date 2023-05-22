@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 {
     public class GetAggregateTestNoIdReturnByIdQuery : IRequest<AggregateTestNoIdReturnDto>, IQuery
     {
+        public GetAggregateTestNoIdReturnByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

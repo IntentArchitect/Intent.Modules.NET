@@ -11,6 +11,20 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.TestValidat
 {
     public class TestValidationQuery : IRequest<int>, IQuery
     {
+        public TestValidationQuery(string att100,
+            string varChar200,
+            string nVarChar300,
+            string attMax,
+            string varCharMax,
+            string nVarCharMax)
+        {
+            Att100 = att100;
+            VarChar200 = varChar200;
+            NVarChar300 = nVarChar300;
+            AttMax = attMax;
+            VarCharMax = varCharMax;
+            NVarCharMax = nVarCharMax;
+        }
         public string Att100 { get; set; }
 
         public string VarChar200 { get; set; }

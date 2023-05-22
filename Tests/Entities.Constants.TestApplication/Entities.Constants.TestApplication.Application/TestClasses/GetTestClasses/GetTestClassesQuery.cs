@@ -11,5 +11,8 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
 {
     public class GetTestClassesQuery : IRequest<List<TestClassDto>>, IQuery
     {
+        public GetTestClassesQuery()
+        {
+        }
     }
 }

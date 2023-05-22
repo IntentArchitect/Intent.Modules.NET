@@ -11,5 +11,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrders
 {
     public class GetOrdersQuery : IRequest<List<OrderDto>>, IQuery
     {
+        public GetOrdersQuery()
+        {
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetCustomerByIdQuery { Id = id }, cancellationToken);
+            return await mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
         }
 
         public async Task<IReadOnlyList<CustomerDto>> GetCustomers(
@@ -32,7 +32,7 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             CancellationToken cancellationToken,
             [Service] ISender mediator)
         {
-            return await mediator.Send(new GetCustomersQuery { Name = name }, cancellationToken);
+            return await mediator.Send(new GetCustomersQuery(name: name), cancellationToken);
         }
     }
 }

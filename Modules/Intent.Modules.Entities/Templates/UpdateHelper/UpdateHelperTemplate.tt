@@ -18,12 +18,15 @@ namespace <#= Namespace #>
     {
         public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
             ICollection<TOriginal> baseCollection,
-            ICollection<TChanged> changedCollection,
+            ICollection<TChanged>? changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck,
             Func<TOriginal, TChanged, TOriginal> assignmentAction)
             where TOriginal : class, new()
         {
-
+            if (changedCollection == null)
+            {
+                return new List<TOriginal>();
+            }
             baseCollection ??= new List<TOriginal>()!;
 
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);

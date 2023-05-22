@@ -11,5 +11,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
 {
     public class GetAggregateRootsQuery : IRequest<List<AggregateRootDto>>, IQuery
     {
+        public GetAggregateRootsQuery()
+        {
+        }
     }
 }

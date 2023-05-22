@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 {
     public class DeleteAggregateTestNoIdReturnCommand : IRequest, ICommand
     {
+        public DeleteAggregateTestNoIdReturnCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

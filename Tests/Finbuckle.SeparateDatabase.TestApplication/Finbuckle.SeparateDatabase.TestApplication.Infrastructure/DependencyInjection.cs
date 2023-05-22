@@ -25,7 +25,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IUserRepository, UserRepository>();
             return services;
         }

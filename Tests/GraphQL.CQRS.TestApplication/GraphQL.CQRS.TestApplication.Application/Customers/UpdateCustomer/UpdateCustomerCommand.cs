@@ -11,6 +11,13 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer
 {
     public class UpdateCustomerCommand : IRequest<CustomerDto>, ICommand
     {
+        public UpdateCustomerCommand(Guid id, string name, string surname, string email)
+        {
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Email = email;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

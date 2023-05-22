@@ -11,6 +11,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesForCustom
 {
     public class GetInvoicesForCustomerQuery : IRequest<List<InvoiceDto>>, IQuery
     {
+        public GetInvoicesForCustomerQuery(Guid customerId)
+        {
+            CustomerId = customerId;
+        }
         public Guid CustomerId { get; set; }
 
     }

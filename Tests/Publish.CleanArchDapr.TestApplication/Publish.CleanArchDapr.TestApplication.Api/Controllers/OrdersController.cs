@@ -60,7 +60,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteOrder([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteOrderCommand { Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteOrderCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -122,7 +122,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetOrderByIdQuery { Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetOrderByIdQuery(id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 

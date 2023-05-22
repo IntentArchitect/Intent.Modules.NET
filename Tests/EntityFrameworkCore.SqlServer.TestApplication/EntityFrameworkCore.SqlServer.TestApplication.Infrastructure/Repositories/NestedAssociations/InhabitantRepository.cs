@@ -23,7 +23,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
 
         public async Task<Inhabitant> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<Inhabitant>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)

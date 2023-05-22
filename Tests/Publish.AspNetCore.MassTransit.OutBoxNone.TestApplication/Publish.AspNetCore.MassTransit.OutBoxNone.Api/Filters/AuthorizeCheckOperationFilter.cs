@@ -14,13 +14,16 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api.Filters
 {
     public class AuthorizeCheckOperationFilter : IOperationFilter
     {
+        private bool HasAuthorize(OperationFilterContext context)
+        {
+            if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
+                return true;
+            return context.MethodInfo.DeclaringType != null
+                && context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
+        }
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            var hasAuthorize =
-                context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any() ||
-                context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
-
-            if (!hasAuthorize)
+            if (!HasAuthorize(context))
             {
                 return;
             }

@@ -11,6 +11,10 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivilegeByI
 {
     public class GetPrivilegeByIdQuery : IRequest<PrivilegeDto>, IQuery
     {
+        public GetPrivilegeByIdQuery(string id)
+        {
+            Id = id;
+        }
         public string Id { get; set; }
 
     }

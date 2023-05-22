@@ -8,8 +8,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.In
 {
     public interface ICurrentUserService
     {
-        string UserId { get; }
-        string UserName { get; }
+        string? UserId { get; }
+        string? UserName { get; }
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

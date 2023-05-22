@@ -34,7 +34,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users
 
         public async Task<PrivilegeDto> GetPrivilege(CancellationToken cancellationToken, [Service] ISender mediator)
         {
-            return await mediator.Send(new GetPrivilegeByIdQuery { Id = PrivilegeId }, cancellationToken);
+            return await mediator.Send(new GetPrivilegeByIdQuery(id: PrivilegeId), cancellationToken);
         }
 
         public void Mapping(Profile profile)

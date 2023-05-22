@@ -11,6 +11,20 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 {
     public class UpdateAggregateRootCompositeManyBCommand : IRequest, ICommand
     {
+        public UpdateAggregateRootCompositeManyBCommand(Guid aggregateRootId,
+            Guid id,
+            string compositeAttr,
+            DateTime? someDate,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto? composite,
+            List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> composites)
+        {
+            AggregateRootId = aggregateRootId;
+            Id = id;
+            CompositeAttr = compositeAttr;
+            SomeDate = someDate;
+            Composite = composite;
+            Composites = composites;
+        }
         public Guid AggregateRootId { get; set; }
 
         public Guid Id { get; set; }

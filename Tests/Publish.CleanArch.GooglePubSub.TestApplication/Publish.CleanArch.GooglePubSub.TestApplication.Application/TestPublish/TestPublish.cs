@@ -11,6 +11,10 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish
 {
     public class TestPublish : IRequest, ICommand
     {
+        public TestPublish(string message)
+        {
+            Message = message;
+        }
         public string Message { get; set; }
 
     }

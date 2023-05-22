@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
 {
     public class GetImplicitKeyAggrRootByIdQuery : IRequest<ImplicitKeyAggrRootDto>, IQuery
     {
+        public GetImplicitKeyAggrRootByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

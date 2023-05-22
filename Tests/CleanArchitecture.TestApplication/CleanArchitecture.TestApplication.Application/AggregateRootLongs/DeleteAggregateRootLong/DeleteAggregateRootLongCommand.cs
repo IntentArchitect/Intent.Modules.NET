@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Delet
 {
     public class DeleteAggregateRootLongCommand : IRequest, ICommand
     {
+        public DeleteAggregateRootLongCommand(long id)
+        {
+            Id = id;
+        }
         public long Id { get; set; }
 
     }

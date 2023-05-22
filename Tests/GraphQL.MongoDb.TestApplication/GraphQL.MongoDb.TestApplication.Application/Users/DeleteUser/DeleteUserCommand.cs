@@ -11,6 +11,10 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.DeleteUser
 {
     public class DeleteUserCommand : IRequest<UserDto>, ICommand
     {
+        public DeleteUserCommand(string id)
+        {
+            Id = id;
+        }
         public string Id { get; set; }
 
     }

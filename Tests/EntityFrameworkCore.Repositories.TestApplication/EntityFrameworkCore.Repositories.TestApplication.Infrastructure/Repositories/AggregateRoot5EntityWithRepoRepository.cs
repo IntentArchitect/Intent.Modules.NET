@@ -28,7 +28,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             Guid id,
             CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<AggregateRoot5EntityWithRepo>> FindByIdsAsync(

@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
 {
     public class DeleteImplicitKeyAggrRootCommand : IRequest, ICommand
     {
+        public DeleteImplicitKeyAggrRootCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

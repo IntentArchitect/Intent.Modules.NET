@@ -38,14 +38,14 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
             GetSet().Add((TPersistence)entity);
         }
 
-        public virtual async Task<TDomain> FindAsync(
+        public virtual async Task<TDomain?> FindAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<TDomain> FindAsync(
+        public virtual async Task<TDomain?> FindAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
             CancellationToken cancellationToken = default)

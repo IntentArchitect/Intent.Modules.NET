@@ -8,8 +8,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
 {
     public interface ICurrentUserService
     {
-        string UserId { get; }
-        string UserName { get; }
+        string? UserId { get; }
+        string? UserName { get; }
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

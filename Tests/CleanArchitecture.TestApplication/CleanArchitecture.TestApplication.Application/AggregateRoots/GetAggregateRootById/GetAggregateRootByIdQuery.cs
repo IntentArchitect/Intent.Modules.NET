@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
 {
     public class GetAggregateRootByIdQuery : IRequest<AggregateRootDto>, IQuery
     {
+        public GetAggregateRootByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

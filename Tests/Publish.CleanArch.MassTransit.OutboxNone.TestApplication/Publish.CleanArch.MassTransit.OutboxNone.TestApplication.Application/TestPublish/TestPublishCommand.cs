@@ -11,6 +11,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.T
 {
     public class TestPublishCommand : IRequest, ICommand
     {
+        public TestPublishCommand(string message)
+        {
+            Message = message;
+        }
         public string Message { get; set; }
 
     }

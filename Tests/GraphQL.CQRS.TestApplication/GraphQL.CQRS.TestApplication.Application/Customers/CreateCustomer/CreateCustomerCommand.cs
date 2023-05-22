@@ -11,6 +11,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer
 {
     public class CreateCustomerCommand : IRequest<CustomerDto>, ICommand
     {
+        public CreateCustomerCommand(string name, string surname, string email)
+        {
+            Name = name;
+            Surname = surname;
+            Email = email;
+        }
         public string Name { get; set; }
 
         public string Surname { get; set; }

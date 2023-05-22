@@ -89,7 +89,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteAggregateRootCommand { Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -106,7 +106,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteAggregateRootCompositeManyBCommand { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootCompositeManyBCommand(aggregateRootId: aggregateRootId, id: id), cancellationToken);
             return Ok();
         }
 
@@ -173,7 +173,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetAggregateRootByIdQuery { Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetAggregateRootByIdQuery(id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -192,7 +192,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetAggregateRootCompositeManyBByIdQuery { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetAggregateRootCompositeManyBByIdQuery(aggregateRootId: aggregateRootId, id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -208,7 +208,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid aggregateRootId,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetAggregateRootCompositeManyBSQuery { AggregateRootId = aggregateRootId }, cancellationToken);
+            var result = await _mediator.Send(new GetAggregateRootCompositeManyBSQuery(aggregateRootId: aggregateRootId), cancellationToken);
             return Ok(result);
         }
 

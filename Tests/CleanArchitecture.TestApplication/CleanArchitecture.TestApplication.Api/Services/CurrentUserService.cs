@@ -18,9 +18,9 @@ namespace CleanArchitecture.TestApplication.Api.Services
         {
         }
 
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         public async Task<bool> AuthorizeAsync(string policy)
         {

@@ -11,6 +11,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.GetCustomerById
 {
     public class GetCustomerByIdQuery : IRequest<CustomerDto>, IQuery
     {
+        public GetCustomerByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

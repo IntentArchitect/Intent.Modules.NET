@@ -12,6 +12,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
 {
     public class GetAggregateRootLongsQuery : IRequest<PagedResult<AggregateRootLongDto>>, IQuery
     {
+        public GetAggregateRootLongsQuery(int pageNo, int pageSize)
+        {
+            PageNo = pageNo;
+            PageSize = pageSize;
+        }
         public int PageNo { get; set; }
 
         public int PageSize { get; set; }

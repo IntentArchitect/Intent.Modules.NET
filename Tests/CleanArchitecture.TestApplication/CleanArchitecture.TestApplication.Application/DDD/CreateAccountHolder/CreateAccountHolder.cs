@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
 {
     public class CreateAccountHolder : IRequest<Guid>, ICommand
     {
+        public CreateAccountHolder(string name)
+        {
+            Name = name;
+        }
         public string Name { get; set; }
 
     }

@@ -25,7 +25,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IStateRepository, StateRepository>();

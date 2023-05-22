@@ -11,14 +11,14 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Common
     {
         public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
             ICollection<TOriginal> baseCollection,
-            ICollection<TChanged> changedCollection,
+            ICollection<TChanged>? changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck,
             Func<TOriginal, TChanged, TOriginal> assignmentAction)
             where TOriginal : class, new()
         {
             if (changedCollection == null)
             {
-                return null;
+                return new List<TOriginal>();
             }
 
             baseCollection ??= new List<TOriginal>()!;

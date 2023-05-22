@@ -25,7 +25,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             Guid id,
             CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<TPC_DerivedClassForConcreteAssociated>> FindByIdsAsync(

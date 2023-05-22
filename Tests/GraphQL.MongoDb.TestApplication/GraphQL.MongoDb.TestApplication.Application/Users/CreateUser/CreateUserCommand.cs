@@ -11,6 +11,16 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
 {
     public class CreateUserCommand : IRequest<string>, ICommand
     {
+        public CreateUserCommand(string name,
+            string surname,
+            string email,
+            List<CreateUserAssignedPrivilegeDto> assignedPrivileges)
+        {
+            Name = name;
+            Surname = surname;
+            Email = email;
+            AssignedPrivileges = assignedPrivileges;
+        }
 
         public string Name { get; set; }
 

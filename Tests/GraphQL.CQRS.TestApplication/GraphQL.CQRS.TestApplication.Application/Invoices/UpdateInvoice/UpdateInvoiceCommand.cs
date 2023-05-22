@@ -11,6 +11,13 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
 {
     public class UpdateInvoiceCommand : IRequest<InvoiceDto>, ICommand
     {
+        public UpdateInvoiceCommand(Guid id, int no, DateTime created, Guid customerId)
+        {
+            Id = id;
+            No = no;
+            Created = created;
+            CustomerId = customerId;
+        }
         public Guid Id { get; set; }
 
         public int No { get; set; }

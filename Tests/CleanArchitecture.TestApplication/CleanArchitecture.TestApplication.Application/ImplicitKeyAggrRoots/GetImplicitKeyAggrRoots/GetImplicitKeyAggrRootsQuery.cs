@@ -11,5 +11,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
 {
     public class GetImplicitKeyAggrRootsQuery : IRequest<List<ImplicitKeyAggrRootDto>>, IQuery
     {
+        public GetImplicitKeyAggrRootsQuery()
+        {
+        }
     }
 }

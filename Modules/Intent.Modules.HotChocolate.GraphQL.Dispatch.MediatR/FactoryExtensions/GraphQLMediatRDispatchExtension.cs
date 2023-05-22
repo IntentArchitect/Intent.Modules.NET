@@ -94,6 +94,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             {
                 if (model.Parameters.Any())
                 {
+                    if (mappedQuery.IsCommandModel() || mappedQuery.IsQueryModel())
+                    {
+                        return $"new {queryType} ( {string.Join(", ", model.Parameters.Select(x => string.Join(".", x.MappedPath).ToParameterName() + " : " + GetPropertyAssignmentValue(template, model, x)))} )";
+                    }
                     return $"new {queryType} {{ {string.Join(", ", model.Parameters.Select(x => string.Join(".", x.MappedPath) + " = " + GetPropertyAssignmentValue(template, model, x)))} }}";
                 }
                 else

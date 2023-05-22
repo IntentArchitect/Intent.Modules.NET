@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
 {
     public class GetAggregateRootLongByIdQuery : IRequest<AggregateRootLongDto>, IQuery
     {
+        public GetAggregateRootLongByIdQuery(long id)
+        {
+            Id = id;
+        }
         public long Id { get; set; }
 
     }

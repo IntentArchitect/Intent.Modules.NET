@@ -89,7 +89,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteImplicitKeyAggrRootCommand { Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteImplicitKeyAggrRootCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -106,7 +106,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand(implicitKeyAggrRootId: implicitKeyAggrRootId, id: id), cancellationToken);
             return Ok();
         }
 
@@ -173,7 +173,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetImplicitKeyAggrRootByIdQuery { Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetImplicitKeyAggrRootByIdQuery(id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -192,7 +192,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery(implicitKeyAggrRootId: implicitKeyAggrRootId, id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -208,7 +208,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] Guid implicitKeyAggrRootId,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery { ImplicitKeyAggrRootId = implicitKeyAggrRootId }, cancellationToken);
+            var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery(implicitKeyAggrRootId: implicitKeyAggrRootId), cancellationToken);
             return Ok(result);
         }
 

@@ -20,7 +20,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.RegisterGoogleCloudPubSubServices(configuration);
             services.AddSubscribers();
             services.RegisterEventHandlers();

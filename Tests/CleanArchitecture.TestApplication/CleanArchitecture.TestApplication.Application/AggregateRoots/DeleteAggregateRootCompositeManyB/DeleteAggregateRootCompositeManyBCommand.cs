@@ -11,6 +11,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
 {
     public class DeleteAggregateRootCompositeManyBCommand : IRequest, ICommand
     {
+        public DeleteAggregateRootCompositeManyBCommand(Guid aggregateRootId, Guid id)
+        {
+            AggregateRootId = aggregateRootId;
+            Id = id;
+        }
         public Guid AggregateRootId { get; set; }
 
         public Guid Id { get; set; }

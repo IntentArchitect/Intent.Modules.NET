@@ -11,6 +11,13 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
 {
     public class AccountTransfer : IRequest, ICommand
     {
+        public AccountTransfer(Guid id, string description, decimal amount, string currency)
+        {
+            Id = id;
+            Description = description;
+            Amount = amount;
+            Currency = currency;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

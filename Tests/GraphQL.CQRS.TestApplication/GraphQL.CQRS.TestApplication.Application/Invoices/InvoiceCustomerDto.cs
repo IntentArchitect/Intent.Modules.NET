@@ -39,7 +39,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
 
         public async Task<List<InvoiceDto>> GetInvoices(CancellationToken cancellationToken, [Service] ISender mediator)
         {
-            return await mediator.Send(new GetInvoicesForCustomerQuery { CustomerId = Id }, cancellationToken);
+            return await mediator.Send(new GetInvoicesForCustomerQuery(customerId: Id), cancellationToken);
         }
 
         public void Mapping(Profile profile)

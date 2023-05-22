@@ -11,6 +11,10 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
 {
     public class GetTestClassByIdQuery : IRequest<TestClassDto>, IQuery
     {
+        public GetTestClassByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

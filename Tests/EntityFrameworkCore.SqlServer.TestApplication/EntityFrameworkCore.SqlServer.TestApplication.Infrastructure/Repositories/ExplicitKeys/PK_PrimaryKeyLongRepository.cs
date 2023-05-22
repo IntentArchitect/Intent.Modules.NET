@@ -25,7 +25,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             long primaryKeyLong,
             CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.PrimaryKeyLong == primaryKeyLong, cancellationToken);
+            return await FindAsync(x => x.PrimaryKeyLong == primaryKeyLong, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<PK_PrimaryKeyLong>> FindByIdsAsync(

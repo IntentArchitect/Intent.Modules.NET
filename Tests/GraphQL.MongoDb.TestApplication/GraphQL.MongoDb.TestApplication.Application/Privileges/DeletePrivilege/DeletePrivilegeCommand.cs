@@ -11,6 +11,10 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.DeletePrivilege
 {
     public class DeletePrivilegeCommand : IRequest<PrivilegeDto>, ICommand
     {
+        public DeletePrivilegeCommand(string id)
+        {
+            Id = id;
+        }
         public string Id { get; set; }
 
     }

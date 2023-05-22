@@ -11,6 +11,10 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
 {
     public class DeleteCustomerCommand : IRequest, ICommand
     {
+        public DeleteCustomerCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

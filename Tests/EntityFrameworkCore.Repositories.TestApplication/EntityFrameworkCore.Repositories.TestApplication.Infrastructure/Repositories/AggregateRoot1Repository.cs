@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<AggregateRoot1> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken);
+            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
         }
 
         public async Task<List<AggregateRoot1>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)

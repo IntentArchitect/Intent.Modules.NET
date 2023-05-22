@@ -24,7 +24,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure
                     configuration["Cosmos:DatabaseName"]);
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             return services;

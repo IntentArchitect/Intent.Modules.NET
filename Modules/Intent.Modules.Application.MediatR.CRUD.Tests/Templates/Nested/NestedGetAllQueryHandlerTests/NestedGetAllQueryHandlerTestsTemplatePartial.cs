@@ -98,8 +98,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
                         method.AddStatements($@"
         // Arrange
-        var testQuery = new {GetTypeName(Model.InternalElement)}();
-        testQuery.{nestedOwnerIdFieldName} = existingOwnerEntity.{ownerDomainElementIdName};
+        var testQuery = new {GetTypeName(Model.InternalElement)}(existingOwnerEntity.{ownerDomainElementIdName});
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
         repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 

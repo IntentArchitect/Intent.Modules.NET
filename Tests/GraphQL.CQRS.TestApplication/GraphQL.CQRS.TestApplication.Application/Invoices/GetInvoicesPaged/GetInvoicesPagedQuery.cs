@@ -15,6 +15,11 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesPaged
     /// </summary>
     public class GetInvoicesPagedQuery : IRequest<PagedResult<InvoiceDto>>, IQuery
     {
+        public GetInvoicesPagedQuery(int pageIndex, string pageSize)
+        {
+            PageIndex = pageIndex;
+            PageSize = pageSize;
+        }
         public int PageIndex { get; set; }
 
         public string PageSize { get; set; }

@@ -11,6 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
 {
     public class ChangeAccountHolderName : IRequest, ICommand
     {
+        public ChangeAccountHolderName(string name)
+        {
+            Name = name;
+        }
         public string Name { get; set; }
 
     }

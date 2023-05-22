@@ -8,8 +8,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Interf
 {
     public interface ICurrentUserService
     {
-        string UserId { get; }
-        string UserName { get; }
+        string? UserId { get; }
+        string? UserName { get; }
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

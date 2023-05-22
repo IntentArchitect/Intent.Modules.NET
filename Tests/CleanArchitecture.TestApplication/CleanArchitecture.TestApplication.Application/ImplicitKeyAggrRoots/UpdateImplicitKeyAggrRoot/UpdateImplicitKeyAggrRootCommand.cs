@@ -11,6 +11,14 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 {
     public class UpdateImplicitKeyAggrRootCommand : IRequest, ICommand
     {
+        public UpdateImplicitKeyAggrRootCommand(Guid id,
+            string attribute,
+            List<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> implicitKeyNestedCompositions)
+        {
+            Id = id;
+            Attribute = attribute;
+            ImplicitKeyNestedCompositions = implicitKeyNestedCompositions;
+        }
         public Guid Id { get; set; }
 
         public string Attribute { get; set; }

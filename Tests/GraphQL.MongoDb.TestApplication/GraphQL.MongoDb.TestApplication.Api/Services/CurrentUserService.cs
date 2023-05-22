@@ -13,7 +13,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        private readonly ClaimsPrincipal _claimsPrincipal;
+        private readonly ClaimsPrincipal? _claimsPrincipal;
         private readonly IAuthorizationService _authorizationService;
 
         public CurrentUserService(IHttpContextAccessor httpContextAccessor, IAuthorizationService authorizationService)
@@ -22,11 +22,12 @@ namespace GraphQL.MongoDb.TestApplication.Api.Services
             _authorizationService = authorizationService;
         }
 
-        public string UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
-        public string UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+        public string? UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
+        public string? UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
+            if (_claimsPrincipal == null) return false;
             return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;
         }
 

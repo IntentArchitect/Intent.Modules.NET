@@ -11,6 +11,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
 {
     public class UpdateOrderCommand : IRequest, ICommand
     {
+        public UpdateOrderCommand(Guid id, Guid customerId)
+        {
+            Id = id;
+            CustomerId = customerId;
+        }
         public Guid Id { get; set; }
 
         public Guid CustomerId { get; set; }

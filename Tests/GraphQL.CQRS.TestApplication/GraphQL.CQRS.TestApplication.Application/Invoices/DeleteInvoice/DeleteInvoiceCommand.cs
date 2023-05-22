@@ -11,6 +11,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.DeleteInvoice
 {
     public class DeleteInvoiceCommand : IRequest<InvoiceDto>, ICommand
     {
+        public DeleteInvoiceCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

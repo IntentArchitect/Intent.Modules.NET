@@ -11,6 +11,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
 {
     public class CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand : IRequest<Guid>, ICommand
     {
+        public CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand(Guid implicitKeyAggrRootId, string attribute)
+        {
+            ImplicitKeyAggrRootId = implicitKeyAggrRootId;
+            Attribute = attribute;
+        }
         public Guid ImplicitKeyAggrRootId { get; set; }
 
         public string Attribute { get; set; }

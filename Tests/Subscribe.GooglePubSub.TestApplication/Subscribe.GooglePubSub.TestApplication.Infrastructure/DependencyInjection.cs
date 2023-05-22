@@ -23,8 +23,8 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure
             });
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
-            services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetService<ApplicationMongoDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.RegisterGoogleCloudPubSubServices(configuration);
             services.AddSubscribers();
             services.RegisterEventHandlers();

@@ -11,5 +11,8 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoices
 {
     public class GetInvoicesQuery : IRequest<List<InvoiceDto>>, IQuery
     {
+        public GetInvoicesQuery()
+        {
+        }
     }
 }

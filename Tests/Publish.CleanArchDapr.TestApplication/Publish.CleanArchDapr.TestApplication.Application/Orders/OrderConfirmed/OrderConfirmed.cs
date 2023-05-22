@@ -11,6 +11,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirme
 {
     public class OrderConfirmed : IRequest, ICommand
     {
+        public OrderConfirmed(Guid id, string refNo)
+        {
+            Id = id;
+            RefNo = refNo;
+        }
         public Guid Id { get; set; }
 
         public string RefNo { get; set; }

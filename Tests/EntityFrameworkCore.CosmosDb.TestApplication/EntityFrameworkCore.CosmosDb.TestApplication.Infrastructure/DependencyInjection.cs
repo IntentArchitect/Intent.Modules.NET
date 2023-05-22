@@ -40,7 +40,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
                     configuration["Cosmos:DatabaseName"]);
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeRepository>();
             services.AddTransient<IAbstractBaseClassAssociatedRepository, AbstractBaseClassAssociatedRepository>();
             services.AddTransient<IAssociatedRepository, AssociatedRepository>();

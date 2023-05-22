@@ -11,6 +11,13 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
 {
     public class UpdateUserCommand : IRequest<UserDto>, ICommand
     {
+        public UpdateUserCommand(string id, string name, string surname, string email)
+        {
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Email = email;
+        }
         public string Id { get; set; }
 
         public string Name { get; set; }

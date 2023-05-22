@@ -11,6 +11,10 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.CreateOrder
 {
     public class CreateOrderCommand : IRequest<Guid>, ICommand
     {
+        public CreateOrderCommand(Guid customerId)
+        {
+            CustomerId = customerId;
+        }
         public Guid CustomerId { get; set; }
 
     }

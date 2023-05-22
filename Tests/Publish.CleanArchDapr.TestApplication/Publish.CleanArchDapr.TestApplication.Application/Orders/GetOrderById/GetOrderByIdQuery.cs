@@ -11,6 +11,10 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrderById
 {
     public class GetOrderByIdQuery : IRequest<OrderDto>, IQuery
     {
+        public GetOrderByIdQuery(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

@@ -11,6 +11,22 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
 {
     public class UpdateTestClassCommand : IRequest, ICommand
     {
+        public UpdateTestClassCommand(Guid id,
+            string att100,
+            string varChar200,
+            string nVarChar300,
+            string attMax,
+            string varCharMax,
+            string nVarCharMax)
+        {
+            Id = id;
+            Att100 = att100;
+            VarChar200 = varChar200;
+            NVarChar300 = nVarChar300;
+            AttMax = attMax;
+            VarCharMax = varCharMax;
+            NVarCharMax = nVarCharMax;
+        }
         public Guid Id { get; set; }
 
         public string Att100 { get; set; }

@@ -11,6 +11,10 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
 {
     public class DeleteTestClassCommand : IRequest, ICommand
     {
+        public DeleteTestClassCommand(Guid id)
+        {
+            Id = id;
+        }
         public Guid Id { get; set; }
 
     }

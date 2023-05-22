@@ -11,6 +11,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
 {
     public class GetAggregateRootCompositeManyBByIdQuery : IRequest<AggregateRootCompositeManyBDto>, IQuery
     {
+        public GetAggregateRootCompositeManyBByIdQuery(Guid aggregateRootId, Guid id)
+        {
+            AggregateRootId = aggregateRootId;
+            Id = id;
+        }
         public Guid AggregateRootId { get; set; }
 
         public Guid Id { get; set; }

@@ -11,6 +11,12 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Creat
 {
     public class CreateAggregateRootLongCommand : IRequest<long>, ICommand
     {
+        public CreateAggregateRootLongCommand(string attribute,
+            CreateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong)
+        {
+            Attribute = attribute;
+            CompositeOfAggrLong = compositeOfAggrLong;
+        }
         public string Attribute { get; set; }
 
         public CreateAggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }

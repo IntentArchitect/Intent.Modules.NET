@@ -11,6 +11,12 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.UpdatePrivilege
 {
     public class UpdatePrivilegeCommand : IRequest<PrivilegeDto>, ICommand
     {
+        public UpdatePrivilegeCommand(string id, string name, string? description)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+        }
         public string Id { get; set; }
 
         public string Name { get; set; }

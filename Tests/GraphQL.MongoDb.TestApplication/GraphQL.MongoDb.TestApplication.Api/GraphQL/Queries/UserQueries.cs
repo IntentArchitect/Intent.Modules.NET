@@ -21,7 +21,7 @@ namespace GraphQL.MongoDb.TestApplication.Api.GraphQL.Queries
     {
         public async Task<UserDto> GetUserById(string id, CancellationToken cancellationToken, [Service] ISender mediator)
         {
-            return await mediator.Send(new GetUserByIdQuery { Id = id }, cancellationToken);
+            return await mediator.Send(new GetUserByIdQuery(id: id), cancellationToken);
         }
 
         public async Task<IReadOnlyList<UserDto>> GetUsers(CancellationToken cancellationToken, [Service] ISender mediator)

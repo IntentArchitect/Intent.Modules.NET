@@ -23,9 +23,9 @@ namespace Application.Identity.MSAL.TestApplication.Api.Services
             _authorizationService = authorizationService;
         }
 
-        public string UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
+        public string? UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
 
-        public string UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+        public string? UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
 
         public async Task<bool> AuthorizeAsync(string policy)
         {

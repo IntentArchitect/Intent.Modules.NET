@@ -11,5 +11,8 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUsers
 {
     public class GetUsersQuery : IRequest<List<UserDto>>, IQuery
     {
+        public GetUsersQuery()
+        {
+        }
     }
 }

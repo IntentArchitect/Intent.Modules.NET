@@ -11,5 +11,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustome
 {
     public class GetCustomersQuery : IRequest<List<CustomerDto>>, IQuery
     {
+        public GetCustomersQuery()
+        {
+        }
     }
 }

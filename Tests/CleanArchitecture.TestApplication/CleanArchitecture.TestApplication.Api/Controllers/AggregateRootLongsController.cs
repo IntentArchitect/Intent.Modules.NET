@@ -62,7 +62,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] long id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteAggregateRootLongCommand { Id = id }, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootLongCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -102,7 +102,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromRoute] long id,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetAggregateRootLongByIdQuery { Id = id }, cancellationToken);
+            var result = await _mediator.Send(new GetAggregateRootLongByIdQuery(id: id), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
