@@ -26,7 +26,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
         protected AccountHolder()
         {
             Name = null!;
-            Accounts = null!;
         }
 
         public Guid Id { get; set; }

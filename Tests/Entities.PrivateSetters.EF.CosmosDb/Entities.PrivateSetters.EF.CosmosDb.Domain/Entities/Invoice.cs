@@ -30,8 +30,6 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
         [IntentManaged(Mode.Fully)]
         protected Invoice()
         {
-            Lines = null!;
-            Tags = null!;
         }
 
         public Guid Id { get; private set; }

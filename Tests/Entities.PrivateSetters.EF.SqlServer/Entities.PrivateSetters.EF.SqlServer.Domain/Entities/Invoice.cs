@@ -31,8 +31,6 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
         [IntentManaged(Mode.Fully)]
         protected Invoice()
         {
-            Lines = null!;
-            Tags = null!;
         }
 
         public Guid Id { get; private set; }
