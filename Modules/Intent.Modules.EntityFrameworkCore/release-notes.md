@@ -1,4 +1,7 @@
-﻿### Version 4.4.1
+﻿### Version 4.4.2
+- Upgrade: removed some compiler warnings.
+
+### Version 4.4.1
 
 - Fixed: When an index had an `Included` column, `.IncludeProperties(...)` was always generated which would result in uncompilable code for database providers besides `SQL Server`. Instead of generating uncompilable code, the Software Factory will now show a warning.
 - Added: `Entity` `Property` comments are set on database fields.

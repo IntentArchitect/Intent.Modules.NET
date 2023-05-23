@@ -565,6 +565,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             });
                             ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             ctor.Protected();
+                            foreach (var attribute in model.Attributes)
+                            {
+                                if (string.IsNullOrWhiteSpace(attribute.Value))
+                                {
+                                    var typeInfo = GetTypeInfo(attribute.TypeReference);
+                                    if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
+                                    {
+                                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
+                                    }
+                                }
+                            }
                         });
                     }
                 });
