@@ -25,6 +25,8 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
         [IntentManaged(Mode.Fully)]
         protected AccountHolder()
         {
+            Name = null!;
+            Accounts = null!;
         }
 
         public Guid Id { get; set; }

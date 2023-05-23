@@ -23,6 +23,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
         [IntentManaged(Mode.Fully)]
         protected Tag()
         {
+            Name = null!;
         }
 
         public Guid Id { get; private set; }
