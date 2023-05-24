@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8cef688e-ad29-454f-b48e-4582e23cc3ec" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c833f175-342a-4b10-b3b0-2469fe4d7a49</parentFolderId>
+  <packageId>c833f175-342a-4b10-b3b0-2469fe4d7a49</packageId>
+  <packageName>AzureKeyVault.Domain</packageName>
+  <diagram>
+    <targetPackageId>c833f175-342a-4b10-b3b0-2469fe4d7a49</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

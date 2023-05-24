@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.2.1" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.2.2" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -39,5 +39,6 @@
     <application id="96524c15-c348-4dce-8274-e62c5773ac50" name="GraphQL.CQRS.TestApplication" relativePath="intent/GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.application.config" />
     <application id="23798812-f78d-459a-bfcc-22283674988e" name="GraphQL.MongoDb.TestApplication" relativePath="GraphQL.MongoDb.TestApplication/GraphQL.MongoDb.TestApplication.application.config" />
     <application id="ffccab6d-dd24-4eb8-b4a4-907665740f35" name="Entities.Constants.TestApplication" relativePath="Entities.Constants.TestApplication/Entities.Constants.TestApplication.application.config" />
+    <application id="4eea3781-4b3c-4146-959d-d7ebf26039c6" name="AzureKeyVault" relativePath="AzureKeyVault/AzureKeyVault.application.config" />
   </applications>
 </solution>

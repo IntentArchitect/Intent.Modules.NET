@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07b76c0e-51ca-4ba9-b194-17148453785c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</parentFolderId>
+  <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+  <packageName>AzureKeyVault</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
