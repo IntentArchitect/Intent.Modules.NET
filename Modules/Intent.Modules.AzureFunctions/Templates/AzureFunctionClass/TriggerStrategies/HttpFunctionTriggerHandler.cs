@@ -26,7 +26,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     {
         _template = template;
         _azureFunctionModel = azureFunctionModel;
-        _endpointModel = HttpEndpointModelFactory.GetEndpoint(_azureFunctionModel.InternalElement);
+        _endpointModel = HttpEndpointModelFactory.GetEndpoint(_azureFunctionModel.InternalElement, "");
         if (_endpointModel == null)
         {
             Logging.Log.Warning($"Http Settings could not be found on Azure Function [{_azureFunctionModel.Name}] that is Http triggered");

@@ -106,7 +106,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
         private IEnumerable<CSharpStatement> GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
         {
-            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement);
+            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, "");
             switch (endpoint?.Verb)
             {
                 case HttpVerb.Get:

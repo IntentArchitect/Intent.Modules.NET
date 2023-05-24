@@ -58,7 +58,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
         public CSharpStatement GetReturnStatement()
         {
-            var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement);
+            var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement, "");
             string result = httpTriggersView?.Verb switch
             {
                 HttpVerb.Get => _template.Model.ReturnType == null

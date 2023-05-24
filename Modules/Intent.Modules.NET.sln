@@ -207,6 +207,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Entities.Constants", "Intent.Modules.Entities.Constants\Intent.Modules.Entities.Constants.csproj", "{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -585,6 +587,10 @@ Global
 		{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -686,6 +692,7 @@ Global
 		{63ED7F96-8EE2-437A-A95E-5614C4C58CC8} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{E0C2AA10-ED71-486B-8876-D126FAEDEBB4} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{CC0D8A18-A184-4EF2-872D-60EF5C057DE5} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
+		{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{7E7F4D8A-D2A0-45FD-997D-74C5A27E235E}"
+	ProjectSection(SolutionItems) = preProject
+		OpenApiConfigurationOptions.cs = OpenApiConfigurationOptions.cs
+	EndProjectSection
 EndProject
 Project("{73E51385-5E20-4E2C-AA0B-6EB2DC8DE52E}") = "AzureFunctions.TestApplication.Api", "AzureFunctions.TestApplication.Api\AzureFunctions.TestApplication.Api.csproj", "{999793A3-90D3-42E3-AC3F-71D231A90C99}"
 EndProject

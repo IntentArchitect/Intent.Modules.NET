@@ -384,5 +384,13 @@
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>7e7f4d8a-d2a0-45fd-997d-74c5a27e235e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

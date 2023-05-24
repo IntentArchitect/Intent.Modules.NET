@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a15ba959-650a-4afd-8958-1bcd5c73cf15" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>OpenApiAttributeDecorator</name>
+  <display>OpenApiAttributeDecorator: AzureFunctionClassDecorator</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c04a340a-5bce-4482-b85e-c2ce779593ae">
+    <typeId>df8b1da4-bb51-4769-87bd-61b1518a303c</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AzureFunctions</typePackageName>
+    <typePackageId>022dbddc-276c-406b-81e6-5034ad64db72</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>c3808b69-f250-4ea9-b9c6-5636d3d52860</parentFolderId>
+  <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+  <packageName>Intent.AzureFunctions.OpenApi</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

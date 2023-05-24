@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Common.Validation;
@@ -12,6 +13,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +34,10 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("MappedAzureFunction")]
+        [OpenApiOperation("MappedAzureFunction", tags: new[] { "Newazurefunction" }, Description = "Mapped azure function")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleMappedRequest))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "newazurefunction")] HttpRequest req,
             CancellationToken cancellationToken)

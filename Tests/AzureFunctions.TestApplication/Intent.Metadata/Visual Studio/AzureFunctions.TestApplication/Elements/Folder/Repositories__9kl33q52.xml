@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6af56d8a-505e-4dba-9538-cf184d053839</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
