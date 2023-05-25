@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.MediatR</id>
-  <version>5.1.1-pre.0</version>
+  <version>5.1.1-pre.1</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Instructs ASP.NET Core Controllers to dispatch Commands and Queries to a separate handler via MediatR.</summary>
   <description>Instructs ASP.NET Core Controllers to dispatch Commands and Queries to a separate handler via MediatR.</description>
@@ -18,7 +18,7 @@
     <dependency id="Intent.Application.MediatR" version="4.0.5" />
     <dependency id="Intent.AspNetCore.Controllers" version="5.1.0" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.35-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.1.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.2" />
