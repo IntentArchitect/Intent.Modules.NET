@@ -13,7 +13,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         public virtual string ConfigureServices() => @"";
         public virtual string Configuration() => @"";
         public virtual string EndPointMappings() => @"";
-        
+
         // Cannot convert normal strings under the hood to use the
         // builder pattern, hence why we need this obsolete warning.
         [Obsolete("Underlying Builder Pattern should be used instead. This method is no longer processed.")]

@@ -12,19 +12,5 @@ namespace Intent.Modules.AspNetCore.Templates.Program
     public abstract class ProgramDecoratorBase : ITemplateDecorator
     {
         public int Priority { get; protected set; } = 0;
-
-
-        public virtual IEnumerable<string> GetFluentBuilderLines()
-        {
-            yield break;
-        }
-
-        public virtual void AfterCallBuilder()
-        {
-        }
-
-        public virtual void BeforeCallBuilder()
-        {
-        }
     }
 }

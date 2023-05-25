@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private readonly List<ServiceConfigurationRequest> _serviceConfigurationRequests = new();
         private readonly List<ApplicationBuilderRegistrationRequest> _applicationBuilderRegistrationRequests = new();
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(Handle);
@@ -79,6 +79,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 }, int.MinValue); // always run first
         }
 
+        [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         private void Handle(ContainerRegistrationRequest request)
@@ -377,7 +378,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             {
                 throw new Exception("Cannot accept statement that already has a Parent");
             }
-            
+
             statement.Parent = this;
             Statements.Add(statement);
         }

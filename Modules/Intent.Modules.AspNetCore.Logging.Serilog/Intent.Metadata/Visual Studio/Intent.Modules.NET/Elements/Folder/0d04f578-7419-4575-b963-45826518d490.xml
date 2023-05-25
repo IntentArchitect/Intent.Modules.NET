@@ -3,7 +3,7 @@
   <name>Decorators</name>
   <display>Decorators</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a58a2fc1-5444-4388-8be7-0231516ce1d2</parentFolderId>
@@ -26,7 +26,6 @@
       <display>Intent.ModuleBuilder.DecoratorRegistration.Template</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d04f578-7419-4575-b963-45826518d490</parentFolderId>
@@ -43,7 +42,6 @@
       <display>Intent.ModuleBuilder.DecoratorTemplate</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d04f578-7419-4575-b963-45826518d490</parentFolderId>
@@ -60,7 +58,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecorator</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d04f578-7419-4575-b963-45826518d490</parentFolderId>
@@ -77,7 +74,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d04f578-7419-4575-b963-45826518d490</parentFolderId>

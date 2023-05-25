@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Updated Program template to also use the Builder Pattern.
+
 ### Version 4.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

@@ -5,6 +5,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -17,43 +18,51 @@ using JetBrains.Annotations;
 namespace Intent.Modules.AspNetCore.Templates.Program
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class ProgramTemplate : CSharpTemplateBase<object, ProgramDecoratorBase>
+    public partial class ProgramTemplate : CSharpTemplateBase<object, ProgramDecoratorBase>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.AspNetCore.Program";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddClass($"Program", @class =>
+                {
+                    @class.AddMethod("void", "Main", method =>
+                    {
+                        method.Static();
+                        method.AddParameter("string[]", "args");
+                        method.AddStatement("CreateHostBuilder(args).Build().Run();",
+                            stmt => stmt.AddMetadata("host-run", true));
+                    });
+                    @class.AddMethod("IHostBuilder", "CreateHostBuilder", method =>
+                    {
+                        method.Static();
+                        method.AddParameter("string[]", "args");
+                        method.WithExpressionBody(new CSharpMethodChainStatement("Host.CreateDefaultBuilder(args)")
+                            .AddChainStatement(new CSharpInvocationStatement("ConfigureWebHostDefaults")
+                                .AddArgument(new CSharpLambdaBlock("webBuilder")
+                                    .AddStatement("webBuilder.UseStartup<Startup>();"))
+                                .WithoutSemicolon()
+                            ));
+                    });
+                });
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"Program",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+            return CSharpFile.GetConfig();
         }
 
-        private void BeforeCallBuilder()
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
         {
-            foreach (var decorator in GetDecorators())
-            {
-                decorator.BeforeCallBuilder();
-            }
-        }
-
-        private void AfterCallBuilder()
-        {
-            foreach (var decorator in GetDecorators())
-            {
-                decorator.AfterCallBuilder();
-            }
-        }
-
-        private IEnumerable<string> GetFluentBuilderLines()
-        {
-            return GetDecorators().SelectMany(x => x.GetFluentBuilderLines());
+            return CSharpFile.ToString();
         }
     }
 }

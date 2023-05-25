@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3fe24296-8ff1-4c0e-ae9e-321effd265ab</ProjectId>
+      <CorrelationId>Intent.Azure.KeyVault.AzureKeyVaultConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureKeyVault.Api/Configuration/AzureKeyVaultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureKeyVaultConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3fe24296-8ff1-4c0e-ae9e-321effd265ab</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>

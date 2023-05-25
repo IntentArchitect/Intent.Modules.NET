@@ -1,9 +1,12 @@
-﻿using System;
+using System;
 using Azure.Core;
 using Azure.Identity;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+
+[assembly: IntentTemplate("Intent.Azure.KeyVault.AzureKeyVaultConfiguration", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace AzureKeyVault.Api.Configuration;
 
@@ -12,6 +15,7 @@ public static class AzureKeyVaultConfiguration
     public static void ConfigureAzureKeyVault(this IConfigurationBuilder builder, IConfiguration configuration)
     {
         var credential = GetTokenCredential(configuration);
+
         if (string.IsNullOrWhiteSpace(configuration["KeyVault:Endpoint"]))
         {
             throw new InvalidOperationException("Configuration 'KeyVault:Endpoint' is not set");
@@ -27,10 +31,9 @@ public static class AzureKeyVaultConfiguration
         {
             // Manually specify the connection details for Azure Key Vault.
             // Its recommended to store the 'Secret' inside the .NET User Secret's secrets.json file.
-            return new ClientSecretCredential(configuration["KeyVault:TenantId"], configuration["KeyVault:ClientId"],
-                configuration["KeyVault:Secret"]);
+            return new ClientSecretCredential(configuration["KeyVault:TenantId"], configuration["KeyVault:ClientId"], configuration["KeyVault:Secret"]);
         }
-        
+
         if (!string.IsNullOrWhiteSpace(configuration["KeyVault:ClientId"]))
         {
             // Connect to Azure Key Vault using the configured App Client Id.

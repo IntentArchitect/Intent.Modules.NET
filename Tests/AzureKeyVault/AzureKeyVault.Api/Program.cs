@@ -19,10 +19,10 @@ namespace AzureKeyVault.Api
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-               .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-               .Enrich.FromLogContext()
-               .WriteTo.Console()
-               .CreateBootstrapLogger();
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateBootstrapLogger();
 
             try
             {
@@ -49,6 +49,7 @@ namespace AzureKeyVault.Api
                 .ConfigureAppConfiguration((context, config) =>
                 {
                     var configuration = config.Build();
+
                     if (configuration.GetValue<bool?>("KeyVault:Enabled") == true)
                     {
                         config.ConfigureAzureKeyVault(configuration);

@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- Updated to work with the major update made on the `Intent.AspNetCore` (v 5.0.0) module.
+
 ### Version 3.3.9
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
