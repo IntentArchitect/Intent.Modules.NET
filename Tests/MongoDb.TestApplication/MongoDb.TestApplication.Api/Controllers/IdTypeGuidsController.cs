@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +11,7 @@ using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Api.Controllers

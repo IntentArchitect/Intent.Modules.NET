@@ -12,6 +12,7 @@ using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Standard.AspNetCore.TestApplication.Api.Controllers

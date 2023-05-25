@@ -12,6 +12,7 @@ using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interf
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controllers

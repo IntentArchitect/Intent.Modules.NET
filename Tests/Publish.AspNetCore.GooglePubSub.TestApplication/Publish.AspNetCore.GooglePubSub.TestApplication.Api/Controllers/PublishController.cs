@@ -12,6 +12,7 @@ using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Interfaces;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api.Controllers

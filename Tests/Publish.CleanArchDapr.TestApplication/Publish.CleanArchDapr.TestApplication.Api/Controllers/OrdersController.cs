@@ -19,6 +19,7 @@ using Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirmed;
 using Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Api.Controllers

@@ -18,6 +18,7 @@ using Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustomers;
 using Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCustomer;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Api.Controllers

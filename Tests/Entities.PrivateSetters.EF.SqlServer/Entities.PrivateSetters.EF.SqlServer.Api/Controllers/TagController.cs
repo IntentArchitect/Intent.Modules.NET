@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
@@ -22,6 +23,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
     {
         private readonly ITagService _appService;
         private readonly IUnitOfWork _unitOfWork;
+
         public TagController(ITagService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
