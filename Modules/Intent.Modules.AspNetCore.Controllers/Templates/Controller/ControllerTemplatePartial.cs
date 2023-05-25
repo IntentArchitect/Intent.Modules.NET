@@ -37,6 +37,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 .AddUsing("Microsoft.AspNetCore.Authorization")
                 .AddUsing("Microsoft.AspNetCore.Http")
                 .AddUsing("Microsoft.AspNetCore.Mvc")
+                .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"{Model.Name.RemoveSuffix("Controller", "Service")}Controller", @class =>
                 {
                     @class.AddAttribute("[ApiController]");

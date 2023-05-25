@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Have controllers fully manage using statements by default.
+
 ### Version 5.1.0
 
 - Service Operations can now have Default values.
