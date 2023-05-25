@@ -26,6 +26,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+                .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.TryAddXmlDocComments(Model.InternalElement);
