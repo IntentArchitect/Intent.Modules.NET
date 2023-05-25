@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fix: Azure Route info for `Http Tigger` on `ServiceOperations`.
+
 ### Version 4.1.0
 
 - Support default values parameters for Domain Entities, Domain Services, and Service Controllers.
