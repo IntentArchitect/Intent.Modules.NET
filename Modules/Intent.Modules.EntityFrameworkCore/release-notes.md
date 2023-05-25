@@ -1,5 +1,6 @@
 ﻿### Version 4.4.2
 - Upgrade: removed some compiler warnings.
+- Fixed: Duplicate DbSet names that were supposed to be de-duplicated will regenerate their Type names to ensure to be unique.
 
 ### Version 4.4.1
 

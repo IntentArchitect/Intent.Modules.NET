@@ -105,8 +105,9 @@ modelBuilder.Entity<Car>().HasData(
                     name: dbSetPropName,
                     configure: prop => prop.AddMetadata("model", typeConfiguration.Template.Model));
 
-                @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
-                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());");
+                @class.Methods.First(x => x.Name.Equals("OnModelCreating"))
+                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());",
+                        config => config.AddMetadata("model", typeConfiguration.Template.Model));
 
                 AddTemplateDependency(TemplateDependency.OnTemplate(typeConfiguration.Template)); // needed? GetTypeName does the same thing?
 
@@ -128,7 +129,7 @@ modelBuilder.Entity<Car>().HasData(
                     _existingDbSetNames.Add(collisionPropNewName);
 
                     @class.AddProperty(
-                        type: collisionProp.Type,
+                        type: $"DbSet<{GetEntityName(collisionPropModel)}>",
                         name: collisionPropNewName,
                         configure: prop => prop.AddMetadata("model", collisionPropModel));
 
