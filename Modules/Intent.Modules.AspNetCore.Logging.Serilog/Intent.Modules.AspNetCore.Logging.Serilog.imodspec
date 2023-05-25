@@ -18,7 +18,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="5.0.0-pre.0" />
     <dependency id="Intent.Common" version="3.3.19" />
-    <dependency id="Intent.Common.CSharp" version="3.3.35-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.35-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>

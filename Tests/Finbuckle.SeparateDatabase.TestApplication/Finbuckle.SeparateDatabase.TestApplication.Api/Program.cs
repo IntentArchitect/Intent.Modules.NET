@@ -15,10 +15,10 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-               .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-               .Enrich.FromLogContext()
-               .WriteTo.Console()
-               .CreateBootstrapLogger();
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateBootstrapLogger();
 
             try
             {

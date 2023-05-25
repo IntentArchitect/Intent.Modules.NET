@@ -46,6 +46,7 @@ namespace Application.Identity.AccountController.Api.Services
         public (string Token, DateTime Expiry) GenerateRefreshToken()
         {
             var randomNumber = new byte[32];
+
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(randomNumber);
@@ -71,6 +72,7 @@ namespace Application.Identity.AccountController.Api.Services
             SecurityToken securityToken;
             var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
             var jwtSecurityToken = securityToken as JwtSecurityToken;
+
             if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new SecurityTokenException("Invalid token");

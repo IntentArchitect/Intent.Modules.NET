@@ -11,6 +11,8 @@ namespace AzureKeyVault.Application
     {
         public KeyValuePairDTO()
         {
+            Key = null!;
+            Value = null!;
         }
 
         public string Key { get; set; }

@@ -11,5 +11,8 @@ namespace AzureKeyVault.Application.GetKeyValues
 {
     public class GetKeyValues : IRequest<KeyValuesDTO>, IQuery
     {
+        public GetKeyValues()
+        {
+        }
     }
 }
