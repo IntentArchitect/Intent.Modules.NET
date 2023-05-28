@@ -7,6 +7,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -25,6 +26,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MediatR);
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            FulfillsRole("Application.Contract.Command");
+
             CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
@@ -45,10 +50,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                         }
                     });
                 });
-            AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource("Application.Contract.Dto", "List<{0}>");
-            AddTypeSource("Domain.Enum", "List<{0}>");
-            FulfillsRole("Application.Contract.Command");
         }
 
         [IntentManaged(Mode.Fully)]
