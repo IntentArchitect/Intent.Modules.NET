@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
     public static class ImplicitKeyAggrRootDtoMappingExtensions
     {
         public static ImplicitKeyAggrRootDto MapToImplicitKeyAggrRootDto(this ImplicitKeyAggrRoot projectFrom, IMapper mapper)
-        {
-            return mapper.Map<ImplicitKeyAggrRootDto>(projectFrom);
-        }
+            => mapper.Map<ImplicitKeyAggrRootDto>(projectFrom);
 
         public static List<ImplicitKeyAggrRootDto> MapToImplicitKeyAggrRootDtoList(this IEnumerable<ImplicitKeyAggrRoot> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToImplicitKeyAggrRootDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToImplicitKeyAggrRootDto(mapper)).ToList();
     }
 }

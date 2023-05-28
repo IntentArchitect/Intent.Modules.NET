@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     public static class AggregateRootCompositeManyBCompositeSingleBBDtoMappingExtensions
     {
         public static AggregateRootCompositeManyBCompositeSingleBBDto MapToAggregateRootCompositeManyBCompositeSingleBBDto(this CompositeSingleBB projectFrom, IMapper mapper)
-        {
-            return mapper.Map<AggregateRootCompositeManyBCompositeSingleBBDto>(projectFrom);
-        }
+            => mapper.Map<AggregateRootCompositeManyBCompositeSingleBBDto>(projectFrom);
 
         public static List<AggregateRootCompositeManyBCompositeSingleBBDto> MapToAggregateRootCompositeManyBCompositeSingleBBDtoList(this IEnumerable<CompositeSingleBB> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToAggregateRootCompositeManyBCompositeSingleBBDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToAggregateRootCompositeManyBCompositeSingleBBDto(mapper)).ToList();
     }
 }

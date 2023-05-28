@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
     public static class ImplicitKeyAggrRootImplicitKeyNestedCompositionDtoMappingExtensions
     {
         public static ImplicitKeyAggrRootImplicitKeyNestedCompositionDto MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDto(this ImplicitKeyNestedComposition projectFrom, IMapper mapper)
-        {
-            return mapper.Map<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>(projectFrom);
-        }
+            => mapper.Map<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>(projectFrom);
 
         public static List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDtoList(this IEnumerable<ImplicitKeyNestedComposition> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDto(mapper)).ToList();
     }
 }

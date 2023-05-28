@@ -13,13 +13,9 @@ namespace MongoDb.TestApplication.Application.IdTypeGuids
     public static class IdTypeGuidDtoMappingExtensions
     {
         public static IdTypeGuidDto MapToIdTypeGuidDto(this IdTypeGuid projectFrom, IMapper mapper)
-        {
-            return mapper.Map<IdTypeGuidDto>(projectFrom);
-        }
+            => mapper.Map<IdTypeGuidDto>(projectFrom);
 
         public static List<IdTypeGuidDto> MapToIdTypeGuidDtoList(this IEnumerable<IdTypeGuid> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToIdTypeGuidDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToIdTypeGuidDto(mapper)).ToList();
     }
 }

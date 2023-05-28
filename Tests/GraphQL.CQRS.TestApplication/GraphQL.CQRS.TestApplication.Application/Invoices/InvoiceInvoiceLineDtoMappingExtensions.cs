@@ -13,13 +13,9 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices
     public static class InvoiceInvoiceLineDtoMappingExtensions
     {
         public static InvoiceInvoiceLineDto MapToInvoiceInvoiceLineDto(this InvoiceLine projectFrom, IMapper mapper)
-        {
-            return mapper.Map<InvoiceInvoiceLineDto>(projectFrom);
-        }
+            => mapper.Map<InvoiceInvoiceLineDto>(projectFrom);
 
         public static List<InvoiceInvoiceLineDto> MapToInvoiceInvoiceLineDtoList(this IEnumerable<InvoiceLine> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToInvoiceInvoiceLineDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToInvoiceInvoiceLineDto(mapper)).ToList();
     }
 }

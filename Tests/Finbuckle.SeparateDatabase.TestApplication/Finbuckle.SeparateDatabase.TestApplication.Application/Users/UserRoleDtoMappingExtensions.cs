@@ -13,13 +13,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
     public static class UserRoleDtoMappingExtensions
     {
         public static UserRoleDto MapToUserRoleDto(this Role projectFrom, IMapper mapper)
-        {
-            return mapper.Map<UserRoleDto>(projectFrom);
-        }
+            => mapper.Map<UserRoleDto>(projectFrom);
 
         public static List<UserRoleDto> MapToUserRoleDtoList(this IEnumerable<Role> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToUserRoleDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToUserRoleDto(mapper)).ToList();
     }
 }

@@ -13,13 +13,9 @@ namespace GraphQL.CQRS.TestApplication.Application.Products
     public static class ProductDtoMappingExtensions
     {
         public static ProductDto MapToProductDto(this Product projectFrom, IMapper mapper)
-        {
-            return mapper.Map<ProductDto>(projectFrom);
-        }
+            => mapper.Map<ProductDto>(projectFrom);
 
         public static List<ProductDto> MapToProductDtoList(this IEnumerable<Product> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToProductDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToProductDto(mapper)).ToList();
     }
 }

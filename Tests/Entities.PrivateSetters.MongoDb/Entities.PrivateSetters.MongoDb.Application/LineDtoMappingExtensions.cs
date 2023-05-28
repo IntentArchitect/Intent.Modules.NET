@@ -13,13 +13,9 @@ namespace Entities.PrivateSetters.MongoDb.Application
     public static class LineDtoMappingExtensions
     {
         public static LineDto MapToLineDto(this Line projectFrom, IMapper mapper)
-        {
-            return mapper.Map<LineDto>(projectFrom);
-        }
+            => mapper.Map<LineDto>(projectFrom);
 
         public static List<LineDto> MapToLineDtoList(this IEnumerable<Line> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToLineDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToLineDto(mapper)).ToList();
     }
 }

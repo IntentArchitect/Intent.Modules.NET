@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
     public static class AggregateRootLongDtoMappingExtensions
     {
         public static AggregateRootLongDto MapToAggregateRootLongDto(this AggregateRootLong projectFrom, IMapper mapper)
-        {
-            return mapper.Map<AggregateRootLongDto>(projectFrom);
-        }
+            => mapper.Map<AggregateRootLongDto>(projectFrom);
 
         public static List<AggregateRootLongDto> MapToAggregateRootLongDtoList(this IEnumerable<AggregateRootLong> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToAggregateRootLongDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToAggregateRootLongDto(mapper)).ToList();
     }
 }

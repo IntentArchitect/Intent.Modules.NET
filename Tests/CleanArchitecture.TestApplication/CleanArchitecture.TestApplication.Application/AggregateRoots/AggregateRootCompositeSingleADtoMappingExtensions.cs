@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
     public static class AggregateRootCompositeSingleADtoMappingExtensions
     {
         public static AggregateRootCompositeSingleADto MapToAggregateRootCompositeSingleADto(this CompositeSingleA projectFrom, IMapper mapper)
-        {
-            return mapper.Map<AggregateRootCompositeSingleADto>(projectFrom);
-        }
+            => mapper.Map<AggregateRootCompositeSingleADto>(projectFrom);
 
         public static List<AggregateRootCompositeSingleADto> MapToAggregateRootCompositeSingleADtoList(this IEnumerable<CompositeSingleA> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToAggregateRootCompositeSingleADto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToAggregateRootCompositeSingleADto(mapper)).ToList();
     }
 }

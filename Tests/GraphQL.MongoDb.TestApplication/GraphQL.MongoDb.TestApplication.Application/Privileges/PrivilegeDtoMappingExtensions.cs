@@ -13,13 +13,9 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges
     public static class PrivilegeDtoMappingExtensions
     {
         public static PrivilegeDto MapToPrivilegeDto(this Privilege projectFrom, IMapper mapper)
-        {
-            return mapper.Map<PrivilegeDto>(projectFrom);
-        }
+            => mapper.Map<PrivilegeDto>(projectFrom);
 
         public static List<PrivilegeDto> MapToPrivilegeDtoList(this IEnumerable<Privilege> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToPrivilegeDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToPrivilegeDto(mapper)).ToList();
     }
 }

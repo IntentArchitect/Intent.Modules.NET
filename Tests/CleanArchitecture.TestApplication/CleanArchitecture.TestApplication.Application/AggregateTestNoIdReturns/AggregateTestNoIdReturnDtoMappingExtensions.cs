@@ -14,13 +14,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
     public static class AggregateTestNoIdReturnDtoMappingExtensions
     {
         public static AggregateTestNoIdReturnDto MapToAggregateTestNoIdReturnDto(this AggregateTestNoIdReturn projectFrom, IMapper mapper)
-        {
-            return mapper.Map<AggregateTestNoIdReturnDto>(projectFrom);
-        }
+            => mapper.Map<AggregateTestNoIdReturnDto>(projectFrom);
 
         public static List<AggregateTestNoIdReturnDto> MapToAggregateTestNoIdReturnDtoList(this IEnumerable<AggregateTestNoIdReturn> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToAggregateTestNoIdReturnDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToAggregateTestNoIdReturnDto(mapper)).ToList();
     }
 }

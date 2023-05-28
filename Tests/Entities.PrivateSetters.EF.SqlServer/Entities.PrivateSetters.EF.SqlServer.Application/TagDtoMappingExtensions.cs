@@ -13,13 +13,9 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
     public static class TagDtoMappingExtensions
     {
         public static TagDto MapToTagDto(this Tag projectFrom, IMapper mapper)
-        {
-            return mapper.Map<TagDto>(projectFrom);
-        }
+            => mapper.Map<TagDto>(projectFrom);
 
         public static List<TagDto> MapToTagDtoList(this IEnumerable<Tag> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToTagDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToTagDto(mapper)).ToList();
     }
 }

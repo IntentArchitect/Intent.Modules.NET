@@ -13,13 +13,9 @@ namespace MongoDb.TestApplication.Application.IdTypeOjectIdStrs
     public static class IdTypeOjectIdStrDtoMappingExtensions
     {
         public static IdTypeOjectIdStrDto MapToIdTypeOjectIdStrDto(this IdTypeOjectIdStr projectFrom, IMapper mapper)
-        {
-            return mapper.Map<IdTypeOjectIdStrDto>(projectFrom);
-        }
+            => mapper.Map<IdTypeOjectIdStrDto>(projectFrom);
 
         public static List<IdTypeOjectIdStrDto> MapToIdTypeOjectIdStrDtoList(this IEnumerable<IdTypeOjectIdStr> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToIdTypeOjectIdStrDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToIdTypeOjectIdStrDto(mapper)).ToList();
     }
 }

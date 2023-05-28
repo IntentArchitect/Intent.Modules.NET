@@ -13,13 +13,9 @@ namespace Entities.Constants.TestApplication.Application.TestClasses
     public static class TestClassDtoMappingExtensions
     {
         public static TestClassDto MapToTestClassDto(this TestClass projectFrom, IMapper mapper)
-        {
-            return mapper.Map<TestClassDto>(projectFrom);
-        }
+            => mapper.Map<TestClassDto>(projectFrom);
 
         public static List<TestClassDto> MapToTestClassDtoList(this IEnumerable<TestClass> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToTestClassDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToTestClassDto(mapper)).ToList();
     }
 }

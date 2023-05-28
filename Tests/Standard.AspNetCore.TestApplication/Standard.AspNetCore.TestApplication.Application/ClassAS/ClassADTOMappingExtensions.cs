@@ -13,13 +13,9 @@ namespace Standard.AspNetCore.TestApplication.Application.ClassAS
     public static class ClassADTOMappingExtensions
     {
         public static ClassADTO MapToClassADTO(this ClassA projectFrom, IMapper mapper)
-        {
-            return mapper.Map<ClassADTO>(projectFrom);
-        }
+            => mapper.Map<ClassADTO>(projectFrom);
 
         public static List<ClassADTO> MapToClassADTOList(this IEnumerable<ClassA> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToClassADTO(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToClassADTO(mapper)).ToList();
     }
 }

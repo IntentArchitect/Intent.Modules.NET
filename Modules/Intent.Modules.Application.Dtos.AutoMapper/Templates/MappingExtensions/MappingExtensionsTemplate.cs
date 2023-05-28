@@ -32,80 +32,78 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using AutoMapper;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing S" +
-                    "ystem.Runtime.Serialization;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
-                    "namespace ");
+            this.Write("using AutoMapper;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\n\r\n[asse" +
+                    "mbly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" \r\n    {\r\n        public static ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
             
             #line default
             #line hidden
             this.Write(" MapTo");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
             
             #line default
             #line hidden
             this.Write("(this ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName()));
             
             #line default
             #line hidden
-            this.Write(" projectFrom, IMapper mapper)\r\n        {\r\n            return mapper.Map<");
+            this.Write(" projectFrom, IMapper mapper)\r\n            => mapper.Map<");
+            
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
+            
+            #line default
+            #line hidden
+            this.Write(">(projectFrom);\r\n\r\n        public static List<");
             
             #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
             
             #line default
             #line hidden
-            this.Write(">(projectFrom);\r\n        }\r\n\r\n        public static List<");
-            
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
-            
-            #line default
-            #line hidden
             this.Write("> MapTo");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
             
             #line default
             #line hidden
             this.Write("List(this IEnumerable<");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName()));
             
             #line default
             #line hidden
-            this.Write("> projectFrom, IMapper mapper)\r\n        {\r\n            return projectFrom.Select(" +
-                    "x => x.MapTo");
+            this.Write("> projectFrom, IMapper mapper)\r\n            => projectFrom.Select(x => x.MapTo");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName()));
             
             #line default
             #line hidden
-            this.Write("(mapper)).ToList();\r\n        }\r\n    }\r\n}");
+            this.Write("(mapper)).ToList();\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

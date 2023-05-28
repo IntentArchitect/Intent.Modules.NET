@@ -13,13 +13,9 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
     public static class InvoiceDtoMappingExtensions
     {
         public static InvoiceDto MapToInvoiceDto(this Invoice projectFrom, IMapper mapper)
-        {
-            return mapper.Map<InvoiceDto>(projectFrom);
-        }
+            => mapper.Map<InvoiceDto>(projectFrom);
 
         public static List<InvoiceDto> MapToInvoiceDtoList(this IEnumerable<Invoice> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToInvoiceDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToInvoiceDto(mapper)).ToList();
     }
 }

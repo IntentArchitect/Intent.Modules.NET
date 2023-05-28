@@ -10,7 +10,6 @@
 using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -19,13 +18,9 @@ namespace <#= Namespace #>
     public static class <#=ClassName#> 
     {
         public static <#= GetDtoModelName() #> MapTo<#= GetDtoModelName() #>(this <#= GetEntityName() #> projectFrom, IMapper mapper)
-        {
-            return mapper.Map<<#= GetDtoModelName() #>>(projectFrom);
-        }
+            => mapper.Map<<#= GetDtoModelName() #>>(projectFrom);
 
         public static List<<#= GetDtoModelName() #>> MapTo<#= GetDtoModelName() #>List(this IEnumerable<<#= GetEntityName() #>> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapTo<#= GetDtoModelName() #>(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapTo<#= GetDtoModelName() #>(mapper)).ToList();
     }
 }

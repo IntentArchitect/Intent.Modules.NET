@@ -13,13 +13,9 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
     public static class SampleDomainDtoMappingExtensions
     {
         public static SampleDomainDto MapToSampleDomainDto(this SampleDomain projectFrom, IMapper mapper)
-        {
-            return mapper.Map<SampleDomainDto>(projectFrom);
-        }
+            => mapper.Map<SampleDomainDto>(projectFrom);
 
         public static List<SampleDomainDto> MapToSampleDomainDtoList(this IEnumerable<SampleDomain> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToSampleDomainDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToSampleDomainDto(mapper)).ToList();
     }
 }

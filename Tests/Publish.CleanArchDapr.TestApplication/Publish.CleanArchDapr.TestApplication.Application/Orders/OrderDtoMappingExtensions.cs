@@ -13,13 +13,9 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders
     public static class OrderDtoMappingExtensions
     {
         public static OrderDto MapToOrderDto(this Order projectFrom, IMapper mapper)
-        {
-            return mapper.Map<OrderDto>(projectFrom);
-        }
+            => mapper.Map<OrderDto>(projectFrom);
 
         public static List<OrderDto> MapToOrderDtoList(this IEnumerable<Order> projectFrom, IMapper mapper)
-        {
-            return projectFrom.Select(x => x.MapToOrderDto(mapper)).ToList();
-        }
+            => projectFrom.Select(x => x.MapToOrderDto(mapper)).ToList();
     }
 }
