@@ -1,5 +1,9 @@
 ### Version 4.0.0
 
+- Update : Bumped `HotChoclate` nuget version to 13.1.0.
+
+### Version 4.0.0
+
 - Overhaul of GraphQL approach to support explicit Queries, Mutations and Subscriptions from the Intent.Modelers.Services.GraphQL module.
 - Uses the v13 HotChocolate framework APIs.
 

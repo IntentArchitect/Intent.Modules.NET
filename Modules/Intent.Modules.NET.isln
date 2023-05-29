@@ -104,5 +104,6 @@
     <application id="e0883b5f-a179-42b4-b3fc-e34086dad042" name="Intent.Modules.Entities.Constants" relativePath="Intent.Modules.Entities.Constants/Intent.Modules.Entities.Constants.application.config" />
     <application id="3e17b334-0f38-4811-9c78-0e521468f7ce" name="Intent.Modules.AzureFunctions.OpenApi" relativePath="Intent.Modules.AzureFunctions.OpenApi/Intent.Modules.AzureFunctions.OpenApi.application.config" />
     <application id="9895fa0b-6af4-4afb-ac6b-6c42f8b2f1bc" name="Intent.Modules.Azure.KeyVault" relativePath="Intent.Modules.Azure.KeyVault/Intent.Modules.Azure.KeyVault.application.config" />
+    <application id="f01416fb-0074-479b-b452-c195fbd07016" name="Intent.Modules.HotChocolate.GraphQL.AzureFunctions" relativePath="Intent.Modules.HotChocolate.GraphQL.AzureFunctions/Intent.Modules.HotChocolate.GraphQL.AzureFunctions.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eabc8f9c-d7a5-40da-80e5-9bd022ce64b5" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d8f1563c-c7b3-4415-8c03-23fd3eaf5264</parentFolderId>
+  <packageId>d8f1563c-c7b3-4415-8c03-23fd3eaf5264</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>d8f1563c-c7b3-4415-8c03-23fd3eaf5264</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

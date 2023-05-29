@@ -58,5 +58,18 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="289083bc-406d-4415-a071-8cae199b5d4d" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution</name>
+      <display>Distribution</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9c5d2ff0-301b-4722-9cce-08c76532eb66</parentFolderId>
+      <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

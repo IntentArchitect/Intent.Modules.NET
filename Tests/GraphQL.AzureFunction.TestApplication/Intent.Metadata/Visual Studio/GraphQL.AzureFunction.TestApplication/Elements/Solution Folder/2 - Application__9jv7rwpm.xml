@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9be2158a-1ebe-41e5-bd11-504a07e9a264" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>54d80a73-fad8-4a64-a53f-db2fbcbefd24</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ab04101-bcc2-4325-baab-7570faf71b83</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="420f0338-67c2-4b08-b5e4-933122198fb5" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+      <name>GraphQL.AzureFunction.TestApplication.Application</name>
+      <display>GraphQL.AzureFunction.TestApplication.Application</display>
+      <externalReference>bd5e4339-667c-4f46-93d5-1eb6b93ed09d</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9be2158a-1ebe-41e5-bd11-504a07e9a264</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+            <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
+            <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
+            <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
+            <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" isActive="true" />
+            <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" value="" isActive="false" />
+            <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
+            <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" isActive="true" />
+            <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" isActive="true" />
+            <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" isActive="true" />
+            <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" isActive="true" />
+            <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
+            <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+            <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+            <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+            <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2b391219-1a2a-4f12-8db8-727f546537bc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>Validators</name>
+          <display>Validators</display>
+          <externalReference>ef7fb60c-7952-4ab9-b6f5-a8c62c100faf</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+              <properties>
+                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="ae27d309-db9a-4bfc-8b47-904d6dfaf1fb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>Application.Validation</name>
+              <display>Application.Validation</display>
+              <externalReference>99b752ee-b2c1-49ca-a5f0-03e743b9000e</externalReference>
+              <isAbstract>false</isAbstract>
+              <order>1</order>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="0b8ccba5-a632-466d-91c9-4371cecaf63b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
+              <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
+              <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="42b2d85d-462e-45c6-b2bc-43057c7a3cf8" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>Application</name>
+          <display>Application</display>
+          <externalReference>f9f039b3-07c0-4243-ab8c-67003794bced</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="793fc879-9106-4e7d-ae8c-3b056aca9e1f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.DependencyInjection.DependencyInjection</name>
+          <display>Intent.Application.DependencyInjection.DependencyInjection</display>
+          <externalReference>Intent.Application.DependencyInjection</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="4d392425-4287-46da-a9b8-c5b24cf09348" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Dtos.ContractEnumModel</name>
+          <display>Intent.Application.Dtos.ContractEnumModel</display>
+          <externalReference>Intent.Application.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="38cf05c4-93a0-4ec0-bfa4-a9bb0331d0a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Dtos.DtoModel</name>
+          <display>Intent.Application.Dtos.DtoModel</display>
+          <externalReference>Intent.Application.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="79035313-b147-4d46-9c93-7f13f6f8f439" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
+          <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
+          <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="0e25cb14-0a88-4058-8d49-25da2858211a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="5bab8ea7-98a2-473e-aea2-5ef3e042da43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+          <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+          <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="af9e74dd-f836-4514-bfce-00c9d84815a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</name>
+          <display>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</display>
+          <externalReference>Intent.AzureFunctions</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

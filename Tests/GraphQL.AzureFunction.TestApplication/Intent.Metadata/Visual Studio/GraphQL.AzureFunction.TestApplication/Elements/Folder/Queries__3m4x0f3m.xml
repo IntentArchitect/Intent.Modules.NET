@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8755934-b4eb-4c9c-908f-ed2b0b3a8267" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Queries</name>
+  <display>Queries</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>68e61d09-b93a-4333-9550-3c712c34f18d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2733ab16-e1c2-4dd5-a732-ebc2d708c963" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.HotChocolate.GraphQL.QueryType</name>
+      <display>Intent.HotChocolate.GraphQL.QueryType</display>
+      <externalReference>Intent.HotChocolate.GraphQL</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a8755934-b4eb-4c9c-908f-ed2b0b3a8267</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d5cb5b1-e9bc-40a1-8a02-14b6c9801ee6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Mutations</name>
+  <display>Mutations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>68e61d09-b93a-4333-9550-3c712c34f18d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d2bcf18f-ab77-4ffd-a2d1-14ab21bfff8c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.HotChocolate.GraphQL.MutationType</name>
+      <display>Intent.HotChocolate.GraphQL.MutationType</display>
+      <externalReference>Intent.HotChocolate.GraphQL</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d5cb5b1-e9bc-40a1-8a02-14b6c9801ee6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

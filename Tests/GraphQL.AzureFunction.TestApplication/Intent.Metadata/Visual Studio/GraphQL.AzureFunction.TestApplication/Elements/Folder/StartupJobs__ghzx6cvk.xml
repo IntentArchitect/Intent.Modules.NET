@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0dc08d2-5735-494f-a67b-3e410bb6b5d5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>StartupJobs</name>
+  <display>StartupJobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="23d6de95-3f9c-431a-bd42-0bc68d081198" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.Interop.EntityFrameworkCore.DbInitializationService</name>
+      <display>Intent.AzureFunctions.Interop.EntityFrameworkCore.DbInitializationService</display>
+      <externalReference>Intent.AzureFunctions.Interop.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0dc08d2-5735-494f-a67b-3e410bb6b5d5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="675acd60-b931-4b9b-bc8b-05a67c2cd630" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0dc08d2-5735-494f-a67b-3e410bb6b5d5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
