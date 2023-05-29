@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="HotChocolate" Version="13.1.0" />
-    <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.5" />
-    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.1.0" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.1.0" />
     <PackageReference Include="HotChocolate.Data" Version="13.0.5" />
     <PackageReference Include="IdentityModel" Version="6.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />

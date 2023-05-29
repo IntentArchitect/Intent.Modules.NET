@@ -1,3 +1,6 @@
+### Version 4.0.1
+- Update: bumping Hotchocolate versions.
+
 ### Version 4.0.0
 
 - Support for the latest version of the Intent.HotChocolate.GraphQL module.

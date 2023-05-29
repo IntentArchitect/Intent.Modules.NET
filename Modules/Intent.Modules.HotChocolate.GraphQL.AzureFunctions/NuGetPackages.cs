@@ -9,7 +9,6 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions
 {
     public class NuGetPackages
     {
-        public static INugetPackageInfo HotChocolate => new NugetPackageInfo("HotChocolate", "");
         public static INugetPackageInfo HotChocolateAzureFunctions => new NugetPackageInfo("HotChocolate.AzureFunctions", "13.1.0");
     }
 }
