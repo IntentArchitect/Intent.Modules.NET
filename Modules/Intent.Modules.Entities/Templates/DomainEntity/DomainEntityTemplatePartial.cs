@@ -162,6 +162,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                 hasImplementation = true;
                             }
 
+                            if (operation.IsAsync())
+                            {
+                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                            }
+
                             if (!hasImplementation)
                             {
                                 method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");

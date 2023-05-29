@@ -1,6 +1,8 @@
 ### Version 4.3.1
 
 - Update: Removed various compiler warnings.
+- Domain entity operations will now also be detected as `async` if their name is suffixed with `Async`.
+- Asynchronous domain entity operations now have an additional `CancellationToken cancellationToken = default` parameter.
 
 ### Version 4.3.0
 

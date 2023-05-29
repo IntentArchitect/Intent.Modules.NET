@@ -115,6 +115,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                             {
                                 method.AddParameter(GetOperationTypeName(parameter), parameter.Name, parm => parm.WithDefaultValue(parameter.Value));
                             }
+
+                            if (operation.IsAsync())
+                            {
+                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                            }
                         });
                     }
                 });
