@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e4a21a82-5911-4024-9d75-3c5be64c0e20">
+  <sourceEnd id="9207cb6c-d99f-4ab8-8b9e-b302542f8882" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MultikeyIndexEntitySingleParent</name>
+    <display>MultikeyIndexEntitySingleParent: MultikeyIndexEntitySingleParent</display>
+    <order>0</order>
+    <typeReference id="e4cf5163-a63a-462a-8bc2-f504617610bd">
+      <typeId>b797073b-c7e0-45b4-a504-f1a0265564d5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e4a21a82-5911-4024-9d75-3c5be64c0e20" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MultikeyIndexEntitySingleChild</name>
+    <display>MultikeyIndexEntitySingleChild: MultikeyIndexEntitySingleChild   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="cd2b173a-504b-493b-8cb0-7f58dc0bb68a">
+      <typeId>df08910f-40a5-4739-894e-b5afab0402bf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

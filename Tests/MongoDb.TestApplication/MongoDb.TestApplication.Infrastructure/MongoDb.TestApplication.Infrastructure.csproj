@@ -21,8 +21,4 @@
     <PackageReference Include="MongoFramework" Version="0.28.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Persistence\BsonClassMaps" />
-  </ItemGroup>
-
 </Project>

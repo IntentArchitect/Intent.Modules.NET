@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ebbbf7c4-5ae8-40d6-82df-5cec478449f5" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>SingleIndexEntitySingleChild</name>
+  <display>SingleIndexEntitySingleChild</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f4b65429-27f6-4c79-8ede-fae1d8d86614</parentFolderId>
+  <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="524ebe89-6a1d-4012-a179-000e737a18b0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SingleIndex</name>
+      <display>SingleIndex: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8489456f-255b-4b63-9244-2d4748cdf8d0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebbbf7c4-5ae8-40d6-82df-5cec478449f5</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

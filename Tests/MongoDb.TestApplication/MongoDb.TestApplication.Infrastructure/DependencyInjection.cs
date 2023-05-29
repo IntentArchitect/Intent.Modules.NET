@@ -6,11 +6,13 @@ using MongoDb.TestApplication.Domain.Common.Interfaces;
 using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.Associations;
 using MongoDb.TestApplication.Domain.Repositories.IdTypes;
+using MongoDb.TestApplication.Domain.Repositories.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.NestedAssociations;
 using MongoDb.TestApplication.Infrastructure.Persistence;
 using MongoDb.TestApplication.Infrastructure.Repositories;
 using MongoDb.TestApplication.Infrastructure.Repositories.Associations;
 using MongoDb.TestApplication.Infrastructure.Repositories.IdTypes;
+using MongoDb.TestApplication.Infrastructure.Repositories.Indexes;
 using MongoDb.TestApplication.Infrastructure.Repositories.NestedAssociations;
 using MongoFramework;
 
@@ -32,6 +34,9 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<IB_OptionalAggregateRepository, B_OptionalAggregateMongoRepository>();
             services.AddTransient<IB_OptionalDependentRepository, B_OptionalDependentMongoRepository>();
             services.AddTransient<IC_RequireCompositeRepository, C_RequireCompositeMongoRepository>();
+            services.AddTransient<ICompoundIndexEntityRepository, CompoundIndexEntityMongoRepository>();
+            services.AddTransient<ICompoundIndexEntityMultiParentRepository, CompoundIndexEntityMultiParentMongoRepository>();
+            services.AddTransient<ICompoundIndexEntitySingleParentRepository, CompoundIndexEntitySingleParentMongoRepository>();
             services.AddTransient<ID_MultipleDependentRepository, D_MultipleDependentMongoRepository>();
             services.AddTransient<ID_OptionalAggregateRepository, D_OptionalAggregateMongoRepository>();
             services.AddTransient<IE_RequiredCompositeNavRepository, E_RequiredCompositeNavMongoRepository>();
@@ -48,6 +53,15 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<IJ_MultipleDependentRepository, J_MultipleDependentMongoRepository>();
             services.AddTransient<IK_MultipleAggregateNavRepository, K_MultipleAggregateNavMongoRepository>();
             services.AddTransient<IK_MultipleDependentRepository, K_MultipleDependentMongoRepository>();
+            services.AddTransient<IMultikeyIndexEntityRepository, MultikeyIndexEntityMongoRepository>();
+            services.AddTransient<IMultikeyIndexEntityMultiParentRepository, MultikeyIndexEntityMultiParentMongoRepository>();
+            services.AddTransient<IMultikeyIndexEntitySingleParentRepository, MultikeyIndexEntitySingleParentMongoRepository>();
+            services.AddTransient<ISingleIndexEntityRepository, SingleIndexEntityMongoRepository>();
+            services.AddTransient<ISingleIndexEntityMultiParentRepository, SingleIndexEntityMultiParentMongoRepository>();
+            services.AddTransient<ISingleIndexEntitySingleParentRepository, SingleIndexEntitySingleParentMongoRepository>();
+            services.AddTransient<ITextIndexEntityRepository, TextIndexEntityMongoRepository>();
+            services.AddTransient<ITextIndexEntityMultiParentRepository, TextIndexEntityMultiParentMongoRepository>();
+            services.AddTransient<ITextIndexEntitySingleParentRepository, TextIndexEntitySingleParentMongoRepository>();
             return services;
         }
     }

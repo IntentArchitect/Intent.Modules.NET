@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
+using Intent.RoslynWeaver.Attributes;
+using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Application.MultikeyIndexEntityMultiParents;
+using MongoDb.TestApplication.Domain.Entities.Indexes;
+using MongoDb.TestApplication.Domain.Repositories.Indexes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]
+
+namespace MongoDb.TestApplication.Application.Implementation
+{
+    [IntentManaged(Mode.Merge)]
+    public class MultikeyIndexEntityMultiParentsService : IMultikeyIndexEntityMultiParentsService
+    {
+        private readonly IMultikeyIndexEntityMultiParentRepository _multikeyIndexEntityMultiParentRepository;
+        private readonly IMapper _mapper;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public MultikeyIndexEntityMultiParentsService(IMultikeyIndexEntityMultiParentRepository multikeyIndexEntityMultiParentRepository,
+            IMapper mapper)
+        {
+            _multikeyIndexEntityMultiParentRepository = multikeyIndexEntityMultiParentRepository;
+            _mapper = mapper;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<string> CreateMultikeyIndexEntityMultiParent(
+            MultikeyIndexEntityMultiParentCreateDto dto,
+            CancellationToken cancellationToken = default)
+        {
+            var newMultikeyIndexEntityMultiParent = new MultikeyIndexEntityMultiParent
+            {
+                SomeField = dto.SomeField,
+                MultikeyIndexEntityMultiChild = dto.MultikeyIndexEntityMultiChild.Select(CreateMultikeyIndexEntityMultiChild).ToList(),
+            };
+            _multikeyIndexEntityMultiParentRepository.Add(newMultikeyIndexEntityMultiParent);
+            await _multikeyIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync();
+            return newMultikeyIndexEntityMultiParent.Id;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<MultikeyIndexEntityMultiParentDto> FindMultikeyIndexEntityMultiParentById(
+            string id,
+            CancellationToken cancellationToken = default)
+        {
+            var element = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id);
+            return element.MapToMultikeyIndexEntityMultiParentDto(_mapper);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<MultikeyIndexEntityMultiParentDto>> FindMultikeyIndexEntityMultiParents(CancellationToken cancellationToken = default)
+        {
+            var elements = await _multikeyIndexEntityMultiParentRepository.FindAllAsync();
+            return elements.MapToMultikeyIndexEntityMultiParentDtoList(_mapper);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task UpdateMultikeyIndexEntityMultiParent(
+            string id,
+            MultikeyIndexEntityMultiParentUpdateDto dto,
+            CancellationToken cancellationToken = default)
+        {
+            var existingMultikeyIndexEntityMultiParent = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id);
+            existingMultikeyIndexEntityMultiParent.SomeField = dto.SomeField;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task DeleteMultikeyIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
+        {
+            var existingMultikeyIndexEntityMultiParent = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id);
+            _multikeyIndexEntityMultiParentRepository.Remove(existingMultikeyIndexEntityMultiParent);
+        }
+
+        public void Dispose()
+        {
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private MultikeyIndexEntityMultiChild CreateMultikeyIndexEntityMultiChild(MultikeyIndexEntityMultiChildDto dto)
+        {
+            return new MultikeyIndexEntityMultiChild
+            {
+                MultiKey = dto.MultiKey.ToList(),
+#warning No matching field found for Id
+            };
+        }
+    }
+}

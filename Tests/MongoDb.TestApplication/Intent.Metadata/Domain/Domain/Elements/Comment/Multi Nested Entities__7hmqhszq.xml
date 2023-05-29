@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="290c956c-6439-4715-9164-e4715509b5e4" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Multi Nested Entities</name>
+  <display>Multi Nested Entities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f4b65429-27f6-4c79-8ede-fae1d8d86614</parentFolderId>
+  <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

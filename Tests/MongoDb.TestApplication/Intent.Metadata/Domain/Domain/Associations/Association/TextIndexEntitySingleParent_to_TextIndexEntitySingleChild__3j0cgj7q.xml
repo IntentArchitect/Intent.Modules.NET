@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fa85e132-11d5-4d98-b8f8-fe9773d03553">
+  <sourceEnd id="c4a97b98-d245-48ba-bc56-2f7b13544554" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TextIndexEntitySingleParent</name>
+    <display>TextIndexEntitySingleParent: TextIndexEntitySingleParent</display>
+    <order>0</order>
+    <typeReference id="ed54870e-1325-4bfb-b1a6-d669e2d3d849">
+      <typeId>c2906918-efaf-41ec-9005-c70656a3ed77</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fa85e132-11d5-4d98-b8f8-fe9773d03553" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TextIndexEntitySingleChild</name>
+    <display>TextIndexEntitySingleChild: TextIndexEntitySingleChild   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="17437f20-d553-4a57-9223-58153ec484f8">
+      <typeId>c089fb39-bc7f-4e10-b13b-ad16db9bb98c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

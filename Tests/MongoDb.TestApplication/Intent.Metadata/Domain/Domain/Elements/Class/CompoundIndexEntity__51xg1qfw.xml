@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="02aa3d49-7f8d-4644-b3a1-6a60dcfc5a58" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>CompoundIndexEntity</name>
+  <display>CompoundIndexEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f4b65429-27f6-4c79-8ede-fae1d8d86614</parentFolderId>
+  <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5b8ac2cd-492a-400e-b538-53b9754d25cc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b6f4704d-654b-4b32-a603-f18754b6b3d6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>02aa3d49-7f8d-4644-b3a1-6a60dcfc5a58</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a1376374-1787-4461-a7f3-8231e20cd43c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SomeField</name>
+      <display>SomeField: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e9a89f94-9e54-495e-83b2-ed54d376e8c3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>02aa3d49-7f8d-4644-b3a1-6a60dcfc5a58</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="52b4cfc5-f44e-4faa-b674-53c894fc8fa9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CompoundOne</name>
+      <display>CompoundOne: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="79837e6e-e97d-411f-982d-e2cfa6a9cdd8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>02aa3d49-7f8d-4644-b3a1-6a60dcfc5a58</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="82f5f4a4-697b-4fce-b9eb-2a72612ba9ae" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CompoundTwo</name>
+      <display>CompoundTwo: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9e86ac43-3c2d-42ec-a788-632f0f00c747">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>02aa3d49-7f8d-4644-b3a1-6a60dcfc5a58</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

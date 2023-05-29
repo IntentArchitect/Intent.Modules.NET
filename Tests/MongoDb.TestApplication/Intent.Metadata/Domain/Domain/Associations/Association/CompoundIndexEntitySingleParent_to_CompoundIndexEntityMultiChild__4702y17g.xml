@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f12d253d-6627-4b12-a716-9fde47cdc00d">
+  <sourceEnd id="327ade6b-e07a-4fc3-b77c-3ce3e532a2ec" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CompoundIndexEntitySingleParent</name>
+    <display>CompoundIndexEntitySingleParent: CompoundIndexEntityMultiParent</display>
+    <order>0</order>
+    <typeReference id="c0fb281c-09cd-40c4-8319-1d4bd3aef0ad">
+      <typeId>b82b9031-b047-4dbf-8532-1fcb5a3ccab8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f12d253d-6627-4b12-a716-9fde47cdc00d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>CompoundIndexEntityMultiChild</name>
+    <display>CompoundIndexEntityMultiChild: CompoundIndexEntityMultiChild[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="430698d6-413a-4e4a-a5f5-55e66ec2011b">
+      <typeId>5663a7bd-193c-4619-8cd1-d1778e65b77b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

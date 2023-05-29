@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0c0b148c-a4e6-49d5-bcf0-d9a56512dcc9" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Single Entities</name>
+  <display>Single Entities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f4b65429-27f6-4c79-8ede-fae1d8d86614</parentFolderId>
+  <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

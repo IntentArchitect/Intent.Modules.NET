@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="04ce1545-a4d2-40e5-87f4-ffa6baf05218">
+  <sourceEnd id="b7f862e9-5324-429a-b628-d5ce19dad79b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SingleIndexEntitySingleParent</name>
+    <display>SingleIndexEntitySingleParent: SingleIndexEntityMultiParent</display>
+    <order>0</order>
+    <typeReference id="115f23ef-6174-4fdc-b83b-dc3667182525">
+      <typeId>9bbd03ba-31a4-46fd-bbb5-391a0112b4d5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="04ce1545-a4d2-40e5-87f4-ffa6baf05218" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>SingleIndexEntityMultiChild</name>
+    <display>SingleIndexEntityMultiChild: SingleIndexEntityMultiChild[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="f0fe0c1c-f656-44b3-966e-cd843221afed">
+      <typeId>b66ba3a1-4bc9-47f2-b0ac-819231f82f4c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
