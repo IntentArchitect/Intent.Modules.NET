@@ -27,7 +27,9 @@ namespace Intent.Modules.AspNetCore.Templates.Program
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"Program", @class =>
+                .AddUsing("Microsoft.AspNetCore.Hosting")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddClass("Program", @class =>
                 {
                     @class.AddMethod("void", "Main", method =>
                     {
