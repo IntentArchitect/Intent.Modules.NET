@@ -13,17 +13,17 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetStateRepositoryName<T>(this IntentTemplateBase<T> template)
+        public static string GetStateRepositoryName(this IIntentTemplate template)
         {
             return template.GetTypeName(StateRepositoryTemplate.TemplateId);
         }
 
-        public static string GetStateRepositoryInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetStateRepositoryInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(StateRepositoryInterfaceTemplate.TemplateId);
         }
 
-        public static string GetStateRepositoryUnitOfWorkBehaviourName<T>(this IntentTemplateBase<T> template)
+        public static string GetStateRepositoryUnitOfWorkBehaviourName(this IIntentTemplate template)
         {
             return template.GetTypeName(StateRepositoryUnitOfWorkBehaviourTemplate.TemplateId);
         }
