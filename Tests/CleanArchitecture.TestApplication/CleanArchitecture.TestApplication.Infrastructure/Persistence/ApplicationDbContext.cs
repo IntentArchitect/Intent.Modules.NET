@@ -36,6 +36,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
         public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
+        public DbSet<AsyncOperationsClass> AsyncOperationsClasses { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
@@ -62,6 +63,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateTestNoIdReturnConfiguration());
+            modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeManyBConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());

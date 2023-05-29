@@ -35,6 +35,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             services.AddTransient<IAggregateTestNoIdReturnRepository, AggregateTestNoIdReturnRepository>();
+            services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
             services.AddTransient<IClassWithDefaultRepository, ClassWithDefaultRepository>();
             services.AddTransient<IDataContractClassRepository, DataContractClassRepository>();
             services.AddTransient<IImplicitKeyAggrRootRepository, ImplicitKeyAggrRootRepository>();
