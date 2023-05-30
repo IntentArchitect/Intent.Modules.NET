@@ -45,24 +45,26 @@ function applyHttpSettingsToOperations(operation, baseRoute) {
     }
 
     let httpSettings = operation.getStereotype(httpSettingsId);
-    if (operation.getName().startsWith("Create")) {
-        httpSettings.getProperty("Verb").setValue("POST");
-        httpSettings.getProperty("Route").setValue(`${baseRoute}`)
-    } else if (operation.getName().startsWith("Update")) {
-        httpSettings.getProperty("Verb").setValue("PUT");
-        httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
-    } else if (operation.getName().startsWith("Delete")) {
-        httpSettings.getProperty("Verb").setValue("DELETE");
-        httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
-    } else if (operation.getName().startsWith("Get") || operation.getName().startsWith("Find") || operation.getName().startsWith("Lookup")) {
-        httpSettings.getProperty("Verb").setValue("GET");
-        httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
-    } else if (operation.typeReference.getType() != null) {
-        httpSettings.getProperty("Verb").setValue("GET");
-        httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `/{id}` : "")}`)
-    } else {
-        httpSettings.getProperty("Verb").setValue("POST");
-        httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${toKebabCase(operation.getName())}`)
+    if (!httpSettings.getProperty("Route").getValue()){
+        if (operation.getName().startsWith("Create")) {
+            httpSettings.getProperty("Verb").setValue("POST");
+            httpSettings.getProperty("Route").setValue(`${baseRoute}`)
+        } else if (operation.getName().startsWith("Update")) {
+            httpSettings.getProperty("Verb").setValue("PUT");
+            httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
+        } else if (operation.getName().startsWith("Delete")) {
+            httpSettings.getProperty("Verb").setValue("DELETE");
+            httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
+        } else if (operation.getName().startsWith("Get") || operation.getName().startsWith("Find") || operation.getName().startsWith("Lookup")) {
+            httpSettings.getProperty("Verb").setValue("GET");
+            httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`)
+        } else if (operation.typeReference.getType() != null) {
+            httpSettings.getProperty("Verb").setValue("GET");
+            httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `/{id}` : "")}`)
+        } else {
+            httpSettings.getProperty("Verb").setValue("POST");
+            httpSettings.getProperty("Route").setValue(`${(baseRoute ? `${baseRoute}/` : "")}${toKebabCase(operation.getName())}`)
+        }
     }
 
     operation.getChildren("Parameter").forEach(parameter =&gt; {

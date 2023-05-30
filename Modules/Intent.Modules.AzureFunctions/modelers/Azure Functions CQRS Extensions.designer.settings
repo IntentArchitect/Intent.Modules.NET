@@ -38,6 +38,10 @@ if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).
 
 let httpSettings = element.getStereotype(httpSettingsId) ?? element.addStereotype(httpSettingsId);
 
+if (httpSettings.getProperty("Route").getValue()){
+    return;
+}
+
 let folderName = element.getParent().getName();
 let mappedEntity = element.getMapping().getPath()[0]?.getElement()?.getName();
 
@@ -109,6 +113,10 @@ let httpSettings = element.getStereotype(httpSettingsId) ?? element.addStereotyp
 let folderName = element.getParent().getName();
 let mappedEntity = element.getMapping()?.getElement()?.getName();
 
+if (httpSettings.getProperty("Route").getValue()){
+    return;
+}
+
 let serviceRoute = toKebabCase(folderName);
 let serviceRouteIdentifier = element.getChildren().some(x =&gt; x.getName().toLowerCase() == `${singularize(folderName.toLowerCase())}id`) 
     ? `/{${toCamelCase(singularize(folderName))}Id}`
@@ -120,6 +128,7 @@ let subRoute = mappedEntity &amp;&amp; mappedEntity != singularize(folderName) &
 httpSettings.getProperty("Verb").setValue("GET");
 httpSettings.getProperty("Route").setValue(`${serviceRoute}${serviceRouteIdentifier}${subRoute}`);
 
+
 function getUnconventionalRoute() {
     if ((element.getName().startsWith("Get") ||
         element.getName().startsWith("Find") ||
@@ -128,9 +137,6 @@ function getUnconventionalRoute() {
         return "";
     }
     let queryRoute = toKebabCase(removeSuffix(removePrefix(element.getName(), "Get", "Find", "Lookup"), "Query"));
-    console.warn(queryRoute);
-    console.warn(toKebabCase(mappedEntity ?? singularize(folderName)));
-    console.warn(serviceRoute);
     return removePrefix(queryRoute, serviceRoute, toKebabCase(mappedEntity ?? singularize(folderName)), "-");
 }</script>
         </macro>
