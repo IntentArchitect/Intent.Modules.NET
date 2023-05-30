@@ -11,20 +11,20 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateRepositoryInterface
+namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.GenericStateStoreRepositoryInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class StateRepositoryInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class GenericStateStoreRepositoryInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Dapr.AspNetCore.StateManagement.StateRepositoryInterface";
+        public const string TemplateId = "Intent.Dapr.AspNetCore.StateManagement.GenericStateStoreRepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public StateRepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public GenericStateStoreRepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddInterface("IStateRepository", @class => @class
+                .AddInterface("IStateStoreRepository", @class => @class
                     .WithComments(new[]
                     {
                         "/// <summary>",

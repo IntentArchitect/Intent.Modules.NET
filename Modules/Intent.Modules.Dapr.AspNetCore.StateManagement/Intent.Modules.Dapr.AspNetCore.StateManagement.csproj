@@ -1,12 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.9" />
+    <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.2" />
+    <PackageReference Include="Intent.Modules.Metadata.DocumentDB" Version="1.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.3" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,12 +29,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>StateRepositoryTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GenericStateStoreRepositoryTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\StateRepository\StateRepositoryTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>StateRepositoryTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GenericStateStoreRepositoryTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

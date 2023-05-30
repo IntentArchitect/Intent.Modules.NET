@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateRepository
+namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.GenericStateStoreRepository
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,9 +22,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class StateRepositoryTemplate : CSharpTemplateBase<object>
+    public partial class GenericStateStoreRepositoryTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -36,22 +36,22 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
                     "ng System.Threading.Tasks;\r\nusing Dapr.Client;\r\n\r\n[assembly: DefaultIntentManage" +
                     "d(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetStateRepositoryInterfaceName()));
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetGenericStateStoreRepositoryInterfaceName()));
             
             #line default
             #line hidden
@@ -59,7 +59,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
                     "vate readonly DaprClient _daprClient;\r\n        private readonly ConcurrentQueue<" +
                     "Func<CancellationToken, Task>> _actions = new();\r\n\r\n        public ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\StateRepository\StateRepositoryTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.StateManagement\Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

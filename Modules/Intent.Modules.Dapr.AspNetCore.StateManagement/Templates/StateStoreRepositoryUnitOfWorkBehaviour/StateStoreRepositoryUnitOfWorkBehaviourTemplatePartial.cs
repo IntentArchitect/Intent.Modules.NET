@@ -12,15 +12,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateRepositoryUnitOfWorkBehaviour
+namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreRepositoryUnitOfWorkBehaviour
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class StateRepositoryUnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class StateStoreRepositoryUnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Dapr.AspNetCore.StateManagement.StateRepositoryUnitOfWorkBehaviour";
+        public const string TemplateId = "Intent.Dapr.AspNetCore.StateManagement.StateStoreRepositoryUnitOfWorkBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public StateRepositoryUnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public StateStoreRepositoryUnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")
@@ -32,7 +32,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateReposito
                     .ImplementsInterface("IPipelineBehavior<TRequest, TResponse>")
                     .AddGenericTypeConstraint("TRequest", c => c.AddType("IRequest<TResponse>"))
                     .AddConstructor(constructor => constructor
-                        .AddParameter(this.GetStateRepositoryInterfaceName(), "stateRepository", p => p.IntroduceReadonlyField())
+                        .AddParameter(this.GetGenericStateStoreRepositoryInterfaceName(), "stateRepository", p => p.IntroduceReadonlyField())
                     )
                     .AddMethod("Task<TResponse>", "Handle", method => method
                         .Async()

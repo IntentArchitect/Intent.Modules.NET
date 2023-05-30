@@ -17,7 +17,7 @@ using Dapr.Client;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #> : <#= this.GetStateRepositoryInterfaceName() #>
+    public class <#= ClassName #> : <#= this.GetGenericStateStoreRepositoryInterfaceName() #>
     {
         private const string StateStoreName = "statestore";
         private readonly DaprClient _daprClient;

@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateRepositoryInterface
+namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.GenericStateStoreRepository
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class StateRepositoryInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class GenericStateStoreRepositoryTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => StateRepositoryInterfaceTemplate.TemplateId;
+        public override string TemplateId => GenericStateStoreRepositoryTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new StateRepositoryInterfaceTemplate(outputTarget);
+            return new GenericStateStoreRepositoryTemplate(outputTarget);
         }
     }
 }
