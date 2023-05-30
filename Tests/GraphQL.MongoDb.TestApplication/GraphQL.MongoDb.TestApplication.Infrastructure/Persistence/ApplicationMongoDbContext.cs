@@ -59,12 +59,12 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure.Persistence
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
         {
             mappingBuilder.Entity<Privilege>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .Ignore(e => e.DomainEvents);
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .Ignore(entity => entity.DomainEvents);
 
             mappingBuilder.Entity<User>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .Ignore(e => e.DomainEvents);
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .Ignore(entity => entity.DomainEvents);
             base.OnConfigureMapping(mappingBuilder);
         }
     }

@@ -34,10 +34,10 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
         {
             mappingBuilder.Entity<Invoice>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<Tag>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
             base.OnConfigureMapping(mappingBuilder);
         }
     }
