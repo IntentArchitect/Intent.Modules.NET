@@ -173,7 +173,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
             if (GetMappedParameters(operation).Any())
             {
-                return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPath.ToPascalCase() + " = " + x.Name.ToParameterName()))} }}";
+                return $"new {template.GetTypeName(requestType)} ( {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPath.ToParameterName() + " : " + x.Name.ToParameterName()))} )";
             }
 
             return $"new {template.GetTypeName(requestType)}()";

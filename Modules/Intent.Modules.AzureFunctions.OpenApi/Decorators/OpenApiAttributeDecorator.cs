@@ -3,7 +3,9 @@ using System.Linq;
 using System.Xml.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -57,16 +59,12 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 var runMethod = @class.FindMethod("Run");
                 runMethod.AddAttribute("OpenApiOperation", att =>
                 {
-                    var mappedOperation = _template.Model.InternalElement.AsOperationModel() ??
-                        (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null);
+                    var operationInfo = GetOperatiopnInfo();
 
-                    att.AddArgument($"\"{mappedOperation.Name}\"");
-
+                    att.AddArgument($"\"{operationInfo.Name}\"");
                     var grouping = GetOperationGrouping(endpointModel);
-                    string serviceName = (endpointModel.InternalElement.ParentElement?.Name ?? "Default").RemoveSuffix("Controller", "Service");
                     att.AddArgument($"tags: new [] {{\"{grouping}\"}}");
-
-                    att.AddArgument($"Description = \"{GetDescription(mappedOperation)}\"");
+                    att.AddArgument($"Description = \"{GetDescription(operationInfo)}\"");
                 });
 
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
@@ -117,6 +115,34 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             }, 10);
         }
 
+        private OperationInfo GetOperatiopnInfo()
+        {
+            var mappedOperation = _template.Model.InternalElement.AsOperationModel() ??
+                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null);
+
+            if (mappedOperation != null)
+            {
+                return new OperationInfo(mappedOperation.Name, mappedOperation.InternalElement);
+            }
+
+            var commandModel = _template.Model.InternalElement.AsCommandModel() ??
+                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsCommandModel() : null);
+
+            if (commandModel != null)
+            {
+                return new OperationInfo(commandModel.Name, commandModel.InternalElement);
+            }
+
+            var queryModel = _template.Model.InternalElement.AsQueryModel() ??
+                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsQueryModel() : null);
+
+            if (queryModel != null)
+            {
+                return new OperationInfo(queryModel.Name, queryModel.InternalElement);
+            }
+            throw new Exception("Unknow operation type");
+        }
+
         private string GetParameterLocation(HttpInputSource? source)
         {
             return source switch
@@ -128,9 +154,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             };
         }
 
-        private static string GetDescription(OperationModel mappedOperation)
+        private static string GetDescription(OperationInfo operationInfo)
         {
-            return !string.IsNullOrEmpty(mappedOperation.InternalElement.Comment) ? mappedOperation.InternalElement.Comment : mappedOperation.Name.ToSentenceCase();
+            return !string.IsNullOrEmpty(operationInfo.Element.Comment) ? operationInfo.Element.Comment : operationInfo.Name.ToSentenceCase();
         }
 
         private string GetOperationGrouping(IHttpEndpointModel endpointModel)
@@ -149,5 +175,20 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             }
             return result.ToPascalCase();
         }
+
+        private class OperationInfo
+        {
+            public OperationInfo(string name, IElement element)
+            {
+                Name = name;
+                Element = element;
+            }
+
+            internal string Name { get; }
+            internal IElement Element { get; }
+        }
+
+
+
     }
 }
