@@ -15,6 +15,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
+using Intent.MongoDb.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -119,44 +120,90 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>()");
             var pk = aggregate.GetPrimaryKeys().Single();
 
-            if (pk.Type.Element.IsStringType())
+            result.AddChainStatement(new CSharpInvocationStatement("HasKey")
+                .WithoutSemicolon()
+                .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
+                .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
+
+            foreach (var index in new ClassExtensionModel(aggregate.InternalElement).MongoDbIndices)
             {
-                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))");
-            }
-            else if (pk.Type.Element.IsGuidType())
-            {
-                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator))");
-            }
-            //result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator))");
-#warning what do we need here
-            /*
-            else if (pk.Type.Element.IsIntType())
-            {
-                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => new Int32KeyGenerator<MyIntity>(this.Connection))");
-            }
-            else if (pk.Type.Element.IsLongType())
-            {
-                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => new Int64KeyGenerator<MyIntity>(this.Connection))");
-            }*/
-            else
-            {
-                throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].");
+                if (index.Fields.Count == 0)
+                {
+                    continue;
+                }
+
+                var build = new CSharpMethodChainStatement("build")
+                    .WithoutSemicolon()
+                    .AddChainStatement($@"HasName(""{index.Name}"")");
+
+                build.AddChainStatement($"HasType(IndexType.Standard)");
+
+                if (index.GetSettings().SortOrder().IsDescending())
+                {
+                    build.AddChainStatement($"IsDescending()");
+                }
+
+                result.AddChainStatement(new CSharpInvocationStatement("HasIndex")
+                    .WithoutSemicolon()
+                    .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody(GetEntityIndexExpression(index)))
+                    .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(build)));
             }
 
-            if ((TryGetTemplate("Domain.Entity.State", aggregate, out ICSharpFileBuilderTemplate entityTemplate) ||
-                 TryGetTemplate("Domain.Entity", aggregate, out entityTemplate)))
+            if (!TryGetTemplate("Domain.Entity.State", aggregate, out ICSharpFileBuilderTemplate entityTemplate) &&
+                !TryGetTemplate("Domain.Entity", aggregate, out entityTemplate))
             {
-                var entityClass = entityTemplate.CSharpFile.Classes.First();
-                foreach (var property in entityClass.GetAllProperties())
+                return result;
+            }
+
+            var entityClass = entityTemplate.CSharpFile.Classes.First();
+            foreach (var property in entityClass.GetAllProperties())
+            {
+                if (property.TryGetMetadata("non-persistent", out bool nonPersistent))
                 {
-                    if (property.TryGetMetadata("non-persistent", out bool nonPersistent))
-                    {
-                        result.AddChainStatement($"Ignore(e => e.{property.Name})");
-                    }
+                    result.AddChainStatement($"Ignore(entity => entity.{property.Name})");
                 }
             }
 
             return result;
+        }
+
+        private CSharpStatement GetEntityIndexExpression(DocumentStoreIndexModel index)
+        {
+            if (index.Fields.Count != 1)
+            {
+                var block = new CSharpObjectInitializerBlock("new ");
+                foreach (var field in index.Fields)
+                {
+                    block.AddStatement($"entity.{GetMapPathExpression(field)}");
+                }
+                return block;
+            }
+
+            return $"entity.{GetMapPathExpression(index)}";
+        }
+
+        private static string GetMapPathExpression(DocumentStoreIndexModel index)
+        {
+            return string.Join(".", GetMapPathExpression(index.Fields[0]));
+        }
+        
+        private static string GetMapPathExpression(IndexFieldModel field)
+        {
+            return string.Join(".", field.InternalElement.MappedElement.Path
+                .Select(x => $"{x.Name}{(x.Element.AsAssociationEndModel()?.IsCollection == true ? ".First()" : string.Empty)}"));
+        }
+
+        private static string GetKeyGeneratorExpression(ICanBeReferencedType typeElement, ClassModel aggregate)
+        {
+            return typeElement switch
+            {
+                //_ when typeElement.IsObjectIdType() => "build.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator)",
+                _ when typeElement.IsStringType() => "build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator)",
+                _ when typeElement.IsGuidType() => "build.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator)",
+                //_ when typeElement.IsIntType() => "new Int32KeyGenerator<MyEntity>(this.Connection)",
+                //_ when typeElement.IsLongType() => "new Int64KeyGenerator<MyEntity>(this.Connection)",
+                _ => throw new InvalidOperationException($"Given Type [{typeElement.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].")
+            };
         }
 
 

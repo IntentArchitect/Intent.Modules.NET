@@ -72,138 +72,154 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
         {
             mappingBuilder.Entity<A_RequiredComposite>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<AggregateA>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<AggregateB>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<B_OptionalAggregate>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<B_OptionalDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<C_RequireComposite>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
-            // IntentIgnore
+            mappingBuilder.Entity<CompoundIndexEntity>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => new
+                {
+                    entity.CompoundOne,
+                    entity.CompoundTwo
+                }, build => build
+                    .HasName("CompoundIndexEntities_CompoundOne_CompoundTwo")
+                    .HasType(IndexType.Standard));
+
             mappingBuilder.Entity<CompoundIndexEntityMultiParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
                 .HasIndex(entity => new
                 {
                     entity.CompoundIndexEntityMultiChild.First().CompoundOne,
                     entity.CompoundIndexEntityMultiChild.First().CompoundTwo
-                }, build => build.HasName("MultiCompoundIndex").IsDescending());
+                }, build => build
+                    .HasName("CompoundIndexEntityMultiParents_CompoundOne_CompoundTwo")
+                    .HasType(IndexType.Standard));
 
-            // IntentIgnore
             mappingBuilder.Entity<CompoundIndexEntitySingleParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
                 .HasIndex(entity => new
                 {
                     entity.CompoundIndexEntitySingleChild.CompoundOne,
                     entity.CompoundIndexEntitySingleChild.CompoundTwo
-                }, build => build.HasName("SingleCompoundIndex").IsDescending());
-
-            // IntentIgnore
-            mappingBuilder.Entity<CompoundIndexEntity>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => new { entity.CompoundOne, entity.CompoundTwo }, build => build.HasName("CompoundIndex"));
+                }, build => build
+                    .HasName("CompoundIndexEntitySingleParents_CompoundOne_CompoundTwo")
+                    .HasType(IndexType.Standard));
 
             mappingBuilder.Entity<D_MultipleDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<D_OptionalAggregate>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<E_RequiredCompositeNav>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<F_OptionalAggregateNav>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<F_OptionalDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<G_RequiredCompositeNav>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<H_MultipleDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<H_OptionalAggregateNav>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<I_MultipleAggregate>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<I_RequiredDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<IdTypeGuid>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator));
 
             mappingBuilder.Entity<IdTypeOjectIdStr>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<J_MultipleAggregate>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<J_MultipleDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<K_MultipleAggregateNav>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<K_MultipleDependent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
-            // IntentIgnore
-            mappingBuilder.Entity<MultikeyIndexEntityMultiParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.MultikeyIndexEntityMultiChild.First().MultiKey, build => build.HasName("MultiMultiKey"));
-
-            // IntentIgnore
-            mappingBuilder.Entity<MultikeyIndexEntitySingleParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.MultikeyIndexEntitySingleChild.MultiKey, build => build.HasName("SingleMultiKey"));
-
-            // IntentIgnore
-            mappingBuilder.Entity<SingleIndexEntityMultiParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.SingleIndexEntityMultiChild.First().SingleIndex, build => build.HasName("MultiSingleIndex"));
-
-            // IntentIgnore
-            mappingBuilder.Entity<SingleIndexEntitySingleParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.SingleIndexEntitySingleChild.SingleIndex, build => build.HasName("SingleSingleIndex"));
-
-            // IntentIgnore
-            mappingBuilder.Entity<TextIndexEntity>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.FullText, build => build.HasName("TextIndex").HasType(IndexType.Text));
-
-            // IntentIgnore
-            mappingBuilder.Entity<TextIndexEntityMultiParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.TextIndexEntityMultiChild.First().FullText, build => build.HasType(IndexType.Text).HasName("MultiTextIndex"));
-
-            // IntentIgnore
-            mappingBuilder.Entity<TextIndexEntitySingleParent>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.TextIndexEntitySingleChild.FullText, build => build.HasType(IndexType.Text).HasName("SingleTextIndex"));
-
-            // IntentIgnore
             mappingBuilder.Entity<MultikeyIndexEntity>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.MultiKey, build => build.HasName("MultiKey").IsDescending());
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.MultiKey, build => build
+                    .HasName("MultikeyIndexEntities_MultiKey")
+                    .HasType(IndexType.Standard));
 
-            // IntentIgnore
+            mappingBuilder.Entity<MultikeyIndexEntityMultiParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.MultikeyIndexEntityMultiChild.First().MultiKey, build => build
+                    .HasName("MultikeyIndexEntityMultiParents_MultiKey")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<MultikeyIndexEntitySingleParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.MultikeyIndexEntitySingleChild.MultiKey, build => build
+                    .HasName("MultikeyIndexEntitySingleParents_MultiKey")
+                    .HasType(IndexType.Standard));
+
             mappingBuilder.Entity<SingleIndexEntity>()
-                .HasKey(e => e.Id, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
-                .HasIndex(entity => entity.SingleIndex, build => build.HasName("SingleIndex").HasType(IndexType.Standard).IsDescending());
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.SingleIndex, build => build
+                    .HasName("SingleIndexEntities_SingleIndex")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<SingleIndexEntityMultiParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.SingleIndexEntityMultiChild.First().SingleIndex, build => build
+                    .HasName("SingleIndexEntityMultiParents_SingleIndex")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<SingleIndexEntitySingleParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.SingleIndexEntitySingleChild.SingleIndex, build => build
+                    .HasName("SingleIndexEntitySingleParents_SingleIndex")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<TextIndexEntity>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.FullText, build => build
+                    .HasName("TextIndexEntities_FullText")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<TextIndexEntityMultiParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.TextIndexEntityMultiChild.First().FullText, build => build
+                    .HasName("TextIndexEntityMultiParents_FullText")
+                    .HasType(IndexType.Standard));
+
+            mappingBuilder.Entity<TextIndexEntitySingleParent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .HasIndex(entity => entity.TextIndexEntitySingleChild.FullText, build => build
+                    .HasName("TextIndexEntitySingleParents_FullText")
+                    .HasType(IndexType.Standard));
 
             base.OnConfigureMapping(mappingBuilder);
         }

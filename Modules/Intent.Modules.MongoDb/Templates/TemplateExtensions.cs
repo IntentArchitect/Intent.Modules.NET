@@ -12,12 +12,12 @@ namespace Intent.Modules.MongoDb.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetApplicationMongoDbContextName<T>(this IntentTemplateBase<T> template)
+        public static string GetApplicationMongoDbContextName(this IIntentTemplate template)
         {
             return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
         }
 
-        public static string GetMongoDbUnitOfWorkInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetMongoDbUnitOfWorkInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId);
         }

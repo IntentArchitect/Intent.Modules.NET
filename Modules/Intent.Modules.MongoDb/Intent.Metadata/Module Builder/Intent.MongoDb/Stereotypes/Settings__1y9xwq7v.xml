@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a482271c-a3f0-4391-9c9f-98d06d71e85a" version="3.1.0">
+  <name>Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="fcd2985d-6794-4c0f-a01f-7d278e566b6d">Document Store Index</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b17c482e-7dc8-4137-95d1-c1075cb47790</parentFolderId>
+  <order>0</order>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <properties>
+    <property id="e337c6cf-38f1-485d-b2c2-df9ecab0979c">
+      <name>Use Default Name</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="3a85c8df-015b-4f56-9505-9eba91459fd4">
+      <name>Unique</name>
+      <type>boolean</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="b101af66-8713-4b15-9844-eab6e6084b3e">
+      <name>Sort Order</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Ascending</defaultValue>
+      <valueOptions>
+        <option>Ascending</option>
+        <option>Descending</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

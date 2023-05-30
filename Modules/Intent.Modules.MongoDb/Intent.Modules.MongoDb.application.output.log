@@ -9,6 +9,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#c0634e31-c733-43d9-81de-280d8f883158</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#fcd2985d-6794-4c0f-a01f-7d278e566b6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DocumentStoreIndexModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DocumentStoreIndexModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#fcd2985d-6794-4c0f-a01f-7d278e566b6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DocumentStoreIndexModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DocumentStoreIndexModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#e22a4f98-e62c-428c-8fc8-a6523f72d6e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/IndexFieldModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IndexFieldModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#d9b9b16c-50cd-4c7e-a2e0-a92a3446befc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -54,6 +86,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.MongoDb.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.MongoDb.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b42cb104-9697-4b78-873e-ca5602b25497</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#c1f5fb5e-a1fc-47f2-99f2-c377c4714d88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/MongoDb Types.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDb Types.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
