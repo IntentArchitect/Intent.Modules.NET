@@ -16,6 +16,7 @@ namespace GraphQL.AzureFunction.TestApplication.Infrastructure.Persistence
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,7 @@ namespace GraphQL.AzureFunction.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

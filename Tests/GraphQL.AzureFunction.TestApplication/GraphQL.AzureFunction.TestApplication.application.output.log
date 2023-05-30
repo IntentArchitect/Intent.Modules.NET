@@ -28,38 +28,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#cb5131c5-a043-4869-a75a-ea83f5a97698</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/CreateCustomer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateCustomer.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3d5a5809-251a-4fa4-adf5-93724be23480</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/DeleteCustomer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DeleteCustomer.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#9411eca5-f9bd-4c13-a3b0-51e96526bef6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/FindCustomerById.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FindCustomerById.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#0df37705-8d5e-425b-803b-c246a3a7c35d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/FindCustomers.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FindCustomers.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#5c72c7f5-5a19-4034-8f19-3d5633ef2694</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/GraphQL.AzureFunction.TestApplication.Api.csproj</ApplicationRelativeFilePath>
@@ -75,11 +43,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9d5cb5b1-e9bc-40a1-8a02-14b6c9801ee6</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.MutationType#b8d31b25-f23d-4dfe-a613-4583f5299ecc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/GraphQL/Mutations/ProductMutations.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductMutations.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a8755934-b4eb-4c9c-908f-ed2b0b3a8267</ProjectId>
       <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#ddffe1ac-5b36-4498-a7cd-48c451d88f29</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/CustomersQueries.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomersQueries.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a8755934-b4eb-4c9c-908f-ed2b0b3a8267</ProjectId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.QueryType#b8d31b25-f23d-4dfe-a613-4583f5299ecc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/ProductQueries.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductQueries.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -123,11 +107,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#937010f2-33bb-4f3a-b7b3-3b966d1ba4ea</CorrelationId>
+      <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/UpdateCustomer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UpdateCustomer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -244,6 +236,102 @@
     </FileLog>
     <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8269acf9-51dd-4327-b68b-5a57ec168cc0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8269acf9-51dd-4327-b68b-5a57ec168cc0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#afea2217-eb2b-4dc6-bbab-52deeef252d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#afea2217-eb2b-4dc6-bbab-52deeef252d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#0642cec8-5948-462a-baa2-806e01d50c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#0642cec8-5948-462a-baa2-806e01d50c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ef643498-90ca-4440-b993-49b95d9c4498</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ef643498-90ca-4440-b993-49b95d9c4498</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#687df041-6471-4fbb-8c89-92885e4d1af3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/ProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#687df041-6471-4fbb-8c89-92885e4d1af3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/ProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d3203a02-665d-4a6a-ab18-85773dc241cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d3203a02-665d-4a6a-ab18-85773dc241cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
@@ -283,6 +371,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>66761250-e46c-4fdd-b609-2168be1d0324</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e4113997-4ee8-4994-b5ad-06c354cde970</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>36ed3db0-71de-4180-bbb0-9833b1499a1e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36ed3db0-71de-4180-bbb0-9833b1499a1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -304,6 +400,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>096adf41-3159-4774-b87a-fc3f1c5ef054</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#e4113997-4ee8-4994-b5ad-06c354cde970</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -347,6 +451,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1b2c2a59-5b49-41ef-9fc1-cd39e41f8f82</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e4113997-4ee8-4994-b5ad-06c354cde970</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/Configurations/ProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>58189423-4c67-4d16-99e8-2224442d232c</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -368,6 +480,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8b76ef8-9a94-4566-9a52-384bc7003fd2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#e4113997-4ee8-4994-b5ad-06c354cde970</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/ProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

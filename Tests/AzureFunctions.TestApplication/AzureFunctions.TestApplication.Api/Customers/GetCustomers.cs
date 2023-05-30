@@ -4,9 +4,10 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.AzureFunction.TestApplication.Application.Customers;
-using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.Customers;
+using AzureFunctions.TestApplication.Application.Customers.GetCustomers;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -17,19 +18,19 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
-namespace GraphQL.AzureFunction.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api
 {
-    public class FindCustomers
+    public class GetCustomers
     {
-        private readonly ICustomersService _appService;
+        private readonly IMediator _mediator;
 
-        public FindCustomers(ICustomersService appService)
+        public GetCustomers(IMediator mediator)
         {
-            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("FindCustomers")]
-        [OpenApiOperation("FindCustomers", tags: new[] { "Customers" }, Description = "Find customers")]
+        [FunctionName("GetCustomers")]
+        [OpenApiOperation("GetCustomersQuery", tags: new[] { "Customers" }, Description = "Get customers query")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<CustomerDto>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
@@ -38,7 +39,7 @@ namespace GraphQL.AzureFunction.TestApplication.Api
         {
             try
             {
-                var result = await _appService.FindCustomers();
+                var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
                 return new OkObjectResult(result);
             }
             catch (FormatException exception)

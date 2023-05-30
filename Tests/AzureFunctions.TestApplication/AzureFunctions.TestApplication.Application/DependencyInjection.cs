@@ -5,6 +5,7 @@ using AzureFunctions.TestApplication.Application.Implementation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,6 +19,7 @@ namespace AzureFunctions.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();

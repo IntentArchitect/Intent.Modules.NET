@@ -29,6 +29,7 @@ namespace GraphQL.AzureFunction.TestApplication.Api.Configuration
         {
             return builder
                 .AddQueryType()
+                .AddTypeExtension<ProductQueries>()
                 .AddTypeExtension<CustomersQueries>();
         }
 
@@ -37,6 +38,7 @@ namespace GraphQL.AzureFunction.TestApplication.Api.Configuration
             return builder
                 .AddMutationConventions(applyToAllMutations: false)
                 .AddMutationType()
+                .AddTypeExtension<ProductMutations>()
                 .AddTypeExtension<CustomersMutations>();
         }
 

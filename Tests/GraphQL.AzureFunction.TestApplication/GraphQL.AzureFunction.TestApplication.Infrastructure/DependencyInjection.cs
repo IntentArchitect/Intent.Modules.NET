@@ -23,6 +23,7 @@ namespace GraphQL.AzureFunction.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             return services;
         }
     }

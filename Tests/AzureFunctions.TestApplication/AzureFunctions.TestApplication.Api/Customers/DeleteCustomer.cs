@@ -4,9 +4,9 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.AzureFunction.TestApplication.Application.Customers;
-using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.Customers.DeleteCustomer;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -17,31 +17,30 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
-namespace GraphQL.AzureFunction.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api
 {
-    public class FindCustomerById
+    public class DeleteCustomer
     {
-        private readonly ICustomersService _appService;
+        private readonly IMediator _mediator;
 
-        public FindCustomerById(ICustomersService appService)
+        public DeleteCustomer(IMediator mediator)
         {
-            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("FindCustomerById")]
-        [OpenApiOperation("FindCustomerById", tags: new[] { "Customers" }, Description = "Find customer by id")]
+        [FunctionName("DeleteCustomer")]
+        [OpenApiOperation("DeleteCustomerCommand", tags: new[] { "Customers" }, Description = "Delete customer command")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(CustomerDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "customers/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "customers/{id}")] HttpRequest req,
             Guid id,
             CancellationToken cancellationToken)
         {
             try
             {
-                var result = await _appService.FindCustomerById(id);
-                return new OkObjectResult(result);
+                await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
+                return new OkResult();
             }
             catch (FormatException exception)
             {

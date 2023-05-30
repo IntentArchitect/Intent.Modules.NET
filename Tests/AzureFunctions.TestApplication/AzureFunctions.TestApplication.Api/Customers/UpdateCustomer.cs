@@ -4,9 +4,9 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.AzureFunction.TestApplication.Application.Customers;
-using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -18,22 +18,21 @@ using Newtonsoft.Json;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
-namespace GraphQL.AzureFunction.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api
 {
     public class UpdateCustomer
     {
-        private readonly ICustomersService _appService;
+        private readonly IMediator _mediator;
 
-        public UpdateCustomer(ICustomersService appService)
+        public UpdateCustomer(IMediator mediator)
         {
-            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         [FunctionName("UpdateCustomer")]
-        [OpenApiOperation("UpdateCustomer", tags: new[] { "Customers" }, Description = "Update customer")]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CustomerUpdateDto))]
+        [OpenApiOperation("UpdateCustomerCommand", tags: new[] { "Customers" }, Description = "Update customer command")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(UpdateCustomerCommand))]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(CustomerDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "customers/{id}")] HttpRequest req,
@@ -43,9 +42,13 @@ namespace GraphQL.AzureFunction.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<CustomerUpdateDto>(requestBody);
-                var result = await _appService.UpdateCustomer(id, dto);
-                return new OkObjectResult(result);
+                var command = JsonConvert.DeserializeObject<UpdateCustomerCommand>(requestBody);
+                if (id != command.Id)
+                {
+                    return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });
+                }
+                await _mediator.Send(command, cancellationToken);
+                return new NoContentResult();
             }
             catch (FormatException exception)
             {

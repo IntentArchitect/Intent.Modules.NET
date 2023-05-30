@@ -4,9 +4,9 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.AzureFunction.TestApplication.Application.Customers;
-using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.Customers.CreateCustomer;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -18,21 +18,21 @@ using Newtonsoft.Json;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
-namespace GraphQL.AzureFunction.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api
 {
     public class CreateCustomer
     {
-        private readonly ICustomersService _appService;
+        private readonly IMediator _mediator;
 
-        public CreateCustomer(ICustomersService appService)
+        public CreateCustomer(IMediator mediator)
         {
-            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         [FunctionName("CreateCustomer")]
-        [OpenApiOperation("CreateCustomer", tags: new[] { "Customers" }, Description = "Create customer")]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CustomerCreateDto))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(CustomerDto))]
+        [OpenApiOperation("CreateCustomerCommand", tags: new[] { "Customers" }, Description = "Create customer command")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateCustomerCommand))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "customers")] HttpRequest req,
@@ -41,8 +41,8 @@ namespace GraphQL.AzureFunction.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<CustomerCreateDto>(requestBody);
-                var result = await _appService.CreateCustomer(dto);
+                var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
+                var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }
             catch (FormatException exception)

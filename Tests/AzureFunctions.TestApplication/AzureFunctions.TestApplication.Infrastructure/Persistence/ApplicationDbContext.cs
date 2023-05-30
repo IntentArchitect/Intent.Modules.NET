@@ -15,6 +15,8 @@ namespace AzureFunctions.TestApplication.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Customer> Customers { get; set; }
+
         public DbSet<SampleDomain> SampleDomains { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +24,7 @@ namespace AzureFunctions.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new SampleDomainConfiguration());
         }
 

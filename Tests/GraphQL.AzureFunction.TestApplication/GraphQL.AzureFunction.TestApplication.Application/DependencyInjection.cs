@@ -5,6 +5,7 @@ using GraphQL.AzureFunction.TestApplication.Application.Common.Validation;
 using GraphQL.AzureFunction.TestApplication.Application.Implementation;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,6 +19,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomersService, CustomersService>();
             return services;
