@@ -6,7 +6,6 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
 {

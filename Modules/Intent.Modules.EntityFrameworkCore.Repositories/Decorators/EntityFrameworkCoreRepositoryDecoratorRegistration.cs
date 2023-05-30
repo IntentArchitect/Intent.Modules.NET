@@ -2,7 +2,6 @@ using System.ComponentModel;
 using Intent.Engine;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators

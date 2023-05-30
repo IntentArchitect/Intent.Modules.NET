@@ -1,14 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;

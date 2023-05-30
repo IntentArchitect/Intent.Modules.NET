@@ -9,15 +9,8 @@
 // ------------------------------------------------------------------------------
 namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface
 {
-    using Intent.Modelers.Domain.Api;
-    using Intent.Modules.Common.Templates;
     using Intent.Modules.Common.CSharp.Templates;
     using System;
-    using System.IO;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Collections;
-    using System.Collections.Generic;
     
     /// <summary>
     /// Class to produce the template output
@@ -36,7 +29,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
             this.Write("using System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]" +
                     "\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -52,7 +45,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
     /// <typeparam name=""T"">Type of elements</typeparam>
     public interface ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

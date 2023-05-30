@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Entities.Repositories.Api.Api;
@@ -8,7 +7,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

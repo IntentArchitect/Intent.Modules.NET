@@ -1,25 +1,17 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Intent.Engine;
-using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

@@ -9,13 +9,7 @@
 // ------------------------------------------------------------------------------
 namespace Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Intent.Modules.Common;
-    using Intent.Modules.Common.Templates;
     using Intent.Modules.Common.CSharp.Templates;
-    using Intent.Templates;
-    using Intent.Metadata.Models;
     using System;
     
     /// <summary>
@@ -35,14 +29,14 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultInten" +
                     "tManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
+            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
+            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

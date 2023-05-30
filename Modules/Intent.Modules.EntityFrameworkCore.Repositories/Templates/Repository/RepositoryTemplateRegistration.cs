@@ -1,18 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Entities.Repositories.Api.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
-using Intent.Modelers.Domain;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using Intent.SoftwareFactory;
 using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
