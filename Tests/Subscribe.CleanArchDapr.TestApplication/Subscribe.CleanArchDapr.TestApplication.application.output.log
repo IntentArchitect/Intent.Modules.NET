@@ -404,6 +404,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomIndexRepository : IRepository<CustomIndex, CustomIndex>
+    public interface ICustomIndexRepository : IEfRepository<CustomIndex, CustomIndex>
     {
 
         [IntentManaged(Mode.Fully)]

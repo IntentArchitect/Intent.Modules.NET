@@ -276,6 +276,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b2a70c3-2c8d-4c54-931f-f9f6cdb48648</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b2a70c3-2c8d-4c54-931f-f9f6cdb48648</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

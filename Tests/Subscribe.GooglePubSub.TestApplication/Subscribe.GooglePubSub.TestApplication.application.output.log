@@ -204,6 +204,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>e96f1b4b-7571-4675-8725-0a5199b703ef</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e96f1b4b-7571-4675-8725-0a5199b703ef</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e96f1b4b-7571-4675-8725-0a5199b703ef</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

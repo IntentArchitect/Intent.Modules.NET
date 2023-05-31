@@ -86,5 +86,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="673e21ae-1ddc-4b0a-a185-fe6609a929e4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c56c7c17-0ac7-4d88-b7c6-4f27e09f6183</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

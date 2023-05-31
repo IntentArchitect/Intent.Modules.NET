@@ -460,6 +460,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6af56d8a-505e-4dba-9538-cf184d053839</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6af56d8a-505e-4dba-9538-cf184d053839</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

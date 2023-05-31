@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.InheritanceAssociations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITPH_DerivedClassForConcreteAssociatedRepository : IRepository<TPH_DerivedClassForConcreteAssociated, TPH_DerivedClassForConcreteAssociated>
+    public interface ITPH_DerivedClassForConcreteAssociatedRepository : IEfRepository<TPH_DerivedClassForConcreteAssociated, TPH_DerivedClassForConcreteAssociated>
     {
 
         [IntentManaged(Mode.Fully)]

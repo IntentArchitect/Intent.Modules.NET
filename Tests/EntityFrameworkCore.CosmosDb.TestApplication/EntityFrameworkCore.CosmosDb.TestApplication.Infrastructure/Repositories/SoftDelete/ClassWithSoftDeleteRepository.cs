@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.SoftDelete;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;

@@ -1780,6 +1780,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b82b9031-b047-4dbf-8532-1fcb5a3ccab8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/Indexes/ICompoundIndexEntityMultiParentRepository.cs</ApplicationRelativeFilePath>

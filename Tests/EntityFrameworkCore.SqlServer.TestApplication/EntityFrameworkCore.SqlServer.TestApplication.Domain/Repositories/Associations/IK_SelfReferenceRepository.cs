@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IK_SelfReferenceRepository : IRepository<K_SelfReference, K_SelfReference>
+    public interface IK_SelfReferenceRepository : IEfRepository<K_SelfReference, K_SelfReference>
     {
 
         [IntentManaged(Mode.Fully)]

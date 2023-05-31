@@ -42,7 +42,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AggregateRootLong addedAggregateRootLong = null;
             var repository = Substitute.For<IAggregateRootLongRepository>();
             repository.OnAdd(ent => addedAggregateRootLong = ent);
-            repository.OnSaveChanges(() => addedAggregateRootLong.Id = expectedAggregateRootLongId);
+            repository.UnitOfWork
+                .When(async x => await x.SaveChangesAsync(CancellationToken.None))
+                .Do(_ => addedAggregateRootLong.Id = expectedAggregateRootLongId);
             var sut = new CreateAggregateRootLongCommandHandler(repository);
 
             // Act

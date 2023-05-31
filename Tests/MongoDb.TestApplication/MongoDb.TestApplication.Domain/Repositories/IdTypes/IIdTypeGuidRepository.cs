@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.IdTypes;
 namespace MongoDb.TestApplication.Domain.Repositories.IdTypes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IIdTypeGuidRepository : IRepository<IdTypeGuid, IdTypeGuid>
+    public interface IIdTypeGuidRepository : IMongoRepository<IdTypeGuid, IdTypeGuid>
     {
         [IntentManaged(Mode.Fully)]
         List<IdTypeGuid> SearchText(string searchText, Expression<Func<IdTypeGuid, bool>> filterExpression = null);

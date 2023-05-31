@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.TestApplication.Domain.Repositories.CRUD
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAggregateSingleCRepository : IRepository<AggregateSingleC, AggregateSingleC>
+    public interface IAggregateSingleCRepository : IEfRepository<AggregateSingleC, AggregateSingleC>
     {
 
         [IntentManaged(Mode.Fully)]

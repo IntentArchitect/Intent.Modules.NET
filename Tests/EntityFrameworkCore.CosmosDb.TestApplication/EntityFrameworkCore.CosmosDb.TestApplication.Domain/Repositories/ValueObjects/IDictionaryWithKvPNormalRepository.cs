@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDictionaryWithKvPNormalRepository : IRepository<DictionaryWithKvPNormal, DictionaryWithKvPNormal>
+    public interface IDictionaryWithKvPNormalRepository : IEfRepository<DictionaryWithKvPNormal, DictionaryWithKvPNormal>
     {
         [IntentManaged(Mode.Fully)]
         Task<DictionaryWithKvPNormal> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

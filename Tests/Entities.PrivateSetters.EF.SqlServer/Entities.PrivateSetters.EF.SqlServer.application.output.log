@@ -276,6 +276,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>497948a4-1de2-489c-a71d-5ce568ddeb08</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>497948a4-1de2-489c-a71d-5ce568ddeb08</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#562d3bb7-74c8-4d46-9e22-2d335e32caaf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/IInvoiceRepository.cs</ApplicationRelativeFilePath>

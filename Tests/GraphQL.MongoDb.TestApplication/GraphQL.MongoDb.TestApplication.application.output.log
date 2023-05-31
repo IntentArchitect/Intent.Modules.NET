@@ -644,6 +644,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>988c61ee-1b99-40f1-951e-b939b562acff</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>988c61ee-1b99-40f1-951e-b939b562acff</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IPersonWithAddressNormalRepository : IRepository<PersonWithAddressNormal, PersonWithAddressNormal>
+    public interface IPersonWithAddressNormalRepository : IEfRepository<PersonWithAddressNormal, PersonWithAddressNormal>
     {
         [IntentManaged(Mode.Fully)]
         Task<PersonWithAddressNormal> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

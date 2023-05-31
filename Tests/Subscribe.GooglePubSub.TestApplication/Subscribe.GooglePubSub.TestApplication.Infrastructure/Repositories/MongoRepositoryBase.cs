@@ -16,12 +16,12 @@ using Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence;
 
 namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
 {
-    public abstract class MongoRepositoryBase<TDomain, TPersistence> : IRepository<TDomain, TPersistence>
+    public abstract class MongoRepositoryBase<TDomain, TPersistence> : IMongoRepository<TDomain, TPersistence>
         where TPersistence : class, TDomain
         where TDomain : class
     {
         private readonly ApplicationMongoDbContext _dbContext;
-        public MongoRepositoryBase(ApplicationMongoDbContext context)
+        protected MongoRepositoryBase(ApplicationMongoDbContext context)
         {
             _dbContext = context;
             UnitOfWork = context;
@@ -46,21 +46,21 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
 
         public virtual List<TDomain> SearchText(
             string searchText,
-            Expression<Func<TPersistence, bool>> filterExpression = null)
+            Expression<Func<TPersistence, bool>>? filterExpression = null)
         {
             var queryable = GetSet().SearchText(searchText);
             if (filterExpression != null) queryable = queryable.Where(filterExpression);
             return queryable.ToList<TDomain>();
         }
 
-        public virtual async Task<TDomain> FindAsync(
+        public virtual async Task<TDomain?> FindAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<TDomain> FindAsync(
+        public virtual async Task<TDomain?> FindAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
             CancellationToken cancellationToken = default)
@@ -149,7 +149,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
-        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>> filterExpression)
+        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
         {
             var queryable = CreateQuery();
             if (filterExpression != null)

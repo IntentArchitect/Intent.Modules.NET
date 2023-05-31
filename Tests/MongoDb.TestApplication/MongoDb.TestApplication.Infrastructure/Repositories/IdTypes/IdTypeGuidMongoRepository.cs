@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
+using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 using MongoDb.TestApplication.Infrastructure.Persistence;
 

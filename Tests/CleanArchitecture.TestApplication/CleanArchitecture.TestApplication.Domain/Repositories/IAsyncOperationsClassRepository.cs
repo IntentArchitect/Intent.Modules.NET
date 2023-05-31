@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAsyncOperationsClassRepository : IRepository<AsyncOperationsClass, AsyncOperationsClass>
+    public interface IAsyncOperationsClassRepository : IEfRepository<AsyncOperationsClass, AsyncOperationsClass>
     {
         [IntentManaged(Mode.Fully)]
         Task<AsyncOperationsClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

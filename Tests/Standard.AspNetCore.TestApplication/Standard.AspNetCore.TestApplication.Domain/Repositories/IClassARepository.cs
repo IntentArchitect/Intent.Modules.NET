@@ -12,7 +12,7 @@ using Standard.AspNetCore.TestApplication.Domain.Entities;
 namespace Standard.AspNetCore.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IClassARepository : IRepository<ClassA, ClassA>
+    public interface IClassARepository : IEfRepository<ClassA, ClassA>
     {
 
         [IntentManaged(Mode.Fully)]

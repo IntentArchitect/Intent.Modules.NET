@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
+using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;

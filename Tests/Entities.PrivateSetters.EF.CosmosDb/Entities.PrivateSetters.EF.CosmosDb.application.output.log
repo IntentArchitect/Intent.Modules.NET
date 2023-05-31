@@ -300,6 +300,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b284fe3-cbee-4ae6-bdf3-dbad6753d2d1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b284fe3-cbee-4ae6-bdf3-dbad6753d2d1</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#87892ef1-c976-4169-b2f9-13f5338198f9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IInvoiceRepository.cs</ApplicationRelativeFilePath>

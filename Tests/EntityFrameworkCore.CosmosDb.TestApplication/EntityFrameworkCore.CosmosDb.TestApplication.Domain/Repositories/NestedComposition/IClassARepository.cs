@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.NestedComposition
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IClassARepository : IRepository<ClassA, ClassA>
+    public interface IClassARepository : IEfRepository<ClassA, ClassA>
     {
 
         [IntentManaged(Mode.Fully)]

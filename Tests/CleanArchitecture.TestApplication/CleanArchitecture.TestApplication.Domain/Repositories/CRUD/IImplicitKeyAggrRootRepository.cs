@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.TestApplication.Domain.Repositories.CRUD
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IImplicitKeyAggrRootRepository : IRepository<ImplicitKeyAggrRoot, ImplicitKeyAggrRoot>
+    public interface IImplicitKeyAggrRootRepository : IEfRepository<ImplicitKeyAggrRoot, ImplicitKeyAggrRoot>
     {
 
         [IntentManaged(Mode.Fully)]

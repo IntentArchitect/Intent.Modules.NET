@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.NestedAssociations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITreeRepository : IRepository<Tree, Tree>
+    public interface ITreeRepository : IEfRepository<Tree, Tree>
     {
 
         [IntentManaged(Mode.Fully)]

@@ -1348,6 +1348,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/IComplexDefaultIndexRepository.cs</ApplicationRelativeFilePath>

@@ -380,6 +380,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7295bc9-e2b7-4159-ac7e-9c07f4eb3f31</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7295bc9-e2b7-4159-ac7e-9c07f4eb3f31</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

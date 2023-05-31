@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
 {
-    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IRepository<TDomain, TPersistence>
+    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IEfRepository<TDomain, TPersistence>
         where TDbContext : DbContext, IUnitOfWork
         where TPersistence : class, TDomain
         where TDomain : class
@@ -36,6 +36,11 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
         public virtual void Add(TDomain entity)
         {
             GetSet().Add((TPersistence)entity);
+        }
+
+        public virtual void Update(TDomain entity)
+        {
+            GetSet().Update((TPersistence)entity);
         }
 
         public virtual async Task<TDomain?> FindAsync(
@@ -134,7 +139,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
-        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>> filterExpression)
+        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
         {
             var queryable = CreateQuery();
             if (filterExpression != null)

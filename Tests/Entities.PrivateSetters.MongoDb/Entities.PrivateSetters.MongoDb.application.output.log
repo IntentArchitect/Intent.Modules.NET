@@ -292,6 +292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>764e7b00-68ff-4802-912b-cd32e5c55c6c</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>764e7b00-68ff-4802-912b-cd32e5c55c6c</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>

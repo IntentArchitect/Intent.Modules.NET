@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftDelete
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IClassWithSoftDeleteRepository : IRepository<ClassWithSoftDelete, ClassWithSoftDelete>
+    public interface IClassWithSoftDeleteRepository : IEfRepository<ClassWithSoftDelete, ClassWithSoftDelete>
     {
         [IntentManaged(Mode.Fully)]
         Task<ClassWithSoftDelete> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

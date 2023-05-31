@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Finbuckle.SeparateDatabase.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IUserRepository : IRepository<User, User>
+    public interface IUserRepository : IEfRepository<User, User>
     {
 
         [IntentManaged(Mode.Fully)]

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IStereotypeIndexRepository : IRepository<StereotypeIndex, StereotypeIndex>
+    public interface IStereotypeIndexRepository : IEfRepository<StereotypeIndex, StereotypeIndex>
     {
 
         [IntentManaged(Mode.Fully)]

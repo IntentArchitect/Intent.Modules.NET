@@ -51,5 +51,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="1bdcc204-f24b-48fb-83dc-290c1ccb1612" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.Repositories.MongoRepositoryInterface</name>
+      <display>Intent.MongoDb.Repositories.MongoRepositoryInterface</display>
+      <externalReference>Intent.MongoDb.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

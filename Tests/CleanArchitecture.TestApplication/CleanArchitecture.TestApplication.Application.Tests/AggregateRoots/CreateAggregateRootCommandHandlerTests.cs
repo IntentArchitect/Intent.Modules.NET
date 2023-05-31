@@ -47,7 +47,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.OnAdd(ent => addedAggregateRoot = ent);
-            repository.OnSaveChanges(() => addedAggregateRoot.Id = expectedAggregateRootId);
+            repository.UnitOfWork
+                .When(async x => await x.SaveChangesAsync(CancellationToken.None))
+                .Do(_ => addedAggregateRoot.Id = expectedAggregateRootId);
             var sut = new CreateAggregateRootCommandHandler(repository);
 
             // Act

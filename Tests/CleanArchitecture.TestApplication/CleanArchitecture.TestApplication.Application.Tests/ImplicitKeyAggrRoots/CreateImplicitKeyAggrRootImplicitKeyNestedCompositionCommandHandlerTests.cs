@@ -44,8 +44,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
-            repository.OnSaveChanges(
-                () =>
+            repository.UnitOfWork
+                .When(async x => await x.SaveChangesAsync(CancellationToken.None))
+                .Do(_ =>
                 {
                     addedImplicitKeyNestedComposition = existingOwnerEntity.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
                     addedImplicitKeyNestedComposition.Id = expectedImplicitKeyAggrRootId;
