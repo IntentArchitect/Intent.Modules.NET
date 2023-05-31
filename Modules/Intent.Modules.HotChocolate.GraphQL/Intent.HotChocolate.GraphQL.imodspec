@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL</id>
-  <version>4.0.1-pre.0</version>
+  <version>4.0.1-pre.1</version>
   <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL implementation using Hot Chocolate.</summary>
   <description>GraphQL implementation using Hot Chocolate.</description>
@@ -50,7 +50,12 @@
       <install>
         <package id="Intent.HotChocolate.GraphQL.Dispatch.MediatR" version="1.0.0" />
       </install>
-    </detect>
+    </detect>	  
+	<detect id="Intent.AzureFunctions">
+      <install>
+		<package id="Intent.HotChocolate.GraphQL.AzureFunctions" version="1.0.0-pre.1" />
+	  </install>
+	</detect>
   </interoperability>
   <factoryExtensions>
     <factoryExtension id="Intent.HotChocolate.GraphQL.GraphQLDtoResolverExtension" externalReference="0c517b5f-39ab-4b14-a212-9b6a434e6e43" />
