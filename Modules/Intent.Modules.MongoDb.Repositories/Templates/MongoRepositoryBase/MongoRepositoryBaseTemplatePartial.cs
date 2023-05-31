@@ -40,7 +40,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                     @class.Abstract();
                     @class.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence);
-                    @class.ImplementsInterface($"IRepository<{tDomain} ,{tPersistence}>");
+                    @class.ImplementsInterface($"{this.GetMongoRepositoryInterfaceName()}<{tDomain} ,{tPersistence}>");
                     @class.AddGenericTypeConstraint(tPersistence, p => p.AddType("class").AddType(tDomain))
                         .AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
 
@@ -48,6 +48,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
 
                     @class.AddConstructor(ctor =>
                     {
+                        ctor.Protected();
                         ctor.AddParameter(this.GetApplicationMongoDbContextName(), "context");
                         ctor.AddStatement("_dbContext = context;");
                         ctor.AddStatement("UnitOfWork = context;");
@@ -78,13 +79,13 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                     {
                         method.Virtual();
                         method.AddParameter("string", "searchText");
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression", param => param.WithDefaultValue("null"));
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>?", "filterExpression", param => param.WithDefaultValue("null"));
                         method.AddStatement($"var queryable = GetSet().SearchText(searchText);");
                         method.AddStatement($"if (filterExpression != null) queryable = queryable.Where(filterExpression);");
                         method.AddStatement($"return queryable.ToList<{tDomain}>();");
                     });
 
-                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
@@ -92,7 +93,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return await QueryInternal(filterExpression).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
-                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
@@ -202,7 +203,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                     {
                         method.Protected();
                         method.Virtual();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>?", "filterExpression");
                         method.AddStatement("var queryable = CreateQuery();")
                             .AddStatement("if (filterExpression != null)")
                             .AddStatement(new CSharpStatementBlock()

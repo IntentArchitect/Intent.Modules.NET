@@ -7,9 +7,11 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -38,6 +40,20 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
                     {
                         ctor.AddParameter(DbContextName, "context");
                         ctor.CallsBase(b => b.AddArgument("context"));
+                    });
+
+                    var interfaceTemplate = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
+                    interfaceTemplate.CSharpFile.AfterBuild(file =>
+                    {
+                        var @interface = file.Interfaces.Single();
+                        if (@interface.Interfaces.Count != 1)
+                        {
+                            Logging.Log.Warning("Could not change to extend MongoDb interface as non-single count of extended interfaces found.");
+                            return;
+                        }
+
+                        @interface.Interfaces.Clear();
+                        @interface.ExtendsInterface($"{this.GetMongoRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
                     });
 
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", Model, out var entityTemplate))

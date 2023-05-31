@@ -42,21 +42,10 @@ public partial class RepositoryExtensionsTemplate : CSharpTemplateBase<object>, 
                 priClass.AddMethod("void", "OnAdd", method =>
                 {
                     method.Static();
-                    method.AddGenericParameter("TDomain", out var TDomain);
-                    method.AddGenericParameter("TPersistence", out var TPersistence);
-                    method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
-                    method.AddParameter($"Action<{TDomain}>", "addAction");
-                    method.AddStatement($"repository.When(x => x.Add(Arg.Any<{TDomain}>())).Do(ci => addAction(ci.Arg<{TDomain}>()));");
-                });
-
-                priClass.AddMethod("void", "OnSaveChanges", method =>
-                {
-                    method.Static();
-                    method.AddGenericParameter("TDomain", out var TDomain);
-                    method.AddGenericParameter("TPersistence", out var TPersistence);
-                    method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
-                    method.AddParameter($"Action", "saveAction");
-                    method.AddStatement($"repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());");
+                    method.AddGenericParameter("TDomain", out var tDomain);
+                    method.AddParameter($"{this.GetRepositoryInterfaceName()}<{tDomain}>", "repository", parm => parm.WithThisModifier());
+                    method.AddParameter($"Action<{tDomain}>", "addAction");
+                    method.AddStatement($"repository.When(x => x.Add(Arg.Any<{tDomain}>())).Do(ci => addAction(ci.Arg<{tDomain}>()));");
                 });
             });
     }

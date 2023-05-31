@@ -127,13 +127,20 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     var associationPropertyName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
                     if (hasIdReturnType)
                     {
-                        method.AddInvocationStatement("repository.OnSaveChanges", stmt => stmt
-                            .AddArgument(new CSharpLambdaBlock("()")
-                                .AddStatement($@"
+                        method.AddStatement(new CSharpMethodChainStatement("repository.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
+                            .WithoutSemicolon()
+                            .AddChainStatement(new CSharpInvocationStatement("When")
+                                .WithoutSemicolon()
+                                .AddArgument("async x => await x.SaveChangesAsync(CancellationToken.None)")
+                            )
+                            .AddChainStatement(new CSharpInvocationStatement("Do")
+                                .AddArgument(new CSharpLambdaBlock("_")
+                                    .AddStatement($@"
         added{nestedDomainElementName} = existingOwnerEntity.{associationPropertyName}.Single(p => p.{nestedEntityIdName} == default);
         added{nestedDomainElementName}.{nestedEntityIdName} = expected{nestedDomainElementIdAttr.IdName};
         added{nestedDomainElementName}.{nestedDomainElementIdAttr.IdName} = testCommand.{nestedOwnerIdFieldName};"))
-                            .WithArgumentsOnNewLines());
+                            )
+                        );
                     }
 
                     method.AddStatements($@"

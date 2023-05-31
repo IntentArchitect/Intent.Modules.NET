@@ -1,6 +1,7 @@
 ### Version 4.0.5
 
 - Update: Removed various compiler warnings.
+- Removed methods containing expressions and/or IQueryable to reduce coupling and allow to be used for persistence technoglogies which don't support these.
 
 ### Version 4.0.4
 

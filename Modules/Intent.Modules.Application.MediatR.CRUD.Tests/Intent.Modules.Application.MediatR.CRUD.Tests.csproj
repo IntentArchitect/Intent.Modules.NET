@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.MediatR.CRUD" Version="4.1.2" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.35-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.0.1" />

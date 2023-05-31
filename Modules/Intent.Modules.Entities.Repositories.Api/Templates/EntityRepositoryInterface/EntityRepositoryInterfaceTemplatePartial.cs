@@ -29,7 +29,6 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
-                .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")

@@ -44,7 +44,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                     @class.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .AddGenericParameter("TDbContext", out var tDbContext);
-                    @class.ImplementsInterface($"IRepository<{tDomain}, {tPersistence}>");
+                    @class.ImplementsInterface($"{this.GetEfRepositoryInterfaceName()}<{tDomain}, {tPersistence}>");
                     @class.AddGenericTypeConstraint(tDbContext, constr => constr
                         .AddType(UseType("Microsoft.EntityFrameworkCore.DbContext"))
                         .AddType(this.GetUnitOfWorkInterfaceName()));
@@ -72,6 +72,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.Virtual();
                         method.AddParameter(tDomain, "entity");
                         method.AddStatement($"GetSet().Add(({tPersistence})entity);");
+                    });
+                    @class.AddMethod("void", "Update", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter(tDomain, "entity");
+                        method.AddStatement($"GetSet().Update(({tPersistence})entity);");
                     });
 
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
@@ -192,7 +198,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                     {
                         method.Protected();
                         method.Virtual();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>?", "filterExpression");
                         method.AddStatement("var queryable = CreateQuery();")
                             .AddStatement("if (filterExpression != null)")
                             .AddStatement(new CSharpStatementBlock()

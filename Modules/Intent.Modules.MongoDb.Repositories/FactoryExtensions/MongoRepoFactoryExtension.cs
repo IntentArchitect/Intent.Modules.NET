@@ -57,7 +57,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");
-                    }); 
+                    });
                 }, 0);
             }
         }

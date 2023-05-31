@@ -20,6 +20,7 @@ using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -41,7 +42,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
-                .AddUsing("Microsoft.EntityFrameworkCore")
                 .AddClass($"{Model.Name}Repository", @class =>
                 {
                     @class.AddMetadata("model", model);
@@ -56,6 +56,20 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         {
                             ctor.AddStatement(ConstructorImplementation());
                         }
+                    });
+
+                    var interfaceTemplate = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
+                    interfaceTemplate.CSharpFile.AfterBuild(file =>
+                    {
+                        var @interface = file.Interfaces.Single();
+                        if (@interface.Interfaces.Count != 1)
+                        {
+                            Logging.Log.Warning("Could not change to extend EF interface as non-single count of extended interfaces found.");
+                            return;
+                        }
+
+                        @interface.Interfaces.Clear();
+                        @interface.ExtendsInterface($"{this.GetEfRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
                     });
 
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))

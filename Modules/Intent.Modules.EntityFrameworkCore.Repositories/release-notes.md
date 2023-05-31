@@ -1,6 +1,8 @@
 ### Version 4.2.3
 
 - Update: Removed various compiler warnings.
+- Added new `IEfRepository` to contain methods with `Expression`s and `IQueryable`s which were removed from interfaces in `Intent.Entities.Repositories.Api` 4.0.5.
+- Added `Update` method to repositories. With default EF Core configuration this is not needed, but is now available.
 
 ### Version 4.2.2
 

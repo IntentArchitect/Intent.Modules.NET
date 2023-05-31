@@ -106,7 +106,16 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         repository.OnAdd(ent => added{domainElementName} = ent);");
                     if (hasIdReturnType)
                     {
-                        method.AddStatements($@"repository.OnSaveChanges(() => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id);");
+                        method.AddStatement(new CSharpMethodChainStatement("repository.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
+                            .WithoutSemicolon()
+                            .AddChainStatement(new CSharpInvocationStatement("When")
+                                .WithoutSemicolon()
+                                .AddArgument("async x => await x.SaveChangesAsync(CancellationToken.None)")
+                            )
+                            .AddChainStatement(new CSharpInvocationStatement("Do")
+                                .AddArgument($@"_ => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id")
+                            )
+                        );
                     }
 
                     method.AddStatements($@"var sut = new {this.GetCommandHandlerName(Model)}(repository);
