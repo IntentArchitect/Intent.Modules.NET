@@ -49,24 +49,24 @@ namespace Entities.PrivateSetters.MongoDb.Application
         {
             profile.CreateMap<Invoice, InvoiceDto>()
                 .ForMember(d => d.Lines, opt => opt.MapFrom(src => src.Lines))
-                .AfterMap<TagsMappingAction>();
+                .AfterMap<MappingAction>();
         }
 
-        internal class TagsMappingAction : IMappingAction<Invoice, InvoiceDto>
+        internal class MappingAction : IMappingAction<Invoice, InvoiceDto>
         {
-            private readonly ITagRepository _repository;
+            private readonly ITagRepository _tagRepository;
             private readonly IMapper _mapper;
 
-            public TagsMappingAction(ITagRepository repository, IMapper mapper)
+            public MappingAction(ITagRepository tagRepository, IMapper mapper)
             {
-                _repository = repository;
+                _tagRepository = tagRepository;
                 _mapper = mapper;
             }
 
             public void Process(Invoice source, InvoiceDto destination, ResolutionContext context)
             {
-                var entity = _repository.FindByIdsAsync(source.TagsIds.ToArray()).Result;
-                destination.Tags = entity.MapToTagDtoList(_mapper);
+                var tags = _tagRepository.FindByIdsAsync(source.TagsIds.ToArray()).Result;
+                destination.Tags = tags.MapToTagDtoList(_mapper);
             }
         }
     }
