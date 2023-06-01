@@ -67,10 +67,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(
-            CompositeSingleBB entity,
-            UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB? CreateOrUpdateCompositeSingleBB(
+            CompositeSingleBB? entity,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto? dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
 
             entity ??= new CompositeSingleBB();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -79,10 +83,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleA CreateOrUpdateCompositeSingleA(
-            CompositeSingleA entity,
-            UpdateAggregateRootCompositeSingleADto dto)
+        private static CompositeSingleA? CreateOrUpdateCompositeSingleA(
+            CompositeSingleA? entity,
+            UpdateAggregateRootCompositeSingleADto? dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
 
             entity ??= new CompositeSingleA();
             entity.CompositeAttr = dto.CompositeAttr;
@@ -93,10 +101,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleAA CreateOrUpdateCompositeSingleAA(
-            CompositeSingleAA entity,
-            UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
+        private static CompositeSingleAA? CreateOrUpdateCompositeSingleAA(
+            CompositeSingleAA? entity,
+            UpdateAggregateRootCompositeSingleACompositeSingleAADto? dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
 
             entity ??= new CompositeSingleAA();
             entity.CompositeAttr = dto.CompositeAttr;

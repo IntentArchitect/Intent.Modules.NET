@@ -50,10 +50,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(
-            CompositeSingleBB entity,
-            UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB? CreateOrUpdateCompositeSingleBB(
+            CompositeSingleBB? entity,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto? dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
 
             entity ??= new CompositeSingleBB();
             entity.CompositeAttr = dto.CompositeAttr;
