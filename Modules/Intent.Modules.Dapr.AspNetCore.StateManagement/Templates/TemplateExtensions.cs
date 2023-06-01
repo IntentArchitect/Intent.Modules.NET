@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.GenericStateStoreRepository;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.GenericStateStoreRepositoryInterface;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreRepository;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreRepositoryUnitOfWorkBehaviour;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreUnitOfWork;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreUnitOfWorkInterface;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreGenericRepository;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreGenericRepositoryInterface;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRepository;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRepositoryBase;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRepositoryInterface;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWork;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWorkBehaviour;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -16,39 +18,49 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetGenericStateStoreRepositoryName(this IIntentTemplate template)
+        public static string GetDaprStateStoreGenericRepositoryName(this IIntentTemplate template)
         {
-            return template.GetTypeName(GenericStateStoreRepositoryTemplate.TemplateId);
+            return template.GetTypeName(DaprStateStoreGenericRepositoryTemplate.TemplateId);
         }
 
-        public static string GetGenericStateStoreRepositoryInterfaceName(this IIntentTemplate template)
+        public static string GetDaprStateStoreGenericRepositoryInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(GenericStateStoreRepositoryInterfaceTemplate.TemplateId);
+            return template.GetTypeName(DaprStateStoreGenericRepositoryInterfaceTemplate.TemplateId);
         }
 
-        public static string GetStateStoreRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetDaprStateStoreRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
-            return template.GetTypeName(StateStoreRepositoryTemplate.TemplateId, template.Model);
+            return template.GetTypeName(DaprStateStoreRepositoryTemplate.TemplateId, template.Model);
         }
 
-        public static string GetStateStoreRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetDaprStateStoreRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
-            return template.GetTypeName(StateStoreRepositoryTemplate.TemplateId, model);
+            return template.GetTypeName(DaprStateStoreRepositoryTemplate.TemplateId, model);
         }
 
-        public static string GetStateStoreRepositoryUnitOfWorkBehaviourName(this IIntentTemplate template)
+        public static string GetDaprStateStoreRepositoryBaseName(this IIntentTemplate template)
         {
-            return template.GetTypeName(StateStoreRepositoryUnitOfWorkBehaviourTemplate.TemplateId);
+            return template.GetTypeName(DaprStateStoreRepositoryBaseTemplate.TemplateId);
         }
 
-        public static string GetStateStoreUnitOfWorkName(this IIntentTemplate template)
+        public static string GetDaprStateStoreRepositoryInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(StateStoreUnitOfWorkTemplate.TemplateId);
+            return template.GetTypeName(DaprStateStoreRepositoryInterfaceTemplate.TemplateId);
         }
 
-        public static string GetStateStoreUnitOfWorkInterfaceName(this IIntentTemplate template)
+        public static string GetDaprStateStoreUnitOfWorkName(this IIntentTemplate template)
         {
-            return template.GetTypeName(StateStoreUnitOfWorkInterfaceTemplate.TemplateId);
+            return template.GetTypeName(DaprStateStoreUnitOfWorkTemplate.TemplateId);
+        }
+
+        public static string GetDaprStateStoreUnitOfWorkBehaviourName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(DaprStateStoreUnitOfWorkBehaviourTemplate.TemplateId);
+        }
+
+        public static string GetDaprStateStoreUnitOfWorkInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(DaprStateStoreUnitOfWorkInterfaceTemplate.TemplateId);
         }
 
     }

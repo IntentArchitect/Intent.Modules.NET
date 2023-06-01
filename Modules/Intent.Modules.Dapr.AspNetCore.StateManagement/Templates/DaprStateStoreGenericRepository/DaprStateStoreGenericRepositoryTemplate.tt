@@ -1,0 +1,54 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+using System;
+using System.Collections.Concurrent;
+using System.Threading;
+using System.Threading.Tasks;
+using Dapr.Client;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public class <#= ClassName #> : <#= this.GetDaprStateStoreGenericRepositoryInterfaceName() #>
+    {
+        private const string StateStoreName = "statestore";
+        private readonly DaprClient _daprClient;
+        private readonly <#= this.GetDaprStateStoreUnitOfWorkName() #> _unitOfWork;
+        private readonly ConcurrentQueue<Func<CancellationToken, Task>> _actions = new();
+
+        public <#= ClassName #>(
+            DaprClient daprClient,
+            <#= this.GetDaprStateStoreUnitOfWorkName() #> unitOfWork)
+        {
+            _daprClient = daprClient;
+            _unitOfWork = unitOfWork;
+        }
+
+        public void Upsert<TValue>(string key, TValue state)
+        {
+            _unitOfWork.Enqueue(async cancellationToken =>
+            {
+                var currentState = await _daprClient.GetStateEntryAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
+                currentState.Value = state;
+                await currentState.SaveAsync(cancellationToken: cancellationToken);
+            });
+        }
+
+        public async Task<TValue> GetAsync<TValue>(string key, CancellationToken cancellationToken = default)
+        {
+            return await _daprClient.GetStateAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
+        }
+
+        public void Delete(string key)
+        {
+            _unitOfWork.Enqueue(async cancellationToken =>
+            {
+                await _daprClient.DeleteStateAsync(StateStoreName, key, cancellationToken: cancellationToken);
+            });
+        }
+
+        public <#= this.GetDaprStateStoreUnitOfWorkInterfaceName() #> UnitOfWork => _unitOfWork;
+    }
+}

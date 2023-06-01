@@ -10,42 +10,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>73fb2484-e8ad-4411-a729-2c0c3b0beb5b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#2dee1f0f-5f3b-4194-bec2-e0edd9835794</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#1a824508-4623-45d9-accc-f572091ade5a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FolderExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>73fb2484-e8ad-4411-a729-2c0c3b0beb5b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#d857556b-8042-43cd-99b8-8d68c0df0a5c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>73fb2484-e8ad-4411-a729-2c0c3b0beb5b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#cfbe103f-69c8-4eed-a3b6-6a12db7f05ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/StateStoreModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>73fb2484-e8ad-4411-a729-2c0c3b0beb5b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cfbe103f-69c8-4eed-a3b6-6a12db7f05ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/StateStoreModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>99bacb3d-e9bd-4f8e-8646-59f298895049</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApiMetadataProviderExtensions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/DomainPackageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainPackageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -73,14 +41,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>13bd6b0a-9211-440d-ae67-838c94604bb3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#ad1c3c19-4b5b-4634-a13f-589c06ae73bd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>modelers/Dapr Designer Extensions.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Dapr Designer Extensions.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>99bacb3d-e9bd-4f8e-8646-59f298895049</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -92,112 +52,144 @@
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#8658fc27-925e-40c7-b0be-5343c37dd512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepository/GenericStateStoreRepositoryTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepository/GenericStateStoreRepositoryTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#8658fc27-925e-40c7-b0be-5343c37dd512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepository/GenericStateStoreRepositoryTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepository/GenericStateStoreRepositoryTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8658fc27-925e-40c7-b0be-5343c37dd512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepository/GenericStateStoreRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepository/GenericStateStoreRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8658fc27-925e-40c7-b0be-5343c37dd512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepository/GenericStateStoreRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepository/GenericStateStoreRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepository/DaprStateStoreGenericRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#eea6e949-7f40-4dc5-b4c1-bc227bd64afd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepositoryInterface/GenericStateStoreRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepositoryInterface/GenericStateStoreRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#eea6e949-7f40-4dc5-b4c1-bc227bd64afd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericStateStoreRepositoryInterface/GenericStateStoreRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericStateStoreRepositoryInterface/GenericStateStoreRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepositoryInterface/DaprStateStoreGenericRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a1a6b6db-38c2-41ef-82cf-7f6dfc33549e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreRepository/StateStoreRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreRepository/StateStoreRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepository/DaprStateStoreRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepository/DaprStateStoreRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a1a6b6db-38c2-41ef-82cf-7f6dfc33549e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreRepository/StateStoreRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreRepository/StateStoreRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepository/DaprStateStoreRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepository/DaprStateStoreRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ce6f756-7c37-4849-91dd-dfa42d99a750</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreRepositoryUnitOfWorkBehaviour/StateStoreRepositoryUnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreRepositoryUnitOfWorkBehaviour/StateStoreRepositoryUnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#4ce6f756-7c37-4849-91dd-dfa42d99a750</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreRepositoryUnitOfWorkBehaviour/StateStoreRepositoryUnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreRepositoryUnitOfWorkBehaviour/StateStoreRepositoryUnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepositoryBase/DaprStateStoreRepositoryBaseTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b1a0bbd-f3db-481a-8229-0ed46604c234</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#6b1a0bbd-f3db-481a-8229-0ed46604c234</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepositoryInterface/DaprStateStoreRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bdc88b24-f7ce-419f-8654-2b9677e91015</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreUnitOfWork/StateStoreUnitOfWorkTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreUnitOfWork/StateStoreUnitOfWorkTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#bdc88b24-f7ce-419f-8654-2b9677e91015</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreUnitOfWork/StateStoreUnitOfWorkTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreUnitOfWork/StateStoreUnitOfWorkTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWork/DaprStateStoreUnitOfWorkTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f6438026-b7b6-45a2-8011-7fae5b5a64cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreUnitOfWorkInterface/StateStoreUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreUnitOfWorkInterface/StateStoreUnitOfWorkInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f6438026-b7b6-45a2-8011-7fae5b5a64cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/StateStoreUnitOfWorkInterface/StateStoreUnitOfWorkInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateStoreUnitOfWorkInterface/StateStoreUnitOfWorkInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

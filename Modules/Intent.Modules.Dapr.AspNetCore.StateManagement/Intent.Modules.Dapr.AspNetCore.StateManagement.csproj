@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -34,6 +34,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GenericStateStoreRepositoryTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\DaprStateStoreGenericRepository\DaprStateStoreGenericRepositoryTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DaprStateStoreGenericRepositoryTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +49,10 @@
     <None Update="Templates\GenericStateStoreRepository\GenericStateStoreRepositoryTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GenericStateStoreRepositoryTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\DaprStateStoreGenericRepository\DaprStateStoreGenericRepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DaprStateStoreGenericRepositoryTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

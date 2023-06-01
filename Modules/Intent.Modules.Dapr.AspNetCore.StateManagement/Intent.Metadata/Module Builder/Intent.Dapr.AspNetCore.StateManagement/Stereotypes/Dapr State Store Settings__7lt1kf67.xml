@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="e707106e-0496-4717-8d50-402e84aa3d39" version="3.1.0">
+  <name>Dapr State Store Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="1a824508-4623-45d9-accc-f572091ade5a">Domain Package</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b111cc5b-ed8e-4457-82f5-78bcfa9bcafd</parentFolderId>
+  <order>0</order>
+  <packageId>73923254-9ff4-4af0-b5a8-aba37165e9bc</packageId>
+  <packageName>Intent.Dapr.AspNetCore.StateManagement</packageName>
+  <properties>
+    <property id="3a8befc5-48f1-45e3-9d5b-65e57b3aeaf2">
+      <hint>Logical name of the Dapr state store.</hint>
+      <name>Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="eb7c1b7f-5593-417d-a809-51ea457504a0">
+      <name>Enable Transactions</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>
