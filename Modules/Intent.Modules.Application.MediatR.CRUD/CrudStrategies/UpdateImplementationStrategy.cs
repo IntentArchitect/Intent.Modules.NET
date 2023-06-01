@@ -164,6 +164,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 var entityVarExpr = !string.IsNullOrWhiteSpace(entityVarName) ? $"{entityVarName}." : string.Empty;
+                var fieldIsNullable = field.TypeReference.IsNullable;
+
                 switch (field.Mapping?.Element?.SpecializationTypeId)
                 {
                     default:
@@ -175,7 +177,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
                         var toListExpression = field.TypeReference.IsCollection
-                            ? field.TypeReference.IsNullable ? "?.ToList()" : ".ToList()"
+                            ? fieldIsNullable ? "?.ToList()" : ".ToList()"
                             : string.Empty;
                         codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression};");
                         break;
@@ -213,16 +215,26 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                                                         x.Parameters.Skip(1).FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
                             if (existingMethod == null)
                             {
-                                @class.AddMethod(entityTypeName,
+                                var nullable = fieldIsNullable ? "?" : string.Empty;
+
+                                @class.AddMethod($"{entityTypeName}{nullable}",
                                     updateMethodName,
                                     method =>
                                     {
+
                                         method.Private()
                                             .Static()
                                             .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                            .AddParameter(entityTypeName, "entity")
-                                            .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                            .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
+                                            .AddParameter($"{entityTypeName}{nullable}", "entity")
+                                            .AddParameter($"{_template.GetTypeName((IElement)field.TypeReference.Element)}{nullable}", "dto");
+
+                                        if (fieldIsNullable)
+                                        {
+                                            method.AddIfStatement("dto == null", s => s
+                                                .AddStatement("return null;"));
+                                        }
+
+                                        method.AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
                                             .AddStatements(GetDtoPropertyAssignments(
                                                 entityVarName: "entity",
                                                 dtoVarName: "dto",
