@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="67da0fb0-2f14-4370-bc7a-7b5c1a656bf0">
+  <sourceEnd id="d59c178f-8f08-4e2f-abd1-9bfe6e05b932" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapAggPeers</name>
+    <display>MapAggPeers: MapAggPeer[*]</display>
+    <order>0</order>
+    <typeReference id="bce5f64f-305a-4d9c-969a-004dd39115e0">
+      <typeId>0e3561f1-b7c1-4d20-89b9-3fabb2f2a79a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="67da0fb0-2f14-4370-bc7a-7b5c1a656bf0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapMapMe</name>
+    <display>MapMapMe: MapMapMe   [* --&gt; 1]</display>
+    <order>6</order>
+    <typeReference id="37a757d5-650b-406b-b805-92933566c144">
+      <typeId>aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

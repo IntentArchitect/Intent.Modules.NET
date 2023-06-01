@@ -8,6 +8,7 @@ using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Associations;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
 using MongoDb.TestApplication.Domain.Entities.NestedAssociations;
 using MongoFramework;
 using MongoFramework.Infrastructure.Mapping;
@@ -48,6 +49,14 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<J_MultipleDependent> J_MultipleDependents { get; set; }
         public MongoDbSet<K_MultipleAggregateNav> K_MultipleAggregateNavs { get; set; }
         public MongoDbSet<K_MultipleDependent> K_MultipleDependents { get; set; }
+        public MongoDbSet<MapAggChild> MapAggChildren { get; set; }
+        public MongoDbSet<MapAggPeer> MapAggPeers { get; set; }
+        public MongoDbSet<MapAggPeerAgg> MapAggPeerAggs { get; set; }
+        public MongoDbSet<MapAggPeerAggMore> MapAggPeerAggMores { get; set; }
+        public MongoDbSet<MapCompChildAgg> MapCompChildAggs { get; set; }
+        public MongoDbSet<MapMapMe> MapMapMes { get; set; }
+        public MongoDbSet<MapPeerCompChildAgg> MapPeerCompChildAggs { get; set; }
+        public MongoDbSet<MapperRoot> MapperRoots { get; set; }
         public MongoDbSet<MultikeyIndexEntity> MultikeyIndexEntities { get; set; }
         public MongoDbSet<MultikeyIndexEntityMultiParent> MultikeyIndexEntityMultiParents { get; set; }
         public MongoDbSet<MultikeyIndexEntitySingleParent> MultikeyIndexEntitySingleParents { get; set; }
@@ -165,6 +174,30 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<K_MultipleDependent>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapAggChild>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapAggPeer>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapAggPeerAgg>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapAggPeerAggMore>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapCompChildAgg>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapMapMe>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapPeerCompChildAgg>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapperRoot>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<MultikeyIndexEntity>()

@@ -22,6 +22,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.Application.Dtos.Settings;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -29,7 +30,7 @@ using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class DtoAutoMapperFactoryExtension : FactoryExtensionBase
+    public partial class DtoAutoMapperFactoryExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.MongoDb.Dtos.AutoMapper.DtoAutoMapperFactoryExtension";
 
@@ -53,33 +54,27 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
 
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    var dtoNeedsChange = CheckIfDtoNeedsChanges(templateModel, application);
-
-                    if (!dtoNeedsChange)
+                    if ( !IsDtoMappingAccrossAggregates(templateModel, application))
                         return;
 
                     file.AddUsing("System.Linq");
+
                     var @class = file.TypeDeclarations.First();
                     var entityTemplate = GetEntityTemplate(template, templateModel.Mapping.ElementId);
 
                     var method = @class.FindMethod("Mapping");
                     var mappingStatement = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
 
-                    var actionMaps = new Dictionary<string, ActionMapData>();
+                    var mappedFields = new List<CrossAggregateMappedField>();
 
                     var needToElevatePropertyAccessors = NeedToElevatePropertyAccessors(application);
 
                     foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
                     {
-                        string actionMapPath = "";
-                        int pathSkip = 0;
-                        foreach (var pathPart in field.Mapping.Path)
+                        for (int i = 0; i <  field.Mapping.Path.Count; i++)
                         {
-                            pathSkip++;
-                            if (pathPart.Specialization != GeneralizationModel.SpecializationType)
-                            {
-                                actionMapPath += PathName(pathPart);
-                            }
+                            var pathPart = field.Mapping.Path[i];
+                            
                             if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
                             {
                                 var statementToRemove = mappingStatement.Statements.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("field", out var currentField) && currentField.Id == field.Id);
@@ -87,35 +82,26 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                                 {
                                     mappingStatement.Statements.Remove(statementToRemove);
                                 }
-                                if (!actionMaps.TryGetValue(actionMapPath, out var mapData))
-                                {
-                                    actionMaps.Add(actionMapPath, new ActionMapData(ae, new List<DTOFieldModel> { field }, pathSkip));
-                                    mappingStatement.AddChainStatement($"AfterMap<{actionMapPath}MappingAction>()");
-                                }
-                                else
-                                {
-                                    mapData.Fields.Add(field);
-                                }
+
+                                mappedFields.Add(new CrossAggregateMappedField(field, ae, i));
+                                //We done with this attribute
+                                break;
                             }
                         }
                     }
+                    mappingStatement.AddChainStatement($"AfterMap<MappingAction>()");
+
                     if (needToElevatePropertyAccessors)
                     {
-                        foreach (var mapData in actionMaps) 
+                        foreach (var mappedField in mappedFields) 
                         {
-                            foreach (var field in mapData.Value.Fields) 
-                            {
-                                var property = @class.Properties.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("model", out var currentField) && currentField.Id == field.Id);
-                                if (property != null)
-                                    property.Setter.Internal();
-                            }
+                            var property = @class.Properties.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("model", out var currentField) && currentField.Id == mappedField.Field.Id);
+                            if (property != null)
+                                property.Setter.Internal();
                         }
                     }
 
-                    foreach (var actionMap in actionMaps)
-                    {
-                        CreateMappingActionClass(template, @class, entityTemplate, actionMap);
-                    }
+                    CreateMappingActionClass(template, @class, entityTemplate, mappedFields);
                 }, 10);
             }
         }
@@ -126,22 +112,55 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
             return setting.IsPrivate() || setting.IsInit();
         }
 
-        private static void CreateMappingActionClass(DtoModelTemplate template, CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, KeyValuePair<string, ActionMapData> actionMap)
+        private static void CreateMappingActionClass(DtoModelTemplate template, CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, List<CrossAggregateMappedField> mappedFields)
         {
-            var mapData = actionMap.Value;
-            @class.AddNestedClass($"{actionMap.Key}MappingAction", child =>
+            var repositoriesNeeded = new HashSet<RepositoryInfo>();
+            var aggregateLoadInstructions = new Dictionary<string, LoadInstruction>();
+
+            foreach (var mapping in mappedFields)
+            {
+                var parentAggregate = new PathAggregate(-1, null);
+                for (int i = mapping.PathIndex; i < mapping.Field.Mapping.Path.Count; i++)
+                {
+                    var currentPart = mapping.Field.Mapping.Path[i];
+                    if (currentPart.Element is IAssociationEnd ae && IsAggregational(ae))
+                    {
+                        var aggregate = new PathAggregate(i, GetPathExpression(mapping.Field.Mapping.Path.Take(i + 1)));
+                        if (!aggregateLoadInstructions.ContainsKey(aggregate.Expression))
+                        {
+                            if (!template.TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, ae.AsAssociationEndModel().Class, out var pathRepoInterfaceType))
+                            {
+                                throw new Exception($"No repository found for {ae.AsAssociationEndModel().Class.Name}");
+                            }
+
+                            var repo = new RepositoryInfo(pathRepoInterfaceType);
+                            repositoriesNeeded.Add(repo);
+
+                            string fieldPath = "";
+                            if (parentAggregate.Index + 1 != i)
+                            {
+                                var skip = parentAggregate.Index + 1;
+                                var take = i - parentAggregate.Index - 1;
+                                fieldPath = $".{GetPathExpression(mapping.Field.Mapping.Path.Skip(skip).Take(take))}";
+                            }
+                            aggregateLoadInstructions.Add(aggregate.Expression, new LoadInstruction(repo, ae.AsAssociationEndModel(), aggregate.Expression, parentAggregate.Expression ?? "source", fieldPath));
+                        }
+                        parentAggregate = aggregate;
+                    }
+                }
+            }
+
+            @class.AddNestedClass($"MappingAction", child =>
             {
                 child.Internal();
                 child.ImplementsInterface($"IMappingAction<{template.GetTypeName(entityTemplate)},{template.ClassName}>");
 
-                if (!template.TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, mapData.AssociationEnd.AsAssociationEndModel().Class, out var repoInterfaceType))
-                {
-                    throw new Exception($"No repository found for {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
-                }
-
                 child.AddConstructor(con =>
                 {
-                    con.AddParameter(repoInterfaceType, "repository", param => param.IntroduceReadonlyField());
+                    foreach (var repo in repositoriesNeeded)
+                    {
+                        con.AddParameter(repo.InterfaceName, repo.ArgumentName, param => param.IntroduceReadonlyField());
+                    }
                     con.AddParameter("IMapper", "mapper", param => param.IntroduceReadonlyField());
                 });
 
@@ -151,39 +170,66 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                     method.AddParameter(template.ClassName, "destination");
                     method.AddParameter("ResolutionContext", "context");
 
-                    var fkEntityModel = mapData.AssociationEnd.OtherEnd().AsAssociationEndModel().Class;
-                    var fkAttribute = fkEntityModel.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == mapData.AssociationEnd.Association.TargetEnd.Id);
-
-                    if (fkAttribute == null)
+                    //Aggregates depend on parent aggregates for loading, order by path length handles this automatically 
+                    var orderedLoads = aggregateLoadInstructions.Select(x => x.Value).OrderBy(l => l.PathExpression.Length);
+                    foreach (var load in orderedLoads)
                     {
-                        throw new Exception($"No Foreign Key found on : {fkEntityModel.Name} to load associate Aggregate {mapData.AssociationEnd.AsAssociationEndModel().Class.Name}");
+                        var fkEntityModel = load.AssociationEndModel.OtherEnd().Class;
+                        var fkAttribute = fkEntityModel.Attributes.FirstOrDefault(a => a.HasForeignKey() && a.GetForeignKey().Association().Id == load.AssociationEndModel.Association.TargetEnd.Id);
+
+                        if (fkAttribute == null)
+                        {
+                            throw new Exception($"No Foreign Key found on : {fkEntityModel.Name} to load associate Aggregate {load.AssociationEndModel.Class.Name}");
+                        }
+
+                        string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}.ToArray()" : fkAttribute.Name.ToPascalCase();
+
+                        if (load.IsOptional)
+                        {
+                            method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result : null;" );
+                        }
+                        else
+                        {
+                            method.AddStatement($"var {load.Variable} = {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result;");
+                        }
                     }
 
-                    string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}.ToArray()" : fkAttribute.Name.ToPascalCase();
-
-                    method.AddStatement($"var entity = _repository.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}(source.{fkExpression}).Result;");
-                    foreach (var field in mapData.Fields)
+                    foreach (var mapping in mappedFields)
                     {
-                        method.AddStatement($"destination.{field.Name} = entity.{GetMappingExpression(field, template, mapData)};");
+                        string aggregateExpression = GetAggregatePathExpression(template, mapping.Field, mapping.Field.Mapping.Path, out var fieldPath);
+                        var load = aggregateLoadInstructions[aggregateExpression];
+                        if (load.IsOptional)
+                        {
+                            method.AddStatement($"destination.{mapping.Field.Name} = {load.Variable} != null ? {load.Variable}.{fieldPath} : null;");
+                        }
+                        else
+                        {
+                            method.AddStatement($"destination.{mapping.Field.Name} = {load.Variable}.{fieldPath};");
+                        }
                     }
                 });
             });
         }
 
-        private static string GetMappingExpression(DTOFieldModel field, DtoModelTemplate template, ActionMapData mapData)
+        private static string GetAggregatePathExpression(DtoModelTemplate template, DTOFieldModel field, IList<IElementMappingPathTarget> path, out string fieldPath)
         {
-            if (field.TypeReference.Element.IsDTOModel())
-            {
-                string mapFunction = GetMappingFunction(template, field);
-                string pathExpression = GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip));
-                if (pathExpression.Length > 0)
-                    pathExpression += ".";
-                return $"{pathExpression}{mapFunction}(_mapper)";
+            fieldPath = null;
+            for (int i = path.Count - 1; i >= 0; i--) 
+            { 
+                if (path[i].Element is IAssociationEnd ae && IsAggregational(ae))
+                {
+                    fieldPath = GetPathExpression(path.Skip(i + 1));
+                    if (field.TypeReference.Element.IsDTOModel())
+                    {
+                        string mapFunction = GetMappingFunction(template, field);
+                        if (fieldPath.Length > 0)
+                            fieldPath += ".";
+                        fieldPath = $"{fieldPath}{mapFunction}(_mapper)";
+                    }
+                    return GetPathExpression(path.Take(i + 1));
+                }
             }
-            else
-            {
-                return $"{GetPathExpression(field.Mapping.Path.Skip(mapData.PathSkip))}";
-            }
+            throw new Exception("Aggregate not found");
         }
 
         private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
@@ -193,7 +239,7 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 : $"MapTo{template.GetTypeName(field.TypeReference)}";
         }
 
-        private static bool CheckIfDtoNeedsChanges(DTOModel templateModel, IApplication application)
+        private static bool IsDtoMappingAccrossAggregates(DTOModel templateModel, IApplication application)
         {
             foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
             {
@@ -210,20 +256,6 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 }
             }
             return false;
-        }
-
-        private class ActionMapData
-        {
-            public ActionMapData(IAssociationEnd associationEnd, List<DTOFieldModel> fields, int pathSkip)
-            {
-                AssociationEnd = associationEnd;
-                Fields = fields;
-                PathSkip = pathSkip;
-            }
-
-            public int PathSkip { get; }
-            public IAssociationEnd AssociationEnd { get; }
-            public List<DTOFieldModel> Fields { get; }
         }
 
         private static string PathName(IElementMappingPathTarget pathPart)
@@ -264,5 +296,6 @@ namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
                 return entityTemplate;
             return entityTemplate;
         }
+
     }
 }

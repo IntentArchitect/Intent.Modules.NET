@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c0c42193-8e2f-48c9-8857-958c6909f5fa">
+  <sourceEnd id="7b737171-2aee-48e4-b333-d9f20d51cf14" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapPeerCompChildren</name>
+    <display>MapPeerCompChildren: MapPeerCompChild[*]</display>
+    <order>0</order>
+    <typeReference id="75bbe3ac-d102-4fe0-a1df-a686194b5f04">
+      <typeId>1a15554b-65a1-4416-8904-11ba68d2fd16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c0c42193-8e2f-48c9-8857-958c6909f5fa" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapPeerCompChildAgg</name>
+    <display>MapPeerCompChildAgg: MapPeerCompChildAgg   [* --&gt; 1]</display>
+    <order>3</order>
+    <typeReference id="85e238ff-4dfc-491b-8e89-b7d40f2a7102">
+      <typeId>6d2fd443-3ea0-4a80-a397-11c5363f0660</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

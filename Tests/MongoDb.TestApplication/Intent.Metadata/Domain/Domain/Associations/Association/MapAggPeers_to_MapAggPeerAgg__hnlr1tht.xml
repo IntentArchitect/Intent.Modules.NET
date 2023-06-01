@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7a81a7e2-1318-48c6-abec-54d685abc54d">
+  <sourceEnd id="cd5e850a-20d6-430e-b61d-d7a91337c601" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapAggPeers</name>
+    <display>MapAggPeers: MapAggPeer[*]</display>
+    <order>0</order>
+    <typeReference id="2a353caf-cead-4e52-b8e0-de053b7250ba">
+      <typeId>0e3561f1-b7c1-4d20-89b9-3fabb2f2a79a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7a81a7e2-1318-48c6-abec-54d685abc54d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapAggPeerAgg</name>
+    <display>MapAggPeerAgg: MapAggPeerAgg   [* --&gt; 1]</display>
+    <order>5</order>
+    <typeReference id="182e6e1a-16c1-4baf-b98b-a92b99821006">
+      <typeId>e4548a4d-0f5f-45ac-a4eb-51386fc10ec4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
