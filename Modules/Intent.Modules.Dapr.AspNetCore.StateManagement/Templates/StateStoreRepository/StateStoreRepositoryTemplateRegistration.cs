@@ -36,8 +36,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.StateStoreRep
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => x.InternalElement.Package.IsDomainPackageModel() &&
-                            x.InternalElement.Package.AsDomainPackageModel().HasDocumentDatabase());
+                .Where(x => x.InternalElement.Package.HasStereotype("Document Database") &&
+                            x.IsAggregateRoot() && !x.IsAbstract)
+                .ToArray();
         }
     }
 }
