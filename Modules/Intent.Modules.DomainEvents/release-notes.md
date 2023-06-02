@@ -1,3 +1,8 @@
+### 4.1.0
+
+- Added auto-implementation of Domain Events being published from class constructors and methods.
+- Fixed: Enum namespaces not being automatically added to Domain Event classes.
+
 ### 4.0.4
 - Added: Comments on `DomainEvent`s and their `Property`s are now added as XmlDocComments on the generated classes.
 - Upgrade: `DomainEventTemplate` using CSharpFileBuilder paradigm.

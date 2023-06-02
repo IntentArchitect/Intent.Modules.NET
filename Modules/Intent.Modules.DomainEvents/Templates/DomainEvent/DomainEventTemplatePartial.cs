@@ -28,6 +28,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
             AddTypeSource("Domain.Entity");
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
             AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
 

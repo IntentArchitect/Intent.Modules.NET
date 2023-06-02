@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -15,6 +17,7 @@ using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -37,7 +40,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();
-                    if (@class.TryGetMetadata<ClassModel>("model", out var model) &&
+                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
                         model.IsAggregateRoot() && model.ParentClass == null)
                     {
                         @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
@@ -46,6 +49,32 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             property.WithInitialValue($"new {property.Type}()");
                             property.AddMetadata("non-persistent", true);
                         });
+
+                        foreach (var ctorModel in model.Constructors.Where(x => x.PublishedDomainEvents().Any()))
+                        {
+                            var ctor = @class.Constructors.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, ctorModel));
+                            if (ctor != null)
+                            {
+                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                {
+                                    ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
+                                    ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                }
+                            }
+                        }
+
+                        foreach (var operationModel in model.Operations.Where(x => x.PublishedDomainEvents().Any()))
+                        {
+                            var method = @class.Methods.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, operationModel));
+                            if (method != null)
+                            {
+                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                {
+                                    method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
+                                    method.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                }
+                            }
+                        }
                     }
                 });
             }
@@ -63,6 +92,48 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                     }
                 });
             }
+        }
+
+        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
+            IList<string> availableParameters, 
+            DomainEventModel model)
+        {
+            var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;
+            var invocation = new CSharpInvocationStatement(template.GetTypeName(DomainEventTemplate.TemplateId, model)).WithoutSemicolon();
+            if (classModel == null)
+            {
+                throw new Exception("Constructing a domain event cannot be done from a template that doesn't have a ClassModel");
+            }
+            foreach (var property in model.Properties)
+            {
+                if (property.TypeReference.Element.Id == classModel.Id)
+                {
+                    invocation.AddArgument("this");
+                }
+                else if (availableParameters.Any(x => x.Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    invocation.AddArgument(property.Name.ToCamelCase());
+                }
+                else if (classModel.Attributes.Any(x => x.Name.Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    invocation.AddArgument(property.Name.ToPascalCase());
+                }
+                else if (classModel.AssociatedClasses.Any(x => x.Name.Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    invocation.AddArgument(property.Name.ToPascalCase());
+                }
+                else if (classModel.Attributes.Any(x => ($@"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    var attribute = classModel.Attributes.First(x => ($@"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase));
+                    invocation.AddArgument(attribute.Name.ToPascalCase());
+                }
+                else
+                {
+                    invocation.AddArgument("null");
+                }
+            }
+
+            return $"new {invocation}";
         }
     }
 }

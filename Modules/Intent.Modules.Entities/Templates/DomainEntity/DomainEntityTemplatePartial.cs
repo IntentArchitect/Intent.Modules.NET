@@ -84,12 +84,13 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         AddProperties(@class);
                     }
 
-                    foreach (var operation in Model.Constructors)
+                    foreach (var ctorModel in Model.Constructors)
                     {
                         @class.AddConstructor(ctor =>
                         {
-                            ctor.TryAddXmlDocComments(operation.InternalElement);
-                            foreach (var parameter in operation.Parameters)
+                            ctor.AddMetadata("model", ctorModel);
+                            ctor.TryAddXmlDocComments(ctorModel.InternalElement);
+                            foreach (var parameter in ctorModel.Parameters)
                             {
                                 ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
                                 if (!parameter.InternalElement.IsMapped)
@@ -122,6 +123,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
                         {
+                            method.AddMetadata("model", operation);
                             method.TryAddXmlDocComments(operation.InternalElement);
 
                             var hasImplementation = false;
