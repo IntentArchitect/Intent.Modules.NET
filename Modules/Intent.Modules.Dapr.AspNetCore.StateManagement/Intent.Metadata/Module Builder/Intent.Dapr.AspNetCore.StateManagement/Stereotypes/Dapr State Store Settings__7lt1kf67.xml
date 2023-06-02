@@ -27,6 +27,7 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
+      <defaultValue>statestore</defaultValue>
       <valueOptions />
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>

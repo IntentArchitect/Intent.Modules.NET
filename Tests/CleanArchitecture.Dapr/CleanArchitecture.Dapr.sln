@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{57FE45D8-11A1-4F5A-86D7-B1654946A8B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{90624C68-AE50-41DC-BBAA-35399F40C370}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config.yaml = dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{067F1ACB-7998-4DB2-81E4-FE28E43A07A7}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{4BAF157E-4F50-4CC3-9F39-B48D986DD23B}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.Dapr.Api", "CleanArchitecture.Dapr.Api\CleanArchitecture.Dapr.Api.csproj", "{3894A0B4-8863-4325-9FF8-56672D827970}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{51A0BECD-AAFB-400E-9882-793E1844650E}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Application", "CleanArchitecture.Dapr.Application\CleanArchitecture.Dapr.Application.csproj", "{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{E314C98B-14F4-453E-ACB5-56FC258F499F}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Domain", "CleanArchitecture.Dapr.Domain\CleanArchitecture.Dapr.Domain.csproj", "{4450620A-A704-4A68-9C0C-A8F804162B82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{2C90ED80-F6F2-4F1E-8AB1-05756F431BFC}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Infrastructure", "CleanArchitecture.Dapr.Infrastructure\CleanArchitecture.Dapr.Infrastructure.csproj", "{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3894A0B4-8863-4325-9FF8-56672D827970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3894A0B4-8863-4325-9FF8-56672D827970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3894A0B4-8863-4325-9FF8-56672D827970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3894A0B4-8863-4325-9FF8-56672D827970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4450620A-A704-4A68-9C0C-A8F804162B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4450620A-A704-4A68-9C0C-A8F804162B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4450620A-A704-4A68-9C0C-A8F804162B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4450620A-A704-4A68-9C0C-A8F804162B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90624C68-AE50-41DC-BBAA-35399F40C370} = {57FE45D8-11A1-4F5A-86D7-B1654946A8B1}
+		{067F1ACB-7998-4DB2-81E4-FE28E43A07A7} = {90624C68-AE50-41DC-BBAA-35399F40C370}
+		{3894A0B4-8863-4325-9FF8-56672D827970} = {4BAF157E-4F50-4CC3-9F39-B48D986DD23B}
+		{9FB3C05F-90B8-4765-91FC-B111AC34F8DA} = {51A0BECD-AAFB-400E-9882-793E1844650E}
+		{4450620A-A704-4A68-9C0C-A8F804162B82} = {E314C98B-14F4-453E-ACB5-56FC258F499F}
+		{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5} = {2C90ED80-F6F2-4F1E-8AB1-05756F431BFC}
+	EndGlobalSection
+EndGlobal

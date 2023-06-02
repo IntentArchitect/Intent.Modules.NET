@@ -1,0 +1,35 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
+    #
+    # This need to be added for "FindAll" operations to work, see:
+    # https://stackoverflow.com/a/73801857
+    #
+    # Additionally this doesn't work with the default `dapr_redis` container that Dapr init sets
+    # up, instead stop that container and use `redis-stack-server` instead:
+    # https://redis.io/docs/stack/json/#run-with-docker
+    #
+  - name: queryIndexes
+    value: |
+      [
+        {
+          "name": "key",
+          "indexes": [
+            {
+              "key": "key",
+              "type": "TEXT"
+            }
+          ]
+        }
+      ]

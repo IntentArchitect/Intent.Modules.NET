@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1d322314-e5d4-4a32-a34b-aee2456f8848">
+  <sourceEnd id="2cf3a6db-bd83-4db3-a0ae-553ed4672018" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoices</name>
+    <display>Invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="a2be629a-9db0-43e1-b81e-821844ee128a">
+      <typeId>43c8c723-0f27-4996-afb2-3e9b46c64415</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1d322314-e5d4-4a32-a34b-aee2456f8848" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Client</name>
+    <display>Client: Client   [* --&gt; 1]</display>
+    <order>3</order>
+    <typeReference id="e7d22e56-747f-4a2f-879d-019afdab173f">
+      <typeId>9257c32a-49d8-4f04-8e4b-840b89ebdf14</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

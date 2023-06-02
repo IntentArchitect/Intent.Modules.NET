@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c17acff7-51e4-46c6-94b8-45d3b41e080d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>ClientApp</name>
+  <display>ClientApp</display>
+  <externalReference>22656c59-a1cd-4841-959f-a47d0bc7c1fb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3894a0b4-8863-4325-9ff8-56672d827970</parentFolderId>
+  <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+  <packageName>CleanArchitecture.Dapr</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="67283831-3552-44f0-9eb7-312ed470a987" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Front End</name>
+      <display>Front End</display>
+      <externalReference>a229adcb-1853-4ba3-84b9-fca8c51beb51</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c17acff7-51e4-46c6-94b8-45d3b41e080d</parentFolderId>
+      <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+      <packageName>CleanArchitecture.Dapr</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

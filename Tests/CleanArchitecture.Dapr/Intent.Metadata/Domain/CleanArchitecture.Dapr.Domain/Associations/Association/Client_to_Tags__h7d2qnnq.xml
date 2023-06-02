@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e0847cdc-016f-4aa9-9bbe-d567fd516213">
+  <sourceEnd id="1b97bfe4-001e-4386-8ade-2466935f8cdb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Client</name>
+    <display>Client: Client?</display>
+    <order>0</order>
+    <typeReference id="38920606-d777-467b-803a-e847a102e200">
+      <typeId>9257c32a-49d8-4f04-8e4b-840b89ebdf14</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e0847cdc-016f-4aa9-9bbe-d567fd516213" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Tags</name>
+    <display>Tags: Tag[*]   [0..1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="dcd0bbad-3865-48eb-8e0a-e21ba1f5bbe2">
+      <typeId>d68c2170-d19c-4e2a-90e4-52698a7b2db8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

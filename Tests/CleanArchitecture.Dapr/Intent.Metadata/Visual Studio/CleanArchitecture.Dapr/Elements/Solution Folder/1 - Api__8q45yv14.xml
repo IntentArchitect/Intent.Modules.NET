@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4baf157e-4f50-4cc3-9f39-b48d986dd23b" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>a307c07a-f7b8-41d5-82dd-f9ce10e89a82</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>77896063-2cc6-46a0-9f31-84703d132fa9</parentFolderId>
+  <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+  <packageName>CleanArchitecture.Dapr</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -32,8 +32,8 @@ namespace Intent.Modules.DocumentDB.Shared
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
 
-                    var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
-                    foreach (var navigation in toChangeNavigationProperies)
+                    var toChangeNavigationProperties = GetNavigableAggregateAssociations(model);
+                    foreach (var navigation in toChangeNavigationProperties)
                     {
                         //Remove the "Entity" Properties and backing fields
                         var property = @class.GetAllProperties()
@@ -46,18 +46,6 @@ namespace Intent.Modules.DocumentDB.Shared
                         {
                             @class.Fields.Remove(field);
                         }
-
-                        /*
-                        var key = navigation.Class.GetExplicitPrimaryKey().Single();
-
-                        var typeName = template.GetTypeName(key.Type);
-                        if (navigation.IsCollection)
-                            typeName += "[]";
-                        else if (navigation.IsNullable)
-                            typeName += "?";
-
-                        @class.AddProperty(typeName, $"{property.Name}{(navigation.IsCollection ? "Ids" : "Id")}", c => c.AddMetadata("model", navigation))
-                        */
                     }
 
                     var pks = model.GetPrimaryKeys();
@@ -69,8 +57,10 @@ namespace Intent.Modules.DocumentDB.Shared
                     var primaryKeyProperties = new List<CSharpProperty>();
                     foreach (var attribute in pks)
                     {
-                        var existingPk = @class.GetAllProperties().FirstOrDefault(x =>
-                            x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                        var existingPk = @class
+                            .GetAllProperties()
+                            .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+
                         if (!model.IsAggregateRoot())
                         {
                             @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
@@ -78,14 +68,21 @@ namespace Intent.Modules.DocumentDB.Shared
 
                         if (!model.IsAggregateRoot())
                         {
-                            existingPk.Getter.WithExpressionImplementation($"_id ??= Guid.NewGuid()");
+                            var optionalNullCoalescence = attribute.TypeReference.Element.Name switch
+                            {
+                                "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
+                                "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
+                                _ => string.Empty
+                            };
+
+                            existingPk.Getter.WithExpressionImplementation($"_id{optionalNullCoalescence}");
                             existingPk.Setter.WithExpressionImplementation($"_id = value");
                         }
 
                         primaryKeyProperties.Add(existingPk);
                     }
 
-                    if (!@class.TryGetMetadata("primary-keys", out var keys))
+                    if (!@class.TryGetMetadata("primary-keys", out _))
                     {
                         @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }

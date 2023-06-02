@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="067f1acb-7998-4db2-81e4-fe28e43a07a7" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>components</name>
+  <display>components</display>
+  <externalReference>f91d5992-658e-4048-be27-012e5d2d1779</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>90624c68-ae50-41dc-bbaa-35399f40c370</parentFolderId>
+  <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+  <packageName>CleanArchitecture.Dapr</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="06d10559-c421-467f-8d31-5bab97ed0244" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr.Components</name>
+      <display>Dapr.Components</display>
+      <externalReference>a2c39c39-e44d-40dd-8ad4-e89743f37fbb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
+      <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+      <packageName>CleanArchitecture.Dapr</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f83575ba-638c-4da1-94f2-fbaaf57fa04c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Dapr.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
+      <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+      <packageName>CleanArchitecture.Dapr</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

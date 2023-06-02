@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cdec9750-497a-4e23-a22b-77226d137457" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>CleanArchitecture.Dapr</name>
+  <display>CleanArchitecture.Dapr</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cc7d7b72-aafa-4939-aa94-9aea00a6ea1c</parentFolderId>
+  <packageId>cc7d7b72-aafa-4939-aa94-9aea00a6ea1c</packageId>
+  <packageName>CleanArchitecture.Dapr.Eventing</packageName>
+  <diagram>
+    <targetPackageId>e0e621cc-293e-4ef6-984c-f6cf0d283e22</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

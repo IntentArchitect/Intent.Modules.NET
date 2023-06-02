@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51a0becd-aafb-400e-9882-793e1844650e" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>e8ae06c2-78fb-4fd2-808a-c711b9cac7ad</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>77896063-2cc6-46a0-9f31-84703d132fa9</parentFolderId>
+  <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
+  <packageName>CleanArchitecture.Dapr</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

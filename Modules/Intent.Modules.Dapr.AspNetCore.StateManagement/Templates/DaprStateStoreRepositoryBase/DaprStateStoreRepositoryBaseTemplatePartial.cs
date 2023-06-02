@@ -69,6 +69,33 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         .AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious())
                         .AddStatement("return entity;", s => s.SeparatedFromPrevious())
                     )
+                    .AddMethod($"Task<List<{tDomain}>>", "FindByKeysAsync", method => method
+                        .Protected()
+                        .Async()
+                        .AddParameter("string[]", "ids")
+                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                        .AddStatement(@"var result = await _daprClient.GetBulkStateAsync(
+                storeName: _storeName,
+                keys: ids,
+                parallelism: 1,
+                cancellationToken: cancellationToken,
+                metadata: new Dictionary<string, string>
+                {
+                    [""contentType""] = ""application/json""
+                });"
+                        )
+                        .AddStatement(@"var entities = result
+                .Select(x => JsonSerializer.Deserialize<TDomain>(x.Value, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!)
+                .ToList();", s => s.SeparatedFromPrevious())
+                        .AddForEachStatement("entity", "entities", forEach =>
+                        {
+                            forEach.SeparatedFromPrevious();
+
+                            forEach
+                                .AddStatement("_unitOfWork.Track(entity);");
+                        })
+                        .AddStatement("return entities;", s => s.SeparatedFromPrevious())
+                    )
                     .AddMethod("void", "Upsert", method => method
                         .Protected()
                         .AddParameter("string", "key")
@@ -188,23 +215,6 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                             )
                         )
                         .AddStatement("_transactionRequests.Add(request);", s => s.SeparatedFromPrevious())
-                    )
-                    .AddMethod($"Task<List<{tDomain}>>", "FindByKeysAsync", method => method
-                        .Protected()
-                        .Async()
-                        .AddParameter("string[]", "ids")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                        .AddStatement("var tasks = ids.Select(x => FindByKeyAsync(x, cancellationToken)).ToArray();")
-                        .AddStatement("await Task.WhenAll(tasks);", s => s.SeparatedFromPrevious())
-                        .AddStatement("var entities = tasks.Select(x => x.Result).ToList();", s => s.SeparatedFromPrevious())
-                        .AddForEachStatement("entity", "entities", forEach =>
-                        {
-                            forEach.SeparatedFromPrevious();
-
-                            forEach
-                                .AddStatement("_unitOfWork.Track(entity);");
-                        })
-                        .AddStatement("return entities;", s => s.SeparatedFromPrevious())
                     )
                 );
         }

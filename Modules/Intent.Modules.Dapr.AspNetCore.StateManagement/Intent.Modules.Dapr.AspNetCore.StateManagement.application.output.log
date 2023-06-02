@@ -18,14 +18,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>fcdff3be-086e-4376-940d-f01e4ff1774a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#916022f1-8375-4607-bdc0-8e15a738138f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DaprRepoFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprRepoFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fcdff3be-086e-4376-940d-f01e4ff1774a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#10005353-4933-4520-a961-657d5c8a58e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>

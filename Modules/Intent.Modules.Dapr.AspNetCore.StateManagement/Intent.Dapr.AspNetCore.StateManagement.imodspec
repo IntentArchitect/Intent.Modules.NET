@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.StateManagement</id>
-  <version>1.1.0-alpha.0</version>
+  <version>1.1.0-alpha.1</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Create long running, stateless and stateful services.</summary>
   <description>Create long running, stateless and stateful services.</description>
@@ -76,7 +76,6 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Dapr.AspNetCore.StateManagement.DaprRepoFactoryExtension" externalReference="916022f1-8375-4607-bdc0-8e15a738138f" />
     <factoryExtension id="Intent.Dapr.AspNetCore.StateManagement.EntityFactoryExtension" externalReference="10005353-4933-4520-a961-657d5c8a58e8" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>

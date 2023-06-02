@@ -86,6 +86,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
                 codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
+                if (RepositoryRequiresExplicitUpdate())
+                {
+                    codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
+                }
+
                 codeLines.Add("return Unit.Value;");
                 return codeLines;
             }
@@ -93,12 +98,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
             codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
 
-            if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                    TemplateFulfillingRoles.Repository.Interface.Entity,
-                    _matchingElementDetails.Value.RepositoryInterfaceModel,
-                    out var repositoryInterfaceTemplate) &&
-                repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
-                requiresUpdate)
+            if (RepositoryRequiresExplicitUpdate())
             {
                 codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(existing{foundEntity.Name});").SeparatedFromPrevious());
             }
@@ -116,6 +116,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                        field.Mapping.Element.IsAttributeModel() ||
                        field.Mapping.Element.IsAssociationEndModel();
             }
+        }
+
+        private bool RepositoryRequiresExplicitUpdate()
+        {
+            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       _matchingElementDetails.Value.RepositoryInterfaceModel,
+                       out var repositoryInterfaceTemplate) &&
+                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+                   requiresUpdate;
         }
 
         private StrategyData GetMatchingElementDetails()
