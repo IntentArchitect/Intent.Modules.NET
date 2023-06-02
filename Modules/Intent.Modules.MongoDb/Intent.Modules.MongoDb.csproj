@@ -36,4 +36,6 @@
     </None>
   </ItemGroup>
 
+  <Import Project="..\Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems" Label="Shared" />
+
 </Project>

@@ -1,7 +1,6 @@
-﻿
-namespace Intent.Modules.MongoDb.Dtos.AutoMapper.FactoryExtensions
+﻿namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared
 {
-    public partial class DtoAutoMapperFactoryExtension
+    public static partial class CrossAggregateMappingConfigurator
     {
         internal class PathAggregate
         {

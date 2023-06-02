@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>722157d8-c582-4e8c-9ec5-e6e1c577d85e</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#30a76861-2e00-488b-bebf-1559a7efda28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d85ab5fe-d8fb-4795-bf4a-bb80c7e25587</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#937b7d19-b108-4b22-81d2-f21f711faafd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DtoAutoMapperFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoAutoMapperFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f13df4da-a77b-40c6-bc27-db55bdd3ff17</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.DocumentDB.Dtos.AutoMapper.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.DocumentDB.Dtos.AutoMapper.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f13df4da-a77b-40c6-bc27-db55bdd3ff17</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#f13df4da-a77b-40c6-bc27-db55bdd3ff17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.DocumentDB.Dtos.AutoMapper.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.DocumentDB.Dtos.AutoMapper.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f13df4da-a77b-40c6-bc27-db55bdd3ff17</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

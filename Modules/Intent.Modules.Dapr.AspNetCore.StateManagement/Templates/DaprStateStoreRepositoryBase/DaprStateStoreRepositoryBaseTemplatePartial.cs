@@ -57,7 +57,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         .Async()
                         .AddParameter("string", "key")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                        .AddStatement(@"return await _daprClient.GetStateAsync<TDomain>(
+                        .AddStatement(@"var entity = await _daprClient.GetStateAsync<TDomain>(
                 storeName: _storeName,
                 key: key,
                 cancellationToken: cancellationToken,
@@ -66,13 +66,20 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     [""contentType""] = ""application/json""
                 });"
                         )
+                        .AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious())
+                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
                     )
                     .AddMethod("void", "Upsert", method => method
                         .Protected()
                         .AddParameter("string", "key")
                         .AddParameter(tDomain, "entity")
-                        .AddIfStatement("_enableTransactions", s => s
-                            .AddStatement(@"EnqueueTransactionRequest(new StateTransactionRequest(
+                        .AddStatement("_unitOfWork.Track(entity);")
+                        .AddIfStatement("_enableTransactions", ifStatement =>
+                        {
+                            ifStatement.SeparatedFromPrevious();
+
+                            ifStatement
+                                .AddStatement(@"EnqueueTransactionRequest(new StateTransactionRequest(
                     key: key,
                     value: JsonSerializer.SerializeToUtf8Bytes(entity),
                     operationType: StateOperationType.Upsert,
@@ -80,9 +87,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     {
                         [""contentType""] = ""application/json"",
                     }));"
-                            )
-                            .AddStatement("return;")
-                        )
+                                )
+                                .AddStatement("return;");
+                        })
                         .AddInvocationStatement("_unitOfWork.Enqueue", invocation =>
                         {
                             invocation.SeparatedFromPrevious();
@@ -109,14 +116,20 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     .AddMethod("void", "Remove", method => method
                         .Protected()
                         .AddParameter("string", "key")
-                        .AddIfStatement("_enableTransactions", s => s
-                            .AddStatement(@"EnqueueTransactionRequest(new StateTransactionRequest(
+                        .AddParameter(tDomain, "entity")
+                        .AddStatement("_unitOfWork.Track(entity);")
+                        .AddIfStatement("_enableTransactions", ifStatement =>
+                        {
+                            ifStatement.SeparatedFromPrevious();
+
+                            ifStatement
+                                .AddStatement(@"EnqueueTransactionRequest(new StateTransactionRequest(
                     key: key,
                     value: null,
                     operationType: StateOperationType.Delete));"
-                            )
-                            .AddStatement("return;")
-                        )
+                                )
+                                .AddStatement("return;");
+                        })
                         .AddInvocationStatement("_unitOfWork.Enqueue", invocation =>
                         {
                             invocation.SeparatedFromPrevious();
@@ -143,11 +156,19 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     [""queryIndexName""] = ""key""
                 });"
                         )
-                        .AddStatement(@"return result.Results
+                        .AddStatement(@"var entities = result.Results
                 .Select(x => x.Data)
                 .ToList();",
                             s => s.SeparatedFromPrevious()
                         )
+                        .AddForEachStatement("entity", "entities", forEach =>
+                        {
+                            forEach.SeparatedFromPrevious();
+
+                            forEach
+                                .AddStatement("_unitOfWork.Track(entity);");
+                        })
+                        .AddStatement("return entities;", s => s.SeparatedFromPrevious())
                     )
                     .AddMethod("void", "EnqueueTransactionRequest", method => method
                         .Private()
@@ -171,6 +192,23 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                             )
                         )
                         .AddStatement("_transactionRequests.Add(request);", s => s.SeparatedFromPrevious())
+                    )
+                    .AddMethod($"Task<List<{tDomain}>>", "FindByKeysAsync", method => method
+                        .Protected()
+                        .Async()
+                        .AddParameter("string[]", "ids")
+                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                        .AddStatement("var tasks = ids.Select(x => FindByKeyAsync(x, cancellationToken)).ToArray();")
+                        .AddStatement("await Task.WhenAll(tasks);", s => s.SeparatedFromPrevious())
+                        .AddStatement("var entities = tasks.Select(x => x.Result).ToList();", s => s.SeparatedFromPrevious())
+                        .AddForEachStatement("entity", "entities", forEach =>
+                        {
+                            forEach.SeparatedFromPrevious();
+
+                            forEach
+                                .AddStatement("_unitOfWork.Track(entity);");
+                        })
+                        .AddStatement("return entities;", s => s.SeparatedFromPrevious())
                     )
                 );
         }

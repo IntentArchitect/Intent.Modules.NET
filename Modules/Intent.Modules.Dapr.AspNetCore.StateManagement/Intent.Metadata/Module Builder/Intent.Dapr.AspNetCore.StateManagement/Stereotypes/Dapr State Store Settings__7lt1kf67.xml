@@ -16,12 +16,12 @@
   <autoAdd>false</autoAdd>
   <allowMultipleApplies>false</allowMultipleApplies>
   <parentFolderId>b111cc5b-ed8e-4457-82f5-78bcfa9bcafd</parentFolderId>
-  <order>0</order>
+  <order>100</order>
   <packageId>73923254-9ff4-4af0-b5a8-aba37165e9bc</packageId>
   <packageName>Intent.Dapr.AspNetCore.StateManagement</packageName>
   <properties>
     <property id="3a8befc5-48f1-45e3-9d5b-65e57b3aeaf2">
-      <hint>Logical name of the Dapr state store.</hint>
+      <hint>The Dapr [state management component](https://docs.dapr.io/reference/api/state_api/) name.</hint>
       <name>Name</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -32,6 +32,7 @@
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="eb7c1b7f-5593-417d-a809-51ea457504a0">
+      <hint>Whether or not [state transactions](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/#perform-state-transactions) are used.</hint>
       <name>Enable Transactions</name>
       <type>string</type>
       <controlType>checkbox</controlType>

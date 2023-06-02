@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using Intent.Dapr.AspNetCore.StateManagement.Api;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
@@ -30,6 +32,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Dapr.Client")
@@ -44,6 +47,19 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         "int" or "long" => $".ToString({UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                         _ => ".ToString()"
                     };
+                    var pkToStringPlural = pkToString != string.Empty
+                        ? $".{UseType("System.Linq.Select")}(id => id{pkToString}).ToArray()"
+                        : string.Empty;
+
+                    var settings = Model.InternalElement.Package
+                        .AsDomainPackageModel()
+                        .GetDaprStateStoreSettings();
+                    var stateStoreName = !string.IsNullOrWhiteSpace(settings?.Name())
+                        ? settings.Name()
+                        : "statestore";
+                    var enableTransactions = settings?.EnableTransactions() == true
+                        ? "true"
+                        : "false";
 
                     @class
                         .ExtendsClass($"{this.GetDaprStateStoreRepositoryBaseName()}<{EntityInterfaceName}>")
@@ -54,8 +70,8 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                             .CallsBase(@base => @base
                                 .AddArgument("daprClient: daprClient")
                                 .AddArgument("unitOfWork: unitOfWork")
-                                .AddArgument("enableTransactions: true")
-                                .AddArgument("storeName: \"daprClient\"")
+                                .AddArgument($"enableTransactions: {enableTransactions}")
+                                .AddArgument($"storeName: \"{stateStoreName}\"")
                             )
                         )
                         .AddMethod("void", "Add", method =>
@@ -84,12 +100,17 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         )
                         .AddMethod("void", "Remove", method => method
                             .AddParameter(EntityInterfaceName, "entity")
-                            .AddStatement($"Remove(entity.{pkPropertyName}{pkToString});")
+                            .AddStatement($"Remove(entity.{pkPropertyName}{pkToString}, entity);")
                         )
                         .AddMethod($"Task<{EntityInterfaceName}>", "FindByIdAsync", method => method
                             .AddParameter(pkTypeName, "id")
                             .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                             .AddStatement($"return FindByKeyAsync(id{pkToString}, cancellationToken);")
+                        )
+                        .AddMethod($"Task<List<{EntityInterfaceName}>>", "FindByIdsAsync", method => method
+                            .AddParameter($"{pkTypeName}[]", "ids")
+                            .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                            .AddStatement($"return FindByKeysAsync(ids{pkToStringPlural}, cancellationToken);")
                         )
                     ;
                 });

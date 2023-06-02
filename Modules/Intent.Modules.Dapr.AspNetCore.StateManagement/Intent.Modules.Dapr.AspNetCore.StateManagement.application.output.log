@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fcdff3be-086e-4376-940d-f01e4ff1774a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#10005353-4933-4520-a961-657d5c8a58e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>99bacb3d-e9bd-4f8e-8646-59f298895049</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

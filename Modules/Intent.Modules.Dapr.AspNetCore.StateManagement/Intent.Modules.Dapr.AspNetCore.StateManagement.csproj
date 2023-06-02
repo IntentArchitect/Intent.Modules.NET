@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <ProjectReference Include="..\Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj" />
   </ItemGroup>
 
@@ -59,5 +60,7 @@
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems" Label="Shared" />
 
 </Project>

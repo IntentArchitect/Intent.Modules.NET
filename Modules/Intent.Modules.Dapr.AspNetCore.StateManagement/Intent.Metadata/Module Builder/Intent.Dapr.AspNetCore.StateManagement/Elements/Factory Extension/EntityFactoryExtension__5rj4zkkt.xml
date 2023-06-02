@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="10005353-4933-4520-a961-657d5c8a58e8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityFactoryExtension</name>
+  <display>EntityFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>73923254-9ff4-4af0-b5a8-aba37165e9bc</parentFolderId>
+  <packageId>73923254-9ff4-4af0-b5a8-aba37165e9bc</packageId>
+  <packageName>Intent.Dapr.AspNetCore.StateManagement</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

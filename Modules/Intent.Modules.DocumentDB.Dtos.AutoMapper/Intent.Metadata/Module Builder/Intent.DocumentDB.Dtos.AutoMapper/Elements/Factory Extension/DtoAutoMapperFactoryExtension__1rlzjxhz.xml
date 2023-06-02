@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="937b7d19-b108-4b22-81d2-f21f711faafd" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DtoAutoMapperFactoryExtension</name>
+  <display>DtoAutoMapperFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9e282e0-6f4c-4327-b361-53d7ac71ae31</parentFolderId>
+  <packageId>f9e282e0-6f4c-4327-b361-53d7ac71ae31</packageId>
+  <packageName>Intent.DocumentDB.Dtos.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

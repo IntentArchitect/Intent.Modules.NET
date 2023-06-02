@@ -35,13 +35,8 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                 .AddInterface($"IDaprStateStoreRepository", @interface => @interface
                     .AddGenericParameter("TDomain", out var tDomain)
                     .AddGenericParameter("TPersistence")
-                    .AddGenericParameter("TIdentifier", out var tIdentifier)
                     .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
                     .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<{tDomain}>", "FindByIdAsync", method => method
-                        .AddParameter(tIdentifier, "id")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )
                     .AddProperty(this.GetDaprStateStoreUnitOfWorkInterfaceName(), "UnitOfWork", property => property
@@ -59,13 +54,11 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                 var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
                 template.CSharpFile.OnBuild(file =>
                 {
-                    var primaryKeyAttribute = model.Attributes.Single(x => x.HasPrimaryKey());
-                    var primaryKeyTypeName = template.GetTypeName((IElement)primaryKeyAttribute.TypeReference.Element);
                     var @interface = file.Interfaces.Single();
 
-                    @interface.Interfaces[0] = @interface.Interfaces.Single()
-                        .Replace("IRepository", this.GetDaprStateStoreRepositoryInterfaceName())
-                        .Replace(">", $", {primaryKeyTypeName}>");
+                    @interface.Interfaces[0] = @interface.Interfaces
+                        .Single()
+                        .Replace("IRepository", this.GetDaprStateStoreRepositoryInterfaceName());
                 });
             }
         }
