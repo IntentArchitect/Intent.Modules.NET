@@ -153,11 +153,19 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.Repositories
 
         protected async Task<List<TDomain>> FindByKeysAsync(string[] ids, CancellationToken cancellationToken = default)
         {
-            var tasks = ids.Select(x => FindByKeyAsync(x, cancellationToken)).ToArray();
+            var result = await _daprClient.GetBulkStateAsync(
+                storeName: _storeName,
+                keys: ids,
+                parallelism: 1,
+                cancellationToken: cancellationToken,
+                metadata: new Dictionary<string, string>
+                {
+                    ["contentType"] = "application/json"
+                });
 
-            await Task.WhenAll(tasks);
-
-            var entities = tasks.Select(x => x.Result).ToList();
+            var entities = result
+                .Select(x => JsonSerializer.Deserialize<TDomain>(x.Value, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!)
+                .ToList();
 
             foreach (var entity in entities)
             {
