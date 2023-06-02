@@ -96,18 +96,14 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
 
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement(@"var currentState = await _daprClient.GetStateEntryAsync<TDomain>(
-                    _storeName,
-                    key,
-                    cancellationToken: cancellationToken);"
-                                    )
-                                    .AddStatement("currentState.Value = entity;")
-                                    .AddStatement(@"await currentState.SaveAsync(
+                                    .AddStatement(@"await _daprClient.SaveStateAsync(
+                    storeName: _storeName,
+                    key: key,
+                    value: entity,
                     cancellationToken: cancellationToken,
                     metadata: new Dictionary<string, string>
                     {
-                        [""contentType""] = ""application/json"",
-                        [""partitionKey""] = key
+                        [""contentType""] = ""application/json""
                     });"
                                     )
                                 );

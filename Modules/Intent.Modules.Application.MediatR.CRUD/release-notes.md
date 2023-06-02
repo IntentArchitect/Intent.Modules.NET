@@ -1,6 +1,7 @@
 ### Version 5.0.4
 
 - Update: Removed various compiler warnings.
+- Update: Support explicitly calling repository `Update` methods when required.
 - Fixed: Update implementations for properties of nullable complex types would throw an exception when attempting to assign a null value.
 
 ### Version 5.0.3

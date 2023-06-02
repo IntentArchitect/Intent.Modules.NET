@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Now has full repository support for entities modelled in the Domain Designer for `Document DB`s.
+
 ### Version 1.0.2
 
 - Changed `Update` method name to `Upsert`.
