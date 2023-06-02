@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities;
 namespace MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapMapMeRepository : IRepository<MapMapMe, MapMapMe>
+    public interface IMapMapMeRepository : IMongoRepository<MapMapMe, MapMapMe>
     {
         [IntentManaged(Mode.Fully)]
         List<MapMapMe> SearchText(string searchText, Expression<Func<MapMapMe, bool>> filterExpression = null);

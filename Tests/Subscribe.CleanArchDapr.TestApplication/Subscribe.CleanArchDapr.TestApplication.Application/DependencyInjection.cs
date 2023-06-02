@@ -24,7 +24,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EventBusPublishBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(StateRepositoryUnitOfWorkBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(DaprStateStoreUnitOfWorkBehaviour<,>));
             return services;
         }
     }

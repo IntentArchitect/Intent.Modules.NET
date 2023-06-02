@@ -26,11 +26,13 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<DaprStateStoreUnitOfWork>();
+            services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<IEventBus, EventBusImplementation>();
-            services.AddScoped<IStateRepository, StateRepository>();
+            services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
             return services;
         }
     }

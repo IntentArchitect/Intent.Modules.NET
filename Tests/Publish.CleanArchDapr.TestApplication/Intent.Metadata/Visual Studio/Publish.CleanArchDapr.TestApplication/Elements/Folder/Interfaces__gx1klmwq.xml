@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="ca99877a-d1f5-4ac7-868b-1aeaf74dfc30" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1419a9d7-d873-47da-91cd-d5b13fb86de5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

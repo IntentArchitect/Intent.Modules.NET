@@ -4,27 +4,33 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dapr.Client;
 using Intent.RoslynWeaver.Attributes;
-using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
+using Subscribe.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
+using Subscribe.CleanArchDapr.TestApplication.Domain.Repositories;
+using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.StateManagement.StateRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository", Version = "1.0")]
 
-namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories
+namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.Repositories
 {
-    public class StateRepository : IStateRepository
+    public class DaprStateStoreGenericRepository : IDaprStateStoreGenericRepository
     {
         private const string StateStoreName = "statestore";
         private readonly DaprClient _daprClient;
+        private readonly DaprStateStoreUnitOfWork _unitOfWork;
         private readonly ConcurrentQueue<Func<CancellationToken, Task>> _actions = new();
 
-        public StateRepository(DaprClient daprClient)
+        public DaprStateStoreGenericRepository(
+            DaprClient daprClient,
+            DaprStateStoreUnitOfWork unitOfWork)
         {
             _daprClient = daprClient;
+            _unitOfWork = unitOfWork;
         }
 
         public void Upsert<TValue>(string key, TValue state)
         {
-            _actions.Enqueue(async cancellationToken =>
+            _unitOfWork.Enqueue(async cancellationToken =>
             {
                 var currentState = await _daprClient.GetStateEntryAsync<TValue>(StateStoreName, key, cancellationToken: cancellationToken);
                 currentState.Value = state;
@@ -39,18 +45,12 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories
 
         public void Delete(string key)
         {
-            _actions.Enqueue(async cancellationToken =>
+            _unitOfWork.Enqueue(async cancellationToken =>
             {
                 await _daprClient.DeleteStateAsync(StateStoreName, key, cancellationToken: cancellationToken);
             });
         }
 
-        public async Task FlushAllAsync(CancellationToken cancellationToken = default)
-        {
-            while (_actions.TryDequeue(out var action))
-            {
-                await action(cancellationToken);
-            }
-        }
+        public IDaprStateStoreUnitOfWork UnitOfWork => _unitOfWork;
     }
 }

@@ -140,6 +140,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d62a316c-7bb0-4e0e-b552-9654e11f5c64</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Behaviours/DaprStateStoreUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d62a316c-7bb0-4e0e-b552-9654e11f5c64</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
@@ -160,14 +168,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d62a316c-7bb0-4e0e-b552-9654e11f5c64</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.StateRepositoryUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Behaviours/StateRepositoryUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateRepositoryUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -676,6 +676,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1419a9d7-d873-47da-91cd-d5b13fb86de5</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1419a9d7-d873-47da-91cd-d5b13fb86de5</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
@@ -724,6 +732,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDaprStateStoreRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
@@ -752,14 +776,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.StateRepositoryInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IStateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IStateRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -804,6 +820,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9837918-1f27-4bd6-b37b-e10285231ec9</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9837918-1f27-4bd6-b37b-e10285231ec9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
@@ -828,6 +852,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>97a21a99-14e9-4754-bd28-a54383d0c7e2</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>97a21a99-14e9-4754-bd28-a54383d0c7e2</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprStateStoreRepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>97a21a99-14e9-4754-bd28-a54383d0c7e2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#008652e2-30b9-471a-a9ce-fd80c45713a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
@@ -848,14 +888,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>97a21a99-14e9-4754-bd28-a54383d0c7e2</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.StateRepository</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/StateRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StateRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
