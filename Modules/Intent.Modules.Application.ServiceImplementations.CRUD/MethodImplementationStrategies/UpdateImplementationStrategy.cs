@@ -32,12 +32,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
-            if (operationModel.Parameters.Count != 2)
-            {
-                return false;
-            }
-
-            if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)))
+            if (operationModel.Parameters.Count > 2)
             {
                 return false;
             }
@@ -54,7 +49,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (dtoModel.Fields.GetEntityIdField(domainModel) == null)
+            if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)) &&
+                dtoModel.Fields.GetEntityIdField(domainModel) == null)
             {
                 return false;
             }
@@ -77,12 +73,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var domainTypeCamelCased = domainType.ToCamelCase();
             var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
             var repositoryFieldName = $"{domainTypeCamelCased}Repository";
-            var idField = dtoModel.Fields.GetEntityIdField(domainModel);
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
 
-            var codeLines = new CSharpStatementAggregator();
-            codeLines.Add(
-                $"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase)).Name});");
+            var codeLines = new List<CSharpStatement>();
+            var idParam = operationModel.Parameters.FirstOrDefault(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase))?.Name 
+                ?? $"{dtoParam.Name}.{dtoModel.Fields.GetEntityIdField(domainModel).Name}";
+            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({idParam});");
             codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
 
             if (operationModel.TypeReference.Element.IsDTOModel())
@@ -100,7 +96,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             }
             attr.WithBodyFully();
             method.Statements.Clear();
-            method.AddStatements(codeLines.ToList());
+            method.AddStatements(codeLines);
 
             var ctor = @class.Constructors.First();
             if (ctor.Parameters.All(p => p.Name != repositoryFieldName))

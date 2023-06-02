@@ -31,7 +31,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
     public bool IsMatch(OperationModel operationModel)
     {
-        if (!operationModel.Parameters.Any(IsPageNumberParam)
+        if ((!operationModel.Parameters.Any(IsPageNumberParam)
+             && !operationModel.Parameters.Any(IsPageIndexParam))
              || !operationModel.Parameters.Any(IsPageSizeParam)
              || operationModel.ReturnType.Element.Name != "PagedResult"
              || !operationModel.ReturnType.GenericTypeParameters.Any())
@@ -64,10 +65,11 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         var repositoryFieldName = $"{domainTypeCamelCased}Repository";
         
         var codeLines = new CSharpStatementAggregator();
-        var pageNumberVar = operationModel.Parameters.Single(IsPageNumberParam);
+        var pageNumberVar = operationModel.Parameters.SingleOrDefault(IsPageNumberParam);
+        var pageIndexVar = pageNumberVar == null ? operationModel.Parameters.Single(IsPageIndexParam) : null;
         var pageSizeVar = operationModel.Parameters.Single(IsPageSizeParam);
         codeLines.Add(new CSharpInvocationStatement($@"var results = {(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName.ToPrivateMemberName()}.FindAll{(operationModel.IsAsync() ? "Async" : "")}")
-            .AddArgument($"pageNo: {pageNumberVar.Name.ToParameterName()}")
+            .AddArgument($"pageNo: {pageNumberVar?.Name.ToParameterName() ?? $"{pageIndexVar.Name.ToParameterName()} + 1"}")
             .AddArgument($"pageSize: {pageSizeVar.Name.ToParameterName()}")
             .WithArgumentsOnNewLines());
         codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{dtoType}(_mapper));");
@@ -109,6 +111,22 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             case "pageno":
             case "pagenum":
             case "pagenumber":
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool IsPageIndexParam(ParameterModel param)
+    {
+        if (!param.Type.HasIntType())
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "pageindex":
                 return true;
         }
 

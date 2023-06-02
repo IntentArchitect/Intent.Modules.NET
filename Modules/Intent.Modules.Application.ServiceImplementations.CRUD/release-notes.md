@@ -1,3 +1,8 @@
+### Version 4.2.4
+
+- Supports `pageIndex` and adapts to `pageNo` for pagination implementation.
+- Supports update implementation when no `id` parameter is provided, but when an ID is available on the provided DTO.	
+
 ### Version 4.2.3
 
 - Support for DTO return types on Create, Update and Delete operations.
