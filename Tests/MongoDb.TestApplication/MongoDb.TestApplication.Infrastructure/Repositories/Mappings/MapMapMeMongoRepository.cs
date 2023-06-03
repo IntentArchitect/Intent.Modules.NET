@@ -5,13 +5,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
 using MongoDb.TestApplication.Domain.Repositories;
+using MongoDb.TestApplication.Domain.Repositories.Mappings;
 using MongoDb.TestApplication.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
 
-namespace MongoDb.TestApplication.Infrastructure.Repositories
+namespace MongoDb.TestApplication.Infrastructure.Repositories.Mappings
 {
     public class MapMapMeMongoRepository : MongoRepositoryBase<MapMapMe, MapMapMe>, IMapMapMeRepository
     {

@@ -125,6 +125,11 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
                 .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
 
+            if (aggregate.HasCollection())
+            {
+                result.AddChainStatement($@"ToCollection(""{aggregate.GetCollection().Name()}"")");
+            }
+
             foreach (var index in new ClassExtensionModel(aggregate.InternalElement).MongoDbIndices)
             {
                 if (index.Fields.Count == 0)
@@ -186,7 +191,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
             return string.Join(".", GetMapPathExpression(index.Fields[0]));
         }
-        
+
         private static string GetMapPathExpression(IndexFieldModel field)
         {
             return string.Join(".", field.InternalElement.MappedElement.Path

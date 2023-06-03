@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.AutoMapper.MappingExtensions", Version = "1.0")]

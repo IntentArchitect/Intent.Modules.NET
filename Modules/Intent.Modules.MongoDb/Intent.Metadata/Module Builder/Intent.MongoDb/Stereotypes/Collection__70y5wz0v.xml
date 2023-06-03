@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="4638b965-dd58-4734-87e3-edd263f3910c" version="3.1.0">
+  <name>Collection</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAACWpJREFUeF7tnAtQVNcZx/9nd2EtrPWBqAuldZQ+0Ammtk1ao2YSrRPr1Om4GDWpGNsMIzZq1ExktCQVWxPfoqKxUqVMRVAxrcbXUgqSpgm+q41ijGgFebmP3LsX3Af3ns657q5aRXb3Iq54zwwz7HC+833nx/+ex93vHAK1KCJAFFmrxlABKhSBClAFqJCAQnNVgSpAhQQUmneIAgVB6C+KognAS4SQbwHorjCuh2JOCOElSbqm0WgOEUL2GgyGBqWOFAGklEYLgvAqpfQdAPFKg+lMe0JIrSiKWR6PpzA2NtYRqu+QAVoslni9Xv+2JElvEEI0oQbwiO0kSZK2WSyWrMTExJpQYgkJoM1m66HRaDI1Gs0bAPShOA4XG0qp226351ZUVCxJTU1tCjaukAAKgjBWkqTtAOJ8Du02Bw7sq8S5f1fDauWDjaNT6sfEfB1PDR2I8ROeRa/et4dpl8tlq6ioWGgymfIAtAYTTNAAKaVRPM8vJ4Qw9cnlyuV65Kzfh0sXa0BpMO47vy4hwHe+m4BZcyZgwEAj2GdWTp48eSQjI2N+ZWXl+WCiChqgw+HoK0kSm8WGMUdOpxt5uUdw6KNj0HaPQPSwvtBG6YKJodPqSs2tcJxuguTwYOy4H+LXaePQ7WuRsn+LxXJlypQpvzt27Ngu1q1AgwoaoNVqTdDpdGcJIT2ZE5vNgYz5W9FQb4MxPRl9Jg6CNjoiUP+dWk9q9sDy4WXUbTqL3jHdsXpDOthjzYrL5WqeNGnSwvLycjOAS4EGFjRAu90+QKvVVgO3XkQ0NX6FtNfWQJIkJBWNgz4hLJeAfh6uWgEXXj4IQgi2/nkB+vaTdcAKTUlJedNsNp8BUPGwAV7xOWhqtOP11NXyx8HF4xFpjA7U9yOp565vxnnTAdl3bj4D2MsfR0pKylyz2czUdyjQ4EJVYFcGeBXAvocGkOO4aYSQ/K6owB07dmxKT08/8tAAchz3CiEkB4B/4OhKj7Db7W7Zv3//hhkzZmR0uAIFQUgWRfEwIcToa1xsFXH1aiPm/WbTYzkGrs2ZhQED+kGr0/p5eTwea3l5+RSTyfQPAFJ7IAMaA+vq6qIMBsMaAK8DkL19ZRfw8dFzKDWfQvXlenlOHrznMZlEUg4AFBg4yIjRY4dh5PNPoWcvw62pmFKpurp6/8KFC+eZzWY2Hj5waxAQQJvNlqzVarf7Fs8upwd7io7ir8WfwOXyyPCivt0DiauHQ9crvLfGrXYXvlzwL7Rc4mQ0en0EfpEyAimTR8m/s2K1Wq9kZ2dnrVu3bidbIj5IhQEB5DhuPIA8Qkgf1ljVhWvIXr0X12ssSBhCkWT6HJGxLdD2iJTXV+FcKKUQOTfcN6Jwvngwaj/XIC4+BnMXTETSEPYqk+2unPyWLVs2Z2ZmbgRQqxigIAhTJUliG2153/PJx/9B9qq98jZu3MpPEd0n4J1PWLG9adPjwILh0Om0mPvWRDz/wlA5PkmSPPn5+VvmzJlTBOCfigHyPD+dKdDXUGnJaWSvKpY/mraV+TfkYUUnwGD2zHhBrskAjv6pvL2XS0FBwQczZ848CGB/RwB8DQB7fSWX0pJTsgJZSdleFmCo4VmtLYCFhYUfpKWllQNgKmyzBDRg8Tz/pAJke2I2kYQOkFKqEQQhjVK6+QlUoHKAPM8/RyldRQj58ZMEsLS0tGj69Okf8Tz/l5AVaLPZvqnT6djG+tb09ASNgQ6Ho3H58uWb169fvyQkgJRSwnHcTo1GM/nOBr784jryt5lx5vTlLjWJvJo6GqbJo+Qlja80NDRUJScnv+R0Ov/bFsQ2JxFBEIZKksTezvZlxpIo4cihE9i6+QBaW0W5vYjoVkzY+MBlUnhOvXdE9bdZI9F6UwuNRgPTyyMxddqLd0HcuHHju4sWLdoAwH6/zrQJkOO42QDeJ4REMcOqCzV4L6sAdrsDnn56uL/RDTFDeMQPD/qbwLCCeq28Hxyf6aGvcUIjAhmZU/GT5wb7Yzx79mzJiBEjFgE4DeCWcu4obQLkeX4VW18CkL8hKtxRht07j8IVSXEjNR7OxChQbUCroLACdk8wFIisdyJmdwP0V27iR89+D5lZv/RXa2pqupSYmMjEVMneoQQD8E+U0l/59rYb1n6IksMn0do7ArW/HQRougA8Hw1K0aegHobjHIxxMdiyfZ6fkyAITXFxcelegNeDAch2HmwBLRe2dWNbOBngO4nhraoQoutTUAfDMU7+kik3/y1/C83NzTeMRiNT4GcA7plMHvQIqwABeAGyoYwB9H8X5COsAvSSaEeBKsD2nmoVYHuE2vm7ClAFqJCAQnNVgSpAhQQUmqsKVAEqJKDQXFWgClAhAYXmqgJVgAoJKDRXFagCVEhAobmqQBWgQgIKzVUFqgAVElBoripQBaiQgEJzVYEqQIUEFJqrClQBKiSg0FxVYBgC3AZghi+urp1cBMgKPM6hv7E3/pg33//v8CYXvRl0agfHcWsJISypRk7ZLNpRhl3e9Lam6fFwDepK6W0uxOyul9Pbnh42CFnv+XUDb3rbu0EDdDgcsyVJ8idYXqyqxXtLCmCz83D318MT1w30djaswgfoEZpTIMLiRmSNEzpK8PbiKXclWJ45c+bvo0aNyvWmt7HDh3eVNpOLmpubfyCKIjupcyvFV5Jw+OAJ5N6R4vsIu93hrrVaLSZOGoFXpr141/HXlStXvr906dITXoD3nJtrEyBLMnc4HOxk+u10TXadxcVa7C6qwLWrjf5c6Q7vTSc2yHKj2bj3s58/I2enarW3b7FqaGi4kJSU9HtRFFlmKktvswWsQFbR6XQOdLlcxYSQpzuxT2Hhih1zWLFixabs7OwvvImVJwG4gwLIKlut1uGSJK3R6/XP+K46CYsePsQg2MxbXFy8a/HixZU8z7cA+BRA/f1ctpvozI56lZWVfT8uLu4PRqNxNCEkPK8l6iCg9fX1VTk5OYV5eXnVPM+ze7ROeS/iue/x/3YB+uIyGAyxs2fPnjpmzJgxCQkJiVFRUT21Wu1jD5NSSltaWri6urprJSUlx5ctW3ZOFEUGiz2uVQAeeJdWwAC9INnFAizDPBYAu2GHHcDuCosZ1j12N4IHwE3voRq2ZGls7+KJYAEyR8yGgWQ/DODjevni/z/0DCB7ZBlAdqPlPRNGSGNgBw0tXbaZUBTYZWGE0jEVYCjU7rBRAaoAFRJQaP4/a8cvq3l0N2kAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b17c482e-7dc8-4137-95d1-c1075cb47790</parentFolderId>
+  <order>0</order>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <properties>
+    <property id="bc21c5d6-ef4e-4186-85b8-705393888465">
+      <name>Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(collection name)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

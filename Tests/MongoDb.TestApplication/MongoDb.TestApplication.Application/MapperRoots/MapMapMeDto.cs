@@ -4,6 +4,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Common.Mappings;
 using MongoDb.TestApplication.Domain.Entities;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]

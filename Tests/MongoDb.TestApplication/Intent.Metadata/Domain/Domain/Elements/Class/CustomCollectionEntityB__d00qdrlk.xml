@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="aa1f16ff-9b95-4367-8a3f-06baf5e08cfb" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>MapMapMe</name>
-  <display>MapMapMe</display>
+<class id="efffa3ad-2052-4a23-869f-552305e16557" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>CustomCollectionEntityB</name>
+  <display>CustomCollectionEntityB</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>f0f4a179-02e6-423d-9485-ddbbdd51b264</parentFolderId>
+  <parentFolderId>7cd0e72f-74e1-4d92-a2fc-28e943335c20</parentFolderId>
   <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
   <packageName>Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="4638b965-dd58-4734-87e3-edd263f3910c" name="Collection">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.MongoDb</definitionPackageName>
+      <definitionPackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</definitionPackageId>
+      <properties>
+        <property name="bc21c5d6-ef4e-4186-85b8-705393888465" display="Name" value="CustomCollection" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="44ab37b0-8783-4484-81b0-df3463c0643c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="5af35f16-a289-45d1-a66b-9ce7b0c85166" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
       <display>Id: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="1167a78e-312f-4e4e-bc32-5347d988c588">
+      <typeReference id="e1e6e249-e5b7-46ad-964e-58e3c41797e3">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +38,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</parentFolderId>
+      <parentFolderId>efffa3ad-2052-4a23-869f-552305e16557</parentFolderId>
       <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
       <packageName>Domain</packageName>
       <stereotypes>
@@ -45,12 +54,12 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="35bf1963-5457-4fe6-a314-6c5977227838" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Name</name>
-      <display>Name: string</display>
+    <childElement id="ddfa98ea-3173-497a-889e-ed0f5f6e2f1b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Attribute</name>
+      <display>Attribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="c35ab6bf-736f-46cc-bd91-7e297da7a7d8">
+      <typeReference id="a97de287-90bf-44e1-9b96-897edd2a7b84">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,7 +71,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</parentFolderId>
+      <parentFolderId>efffa3ad-2052-4a23-869f-552305e16557</parentFolderId>
       <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
       <packageName>Domain</packageName>
       <stereotypes />

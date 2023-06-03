@@ -6,6 +6,8 @@ using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Common.Interfaces;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Associations;
+using MongoDb.TestApplication.Domain.Entities.Collections;
+using MongoDb.TestApplication.Domain.Entities.Collections.FolderCollection;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Entities.Mappings;
@@ -33,11 +35,15 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<CompoundIndexEntity> CompoundIndexEntities { get; set; }
         public MongoDbSet<CompoundIndexEntityMultiParent> CompoundIndexEntityMultiParents { get; set; }
         public MongoDbSet<CompoundIndexEntitySingleParent> CompoundIndexEntitySingleParents { get; set; }
+        public MongoDbSet<CustomCollectionEntityA> CustomCollectionEntityAs { get; set; }
+        public MongoDbSet<CustomCollectionEntityB> CustomCollectionEntityBs { get; set; }
         public MongoDbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public MongoDbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public MongoDbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public MongoDbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public MongoDbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
+        public MongoDbSet<FolderCollectionEntityA> FolderCollectionEntityAs { get; set; }
+        public MongoDbSet<FolderCollectionEntityB> FolderCollectionEntityBs { get; set; }
         public MongoDbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public MongoDbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public MongoDbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
@@ -128,6 +134,14 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
                     .HasName("CompoundIndexEntitySingleParents_CompoundOne_CompoundTwo")
                     .HasType(IndexType.Standard));
 
+            mappingBuilder.Entity<CustomCollectionEntityA>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .ToCollection("CustomCollection");
+
+            mappingBuilder.Entity<CustomCollectionEntityB>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .ToCollection("CustomCollection");
+
             mappingBuilder.Entity<D_MultipleDependent>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
@@ -142,6 +156,14 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
 
             mappingBuilder.Entity<F_OptionalDependent>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<FolderCollectionEntityA>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .ToCollection("FolderCollection");
+
+            mappingBuilder.Entity<FolderCollectionEntityB>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .ToCollection("FolderCollection");
 
             mappingBuilder.Entity<G_RequiredCompositeNav>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
