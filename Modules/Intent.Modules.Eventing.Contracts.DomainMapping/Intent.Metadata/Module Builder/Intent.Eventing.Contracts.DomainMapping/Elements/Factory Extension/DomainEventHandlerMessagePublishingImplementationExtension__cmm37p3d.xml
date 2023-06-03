@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="640151a8-0bbd-4d2a-a464-9c87580cecc9" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainEventHandlerMessagePublishingImplementationExtension</name>
+  <display>DomainEventHandlerMessagePublishingImplementationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>feb782db-7bda-406d-b805-7f11c1563543</parentFolderId>
+  <packageId>feb782db-7bda-406d-b805-7f11c1563543</packageId>
+  <packageName>Intent.Eventing.Contracts.DomainMapping</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

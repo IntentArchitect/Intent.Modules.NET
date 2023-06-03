@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -9,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -20,7 +22,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class DtoExtensionsTemplate : CSharpTemplateBase<EventingDTOModel>, ICSharpFileBuilderTemplate
+    public partial class DtoExtensionsTemplate : CSharpTemplateBase<EventingDTOModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.Contracts.DomainMapping.DtoExtensions";
 
@@ -29,8 +31,8 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
-            AddTypeSource("Domain.Enum");
-            AddTypeSource("Domain.Entity");
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.EnsureSuffixedWith("Dto")}Extensions", @class =>
@@ -47,7 +49,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
                         codeLines.Add(new CSharpStatementBlock()
-                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", domainEntity, model.Fields.Select(x => x.InternalElement), this))
+                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", domainEntity.Attributes.Select(x => x.InternalElement), model.Fields.Select(x => x.InternalElement), this))
                             .WithSemicolon());
                         method.AddStatements(codeLines.ToList());
                     });

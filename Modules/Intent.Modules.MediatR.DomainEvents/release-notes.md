@@ -1,4 +1,6 @@
-### Version 
+### Version 4.2.0
+
+- Converted Default Domaint Event Handler to use the C# Builder implmentation paradigm. These classes can now be easily extended.
 
 ### Version 4.1.2
 

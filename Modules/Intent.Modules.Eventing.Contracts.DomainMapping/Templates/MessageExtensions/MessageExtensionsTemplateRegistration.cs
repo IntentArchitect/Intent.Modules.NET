@@ -56,7 +56,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
                 return false;
             }
 
-            var domainClasses = _metadataManager.Domain(application).GetClassModels();
+            var domainClasses = _metadataManager.Domain(application).Elements;
             return domainClasses.Any(p => p.Id == domainMapping.ElementId);
         }
     }

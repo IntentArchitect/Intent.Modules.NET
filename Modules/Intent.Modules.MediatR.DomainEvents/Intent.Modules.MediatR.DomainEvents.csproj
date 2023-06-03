@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -21,15 +21,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventNotificationTemplate.cs</LastGenOutput>
     </None>
-
     <None Update="Templates\AggregateManager\AggregateManagerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AggregateManagerTemplate.cs</LastGenOutput>
-    </None>
-
-    <None Update="Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DefaultDomainEventHandlerTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -54,25 +48,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventNotificationTemplate.tt</DependentUpon>
     </Compile>
-
     <Compile Update="Templates\AggregateManager\AggregateManagerTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AggregateManagerTemplate.tt</DependentUpon>
     </Compile>
-
-    <Compile Update="Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DefaultDomainEventHandlerTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.34" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.3.5" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.4.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

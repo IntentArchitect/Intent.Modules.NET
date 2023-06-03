@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c11bdc96-25c4-4b81-add5-1381251bdabe</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#640151a8-0bbd-4d2a-a464-9c87580cecc9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DomainEventHandlerMessagePublishingImplementationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventHandlerMessagePublishingImplementationExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>749ac6d1-cc82-407c-b973-ae5de1178fcf</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

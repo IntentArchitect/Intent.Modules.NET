@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts.DomainMapping</id>
-  <version>4.0.3</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.1.0-pre.0</version>
+  <supportedClientVersions>[4.0.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces mapping capability from Entities to Messages.</summary>
   <description>Introduces mapping capability from Entities to Messages.</description>
   <authors>Intent Architect</authors>
@@ -27,14 +27,17 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.Contracts.DomainMapping.DomainEventHandlerMessagePublishingImplementationExtension" externalReference="640151a8-0bbd-4d2a-a464-9c87580cecc9" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts" version="4.0.4" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.2" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.4-pre.0" />
+    <dependency id="Intent.Modelers.Domain.Events" version="3.5.0-pre.0" />
     <dependency id="Intent.Modelers.Eventing" version="4.0.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

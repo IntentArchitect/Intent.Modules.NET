@@ -27,7 +27,7 @@
     <FileLog>
       <ProjectId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.MediatR.DomainEvents.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.MediatR.DomainEvents.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -70,22 +70,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AggregateManager/AggregateManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateManager/AggregateManagerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -18,6 +18,8 @@ namespace Intent.Modules.Constants
             public const string MongoDbUnitOfWork = "Domain.UnitOfWork.MongoDb";
             public const string ValueObject = "Domain.ValueObject";
             public const string DataContract = "Domain.DataContract";
+            public const string Events = "Domain.Events";
+
             public static class Entity
             {
                 public const string Primary = "Domain.Entity";
@@ -78,6 +80,7 @@ namespace Intent.Modules.Constants
             }
 
             public const string Mappings = "Application.Mappings";
+            public const string DomainEventHandler = "Application.DomainEventHandler";
         }
 
         public static class Infrastructure

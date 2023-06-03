@@ -15,7 +15,7 @@ internal static class MappingExtensionHelper
 {
     public static IEnumerable<CSharpStatement> GetPropertyAssignments<TModel>(
         string domainEntityVar,
-        ClassModel domainModel,
+        IEnumerable<IElement> fromAttributes,
         IEnumerable<IElement> properties,
         CSharpTemplateBase<TModel> template)
     {
@@ -25,7 +25,7 @@ internal static class MappingExtensionHelper
             var mappedPropertyElement = property.MappedElement;
 
             if (mappedPropertyElement?.Element == null
-                && domainModel.Attributes.All(p => p.Name != property.Name))
+                && fromAttributes.All(p => p.Name != property.Name))
             {
                 codeLines.Add($"#warning No matching property found for {property.Name}");
                 continue;
@@ -41,31 +41,38 @@ internal static class MappingExtensionHelper
             {
                 case null:
                 case AttributeModel.SpecializationTypeId:
-                    codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath},");
-                    break;
-                case AssociationTargetEndModel.SpecializationTypeId:
-                {
-                    var association = mappedPropertyElement.Element.AsAssociationTargetEndModel();
-
-                    if (association.Association.AssociationType == AssociationType.Aggregation)
+                    if (property.TypeReference.Element.Name == "string" && mappedPropertyElement?.Element?.TypeReference.Element.Name != "string")
                     {
-                        codeLines.Add($@"#warning Field not a composite association: {property.Name.ToPascalCase()}");
-                        break;
-                    }
-
-                    if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
-                    {
-                        codeLines.Add(association.IsNullable
-                            ? $"{property.Name.ToPascalCase()} = {sourcePath} != null ? {GetMapToMethodName(property, template)}({sourcePath}) : null,"
-                            : $"{property.Name.ToPascalCase()} = {GetMapToMethodName(property, template)}({sourcePath}),");
+                        codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath}.ToString(),");
                     }
                     else
                     {
-                        template.AddUsing("System.Linq");
-                        codeLines.Add(
-                            $"{property.Name.ToPascalCase()} = {sourcePath}{(association.IsNullable ? "?" : "")}.Select({GetMapToMethodName(property, template)}).ToList(),");
+                        codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath},");
                     }
-                }
+                    break;
+                case AssociationTargetEndModel.SpecializationTypeId:
+                    {
+                        var association = mappedPropertyElement.Element.AsAssociationTargetEndModel();
+
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Field not a composite association: {property.Name.ToPascalCase()}");
+                            break;
+                        }
+
+                        if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                        {
+                            codeLines.Add(association.IsNullable
+                                ? $"{property.Name.ToPascalCase()} = {sourcePath} != null ? {GetMapToMethodName(property, template)}({sourcePath}) : null,"
+                                : $"{property.Name.ToPascalCase()} = {GetMapToMethodName(property, template)}({sourcePath}),");
+                        }
+                        else
+                        {
+                            template.AddUsing("System.Linq");
+                            codeLines.Add(
+                                $"{property.Name.ToPascalCase()} = {sourcePath}{(association.IsNullable ? "?" : "")}.Select({GetMapToMethodName(property, template)}).ToList(),");
+                        }
+                    }
                     break;
                 default:
                     var mappedPropertyName = mappedPropertyElement.Element?.Name ?? "<null>";
