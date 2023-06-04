@@ -39,6 +39,7 @@ public class ProgramAppConfigInstaller : FactoryExtensionBase
         programTemplate.CSharpFile.OnBuild(file =>
         {
             file.AddUsing(configTemplate.Namespace);
+            file.AddUsing("Microsoft.Extensions.Configuration");
         
             var @class = file.Classes.First();
             var hostBuilder = @class.FindMethod("CreateHostBuilder");

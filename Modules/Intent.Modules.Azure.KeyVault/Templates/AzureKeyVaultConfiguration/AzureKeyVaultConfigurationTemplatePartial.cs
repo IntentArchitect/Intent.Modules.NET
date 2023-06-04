@@ -24,7 +24,7 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
             AddNugetDependency(NugetPackages.AzureExtensionsAspNetCoreConfigurationSecrets);
             AddNugetDependency(NugetPackages.AzureIdentity);
             AddNugetDependency(NugetPackages.AzureSecurityKeyVaultSecrets);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Azure.Core")
@@ -48,7 +48,7 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
                         method.Static();
                         method.Private();
                         method.AddParameter("IConfiguration", "configuration");
-                        
+
                         method.AddIfStatement(@"
 !string.IsNullOrWhiteSpace(configuration[""KeyVault:TenantId""]) &&
 !string.IsNullOrWhiteSpace(configuration[""KeyVault:ClientId""]) &&
@@ -63,7 +63,7 @@ return new ClientSecretCredential(configuration[""KeyVault:TenantId""], configur
                             .AddInvocationStatement("return new DefaultAzureCredential", stmt => stmt
                                 .AddArgument(new CSharpObjectInitializerBlock("new DefaultAzureCredentialOptions")
                                     .AddInitStatement("ManagedIdentityClientId", @"configuration[""KeyVault:ClientId""]"))));
-                        
+
                         method.AddStatements(@"
 // Use the default discovery mechanisms to connect to Azure Key Vault.
 return new DefaultAzureCredential();");
@@ -71,8 +71,19 @@ return new DefaultAzureCredential();");
                 });
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        public override void BeforeTemplateExecution()
+        {
+            this.ApplyAppSetting("KeyVault", new
+            {
+                Enabled = false,
+                Endpoint = "https://VAULT-NAME-HERE.vault.azure.net/",
+                ClientId = "",
+                Secret = "",
+                TenantId = ""
+            });
+        }
+
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
