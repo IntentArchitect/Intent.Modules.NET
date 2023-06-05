@@ -27,7 +27,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.AspNetCore.Controllers" version="5.1.1-pre.1" metadataOnly="false">
+            <module id="Intent.AspNetCore.Controllers" version="5.1.1-pre.2" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
