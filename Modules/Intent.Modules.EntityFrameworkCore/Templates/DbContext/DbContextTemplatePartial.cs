@@ -28,9 +28,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
-        private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
-
-        private readonly ISet<string> _existingDbSetNames = new HashSet<string>();
+        private readonly List<CapturedEntityTypeConfiguration> _capturedEntityTypeConfigurations = new();
+        private bool _addedPostTypeConfigProcess;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
@@ -95,49 +94,83 @@ modelBuilder.Entity<Car>().HasData(
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
             {
-                _entityTypeConfigurations.Add(typeConfiguration);
-                var @class = CSharpFile.Classes.First();
-
-                var dbSetPropName = GetAndEnsureDbSetPropertyNameUnique();
-
-                @class.AddProperty(
-                    type: $"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>",
-                    name: dbSetPropName,
-                    configure: prop => prop.AddMetadata("model", typeConfiguration.Template.Model));
-
-                @class.Methods.First(x => x.Name.Equals("OnModelCreating"))
-                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());",
-                        config => config.AddMetadata("model", typeConfiguration.Template.Model));
-
-                AddTemplateDependency(TemplateDependency.OnTemplate(typeConfiguration.Template)); // needed? GetTypeName does the same thing?
-
-                string GetAndEnsureDbSetPropertyNameUnique()
+                _capturedEntityTypeConfigurations.Add(new CapturedEntityTypeConfiguration
                 {
-                    var proposedDbSetPropName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize();
+                    Event = typeConfiguration,
+                    DbSetElementType = GetEntityName(typeConfiguration.Template.Model),
+                    DbSetName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize(),
+                    Prefix = string.Concat(((IHasFolder)typeConfiguration.Template.Model).GetParentFolderNames().Select(s => s.ToPascalCase()))
+                });
 
-                    if (_existingDbSetNames.Add(proposedDbSetPropName)) return proposedDbSetPropName;
-
-                    _existingDbSetNames.Remove(proposedDbSetPropName);
-
-                    var collisionProp = @class.Properties.First(p => p.Name == proposedDbSetPropName);
-                    var collisionPropModel = collisionProp.GetMetadata<ClassModel>("model");
-                    var collisionPropModelPrefix = string.Concat(((IHasFolder)collisionPropModel).GetParentFolderNames().Select(s => s.ToPascalCase()));
-
-                    @class.Properties.Remove(collisionProp);
-
-                    var collisionPropNewName = collisionPropModelPrefix + proposedDbSetPropName;
-                    _existingDbSetNames.Add(collisionPropNewName);
-
-                    @class.AddProperty(
-                        type: $"DbSet<{GetEntityName(collisionPropModel)}>",
-                        name: collisionPropNewName,
-                        configure: prop => prop.AddMetadata("model", collisionPropModel));
-
-                    var newPropModelPrefix = string.Concat(((IHasFolder)typeConfiguration.Template.Model).GetParentFolderNames().Select(s => s.ToPascalCase()));
-                    return newPropModelPrefix + proposedDbSetPropName;
+                if (_addedPostTypeConfigProcess)
+                {
+                    return;
                 }
+
+                CSharpFile.AfterBuild(DoPostTypeConfigProcess);
+                
+                _addedPostTypeConfigProcess = true;
             });
         }
+
+        // This is the cleanest (and foolproof way) I can get to ensure that DbSet name and types are unique since
+        // all the EntityTypeConfigurations are made known via events so a buffer of sorts is
+        // required to keep track of all the registered ones and then check if there are any duplicates.
+        private void DoPostTypeConfigProcess(CSharpFile file)
+        {
+            var dbSetNameLookup = new Dictionary<string, CapturedEntityTypeConfiguration>();
+            foreach (var entry in _capturedEntityTypeConfigurations)
+            {
+                if (dbSetNameLookup.TryAdd(entry.DbSetName, entry))
+                {
+                    continue;
+                }
+
+                var collisionEntry = dbSetNameLookup[entry.DbSetName];
+                dbSetNameLookup.Remove(entry.DbSetName);
+                
+                entry.DbSetName = entry.Prefix + entry.DbSetName;
+                collisionEntry.DbSetName = collisionEntry.Prefix + collisionEntry.DbSetName;
+                
+                dbSetNameLookup.Add(entry.DbSetName, entry);
+                dbSetNameLookup.Add(collisionEntry.DbSetName, collisionEntry);
+            }
+            
+            var dbSetElementTypeLookup = new Dictionary<string, CapturedEntityTypeConfiguration>();
+            foreach (var entry in _capturedEntityTypeConfigurations)
+            {
+                if (dbSetElementTypeLookup.TryAdd(entry.DbSetElementType, entry))
+                {
+                    continue;
+                }
+
+                var collisionEntry = dbSetNameLookup[entry.DbSetElementType];
+                dbSetElementTypeLookup.Remove(entry.DbSetElementType);
+
+                // Ensure that the GetTypeName system picks up the duplicate and re-resolves them to a full type name
+                entry.DbSetElementType = GetEntityName(entry.Event.Template.Model);
+                collisionEntry.DbSetElementType = GetEntityName(collisionEntry.Event.Template.Model);
+                
+                dbSetElementTypeLookup.Add(entry.DbSetElementType, entry);
+                dbSetElementTypeLookup.Add(collisionEntry.DbSetElementType, collisionEntry);
+            }
+
+            var @class = CSharpFile.Classes.First();
+            foreach (var entry in _capturedEntityTypeConfigurations)
+            {
+                @class.AddProperty(
+                    type: $"DbSet<{entry.DbSetElementType}>",
+                    name: entry.DbSetName,
+                    configure: prop => prop.AddMetadata("model", entry.Event.Template.Model));
+
+                @class.Methods.First(x => x.Name.Equals("OnModelCreating"))
+                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(entry.Event.Template)}());",
+                        config => config.AddMetadata("model", entry.Event.Template.Model));
+
+                AddTemplateDependency(TemplateDependency.OnTemplate(entry.Event.Template)); // needed? GetTypeName does the same thing?
+            }
+        }
+
         public CSharpFile CSharpFile { get; }
 
         public override void BeforeTemplateExecution()
@@ -225,6 +258,14 @@ modelBuilder.Entity<Car>().HasData(
         public string GetMappingClassName(ClassModel model)
         {
             return GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
+        }
+
+        private class CapturedEntityTypeConfiguration
+        {
+            public EntityTypeConfigurationCreatedEvent Event { get; set; }
+            public string DbSetElementType { get; set; }
+            public string DbSetName { get; set; }
+            public string Prefix { get; set; }
         }
     }
 }
