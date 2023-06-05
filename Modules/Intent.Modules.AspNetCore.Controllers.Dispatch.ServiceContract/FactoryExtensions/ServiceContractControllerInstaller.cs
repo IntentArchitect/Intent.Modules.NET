@@ -185,7 +185,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 ctor.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                foreach (var method in @class.Methods)
+                foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString().StartsWith("[HttpGet"))))
                 {
                     method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
                         .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));

@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Only publish events in controller methods that cause mutations.
+
 ### Version 5.1.1
 
 - CancellationTokens are now passed in as a parameters for asynchronous operations.
