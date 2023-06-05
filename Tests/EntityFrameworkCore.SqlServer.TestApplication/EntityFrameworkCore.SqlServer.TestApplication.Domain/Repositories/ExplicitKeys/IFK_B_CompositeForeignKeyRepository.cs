@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ExplicitKeys
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IFK_B_CompositeForeignKeyRepository : IEfRepository<FK_B_CompositeForeignKey, FK_B_CompositeForeignKey>
+    public interface IFK_B_CompositeForeignKeyRepository : IEFRepository<FK_B_CompositeForeignKey, FK_B_CompositeForeignKey>
     {
 
         [IntentManaged(Mode.Fully)]

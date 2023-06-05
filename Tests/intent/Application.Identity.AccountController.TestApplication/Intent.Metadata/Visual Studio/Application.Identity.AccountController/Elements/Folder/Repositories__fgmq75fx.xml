@@ -84,9 +84,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bb04bac1-0789-4d41-83d0-794a45f53614" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</display>
+    <childElement id="e59d28e6-2bde-4d08-b451-208154b38688" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

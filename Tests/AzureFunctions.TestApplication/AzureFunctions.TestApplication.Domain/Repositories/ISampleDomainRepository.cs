@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ISampleDomainRepository : IEfRepository<SampleDomain, SampleDomain>
+    public interface ISampleDomainRepository : IEFRepository<SampleDomain, SampleDomain>
     {
         [IntentManaged(Mode.Fully)]
         Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

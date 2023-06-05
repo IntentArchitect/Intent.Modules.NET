@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.NestedAssociations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ISunRepository : IEfRepository<Sun, Sun>
+    public interface ISunRepository : IEFRepository<Sun, Sun>
     {
         [IntentManaged(Mode.Fully)]
         Task<Sun> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

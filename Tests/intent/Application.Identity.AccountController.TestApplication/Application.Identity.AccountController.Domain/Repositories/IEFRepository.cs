@@ -4,16 +4,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using GraphQL.CQRS.TestApplication.Domain.Common.Interfaces;
+using Application.Identity.AccountController.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface", Version = "1.0")]
 
-namespace GraphQL.CQRS.TestApplication.Domain.Repositories
+namespace Application.Identity.AccountController.Domain.Repositories
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public interface IEfRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface IEFRepository<TDomain, TPersistence> : IRepository<TDomain>
     {
         IUnitOfWork UnitOfWork { get; }
         Task<TDomain?> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
@@ -26,6 +25,5 @@ namespace GraphQL.CQRS.TestApplication.Domain.Repositories
         Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
-        IQueryable<TDomain> GetQueryable();
     }
 }

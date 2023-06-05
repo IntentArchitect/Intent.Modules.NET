@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IA_RequiredCompositeRepository : IEfRepository<A_RequiredComposite, A_RequiredComposite>
+    public interface IA_RequiredCompositeRepository : IEFRepository<A_RequiredComposite, A_RequiredComposite>
     {
 
         [IntentManaged(Mode.Fully)]

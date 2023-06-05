@@ -220,10 +220,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>28041a1e-ea11-412d-8e38-f2e7ccb568d5</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.GooglePubSub.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.GooglePubSub.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

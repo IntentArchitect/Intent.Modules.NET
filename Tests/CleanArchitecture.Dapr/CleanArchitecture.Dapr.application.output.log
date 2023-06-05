@@ -1012,10 +1012,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>02e589b2-631c-4135-8dac-1b1dd0c5a2fb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

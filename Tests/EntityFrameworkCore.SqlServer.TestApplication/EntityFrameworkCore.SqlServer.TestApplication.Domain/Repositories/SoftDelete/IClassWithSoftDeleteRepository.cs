@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.SoftDelete
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IClassWithSoftDeleteRepository : IEfRepository<ClassWithSoftDelete, ClassWithSoftDelete>
+    public interface IClassWithSoftDeleteRepository : IEFRepository<ClassWithSoftDelete, ClassWithSoftDelete>
     {
         [IntentManaged(Mode.Fully)]
         Task<ClassWithSoftDelete> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

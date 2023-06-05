@@ -380,10 +380,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7295bc9-e2b7-4159-ac7e-9c07f4eb3f31</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Domain/Repositories/IEfRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IEfRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.TestApplication.Domain.Repositories.CRUD
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAggregateTestNoIdReturnRepository : IEfRepository<AggregateTestNoIdReturn, AggregateTestNoIdReturn>
+    public interface IAggregateTestNoIdReturnRepository : IEFRepository<AggregateTestNoIdReturn, AggregateTestNoIdReturn>
     {
 
         [IntentManaged(Mode.Fully)]

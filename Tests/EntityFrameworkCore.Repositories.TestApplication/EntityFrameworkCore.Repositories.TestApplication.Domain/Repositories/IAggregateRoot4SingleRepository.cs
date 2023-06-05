@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAggregateRoot4SingleRepository : IEfRepository<AggregateRoot4Single, AggregateRoot4Single>
+    public interface IAggregateRoot4SingleRepository : IEFRepository<AggregateRoot4Single, AggregateRoot4Single>
     {
 
         [IntentManaged(Mode.Fully)]

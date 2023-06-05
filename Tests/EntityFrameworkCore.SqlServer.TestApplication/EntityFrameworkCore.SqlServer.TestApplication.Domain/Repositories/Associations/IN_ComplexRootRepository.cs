@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IN_ComplexRootRepository : IEfRepository<N_ComplexRoot, N_ComplexRoot>
+    public interface IN_ComplexRootRepository : IEFRepository<N_ComplexRoot, N_ComplexRoot>
     {
         [IntentManaged(Mode.Fully)]
         Task<N_ComplexRoot> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

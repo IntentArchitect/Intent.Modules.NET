@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polymorphic
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IPoly_ConcreteARepository : IEfRepository<Poly_ConcreteA, Poly_ConcreteA>
+    public interface IPoly_ConcreteARepository : IEFRepository<Poly_ConcreteA, Poly_ConcreteA>
     {
 
         [IntentManaged(Mode.Fully)]

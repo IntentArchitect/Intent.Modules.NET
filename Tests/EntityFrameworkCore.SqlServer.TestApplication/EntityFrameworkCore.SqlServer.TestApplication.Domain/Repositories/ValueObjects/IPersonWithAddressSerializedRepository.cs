@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ValueObjects
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IPersonWithAddressSerializedRepository : IEfRepository<PersonWithAddressSerialized, PersonWithAddressSerialized>
+    public interface IPersonWithAddressSerializedRepository : IEFRepository<PersonWithAddressSerialized, PersonWithAddressSerialized>
     {
         [IntentManaged(Mode.Fully)]
         Task<PersonWithAddressSerialized> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

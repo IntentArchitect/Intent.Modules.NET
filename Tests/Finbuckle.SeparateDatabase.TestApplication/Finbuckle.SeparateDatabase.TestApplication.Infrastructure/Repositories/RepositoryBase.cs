@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure.Repositories
 {
-    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IEfRepository<TDomain, TPersistence>
+    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IEFRepository<TDomain, TPersistence>
         where TDbContext : DbContext, IUnitOfWork
         where TPersistence : class, TDomain
         where TDomain : class

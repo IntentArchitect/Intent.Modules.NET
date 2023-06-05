@@ -4,15 +4,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Entities.PrivateSetters.EF.CosmosDb.Domain.Common.Interfaces;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface", Version = "1.0")]
 
-namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories
+namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories
 {
-    public interface IEfRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface IEFRepository<TDomain, TPersistence> : IRepository<TDomain>
     {
         IUnitOfWork UnitOfWork { get; }
         Task<TDomain?> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);

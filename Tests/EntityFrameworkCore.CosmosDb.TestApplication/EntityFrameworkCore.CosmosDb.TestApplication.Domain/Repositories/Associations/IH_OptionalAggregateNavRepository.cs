@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IH_OptionalAggregateNavRepository : IEfRepository<H_OptionalAggregateNav, H_OptionalAggregateNav>
+    public interface IH_OptionalAggregateNavRepository : IEFRepository<H_OptionalAggregateNav, H_OptionalAggregateNav>
     {
 
         [IntentManaged(Mode.Fully)]

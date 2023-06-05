@@ -4,15 +4,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface", Version = "1.0")]
 
-namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories
+namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
 {
-    public interface IEfRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface IEFRepository<TDomain, TPersistence> : IRepository<TDomain>
     {
         IUnitOfWork UnitOfWork { get; }
         Task<TDomain?> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IB_OptionalDependentRepository : IEfRepository<B_OptionalDependent, B_OptionalDependent>
+    public interface IB_OptionalDependentRepository : IEFRepository<B_OptionalDependent, B_OptionalDependent>
     {
 
         [IntentManaged(Mode.Fully)]

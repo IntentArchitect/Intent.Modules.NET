@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITagRepository : IEfRepository<Tag, Tag>
+    public interface ITagRepository : IEFRepository<Tag, Tag>
     {
         [IntentManaged(Mode.Fully)]
         Task<Tag> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace GraphQL.AzureFunction.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IProductRepository : IEfRepository<Product, Product>
+    public interface IProductRepository : IEFRepository<Product, Product>
     {
         [IntentManaged(Mode.Fully)]
         Task<Product> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

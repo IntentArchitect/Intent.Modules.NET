@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inheritance
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IBaseRepository : IEfRepository<Base, Base>
+    public interface IBaseRepository : IEFRepository<Base, Base>
     {
 
         [IntentManaged(Mode.Fully)]

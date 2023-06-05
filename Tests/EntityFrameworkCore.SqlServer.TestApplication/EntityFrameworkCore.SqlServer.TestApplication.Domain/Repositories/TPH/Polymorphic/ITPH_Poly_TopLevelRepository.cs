@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.Polymorphic
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITPH_Poly_TopLevelRepository : IEfRepository<TPH_Poly_TopLevel, TPH_Poly_TopLevel>
+    public interface ITPH_Poly_TopLevelRepository : IEFRepository<TPH_Poly_TopLevel, TPH_Poly_TopLevel>
     {
 
         [IntentManaged(Mode.Fully)]

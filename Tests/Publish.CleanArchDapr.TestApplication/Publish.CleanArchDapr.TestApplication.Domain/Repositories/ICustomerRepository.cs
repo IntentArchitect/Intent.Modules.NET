@@ -12,7 +12,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Entities;
 namespace Publish.CleanArchDapr.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomerRepository : IEfRepository<Customer, Customer>
+    public interface ICustomerRepository : IEFRepository<Customer, Customer>
     {
         [IntentManaged(Mode.Fully)]
         Task<Customer> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

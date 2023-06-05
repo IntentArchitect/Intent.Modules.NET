@@ -14,7 +14,7 @@ using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Repositories;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Repositories
 {
-    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IEfRepository<TDomain, TPersistence>
+    public class RepositoryBase<TDomain, TPersistence, TDbContext> : IEFRepository<TDomain, TPersistence>
         where TDbContext : DbContext, IUnitOfWork
         where TPersistence : class, TDomain
         where TDomain : class

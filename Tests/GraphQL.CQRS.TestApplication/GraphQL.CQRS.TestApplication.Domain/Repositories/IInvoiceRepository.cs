@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace GraphQL.CQRS.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IInvoiceRepository : IEfRepository<Invoice, Invoice>
+    public interface IInvoiceRepository : IEFRepository<Invoice, Invoice>
     {
         [IntentManaged(Mode.Fully)]
         Task<Invoice> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
