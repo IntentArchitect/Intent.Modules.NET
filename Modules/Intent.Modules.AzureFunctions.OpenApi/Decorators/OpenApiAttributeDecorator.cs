@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using Intent.Utils;
 using Microsoft.VisualBasic;
 
@@ -59,12 +60,12 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 var runMethod = @class.FindMethod("Run");
                 runMethod.AddAttribute("OpenApiOperation", att =>
                 {
-                    var operationInfo = GetOperatiopnInfo();
+                    var operationElement = GetOperationInfo();
 
-                    att.AddArgument($"\"{operationInfo.Name}\"");
+                    att.AddArgument($"\"{operationElement.Name}\"");
                     var grouping = GetOperationGrouping(endpointModel);
                     att.AddArgument($"tags: new [] {{\"{grouping}\"}}");
-                    att.AddArgument($"Description = \"{GetDescription(operationInfo)}\"");
+                    att.AddArgument($"Description = \"{GetDescription(operationElement)}\"");
                 });
 
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
@@ -115,32 +116,17 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             }, 10);
         }
 
-        private OperationInfo GetOperatiopnInfo()
+        private IElement GetOperationInfo()
         {
             var mappedOperation = _template.Model.InternalElement.AsOperationModel() ??
                 (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null);
 
             if (mappedOperation != null)
             {
-                return new OperationInfo(mappedOperation.Name, mappedOperation.InternalElement);
+                return mappedOperation.InternalElement;
             }
 
-            var commandModel = _template.Model.InternalElement.AsCommandModel() ??
-                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsCommandModel() : null);
-
-            if (commandModel != null)
-            {
-                return new OperationInfo(commandModel.Name, commandModel.InternalElement);
-            }
-
-            var queryModel = _template.Model.InternalElement.AsQueryModel() ??
-                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsQueryModel() : null);
-
-            if (queryModel != null)
-            {
-                return new OperationInfo(queryModel.Name, queryModel.InternalElement);
-            }
-            throw new Exception("Unknow operation type");
+            return _template.Model.InternalElement;
         }
 
         private string GetParameterLocation(HttpInputSource? source)
@@ -154,9 +140,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             };
         }
 
-        private static string GetDescription(OperationInfo operationInfo)
+        private static string GetDescription(IElement operation)
         {
-            return !string.IsNullOrEmpty(operationInfo.Element.Comment) ? operationInfo.Element.Comment : operationInfo.Name.ToSentenceCase();
+            return !string.IsNullOrEmpty(operation.Comment) ? operation.Comment : operation.Name.ToSentenceCase();
         }
 
         private string GetOperationGrouping(IHttpEndpointModel endpointModel)
@@ -175,20 +161,5 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             }
             return result.ToPascalCase();
         }
-
-        private class OperationInfo
-        {
-            public OperationInfo(string name, IElement element)
-            {
-                Name = name;
-                Element = element;
-            }
-
-            internal string Name { get; }
-            internal IElement Element { get; }
-        }
-
-
-
     }
 }
