@@ -23,7 +23,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
         public async Task<AggregateRoot3Collection> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
+            return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
         public async Task<List<AggregateRoot3Collection>> FindByIdsAsync(

@@ -23,7 +23,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Repositories
 
         public async Task<Tag> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
+            return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
         public async Task<List<Tag>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)

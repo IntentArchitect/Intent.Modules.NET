@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
 
         public async Task<ConcreteBaseClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.Id == id, cancellationToken) ?? throw new Exception("Id not found.");
+            return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
         public async Task<List<ConcreteBaseClass>> FindByIdsAsync(

@@ -80,7 +80,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                     method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken) ?? throw new Exception(\"Id not found.\");");
+                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
                                 });
                                 @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
                                 {
