@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Intent.Engine;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
@@ -33,7 +34,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name}Handler", @class =>
                 {
-
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     @class.ImplementsInterface($"INotificationHandler<{GetDomainEventNotificationType()}<{GetDomainEventType()}>>");
                     @class.AddConstructor(ctor =>
                     {

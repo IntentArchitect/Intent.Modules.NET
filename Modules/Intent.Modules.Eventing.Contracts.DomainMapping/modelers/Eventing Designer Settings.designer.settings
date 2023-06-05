@@ -35,7 +35,7 @@
                     <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                     <hasChildren>false</hasChildren>
                   </criteria>
-                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <mapTo specializationType="Eventing DTO-Field" childMappingMode="map-to-child" />
                   <behaviour autoSelectChildren="false" />
                   <childMappings />
                 </mapping>
@@ -45,7 +45,7 @@
                     <isCollection>true</isCollection>
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                   </criteria>
-                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <mapTo specializationType="Eventing DTO-Field" childMappingMode="map-to-child" />
                   <behaviour autoSelectChildren="false" />
                   <childMappings />
                 </mapping>
@@ -55,7 +55,7 @@
                     <isCollection>false</isCollection>
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                   </criteria>
-                  <mapTo specializationType="Property" childMappingMode="traverse" useMappingSettings="1fa4068f-53f7-449c-928d-72e188695ecd" />
+                  <mapTo specializationType="Eventing DTO" childMappingMode="traverse" useMappingSettings="1fa4068f-53f7-449c-928d-72e188695ecd" />
                   <behaviour autoSelectChildren="false" />
                   <childMappings />
                 </mapping>
@@ -118,7 +118,7 @@
     }
     static isOwnerForeignKey(attributeName, domainElement) {
         for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
-            if (attributeName.toLowerCase().indexOf(association.name.toLowerCase()) &gt;= 0) {
+            if (attributeName.toLowerCase().indexOf(association.getName().toLowerCase()) &gt;= 0) {
                 return true;
             }
         }
@@ -188,7 +188,7 @@
 //element = lookup("f94b6b5a-514f-45f6-be31-92499ea8173b");
 /// &lt;reference path="../../common/mappingHelper.ts" /&gt;
 const mappingSettingId = "e437007c-33fd-46d5-9293-d4529b4b82e6";
-let properties = element.getChildren("Property")
+let properties = element.getChildren()
     .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
 for (const property of properties) {
     MappingHelper.ensureMappedToType({
@@ -367,7 +367,7 @@ for (const property of properties) {
     }
     static isOwnerForeignKey(attributeName, domainElement) {
         for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
-            if (attributeName.toLowerCase().indexOf(association.name.toLowerCase()) &gt;= 0) {
+            if (attributeName.toLowerCase().indexOf(association.getName().toLowerCase()) &gt;= 0) {
                 return true;
             }
         }
@@ -437,7 +437,7 @@ for (const property of properties) {
 //element = lookup("f94b6b5a-514f-45f6-be31-92499ea8173b");
 /// &lt;reference path="../../common/mappingHelper.ts" /&gt;
 const mappingSettingId = "e437007c-33fd-46d5-9293-d4529b4b82e6";
-let properties = element.getChildren("Property")
+let properties = element.getChildren()
     .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
 for (const property of properties) {
     MappingHelper.ensureMappedToType({

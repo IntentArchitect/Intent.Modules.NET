@@ -1,6 +1,7 @@
 ### Version 4.1.0
 
 - Now supports mapping Messages from Domain Events and will automatically implement publishing in the default Domain Event Handler.
+- Fixed: Nested and mapped Eventing DTOs cause Software Factory errors as field types are set incorrectly by mapping.
 
 ### Version 4.0.3
 
