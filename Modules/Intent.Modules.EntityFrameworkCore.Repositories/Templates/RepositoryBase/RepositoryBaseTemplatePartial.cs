@@ -41,7 +41,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                     @class.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .AddGenericParameter("TDbContext", out var tDbContext);
-                    @class.ImplementsInterface($"{this.GetEfRepositoryInterfaceName()}<{tDomain}, {tPersistence}>");
+                    @class.ImplementsInterface($"{this.GetEFRepositoryInterfaceName()}<{tDomain}, {tPersistence}>");
                     @class.AddGenericTypeConstraint(tDbContext, constr => constr
                         .AddType(UseType("Microsoft.EntityFrameworkCore.DbContext"))
                         .AddType(this.GetUnitOfWorkInterfaceName()));

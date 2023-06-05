@@ -63,7 +63,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         }
 
                         @interface.Interfaces.Clear();
-                        @interface.ExtendsInterface($"{this.GetEfRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
+                        @interface.ExtendsInterface($"{this.GetEFRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
                     });
 
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))

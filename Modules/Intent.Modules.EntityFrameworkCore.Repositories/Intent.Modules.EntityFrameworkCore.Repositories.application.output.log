@@ -124,16 +124,16 @@
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2901269a-8cfa-45c7-827f-e8d6516635af</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EfRepositoryInterface/EfRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EfRepositoryInterface/EfRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EFRepositoryInterface/EFRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2901269a-8cfa-45c7-827f-e8d6516635af</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EfRepositoryInterface/EfRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EfRepositoryInterface/EfRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/EFRepositoryInterface/EFRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EFRepositoryInterface/EFRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

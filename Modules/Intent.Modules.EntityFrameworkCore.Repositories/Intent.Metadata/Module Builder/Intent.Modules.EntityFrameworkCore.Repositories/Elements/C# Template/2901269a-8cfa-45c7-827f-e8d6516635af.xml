@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2901269a-8cfa-45c7-827f-e8d6516635af" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>EfRepositoryInterface</name>
-  <display>EfRepositoryInterface: Single File</display>
+  <name>EFRepositoryInterface</name>
+  <display>EFRepositoryInterface: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="3d6e8753-beb3-4f43-9c8c-60ac83ec67f2">

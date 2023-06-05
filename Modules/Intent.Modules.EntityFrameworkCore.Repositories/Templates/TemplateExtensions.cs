@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EfRepositoryInterface;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase;
@@ -36,9 +36,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
             return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, model);
         }
 
-        public static string GetEfRepositoryInterfaceName(this IIntentTemplate template)
+        public static string GetEFRepositoryInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(EfRepositoryInterfaceTemplate.TemplateId);
+            return template.GetTypeName(EFRepositoryInterfaceTemplate.TemplateId);
         }
         public static string GetPagedListName(this IIntentTemplate template)
         {

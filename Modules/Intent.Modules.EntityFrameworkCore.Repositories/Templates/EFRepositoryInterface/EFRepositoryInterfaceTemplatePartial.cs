@@ -12,15 +12,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EfRepositoryInterface
+namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class EfRepositoryInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class EFRepositoryInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.EfRepositoryInterface";
+        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EfRepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public EFRepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EfRepository
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddInterface($"IEfRepository", @interface =>
+                .AddInterface($"IEFRepository", @interface =>
                 {
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)

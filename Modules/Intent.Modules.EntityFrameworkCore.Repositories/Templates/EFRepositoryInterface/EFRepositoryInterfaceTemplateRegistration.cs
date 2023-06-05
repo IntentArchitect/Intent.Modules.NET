@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EfRepositoryInterface
+namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EfRepositoryInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class EFRepositoryInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => EfRepositoryInterfaceTemplate.TemplateId;
+        public override string TemplateId => EFRepositoryInterfaceTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new EfRepositoryInterfaceTemplate(outputTarget);
+            return new EFRepositoryInterfaceTemplate(outputTarget);
         }
     }
 }
