@@ -58,15 +58,6 @@ namespace ");
             #line hidden
             this.Write(@" : IOperationFilter
     {
-        private bool HasAuthorize(OperationFilterContext context)
-        {
-            if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
-                return true;
-            return context.MethodInfo.DeclaringType != null
-                && context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
-        }
-
-
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             if (!HasAuthorize(context))
@@ -87,6 +78,14 @@ namespace ");
                         }
                     ] = Array.Empty<string>()
                 });
+        }
+
+        private bool HasAuthorize(OperationFilterContext context)
+        {
+            if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
+                return true;
+            return context.MethodInfo.DeclaringType != null
+                && context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
         }
     }
 }");
