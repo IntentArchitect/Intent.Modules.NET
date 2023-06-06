@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides Serilog logging for ASP.NET Core</summary>
@@ -16,9 +16,9 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="5.0.0-pre.1" />
+    <dependency id="Intent.AspNetCore" version="5.0.0" />
     <dependency id="Intent.Common" version="3.3.19" />
-    <dependency id="Intent.Common.CSharp" version="3.3.35-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.3.35" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>

@@ -18,6 +18,14 @@
         <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="4638b965-dd58-4734-87e3-edd263f3910c" name="Collection">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.MongoDb</definitionPackageName>
+      <definitionPackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</definitionPackageId>
+      <properties>
+        <property name="bc21c5d6-ef4e-4186-85b8-705393888465" display="Name" value="FolderCollection" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements />

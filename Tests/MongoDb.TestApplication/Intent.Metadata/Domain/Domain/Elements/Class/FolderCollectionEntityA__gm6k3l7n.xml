@@ -9,16 +9,7 @@
   <parentFolderId>cf0feff3-ee4e-492d-9688-fa34c1c3ca56</parentFolderId>
   <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
   <packageName>Domain</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="4638b965-dd58-4734-87e3-edd263f3910c" name="Collection">
-      <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.MongoDb</definitionPackageName>
-      <definitionPackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</definitionPackageId>
-      <properties>
-        <property name="bc21c5d6-ef4e-4186-85b8-705393888465" display="Name" value="FolderCollection" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
     <childElement id="16b41f03-ad37-4001-bd88-448cac92f8f4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
