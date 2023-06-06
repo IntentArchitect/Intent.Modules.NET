@@ -50,6 +50,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     foreach (var line in enterClass)
                         @class.AddCodeBlock(line);
 
+                    // See this article on how to handle NRTs for DTOs
+                    // https://github.com/dotnet/docs/issues/18099
                     @class.AddConstructor(ctor =>
                     {
                         foreach (var field in Model.Fields)
