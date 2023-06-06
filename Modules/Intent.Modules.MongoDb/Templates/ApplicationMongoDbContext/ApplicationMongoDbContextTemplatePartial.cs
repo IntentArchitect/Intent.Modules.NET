@@ -125,9 +125,11 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
                 .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
 
-            if (aggregate.HasCollection())
+            if (aggregate.HasCollection() || aggregate.Folder?.HasCollection() == true)
             {
-                result.AddChainStatement($@"ToCollection(""{aggregate.GetCollection().Name()}"")");
+                var collectionName = aggregate.GetCollection()?.Name() ??
+                                     aggregate.Folder?.GetCollection()?.Name();
+                result.AddChainStatement($@"ToCollection(""{collectionName}"")");
             }
 
             foreach (var index in new ClassExtensionModel(aggregate.InternalElement).MongoDbIndices)
