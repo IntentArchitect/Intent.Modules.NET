@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>977e49c2-87e6-4c1c-a6d9-60587ff7176d</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1f6302dc-0386-40dd-9faf-ba1b3c6c6fe2</parentFolderId>
+  <packageId>1f6302dc-0386-40dd-9faf-ba1b3c6c6fe2</packageId>
+  <packageName>Application.Identity.MSAL.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>1f6302dc-0386-40dd-9faf-ba1b3c6c6fe2</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

@@ -139,6 +139,70 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="5192e155-56bc-4029-9103-a2a8253c319a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CommandHandler</name>
+      <display>Intent.Application.MediatR.CommandHandler</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="95a53a74-cce2-44be-814e-85e42d4d0d2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CommandModels</name>
+      <display>Intent.Application.MediatR.CommandModels</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3a22c67b-18bc-44e2-940a-6e830697e618" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryHandler</name>
+      <display>Intent.Application.MediatR.QueryHandler</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="98bfd87d-d1e7-4c2c-a364-33294c2f9be9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryModels</name>
+      <display>Intent.Application.MediatR.QueryModels</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="a592e87b-9484-46c1-9afc-3fc85aedc17c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</name>
       <display>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</display>
@@ -167,62 +231,6 @@
       <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="5192e155-56bc-4029-9103-a2a8253c319a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CommandHandler</name>
-      <display>Intent.Application.MediatR.CommandHandler</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="95a53a74-cce2-44be-814e-85e42d4d0d2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CommandModels</name>
-      <display>Intent.Application.MediatR.CommandModels</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="3a22c67b-18bc-44e2-940a-6e830697e618" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryHandler</name>
-      <display>Intent.Application.MediatR.QueryHandler</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="98bfd87d-d1e7-4c2c-a364-33294c2f9be9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryModels</name>
-      <display>Intent.Application.MediatR.QueryModels</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>3bde8d64-055b-42c7-9c41-1b46258d6df6</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

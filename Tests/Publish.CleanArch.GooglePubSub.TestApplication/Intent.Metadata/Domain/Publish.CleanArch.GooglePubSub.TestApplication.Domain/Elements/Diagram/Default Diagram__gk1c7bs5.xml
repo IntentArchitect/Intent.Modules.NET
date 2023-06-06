@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>46d764e2-7a34-4487-9cd0-302c04d555bb</parentFolderId>
+  <packageId>46d764e2-7a34-4487-9cd0-302c04d555bb</packageId>
+  <packageName>Publish.CleanArch.GooglePubSub.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>46d764e2-7a34-4487-9cd0-302c04d555bb</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

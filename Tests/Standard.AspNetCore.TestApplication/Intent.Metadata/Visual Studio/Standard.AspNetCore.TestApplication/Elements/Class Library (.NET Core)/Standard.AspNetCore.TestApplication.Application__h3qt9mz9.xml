@@ -26,6 +26,7 @@
         <property name="42cdb74e-d5fd-4969-94ca-585d0527b862" display="Generate Runtime Configuration Files" isActive="true" />
         <property name="6111c054-9a40-4f92-9f7c-3a8372af14b8" display="Generate Documentation File" isActive="true" />
         <property name="f236ad27-a4ab-490a-92d4-b6faf2d1e033" display="Assembly Name" isActive="true" />
+        <property name="96c39bf5-320f-4d4c-9545-76c52cb29e91" display="Implicit Usings" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -74,6 +75,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3edbc61a-7985-4082-b231-995a406492b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.ContractEnumModel</name>
+      <display>Intent.Application.Dtos.ContractEnumModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="f38d363b-93e7-4500-a98a-e48861c96e6a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.DtoModel</name>
       <display>Intent.Application.Dtos.DtoModel</display>
@@ -106,34 +123,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="45bbb5e3-b34c-4a86-a826-2e4c30efbd88" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
-      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
-      <packageName>Standard.AspNetCore.TestApplication</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="3edbc61a-7985-4082-b231-995a406492b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.ContractEnumModel</name>
-      <display>Intent.Application.Dtos.ContractEnumModel</display>
-      <externalReference>Intent.Application.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="c400aa24-7c1f-479b-ae41-b3b0f3b010f2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
       <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
@@ -142,6 +131,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -156,10 +147,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="45bbb5e3-b34c-4a86-a826-2e4c30efbd88" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

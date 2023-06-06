@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>977e49c2-87e6-4c1c-a6d9-60587ff7176d</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>94e28c7c-aa40-40a9-bdae-1c0a6b68ff22</parentFolderId>
+  <packageId>94e28c7c-aa40-40a9-bdae-1c0a6b68ff22</packageId>
+  <packageName>Subscribe.MassTransit.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>94e28c7c-aa40-40a9-bdae-1c0a6b68ff22</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

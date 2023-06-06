@@ -26,6 +26,7 @@
         <property name="42cdb74e-d5fd-4969-94ca-585d0527b862" display="Generate Runtime Configuration Files" isActive="true" />
         <property name="6111c054-9a40-4f92-9f7c-3a8372af14b8" display="Generate Documentation File" isActive="true" />
         <property name="f236ad27-a4ab-490a-92d4-b6faf2d1e033" display="Assembly Name" isActive="true" />
+        <property name="96c39bf5-320f-4d4c-9545-76c52cb29e91" display="Implicit Usings" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -45,6 +46,22 @@
     <childElement id="5ce1e759-7dfa-434a-b929-f42d57c46692" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Contracts.Clients.DtoContract</name>
       <display>Intent.Application.Contracts.Clients.DtoContract</display>
+      <externalReference>Intent.Application.Contracts.Clients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="28463ffa-aea3-40c2-8d00-62c849434e12" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.Clients.EnumContract</name>
+      <display>Intent.Application.Contracts.Clients.EnumContract</display>
       <externalReference>Intent.Application.Contracts.Clients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -106,6 +123,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3dea5683-7a48-4e6a-aaa2-892e8e0b57ba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.ContractEnumModel</name>
+      <display>Intent.Application.Dtos.ContractEnumModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="fd79c0bd-7f4f-4f95-816c-de8bf5d37078" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.DtoModel</name>
       <display>Intent.Application.Dtos.DtoModel</display>
@@ -138,48 +171,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="84f65f7f-2a65-4abd-ae58-c123a487328a" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
-      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
-      <packageName>Integration.HttpClients.TestApplication</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="28463ffa-aea3-40c2-8d00-62c849434e12" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Contracts.Clients.EnumContract</name>
-      <display>Intent.Application.Contracts.Clients.EnumContract</display>
-      <externalReference>Intent.Application.Contracts.Clients</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="3dea5683-7a48-4e6a-aaa2-892e8e0b57ba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.ContractEnumModel</name>
-      <display>Intent.Application.Dtos.ContractEnumModel</display>
-      <externalReference>Intent.Application.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="382ba8d9-b9d1-4ca6-8aaf-0830e53a69fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
       <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
@@ -188,6 +179,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -202,10 +195,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="84f65f7f-2a65-4abd-ae58-c123a487328a" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7071084b-30d4-4e57-b0fa-a5d532e50a84</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

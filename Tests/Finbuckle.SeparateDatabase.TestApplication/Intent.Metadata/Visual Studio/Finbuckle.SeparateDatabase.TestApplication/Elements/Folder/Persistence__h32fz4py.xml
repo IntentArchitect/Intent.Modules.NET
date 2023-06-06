@@ -62,6 +62,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b6c79da-1a9d-4904-a440-6f1909b4144a</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -76,6 +78,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b6c79da-1a9d-4904-a440-6f1909b4144a</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -21,10 +21,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="b236ca84-6c6a-4b1a-a7c6-9e9a53a3ad90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="bab390f1-6af6-4cec-a28e-0398151246c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
+      <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers.FluentValidation</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -37,14 +37,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bab390f1-6af6-4cec-a28e-0398151246c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
-      <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers.FluentValidation</externalReference>
+    <childElement id="b236ca84-6c6a-4b1a-a7c6-9e9a53a3ad90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d10b245-c1b9-4179-8774-71f13923e29c</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -110,20 +110,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="89a27932-b9e3-4bb2-b7b3-1035bdc2124f" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b4856e43-4af7-4f3e-8b8d-607b825a245b</parentFolderId>
-      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
-      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="c8f875e5-9676-4d20-b9f6-b08e5af74742" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.ContractEnumModel</name>
       <display>Intent.Application.Dtos.ContractEnumModel</display>
@@ -132,6 +118,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b4856e43-4af7-4f3e-8b8d-607b825a245b</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -146,6 +134,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b4856e43-4af7-4f3e-8b8d-607b825a245b</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -160,10 +150,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b4856e43-4af7-4f3e-8b8d-607b825a245b</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="89a27932-b9e3-4bb2-b7b3-1035bdc2124f" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b4856e43-4af7-4f3e-8b8d-607b825a245b</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

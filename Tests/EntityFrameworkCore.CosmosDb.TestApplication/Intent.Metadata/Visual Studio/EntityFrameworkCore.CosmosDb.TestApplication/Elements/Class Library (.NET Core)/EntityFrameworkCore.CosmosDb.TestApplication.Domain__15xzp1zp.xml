@@ -59,6 +59,38 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="26764950-5d09-454b-8f82-45fa295650e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ValueObjects.ValueObject</name>
+      <display>Intent.ValueObjects.ValueObject</display>
+      <externalReference>Intent.ValueObjects</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72463d11-29f9-4d30-bb1c-89a20309dabb</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6be0a66e-726c-4109-b3ec-df8c7b6b52f3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ValueObjects.ValueObjectBase</name>
+      <display>Intent.ValueObjects.ValueObjectBase</display>
+      <externalReference>Intent.ValueObjects</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72463d11-29f9-4d30-bb1c-89a20309dabb</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="5783eb8b-b5c4-4a96-9dd4-439d520e9d53" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Domain</name>
       <display>Domain</display>
@@ -85,34 +117,6 @@
       <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="26764950-5d09-454b-8f82-45fa295650e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ValueObjects.ValueObject</name>
-      <display>Intent.ValueObjects.ValueObject</display>
-      <externalReference>Intent.ValueObjects</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>72463d11-29f9-4d30-bb1c-89a20309dabb</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="6be0a66e-726c-4109-b3ec-df8c7b6b52f3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ValueObjects.ValueObjectBase</name>
-      <display>Intent.ValueObjects.ValueObjectBase</display>
-      <externalReference>Intent.ValueObjects</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>72463d11-29f9-4d30-bb1c-89a20309dabb</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

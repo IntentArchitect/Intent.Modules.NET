@@ -135,7 +135,7 @@
             <isNullable>false</isNullable>
             <isCollection>true</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+            <typePackageName>Domain</typePackageName>
             <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
@@ -166,7 +166,7 @@
             <isNullable>false</isNullable>
             <isCollection>true</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+            <typePackageName>Domain</typePackageName>
             <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
             <stereotypes />
             <genericTypeParameters />

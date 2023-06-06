@@ -3,26 +3,24 @@
   <name>Interfaces</name>
   <display>Interfaces</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2deec44a-372b-47ff-bb1b-518abe003f77</parentFolderId>
-  <stereotypes />
+  <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ed17d9c0-4d00-4b91-873d-a9ff3b70983a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbContextInterface</name>
-      <display>Intent.EntityFrameworkCore.DbContextInterface</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2a8aedc1-db1a-481b-80de-885a4488d644</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="1ce3cb30-afcb-4d4b-9dd1-0b0db2bdfbc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.CommandInterface</name>
       <display>Intent.Application.MediatR.CommandInterface</display>
@@ -31,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2a8aedc1-db1a-481b-80de-885a4488d644</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +45,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2a8aedc1-db1a-481b-80de-885a4488d644</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ed17d9c0-4d00-4b91-873d-a9ff3b70983a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbContextInterface</name>
+      <display>Intent.EntityFrameworkCore.DbContextInterface</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2a8aedc1-db1a-481b-80de-885a4488d644</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

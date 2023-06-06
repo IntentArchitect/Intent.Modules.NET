@@ -62,6 +62,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3fe24296-8ff1-4c0e-ae9e-321effd265ab</parentFolderId>
+      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+      <packageName>AzureKeyVault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

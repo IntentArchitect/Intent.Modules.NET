@@ -94,7 +94,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageName>Services</typePackageName>
         <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -125,7 +125,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageName>Services</typePackageName>
         <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
         <stereotypes />
         <genericTypeParameters />
