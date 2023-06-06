@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="c5e0d2e2-fd11-445c-8db9-199348a6670c" version="3.1.0">
+  <name>Service Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="b16578a5-27b1-4047-a8df-f0b783d706bd">Service</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</parentFolderId>
+  <order>0</order>
+  <packageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</packageId>
+  <packageName>Intent.Application.ServiceImplementations</packageName>
+  <properties>
+    <property id="5a75f431-eb28-4eff-ab79-6c641da521d4">
+      <hint>When checked, no implementation will be generated.</hint>
+      <name>Contract Only</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

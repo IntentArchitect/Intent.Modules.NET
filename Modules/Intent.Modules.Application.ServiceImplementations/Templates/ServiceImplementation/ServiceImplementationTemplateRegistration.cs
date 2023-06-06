@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Application.ServiceImplementations.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -34,8 +35,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetServiceModels();
+            return _metadataManager
+                .Services(application)
+                .GetServiceModels()
+                .Where(x => x.GetServiceSettings()?.ContractOnly() != true);
         }
     }
 }
-

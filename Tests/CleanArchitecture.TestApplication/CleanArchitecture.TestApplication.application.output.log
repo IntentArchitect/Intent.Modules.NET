@@ -115,6 +115,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#19d00cd6-f980-4d75-bbc5-7924adb671bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ServiceDispatch/ServiceDispatchWithoutImplementationController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceDispatch/ServiceDispatchWithoutImplementationController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1920,6 +1928,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Interfaces/ServiceDispatch/IServiceDispatchService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceDispatch/IServiceDispatchService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#19d00cd6-f980-4d75-bbc5-7924adb671bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Interfaces/ServiceDispatch/IServiceDispatchWithoutImplementationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceDispatch/IServiceDispatchWithoutImplementationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
