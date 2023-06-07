@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="950cc6dd-3c20-4c0b-ba63-dc155f4f1b47">
+  <sourceEnd id="df32aef8-0968-407d-b8fc-1ae47d57a452" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TestNullablity</name>
+    <display>TestNullablity: TestNullablity</display>
+    <order>0</order>
+    <typeReference id="6f295b91-f2d6-4201-a29f-7d03206d9db8">
+      <typeId>c18ee638-36a2-4082-a9cb-763fdbb6ef1b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="950cc6dd-3c20-4c0b-ba63-dc155f4f1b47" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TestNullablityChildren</name>
+    <display>TestNullablityChildren: TestNullablityChild[*]   [1 --&gt; *]</display>
+    <order>9</order>
+    <typeReference id="87555b3b-bf26-4c5b-830c-6d449035ef55">
+      <typeId>85fdba06-36b3-44b1-9730-01e297a3ce70</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

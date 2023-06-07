@@ -8,10 +8,12 @@ using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
+using CleanArchitecture.TestApplication.Domain.Entities.Other;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Other;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,6 +46,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
         public DbSet<DataContractClass> DataContractClasses { get; set; }
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
+        public DbSet<NullabilityPeer> NullabilityPeers { get; set; }
+        public DbSet<TestNullablity> TestNullablities { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -71,6 +75,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
             modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
+            modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
+            modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
 

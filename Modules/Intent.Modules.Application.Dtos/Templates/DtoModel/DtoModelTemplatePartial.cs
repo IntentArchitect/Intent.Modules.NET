@@ -10,6 +10,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -55,10 +57,10 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             if (string.IsNullOrWhiteSpace(field.Value))
                             {
                                 var typeInfo = GetTypeInfo(field.TypeReference);
-                                if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
+                                if (NeedsNullabilityAssignment(typeInfo))
                                 {
                                     ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
-                                }
+                                }                                
                             }
                         }
                     });
@@ -103,6 +105,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         @class.AddCodeBlock(line);
                 }));
             CSharpFile = csharpFile;
+        }
+        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive
+                || typeInfo.IsNullable == true
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 
         private void SetAccessLevel(CSharpPropertyAccessor setter)

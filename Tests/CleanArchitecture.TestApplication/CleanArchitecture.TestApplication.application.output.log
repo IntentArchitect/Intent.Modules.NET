@@ -595,6 +595,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Other/NullabilityPeers/NullabilityPeerAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/NullabilityPeers/NullabilityPeerAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Other/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/TestNullablities/TestNullablityAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#5cca01e1-1277-4a23-ac85-a4cf99c3bc52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2299,6 +2315,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/NullabilityPeer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/NullabilityPeer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/TestNullablity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/TestNullablity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#85fdba06-36b3-44b1-9730-01e297a3ce70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/TestNullablityChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/TestNullablityChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5b8ac139-e009-486f-b671-8d6d2e50d3e9</ProjectId>
       <CorrelationId>Intent.DomainEvents.DomainEvent#bc8005a7-7ed3-4835-8e9a-3f1a7cb6afd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2312,6 +2352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Events/DDD/DataContractDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/DataContractDomainEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#0c590802-f71b-4d11-b3e1-c8f45a470242</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Other/MyEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/MyEnum.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2416,6 +2464,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Other/INullabilityPeerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/INullabilityPeerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Other/ITestNullablityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/ITestNullablityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2635,6 +2699,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Other/NullabilityPeerConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/NullabilityPeerConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Other/TestNullablityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/TestNullablityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2720,6 +2800,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DefaultDiagram/ClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Other/NullabilityPeerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/NullabilityPeerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Other/TestNullablityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Other/TestNullablityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

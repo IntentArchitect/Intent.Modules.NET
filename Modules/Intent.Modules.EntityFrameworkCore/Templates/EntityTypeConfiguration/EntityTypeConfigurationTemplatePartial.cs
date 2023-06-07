@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -570,7 +571,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 if (string.IsNullOrWhiteSpace(attribute.Value))
                                 {
                                     var typeInfo = GetTypeInfo(attribute.TypeReference);
-                                    if (!typeInfo.IsPrimitive && typeInfo.IsNullable == false)
+                                    if (NeedsNullabilityAssignment(typeInfo))
                                     {
                                         ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
                                     }
@@ -582,6 +583,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
+        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive 
+                || typeInfo.IsNullable == true 
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+        }
 
         public void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
         {

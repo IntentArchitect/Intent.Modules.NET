@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2fb5012-972d-47ab-84b5-1e1c57a73c80">
+  <sourceEnd id="f650e703-20c5-475c-8a36-e48a35643bcb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TestNullablities</name>
+    <display>TestNullablities: TestNullablity[*]</display>
+    <order>0</order>
+    <typeReference id="aebf1182-c666-4819-92ed-1f5074a0b0aa">
+      <typeId>c18ee638-36a2-4082-a9cb-763fdbb6ef1b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2fb5012-972d-47ab-84b5-1e1c57a73c80" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>NullabilityPeer</name>
+    <display>NullabilityPeer: NullabilityPeer   [* --&gt; 1]</display>
+    <order>10</order>
+    <typeReference id="804dda7f-e225-426d-86c6-64c29d5644a1">
+      <typeId>1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
