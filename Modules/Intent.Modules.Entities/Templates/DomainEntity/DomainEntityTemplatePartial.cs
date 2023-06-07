@@ -77,7 +77,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)")
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
-                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
+                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
@@ -116,6 +116,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     .Replace("?", string.Empty);
 
                                 ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+                            }
+
+                            if (ctor.Statements.Any())
+                            {
+                                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             }
                         });
                     }
@@ -168,11 +173,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             {
                                 method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
-
-                            if (!hasImplementation)
-                            {
-                                method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
-                            }
                         });
 
                         if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
@@ -181,6 +181,19 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                              !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(this.GetOperationTypeName))))
                         {
                             AddInterfaceQualifiedMethod(@class, operation);
+                        }
+                    }
+                }).AfterBuild(file =>
+                {
+                    foreach (var method in file.Classes.First().Methods)
+                    {
+                        if (!method.Statements.Any())
+                        {
+                            method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
+                        }
+                        else
+                        {
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                         }
                     }
                 });

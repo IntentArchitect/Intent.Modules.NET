@@ -1,3 +1,7 @@
+### Version 4.3.2
+
+- Updated code-management instructions to ignore constructor body by default.
+
 ### Version 4.3.1
 
 - Update: Removed various compiler warnings.
