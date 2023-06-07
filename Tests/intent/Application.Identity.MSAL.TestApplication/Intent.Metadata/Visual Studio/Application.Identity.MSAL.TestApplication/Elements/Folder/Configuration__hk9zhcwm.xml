@@ -3,41 +3,12 @@
   <name>Configuration</name>
   <display>Configuration</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>768525a0-b0d4-4197-b873-ed24f0e3cfe5</parentFolderId>
-  <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-  <packageName>Application.Identity.MSAL.TestApplication</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-      <properties>
-        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="e1ab745f-c9ea-4be7-97f5-c631ddee2027" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
-      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
-      <externalReference>Intent.Application.Identity</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>80471fe1-cf72-4772-af91-16ed7514dd0b</parentFolderId>
-      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-      <packageName>Application.Identity.MSAL.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="d735f775-5cb9-4113-90b2-b44b64080479" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
       <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
@@ -46,8 +17,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>80471fe1-cf72-4772-af91-16ed7514dd0b</parentFolderId>
-      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -62,8 +31,20 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>80471fe1-cf72-4772-af91-16ed7514dd0b</parentFolderId>
-      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-      <packageName>Application.Identity.MSAL.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e1ab745f-c9ea-4be7-97f5-c631ddee2027" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>80471fe1-cf72-4772-af91-16ed7514dd0b</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -4,14 +4,10 @@
   <display>Default Diagram</display>
   <externalReference>977e49c2-87e6-4c1c-a6d9-60587ff7176d</externalReference>
   <isAbstract>false</isAbstract>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</parentFolderId>
-  <packageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</packageId>
-  <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</packageName>
-  <diagram>
-    <targetPackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</targetPackageId>
-  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

@@ -94,22 +94,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ad521fca-46cb-41b2-8a3d-d905f785adba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
-      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
-      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>625fb4cc-631a-4d78-bd70-5d695b5ee971</parentFolderId>
-      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
-      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="0a2019a9-77b2-4ab2-a2e8-6bdb7d6a81df" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Application</name>
       <display>Application</display>
@@ -122,6 +106,20 @@
       <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ad521fca-46cb-41b2-8a3d-d905f785adba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
+      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>625fb4cc-631a-4d78-bd70-5d695b5ee971</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

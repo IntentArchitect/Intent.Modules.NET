@@ -3,22 +3,10 @@
   <name>Interfaces</name>
   <display>Interfaces</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6635716a-0876-499c-a89c-513a35ef55d3</parentFolderId>
-  <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
-  <packageName>Application.Identity.Jwt.TestApplication</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-      <properties>
-        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
     <childElement id="aa3cb569-a904-4860-9222-94f1352b33ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -29,8 +17,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32496fca-bd90-4f61-b9eb-7238d38ca6bb</parentFolderId>
-      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
-      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,8 +31,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32496fca-bd90-4f61-b9eb-7238d38ca6bb</parentFolderId>
-      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
-      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

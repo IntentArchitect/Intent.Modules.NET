@@ -77,8 +77,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</parentFolderId>
-      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
-      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -93,8 +91,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</parentFolderId>
-      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
-      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

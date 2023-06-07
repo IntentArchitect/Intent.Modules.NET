@@ -62,22 +62,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f6aa388f-f747-4b53-bddb-4faf12dbcdc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
-      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>79aed21e-83fd-447e-8868-77d1825a25ec</parentFolderId>
-      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
-      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="9a5574cc-d000-4378-9eab-b1d3f068b386" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Infrastructure</name>
       <display>Infrastructure</display>
@@ -104,6 +88,20 @@
       <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f6aa388f-f747-4b53-bddb-4faf12dbcdc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79aed21e-83fd-447e-8868-77d1825a25ec</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

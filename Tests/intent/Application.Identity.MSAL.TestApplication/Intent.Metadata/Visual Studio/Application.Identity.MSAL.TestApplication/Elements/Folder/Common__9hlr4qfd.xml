@@ -3,22 +3,10 @@
   <name>Common</name>
   <display>Common</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>67de79e9-e0d0-4478-8236-6a0c19a4e090</parentFolderId>
-  <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-  <packageName>Application.Identity.MSAL.TestApplication</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-      <properties>
-        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
     <childElement id="e8f0eea8-6c9d-472b-82a0-3345a519097a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -29,8 +17,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4798189-6f1c-439d-ae2b-1c07387aae41</parentFolderId>
-      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

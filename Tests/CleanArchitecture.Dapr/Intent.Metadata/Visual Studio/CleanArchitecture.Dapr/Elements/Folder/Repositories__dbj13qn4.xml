@@ -126,8 +126,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>02e589b2-631c-4135-8dac-1b1dd0c5a2fb</parentFolderId>
-      <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
-      <packageName>CleanArchitecture.Dapr</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

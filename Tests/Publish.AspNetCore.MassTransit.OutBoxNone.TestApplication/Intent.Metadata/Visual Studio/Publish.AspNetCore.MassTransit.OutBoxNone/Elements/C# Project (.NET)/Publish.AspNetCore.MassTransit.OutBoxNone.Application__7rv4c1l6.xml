@@ -110,6 +110,20 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="12696ff3-22c8-4869-a14b-9e912a8c0823" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="0ecc3824-8588-4ffa-a7ab-b348abb7bef6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.ContractEnumModel</name>
       <display>Intent.Application.Dtos.ContractEnumModel</display>
@@ -118,8 +132,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -134,8 +146,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -150,26 +160,10 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="12696ff3-22c8-4869-a14b-9e912a8c0823" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
-      <stereotypes />
-      <metadata />
       <childElements />
     </childElement>
   </childElements>

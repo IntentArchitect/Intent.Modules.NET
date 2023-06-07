@@ -21,10 +21,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="e836e40c-72af-4765-9874-b3b2edd8f7e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Identity.CurrentUserService</name>
-      <display>Intent.Application.Identity.CurrentUserService</display>
-      <externalReference>Intent.Application.Identity</externalReference>
+    <childElement id="b9f625f9-a29c-42ef-8034-83233736c319" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Security.JWT.CurrentUserService</name>
+      <display>Intent.Security.JWT.CurrentUserService</display>
+      <externalReference>Intent.Security.JWT</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -37,16 +37,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b9f625f9-a29c-42ef-8034-83233736c319" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Security.JWT.CurrentUserService</name>
-      <display>Intent.Security.JWT.CurrentUserService</display>
-      <externalReference>Intent.Security.JWT</externalReference>
+    <childElement id="e836e40c-72af-4765-9874-b3b2edd8f7e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.CurrentUserService</name>
+      <display>Intent.Application.Identity.CurrentUserService</display>
+      <externalReference>Intent.Application.Identity</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63957984-959a-4d3d-8cd3-54d0997f8a81</parentFolderId>
-      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
-      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

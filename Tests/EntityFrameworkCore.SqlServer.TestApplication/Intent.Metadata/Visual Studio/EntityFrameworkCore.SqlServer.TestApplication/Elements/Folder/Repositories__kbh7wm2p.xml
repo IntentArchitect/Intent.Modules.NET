@@ -77,8 +77,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2f63dffa-3964-44c8-b904-c74da090fa30</parentFolderId>
-      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -93,8 +91,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2f63dffa-3964-44c8-b904-c74da090fa30</parentFolderId>
-      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

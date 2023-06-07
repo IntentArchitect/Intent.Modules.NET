@@ -77,8 +77,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a76644ae-0d90-44c0-9f11-832b6f53ff01</parentFolderId>
-      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
-      <packageName>Integration.HttpClients.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -93,8 +91,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a76644ae-0d90-44c0-9f11-832b6f53ff01</parentFolderId>
-      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
-      <packageName>Integration.HttpClients.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

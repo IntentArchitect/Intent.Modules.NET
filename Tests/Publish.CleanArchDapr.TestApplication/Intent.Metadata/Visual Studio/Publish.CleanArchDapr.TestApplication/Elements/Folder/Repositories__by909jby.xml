@@ -3,57 +3,12 @@
   <name>Repositories</name>
   <display>Repositories</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
-  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>53931e0b-dbe3-49c7-a233-320089381c16</parentFolderId>
-  <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-  <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-      <properties>
-        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="e13905a4-28ec-45aa-9f85-e3ecf8dcc4d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</name>
-      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</display>
-      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="862d2478-8c94-434f-99b9-b0af726238a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</name>
-      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</display>
-      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="eb7ab9d9-ff10-408e-ac5c-972215550a72" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.EntityRepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.EntityRepositoryInterface</display>
@@ -62,8 +17,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -78,8 +31,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -94,8 +45,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -110,8 +59,34 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e13905a4-28ec-45aa-9f85-e3ecf8dcc4d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="862d2478-8c94-434f-99b9-b0af726238a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -126,8 +101,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

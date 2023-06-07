@@ -4,14 +4,10 @@
   <display>Default Diagram</display>
   <externalReference>977e49c2-87e6-4c1c-a6d9-60587ff7176d</externalReference>
   <isAbstract>false</isAbstract>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f63a629e-1863-4f55-89fd-5dd3098ae613</parentFolderId>
-  <packageId>f63a629e-1863-4f55-89fd-5dd3098ae613</packageId>
-  <packageName>Integration.HttpClients.TestApplication.Domain</packageName>
-  <diagram>
-    <targetPackageId>f63a629e-1863-4f55-89fd-5dd3098ae613</targetPackageId>
-  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

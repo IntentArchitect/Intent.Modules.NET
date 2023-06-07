@@ -9,16 +9,7 @@
   <parentFolderId>938547ab-30fd-4ac7-8603-e3cd287d048a</parentFolderId>
   <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
   <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="c5e0d2e2-fd11-445c-8db9-199348a6670c" name="Service Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.Application.ServiceImplementations</definitionPackageName>
-      <definitionPackageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</definitionPackageId>
-      <properties>
-        <property name="5a75f431-eb28-4eff-ab79-6c641da521d4" display="Contract Only" value="false" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
     <childElement id="ed991605-c2d3-49f5-bf4d-2b2e9f3a0483" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">

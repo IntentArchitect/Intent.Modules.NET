@@ -18,14 +18,6 @@
         <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/invoice" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="c5e0d2e2-fd11-445c-8db9-199348a6670c" name="Service Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.Application.ServiceImplementations</definitionPackageName>
-      <definitionPackageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</definitionPackageId>
-      <properties>
-        <property name="5a75f431-eb28-4eff-ab79-6c641da521d4" display="Contract Only" value="false" isActive="true" />
-      </properties>
-    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
@@ -72,7 +64,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Services</typePackageName>
+            <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
             <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
             <stereotypes />
             <genericTypeParameters />
@@ -98,7 +90,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Services</typePackageName>
+        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
         <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
         <stereotypes />
         <genericTypeParameters />
