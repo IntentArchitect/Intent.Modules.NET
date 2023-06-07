@@ -1,6 +1,6 @@
 ### Version 4.2.2
 
-- Feature: It is now possible to specify that only contracts should be generated for a service by checking the `Contract Only` property on a Service's `Service Setting` sterotype. When checked the interface ("contract") for the service will still be generated, but no implementation and corresponding dependency injection registration.
+- Feature: It is now possible to specify that only contracts should be generated for a service by appplying the `Contract Only` Stereotype to a Service. When applied, the interface ("contract") for the service will still be generated, but no implementation and corresponding dependency injection registration.
 
 ### Version 4.2.1
 

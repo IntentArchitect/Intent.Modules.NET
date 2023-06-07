@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             return _metadataManager
                 .Services(application)
                 .GetServiceModels()
-                .Where(x => x.GetServiceSettings()?.ContractOnly() != true);
+                .Where(x => !x.HasContractOnly());
         }
     }
 }

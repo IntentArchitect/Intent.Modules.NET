@@ -13,45 +13,40 @@ namespace Intent.Application.ServiceImplementations.Api
 {
     public static class ServiceModelStereotypeExtensions
     {
-        public static ServiceSettings GetServiceSettings(this ServiceModel model)
+        public static ContractOnly GetContractOnly(this ServiceModel model)
         {
-            var stereotype = model.GetStereotype("Service Settings");
-            return stereotype != null ? new ServiceSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Contract Only");
+            return stereotype != null ? new ContractOnly(stereotype) : null;
         }
 
 
-        public static bool HasServiceSettings(this ServiceModel model)
+        public static bool HasContractOnly(this ServiceModel model)
         {
-            return model.HasStereotype("Service Settings");
+            return model.HasStereotype("Contract Only");
         }
 
-        public static bool TryGetServiceSettings(this ServiceModel model, out ServiceSettings stereotype)
+        public static bool TryGetContractOnly(this ServiceModel model, out ContractOnly stereotype)
         {
-            if (!HasServiceSettings(model))
+            if (!HasContractOnly(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new ServiceSettings(model.GetStereotype("Service Settings"));
+            stereotype = new ContractOnly(model.GetStereotype("Contract Only"));
             return true;
         }
 
-        public class ServiceSettings
+        public class ContractOnly
         {
             private IStereotype _stereotype;
 
-            public ServiceSettings(IStereotype stereotype)
+            public ContractOnly(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
-
-            public bool ContractOnly()
-            {
-                return _stereotype.GetProperty<bool>("Contract Only");
-            }
 
         }
 
