@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<TPT_DerivedClassForConcrete> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TPT_DerivedClassForConcrete?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPT_DerivedClassForConcrete>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

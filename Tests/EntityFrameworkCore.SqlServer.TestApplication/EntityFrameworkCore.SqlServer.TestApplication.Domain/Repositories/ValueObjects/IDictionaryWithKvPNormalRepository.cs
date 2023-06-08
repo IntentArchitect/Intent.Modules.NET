@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Valu
     public interface IDictionaryWithKvPNormalRepository : IEFRepository<DictionaryWithKvPNormal, DictionaryWithKvPNormal>
     {
         [IntentManaged(Mode.Fully)]
-        Task<DictionaryWithKvPNormal> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<DictionaryWithKvPNormal?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DictionaryWithKvPNormal>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

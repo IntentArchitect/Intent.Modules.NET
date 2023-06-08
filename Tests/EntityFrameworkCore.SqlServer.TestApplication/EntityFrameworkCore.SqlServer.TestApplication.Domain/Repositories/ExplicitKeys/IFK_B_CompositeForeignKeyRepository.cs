@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Expl
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<FK_B_CompositeForeignKey> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<FK_B_CompositeForeignKey?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FK_B_CompositeForeignKey>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

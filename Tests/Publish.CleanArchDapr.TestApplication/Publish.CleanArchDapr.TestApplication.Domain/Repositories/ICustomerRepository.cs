@@ -15,7 +15,7 @@ namespace Publish.CleanArchDapr.TestApplication.Domain.Repositories
     public interface ICustomerRepository : IEFRepository<Customer, Customer>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Customer> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Customer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

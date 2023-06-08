@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
         {
         }
 
-        public async Task<C_RequiredComposite> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<C_RequiredComposite?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

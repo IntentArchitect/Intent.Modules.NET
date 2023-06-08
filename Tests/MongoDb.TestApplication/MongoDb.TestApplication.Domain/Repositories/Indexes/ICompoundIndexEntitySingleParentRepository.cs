@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Indexes
         [IntentManaged(Mode.Fully)]
         void Update(CompoundIndexEntitySingleParent entity);
         [IntentManaged(Mode.Fully)]
-        Task<CompoundIndexEntitySingleParent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<CompoundIndexEntitySingleParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<CompoundIndexEntitySingleParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

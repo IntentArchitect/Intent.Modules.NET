@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Soft
     public interface IClassWithSoftDeleteRepository : IEFRepository<ClassWithSoftDelete, ClassWithSoftDelete>
     {
         [IntentManaged(Mode.Fully)]
-        Task<ClassWithSoftDelete> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<ClassWithSoftDelete?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithSoftDelete>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

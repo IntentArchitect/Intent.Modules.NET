@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Asso
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<J_MultipleAggregate> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<J_MultipleAggregate?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<J_MultipleAggregate>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

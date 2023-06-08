@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Mappings
         [IntentManaged(Mode.Fully)]
         void Update(MapPeerCompChildAgg entity);
         [IntentManaged(Mode.Fully)]
-        Task<MapPeerCompChildAgg> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<MapPeerCompChildAgg?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MapPeerCompChildAgg>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

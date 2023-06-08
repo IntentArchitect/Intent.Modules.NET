@@ -14,7 +14,7 @@ namespace CleanArchitecture.Dapr.Domain.Repositories
     public interface IInvoiceRepository : IDaprStateStoreRepository<Invoice, Invoice>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Invoice> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<Invoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Invoice>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

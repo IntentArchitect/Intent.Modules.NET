@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<TPH_Poly_SecondLevel> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TPH_Poly_SecondLevel?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPH_Poly_SecondLevel>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

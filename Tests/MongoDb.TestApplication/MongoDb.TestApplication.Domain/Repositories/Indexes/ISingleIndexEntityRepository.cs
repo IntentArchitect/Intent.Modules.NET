@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Indexes
         [IntentManaged(Mode.Fully)]
         void Update(SingleIndexEntity entity);
         [IntentManaged(Mode.Fully)]
-        Task<SingleIndexEntity> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<SingleIndexEntity?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<SingleIndexEntity>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

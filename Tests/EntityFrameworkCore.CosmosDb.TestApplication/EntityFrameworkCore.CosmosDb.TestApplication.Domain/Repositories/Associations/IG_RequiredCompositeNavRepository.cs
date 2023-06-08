@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<G_RequiredCompositeNav> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<G_RequiredCompositeNav?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<G_RequiredCompositeNav>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

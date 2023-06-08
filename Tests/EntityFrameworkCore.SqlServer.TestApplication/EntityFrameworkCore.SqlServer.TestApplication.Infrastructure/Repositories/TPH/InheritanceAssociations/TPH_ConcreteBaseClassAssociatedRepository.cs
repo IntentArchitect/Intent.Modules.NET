@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<TPH_ConcreteBaseClassAssociated> FindByIdAsync(
+        public async Task<TPH_ConcreteBaseClassAssociated?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

@@ -15,7 +15,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories
     public interface IInvoiceRepository : IEFRepository<Invoice, Invoice>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Invoice> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Invoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Invoice>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<AggregateRoot5EntityWithRepo> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AggregateRoot5EntityWithRepo?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateRoot5EntityWithRepo>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

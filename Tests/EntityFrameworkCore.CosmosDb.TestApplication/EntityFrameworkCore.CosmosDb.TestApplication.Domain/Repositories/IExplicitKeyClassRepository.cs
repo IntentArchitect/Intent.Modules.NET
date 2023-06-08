@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<ExplicitKeyClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<ExplicitKeyClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ExplicitKeyClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

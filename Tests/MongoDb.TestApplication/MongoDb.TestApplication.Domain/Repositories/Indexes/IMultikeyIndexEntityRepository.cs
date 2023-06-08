@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Indexes
         [IntentManaged(Mode.Fully)]
         void Update(MultikeyIndexEntity entity);
         [IntentManaged(Mode.Fully)]
-        Task<MultikeyIndexEntity> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<MultikeyIndexEntity?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MultikeyIndexEntity>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

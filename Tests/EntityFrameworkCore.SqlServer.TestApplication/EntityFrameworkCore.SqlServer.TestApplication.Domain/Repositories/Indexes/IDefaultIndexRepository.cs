@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Inde
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<DefaultIndex> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<DefaultIndex?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DefaultIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

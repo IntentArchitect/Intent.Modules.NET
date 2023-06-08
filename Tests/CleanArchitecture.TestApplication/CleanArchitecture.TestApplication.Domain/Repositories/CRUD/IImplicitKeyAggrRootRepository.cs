@@ -17,7 +17,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories.CRUD
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<ImplicitKeyAggrRoot> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<ImplicitKeyAggrRoot?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ImplicitKeyAggrRoot>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

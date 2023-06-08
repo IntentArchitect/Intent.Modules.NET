@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<TPC_FkAssociatedClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TPC_FkAssociatedClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPC_FkAssociatedClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

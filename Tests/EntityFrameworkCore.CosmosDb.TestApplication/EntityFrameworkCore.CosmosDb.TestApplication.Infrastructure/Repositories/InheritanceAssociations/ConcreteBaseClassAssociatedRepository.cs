@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
         {
         }
 
-        public async Task<ConcreteBaseClassAssociated> FindByIdAsync(
+        public async Task<ConcreteBaseClassAssociated?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

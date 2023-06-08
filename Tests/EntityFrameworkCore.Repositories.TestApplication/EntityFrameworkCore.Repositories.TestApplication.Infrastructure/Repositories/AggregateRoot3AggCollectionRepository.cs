@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
         }
 
-        public async Task<AggregateRoot3AggCollection> FindByIdAsync(
+        public async Task<AggregateRoot3AggCollection?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Nest
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<Tree> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Tree?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Tree>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

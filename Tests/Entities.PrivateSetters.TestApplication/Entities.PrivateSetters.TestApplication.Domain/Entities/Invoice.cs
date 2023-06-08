@@ -16,6 +16,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
         private List<Line> _lines = new List<Line>();
         private List<Tag> _tags = new List<Tag>();
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Invoice(DateTime date, IEnumerable<Tag> tags, IEnumerable<LineDataContract> lines)
         {
             Date = date;

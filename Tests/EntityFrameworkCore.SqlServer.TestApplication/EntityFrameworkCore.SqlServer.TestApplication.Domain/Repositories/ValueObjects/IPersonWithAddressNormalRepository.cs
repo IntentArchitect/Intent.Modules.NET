@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Valu
     public interface IPersonWithAddressNormalRepository : IEFRepository<PersonWithAddressNormal, PersonWithAddressNormal>
     {
         [IntentManaged(Mode.Fully)]
-        Task<PersonWithAddressNormal> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PersonWithAddressNormal?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PersonWithAddressNormal>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

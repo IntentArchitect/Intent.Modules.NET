@@ -17,7 +17,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories.CRUD
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<AggregateSingleC> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AggregateSingleC?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateSingleC>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

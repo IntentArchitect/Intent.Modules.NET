@@ -19,7 +19,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Collections
         [IntentManaged(Mode.Fully)]
         void Update(CustomCollectionEntityA entity);
         [IntentManaged(Mode.Fully)]
-        Task<CustomCollectionEntityA> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<CustomCollectionEntityA?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<CustomCollectionEntityA>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

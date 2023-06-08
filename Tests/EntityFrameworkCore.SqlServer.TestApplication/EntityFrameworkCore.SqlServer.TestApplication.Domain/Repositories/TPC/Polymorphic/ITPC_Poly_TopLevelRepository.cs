@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<TPC_Poly_TopLevel> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TPC_Poly_TopLevel?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPC_Poly_TopLevel>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD
         {
         }
 
-        public async Task<AggregateRootLong> FindByIdAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<AggregateRootLong?> FindByIdAsync(long id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

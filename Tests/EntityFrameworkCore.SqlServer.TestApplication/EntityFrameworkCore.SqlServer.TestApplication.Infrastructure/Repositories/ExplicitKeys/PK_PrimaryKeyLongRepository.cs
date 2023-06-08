@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<PK_PrimaryKeyLong> FindByIdAsync(
+        public async Task<PK_PrimaryKeyLong?> FindByIdAsync(
             long primaryKeyLong,
             CancellationToken cancellationToken = default)
         {

@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Valu
     public interface IPersonWithAddressSerializedRepository : IEFRepository<PersonWithAddressSerialized, PersonWithAddressSerialized>
     {
         [IntentManaged(Mode.Fully)]
-        Task<PersonWithAddressSerialized> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PersonWithAddressSerialized?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PersonWithAddressSerialized>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

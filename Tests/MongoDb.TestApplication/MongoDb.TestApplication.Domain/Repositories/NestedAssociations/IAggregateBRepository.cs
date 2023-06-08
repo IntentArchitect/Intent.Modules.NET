@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.NestedAssociations
         [IntentManaged(Mode.Fully)]
         void Update(AggregateB entity);
         [IntentManaged(Mode.Fully)]
-        Task<AggregateB> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<AggregateB?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateB>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

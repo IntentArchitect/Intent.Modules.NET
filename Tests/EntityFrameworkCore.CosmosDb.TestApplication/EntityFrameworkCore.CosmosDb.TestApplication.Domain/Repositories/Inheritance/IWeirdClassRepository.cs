@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inher
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<WeirdClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<WeirdClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<WeirdClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

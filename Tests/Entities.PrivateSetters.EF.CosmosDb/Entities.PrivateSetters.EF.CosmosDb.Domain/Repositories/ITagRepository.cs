@@ -15,7 +15,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories
     public interface ITagRepository : IEFRepository<Tag, Tag>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Tag> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Tag?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Tag>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

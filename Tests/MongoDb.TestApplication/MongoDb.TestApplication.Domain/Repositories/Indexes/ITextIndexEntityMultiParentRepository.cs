@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Indexes
         [IntentManaged(Mode.Fully)]
         void Update(TextIndexEntityMultiParent entity);
         [IntentManaged(Mode.Fully)]
-        Task<TextIndexEntityMultiParent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<TextIndexEntityMultiParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TextIndexEntityMultiParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

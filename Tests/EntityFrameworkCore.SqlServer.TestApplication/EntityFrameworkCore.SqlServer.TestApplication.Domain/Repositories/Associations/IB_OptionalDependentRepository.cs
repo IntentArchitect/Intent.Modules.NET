@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Asso
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<B_OptionalDependent> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<B_OptionalDependent?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<B_OptionalDependent>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

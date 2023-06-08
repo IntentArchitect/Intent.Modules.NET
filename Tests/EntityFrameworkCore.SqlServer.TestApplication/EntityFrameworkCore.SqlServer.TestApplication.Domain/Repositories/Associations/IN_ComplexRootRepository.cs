@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Asso
     public interface IN_ComplexRootRepository : IEFRepository<N_ComplexRoot, N_ComplexRoot>
     {
         [IntentManaged(Mode.Fully)]
-        Task<N_ComplexRoot> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<N_ComplexRoot?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<N_ComplexRoot>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

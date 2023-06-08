@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Mappings
         [IntentManaged(Mode.Fully)]
         void Update(MapAggPeer entity);
         [IntentManaged(Mode.Fully)]
-        Task<MapAggPeer> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<MapAggPeer?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MapAggPeer>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

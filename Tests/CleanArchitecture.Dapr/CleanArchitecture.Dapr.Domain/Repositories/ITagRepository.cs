@@ -14,7 +14,7 @@ namespace CleanArchitecture.Dapr.Domain.Repositories
     public interface ITagRepository : IDaprStateStoreRepository<Tag, Tag>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Tag> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<Tag?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Tag>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

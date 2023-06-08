@@ -22,7 +22,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<TPT_Poly_RootAbstract_Aggr> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<TPT_Poly_RootAbstract_Aggr?> FindByIdAsync(
+            Guid id,
+            CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

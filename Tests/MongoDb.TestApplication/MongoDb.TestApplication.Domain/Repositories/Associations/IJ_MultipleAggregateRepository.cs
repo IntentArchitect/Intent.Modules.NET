@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
         [IntentManaged(Mode.Fully)]
         void Update(J_MultipleAggregate entity);
         [IntentManaged(Mode.Fully)]
-        Task<J_MultipleAggregate> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<J_MultipleAggregate?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<J_MultipleAggregate>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

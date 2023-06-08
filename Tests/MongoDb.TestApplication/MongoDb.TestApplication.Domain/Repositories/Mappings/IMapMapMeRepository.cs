@@ -21,7 +21,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Mappings
         [IntentManaged(Mode.Fully)]
         void Update(MapMapMe entity);
         [IntentManaged(Mode.Fully)]
-        Task<MapMapMe> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<MapMapMe?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MapMapMe>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

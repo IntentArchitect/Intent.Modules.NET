@@ -20,7 +20,7 @@ namespace Entities.PrivateSetters.MongoDb.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         void Update(Tag entity);
         [IntentManaged(Mode.Fully)]
-        Task<Tag> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<Tag?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Tag>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

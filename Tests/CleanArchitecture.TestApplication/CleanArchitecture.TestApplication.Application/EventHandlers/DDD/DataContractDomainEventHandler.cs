@@ -20,7 +20,9 @@ namespace CleanArchitecture.TestApplication.Application.EventHandlers.DDD
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Handle(DomainEventNotification<DataContractDomainEvent> notification, CancellationToken cancellationToken)
+        public async Task Handle(
+            DomainEventNotification<DataContractDomainEvent> notification,
+            CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Implement your handler logic here...");
         }

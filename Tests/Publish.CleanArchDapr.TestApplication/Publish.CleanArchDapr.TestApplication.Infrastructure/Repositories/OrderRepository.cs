@@ -21,7 +21,7 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Repositories
         {
         }
 
-        public async Task<Order> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<Order?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

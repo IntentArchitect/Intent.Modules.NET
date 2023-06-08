@@ -14,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories.Other
     public interface INullabilityPeerRepository : IEFRepository<NullabilityPeer, NullabilityPeer>
     {
         [IntentManaged(Mode.Fully)]
-        Task<NullabilityPeer> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<NullabilityPeer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NullabilityPeer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Nest
     public interface IWormRepository : IEFRepository<Worm, Worm>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Worm> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Worm?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Worm>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

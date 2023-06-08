@@ -11,6 +11,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Line
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Line(string description, int quantity)
         {
             Description = description;

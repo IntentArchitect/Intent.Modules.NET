@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
         {
         }
 
-        public async Task<PersonWithAddressSerialized> FindByIdAsync(
+        public async Task<PersonWithAddressSerialized?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

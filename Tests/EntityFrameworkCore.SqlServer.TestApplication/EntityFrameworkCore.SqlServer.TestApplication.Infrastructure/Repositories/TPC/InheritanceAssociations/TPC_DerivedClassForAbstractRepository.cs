@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<TPC_DerivedClassForAbstract> FindByIdAsync(
+        public async Task<TPC_DerivedClassForAbstract?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

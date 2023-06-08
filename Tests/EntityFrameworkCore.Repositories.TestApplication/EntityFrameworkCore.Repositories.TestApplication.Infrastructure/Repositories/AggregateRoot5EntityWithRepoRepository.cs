@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotSupportedException($"Cannot create a repository for type AggregateRoot5EntityWithRepo.");
         }
 
-        public async Task<AggregateRoot5EntityWithRepo> FindByIdAsync(
+        public async Task<AggregateRoot5EntityWithRepo?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

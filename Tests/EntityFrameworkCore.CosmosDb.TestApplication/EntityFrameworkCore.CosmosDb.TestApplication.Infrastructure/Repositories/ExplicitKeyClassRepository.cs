@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
         {
         }
 
-        public async Task<ExplicitKeyClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ExplicitKeyClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

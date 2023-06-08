@@ -14,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories.Other
     public interface ITestNullablityRepository : IEFRepository<TestNullablity, TestNullablity>
     {
         [IntentManaged(Mode.Fully)]
-        Task<TestNullablity> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TestNullablity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TestNullablity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

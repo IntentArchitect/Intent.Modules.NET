@@ -20,7 +20,7 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         void Update(Privilege entity);
         [IntentManaged(Mode.Fully)]
-        Task<Privilege> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<Privilege?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Privilege>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

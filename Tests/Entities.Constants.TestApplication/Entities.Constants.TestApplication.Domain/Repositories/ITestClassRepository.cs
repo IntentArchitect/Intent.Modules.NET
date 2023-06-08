@@ -15,7 +15,7 @@ namespace Entities.Constants.TestApplication.Domain.Repositories
     public interface ITestClassRepository : IEFRepository<TestClass, TestClass>
     {
         [IntentManaged(Mode.Fully)]
-        Task<TestClass> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<TestClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TestClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

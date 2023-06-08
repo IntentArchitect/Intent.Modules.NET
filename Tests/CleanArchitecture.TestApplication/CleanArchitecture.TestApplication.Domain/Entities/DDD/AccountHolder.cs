@@ -14,6 +14,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AccountHolder : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public AccountHolder(string name)
         {
             Name = name;
@@ -41,6 +42,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
             throw new NotImplementedException("Replace with your implementation...");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void ChangeName(string name)
         {
             Name = name;

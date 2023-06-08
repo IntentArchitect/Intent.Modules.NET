@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.IdTypes
         [IntentManaged(Mode.Fully)]
         void Update(IdTypeGuid entity);
         [IntentManaged(Mode.Fully)]
-        Task<IdTypeGuid> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<IdTypeGuid?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IdTypeGuid>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<PersonWithAddressSerialized> FindByIdAsync(
+        public async Task<PersonWithAddressSerialized?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

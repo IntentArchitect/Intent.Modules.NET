@@ -16,7 +16,7 @@ namespace Standard.AspNetCore.TestApplication.Domain.Repositories
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<ClassA> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<ClassA?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassA>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

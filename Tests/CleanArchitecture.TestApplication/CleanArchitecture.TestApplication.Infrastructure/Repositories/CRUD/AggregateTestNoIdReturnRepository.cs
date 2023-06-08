@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD
         {
         }
 
-        public async Task<AggregateTestNoIdReturn> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

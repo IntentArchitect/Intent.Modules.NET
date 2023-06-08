@@ -21,7 +21,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Repositories
         {
         }
 
-        public async Task<Product> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<Product?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
         [IntentManaged(Mode.Fully)]
         void Update(C_RequireComposite entity);
         [IntentManaged(Mode.Fully)]
-        Task<C_RequireComposite> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<C_RequireComposite?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<C_RequireComposite>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

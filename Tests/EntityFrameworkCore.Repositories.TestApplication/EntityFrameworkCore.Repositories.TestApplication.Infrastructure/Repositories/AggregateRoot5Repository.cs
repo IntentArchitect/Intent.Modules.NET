@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
         }
 
-        public async Task<AggregateRoot5> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AggregateRoot5?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

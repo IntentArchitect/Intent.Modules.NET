@@ -14,6 +14,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Other
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TestNullablity : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public TestNullablity(Guid id,
             MyEnum myEnum,
             string str,

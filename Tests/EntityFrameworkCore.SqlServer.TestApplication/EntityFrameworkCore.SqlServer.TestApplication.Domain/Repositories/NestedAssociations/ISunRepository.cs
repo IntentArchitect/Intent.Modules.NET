@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Nest
     public interface ISunRepository : IEFRepository<Sun, Sun>
     {
         [IntentManaged(Mode.Fully)]
-        Task<Sun> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Sun?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Sun>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

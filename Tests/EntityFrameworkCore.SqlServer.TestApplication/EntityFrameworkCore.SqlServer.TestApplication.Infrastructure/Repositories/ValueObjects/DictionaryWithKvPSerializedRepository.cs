@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         {
         }
 
-        public async Task<DictionaryWithKvPSerialized> FindByIdAsync(
+        public async Task<DictionaryWithKvPSerialized?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {

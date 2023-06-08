@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
         [IntentManaged(Mode.Fully)]
         void Update(F_OptionalAggregateNav entity);
         [IntentManaged(Mode.Fully)]
-        Task<F_OptionalAggregateNav> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<F_OptionalAggregateNav?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<F_OptionalAggregateNav>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

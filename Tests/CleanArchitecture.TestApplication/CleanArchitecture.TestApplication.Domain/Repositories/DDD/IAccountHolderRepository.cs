@@ -16,7 +16,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories.DDD
     public interface IAccountHolderRepository : IEFRepository<AccountHolder, AccountHolder>
     {
         [IntentManaged(Mode.Fully)]
-        Task<AccountHolder> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AccountHolder?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AccountHolder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Expl
     {
 
         [IntentManaged(Mode.Fully)]
-        Task<PK_PrimaryKeyInt> FindByIdAsync(int primaryKeyId, CancellationToken cancellationToken = default);
+        Task<PK_PrimaryKeyInt?> FindByIdAsync(int primaryKeyId, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PK_PrimaryKeyInt>> FindByIdsAsync(int[] primaryKeyIds, CancellationToken cancellationToken = default);
     }

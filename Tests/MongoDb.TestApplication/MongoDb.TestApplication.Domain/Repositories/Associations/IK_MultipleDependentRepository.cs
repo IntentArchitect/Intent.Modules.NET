@@ -20,7 +20,7 @@ namespace MongoDb.TestApplication.Domain.Repositories.Associations
         [IntentManaged(Mode.Fully)]
         void Update(K_MultipleDependent entity);
         [IntentManaged(Mode.Fully)]
-        Task<K_MultipleDependent> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<K_MultipleDependent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<K_MultipleDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }

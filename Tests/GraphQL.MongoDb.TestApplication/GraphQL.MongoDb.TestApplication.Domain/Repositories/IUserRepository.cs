@@ -20,7 +20,7 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         void Update(User entity);
         [IntentManaged(Mode.Fully)]
-        Task<User> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<User?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<User>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
