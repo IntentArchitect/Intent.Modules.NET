@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Support for DTO return types on Constructor mapped commands.
+
 ### Version 5.0.4
 
 - Update: Removed various compiler warnings.
