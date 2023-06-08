@@ -1,8 +1,8 @@
-﻿namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared
+﻿namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigurator
 {
-    public static partial class CrossAggregateMappingConfigurator
+    internal static partial class CrossAggregateMappingConfigurator
     {
-        internal class PathAggregate
+        private class PathAggregate
         {
             public PathAggregate(int index, string expression)
             {

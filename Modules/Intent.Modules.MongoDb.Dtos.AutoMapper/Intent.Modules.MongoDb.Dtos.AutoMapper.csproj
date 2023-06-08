@@ -22,6 +22,4 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared\Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared.projitems" Label="Shared" />
-
 </Project>

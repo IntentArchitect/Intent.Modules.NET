@@ -21,12 +21,12 @@ using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared
+namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigurator
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public static partial class CrossAggregateMappingConfigurator
+    internal static partial class CrossAggregateMappingConfigurator
     {
-        internal static void Execute(IApplication application)
+        public static void Execute(IApplication application)
         {
             var templates = application.FindTemplateInstances<DtoModelTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
             foreach (var template in templates)

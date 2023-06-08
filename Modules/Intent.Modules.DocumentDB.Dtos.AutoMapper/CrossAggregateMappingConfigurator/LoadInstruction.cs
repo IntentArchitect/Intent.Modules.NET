@@ -2,11 +2,11 @@
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 
-namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared
+namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigurator
 {
-    public static partial class CrossAggregateMappingConfigurator
+    internal static partial class CrossAggregateMappingConfigurator
     {
-        internal class LoadInstruction
+        private class LoadInstruction
         {
             public RepositoryInfo Repository { get; }
             public AssociationEndModel AssociationEndModel { get; }

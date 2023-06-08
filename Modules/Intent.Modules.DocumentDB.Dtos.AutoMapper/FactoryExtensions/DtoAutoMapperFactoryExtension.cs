@@ -1,6 +1,5 @@
 using Intent.Engine;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -19,7 +18,7 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            CrossAggregateMappingConfigurator.Execute(application);
+            CrossAggregateMappingConfigurator.CrossAggregateMappingConfigurator.Execute(application);
         }
     }
 }

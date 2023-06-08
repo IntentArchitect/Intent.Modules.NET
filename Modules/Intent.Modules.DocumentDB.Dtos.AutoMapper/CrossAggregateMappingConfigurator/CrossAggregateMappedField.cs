@@ -1,11 +1,11 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 
-namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.Shared
+namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigurator
 {
-    public static partial class CrossAggregateMappingConfigurator
+    internal static partial class CrossAggregateMappingConfigurator
     {
-        internal class CrossAggregateMappedField
+        private class CrossAggregateMappedField
         {
             public CrossAggregateMappedField(DTOFieldModel field, IAssociationEnd mappedFrom, int pathIndex)
             {
