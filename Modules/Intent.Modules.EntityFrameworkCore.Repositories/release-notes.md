@@ -1,3 +1,7 @@
+### Version 4.2.4
+
+- FindByIdAsync indicates that return type could be null.
+
 ### Version 4.2.3
 
 - Update: Removed various compiler warnings.
