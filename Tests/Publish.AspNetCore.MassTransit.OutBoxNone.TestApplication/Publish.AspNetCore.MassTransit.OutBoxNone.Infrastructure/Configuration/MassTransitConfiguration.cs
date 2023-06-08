@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
@@ -21,6 +22,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Configuration
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
+                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
+
                     cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], h =>
                     {
                         h.Username(configuration["RabbitMq:Username"]);

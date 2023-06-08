@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Default Retry Intervals for Rabbit MQ were added so that it will retry to deliver a message after every 30 seconds for 10 attempts before sending the message to the error queue.
+
 ### Version 4.0.6
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

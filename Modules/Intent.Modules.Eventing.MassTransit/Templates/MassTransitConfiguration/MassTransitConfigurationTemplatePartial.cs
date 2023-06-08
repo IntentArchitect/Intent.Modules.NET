@@ -114,6 +114,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                 case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
                     return new ScopedExtensionMethodConfiguration("UsingRabbitMq", "context", "cfg").AppendNestedLines(new[]
                     {
+                        $@"cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));",
+                        $@"",
                         $@"cfg.Host(configuration[""RabbitMq:Host""], configuration[""RabbitMq:VirtualHost""], h =>",
                         $@"{{",
                         $@"    h.Username(configuration[""RabbitMq:Username""]);",
