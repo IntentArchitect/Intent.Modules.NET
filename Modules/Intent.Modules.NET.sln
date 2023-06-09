@@ -217,6 +217,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DocumentDB.D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.DocumentDB.Shared", "Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.shproj", "{B5867BA4-E8AB-4E4A-986E-B7938D12795E}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -611,6 +613,10 @@ Global
 		{F13DF4DA-A77B-40C6-BC27-DB55BDD3FF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13DF4DA-A77B-40C6-BC27-DB55BDD3FF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13DF4DA-A77B-40C6-BC27-DB55BDD3FF17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB282CE-95EA-454A-8531-423391B2DE6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB282CE-95EA-454A-8531-423391B2DE6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB282CE-95EA-454A-8531-423391B2DE6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB282CE-95EA-454A-8531-423391B2DE6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -717,6 +723,7 @@ Global
 		{A0DF4C1E-6ABA-4566-951D-2875055BD4F0} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{F13DF4DA-A77B-40C6-BC27-DB55BDD3FF17} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B5867BA4-E8AB-4E4A-986E-B7938D12795E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{3CB282CE-95EA-454A-8531-423391B2DE6D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

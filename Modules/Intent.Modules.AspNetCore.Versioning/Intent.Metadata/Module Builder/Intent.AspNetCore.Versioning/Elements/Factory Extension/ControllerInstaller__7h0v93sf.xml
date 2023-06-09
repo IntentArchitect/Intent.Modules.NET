@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b3484c6c-8eb3-41a7-be50-4824afc2574e" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ControllerInstaller</name>
+  <display>ControllerInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d031e72d-205a-4cd5-9d65-3b7580961199</parentFolderId>
+  <packageId>d031e72d-205a-4cd5-9d65-3b7580961199</packageId>
+  <packageName>Intent.AspNetCore.Versioning</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
