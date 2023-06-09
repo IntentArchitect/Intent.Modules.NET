@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -15,10 +16,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
         {
             var packageReferenceElements = xNode.XPathSelectElements("Project/ItemGroup/PackageReference");
 
-            return packageReferenceElements.ToDictionary(
-                element => element.Attribute("Include")?.Value,
-                element =>
+            return packageReferenceElements
+                .GroupBy(pr => pr.Attribute("Include")?.Value, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(
+                group => group.Key,
+                group =>
                 {
+                    var element = group.First();
                     var version = GetAttributeOrElementValue(element, "Version");
 
                     var privateAssetsElement = element.XPathSelectElement("PrivateAssets");

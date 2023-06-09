@@ -1,3 +1,7 @@
+### Version 3.3.26
+
+- Fixed : Software Factory would throw "Duplicate Key" exception if a NuGet package, for the same package, existed more than once. If now works with the first one it finds.
+
 ### Version 3.3.25
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
