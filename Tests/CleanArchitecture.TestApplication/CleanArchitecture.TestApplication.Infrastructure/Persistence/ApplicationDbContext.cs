@@ -8,10 +8,12 @@ using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
+using CleanArchitecture.TestApplication.Domain.Entities.Other;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Other;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
