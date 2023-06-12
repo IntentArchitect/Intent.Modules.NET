@@ -11,7 +11,7 @@ using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
-    internal class VerboseWithPackageReferencesSchemeProcessor : INuGetSchemeProcessor
+    internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProcessor
     {
         public Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode)
         {

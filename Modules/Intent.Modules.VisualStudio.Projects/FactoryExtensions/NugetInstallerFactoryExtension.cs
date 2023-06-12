@@ -36,10 +36,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         {
             NuGetProjectSchemeProcessors = new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
             {
-                { VisualStudioProjectScheme.Sdk, new LeanSchemeProcessor() },
+                { VisualStudioProjectScheme.Sdk, new SdkSchemeProcessor() },
                 { VisualStudioProjectScheme.Unsupported, new UnsupportedSchemeProcessor() },
-                { VisualStudioProjectScheme.FrameworkWithPackageReference, new VerboseWithPackageReferencesSchemeProcessor() },
-                { VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, new VerboseWithPackagesDotConfigSchemeProcessor() }
+                { VisualStudioProjectScheme.FrameworkWithPackageReference, new NetFrameworkPackageReferencesSchemeProcessor() },
+                { VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, new NetFrameworkPackagesDotConfigSchemeProcessor() }
             };
         }
 

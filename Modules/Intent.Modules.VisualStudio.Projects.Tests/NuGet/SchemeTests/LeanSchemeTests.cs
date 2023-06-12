@@ -14,7 +14,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void GetsInstalledPackages_Default()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
@@ -33,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void GetsInstalledPackages_NestedVersion()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
@@ -52,7 +52,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void InstallsPackage_Default()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
                 {
@@ -85,7 +85,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void InstallsPackage_NestedVersion()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
             {
@@ -120,7 +120,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void UpgradesPackage_Default()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
             {
@@ -152,7 +152,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void UpgradesPackage_NestedVersion()
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
             {
@@ -188,7 +188,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void SortsPackageReferencesInAlphabeticalOrder(TestPackage existingPackage, TestPackage testPackageToInstall)
         {
             // Arrange
-            var sut = new LeanSchemeProcessor();
+            var sut = new SdkSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {

@@ -14,7 +14,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void GetsInstalledPackages()
         {
             // Arrange
-            var sut = new VerboseWithPackageReferencesSchemeProcessor();
+            var sut = new NetFrameworkPackageReferencesSchemeProcessor();
             var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
@@ -33,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void InstallsPackage()
         {
             // Arrange
-            var sut = new VerboseWithPackageReferencesSchemeProcessor();
+            var sut = new NetFrameworkPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
@@ -69,7 +69,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void UpgradesPackage()
         {
             // Arrange
-            var sut = new VerboseWithPackageReferencesSchemeProcessor();
+            var sut = new NetFrameworkPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
@@ -104,7 +104,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void SortsPackageReferencesInAlphabeticalOrder(TestPackage existingPackage, TestPackage testPackageToInstall)
         {
             // Arrange
-            var sut = new VerboseWithPackageReferencesSchemeProcessor();
+            var sut = new NetFrameworkPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {

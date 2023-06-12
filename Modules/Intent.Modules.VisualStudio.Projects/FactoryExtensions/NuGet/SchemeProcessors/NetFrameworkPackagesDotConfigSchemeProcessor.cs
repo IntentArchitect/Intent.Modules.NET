@@ -10,7 +10,7 @@ using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
-    internal class VerboseWithPackagesDotConfigSchemeProcessor : INuGetSchemeProcessor
+    internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProcessor
     {
         public Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode)
         {

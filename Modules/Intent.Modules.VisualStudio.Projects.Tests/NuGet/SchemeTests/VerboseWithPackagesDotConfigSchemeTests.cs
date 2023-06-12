@@ -14,7 +14,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void GetsInstalledPackages()
         {
             // Arrange
-            var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
+            var sut = new NetFrameworkPackagesDotConfigSchemeProcessor();
             var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
@@ -33,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void InstallPackageCreatesWarning()
         {
             // Arrange
-            var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
+            var sut = new NetFrameworkPackagesDotConfigSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
@@ -59,7 +59,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         public void UpgradePackageCreatesWarning()
         {
             // Arrange
-            var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
+            var sut = new NetFrameworkPackagesDotConfigSchemeProcessor();
             var tracing = new TestTracing();
             var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
