@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
@@ -45,12 +46,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
                 });
         }
 
-        public string InstallPackages(
-            string projectContent,
+        public string InstallPackages(string projectContent,
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing)
+            ITracing tracing, DependencyVersionManagement dependencyVersionManagement)
         {
             var document = XDocument.Parse(projectContent);
             var (prefix, namespaceManager, namespaceName) = document.GetNamespaceManager();

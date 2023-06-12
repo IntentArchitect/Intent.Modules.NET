@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
@@ -162,7 +163,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     requestedPackages: projectPackage.RequestedPackages,
                     installedPackages: projectPackage.InstalledPackages,
                     projectName: projectPackage.Name,
-                    tracing: tracing);
+                    tracing: tracing,
+                    dependencyVersionManagement: projectPackage.DependencyVersionManagement);
                 saveProjectDelegate(projectPackage.FilePath, updatedProjectContent);
             }
 
@@ -280,7 +282,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 HighestVersions = highestVersionsInProject,
                 Name = project.Name,
                 FilePath = project.FilePath,
-                Processor = processor
+                Processor = processor,
+                DependencyVersionManagement = project.OutputTarget.GetDependencyVersionManagement()
             };
         }
 

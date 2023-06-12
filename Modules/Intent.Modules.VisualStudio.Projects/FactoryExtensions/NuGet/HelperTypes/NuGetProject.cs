@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modules.Common.VisualStudio;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
@@ -13,6 +14,8 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
         public Dictionary<string, VersionRange> HighestVersions { get; set; } = new Dictionary<string, VersionRange>();
         public string FilePath { get; set; }
         public INuGetSchemeProcessor Processor { get; set; }
+
+        public DependencyVersionManagement DependencyVersionManagement { get; set; }
 
         public Dictionary<string, NuGetPackage> GetConsolidatedPackages()
         {

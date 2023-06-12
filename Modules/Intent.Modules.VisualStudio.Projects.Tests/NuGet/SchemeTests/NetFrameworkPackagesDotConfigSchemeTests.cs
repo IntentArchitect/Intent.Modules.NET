@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
@@ -8,7 +9,7 @@ using Xunit;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 {
-    public class VerboseWithPackagesDotConfigSchemeTests
+    public class NetFrameworkPackagesDotConfigSchemeTests
     {
         [Fact]
         public void GetsInstalledPackages()
@@ -46,7 +47,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.RequestedPackages,
                 project.InstalledPackages,
                 project.Name,
-                tracing);
+                tracing,
+                DependencyVersionManagement.OnlyIfNewer);
 
             // Assert
             Assert.Collection(tracing.WarningEntries,
@@ -72,7 +74,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.RequestedPackages,
                 project.InstalledPackages,
                 project.Name,
-                tracing);
+                tracing,
+                DependencyVersionManagement.OnlyIfNewer);
 
             // Assert
             Assert.Collection(tracing.WarningEntries,

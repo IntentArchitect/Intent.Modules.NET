@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
 
@@ -45,12 +46,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
                 });
         }
 
-        public string InstallPackages(
-            string projectContent,
+        public string InstallPackages(string projectContent,
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing)
+            ITracing tracing, 
+            DependencyVersionManagement dependencyVersionManagement)
         {
             var document = XDocument.Parse(projectContent);
 
@@ -117,8 +118,14 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
                     throw new Exception("Missing version attribute from PackageReference element.");
                 }
 
-                if (!VersionRange.TryParse(packageVersion, out var parsed) ||
-                    parsed.MinVersion >= package.Version.MinVersion)
+                if (dependencyVersionManagement == DependencyVersionManagement.OnlyIfMissing)
+                {
+                    continue;
+                }
+                
+                if (dependencyVersionManagement == DependencyVersionManagement.OnlyIfNewer &&
+                    (!VersionRange.TryParse(packageVersion, out var parsed) ||
+                     parsed.MinVersion >= package.Version.MinVersion))
                 {
                     continue;
                 }

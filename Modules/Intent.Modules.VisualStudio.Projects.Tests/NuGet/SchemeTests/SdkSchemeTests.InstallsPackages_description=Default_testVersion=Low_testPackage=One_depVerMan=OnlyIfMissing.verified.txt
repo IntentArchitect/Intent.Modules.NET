@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="PackageToInstall.Id" Version="1.0.0" />
+    <PackageReference Include="TestPackage.One" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

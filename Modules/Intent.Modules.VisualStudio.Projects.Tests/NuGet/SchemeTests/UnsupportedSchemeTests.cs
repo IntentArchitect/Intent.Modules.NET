@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
@@ -39,7 +40,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.RequestedPackages,
                 project.InstalledPackages,
                 project.Name,
-                tracing);
+                tracing,
+                DependencyVersionManagement.OnlyIfNewer);
 
             // Assert
             Assert.Collection(tracing.DebugEntries,
@@ -65,7 +67,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.RequestedPackages,
                 project.InstalledPackages,
                 project.Name,
-                tracing);
+                tracing,
+                DependencyVersionManagement.OnlyIfNewer);
 
             // Assert
             Assert.Collection(tracing.DebugEntries,

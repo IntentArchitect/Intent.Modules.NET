@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
 
@@ -57,12 +58,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
             return nugetPackages.ToDictionary(x => x.Id, x => NuGetPackage.Create(projectPath, x.Id, x.Version, Array.Empty<string>(), Array.Empty<string>()));
         }
 
-        public string InstallPackages(
-            string projectContent,
+        public string InstallPackages(string projectContent,
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing)
+            ITracing tracing,
+            DependencyVersionManagement dependencyVersionManagement)
         {
             // This format is now unsupported, but we will show a warnings for missing packages.
 

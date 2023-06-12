@@ -10,6 +10,7 @@ using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
+using Intent.Templates;
 using NSubstitute;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
@@ -36,6 +37,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
 
                 Name = $"{(scheme.HasValue ? scheme.Value.ToString() : "null")}_{testVersion}_{(int)testPackage}";
                 FilePath = GetPath(scheme, testVersion, (int)testPackage);
+                OutputTarget = new VSProjectOutputTarget();
             }
 
             public string ProjectId => Name;
@@ -68,6 +70,55 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
             public IOutputTarget OutputTarget { get; }
             public bool TryGetExistingFileContent(out string content) => throw new NotImplementedException();
 
+            private class VSProjectOutputTarget : IOutputTarget
+            {
+                public bool Equals(IOutputTarget other)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public IList<IOutputTarget> GetTargetPath()
+                {
+                    throw new NotImplementedException();
+                }
+
+                public bool HasRole(string role)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public bool OutputsTemplate(string templateId)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public IEnumerable<string> GetSupportedFrameworks()
+                {
+                    throw new NotImplementedException();
+                }
+
+                public bool HasTemplateInstances(string templateId)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public bool HasTemplateInstances(string templateId, Func<ITemplate, bool> predicate)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public string Id { get; }
+                public string Name { get; }
+                public string Location { get; }
+                public string RelativeLocation { get; }
+                public string Type { get; }
+                public IOutputTarget Parent { get; }
+                public IEnumerable<ITemplate> TemplateInstances { get; }
+                public IDictionary<string, object> Metadata { get; } = new Dictionary<string, object>();
+                public IApplication Application { get; }
+                public ISoftwareFactoryExecutionContext ExecutionContext { get; }
+            }
+            
             private class NuGetPackages : INugetPackageInfo
             {
                 public NuGetPackages(KeyValuePair<string, string> package)
