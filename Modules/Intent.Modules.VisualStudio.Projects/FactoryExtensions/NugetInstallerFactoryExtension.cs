@@ -82,7 +82,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             tracing.Info("Start processing packages");
 
-            var depVerOverBehOption = application.Settings.DependencyVersionOverwriteBehavior() == null
+            var depVerOverBehOption = application.Settings.DependencyVersionOverwriteBehavior().Value == null
                 ? DependencyVersionOverwriteBehaviorOption.IfNewer
                 : application.Settings.DependencyVersionOverwriteBehavior().AsEnum();
 

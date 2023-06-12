@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.WebApi.Api;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -23,14 +26,32 @@ public class ControllerInstaller : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+        var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(ControllerTemplate.TemplateId));
         foreach (var template in templates)
         {
-            var @class = template.CSharpFile.Classes.First();
-            foreach (var method in @class.Methods)
+            template.CSharpFile.OnBuild(file =>
             {
+                var @class = file.Classes.First();
+                var groupedVersions = new HashSet<string>();
+                foreach (var method in @class.Methods)
+                {
+                    var methodModel = method.GetMetadata<IControllerOperationModel>("model");
+                    var versions = methodModel.InternalElement.GetApiVersion().ApplicableVersions()
+                        .Select(x => x.AsVersionModel())
+                        .Select(x => x.Name)
+                        .ToList();
+                    foreach (var version in versions)
+                    {
+                        groupedVersions.Add(version);
+                        method.AddAttribute($@"[MapToApiVersion(""{version}"")]");
+                    }
+                }
 
-            }
+                foreach (var version in groupedVersions)
+                {
+                    @class.AddAttribute($@"[ApiVersion(""{version}"")]");
+                }
+            });
         }
     }
 }
