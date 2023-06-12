@@ -18,6 +18,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .ToList();
         }
 
+        public static bool IsVisualStudioSolutionModel(this IPackage package)
+        {
+            return package?.SpecializationTypeId == VisualStudioSolutionModel.SpecializationTypeId;
+        }
+
 
     }
 }

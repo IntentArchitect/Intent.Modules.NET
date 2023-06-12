@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
@@ -50,7 +51,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing, DependencyVersionManagement dependencyVersionManagement)
+            ITracing tracing,
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             var document = XDocument.Parse(projectContent);
             var (prefix, namespaceManager, namespaceName) = document.GetNamespaceManager();

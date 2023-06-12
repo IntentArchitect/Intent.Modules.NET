@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.VisualStudio.Projects.Settings;
 
 namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
 {
@@ -13,6 +14,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing, DependencyVersionManagement dependencyVersionManagement);
+            ITracing tracing,
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior);
     }
 }

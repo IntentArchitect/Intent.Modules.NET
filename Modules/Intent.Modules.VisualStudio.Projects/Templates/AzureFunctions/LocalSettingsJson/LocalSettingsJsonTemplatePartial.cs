@@ -34,6 +34,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(Handle);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             var config = new TemplateFileConfig(

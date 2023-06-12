@@ -15,8 +15,6 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
         public string FilePath { get; set; }
         public INuGetSchemeProcessor Processor { get; set; }
 
-        public DependencyVersionManagement DependencyVersionManagement { get; set; }
-
         public Dictionary<string, NuGetPackage> GetConsolidatedPackages()
         {
             var allPackages = RequestedPackages.ToList();

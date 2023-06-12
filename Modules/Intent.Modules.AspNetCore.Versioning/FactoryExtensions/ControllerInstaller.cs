@@ -29,7 +29,7 @@ public class ControllerInstaller : FactoryExtensionBase
             var @class = template.CSharpFile.Classes.First();
             foreach (var method in @class.Methods)
             {
-                
+
             }
         }
     }

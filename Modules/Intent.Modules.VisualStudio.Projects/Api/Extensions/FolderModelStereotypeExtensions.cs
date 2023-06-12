@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
@@ -16,7 +18,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             var stereotype = model.GetStereotype("Folder Options");
             return stereotype != null ? new FolderOptions(stereotype) : null;
         }
- 
+
 
         public static bool HasFolderOptions(this FolderModel model)
         {
@@ -46,7 +48,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public string Name => _stereotype.Name;
 
-            public bool NamespaceProvider() {
+            public bool NamespaceProvider()
+            {
                 return _stereotype.GetProperty<bool>("Namespace Provider");
             }
 

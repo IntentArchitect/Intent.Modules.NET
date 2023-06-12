@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
@@ -18,7 +19,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
             ITracing tracing,
-            DependencyVersionManagement dependencyVersionManagement)
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             tracing.Debug($"Skipped processing project '{projectName}' as its type is unsupported.");
 

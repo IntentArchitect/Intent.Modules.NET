@@ -37,6 +37,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
             return $"{TemplateId}#{OutputTarget.Id}";
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             var config = new TemplateFileConfig(

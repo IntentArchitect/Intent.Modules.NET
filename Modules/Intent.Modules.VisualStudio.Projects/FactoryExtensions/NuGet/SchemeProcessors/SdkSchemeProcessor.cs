@@ -7,6 +7,7 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
@@ -50,8 +51,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
-            ITracing tracing, 
-            DependencyVersionManagement dependencyVersionManagement)
+            ITracing tracing,
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             var document = XDocument.Parse(projectContent);
 
@@ -111,19 +112,19 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
 
                     includeAssetsElement.SetValue(package.IncludeAssets.Aggregate((x, y) => x + "; " + y));
                 }
-
+                
                 var packageVersion = GetAttributeOrElementValue(packageReferenceElement, "Version");
                 if (packageVersion == null)
                 {
                     throw new Exception("Missing version attribute from PackageReference element.");
                 }
 
-                if (dependencyVersionManagement == DependencyVersionManagement.OnlyIfMissing)
+                if (dependencyVersionOverwriteBehavior == DependencyVersionOverwriteBehaviorOption.Never)
                 {
                     continue;
                 }
                 
-                if (dependencyVersionManagement == DependencyVersionManagement.OnlyIfNewer &&
+                if (dependencyVersionOverwriteBehavior == DependencyVersionOverwriteBehaviorOption.IfNewer &&
                     (!VersionRange.TryParse(packageVersion, out var parsed) ||
                      parsed.MinVersion >= package.Version.MinVersion))
                 {

@@ -307,6 +307,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#e305389f-befa-46ce-96d3-1f50fe7199ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

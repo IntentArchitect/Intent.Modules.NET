@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using Xunit;
 
@@ -41,7 +42,11 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             };
 
             // Act
-            sut.Execute(projects, tracing, (filePath, content) => { });
+            sut.Execute(
+                applicationProjects: projects,
+                tracing: tracing,
+                saveProjectDelegate: (filePath, content) => { },
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
 
             // Assert
             Assert.Empty(tracing.InfoEntries);
@@ -59,7 +64,11 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             var projects = new[] { project1, project2 };
 
             // Act
-            sut.Execute(projects, tracing, (path, content) => saved.Add((path, content)));
+            sut.Execute(
+                applicationProjects: projects,
+                tracing: tracing,
+                saveProjectDelegate: (path, content) => saved.Add((path, content)),
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
 
             // Assert
             Assert.Collection(saved, nuGetProject =>
@@ -93,7 +102,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             var projects = new[] { project1, project2 };
 
             // Act
-            sut.Execute(projects, tracing, (path, content) => saved.Add((path, content)));
+            sut.Execute(applicationProjects: projects,
+                tracing: tracing,
+                saveProjectDelegate: (path, content) => saved.Add((path, content)),
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
 
             // Assert
             Assert.Collection(saved, nuGetProject =>

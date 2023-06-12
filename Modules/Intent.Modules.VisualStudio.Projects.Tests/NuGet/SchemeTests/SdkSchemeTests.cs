@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using NuGet.Versioning;
 using VerifyTests;
@@ -56,7 +57,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 
         public static IEnumerable<object[]> InstallsPackages_TestData()
         {
-            foreach (var depVerMan in Enum.GetValues<DependencyVersionManagement>())
+            foreach (var depVerMan in Enum.GetValues<DependencyVersionOverwriteBehaviorOption>())
             {
                 yield return new object[]
                 {
@@ -110,7 +111,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             string description,
             TestVersion testVersion, 
             TestPackage testPackage, 
-            DependencyVersionManagement depVerMan,
+            DependencyVersionOverwriteBehaviorOption depVerMan,
             Dictionary<string, string> nugetPackagesToInstall)
         {
             // Arrange
@@ -153,7 +154,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.InstalledPackages,
                 project.Name,
                 tracing,
-                DependencyVersionManagement.OnlyIfNewer);
+                DependencyVersionOverwriteBehaviorOption.IfNewer);
 
             // Assert
             Assert.Equal(

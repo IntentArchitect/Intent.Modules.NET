@@ -18,6 +18,7 @@ using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 using NuGet.Versioning;
+using Intent.Modules.VisualStudio.Projects.Settings;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
@@ -81,11 +82,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             tracing.Info("Start processing packages");
 
+            var depVerOverBehOption = application.Settings.DependencyVersionOverwriteBehavior() == null
+                ? DependencyVersionOverwriteBehaviorOption.IfNewer
+                : application.Settings.DependencyVersionOverwriteBehavior().AsEnum();
+
             // Call a separate method to do the actual execution which is internally accessible and more easily unit testable.
             Execute(
                 applicationProjects: _projectRegistry.Values,
                 tracing: tracing,
-                saveProjectDelegate: SaveProject);
+                saveProjectDelegate: SaveProject,
+                dependencyVersionOverwriteBehavior: depVerOverBehOption);
 
             tracing.Info("Package processing complete");
             base.OnAfterTemplateExecution(application);
@@ -128,11 +134,14 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }));
         }
 
+        /// <param name="applicationProjects"></param>
+        /// <param name="tracing"></param>
         /// <param name="saveProjectDelegate">T1 = path, T2 = content</param>
-        internal void Execute(
-            IEnumerable<IVisualStudioProjectTemplate> applicationProjects,
+        /// <param name="dependencyVersionOverwriteBehavior"></param>
+        internal void Execute(IEnumerable<IVisualStudioProjectTemplate> applicationProjects,
             ITracing tracing,
-            Action<string, string> saveProjectDelegate)
+            Action<string, string> saveProjectDelegate, 
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             string report;
             var (projectPackages, highestVersions) = DeterminePackages(applicationProjects);
@@ -164,7 +173,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     installedPackages: projectPackage.InstalledPackages,
                     projectName: projectPackage.Name,
                     tracing: tracing,
-                    dependencyVersionManagement: projectPackage.DependencyVersionManagement);
+                    dependencyVersionOverwriteBehavior: dependencyVersionOverwriteBehavior);
                 saveProjectDelegate(projectPackage.FilePath, updatedProjectContent);
             }
 
@@ -282,8 +291,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 HighestVersions = highestVersionsInProject,
                 Name = project.Name,
                 FilePath = project.FilePath,
-                Processor = processor,
-                DependencyVersionManagement = project.OutputTarget.GetDependencyVersionManagement()
+                Processor = processor
             };
         }
 

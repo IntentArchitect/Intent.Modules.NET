@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
@@ -63,7 +64,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
             Dictionary<string, NuGetPackage> installedPackages,
             string projectName,
             ITracing tracing,
-            DependencyVersionManagement dependencyVersionManagement)
+            DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             // This format is now unsupported, but we will show a warnings for missing packages.
 
