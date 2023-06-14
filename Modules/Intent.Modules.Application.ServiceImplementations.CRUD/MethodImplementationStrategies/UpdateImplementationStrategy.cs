@@ -166,7 +166,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                             {
                                 var targetClass = targetEntityElement.AsClassModel();
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {updateMethodName});");
+                                var dtoEntityIdField = targetDto.Fields.GetEntityIdField(targetClass);
+                                if (dtoEntityIdField == null)
+                                {
+                                    codeLines.Add($@"#warning Unable to find Identifier on {targetDto.Name}(Dto) for {targetClass.Name}(Class).");
+                                    break;
+                                }
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{dtoEntityIdField.Name.ToPascalCase()}, {updateMethodName});");
                             }
 
                             var entityTypeName = _template.GetTypeName(targetEntityElement);
