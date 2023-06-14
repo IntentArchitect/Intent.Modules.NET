@@ -12,6 +12,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>fdd07744-5d8c-46db-9948-59df961e21ca</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd07744-5d8c-46db-9948-59df961e21ca</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd07744-5d8c-46db-9948-59df961e21ca</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
@@ -27,11 +43,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ab242a7e-5283-499c-8a2f-20ad69a03b3b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#08ec05b8-c9e6-4205-abdd-9700c2985169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Controllers/MultiVersionController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiVersionController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5ee095eb-93c9-47f5-b64a-dfd3869f5dd1</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab242a7e-5283-499c-8a2f-20ad69a03b3b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#530a1ecd-4c30-423a-b90c-bb3a00ebd147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Api/Controllers/VersionOneController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VersionOneController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -139,6 +171,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2c11a82b-a920-418b-b040-fc7b2bae5243</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#08ec05b8-c9e6-4205-abdd-9700c2985169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Implementation/MultiVersionService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiVersionService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c11a82b-a920-418b-b040-fc7b2bae5243</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#530a1ecd-4c30-423a-b90c-bb3a00ebd147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Implementation/VersionOneService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VersionOneService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#7071084b-30d4-4e57-b0fa-a5d532e50a84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -152,6 +200,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Interfaces/IInvoiceService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IInvoiceService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7fb266fc-2009-4dab-84c2-317b1b83d506</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#08ec05b8-c9e6-4205-abdd-9700c2985169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Interfaces/IMultiVersionService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMultiVersionService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7fb266fc-2009-4dab-84c2-317b1b83d506</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#530a1ecd-4c30-423a-b90c-bb3a00ebd147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Interfaces/IVersionOneService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IVersionOneService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -208,6 +272,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/Invoices/InvoiceUpdateDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/InvoiceUpdateDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#15cd5f69-2da9-447a-b484-b8395fb1d895</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/MultiVersionServiceProxy/IMultiVersionServiceProxyClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiVersionServiceProxy/IMultiVersionServiceProxyClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7071084b-30d4-4e57-b0fa-a5d532e50a84</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#4c4ed6be-7470-4b3e-adb3-df2981c12d97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Application/VersionOneServiceProxy/IVersionOneServiceProxyClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VersionOneServiceProxy/IVersionOneServiceProxyClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -296,6 +376,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f012f088-19c9-40df-8a6b-5c4668475865</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#15cd5f69-2da9-447a-b484-b8395fb1d895</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Infrastructure/HttpClients/MultiVersionServiceProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiVersionServiceProxyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f012f088-19c9-40df-8a6b-5c4668475865</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#4c4ed6be-7470-4b3e-adb3-df2981c12d97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Integration.HttpClients.TestApplication.Infrastructure/HttpClients/VersionOneServiceProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VersionOneServiceProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -18,6 +18,8 @@ namespace Integration.HttpClients.TestApplication.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IInvoiceService, InvoiceService>();
+            services.AddTransient<IMultiVersionService, MultiVersionService>();
+            services.AddTransient<IVersionOneService, VersionOneService>();
             return services;
         }
     }

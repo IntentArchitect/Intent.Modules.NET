@@ -38,6 +38,7 @@ namespace Integration.HttpClients.TestApplication.Api
                 {
                     opt.Filters.Add<FluentValidationFilter>();
                 });
+            services.ConfigureApiVersioning();
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

@@ -1,5 +1,7 @@
 using System;
 using Integration.HttpClients.TestApplication.Application.InvoiceProxy;
+using Integration.HttpClients.TestApplication.Application.MultiVersionServiceProxy;
+using Integration.HttpClients.TestApplication.Application.VersionOneServiceProxy;
 using Integration.HttpClients.TestApplication.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,16 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.Configuration
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:InvoiceProxy:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:InvoiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
             }).AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:InvoiceProxy:IdentityClientKey") ?? "default");
+            services.AddHttpClient<IMultiVersionServiceProxyClient, MultiVersionServiceProxyHttpClient>(http =>
+            {
+                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MultiVersionServiceProxy:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:MultiVersionServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+            });
+            services.AddHttpClient<IVersionOneServiceProxyClient, VersionOneServiceProxyHttpClient>(http =>
+            {
+                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:VersionOneServiceProxy:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:VersionOneServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+            });
         }
     }
 }

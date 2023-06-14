@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36279f43-0045-41a7-a4c0-62d84a22c8ea" type="Version Definition" typeId="0ec760ae-98d8-4e8e-953c-d00691ff7e28">
+  <name>Versions</name>
+  <display>Versions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3b4eeb91-9b75-4b51-a9d1-c165917472d1</parentFolderId>
+  <packageId>3b4eeb91-9b75-4b51-a9d1-c165917472d1</packageId>
+  <packageName>Open API Package</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="597e7c03-3667-4f81-b7d3-fe45842da2cc" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+      <name>V1.0</name>
+      <display>V1.0</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36279f43-0045-41a7-a4c0-62d84a22c8ea</parentFolderId>
+      <packageId>3b4eeb91-9b75-4b51-a9d1-c165917472d1</packageId>
+      <packageName>Open API Package</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="7248493f-2e26-4f51-99b0-ed0e2ae6b511" display="Is Deprecated" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="200be8b7-4fbe-4659-aa04-7d10498ad10c" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+      <name>V2.0</name>
+      <display>V2.0</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36279f43-0045-41a7-a4c0-62d84a22c8ea</parentFolderId>
+      <packageId>3b4eeb91-9b75-4b51-a9d1-c165917472d1</packageId>
+      <packageName>Open API Package</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="7248493f-2e26-4f51-99b0-ed0e2ae6b511" display="Is Deprecated" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
