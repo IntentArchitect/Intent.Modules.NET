@@ -14,6 +14,7 @@ public interface IControllerModel : IHasFolder, IHasName, IMetadataModel
     bool AllowAnonymous { get; }
     IAuthorizationModel AuthorizationModel { get; }
     public IList<IControllerOperationModel> Operations { get; }
+    IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetadataModel
@@ -28,6 +29,7 @@ public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetad
     IAuthorizationModel AuthorizationModel { get; }
     IElement InternalElement { get; }
     IList<IControllerParameterModel> Parameters { get; }
+    IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public interface IControllerParameterModel : IHasName, IHasTypeReference, IMetadataModel
@@ -55,4 +57,11 @@ public interface IAuthorizationModel
     /// Gets or sets the Roles that determines access to this Resource. Note the format will generate exactly in C#.
     ///</summary>
     public string RolesExpression { get; }
+}
+
+public interface IApiVersionModel
+{
+    public string DefinitionName { get; }
+    public string Version { get; }
+    public bool IsDeprecated { get; }
 }

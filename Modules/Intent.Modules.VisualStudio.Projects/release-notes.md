@@ -1,6 +1,7 @@
 ### Version 3.3.26
 
 - Fixed : Software Factory would throw "Duplicate Key" exception if a NuGet package, for the same package, existed more than once. If now works with the first one it finds.
+- Update: Manage Dependency Versions for nuget packages found in C# projects used to create Intent Architect Modules.
 
 ### Version 3.3.25
 

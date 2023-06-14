@@ -27,18 +27,20 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("Microsoft.AspNetCore.Mvc.Versioning")
+            .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddClass($"ApiVersioningConfiguration", @class =>
             {
+                @class.Static();
                 @class.AddMethod("void", "ConfigureApiVersioning", method =>
                 {
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
-                    method.AddInvocationStatement("AddApiVersioning", stmt => stmt
+                    method.AddInvocationStatement("services.AddApiVersioning", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("options")
                             .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = false;")
                             .AddStatement($@"options.ReportApiVersions = true;")
                             .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());")));
-                    method.AddInvocationStatement("AddVersionedApiExplorer", stmt => stmt
+                    method.AddInvocationStatement("services.AddVersionedApiExplorer", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("options")
                             .AddStatement($@"options.GroupNameFormat = ""'v'VVV"";")
                             .AddStatement($@"options.SubstituteApiVersionInUrl = true;")));

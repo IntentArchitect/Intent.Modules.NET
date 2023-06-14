@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.WebApi.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -32,26 +33,50 @@ public class ControllerInstaller : FactoryExtensionBase
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                var groupedVersions = new HashSet<string>();
-                foreach (var method in @class.Methods)
-                {
-                    var methodModel = method.GetMetadata<IControllerOperationModel>("model");
-                    var versions = methodModel.InternalElement.GetApiVersion().ApplicableVersions()
-                        .Select(x => x.AsVersionModel())
-                        .Select(x => x.Name)
-                        .ToList();
-                    foreach (var version in versions)
-                    {
-                        groupedVersions.Add(version);
-                        method.AddAttribute($@"[MapToApiVersion(""{version}"")]");
-                    }
-                }
+                var groupedVersions = new HashSet<IApiVersionModel>();
 
-                foreach (var version in groupedVersions)
-                {
-                    @class.AddAttribute($@"[ApiVersion(""{version}"")]");
-                }
+                UpdateControllerActionMethods(@class, groupedVersions);
+                UpdateControllerClass(@class, groupedVersions);
             });
+        }
+    }
+
+    private static void UpdateControllerActionMethods(CSharpClass @class, HashSet<IApiVersionModel> groupedVersions)
+    {
+        foreach (var method in @class.Methods)
+        {
+            var methodModel = method.GetMetadata<IControllerOperationModel>("model");
+
+            foreach (var version in methodModel.ApplicableVersions)
+            {
+                groupedVersions.Add(version);
+                method.AddAttribute($@"[MapToApiVersion(""{version.Version.Replace("v", "", StringComparison.OrdinalIgnoreCase)}"")]");
+            }
+
+            foreach (var attribute in method.Attributes.Where(p => p.Name.Contains("{version}")))
+            {
+                attribute.Name = attribute.Name.Replace("{version}", "v{version:apiVersion}");
+            }
+        }
+    }
+
+    private static void UpdateControllerClass(CSharpClass @class, HashSet<IApiVersionModel> groupedVersions)
+    {
+        foreach (var attribute in @class.Attributes.Where(p => p.Name.Contains("{version}")))
+        {
+            attribute.Name = attribute.Name.Replace("{version}", "v{version:apiVersion}");
+        }
+
+        var classModel = @class.GetMetadata<IControllerModel>("model");
+
+        foreach (var version in classModel.ApplicableVersions)
+        {
+            groupedVersions.Add(version);
+        }
+
+        foreach (var version in groupedVersions)
+        {
+            @class.AddAttribute($@"[ApiVersion(""{version.Version.Replace("v", "", StringComparison.OrdinalIgnoreCase)}""{(version.IsDeprecated?", Deprecated = true" : string.Empty)})]");
         }
     }
 }

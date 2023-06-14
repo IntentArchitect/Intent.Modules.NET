@@ -1,3 +1,8 @@
+### Version 5.2.0
+
+- FileBuilder metadata updated.
+- Updated contract to include Api Version information.
+
 ### Version 5.1.1
 
 - Have controllers fully manage using statements by default.

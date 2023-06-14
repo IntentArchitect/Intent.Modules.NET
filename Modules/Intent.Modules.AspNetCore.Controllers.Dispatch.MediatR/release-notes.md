@@ -1,3 +1,8 @@
+### Version 5.2.0
+
+- Updated Controller generation so that nested folders are also taken into account for the controller name.
+- Updated internal components to allow versioning information to be specified for AspNetCore Controllers for Commands and Queries.
+
 ### Version 5.1.1
 
 - Updated: using constructors to instantiate `Command`s and `Query`s. This was a change in pattern to reduce compiler warnings.

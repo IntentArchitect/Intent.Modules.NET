@@ -1,32 +1,80 @@
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Versioning.Templates;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Versioning.FactoryExtensions
+namespace Intent.Modules.AspNetCore.Versioning.FactoryExtensions;
+
+[IntentManaged(Mode.Fully, Body = Mode.Merge)]
+public class SwaggerInstaller : FactoryExtensionBase
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class SwaggerInstaller : FactoryExtensionBase
+    public override string Id => "Intent.AspNetCore.Versioning.SwaggerInstaller";
+
+    [IntentManaged(Mode.Ignore)] public override int Order => 0;
+
+    protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        public override string Id => "Intent.AspNetCore.Versioning.SwaggerInstaller";
+        var configTemplate =
+            application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
-
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        configTemplate?.CSharpFile.OnBuild(file =>
         {
-            // Your custom logic here.
-        }
+            file.AddUsing("Microsoft.AspNetCore.Mvc");
+            file.AddUsing("Microsoft.AspNetCore.Mvc.ApiExplorer");
+            file.AddUsing("Microsoft.Extensions.Options");
+            file.AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
+
+            var priClass = file.Classes.First();
+
+            UpdateConfigureSwaggerMethod(priClass, configTemplate.GetApiVersionSwaggerGenOptionsName());
+            UpdateUseSwashbuckleMethod(priClass);
+            IntroduceAddSwaggerEndpointMethod(priClass);
+        });
+    }
+
+    private static void UpdateConfigureSwaggerMethod(CSharpClass priClass, string apiVersionSwaggerGenOptionsName)
+    {
+        var method = priClass.FindMethod("ConfigureSwagger");
+        method.Statements.Insert(0, $"services.AddTransient<IConfigureOptions<SwaggerGenOptions>, {apiVersionSwaggerGenOptionsName}>();");
+        var addSwaggerGen = (CSharpInvocationStatement)method.FindStatement(p => p.HasMetadata("AddSwaggerGen"));
+        var addSwaggerGenOptions = (CSharpLambdaBlock)addSwaggerGen?.Statements.FirstOrDefault();
+        addSwaggerGenOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerDoc")).Remove();
+    }
+
+    private static void UpdateUseSwashbuckleMethod(CSharpClass priClass)
+    {
+        var method = priClass.FindMethod("UseSwashbuckle");
+        var useSwaggerUi = (CSharpInvocationStatement)method.FindStatement(p => p.HasMetadata("UseSwaggerUI"));
+        var useSwaggerUiOptions = (CSharpLambdaBlock)useSwaggerUi?.Statements.FirstOrDefault();
+        useSwaggerUiOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerEndpoint")).Remove();
+
+        useSwaggerUiOptions.AddInvocationStatement("AddSwaggerEndpoints", stmt => stmt
+            .AddArgument("app")
+            .AddArgument("options"));
+    }
+
+    private static void IntroduceAddSwaggerEndpointMethod(CSharpClass priClass)
+    {
+        priClass.AddMethod("void", "AddSwaggerEndpoints", method =>
+        {
+            method.Private().Static();
+            method.AddParameter("IApplicationBuilder", "app");
+            method.AddParameter("SwaggerUIOptions", "options");
+            method.AddStatement(
+                "var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();");
+            method.AddForEachStatement("description", "provider.ApiVersionDescriptions", stmt => stmt
+                .AddStatement(
+                    @"options.SwaggerEndpoint($""/swagger/{description.GroupName}/swagger.json"", $""{options.OAuthConfigObject.AppName} {description.GroupName}"");"));
+        });
     }
 }

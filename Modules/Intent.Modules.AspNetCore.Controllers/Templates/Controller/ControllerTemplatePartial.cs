@@ -43,6 +43,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     @class.AddAttribute("[ApiController]");
                     @class.WithBaseType("ControllerBase");
                     @class.AddConstructor();
+                    @class.AddMetadata("model", Model);
                     foreach (var attribute in GetControllerAttributes())
                     {
                         @class.AddAttribute(attribute);
@@ -78,7 +79,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         }
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

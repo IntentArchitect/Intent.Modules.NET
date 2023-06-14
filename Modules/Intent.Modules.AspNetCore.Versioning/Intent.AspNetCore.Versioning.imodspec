@@ -18,6 +18,14 @@
       <role>Distribution.ApiVersioningConfiguration</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" externalReference="1fe50eed-aeb7-4f0b-99a8-70fc0187cf8f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.ApiVersionSwaggerGenOptions</role>
+      <location>Configuration</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -26,8 +34,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="4.0.2" />
-    <dependency id="Intent.AspNetCore.Controllers" version="5.1.1" />
+    <dependency id="Intent.AspNetCore" version="5.0.0" />
+    <dependency id="Intent.AspNetCore.Controllers" version="5.2.0-pre.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.35" />
     <dependency id="Intent.Common.Types" version="3.3.9" />

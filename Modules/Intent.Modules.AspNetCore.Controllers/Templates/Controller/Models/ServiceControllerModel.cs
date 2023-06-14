@@ -30,6 +30,11 @@ public class ServiceControllerModel : IControllerModel
             .Where(x => x.HasHttpSettings())
             .Select(GetOperation)
             .ToList();
+        ApplicableVersions = model.GetApiVersion()
+            ?.ApplicableVersions()
+            .Select(s => new ApiVersionModel(s))
+            .Cast<IApiVersionModel>()
+            .ToList() ?? new List<IApiVersionModel>();
     }
 
     private static AuthorizationModel GetAuthorizationModel(string roles)
@@ -69,9 +74,12 @@ public class ServiceControllerModel : IControllerModel
             requiresAuthorization: httpEndpoint.RequiresAuthorization,
             allowAnonymous: httpEndpoint.AllowAnonymous,
             authorizationModel: GetAuthorizationModel(model.GetSecured()?.Roles()),
-            parameters: httpEndpoint.Inputs
-                .Select(GetInput)
-                .ToList());
+            parameters: httpEndpoint.Inputs.Select(GetInput).ToList(),
+            applicableVersions: model.GetApiVersion()
+                ?.ApplicableVersions()
+                .Select(s => new ApiVersionModel(s))
+                .Cast<IApiVersionModel>()
+                .ToList() ?? new List<IApiVersionModel>());
     }
 
     private static IControllerParameterModel GetInput(IHttpEndpointInputModel model)
@@ -95,6 +103,7 @@ public class ServiceControllerModel : IControllerModel
     public string Comment => _model.Comment;
     public string Route { get; }
     public IList<IControllerOperationModel> Operations { get; }
+    public IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 
@@ -109,7 +118,8 @@ public class ControllerOperationModel : IControllerOperationModel
         bool requiresAuthorization,
         bool allowAnonymous,
         IAuthorizationModel authorizationModel,
-        IList<IControllerParameterModel> parameters)
+        IList<IControllerParameterModel> parameters, 
+        IList<IApiVersionModel> applicableVersions)
     {
         Id = element.Id;
         Name = name;
@@ -123,6 +133,7 @@ public class ControllerOperationModel : IControllerOperationModel
         AllowAnonymous = allowAnonymous;
         AuthorizationModel = authorizationModel;
         Parameters = parameters;
+        ApplicableVersions = applicableVersions;
     }
 
     public string Id { get; }
@@ -138,6 +149,7 @@ public class ControllerOperationModel : IControllerOperationModel
     public bool AllowAnonymous { get; }
     public IAuthorizationModel AuthorizationModel { get; }
     public IList<IControllerParameterModel> Parameters { get; }
+    public IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public class ControllerParameterModel : IControllerParameterModel
@@ -167,4 +179,51 @@ public class ControllerParameterModel : IControllerParameterModel
     public string HeaderName { get; }
     public ICanBeReferencedType MappedPayloadProperty { get; }
     public string Value { get; }
+}
+
+public class ApiVersionModel : IApiVersionModel
+{
+    public ApiVersionModel(string definitionName, string version, bool isDeprecated)
+    {
+        DefinitionName = definitionName;
+        Version = version;
+        IsDeprecated = isDeprecated;
+    }
+
+    public ApiVersionModel(ICanBeReferencedType element)
+    {
+        var versionModel = element.AsVersionModel();
+        if (versionModel == null)
+        {
+            throw new InvalidOperationException($"Element {element.Id} [{element.Name}] is not a VersionModel.");
+        }
+
+        DefinitionName = versionModel.VersionDefinition?.Name;
+        Version = versionModel.Name;
+        IsDeprecated = versionModel.GetVersionSettings()?.IsDeprecated() == true;
+    }
+
+    public string DefinitionName { get; }
+    public string Version { get; }
+    public bool IsDeprecated { get; }
+
+    protected bool Equals(ApiVersionModel other)
+    {
+        return DefinitionName == other.DefinitionName && 
+               Version == other.Version && 
+               IsDeprecated == other.IsDeprecated;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != this.GetType()) return false;
+        return Equals((ApiVersionModel)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(DefinitionName, Version, IsDeprecated);
+    }
 }

@@ -74,6 +74,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>2427eb8b-4435-437b-a848-ceeaae9bb655</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1fe50eed-aeb7-4f0b-99a8-70fc0187cf8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2427eb8b-4435-437b-a848-ceeaae9bb655</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#1fe50eed-aeb7-4f0b-99a8-70fc0187cf8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2427eb8b-4435-437b-a848-ceeaae9bb655</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

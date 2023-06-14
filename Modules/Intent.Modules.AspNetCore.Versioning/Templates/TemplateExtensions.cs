@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Versioning.Templates.ApiVersioningConfiguration;
+using Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOptions;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -14,6 +15,11 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates
         public static string GetApiVersioningConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(ApiVersioningConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetApiVersionSwaggerGenOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ApiVersionSwaggerGenOptionsTemplate.TemplateId);
         }
 
     }

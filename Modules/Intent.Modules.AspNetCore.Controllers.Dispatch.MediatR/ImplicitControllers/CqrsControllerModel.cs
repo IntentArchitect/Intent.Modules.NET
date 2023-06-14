@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
@@ -18,11 +20,14 @@ public class CqrsControllerModel : IControllerModel
         IEnumerable<IElement> elements)
     {
         Id = parentElement?.Id ?? Guid.Empty.ToString();
-        Name = parentElement?.Name ?? "Default";
+        Name = parentElement is not null
+            ? string.Join(string.Empty,
+                parentElement.GetParentPath().Concat(new[] { parentElement })
+                    .Select(s => s.Name?.Replace(".", "_").ToPascalCase() ?? string.Empty))
+            : "Default";
         Folder = parentElement?.ParentElement?.AsFolderModel();
-        Operations = elements
-            .Select(MapToOperation)
-            .ToList();
+        Operations = elements.Select(MapToOperation).ToList();
+        ApplicableVersions = new List<IApiVersionModel>();
     }
 
     private static IControllerOperationModel MapToOperation(IElement element)
@@ -47,7 +52,31 @@ public class CqrsControllerModel : IControllerModel
                     headerName: x.HeaderName,
                     mappedPayloadProperty: x.MappedPayloadProperty,
                     value: x.Value))
-                .ToList<IControllerParameterModel>());
+                .ToList<IControllerParameterModel>(),
+            applicableVersions: GetApplicableVersions(element));
+    }
+
+    private static IList<IApiVersionModel> GetApplicableVersions(IElement element)
+    {
+        if (element.IsCommandModel())
+        {
+            return element.AsCommandModel().GetApiVersion()
+                ?.ApplicableVersions()
+                .Select(s => new ApiVersionModel(s))
+                .Cast<IApiVersionModel>()
+                .ToList();
+        }
+
+        if (element.IsQueryModel())
+        {
+            return element.AsQueryModel().GetApiVersion()
+                ?.ApplicableVersions()
+                .Select(s => new ApiVersionModel(s))
+                .Cast<IApiVersionModel>()
+                .ToList();
+        }
+
+        return new List<IApiVersionModel>();
     }
 
     private static AuthorizationModel GetAuthorizationModel(IElement element)
@@ -75,5 +104,6 @@ public class CqrsControllerModel : IControllerModel
     public bool AllowAnonymous => false;
     public string Route => null;
     public IList<IControllerOperationModel> Operations { get; }
+    public IList<IApiVersionModel> ApplicableVersions { get; }
     public IAuthorizationModel AuthorizationModel => null;
 }
