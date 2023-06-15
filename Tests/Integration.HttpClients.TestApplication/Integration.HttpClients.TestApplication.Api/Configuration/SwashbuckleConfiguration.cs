@@ -54,7 +54,7 @@ namespace Integration.HttpClients.TestApplication.Api.Configuration
         {
             var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
 
-            foreach (var description in provider.ApiVersionDescriptions)
+            foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion))
             {
                 options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"{options.OAuthConfigObject.AppName} {description.GroupName}");
             }

@@ -35,7 +35,7 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
 
         public async Task OperationForVersionOneAsync(string param, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/v1.0/version-one/operation-for-version-one";
+            var relativeUri = $"api/v1/version-one/operation-for-version-one";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
