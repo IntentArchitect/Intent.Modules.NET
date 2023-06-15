@@ -15,7 +15,8 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
-public class InvoiceServiceHttpClientTests : SystemTestCollectionDefinition
+[Collection("InvoiceTests")]
+public class InvoiceServiceHttpClientTests
 {
     public InvoiceServiceHttpClientTests(ITestOutputHelper outputHelper)
     {
@@ -23,6 +24,8 @@ public class InvoiceServiceHttpClientTests : SystemTestCollectionDefinition
     }
 
     private ITestOutputHelper OutputHelper { get; }
+    
+    private const int ApiPortNumber = 5012;
     
     [Fact]
     public async Task TestCreateInvoice()
@@ -32,8 +35,7 @@ public class InvoiceServiceHttpClientTests : SystemTestCollectionDefinition
         invoiceRepository.When(x => x.Add(Arg.Any<Invoice>())).Do(ci => entity = ci.Arg<Invoice>());
         invoiceRepository.UnitOfWork.When(x => x.SaveChangesAsync()).Do(ci => entity!.Id = Guid.NewGuid());
         
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<IInvoiceServiceProxyClient>()!;
@@ -49,8 +51,7 @@ public class InvoiceServiceHttpClientTests : SystemTestCollectionDefinition
         var invoiceRepository = Substitute.For<IInvoiceRepository>();
         invoiceRepository.FindByIdAsync(id, default).Returns(Task.FromResult(new Invoice { Id = id, Number = "123" }));
 
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<IInvoiceServiceProxyClient>()!;

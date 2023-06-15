@@ -11,12 +11,17 @@ namespace Intent.IntegrationTest.HttpClient.Common;
 
 public static class TestAspNetCoreHost
 {
-    public const string BackendFacingServerUri = "http://localhost:5002";
+    public const string BackendFacingServerUri = "http://localhost:{0}";
 
-    public static async Task<IWebHost> SetupApiServer(ITestOutputHelper outputHelper = null, Action<IServiceCollection> serviceConfig = null, Assembly assemblyWithControllers = null)
+    public static async Task<IWebHost> SetupApiServer(
+        ITestOutputHelper outputHelper = null, 
+        Action<IServiceCollection> serviceConfig = null, 
+        Assembly assemblyWithControllers = null,
+        int apiPortNumber = 5002,
+        int idPortNumber = 5001)
     {
         var hostBuilder = new WebHostBuilder()
-            .UseUrls(BackendFacingServerUri)
+            .UseUrls(string.Format(BackendFacingServerUri, apiPortNumber))
             .ConfigureServices(services =>
             {
                 if (assemblyWithControllers != null)
@@ -30,7 +35,7 @@ public static class TestAspNetCoreHost
                 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                     {
-                        options.Authority = TestIdentityHost.IdentityServerUri;
+                        options.Authority = string.Format(TestIdentityHost.IdentityServerUri, idPortNumber);
                         options.RequireHttpsMetadata = false;
                         options.TokenValidationParameters = new TokenValidationParameters
                         {

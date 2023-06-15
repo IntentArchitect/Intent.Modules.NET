@@ -26,7 +26,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:IntegrationServiceProxy:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:IntegrationServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
-            });
+            }).AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ?? "default");
             services.AddHttpClient<IInvoiceServiceProxyClient, InvoiceServiceProxyHttpClient>(http =>
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:InvoiceServiceProxy:Uri");

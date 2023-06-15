@@ -10,17 +10,19 @@ namespace Intent.IntegrationTest.HttpClient.Common;
 
 public static class TestIdentityHost
 {
-    public const string IdentityServerUri = "http://localhost:5001";
+    public const string IdentityServerUri = "http://localhost:{0}";
 
     static TestIdentityHost()
     {
         JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
     }
 
-    public static async Task<IWebHost> SetupIdentityServer(ITestOutputHelper outputHelper = null)
+    public static async Task<IWebHost> SetupIdentityServer(
+        ITestOutputHelper outputHelper = null,
+        int portNumber = 5001)
     {
         var hostBuilder = new WebHostBuilder()
-            .UseUrls(IdentityServerUri)
+            .UseUrls(string.Format(IdentityServerUri, portNumber))
             .ConfigureServices(services =>
             {
                 services.AddIdentityServer()

@@ -13,7 +13,8 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
-public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
+[Collection("IntegrationTests")]
+public class IntegrationServiceHttpClientTests
 {
     public IntegrationServiceHttpClientTests(ITestOutputHelper outputHelper)
     {
@@ -21,12 +22,15 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     }
 
     private ITestOutputHelper OutputHelper { get; }
+
+    private const int IdPortNumber = 5009;
+    private const int ApiPortNumber = 5010;
     
     [Fact]
     public async Task TestQueryParamOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -36,8 +40,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestBodyParamOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -47,8 +51,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestFormParamOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -58,8 +62,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestHeaderParamOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -69,8 +73,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestRouteParamOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -80,8 +84,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task ThrowsExceptionOperation()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -93,8 +97,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestGetPrimitiveGuid()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -107,8 +111,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestGetPrimitiveString()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -121,8 +125,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestGetPrimitiveInt()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -135,8 +139,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestGetPrimitiveStringList()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
@@ -147,8 +151,8 @@ public class IntegrationServiceHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task TestGetInvoiceOpWithReturnTypeWrapped()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;

@@ -13,20 +13,22 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
-public class VersionedServicesHttpClientTests : SystemTestCollectionDefinition
+[Collection("VersionedTests")]
+public class VersionedServicesHttpClientTests
 {
     public VersionedServicesHttpClientTests(ITestOutputHelper outputHelper)
     {
         OutputHelper = outputHelper;
     }
 
+    private const int ApiPortNumber = 5014;
+    
     private ITestOutputHelper OutputHelper { get; }
     
     [Fact]
     public async Task Test_VersionOne_OperationForVersionOne()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetVersionOneDiServices(), typeof(VersionOneController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetVersionOneDiServices(), typeof(VersionOneController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<IVersionOneServiceProxyClient>()!;
@@ -36,8 +38,7 @@ public class VersionedServicesHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task Test_Multi_OperationForVersionOne()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<IMultiVersionServiceProxyClient>()!;
@@ -47,8 +48,7 @@ public class VersionedServicesHttpClientTests : SystemTestCollectionDefinition
     [Fact]
     public async Task Test_Multi_OperationForVersionTwo()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<IMultiVersionServiceProxyClient>()!;

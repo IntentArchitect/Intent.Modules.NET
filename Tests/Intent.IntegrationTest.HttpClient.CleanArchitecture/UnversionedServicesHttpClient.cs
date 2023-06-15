@@ -16,7 +16,8 @@ using TestQuery = CleanArchitecture.TestApplication.Application.IntegrationServi
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
-public class UnversionedServicesHttpClient : SystemTestCollectionDefinition
+[Collection("UnversionedTests")]
+public class UnversionedServicesHttpClient
 {
     public UnversionedServicesHttpClient(ITestOutputHelper outputHelper)
     {
@@ -25,11 +26,12 @@ public class UnversionedServicesHttpClient : SystemTestCollectionDefinition
 
     private ITestOutputHelper OutputHelper { get; }
 
+    private const int ApiPortNumber = 5003;
+    
     [Fact]
     public async Task Test_TestCommand()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<ITestUnversionedProxyClient>()!;
@@ -39,8 +41,7 @@ public class UnversionedServicesHttpClient : SystemTestCollectionDefinition
     [Fact]
     public async Task Test_TestQuery()
     {
-        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<ITestUnversionedProxyClient>()!;
