@@ -20,8 +20,7 @@ using TestQueryV1 = CleanArchitecture.TestApplication.Application.IntegrationSer
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
-[Collection("NoParallelTests")]
-public class VersionedServicesHttpClientTests
+public class VersionedServicesHttpClientTests : SystemTestCollectionDefinition
 {
     public VersionedServicesHttpClientTests(ITestOutputHelper outputHelper)
     {

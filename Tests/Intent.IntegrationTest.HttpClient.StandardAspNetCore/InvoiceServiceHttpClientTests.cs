@@ -15,8 +15,7 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
-[Collection("NoParallelTests")]
-public class InvoiceServiceHttpClientTests
+public class InvoiceServiceHttpClientTests : SystemTestCollectionDefinition
 {
     public InvoiceServiceHttpClientTests(ITestOutputHelper outputHelper)
     {
