@@ -15,14 +15,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
         {
         }
 
-        public DbSet<ClassA> ClassAs { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new ClassAConfiguration());
+            modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

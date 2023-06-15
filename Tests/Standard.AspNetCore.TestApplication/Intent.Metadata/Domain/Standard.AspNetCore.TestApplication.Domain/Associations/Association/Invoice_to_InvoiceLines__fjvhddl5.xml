@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fa3cf7c3-9e32-43ee-bb58-3c8667a9574b">
+  <sourceEnd id="69a639a5-3e27-4aeb-b490-6ca8fb87f47d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="46126c3d-4259-4630-9c4b-219f7aca8009">
+      <typeId>1f52458c-22a5-4dea-ab63-0776e26fa7b2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.TestApplication.Domain</typePackageName>
+      <typePackageId>b4dfec31-11d7-4451-8891-43689b67b6e1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fa3cf7c3-9e32-43ee-bb58-3c8667a9574b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InvoiceLines</name>
+    <display>InvoiceLines: InvoiceLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="cdb35e5c-5dfb-464a-829f-d534e5753d1e">
+      <typeId>b490e065-23f7-4dda-92f8-ee0cfbffa88b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.TestApplication.Domain</typePackageName>
+      <typePackageId>b4dfec31-11d7-4451-8891-43689b67b6e1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

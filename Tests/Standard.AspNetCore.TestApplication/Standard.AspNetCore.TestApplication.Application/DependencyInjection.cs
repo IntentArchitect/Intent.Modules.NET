@@ -17,10 +17,10 @@ namespace Standard.AspNetCore.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddTransient<IClassASService, ClassASService>();
-            services.AddTransient<IDefaultValueService, DefaultValueService>();
-            services.AddTransient<IHttpServiceAppliedService, HttpServiceAppliedService>();
-            services.AddTransient<INonHttpServiceAppliedService, NonHttpServiceAppliedService>();
+            services.AddTransient<IIntegrationService, IntegrationService>();
+            services.AddTransient<IInvoicesService, InvoicesService>();
+            services.AddTransient<IMultiVersionService, MultiVersionService>();
+            services.AddTransient<IVersionOneService, VersionOneService>();
             return services;
         }
     }

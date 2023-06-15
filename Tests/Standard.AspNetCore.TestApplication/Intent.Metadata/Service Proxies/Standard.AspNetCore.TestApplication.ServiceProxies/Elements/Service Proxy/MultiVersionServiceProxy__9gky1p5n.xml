@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0fde0689-99c0-47ef-a10f-763a160007f5" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>MultiVersionServiceProxy</name>
+  <display>MultiVersionServiceProxy</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>a3039e69-7ab0-4ab4-8784-54706aa3fcd8</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="f548406a-0688-4245-85b8-63a45f047168" name="MultiVersionService" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>66b18d80-8a0a-427c-ae55-a046e43f655f</parentFolderId>
+  <packageId>66b18d80-8a0a-427c-ae55-a046e43f655f</packageId>
+  <packageName>Standard.AspNetCore.TestApplication.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

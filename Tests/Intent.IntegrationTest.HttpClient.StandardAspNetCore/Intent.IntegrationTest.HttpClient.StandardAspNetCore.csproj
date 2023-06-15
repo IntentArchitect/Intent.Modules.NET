@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.1" />
+        <PackageReference Include="xunit" Version="2.4.2" />
+        <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+        <PackageReference Include="xunit.analyzers" Version="1.0.0" />
+        <PackageReference Include="xunit.assert" Version="2.4.2" />
+        <PackageReference Include="xunit.core" Version="2.4.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Intent.IntegrationTest.HttpClient.Common\Intent.IntegrationTest.HttpClient.Common.csproj" />
+        <ProjectReference Include="..\Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Api\Standard.AspNetCore.TestApplication.Api.csproj" />
+        <ProjectReference Include="..\Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Application\Standard.AspNetCore.TestApplication.Application.csproj" />
+        <ProjectReference Include="..\Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Domain\Standard.AspNetCore.TestApplication.Domain.csproj" />
+        <ProjectReference Include="..\Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Infrastructure\Standard.AspNetCore.TestApplication.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Compile Remove="IntegrationHttpClientTestsOld.cs" />
+    </ItemGroup>
+
+</Project>

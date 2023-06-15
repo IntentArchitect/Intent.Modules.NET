@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Repositories;
+using Standard.AspNetCore.TestApplication.Infrastructure.Configuration;
 using Standard.AspNetCore.TestApplication.Infrastructure.Persistence;
 using Standard.AspNetCore.TestApplication.Infrastructure.Repositories;
 
@@ -22,7 +23,8 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IClassARepository, ClassARepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }
