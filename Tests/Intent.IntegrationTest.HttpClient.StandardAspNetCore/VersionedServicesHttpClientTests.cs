@@ -13,6 +13,7 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
+[Collection("NoParallelTests")]
 public class VersionedServicesHttpClientTests
 {
     public VersionedServicesHttpClientTests(ITestOutputHelper outputHelper)

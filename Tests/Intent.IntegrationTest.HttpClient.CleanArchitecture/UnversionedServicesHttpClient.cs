@@ -16,6 +16,7 @@ using TestQuery = CleanArchitecture.TestApplication.Application.IntegrationServi
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
+[Collection("NoParallelTests")]
 public class UnversionedServicesHttpClient
 {
     public UnversionedServicesHttpClient(ITestOutputHelper outputHelper)
