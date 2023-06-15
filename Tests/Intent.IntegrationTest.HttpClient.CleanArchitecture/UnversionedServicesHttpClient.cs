@@ -1,0 +1,67 @@
+﻿using CleanArchitecture.TestApplication.Api.Configuration;
+using CleanArchitecture.TestApplication.Api.Controllers;
+using CleanArchitecture.TestApplication.Api.Services;
+using CleanArchitecture.TestApplication.Application;
+using CleanArchitecture.TestApplication.Application.Common.Interfaces;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
+using CleanArchitecture.TestApplication.Application.Unversioned.Test;
+using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
+using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
+using Intent.IntegrationTest.HttpClient.Common;
+using Microsoft.Extensions.DependencyInjection;
+using Xunit;
+using Xunit.Abstractions;
+using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestCommand;
+using TestQuery = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestQuery;
+
+namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
+
+public class UnversionedServicesHttpClient
+{
+    public UnversionedServicesHttpClient(ITestOutputHelper outputHelper)
+    {
+        OutputHelper = outputHelper;
+    }
+
+    private ITestOutputHelper OutputHelper { get; }
+
+    [Fact]
+    public async Task Test_TestCommand()
+    {
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly);
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var service = sp.GetService<ITestUnversionedProxyClient>()!;
+        await service.TestAsync(new TestCommand { Value = TestCommandHandler.ExpectedInput });
+    }
+    
+    [Fact]
+    public async Task Test_TestQuery()
+    {
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(UnversionedController).Assembly);
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var service = sp.GetService<ITestUnversionedProxyClient>()!;
+        var result = await service.TestAsync(new TestQuery { Value = "789" });
+        Assert.Equal(789, result);
+    }
+    
+    private static Action<IServiceCollection> GetDiServices()
+    {
+        var mockUnitOfWork = new MockUnitOfWork();
+        return x => x.AddApplication()
+            .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
+            .AddTransient<ICurrentUserService, CurrentUserService>()
+            .ConfigureApiVersioning();
+    }
+
+    public class MockUnitOfWork : IUnitOfWork
+    {
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return Task.FromResult(0);
+        }
+    }
+}

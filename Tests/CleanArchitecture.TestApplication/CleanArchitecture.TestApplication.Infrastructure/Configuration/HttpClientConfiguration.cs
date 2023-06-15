@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
 using CleanArchitecture.TestApplication.Application.IntegrationServices.TestVersionedProxy;
 using CleanArchitecture.TestApplication.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
@@ -18,6 +19,12 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
+
+            services.AddHttpClient<ITestUnversionedProxyClient, TestUnversionedProxyHttpClient>(http =>
+            {
+                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:TestUnversionedProxy:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:TestUnversionedProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+            });
 
             services.AddHttpClient<ITestVersionedProxyClient, TestVersionedProxyHttpClient>(http =>
             {

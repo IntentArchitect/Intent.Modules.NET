@@ -37,7 +37,7 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
                     method.AddInvocationStatement("services.AddApiVersioning", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("options")
-                            .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = false;")
+                            .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = true;")
                             .AddStatement($@"options.ReportApiVersions = true;")
                             .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());")));
                     method.AddInvocationStatement("services.AddVersionedApiExplorer", stmt => stmt

@@ -8,20 +8,20 @@ using Xunit;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Versioned.TestCommandV2
+namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class TestCommandV2Handler : IRequestHandler<TestCommandV2>
+    public class TestCommandHandler : IRequestHandler<TestCommand>
     {
-        public const string ExpectedInput = "456";
+        public const string ExpectedInput = "789";
 
         [IntentManaged(Mode.Merge)]
-        public TestCommandV2Handler()
+        public TestCommandHandler()
         {
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(TestCommandV2 request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(TestCommand request, CancellationToken cancellationToken)
         {
             Assert.Equal(ExpectedInput, request.Value);
             return Unit.Value;

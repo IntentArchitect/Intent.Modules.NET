@@ -14,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.Versioned.TestCommandV1
     public class TestCommandV1Handler : IRequestHandler<TestCommandV1>
     {
         public const string ExpectedInput = "123";
-        
+
         [IntentManaged(Mode.Merge)]
         public TestCommandV1Handler()
         {

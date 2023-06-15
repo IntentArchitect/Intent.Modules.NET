@@ -13,7 +13,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
         {
             services.AddApiVersioning(options =>
             {
-                options.AssumeDefaultVersionWhenUnspecified = false;
+                options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());
             });

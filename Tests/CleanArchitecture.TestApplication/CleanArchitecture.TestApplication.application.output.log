@@ -140,6 +140,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#4cde1615-a852-4fe7-9aa1-c416981252f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/UnversionedController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnversionedController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#25104660-627e-4d28-ba72-ff403ea7e24f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/VersionedController.cs</ApplicationRelativeFilePath>
@@ -1972,6 +1980,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d609d381-84ee-434f-9a26-b74091101d9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestUnversionedProxy/ITestUnversionedProxyClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestUnversionedProxy/ITestUnversionedProxyClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestUnversionedProxy/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestUnversionedProxy/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#cc943c54-9c24-4cb1-b751-170041190cf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestUnversionedProxy/TestQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestUnversionedProxy/TestQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/ITestVersionedProxyClient.cs</ApplicationRelativeFilePath>
@@ -2168,6 +2200,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#cc943c54-9c24-4cb1-b751-170041190cf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#cc943c54-9c24-4cb1-b751-170041190cf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#cc943c54-9c24-4cb1-b751-170041190cf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Unversioned/Test/TestQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2744,6 +2824,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#d609d381-84ee-434f-9a26-b74091101d9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/TestUnversionedProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestUnversionedProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
