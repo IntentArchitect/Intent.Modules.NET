@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.1" />
+        <PackageReference Include="NSubstitute" Version="5.0.0" />
+        <PackageReference Include="xunit" Version="2.4.2" />
+        <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+        <PackageReference Include="xunit.analyzers" Version="1.0.0" />
+        <PackageReference Include="xunit.assert" Version="2.4.2" />
+        <PackageReference Include="xunit.core" Version="2.4.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj" />
+      <ProjectReference Include="..\Intent.IntegrationTest.HttpClient.Common\Intent.IntegrationTest.HttpClient.Common.csproj" />
+    </ItemGroup>
+
+</Project>

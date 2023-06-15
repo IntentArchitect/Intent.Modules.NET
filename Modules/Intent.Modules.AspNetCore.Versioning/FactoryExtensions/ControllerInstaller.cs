@@ -46,7 +46,10 @@ public class ControllerInstaller : FactoryExtensionBase
         foreach (var method in @class.Methods)
         {
             var methodModel = method.GetMetadata<IControllerOperationModel>("model");
-
+            if (methodModel.ApplicableVersions is null)
+            {
+                continue;
+            }
             foreach (var version in methodModel.ApplicableVersions)
             {
                 groupedVersions.Add(version);

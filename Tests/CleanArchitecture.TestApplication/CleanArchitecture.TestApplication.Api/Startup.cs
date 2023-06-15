@@ -41,6 +41,7 @@ namespace CleanArchitecture.TestApplication.Api
                     opt.Filters.Add<FluentValidationFilter>();
                 });
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureApiVersioning();
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

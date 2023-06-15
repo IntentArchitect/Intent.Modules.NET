@@ -45,6 +45,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.Http
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.AspNetCore.TestApplication.Api", "Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Api\Standard.AspNetCore.TestApplication.Api.csproj", "{6E9C3713-8EF4-42DA-B25C-89CB49A51E45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Domain", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj", "{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Application", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj", "{EB4940FE-9FA6-4877-BB25-2C876B610E89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Infrastructure", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj", "{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Api", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj", "{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.HttpClient.CleanArchitecture", "Intent.IntegrationTest.HttpClient.CleanArchitecture\Intent.IntegrationTest.HttpClient.CleanArchitecture.csproj", "{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +129,26 @@ Global
 		{6E9C3713-8EF4-42DA-B25C-89CB49A51E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E9C3713-8EF4-42DA-B25C-89CB49A51E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E9C3713-8EF4-42DA-B25C-89CB49A51E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4940FE-9FA6-4877-BB25-2C876B610E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4940FE-9FA6-4877-BB25-2C876B610E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4940FE-9FA6-4877-BB25-2C876B610E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4940FE-9FA6-4877-BB25-2C876B610E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,5 +171,10 @@ Global
 		{DE02D2BF-E56D-4357-9DF8-AF3B74E2A606} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
 		{38B4B2AC-20C6-434F-B681-D21DAADA45FE} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
 		{6E9C3713-8EF4-42DA-B25C-89CB49A51E45} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{4369D89D-2CCD-42E5-AFFE-576C035EC9C0} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{EB4940FE-9FA6-4877-BB25-2C876B610E89} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
 	EndGlobalSection
 EndGlobal

@@ -5,6 +5,7 @@ using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Repositories.Other;
+using CleanArchitecture.TestApplication.Infrastructure.Configuration;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD;
@@ -45,6 +46,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<ITestNullablityRepository, TestNullablityRepository>();
             services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }

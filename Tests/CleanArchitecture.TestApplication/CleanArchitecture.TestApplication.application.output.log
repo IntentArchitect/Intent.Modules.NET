@@ -20,6 +20,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
       <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
@@ -120,6 +136,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ServiceDispatch/ServiceDispatchWithoutImplementationController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceDispatch/ServiceDispatchWithoutImplementationController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#25104660-627e-4d28-ba72-ff403ea7e24f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/VersionedController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VersionedController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1459,6 +1483,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6f1699d9-1606-4c5c-b0d3-50133132b97d</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1939,6 +1971,46 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/ITestVersionedProxyClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxy/ITestVersionedProxyClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestCommandV1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxy/TestCommandV1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestCommandV2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxy/TestCommandV2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#d92ce9a4-87dd-4fab-9d1e-107989091fcb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestQueryV1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxy/TestQueryV1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9c1bd072-c6db-46b5-ba90-59fadf19d25a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestQueryV2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxy/TestQueryV2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2096,6 +2168,102 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV1/TestCommandV1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV1/TestCommandV1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV1/TestCommandV1Handler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV1/TestCommandV1Handler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV1/TestCommandV1Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV1/TestCommandV1Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV2/TestCommandV2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV2/TestCommandV2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV2/TestCommandV2Handler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV2/TestCommandV2Handler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestCommandV2/TestCommandV2Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestCommandV2/TestCommandV2Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d92ce9a4-87dd-4fab-9d1e-107989091fcb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV1/TestQueryV1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV1/TestQueryV1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d92ce9a4-87dd-4fab-9d1e-107989091fcb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV1/TestQueryV1Handler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV1/TestQueryV1Handler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d92ce9a4-87dd-4fab-9d1e-107989091fcb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV1/TestQueryV1Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV1/TestQueryV1Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9c1bd072-c6db-46b5-ba90-59fadf19d25a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV2/TestQueryV2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV2/TestQueryV2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9c1bd072-c6db-46b5-ba90-59fadf19d25a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV2/TestQueryV2Handler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV2/TestQueryV2Handler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9c1bd072-c6db-46b5-ba90-59fadf19d25a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Versioned/TestQueryV2/TestQueryV2Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Versioned/TestQueryV2/TestQueryV2Validator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2563,11 +2731,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>028e8dc9-58eb-4b9a-8bab-af464754ba4d</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>faabc763-8338-418e-a75c-a453905d6339</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/TestVersionedProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestVersionedProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
