@@ -31,6 +31,7 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("System.Linq")
                 .AddClass($"ApiVersionSwaggerGenOptions", @class =>
                 {
                     @class.ImplementsInterface("IConfigureOptions<SwaggerGenOptions>");

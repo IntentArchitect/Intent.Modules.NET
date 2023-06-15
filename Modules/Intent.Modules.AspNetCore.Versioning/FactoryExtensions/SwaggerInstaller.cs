@@ -33,6 +33,7 @@ public class SwaggerInstaller : FactoryExtensionBase
             file.AddUsing("Microsoft.AspNetCore.Mvc.ApiExplorer");
             file.AddUsing("Microsoft.Extensions.Options");
             file.AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
+            file.AddUsing("System.Linq");
 
             var priClass = file.Classes.First();
 

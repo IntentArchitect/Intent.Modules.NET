@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Integration.HttpClients.TestApplication.Api.Filters;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
