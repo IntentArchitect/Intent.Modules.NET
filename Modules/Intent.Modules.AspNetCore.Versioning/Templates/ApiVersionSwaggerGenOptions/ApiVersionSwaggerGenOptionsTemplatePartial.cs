@@ -38,7 +38,7 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
                         parm => parm.IntroduceReadonlyField()));
                     @class.AddMethod("void", "Configure", method => method
                         .AddParameter("SwaggerGenOptions", "options")
-                        .AddForEachStatement("description", "_provider.ApiVersionDescriptions", stmt => stmt
+                        .AddForEachStatement("description", "_provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion)", stmt => stmt
                             .AddStatement(
                                 @"options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));")));
                     @class.AddMethod("OpenApiInfo", "CreateInfoForApiVersion", method =>
