@@ -21,13 +21,13 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task OperationForVersionOne(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Write your implementation for this service here...");
+
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task OperationForVersionTwo(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Write your implementation for this service here...");
+
         }
 
         public void Dispose()

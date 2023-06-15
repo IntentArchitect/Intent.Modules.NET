@@ -33,11 +33,13 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("operation-for-version-one")]
+        [HttpPost("operation-for-version-one/{param}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> OperationForVersionOne(string param, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> OperationForVersionOne(
+            [FromRoute] string param,
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

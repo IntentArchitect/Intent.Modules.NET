@@ -13,9 +13,9 @@ using Xunit.Abstractions;
 
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
-public class IntegrationHttpClientTests
+public class IntegrationServiceHttpClientTests
 {
-    public IntegrationHttpClientTests(ITestOutputHelper outputHelper)
+    public IntegrationServiceHttpClientTests(ITestOutputHelper outputHelper)
     {
         OutputHelper = outputHelper;
     }
@@ -25,79 +25,67 @@ public class IntegrationHttpClientTests
     [Fact]
     public async Task TestQueryParamOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        await invoiceService.QueryParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        await integrationService.QueryParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
     }
 
     [Fact]
     public async Task TestBodyParamOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        await invoiceService.BodyParamOpAsync(CustomDTO.Create(IntegrationService.ReferenceNumber));
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        await integrationService.BodyParamOpAsync(CustomDTO.Create(IntegrationService.ReferenceNumber));
     }
 
     [Fact]
     public async Task TestFormParamOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        await invoiceService.FormParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        await integrationService.FormParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
     }
 
     [Fact]
     public async Task TestHeaderParamOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        await invoiceService.HeaderParamOpAsync(IntegrationService.DefaultString);
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        await integrationService.HeaderParamOpAsync(IntegrationService.DefaultString);
     }
 
     [Fact]
     public async Task TestRouteParamOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        await invoiceService.RouteParamOpAsync(IntegrationService.DefaultString);
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        await integrationService.RouteParamOpAsync(IntegrationService.DefaultString);
     }
 
     [Fact]
     public async Task ThrowsExceptionOperation()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await invoiceService.ThrowsExceptionAsync(); });
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await integrationService.ThrowsExceptionAsync(); });
         Assert.NotEmpty(exception.Message);
         Assert.Contains(IntegrationService.ExceptionMessage, exception.ResponseContent);
     }
@@ -105,76 +93,66 @@ public class IntegrationHttpClientTests
     [Fact]
     public async Task TestGetPrimitiveGuid()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveGuidAsync();
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var result = await integrationService.GetWrappedPrimitiveGuidAsync();
         Assert.Equal(IntegrationService.DefaultGuid, result);
-        result = await invoiceService.GetPrimitiveGuidAsync();
+        result = await integrationService.GetPrimitiveGuidAsync();
         Assert.Equal(IntegrationService.DefaultGuid, result);
     }
 
     [Fact]
     public async Task TestGetPrimitiveString()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveStringAsync();
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var result = await integrationService.GetWrappedPrimitiveStringAsync();
         Assert.Equal(IntegrationService.DefaultString, result);
-        result = await invoiceService.GetPrimitiveStringAsync();
+        result = await integrationService.GetPrimitiveStringAsync();
         Assert.Equal(IntegrationService.DefaultString, result);
     }
 
     [Fact]
     public async Task TestGetPrimitiveInt()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveIntAsync();
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var result = await integrationService.GetWrappedPrimitiveIntAsync();
         Assert.Equal(IntegrationService.DefaultInt, result);
-        result = await invoiceService.GetPrimitiveIntAsync();
+        result = await integrationService.GetPrimitiveIntAsync();
         Assert.Equal(IntegrationService.DefaultInt, result);
     }
 
     [Fact]
     public async Task TestGetPrimitiveStringList()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var result = await invoiceService.GetPrimitiveStringListAsync();
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var result = await integrationService.GetPrimitiveStringListAsync();
         Assert.Equal(new List<string> { IntegrationService.DefaultString }, result);
     }
     
     [Fact]
     public async Task TestGetInvoiceOpWithReturnTypeWrapped()
     {
-        var serviceMock = new IntegrationService();
-
         using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IIntegrationServiceProxyClient>()!;
-        var result = await invoiceService.GetInvoiceOpWithReturnTypeWrappedAsync();
+        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var result = await integrationService.GetInvoiceOpWithReturnTypeWrappedAsync();
         Assert.Equal(IntegrationService.ReferenceNumber, result.ReferenceNumber);
     }
     
