@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("mutation")]
+        [HttpPost("mutation-param")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -72,7 +72,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("mutation-async")]
+        [HttpPost("mutation-async-param")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -93,7 +93,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// <response code="200">Returns the specified string.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">Can't find an string with the parameters provided.</response>
-        [HttpGet("query")]
+        [HttpGet("query-param")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -142,7 +142,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// <response code="200">Returns the specified string.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">Can't find an string with the parameters provided.</response>
-        [HttpGet("query-async")]
+        [HttpGet("query-async-param")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

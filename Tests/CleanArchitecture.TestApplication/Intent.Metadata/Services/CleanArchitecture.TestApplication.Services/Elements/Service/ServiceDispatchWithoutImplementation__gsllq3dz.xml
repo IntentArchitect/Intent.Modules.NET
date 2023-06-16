@@ -52,7 +52,7 @@
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
             <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
-            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-param" isActive="true" />
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -158,7 +158,7 @@
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
             <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
-            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-async" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-async-param" isActive="true" />
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -229,7 +229,7 @@
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
             <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
-            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-param" isActive="true" />
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -382,7 +382,7 @@
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
             <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
-            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-async" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-async-param" isActive="true" />
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
           </properties>
         </stereotype>

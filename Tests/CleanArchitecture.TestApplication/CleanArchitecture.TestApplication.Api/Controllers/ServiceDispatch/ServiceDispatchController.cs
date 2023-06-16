@@ -148,7 +148,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
-        [HttpPost("query-with-param")]
+        [HttpPost("query-with-param-async")]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> QueryAsync(CancellationToken cancellationToken = default)
