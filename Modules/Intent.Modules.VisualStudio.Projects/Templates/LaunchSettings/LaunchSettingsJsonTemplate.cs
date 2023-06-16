@@ -180,7 +180,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                             {
                                 commandName = "Project",
                                 launchBrowser = true,
-                                applicationUrl = $"http://localhost:{_randomPort}/;https://localhost:{_randomSslPort}/",
+                                applicationUrl = $"https://localhost:{_randomSslPort}/",
                                 launchUrl = _defaultLaunchUrlPath == null
                                     ? null
                                     : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}" 

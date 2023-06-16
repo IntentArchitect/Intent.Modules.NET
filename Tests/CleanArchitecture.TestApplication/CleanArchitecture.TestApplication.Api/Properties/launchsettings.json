@@ -11,8 +11,8 @@
     "CleanArchitecture.TestApplication.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:62737/;https://localhost:44341/",
-      "launchUrl": "http://localhost:62737/swagger",
+      "applicationUrl": "https://localhost:44341/",
+      "launchUrl": "https://localhost:44341/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {

@@ -2,6 +2,7 @@
 
 - Fixed : Software Factory would throw "Duplicate Key" exception if a NuGet package, for the same package, existed more than once. If now works with the first one it finds.
 - Update: Manage Dependency Versions for nuget packages found in C# projects used to create Intent Architect Modules.
+- Update: Newly generated `launchsettings.json` profile for API profiles will no longer have HTTP urls since there are just too many instances where the startup application breaks due to conflicting ports being detected. Sticking to HTTPS alleviates that. Also its best practice to design your APIs for HTTPS.
 
 ### Version 3.3.25
 
