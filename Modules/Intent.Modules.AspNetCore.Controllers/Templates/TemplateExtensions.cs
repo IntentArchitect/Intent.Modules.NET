@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -19,6 +20,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
         public static string GetControllerName(this IIntentTemplate template, Intent.Modelers.Services.Api.ServiceModel model)
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
+        }
+
+        public static string GetExceptionFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ExceptionFilterTemplate.TemplateId);
         }
 
         [IntentManaged(Mode.Ignore)]

@@ -38,7 +38,7 @@ public class ExceptionFilter : IExceptionFilter
 
     private static IActionResult BuildResult(
         ExceptionContext context,
-        Func<ProblemDetails, ObjectResult> objectResultFactory, 
+        Func<ProblemDetails, ObjectResult> objectResultFactory,
         ProblemDetails problemDetails)
     {
         var result = objectResultFactory(problemDetails);
