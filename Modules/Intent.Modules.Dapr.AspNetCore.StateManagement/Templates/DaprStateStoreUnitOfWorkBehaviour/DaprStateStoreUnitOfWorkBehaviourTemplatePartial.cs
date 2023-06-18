@@ -30,6 +30,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     .AddGenericParameter("TRequest")
                     .AddGenericParameter("TResponse")
                     .ImplementsInterface("IPipelineBehavior<TRequest, TResponse>")
+                    .ImplementsInterface(GetTypeName("Intent.Application.MediatR.CommandInterface"))
                     .AddGenericTypeConstraint("TRequest", c => c.AddType("IRequest<TResponse>"))
                     .AddConstructor(constructor => constructor
                         .AddParameter(this.GetDaprStateStoreUnitOfWorkInterfaceName(), "daprStateStoreUnitOfWork", p => p.IntroduceReadonlyField())
@@ -44,6 +45,12 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         .AddStatement("return response;", s => s.SeparatedFromPrevious())
                     )
                 );
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() &&
+                   TryGetTemplate<object>("Intent.Application.MediatR.CommandInterface", out _);
         }
 
         public override void BeforeTemplateExecution()
