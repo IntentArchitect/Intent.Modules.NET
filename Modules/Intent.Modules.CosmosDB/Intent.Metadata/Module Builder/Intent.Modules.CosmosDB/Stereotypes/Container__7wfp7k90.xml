@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="ef9b1772-18e1-44ad-b606-66406221c805" version="3.1.0">
+  <name>Container</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+    <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
+    <type id="1a824508-4623-45d9-accc-f572091ade5a">Domain Package</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABl1JREFUeF7tnG9sE3UYx7/P3TphRDQojD8vQGD0NkRiAhrRGHnBlF7HEo0TpVtIIDExKu+MRiPVRF5LDMZMI7oboNaQwNYBrzQmGjRGCBrWolF5AVFADDLG/lzvMaVrt3bX9q6/u67drklf3fP3c8/vd7/73T1HcPnX3hc7CkaLy25KM2/wKR1S86EW/5XSDABUqqJVvYoGCICBeLeqKFbzyZWb8QBTQPjUUJ3xaGTj6gG7IKcCoAFgxG6gDsvfhkmjjwd9Oi38uFW5bsdX+QESzhg67bQTpNOysowog+eb2O3XVKXJjr/yAwS+01TlYTtBOi3b0Re7wIzFpnaZ/9ET+upDrWv+tuLXA2hO6aqmKndVBMCOaP8q3TDuTAcjk++6FlzVbyU4t2QKVuC403MGyesPBBr+KxSHUAU+/QXLc+b8OX9IH5bcSlbE7ty/Bi53Pr9uNNeGRYC31GbXD9R2rptsI21TCOD2Y/3LEgadBnCHSKJu6TLwUV29/4XOdZQF0Q7AUR1LPmtVLuaLcVoDHEv6g9m1vlc7N624loYQ6ot/QuB55heR7LsmD+CtdTIf1oKNT1mp9PZojCfKlR0gA91WAnVLhoD7kPpn/Rg4RjU127XHV14q5HvKAWqqIjQtiIIN9fSHSaLdZnYY+Ha4LvFEoVs2D2ABgCmo9L1P5035btnKCvDZIz/X1/h878HAnPQZ14KKKlpFIvqFKjBtl4FfDRibDqpN53N9lRVgyjlTck8o8yPKmoRFYJSiawVgKmz8oQWV5RUAsJQ03dOxDDAFMaYFlcaJ0ThagVuPxBb7anDBvXTFLCdYWnEwuOr3iVbsACTCxa6AsmTGAgRwnsDNXWrjuTSE5L03G/CbnhpJegPgB9LHPIApEtcNkpsPBBpOFqvn3McLHsDxy+qARIb6qdr0TSGIFQHQkOjJYmfazeNkYAeBJy+ViC4ZbOw4oDb25vNfEQCn+k5jWzS2VwJeznuSGG1aUImYHfcAAigKEHQNSLyuqU37Jq3xcp5RT8kcWPEVmKI2yhK92L3Z35m1RPEAWqnAFDIG64D0TrfqD6chekPY0hCeUHOEHi2gbPEATmAS6j33tiQZO8wuEsy4G0Bt5pgH0N6CqD0aPwnwgx5Ae9wy0h7AEsFl5jivAsUIehUoxg8ewJkK8NYeHOgnYPzZiCCLgupEePPmwJk9kba2RNadRrXOgaFofDeBMyt+N+GN2R7U9dHlua+gVe0Qbo/Gkrsje8sALuWCcAZXhjdoHWtvTIsKTCbxXPTsUgK7/uKkDPlGl6ocMTtZVVuBZau8Io48gIJnwgM4kwGGw2Hp9NrWuYIMiqonaupHeloWD06rOXBbX3+zxHSiaPZOCRBOrPjBHwiHKdlzUv2bCXbeBnCI4ZCu1y471Lo8qxWhaufAUF9sG3H5XqxkxtfDg1cDkbYNN6dFBYKZth6NL3KouoqakX3ygFn7QdVWYNGMyyTgARQE7QGcqQBDx39bKSX0fQyscb2FmzHMjF3dqr8HOW/DVm0FhqL9uwlUtu0sBq75SG7YH2i4PC2uwu3R+GsA7xEcgXbUY7fXzVv//sYFWR3mVVuBycxD0dguifAIs7uD2AAGR2p9L0UmtG6lyVc1QDvl45asB1CQrAfQAyhIQFBdpAI7+uKbE4RZksGHJ4Yh1K1p1idi9oLl2GPNuGD+ltWZ+cuVP37+TDgcdmw7K18TdlkATsF2luOPNacWYPTsToL0oeUSEhVk/DI0mHgo0pb9pSGxIWz+KZSyVOBj4a9qFt6/aIEoF6v6kjz75sHg0n9z5asWoNXE3ZYTAVhqbAW7y61eREp17rSeB1CQaNUCbO89ey8gNQKGLMigoDpJMoN56DLJx48FGoadnANLjduRIdwejSV3RTJt/6UGY12PNE31d1gFGIrGd0rEbzEj+a2YWWk9s04l6zGkJJ0CmPweoM+u85LlCREtoLRZBxjbRcC7ufIVA3BsK+uVkoHYUxzpCij3mKnkmwOT8VU0QHv5uyftARRkmxdgb2wLSZj01UwGXe0O+LeLuHVkDhQJwEndYssYJ31lLkSFjE63hbQHsAgBrwIFS6QqABoJynx3RTBfx9UlydgPotUZwzntro47LGUhDWDIjUAcspnsFR7/nmuFAnQo1zKY8QAKQvYAVj7A/wEAd5mradDj8AAAAABJRU5ErkJggg==" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>9cb25792-9172-4cb5-a4ff-1ba2a2706d86</parentFolderId>
+  <order>0</order>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.Modules.CosmosDB</packageName>
+  <properties>
+    <property id="7ebc3aff-936c-465b-ac34-3e52362090ef">
+      <name>Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="bda56f7f-8ac6-4b36-bbc1-91bba18e71d9">
+      <name>Partition Key</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

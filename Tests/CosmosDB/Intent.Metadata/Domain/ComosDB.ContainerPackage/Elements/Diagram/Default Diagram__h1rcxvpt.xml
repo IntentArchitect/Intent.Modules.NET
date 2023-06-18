@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8723dbd9-a6a6-4a7a-ba19-fe0f21b39636" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e81e140c-bff0-49bd-9d9f-2043ef86290c</parentFolderId>
+  <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
+  <packageName>ComosDB.ContainerPackage</packageName>
+  <diagram>
+    <targetPackageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

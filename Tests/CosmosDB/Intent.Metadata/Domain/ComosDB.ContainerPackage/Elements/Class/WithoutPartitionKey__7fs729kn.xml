@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="196db76b-12fe-46c7-b302-dea73072e8aa" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>WithoutPartitionKey</name>
+  <display>WithoutPartitionKey</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e81e140c-bff0-49bd-9d9f-2043ef86290c</parentFolderId>
+  <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
+  <packageName>ComosDB.ContainerPackage</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ef9b1772-18e1-44ad-b606-66406221c805" name="Container">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.CosmosDB</definitionPackageName>
+      <definitionPackageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</definitionPackageId>
+      <properties>
+        <property name="7ebc3aff-936c-465b-ac34-3e52362090ef" display="Name" value="WithoutPartitionKey" isActive="true" />
+        <property name="bda56f7f-8ac6-4b36-bbc1-91bba18e71d9" display="Partition Key" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="21550b2c-cd83-4cda-b229-558d5381b875" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2b066740-3cb5-428e-af2c-20173f98b3ba">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>196db76b-12fe-46c7-b302-dea73072e8aa</parentFolderId>
+      <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
+      <packageName>ComosDB.ContainerPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="809cddd7-d014-49ba-a2a3-907ce892c4fe">
+  <sourceEnd id="b8f8cc6c-5285-4971-a10a-b5c9ef68f259" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="05cc8ab0-6c3b-4d55-b68d-cfe2c0c1256c">
+      <typeId>95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="809cddd7-d014-49ba-a2a3-907ce892c4fe" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>LineItems</name>
+    <display>LineItems: LineItem[*]   [1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="c18e8fd3-ef78-4628-aa20-a19bbe22da1a">
+      <typeId>a2fd5acc-33f4-4755-a358-ce8d59bc5077</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

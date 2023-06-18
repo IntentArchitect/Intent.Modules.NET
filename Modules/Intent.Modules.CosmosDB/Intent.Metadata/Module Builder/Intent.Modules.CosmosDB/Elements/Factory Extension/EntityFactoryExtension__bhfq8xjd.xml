@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5632e697-26b1-4a38-9e12-6ce3d768d878" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityFactoryExtension</name>
+  <display>EntityFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</parentFolderId>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.Modules.CosmosDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
