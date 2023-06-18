@@ -1,4 +1,9 @@
-﻿### Version 4.0.7
+﻿### Version 4.0.8
+
+- Fixed: Namespaces would not be added for enums used on `Query`s and `Command`s.
+
+### Version 4.0.7
+
 - Update: `Command ModelTemplate` and `QueryModelTemplate` upgraded to CSharpFileBuilder.
 - Version bump for dependencies.
 

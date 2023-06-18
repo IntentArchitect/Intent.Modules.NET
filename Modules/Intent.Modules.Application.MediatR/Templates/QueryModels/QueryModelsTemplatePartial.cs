@@ -29,6 +29,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             AddNugetDependency(NuGetPackages.MediatR);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             FulfillsRole("Application.Contract.Query");
+            AddTypeSource("Intent.Entities.DomainEnum");
+            AddTypeSource("Intent.Application.Dtos.ContractEnumModel");
 
             CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                 .AddUsing("MediatR")

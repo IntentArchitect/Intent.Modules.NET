@@ -29,6 +29,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             AddNugetDependency(NuGetPackages.MediatR);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             FulfillsRole("Application.Contract.Command");
+            AddTypeSource("Intent.Entities.DomainEnum");
+            AddTypeSource("Intent.Application.Dtos.ContractEnumModel");
 
             CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                 .AddUsing("MediatR")
