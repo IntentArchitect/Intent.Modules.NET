@@ -936,7 +936,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/CosmosDB.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDB.Infrastructure.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3b24cd56-5def-4bbc-be81-875be95cafbc</ProjectId>

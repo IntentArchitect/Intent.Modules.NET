@@ -1,6 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
-using Microsoft.Azure.CosmosRepository.Attributes;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

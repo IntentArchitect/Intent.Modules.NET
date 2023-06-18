@@ -25,17 +25,6 @@ namespace CosmosDB.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
-            services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
-            services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
-            services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
-            services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
-            services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
-            services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
-            services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
-            services.AddScoped<IDomainEventService, DomainEventService>();
-            services.AddScoped<CosmosDBUnitOfWork>();
-            services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
             services.AddCosmosRepository(options =>
             {
                 var defaultContainerId = configuration.GetValue<string>("RepositoryOptions:ContainerId");
@@ -66,6 +55,17 @@ namespace CosmosDB.Infrastructure
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
+            services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
+            services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
+            services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
+            services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
+            services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
+            services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
+            services.AddScoped<CosmosDBUnitOfWork>();
+            services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
     }

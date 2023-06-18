@@ -10,7 +10,7 @@ namespace CosmosDB.Domain.Entities
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
+    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice : IHasDomainEvent
     {
         public string Id { get; set; }

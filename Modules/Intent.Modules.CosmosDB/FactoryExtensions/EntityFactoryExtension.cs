@@ -12,6 +12,7 @@ using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.CosmosDB.Templates;
+using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -34,13 +35,13 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         private void RegisterServices(IApplication application)
         {
-            var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
-            if (dependencyInjection == null)
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+            if (template == null)
             {
                 return;
             }
 
-            dependencyInjection.CSharpFile.OnBuild(file =>
+            template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("Microsoft.Extensions.DependencyInjection");
 
@@ -67,7 +68,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                             options.AddStatement(
                                 "var defaultContainerId = configuration.GetValue<string>(\"RepositoryOptions:ContainerId\");");
                             options.AddIfStatement("string.IsNullOrWhiteSpace(defaultContainerId)", @if => @if
-                                .AddStatement("throw new Exception(\"\\\"RepositoryOptions:ContainerId\\\" configuration not specified\");")
+                                .AddStatement($"throw new {template.UseType("System.Exception")}(\"\\\"RepositoryOptions:ContainerId\\\" configuration not specified\");")
                             );
                         }
 
@@ -92,7 +93,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                                     containerName = $"\"{containerName}\"";
                                 }
 
-                                var documentTypeName = dependencyInjection.GetCosmosDBDocumentName(@class);
+                                var documentTypeName = template.GetCosmosDBDocumentName(@class);
                                 c.AddChainStatement(new CSharpInvocationStatement($"Configure<{documentTypeName}>"), l =>
                                 {
                                     var configureContainer = (CSharpInvocationStatement)l;
