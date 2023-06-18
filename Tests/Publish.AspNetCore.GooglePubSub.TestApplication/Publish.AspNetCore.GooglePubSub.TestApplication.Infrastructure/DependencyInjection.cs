@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.AspNetCore.GooglePubSub.TestApplication.Application;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Configuration;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Persistence;
@@ -20,6 +23,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.RegisterGoogleCloudPubSubServices(configuration);
             services.AddSubscribers();

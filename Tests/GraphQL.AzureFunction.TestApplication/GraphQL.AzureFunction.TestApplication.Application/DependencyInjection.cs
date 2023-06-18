@@ -18,7 +18,6 @@ namespace GraphQL.AzureFunction.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomersService, CustomersService>();

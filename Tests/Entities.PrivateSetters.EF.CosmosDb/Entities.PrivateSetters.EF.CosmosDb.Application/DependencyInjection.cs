@@ -14,7 +14,6 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IInvoiceService, InvoiceService>();
             services.AddTransient<ITagService, TagService>();
             return services;

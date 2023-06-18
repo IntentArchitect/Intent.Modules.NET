@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common.Interfaces;
@@ -24,6 +27,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());

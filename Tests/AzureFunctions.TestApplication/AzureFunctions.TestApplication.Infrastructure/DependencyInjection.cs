@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using AzureFunctions.TestApplication.Application;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using AzureFunctions.TestApplication.Domain.Repositories;
 using AzureFunctions.TestApplication.Infrastructure.Persistence;
@@ -21,6 +24,7 @@ namespace AzureFunctions.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<ISampleDomainRepository, SampleDomainRepository>();

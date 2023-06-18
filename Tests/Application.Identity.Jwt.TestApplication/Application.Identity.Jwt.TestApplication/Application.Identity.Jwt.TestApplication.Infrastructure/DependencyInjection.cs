@@ -1,5 +1,8 @@
+using System.Reflection;
+using Application.Identity.Jwt.TestApplication.Application;
 using Application.Identity.Jwt.TestApplication.Domain.Common.Interfaces;
 using Application.Identity.Jwt.TestApplication.Infrastructure.Persistence;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +22,7 @@ namespace Application.Identity.Jwt.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             return services;
         }

@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Subscribe.MassTransit.TestApplication.Application;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
 using Subscribe.MassTransit.TestApplication.Domain.Common.Interfaces;
 using Subscribe.MassTransit.TestApplication.Infrastructure.Configuration;
@@ -22,6 +25,7 @@ namespace Subscribe.MassTransit.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());

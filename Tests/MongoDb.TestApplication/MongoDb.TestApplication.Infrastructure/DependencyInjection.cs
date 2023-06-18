@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDb.TestApplication.Application;
 using MongoDb.TestApplication.Domain.Common.Interfaces;
 using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.Associations;
@@ -33,6 +36,7 @@ namespace MongoDb.TestApplication.Infrastructure
         {
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeMongoRepository>();
             services.AddTransient<IAggregateARepository, AggregateAMongoRepository>();

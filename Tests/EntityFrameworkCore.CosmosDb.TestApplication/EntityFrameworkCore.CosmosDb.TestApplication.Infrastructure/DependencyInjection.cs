@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using EntityFrameworkCore.CosmosDb.TestApplication.Application;
 using EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
@@ -40,6 +43,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
                     configuration["Cosmos:DatabaseName"]);
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeRepository>();
             services.AddTransient<IAbstractBaseClassAssociatedRepository, AbstractBaseClassAssociatedRepository>();

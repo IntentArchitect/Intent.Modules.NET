@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using EntityFrameworkCore.SqlServer.TestApplication.Application;
 using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;

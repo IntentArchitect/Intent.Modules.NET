@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using CleanArchitecture.Dapr.Application;
 using CleanArchitecture.Dapr.Application.Common.Eventing;
 using CleanArchitecture.Dapr.Application.Common.Interfaces;
 using CleanArchitecture.Dapr.Domain.Common.Interfaces;
@@ -25,6 +28,7 @@ namespace CleanArchitecture.Dapr.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IClientRepository, ClientDaprStateStoreRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceDaprStateStoreRepository>();

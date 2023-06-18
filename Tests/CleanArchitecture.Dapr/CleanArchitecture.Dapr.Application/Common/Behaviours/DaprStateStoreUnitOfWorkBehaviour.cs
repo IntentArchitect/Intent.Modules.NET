@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Application.Common.Interfaces;
 using CleanArchitecture.Dapr.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -9,7 +10,7 @@ using MediatR;
 
 namespace CleanArchitecture.Dapr.Application.Common.Behaviours
 {
-    public class DaprStateStoreUnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class DaprStateStoreUnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>, ICommand
         where TRequest : IRequest<TResponse>
     {
         private readonly IDaprStateStoreUnitOfWork _daprStateStoreUnitOfWork;

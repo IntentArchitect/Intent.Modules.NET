@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Subscribe.CleanArchDapr.TestApplication.Application;
 using Subscribe.CleanArchDapr.TestApplication.Application.Common.Eventing;
 using Subscribe.CleanArchDapr.TestApplication.Application.Common.Interfaces;
 using Subscribe.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
@@ -25,6 +28,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());

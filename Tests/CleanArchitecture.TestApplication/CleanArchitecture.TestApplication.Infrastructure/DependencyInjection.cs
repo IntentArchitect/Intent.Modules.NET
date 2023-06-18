@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -32,6 +35,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();

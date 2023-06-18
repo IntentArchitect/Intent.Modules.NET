@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using Entities.PrivateSetters.EF.SqlServer.Application;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Common.Interfaces;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Repositories;
 using Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence;
@@ -23,6 +26,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<ITagRepository, TagRepository>();

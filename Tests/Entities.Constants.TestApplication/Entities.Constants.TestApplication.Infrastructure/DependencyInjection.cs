@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using Entities.Constants.TestApplication.Application;
 using Entities.Constants.TestApplication.Application.Common.Interfaces;
 using Entities.Constants.TestApplication.Domain.Common.Interfaces;
 using Entities.Constants.TestApplication.Domain.Repositories;
@@ -23,6 +26,7 @@ namespace Entities.Constants.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ITestClassRepository, TestClassRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();

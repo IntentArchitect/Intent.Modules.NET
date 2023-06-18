@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using EntityFrameworkCore.Repositories.TestApplication.Application;
 using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
@@ -25,6 +28,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomRepository, CustomRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();

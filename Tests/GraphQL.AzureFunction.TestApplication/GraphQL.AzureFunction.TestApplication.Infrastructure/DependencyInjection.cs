@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using GraphQL.AzureFunction.TestApplication.Application;
 using GraphQL.AzureFunction.TestApplication.Domain.Common.Interfaces;
 using GraphQL.AzureFunction.TestApplication.Domain.Repositories;
 using GraphQL.AzureFunction.TestApplication.Infrastructure.Persistence;
@@ -21,6 +24,7 @@ namespace GraphQL.AzureFunction.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();

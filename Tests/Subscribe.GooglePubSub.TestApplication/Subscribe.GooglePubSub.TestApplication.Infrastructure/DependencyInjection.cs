@@ -1,8 +1,11 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoFramework;
+using Subscribe.GooglePubSub.TestApplication.Application;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Configuration;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence;
@@ -23,6 +26,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure
             });
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.RegisterGoogleCloudPubSubServices(configuration);

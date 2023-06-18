@@ -1,4 +1,7 @@
+using System.Reflection;
+using AutoMapper;
 using Finbuckle.MultiTenant;
+using Finbuckle.SharedDatabase.TestApplication.Application;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Repositories;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence;
@@ -24,6 +27,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IUserRepository, UserRepository>();
             return services;

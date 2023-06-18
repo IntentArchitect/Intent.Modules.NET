@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using AzureKeyVault.Application;
 using AzureKeyVault.Domain.Common.Interfaces;
 using AzureKeyVault.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
@@ -19,6 +22,7 @@ namespace AzureKeyVault.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             return services;
         }

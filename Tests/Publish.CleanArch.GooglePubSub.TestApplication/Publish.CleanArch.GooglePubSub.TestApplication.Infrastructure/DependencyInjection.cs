@@ -1,7 +1,10 @@
+using System.Reflection;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.CleanArch.GooglePubSub.TestApplication.Application;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure.Configuration;
@@ -22,6 +25,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.RegisterGoogleCloudPubSubServices(configuration);

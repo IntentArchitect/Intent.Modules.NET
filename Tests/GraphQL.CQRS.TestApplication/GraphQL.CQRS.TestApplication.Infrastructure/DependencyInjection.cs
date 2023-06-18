@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using GraphQL.CQRS.TestApplication.Application;
 using GraphQL.CQRS.TestApplication.Domain.Common.Interfaces;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using GraphQL.CQRS.TestApplication.Infrastructure.Persistence;
@@ -21,6 +24,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();

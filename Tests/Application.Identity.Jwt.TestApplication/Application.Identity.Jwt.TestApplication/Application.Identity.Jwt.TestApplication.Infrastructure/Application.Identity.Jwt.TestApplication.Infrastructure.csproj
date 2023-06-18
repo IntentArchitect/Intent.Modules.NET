@@ -7,9 +7,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Identity.Jwt.TestApplication.Domain\Application.Identity.Jwt.TestApplication.Domain.csproj" />
+    <ProjectReference Include="..\Application.Identity.Jwt.TestApplication.Application\Application.Identity.Jwt.TestApplication.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.*" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2" />

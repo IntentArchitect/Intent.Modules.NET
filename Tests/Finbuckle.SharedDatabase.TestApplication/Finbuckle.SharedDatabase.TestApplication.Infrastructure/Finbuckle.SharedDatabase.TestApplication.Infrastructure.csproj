@@ -7,9 +7,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Finbuckle.SharedDatabase.TestApplication.Domain\Finbuckle.SharedDatabase.TestApplication.Domain.csproj" />
+    <ProjectReference Include="..\Finbuckle.SharedDatabase.TestApplication.Application\Finbuckle.SharedDatabase.TestApplication.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.*" />
     <PackageReference Include="Finbuckle.MultiTenant" Version="6.5.1" />
     <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.5.1" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
