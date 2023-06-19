@@ -30,6 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
         public async Task<AggregateRootDto> Handle(GetAggregateRootByIdQuery request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
+
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"Could not find AggregateRoot {request.Id}");

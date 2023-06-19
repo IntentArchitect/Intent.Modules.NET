@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,6 +31,11 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.GetTest
             CancellationToken cancellationToken)
         {
             var testNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (testNullablity is null)
+            {
+                throw new NotFoundException($"Could not find TestNullablity {request.Id}");
+            }
             return testNullablity.MapToTestNullablityDto(_mapper);
         }
     }

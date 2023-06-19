@@ -7,6 +7,7 @@ using AutoFixture;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRootById;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
@@ -68,7 +69,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdQuery_ReturnsEmptyResult()
+        public async Task Handle_WithInvalidIdQuery_ThrowsNotFoundException()
         {
             // Arrange
             var fixture = new Fixture();
@@ -80,10 +81,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new GetAggregateRootByIdQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(query, CancellationToken.None);
+            var act = async () => await sut.Handle(query, CancellationToken.None);
 
             // Assert
-            result.Should().Be(null);
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

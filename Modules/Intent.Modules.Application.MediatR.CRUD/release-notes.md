@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Update: Introduces NotFoundException when an entity is not found.
+
 ### Version 5.0.5
 
 - Support for DTO return types on Constructor mapped commands.

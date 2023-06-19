@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Update: Introduces NotFoundException when an entity is not found in the tests.
+
 ### Version 1.0.1
 
 - Fixed: Enums had invalid failure test scenarios being generated however it will now add test scenarios for when you have a "default" passed through to an Enum that doesn't cater for that scenario so that the validator can catch that.

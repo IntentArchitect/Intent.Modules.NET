@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.TestNullablities.GetTestNullablityById;
 using CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNullablities;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -65,7 +66,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdQuery_ReturnsEmptyResult()
+        public async Task Handle_WithInvalidIdQuery_ThrowsNotFoundException()
         {
             // Arrange
             var fixture = new Fixture();
@@ -77,10 +78,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             var sut = new GetTestNullablityByIdQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(query, CancellationToken.None);
+            var act = async () => await sut.Handle(query, CancellationToken.None);
 
             // Assert
-            result.Should().Be(null);
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Exceptions.Templates;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
@@ -108,7 +109,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         ");
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
+                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
                 {
                     var idFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
@@ -125,10 +126,10 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
         
         // Act
-        var result = await sut.Handle(query, CancellationToken.None);
+        var act = async () => await sut.Handle(query, CancellationToken.None);
         
         // Assert
-        result.Should().Be(null);");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
             })
             .OnBuild(file =>

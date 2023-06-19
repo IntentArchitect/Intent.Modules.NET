@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="16c08674-cf7f-497d-b3e3-c6111049faef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Exceptions.NotFoundException</name>
+      <display>Intent.Application.Exceptions.NotFoundException</display>
+      <externalReference>Intent.Application.Exceptions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>39b2b59a-25ac-4b58-a50d-b168ef49618a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

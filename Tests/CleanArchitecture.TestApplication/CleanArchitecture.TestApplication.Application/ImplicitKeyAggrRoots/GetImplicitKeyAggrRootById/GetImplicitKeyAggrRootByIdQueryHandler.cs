@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
@@ -31,6 +32,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
             CancellationToken cancellationToken)
         {
             var implicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (implicitKeyAggrRoot is null)
+            {
+                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot {request.Id}");
+            }
             return implicitKeyAggrRoot.MapToImplicitKeyAggrRootDto(_mapper);
         }
     }

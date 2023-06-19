@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -40,7 +41,12 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
             }
 
             var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
-            return element == null ? null : element.MapToAggregateRootCompositeManyBDto(_mapper);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find CompositeManyB {request.Id}");
+            }
+            return element.MapToAggregateRootCompositeManyBDto(_mapper);
         }
     }
 }

@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Exceptions.Templates;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
@@ -116,7 +117,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(result, existingEntity);");
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
+                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
@@ -135,10 +136,10 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
         
         // Act
-        var result = await sut.Handle(testQuery, CancellationToken.None);
+        var act = async () => await sut.Handle(testQuery, CancellationToken.None);
         
         // Assert
-        result.Should().Be(null);");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
             })
             .OnBuild(file =>

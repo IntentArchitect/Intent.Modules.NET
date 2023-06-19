@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Exceptions.Templates;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -77,7 +78,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
                 codeLines.Add("");
                 codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
-                codeLines.Add($@"return element == null ? null : element.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+                codeLines.Add(new CSharpIfStatement($"element is null")
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} {{request.{idField.Name.ToPascalCase()}}}"");"));
+                codeLines.Add($@"return element.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
                 
 
                 return codeLines.ToList();
@@ -85,6 +88,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             
             
             codeLines.Add($@"var {foundEntity.Name.ToCamelCase()} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"{foundEntity.Name.ToCamelCase()} is null")
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} {{request.Id}}"");"));
             codeLines.Add($@"return {foundEntity.Name.ToCamelCase()}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
 
             return codeLines.ToList();

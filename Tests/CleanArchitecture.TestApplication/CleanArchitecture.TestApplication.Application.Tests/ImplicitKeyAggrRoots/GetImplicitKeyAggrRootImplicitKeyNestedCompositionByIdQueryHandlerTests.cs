@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.GetImplicitKeyAggrRootImplicitKeyNestedCompositionById;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
@@ -72,7 +73,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdQuery_ReturnsEmptyResult()
+        public async Task Handle_WithInvalidIdQuery_ThrowsNotFoundException()
         {
             // Arrange
             var fixture = new Fixture();
@@ -87,10 +88,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var sut = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var act = async () => await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().Be(null);
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }
