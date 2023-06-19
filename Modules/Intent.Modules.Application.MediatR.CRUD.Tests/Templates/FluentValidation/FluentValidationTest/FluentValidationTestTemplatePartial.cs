@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates;
@@ -13,6 +15,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -172,9 +175,15 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         bool first = true;
         foreach (var property in Model.Properties)
         {
-            if (!Types.Get(property.TypeReference).IsPrimitive && !property.TypeReference.IsNullable)
+            if (!Types.Get(property.TypeReference).IsPrimitive &&
+                !IsEnum(property.TypeReference) &&
+                !property.TypeReference.IsNullable)
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
+
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name.ToPascalCase()}, () => default));
@@ -183,14 +192,33 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 first = false;
             }
 
-            if (property.GetValidations()?.NotEmpty() == true)
+            if (property.GetValidations()?.NotEmpty() == true && !IsEnum(property.TypeReference))
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
+                
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
+                first = false;
+            }
+            
+            if (IsEnumAndDoesNotHaveDefaultEnumLiteral(property.TypeReference) && !property.TypeReference.IsNullable)
+            {
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
+                
+                method.AddStatements($@"
+        {(first ? "var " : "")}fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
+        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
                 first = false;
             }
 
@@ -258,6 +286,21 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 }
             }
         }
+    }
+
+    private static bool IsEnum(ITypeReference typeReference)
+    {
+        return typeReference.Element.SpecializationType.EndsWith("Enum", StringComparison.OrdinalIgnoreCase);
+    }
+    
+    private static bool IsEnumAndDoesNotHaveDefaultEnumLiteral(ITypeReference typeReference)
+    {
+        if (!IsEnum(typeReference))
+        {
+            return false;
+        }
+
+        return !typeReference.Element.AsEnumModel().Literals.Any(p => string.IsNullOrWhiteSpace(p.Value) || p.Value == "0");
     }
 
     private static string GetStringWithLen(int length)

@@ -41,13 +41,12 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             result.Should().Be(Unit.Value);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.MyEnum, () => default));
             var testCommand = fixture.Create<UpdateTestNullablityCommand>();
-            yield return new object[] { testCommand, "MyEnum", "not be empty" };
+            yield return new object[] { testCommand, "MyEnum", "has a range of values which does not include" };
 
             fixture = new Fixture();
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Str, () => default));
