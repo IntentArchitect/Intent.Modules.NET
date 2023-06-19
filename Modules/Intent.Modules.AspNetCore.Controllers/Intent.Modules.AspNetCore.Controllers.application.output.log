@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#6879086c-8477-4b0a-ae01-8b6dc49d1003</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/ExceptionFilterExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionFilterExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

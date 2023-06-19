@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>59e2620d-4300-4b39-b67b-aa288fc3c9b6</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#50afaeb6-fd4a-4526-98b2-269920fbb9da</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationDependencyInjectionExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationDependencyInjectionExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>e02d254c-2ae7-4d82-8212-51c4a38a85c5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -38,30 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6dcb146d-4bb4-4968-b02c-adbb28fc03b5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fbd83b4a-d632-4534-ac2d-da00f8fdeff4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/FluentValidationFilter/FluentValidationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationFilter/FluentValidationFilterTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6dcb146d-4bb4-4968-b02c-adbb28fc03b5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fbd83b4a-d632-4534-ac2d-da00f8fdeff4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/FluentValidationFilter/FluentValidationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationFilter/FluentValidationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6dcb146d-4bb4-4968-b02c-adbb28fc03b5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.Templates.FluentValidationFilter
+namespace Intent.Modules.Application.Exceptions.Templates.NotFoundException
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class FluentValidationFilterTemplateRegistration : SingleFileTemplateRegistration
+    public class NotFoundExceptionTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => FluentValidationFilterTemplate.TemplateId;
+        public override string TemplateId => NotFoundExceptionTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new FluentValidationFilterTemplate(outputTarget);
+            return new NotFoundExceptionTemplate(outputTarget);
         }
     }
 }

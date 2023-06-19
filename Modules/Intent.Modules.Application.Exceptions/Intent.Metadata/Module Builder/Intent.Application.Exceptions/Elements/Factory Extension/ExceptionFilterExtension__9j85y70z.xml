@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d47d089-7388-47bf-bf57-efee7f4cd59c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ExceptionFilterExtension</name>
+  <display>ExceptionFilterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fe49ec8e-2dda-4b48-acdf-1f466f569a7e</parentFolderId>
+  <packageId>fe49ec8e-2dda-4b48-acdf-1f466f569a7e</packageId>
+  <packageName>Intent.Application.Exceptions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

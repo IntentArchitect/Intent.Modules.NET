@@ -1,9 +1,13 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+
+[assembly: IntentTemplate("Intent.AspNetCore.Controllers.ExceptionFilter", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CleanArchitecture.TestApplication.Api.Filters;
 
@@ -13,17 +17,6 @@ public class ExceptionFilter : IExceptionFilter
     {
         switch (context.Exception)
         {
-            case ValidationException ex:
-                foreach (var error in ex.Errors)
-                {
-                    context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
-                }
-
-                context.Result = BuildResult(
-                    context,
-                    problemDetails => new BadRequestObjectResult(problemDetails),
-                    new ValidationProblemDetails(context.ModelState));
-                break;
             case NotFoundException ex:
                 context.Result = BuildResult(
                     context,
@@ -33,13 +26,23 @@ public class ExceptionFilter : IExceptionFilter
                         Detail = ex.Message
                     });
                 break;
+            case ValidationException ex:
+                foreach (var error in ex.Errors)
+                {
+                    context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+                context.Result = BuildResult(
+                    context,
+                    problemDetails => new BadRequestObjectResult(problemDetails),
+                    new ValidationProblemDetails(context.ModelState));
+                break;
         }
     }
 
     private static IActionResult BuildResult(
-        ExceptionContext context,
-        Func<ProblemDetails, ObjectResult> objectResultFactory,
-        ProblemDetails problemDetails)
+            ExceptionContext context,
+            Func<ProblemDetails, ObjectResult> objectResultFactory,
+            ProblemDetails problemDetails)
     {
         var result = objectResultFactory(problemDetails);
         problemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);

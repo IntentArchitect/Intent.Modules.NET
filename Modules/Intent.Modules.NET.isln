@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.23" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.25" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -108,5 +108,6 @@
     <application id="722157d8-c582-4e8c-9ec5-e6e1c577d85e" name="Intent.Modules.DocumentDB.Dtos.AutoMapper" relativePath="Intent.Modules.DocumentDB.Dtos.AutoMapper/Intent.Modules.DocumentDB.Dtos.AutoMapper.application.config" />
     <application id="c286b17c-d9cf-4acb-ab05-6256a99d5269" name="Intent.Modules.AspNetCore.Versioning" relativePath="Intent.Modules.AspNetCore.Versioning/Intent.Modules.AspNetCore.Versioning.application.config" />
     <application id="8f7ee5f1-6a37-4f38-b129-6c5d6898c355" name="Intent.Modules.CosmosDB" relativePath="Intent.Modules.CosmosDB/Intent.Modules.CosmosDB.application.config" />
+    <application id="fce3763f-7a40-409a-9d44-c49779fc00bf" name="Intent.Modules.Application.Exceptions" relativePath="Intent.Modules.Application.Exceptions/Intent.Modules.Application.Exceptions.application.config" />
   </applications>
 </solution>

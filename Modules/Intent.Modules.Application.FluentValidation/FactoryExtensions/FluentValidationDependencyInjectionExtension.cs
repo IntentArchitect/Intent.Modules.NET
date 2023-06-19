@@ -24,16 +24,17 @@ namespace Intent.Modules.Application.FluentValidation.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.DependencyInjection);
-            if (template != null)
+            if (template == null)
             {
-                template.AddNugetDependency(new NugetPackageInfo("FluentValidation.DependencyInjectionExtensions", "9.3.0"));
-                template.CSharpFile.OnBuild(file =>
-                {
-                    file.AddUsing("FluentValidation");
-                    var @class = file.Classes.First();
-                    @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());");
-                });
+                return;
             }
+            template.AddNugetDependency(NuGetPackages.FluentValidationDependencyInjectionExtensions);
+            template.CSharpFile.OnBuild(file =>
+            {
+                file.AddUsing("FluentValidation");
+                var @class = file.Classes.First();
+                @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());");
+            });
         }
     }
 }

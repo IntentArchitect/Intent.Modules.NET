@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="fbd83b4a-d632-4534-ac2d-da00f8fdeff4" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>FluentValidationFilter</name>
-  <display>FluentValidationFilter: Single File</display>
+<class id="eb381769-5be7-4aae-bbb2-58c6b8a146b5" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>NotFoundException</name>
+  <display>NotFoundException: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="6c408c6a-ecb0-4f54-a459-1c0b7740d2ad">
+  <typeReference id="97e91ac4-1a72-4495-9790-fc1d785798f8">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>8451a689-7ff2-4e27-b9f4-eed70d24d4f6</parentFolderId>
-  <packageId>8451a689-7ff2-4e27-b9f4-eed70d24d4f6</packageId>
-  <packageName>Intent.AspNetCore.Controllers.FluentValidation</packageName>
+  <parentFolderId>fe49ec8e-2dda-4b48-acdf-1f466f569a7e</parentFolderId>
+  <packageId>fe49ec8e-2dda-4b48-acdf-1f466f569a7e</packageId>
+  <packageName>Intent.Application.Exceptions</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Startup" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Filters" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.NotFoundException" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Common/Exceptions" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

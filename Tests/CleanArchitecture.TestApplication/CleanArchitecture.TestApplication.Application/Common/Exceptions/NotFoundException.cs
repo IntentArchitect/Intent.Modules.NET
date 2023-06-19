@@ -1,4 +1,8 @@
-﻿using System;
+using System;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Application.Exceptions.NotFoundException", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CleanArchitecture.TestApplication.Application.Common.Exceptions;
 

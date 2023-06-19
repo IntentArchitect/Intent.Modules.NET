@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.Controllers.FluentValidation.Templates;
+using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,12 +12,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.FactoryExtensions
+namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class FluentValidationDependencyInjectionExtension : FactoryExtensionBase
+    public class ExceptionFilterExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AspNetCore.Controllers.FluentValidation.FluentValidationDependencyInjectionExtension";
+        public override string Id => "Intent.AspNetCore.Controllers.ExceptionFilterExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.FactoryExtensio
         {
             InstallStartupControllerFilter(application);
         }
-        
+
         private static void InstallStartupControllerFilter(IApplication application)
         {
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.AspNetCore.Startup"));
@@ -51,7 +51,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FluentValidation.FactoryExtensio
                     lambda = method.Statements.First() as CSharpLambdaBlock;
                 }
 
-                lambda.AddStatement($"opt.Filters.Add<{template.GetFluentValidationFilterName()}>();");
+                lambda.AddStatement($"opt.Filters.Add<{template.GetExceptionFilterName()}>();");
             }, 10);
         }
     }
