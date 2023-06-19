@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Identity.Templates.ResultModel
     {
         public override string TemplateId => ResultModelTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ResultModelTemplate(outputTarget, null);

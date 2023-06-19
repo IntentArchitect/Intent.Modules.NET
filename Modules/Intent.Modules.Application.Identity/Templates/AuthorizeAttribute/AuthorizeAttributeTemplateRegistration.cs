@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Identity.Templates.AuthorizeAttribute
     {
         public override string TemplateId => AuthorizeAttributeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AuthorizeAttributeTemplate(outputTarget, null);

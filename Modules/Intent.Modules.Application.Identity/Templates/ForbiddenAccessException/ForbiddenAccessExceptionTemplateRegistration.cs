@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Identity.Templates.ForbiddenAccessException
     {
         public override string TemplateId => ForbiddenAccessExceptionTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ForbiddenAccessExceptionTemplate(outputTarget, null);

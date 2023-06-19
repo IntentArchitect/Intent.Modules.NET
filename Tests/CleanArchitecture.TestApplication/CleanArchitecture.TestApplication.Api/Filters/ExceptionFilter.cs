@@ -36,6 +36,9 @@ public class ExceptionFilter : IExceptionFilter
                     problemDetails => new BadRequestObjectResult(problemDetails),
                     new ValidationProblemDetails(context.ModelState));
                 break;
+            case ForbiddenAccessException:
+                context.Result = new ForbidResult();
+                break;
         }
     }
 
