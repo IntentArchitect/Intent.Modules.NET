@@ -3,7 +3,7 @@
   <name>DataContractDomainEvent</name>
   <display>DataContractDomainEvent</display>
   <isAbstract>false</isAbstract>
-  <sort-children>manually</sort-children>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>086ef0af-9891-49d0-b2fe-0ea6e2c14196</parentFolderId>

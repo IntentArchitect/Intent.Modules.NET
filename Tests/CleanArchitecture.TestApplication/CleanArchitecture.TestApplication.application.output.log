@@ -422,8 +422,8 @@
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AsyncOperationsClasses/AsyncOperationsClassAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AsyncOperationsClasses/AsyncOperationsClassAssertions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Async/AsyncOperationsClasses/AsyncOperationsClassAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/AsyncOperationsClasses/AsyncOperationsClassAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -630,16 +630,48 @@
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Other/NullabilityPeers/NullabilityPeerAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/NullabilityPeers/NullabilityPeerAssertions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/NullabilityPeers/NullabilityPeerAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/NullabilityPeers/NullabilityPeerAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Other/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/TestNullablities/TestNullablityAssertions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/TestNullablities/TestNullablityAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#fa4061e2-8d5d-45b2-b311-7f947613e982</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/GetTestNullablityByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablityByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/UpdateTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/UpdateTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/UpdateTestNullablityCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/UpdateTestNullablityCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2204,6 +2236,142 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/CreateTestNullablity/CreateTestNullablityCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablity/CreateTestNullablityCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/CreateTestNullablity/CreateTestNullablityCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablity/CreateTestNullablityCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/CreateTestNullablity/CreateTestNullablityCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablity/CreateTestNullablityCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c9605cb3-6d77-40fc-8dea-9c8044163d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablities/GetTestNullablitiesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablities/GetTestNullablitiesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c9605cb3-6d77-40fc-8dea-9c8044163d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablities/GetTestNullablitiesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablities/GetTestNullablitiesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c9605cb3-6d77-40fc-8dea-9c8044163d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablities/GetTestNullablitiesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablities/GetTestNullablitiesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fa4061e2-8d5d-45b2-b311-7f947613e982</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablityById/GetTestNullablityByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablityById/GetTestNullablityByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fa4061e2-8d5d-45b2-b311-7f947613e982</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablityById/GetTestNullablityByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablityById/GetTestNullablityByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fa4061e2-8d5d-45b2-b311-7f947613e982</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullablityById/GetTestNullablityByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablityById/GetTestNullablityByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c1975adc-6672-4b21-a42a-12962cf6dffe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/TestNullablityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/TestNullablityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#c1975adc-6672-4b21-a42a-12962cf6dffe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/TestNullablityDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/TestNullablityDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestCommand.cs</ApplicationRelativeFilePath>
@@ -2414,8 +2582,8 @@
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/AsyncOperationsClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AsyncOperationsClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Async/AsyncOperationsClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/AsyncOperationsClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2566,24 +2734,24 @@
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/NullabilityPeer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/NullabilityPeer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/NullabilityPeer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/NullabilityPeer.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/TestNullablity.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/TestNullablity.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/TestNullablity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/TestNullablity.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#85fdba06-36b3-44b1-9730-01e297a3ce70</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Other/TestNullablityChild.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/TestNullablityChild.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/TestNullablityChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/TestNullablityChild.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2606,8 +2774,16 @@
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#0c590802-f71b-4d11-b3e1-c8f45a470242</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Other/MyEnum.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/MyEnum.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Nullability/MyEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/MyEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Async/IAsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/IAsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2684,14 +2860,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IAsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IAsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
@@ -2718,16 +2886,32 @@
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Other/INullabilityPeerRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/INullabilityPeerRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Nullability/INullabilityPeerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/INullabilityPeerRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Other/ITestNullablityRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/ITestNullablityRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Nullability/ITestNullablityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/ITestNullablityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/Async/AsyncableDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/AsyncableDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/Async/IAsyncableDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/IAsyncableDomainService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2776,22 +2960,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DefaultDiagram/IDomainServiceWithDefault.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/IDomainServiceWithDefault.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
-      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DomainService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
-      <CorrelationId>Intent.DomainServices.DomainServiceInterface#8a932b0b-fad7-4321-910d-be00d175bd06</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/IDomainService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IDomainService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2854,8 +3022,8 @@
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/AsyncOperationsClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AsyncOperationsClassConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Async/AsyncOperationsClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/AsyncOperationsClassConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2974,16 +3142,16 @@
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Other/NullabilityPeerConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/NullabilityPeerConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Nullability/NullabilityPeerConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/NullabilityPeerConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Other/TestNullablityConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/TestNullablityConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Nullability/TestNullablityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/TestNullablityConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2998,8 +3166,8 @@
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/AsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Async/AsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Async/AsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3078,16 +3246,16 @@
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Other/NullabilityPeerRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/NullabilityPeerRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Nullability/NullabilityPeerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/NullabilityPeerRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Other/TestNullablityRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Other/TestNullablityRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Nullability/TestNullablityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/TestNullablityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -4,6 +4,7 @@ using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using CleanArchitecture.TestApplication.Application.Implementation.ServiceDispatch;
 using CleanArchitecture.TestApplication.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.TestApplication.Domain.Services;
+using CleanArchitecture.TestApplication.Domain.Services.Async;
 using CleanArchitecture.TestApplication.Domain.Services.DDD;
 using CleanArchitecture.TestApplication.Domain.Services.DefaultDiagram;
 using FluentValidation;
@@ -28,8 +29,8 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();
+            services.AddTransient<IAsyncableDomainService, AsyncableDomainService>();
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
-            services.AddTransient<IDomainService, DomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
             services.AddTransient<IServiceDispatchService, ServiceDispatchService>();
             return services;
