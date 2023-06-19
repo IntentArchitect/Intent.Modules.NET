@@ -1,3 +1,6 @@
+### Version 3.5.0
+- Update: If the ExceptionFilter is found for AspNetCore, then it will install that Exception to the ExceptionFilter.
+
 ### Version 3.4.2
 - Update: Removed various compiler warnings.
 
