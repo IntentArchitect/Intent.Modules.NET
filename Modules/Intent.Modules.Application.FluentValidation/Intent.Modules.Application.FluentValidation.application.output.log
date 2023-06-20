@@ -25,14 +25,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c1942dad-ed17-43cb-a935-e393f216d8a0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f70681af-d6c7-4bd1-92eb-55cdf8fef54f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationExceptionFilterExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationExceptionFilterExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>39362e67-e432-45bf-8901-84ae3a4dbf08</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

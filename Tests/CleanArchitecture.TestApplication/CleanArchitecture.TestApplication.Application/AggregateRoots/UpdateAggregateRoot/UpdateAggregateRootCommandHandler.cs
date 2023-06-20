@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -30,6 +31,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         public async Task<Unit> Handle(UpdateAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingAggregateRoot is null)
+            {
+                throw new NotFoundException($"Could not find AggregateRoot {request.Id}");
+            }
             existingAggregateRoot.AggregateAttr = request.AggregateAttr;
             existingAggregateRoot.Composites = UpdateHelper.CreateOrUpdateCollection(existingAggregateRoot.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyB);
             existingAggregateRoot.Composite = CreateOrUpdateCompositeSingleA(existingAggregateRoot.Composite, request.Composite);

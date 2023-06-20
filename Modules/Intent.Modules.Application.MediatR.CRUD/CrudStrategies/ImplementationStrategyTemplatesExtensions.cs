@@ -15,6 +15,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
 public static class ImplementationStrategyTemplatesExtensions
 {
+    public static string GetNotFoundExceptionName(this ICSharpTemplate template)
+    {
+        var exceptionName = template
+            .GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
+        return exceptionName;
+    }
+    
     public static string GetDomainEntityName(this ICSharpTemplate template, ClassModel domainModel)
     {
         var entityName = template

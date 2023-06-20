@@ -15,31 +15,31 @@ namespace Intent.Modules.Application.Identity.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetApplicationSecurityConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetApplicationSecurityConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(ApplicationSecurityConfigurationTemplate.TemplateId);
         }
-        public static string GetAuthorizeAttributeName<T>(this IntentTemplateBase<T> template)
+        public static string GetAuthorizeAttributeName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthorizeAttributeTemplate.TemplateId);
         }
 
-        public static string GetCurrentUserServiceName<T>(this IntentTemplateBase<T> template)
+        public static string GetCurrentUserServiceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CurrentUserServiceTemplate.TemplateId);
         }
 
-        public static string GetCurrentUserServiceInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetCurrentUserServiceInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CurrentUserServiceInterfaceTemplate.TemplateId);
         }
 
-        public static string GetForbiddenAccessExceptionName<T>(this IntentTemplateBase<T> template)
+        public static string GetForbiddenAccessExceptionName(this IIntentTemplate template)
         {
             return template.GetTypeName(ForbiddenAccessExceptionTemplate.TemplateId);
         }
 
-        public static string GetResultModelName<T>(this IntentTemplateBase<T> template)
+        public static string GetResultModelName(this IIntentTemplate template)
         {
             return template.GetTypeName(ResultModelTemplate.TemplateId);
         }

@@ -108,6 +108,5 @@
     <application id="722157d8-c582-4e8c-9ec5-e6e1c577d85e" name="Intent.Modules.DocumentDB.Dtos.AutoMapper" relativePath="Intent.Modules.DocumentDB.Dtos.AutoMapper/Intent.Modules.DocumentDB.Dtos.AutoMapper.application.config" />
     <application id="c286b17c-d9cf-4acb-ab05-6256a99d5269" name="Intent.Modules.AspNetCore.Versioning" relativePath="Intent.Modules.AspNetCore.Versioning/Intent.Modules.AspNetCore.Versioning.application.config" />
     <application id="8f7ee5f1-6a37-4f38-b129-6c5d6898c355" name="Intent.Modules.CosmosDB" relativePath="Intent.Modules.CosmosDB/Intent.Modules.CosmosDB.application.config" />
-    <application id="fce3763f-7a40-409a-9d44-c49779fc00bf" name="Intent.Modules.Application.Exceptions" relativePath="Intent.Modules.Application.Exceptions/Intent.Modules.Application.Exceptions.application.config" />
   </applications>
 </solution>

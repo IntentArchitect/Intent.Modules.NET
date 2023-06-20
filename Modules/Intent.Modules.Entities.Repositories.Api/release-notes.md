@@ -1,3 +1,7 @@
+### Version 4.1.0
+
+- New: Added NotFoundException for queries that can't find Entities by Id.
+
 ### Version 4.0.6
 
 - FindByIdAsync indicates that return type could be null.

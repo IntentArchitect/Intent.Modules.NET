@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.TestNullablities.DeleteTestNullablity;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
 using FluentAssertions;
@@ -67,7 +68,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            await act.Should().ThrowAsync<ArgumentNullException>();
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

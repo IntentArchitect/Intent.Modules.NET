@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using CleanArchitecture.TestApplication.Application.Common.Exceptions;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
@@ -17,39 +18,38 @@ public class ExceptionFilter : IExceptionFilter
     {
         switch (context.Exception)
         {
-            case NotFoundException ex:
-                context.Result = BuildResult(
-                    context,
-                    problemDetails => new NotFoundObjectResult(problemDetails),
-                    new ProblemDetails
-                    {
-                        Detail = ex.Message
-                    });
-                break;
-            case ValidationException ex:
-                foreach (var error in ex.Errors)
+            case ValidationException exception:
+                foreach (var error in exception.Errors)
                 {
                     context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 }
-                context.Result = BuildResult(
-                    context,
-                    problemDetails => new BadRequestObjectResult(problemDetails),
-                    new ValidationProblemDetails(context.ModelState));
+                context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
+                .AddContextInformation(context);
                 break;
             case ForbiddenAccessException:
                 context.Result = new ForbidResult();
                 break;
+            case NotFoundException exception:
+                context.Result = new NotFoundObjectResult(new ProblemDetails
+                {
+                    Detail = exception.Message
+                })
+                .AddContextInformation(context);
+                break;
         }
     }
+}
 
-    private static IActionResult BuildResult(
-            ExceptionContext context,
-            Func<ProblemDetails, ObjectResult> objectResultFactory,
-            ProblemDetails problemDetails)
+internal static class ProblemDetailsExtensions
+{
+    public static IActionResult AddContextInformation(this ObjectResult objectResult, ExceptionContext context)
     {
-        var result = objectResultFactory(problemDetails);
+        if (objectResult.Value is not ProblemDetails problemDetails)
+        {
+            return objectResult;
+        }
         problemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
-        problemDetails.Type = $"https://httpstatuses.io/{result.StatusCode}";
-        return result;
+        problemDetails.Type = "https://httpstatuses.io/" + objectResult.StatusCode;
+        return objectResult;
     }
 }

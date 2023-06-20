@@ -27,7 +27,7 @@
     <FileLog>
       <ProjectId>fe8d3d6d-df7f-4a17-a9f1-3afdb046844c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#fe8d3d6d-df7f-4a17-a9f1-3afdb046844c</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Entities.Repositories.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Entities.Repositories.Api.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -54,6 +54,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityRepositoryInterface/EntityRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f10db7b9-dbed-4b23-8ba0-fab06ddb8115</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/NotFoundException/NotFoundExceptionTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException/NotFoundExceptionTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f10db7b9-dbed-4b23-8ba0-fab06ddb8115</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/NotFoundException/NotFoundExceptionTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException/NotFoundExceptionTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -110,7 +126,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>

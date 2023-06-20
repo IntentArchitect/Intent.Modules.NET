@@ -113,7 +113,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
         // Assert
-        await act.Should().ThrowAsync<ArgumentNullException>();");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
             });
     }

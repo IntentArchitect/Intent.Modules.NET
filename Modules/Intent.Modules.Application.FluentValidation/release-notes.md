@@ -1,3 +1,7 @@
+### Version 3.6.0
+
+- Update: Removed a deprecated Fluent Validation module dependency. 
+
 ### Version 3.5.2
 
 - Update: Upgraded Fluent Validations to support `CSharpFileBuilder` template paradigm.

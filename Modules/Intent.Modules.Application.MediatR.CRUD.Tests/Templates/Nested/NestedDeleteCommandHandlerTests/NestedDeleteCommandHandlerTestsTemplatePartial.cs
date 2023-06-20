@@ -119,7 +119,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var act = async () => await sut.Handle(testCommand, CancellationToken.None); 
         
         // Assert
-        await act.Should().ThrowAsync<InvalidOperationException>();");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
@@ -144,7 +144,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var act = async () => await sut.Handle(testCommand, CancellationToken.None);
         
         // Assert
-        await act.Should().ThrowAsync<InvalidOperationException>();");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
             });
     }

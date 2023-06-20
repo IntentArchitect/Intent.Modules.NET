@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
         public async Task<Unit> Handle(DeleteTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingTestNullablity is null)
+            {
+                throw new NotFoundException($"Could not find TestNullablity {request.Id}");
+            }
             _testNullablityRepository.Remove(existingTestNullablity);
             return Unit.Value;
         }

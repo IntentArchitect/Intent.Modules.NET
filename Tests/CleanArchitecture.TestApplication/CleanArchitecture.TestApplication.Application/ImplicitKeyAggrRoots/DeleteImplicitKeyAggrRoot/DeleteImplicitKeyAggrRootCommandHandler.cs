@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
@@ -26,6 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
         public async Task<Unit> Handle(DeleteImplicitKeyAggrRootCommand request, CancellationToken cancellationToken)
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingImplicitKeyAggrRoot is null)
+            {
+                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot {request.Id}");
+            }
             _implicitKeyAggrRootRepository.Remove(existingImplicitKeyAggrRoot);
             return Unit.Value;
         }

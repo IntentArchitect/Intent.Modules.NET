@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.MediatR.CRUD" Version="4.1.2" />
+    <PackageReference Include="Intent.Modules.Application.MediatR.CRUD" Version="5.1.0-pre.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.0" />
@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Exceptions\Intent.Modules.Application.Exceptions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>

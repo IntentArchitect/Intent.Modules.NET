@@ -8,6 +8,7 @@ using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -77,7 +78,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            await act.Should().ThrowAsync<NullReferenceException>();
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

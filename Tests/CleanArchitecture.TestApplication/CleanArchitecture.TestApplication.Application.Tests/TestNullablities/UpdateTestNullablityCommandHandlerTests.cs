@@ -7,6 +7,7 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.TestNullablities.UpdateTestNullablity;
 using CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNullablities;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
 using FluentAssertions;
@@ -67,7 +68,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            await act.Should().ThrowAsync<NullReferenceException>();
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

@@ -127,7 +127,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
         // Assert
-        await act.Should().ThrowAsync<NullReferenceException>();");
+        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
                 });
             })
             .OnBuild(file =>

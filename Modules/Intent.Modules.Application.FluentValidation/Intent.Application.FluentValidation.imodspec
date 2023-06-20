@@ -12,7 +12,6 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />
-    <factoryExtension id="Intent.Application.FluentValidation.FluentValidationExceptionFilterExtension" externalReference="f70681af-d6c7-4bd1-92eb-55cdf8fef54f" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>

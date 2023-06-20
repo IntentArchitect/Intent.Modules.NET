@@ -221,8 +221,6 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Exceptions", "Intent.Modules.Application.Exceptions\Intent.Modules.Application.Exceptions.csproj", "{182EA2DB-E47D-4A56-8A00-A13C95634216}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -625,10 +623,6 @@ Global
 		{A25BE506-F63A-4638-8A59-4069FC088824}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A25BE506-F63A-4638-8A59-4069FC088824}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A25BE506-F63A-4638-8A59-4069FC088824}.Release|Any CPU.Build.0 = Release|Any CPU
-		{182EA2DB-E47D-4A56-8A00-A13C95634216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{182EA2DB-E47D-4A56-8A00-A13C95634216}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{182EA2DB-E47D-4A56-8A00-A13C95634216}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{182EA2DB-E47D-4A56-8A00-A13C95634216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -736,7 +730,6 @@ Global
 		{B5867BA4-E8AB-4E4A-986E-B7938D12795E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{3CB282CE-95EA-454A-8531-423391B2DE6D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A25BE506-F63A-4638-8A59-4069FC088824} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{182EA2DB-E47D-4A56-8A00-A13C95634216} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{E02D254C-2AE7-4D82-8212-51C4A38A85C5} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

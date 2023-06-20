@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
@@ -26,6 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
         public async Task<Unit> Handle(DeleteAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingAggregateRoot is null)
+            {
+                throw new NotFoundException($"Could not find AggregateRoot {request.Id}");
+            }
             _aggregateRootRepository.Remove(existingAggregateRoot);
             return Unit.Value;
         }
