@@ -67,6 +67,8 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
 
         if (ExecutionContext
             .FindTemplateInstances<IClassProvider>(TemplateDependency.OnTemplate("Application.Validation"))
+            .Concat(ExecutionContext
+                .FindTemplateInstances<IClassProvider>(TemplateDependency.OnTemplate("Application.Validation.Dto")))
             .Any())
         {
             file.AddUsing("FluentValidation");

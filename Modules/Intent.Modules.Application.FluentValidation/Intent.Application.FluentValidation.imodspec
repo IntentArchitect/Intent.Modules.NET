@@ -17,7 +17,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
       <install>
-        <package id="Intent.Application.FluentValidation.Dtos" version="3.4.1" />
+        <package id="Intent.Application.FluentValidation.Dtos" version="3.5.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.MediatR">

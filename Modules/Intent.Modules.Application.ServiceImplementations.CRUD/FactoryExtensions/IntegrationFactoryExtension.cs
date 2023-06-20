@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                         {
                             continue;
                         }
-                    
+
                         var (_, domainModel) = operationModel.GetUpdateModelPair();
                         if (domainModel.InternalElement.Package.SpecializationType != "Mongo Domain Package")
                         {

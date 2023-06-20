@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Invoices;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
@@ -22,11 +23,13 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     public class InvoicesController : ControllerBase
     {
         private readonly IInvoicesService _appService;
+        private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public InvoicesController(IInvoicesService appService, IUnitOfWork unitOfWork)
+        public InvoicesController(IInvoicesService appService, IValidationService validationService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -42,6 +45,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromBody] InvoiceCreateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -98,6 +102,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromBody] InvoiceUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

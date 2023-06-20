@@ -16,6 +16,7 @@ namespace Standard.AspNetCore.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
             services.AddTransient<IInvoicesService, InvoicesService>();
             services.AddTransient<IMultiVersionService, MultiVersionService>();

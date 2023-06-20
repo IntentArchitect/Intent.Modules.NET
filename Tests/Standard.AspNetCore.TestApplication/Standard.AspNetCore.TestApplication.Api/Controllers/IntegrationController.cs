@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.TestApplication.Api.Controllers.ResponseTypes;
+using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Integration;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
@@ -25,11 +26,15 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     public class IntegrationController : ControllerBase
     {
         private readonly IIntegrationService _appService;
+        private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public IntegrationController(IIntegrationService appService, IUnitOfWork unitOfWork)
+        public IntegrationController(IIntegrationService appService,
+            IValidationService validationService,
+            IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -152,6 +157,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromBody] CustomDTO param1,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(param1, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

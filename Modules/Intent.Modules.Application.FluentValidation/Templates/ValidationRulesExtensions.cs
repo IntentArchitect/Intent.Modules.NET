@@ -7,6 +7,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
@@ -38,12 +39,21 @@ namespace Intent.Modules.Application.FluentValidation.Templates
 
         public static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
         {
+            // If no template is present we still need a way to determine what
+            // type is primitive.
+            var resolvedTypeInfo = template is null
+                ? new CSharpTypeResolver(
+                    defaultCollectionFormatter: CSharpCollectionFormatter.Create("System.Collections.Generic.IEnumerable<{0}>"),
+                    defaultNullableFormatter: null)
+                : template.Types;
+            
             foreach (var property in fields)
             {
                 var validations = new CSharpMethodChainStatement($"RuleFor(v => v.{property.Name.ToPascalCase()})");
                 validations.AddMetadata("model", property);
 
-                if (!template?.Types.Get(property.TypeReference).IsPrimitive == true && !property.TypeReference.IsNullable)
+                if (!resolvedTypeInfo.Get(property.TypeReference).IsPrimitive && 
+                    !property.TypeReference.IsNullable)
                 {
                     validations.AddChainStatement("NotNull()");
                 }

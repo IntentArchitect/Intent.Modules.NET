@@ -35,7 +35,7 @@
     <FileLog>
       <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#34e9069c-bc7c-42c3-9357-343439553ad3</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
