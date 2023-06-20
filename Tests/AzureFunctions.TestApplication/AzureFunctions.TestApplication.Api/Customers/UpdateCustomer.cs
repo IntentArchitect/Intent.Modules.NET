@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.UpdateCustomer;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -49,6 +50,10 @@ namespace AzureFunctions.TestApplication.Api
                 }
                 await _mediator.Send(command, cancellationToken);
                 return new NoContentResult();
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

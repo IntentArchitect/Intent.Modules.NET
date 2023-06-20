@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,10 @@ namespace AzureFunctions.TestApplication.Api
                 var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody);
                 var result = await _appService.CreateSampleDomain(dto);
                 return new CreatedResult(string.Empty, result);
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

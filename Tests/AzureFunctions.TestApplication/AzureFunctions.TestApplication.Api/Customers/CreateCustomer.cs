@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.CreateCustomer;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -44,6 +45,10 @@ namespace AzureFunctions.TestApplication.Api
                 var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
                 var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

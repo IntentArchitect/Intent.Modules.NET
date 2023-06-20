@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers;
 using AzureFunctions.TestApplication.Application.Customers.GetCustomerById;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,10 @@ namespace AzureFunctions.TestApplication.Api
             {
                 var result = await _mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
                 return result != null ? new OkObjectResult(result) : new NotFoundResult();
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

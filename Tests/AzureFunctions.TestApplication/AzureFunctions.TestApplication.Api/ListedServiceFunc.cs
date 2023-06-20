@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,10 @@ namespace AzureFunctions.TestApplication.Api
                 string param = req.Query["param"];
                 await _appService.ListedServiceFunc(param);
                 return new CreatedResult(string.Empty, null);
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

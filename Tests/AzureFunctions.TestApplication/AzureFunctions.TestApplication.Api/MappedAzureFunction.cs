@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
@@ -53,6 +54,10 @@ namespace AzureFunctions.TestApplication.Api
             catch (ValidationException exception)
             {
                 return new BadRequestObjectResult(exception.Errors);
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

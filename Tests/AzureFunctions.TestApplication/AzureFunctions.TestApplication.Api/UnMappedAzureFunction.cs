@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.SampleDomains;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,10 @@ namespace AzureFunctions.TestApplication.Api
                 var request = JsonConvert.DeserializeObject<SampleDomainDto>(requestBody);
                 //IntentIgnore
                 return new NoContentResult();
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

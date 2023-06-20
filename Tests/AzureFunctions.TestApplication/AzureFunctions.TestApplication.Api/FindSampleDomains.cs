@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,10 @@ namespace AzureFunctions.TestApplication.Api
             {
                 var result = await _appService.FindSampleDomains();
                 return new OkObjectResult(result);
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {

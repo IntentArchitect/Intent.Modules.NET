@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Subscribe.CleanArchDapr.TestApplication.Api.Configuration;
+using Subscribe.CleanArchDapr.TestApplication.Api.Filters;
 using Subscribe.CleanArchDapr.TestApplication.Application;
 using Subscribe.CleanArchDapr.TestApplication.Infrastructure;
 
@@ -32,7 +33,12 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddDapr();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                })
+            .AddDapr();
             services.AddDaprSidekick(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.AddDaprServices();

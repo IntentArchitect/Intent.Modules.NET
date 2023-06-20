@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.DeleteCustomer;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -41,6 +42,10 @@ namespace AzureFunctions.TestApplication.Api
             {
                 await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
                 return new OkResult();
+            }
+            catch (NotFoundException exception)
+            {
+                return new NotFoundObjectResult(new { Message = exception.Message });
             }
             catch (FormatException exception)
             {
