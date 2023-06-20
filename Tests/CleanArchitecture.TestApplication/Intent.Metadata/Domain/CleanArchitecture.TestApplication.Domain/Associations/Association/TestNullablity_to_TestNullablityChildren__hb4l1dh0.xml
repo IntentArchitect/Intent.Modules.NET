@@ -22,7 +22,7 @@
   <targetEnd id="950cc6dd-3c20-4c0b-ba63-dc155f4f1b47" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>TestNullablityChildren</name>
     <display>TestNullablityChildren: TestNullablityChild[*]   [1 --&gt; *]</display>
-    <order>9</order>
+    <order>10</order>
     <typeReference id="87555b3b-bf26-4c5b-830c-6d449035ef55">
       <typeId>85fdba06-36b3-44b1-9730-01e297a3ce70</typeId>
       <isNavigable>true</isNavigable>

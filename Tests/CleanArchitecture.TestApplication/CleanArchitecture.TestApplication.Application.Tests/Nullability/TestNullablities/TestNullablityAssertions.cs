@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
 
             actualDto.Should().NotBeNull();
             actualDto.Id.Should().Be(expectedEntity.Id);
-            actualDto.MyEnum.Should().Be(expectedEntity.MyEnum);
+            actualDto.MyEnum.Should().Be(expectedEntity.SampleEnum);
             actualDto.Str.Should().Be(expectedEntity.Str);
             actualDto.Date.Should().Be(expectedEntity.Date);
             actualDto.DateTime.Should().Be(expectedEntity.DateTime);
@@ -41,13 +41,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
             }
 
             actualEntity.Should().NotBeNull();
-            actualEntity.MyEnum.Should().Be(expectedDto.MyEnum);
+            actualEntity.SampleEnum.Should().Be(expectedDto.SampleEnum);
             actualEntity.Str.Should().Be(expectedDto.Str);
             actualEntity.Date.Should().Be(expectedDto.Date);
             actualEntity.DateTime.Should().Be(expectedDto.DateTime);
             actualEntity.NullableGuid.Should().Be(expectedDto.NullableGuid);
             actualEntity.NullableEnum.Should().Be(expectedDto.NullableEnum);
             actualEntity.NullabilityPeerId.Should().Be(expectedDto.NullabilityPeerId);
+            actualEntity.DefaultLiteralEnum.Should().Be(expectedDto.DefaultLiteralEnum);
         }
     }
 }

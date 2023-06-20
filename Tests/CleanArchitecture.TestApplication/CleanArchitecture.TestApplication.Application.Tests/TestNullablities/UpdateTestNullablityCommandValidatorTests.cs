@@ -44,9 +44,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.MyEnum, () => default));
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.SampleEnum, () => default));
             var testCommand = fixture.Create<UpdateTestNullablityCommand>();
-            yield return new object[] { testCommand, "MyEnum", "has a range of values which does not include" };
+            yield return new object[] { testCommand, "SampleEnum", "has a range of values which does not include" };
 
             fixture = new Fixture();
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Str, () => default));

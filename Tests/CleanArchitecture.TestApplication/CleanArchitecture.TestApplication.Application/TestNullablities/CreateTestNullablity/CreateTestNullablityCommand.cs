@@ -12,12 +12,13 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.CreateT
     public class CreateTestNullablityCommand : IRequest<Guid>, ICommand
     {
         public CreateTestNullablityCommand(Guid id,
-            MyEnum myEnum,
+            NoDefaultLiteralEnum myEnum,
             string str,
             DateTime date,
             DateTime dateTime,
             Guid? nullableGuid,
-            MyEnum? nullableEnum)
+            NoDefaultLiteralEnum? nullableEnum,
+            DefaultLiteralEnum defaultLiteralEnum)
         {
             Id = id;
             MyEnum = myEnum;
@@ -26,14 +27,16 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.CreateT
             DateTime = dateTime;
             NullableGuid = nullableGuid;
             NullableEnum = nullableEnum;
+            DefaultLiteralEnum = defaultLiteralEnum;
         }
 
         public Guid Id { get; set; }
-        public MyEnum MyEnum { get; set; }
+        public NoDefaultLiteralEnum MyEnum { get; set; }
         public string Str { get; set; }
         public DateTime Date { get; set; }
         public DateTime DateTime { get; set; }
         public Guid? NullableGuid { get; set; }
-        public MyEnum? NullableEnum { get; set; }
+        public NoDefaultLiteralEnum? NullableEnum { get; set; }
+        public DefaultLiteralEnum DefaultLiteralEnum { get; set; }
     }
 }

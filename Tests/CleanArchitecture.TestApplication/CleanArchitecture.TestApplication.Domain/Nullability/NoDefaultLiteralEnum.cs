@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Domain.Nullability
 {
-    public enum MyEnum
+    public enum NoDefaultLiteralEnum
     {
         First = 1,
         Second = 2

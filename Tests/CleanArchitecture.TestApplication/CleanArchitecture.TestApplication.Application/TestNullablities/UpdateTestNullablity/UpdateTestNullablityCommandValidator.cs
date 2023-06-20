@@ -18,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
-            RuleFor(v => v.MyEnum)
+            RuleFor(v => v.SampleEnum)
                 .NotNull()
                 .IsInEnum();
 
@@ -26,6 +26,10 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
                 .NotNull();
 
             RuleFor(v => v.NullableEnum)
+                .IsInEnum();
+
+            RuleFor(v => v.DefaultLiteralEnum)
+                .NotNull()
                 .IsInEnum();
         }
     }

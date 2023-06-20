@@ -27,6 +27,10 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.CreateT
 
             RuleFor(v => v.NullableEnum)
                 .IsInEnum();
+
+            RuleFor(v => v.DefaultLiteralEnum)
+                .NotNull()
+                .IsInEnum();
         }
     }
 }

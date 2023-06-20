@@ -19,22 +19,22 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities
         }
 
         public Guid Id { get; set; }
-        public MyEnum MyEnum { get; set; }
+        public NoDefaultLiteralEnum MyEnum { get; set; }
         public string Str { get; set; }
         public DateTime Date { get; set; }
         public DateTime DateTime { get; set; }
         public Guid? NullableGuid { get; set; }
-        public MyEnum? NullableEnum { get; set; }
+        public NoDefaultLiteralEnum? NullableEnum { get; set; }
         public Guid NullabilityPeerId { get; set; }
 
         public static TestNullablityDto Create(
             Guid id,
-            MyEnum myEnum,
+            NoDefaultLiteralEnum myEnum,
             string str,
             DateTime date,
             DateTime dateTime,
             Guid? nullableGuid,
-            MyEnum? nullableEnum,
+            NoDefaultLiteralEnum? nullableEnum,
             Guid nullabilityPeerId)
         {
             return new TestNullablityDto
@@ -52,7 +52,8 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<TestNullablity, TestNullablityDto>();
+            profile.CreateMap<TestNullablity, TestNullablityDto>()
+                .ForMember(d => d.MyEnum, opt => opt.MapFrom(src => src.SampleEnum));
         }
     }
 }

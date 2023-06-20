@@ -16,20 +16,22 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public TestNullablity(Guid id,
-            MyEnum myEnum,
+            NoDefaultLiteralEnum sampleEnum,
             string str,
             DateTime date,
             DateTime dateTime,
             Guid? nullableGuid,
-            MyEnum? nullableEnum)
+            NoDefaultLiteralEnum? nullableEnum,
+            DefaultLiteralEnum defaultLiteralEnum)
         {
             Id = id;
-            MyEnum = myEnum;
+            SampleEnum = sampleEnum;
             Str = str;
             Date = date;
             DateTime = dateTime;
             NullableGuid = nullableGuid;
             NullableEnum = nullableEnum;
+            DefaultLiteralEnum = defaultLiteralEnum;
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
 
         public Guid Id { get; set; }
 
-        public MyEnum MyEnum { get; set; }
+        public NoDefaultLiteralEnum SampleEnum { get; set; }
 
         public string Str { get; set; }
 
@@ -53,9 +55,11 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
 
         public Guid? NullableGuid { get; set; }
 
-        public MyEnum? NullableEnum { get; set; }
+        public NoDefaultLiteralEnum? NullableEnum { get; set; }
 
         public Guid NullabilityPeerId { get; set; }
+
+        public DefaultLiteralEnum DefaultLiteralEnum { get; set; }
 
         public virtual ICollection<TestNullablityChild> TestNullablityChildren { get; set; } = new List<TestNullablityChild>();
 

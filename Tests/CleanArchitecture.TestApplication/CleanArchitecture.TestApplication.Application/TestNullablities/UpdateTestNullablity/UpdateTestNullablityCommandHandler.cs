@@ -26,13 +26,14 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
         public async Task<Unit> Handle(UpdateTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
-            existingTestNullablity.MyEnum = request.MyEnum;
+            existingTestNullablity.SampleEnum = request.SampleEnum;
             existingTestNullablity.Str = request.Str;
             existingTestNullablity.Date = request.Date;
             existingTestNullablity.DateTime = request.DateTime;
             existingTestNullablity.NullableGuid = request.NullableGuid;
             existingTestNullablity.NullableEnum = request.NullableEnum;
             existingTestNullablity.NullabilityPeerId = request.NullabilityPeerId;
+            existingTestNullablity.DefaultLiteralEnum = request.DefaultLiteralEnum;
             return Unit.Value;
         }
     }

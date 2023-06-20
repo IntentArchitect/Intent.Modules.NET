@@ -14,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.MyEnum)
+            builder.Property(x => x.SampleEnum)
                 .IsRequired();
 
             builder.Property(x => x.Str)
@@ -31,6 +31,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
             builder.Property(x => x.NullableEnum);
 
             builder.Property(x => x.NullabilityPeerId)
+                .IsRequired();
+
+            builder.Property(x => x.DefaultLiteralEnum)
                 .IsRequired();
 
             builder.OwnsMany(x => x.TestNullablityChildren, ConfigureTestNullablityChildren);

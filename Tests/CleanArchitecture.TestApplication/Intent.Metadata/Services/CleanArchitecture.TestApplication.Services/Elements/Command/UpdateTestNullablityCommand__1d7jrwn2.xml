@@ -81,8 +81,8 @@
       <childElements />
     </childElement>
     <childElement id="06ca52a7-1229-4bcf-880d-306a1dfae1e2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>MyEnum</name>
-      <display>MyEnum: MyEnum</display>
+      <name>SampleEnum</name>
+      <display>SampleEnum: NoDefaultLiteralEnum</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b30fa747-92fa-4f60-981c-5c325ed6bb73">
@@ -101,7 +101,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="509d647b-76d3-45f5-aa40-7a2b19e188c1" name="MyEnum" type="element" specialization="Attribute" />
+          <target id="509d647b-76d3-45f5-aa40-7a2b19e188c1" name="SampleEnum" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>4a032f14-d473-4179-8f02-066bc5cc2441</parentFolderId>
@@ -327,7 +327,7 @@
     </childElement>
     <childElement id="576cc0e6-755f-4bfb-ad7b-3556c8f120d7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>NullableEnum</name>
-      <display>NullableEnum: MyEnum?</display>
+      <display>NullableEnum: NoDefaultLiteralEnum?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b2b97b8c-6836-45ce-bbb7-40733cd853f4">
@@ -396,6 +396,55 @@
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
           <target id="aaa69efe-8a34-4df8-89c0-397ae11efe77" name="NullabilityPeerId" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>4a032f14-d473-4179-8f02-066bc5cc2441</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e39efdc2-33d2-4648-94cf-24d40b98fc81" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>DefaultLiteralEnum</name>
+      <display>DefaultLiteralEnum: DefaultLiteralEnum</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="91c5552d-6136-4856-8ccd-92be858e5932">
+        <typeId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fb9ee2b9-a10c-410e-a12b-503269cc7a99" name="DefaultLiteralEnum" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>4a032f14-d473-4179-8f02-066bc5cc2441</parentFolderId>

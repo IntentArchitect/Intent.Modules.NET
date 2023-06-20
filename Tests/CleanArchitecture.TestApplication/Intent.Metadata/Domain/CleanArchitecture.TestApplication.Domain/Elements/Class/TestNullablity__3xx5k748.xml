@@ -48,8 +48,8 @@
       <childElements />
     </childElement>
     <childElement id="509d647b-76d3-45f5-aa40-7a2b19e188c1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>MyEnum</name>
-      <display>MyEnum: MyEnum</display>
+      <name>SampleEnum</name>
+      <display>SampleEnum: NoDefaultLiteralEnum</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0ac22991-5ca5-44fc-a6eb-2597e04c792c">
@@ -180,7 +180,7 @@
     </childElement>
     <childElement id="59fc017b-4a82-4b92-bf6a-867d9fe12481" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>NullableEnum</name>
-      <display>NullableEnum: MyEnum?</display>
+      <display>NullableEnum: NoDefaultLiteralEnum?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ae78cc1f-9a6b-437f-9401-65ee05b19460">
@@ -239,9 +239,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="fb9ee2b9-a10c-410e-a12b-503269cc7a99" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DefaultLiteralEnum</name>
+      <display>DefaultLiteralEnum: DefaultLiteralEnum</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8fdd8905-c1a9-4fc2-a371-c5b41bf98828">
+        <typeId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c18ee638-36a2-4082-a9cb-763fdbb6ef1b</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="08beef1e-2f90-4e74-a15c-148096ef6ea1" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
       <name>Constructor</name>
-      <display>TestNullablity(id: guid, myEnum: MyEnum, str: string, date: date, dateTime: datetime, nullableGuid: guid?, nullableEnum: MyEnum?)</display>
+      <display>TestNullablity(id: guid, sampleEnum: NoDefaultLiteralEnum, str: string, date: date, dateTime: datetime, nullableGuid: guid?, nullableEnum: NoDefaultLiteralEnum?, defaultLiteralEnum: DefaultLiteralEnum)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -293,8 +317,8 @@
           <childElements />
         </childElement>
         <childElement id="32b0f669-3ab4-45f3-8cf0-9a8e153af3cb" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>myEnum</name>
-          <display>in : myEnum: MyEnum</display>
+          <name>sampleEnum</name>
+          <display>in : sampleEnum: NoDefaultLiteralEnum</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="fa781138-7a53-46be-85a4-09f582f3856d">
@@ -313,7 +337,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="509d647b-76d3-45f5-aa40-7a2b19e188c1" name="MyEnum" type="element" specialization="Attribute" />
+              <target id="509d647b-76d3-45f5-aa40-7a2b19e188c1" name="SampleEnum" type="element" specialization="Attribute" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>08beef1e-2f90-4e74-a15c-148096ef6ea1</parentFolderId>
@@ -449,7 +473,7 @@
         </childElement>
         <childElement id="1a1b851a-c646-4b0d-ac1b-4e96cd362b16" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>nullableEnum</name>
-          <display>in : nullableEnum: MyEnum?</display>
+          <display>in : nullableEnum: NoDefaultLiteralEnum?</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="bd75d52c-d95d-46ad-b32d-2ba9a52a110d">
@@ -469,6 +493,37 @@
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
               <target id="59fc017b-4a82-4b92-bf6a-867d9fe12481" name="NullableEnum" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>08beef1e-2f90-4e74-a15c-148096ef6ea1</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8d073853-7b45-4e4b-b93a-143930033184" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>defaultLiteralEnum</name>
+          <display>in : defaultLiteralEnum: DefaultLiteralEnum</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7905be46-6fdc-4091-b8a9-40f58faf2487">
+            <typeId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="fb9ee2b9-a10c-410e-a12b-503269cc7a99" name="DefaultLiteralEnum" type="element" specialization="Attribute" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>08beef1e-2f90-4e74-a15c-148096ef6ea1</parentFolderId>

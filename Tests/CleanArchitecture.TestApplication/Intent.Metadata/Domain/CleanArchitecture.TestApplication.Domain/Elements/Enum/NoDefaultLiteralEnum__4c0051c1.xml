@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="0c590802-f71b-4d11-b3e1-c8f45a470242" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
-  <name>MyEnum</name>
-  <display>MyEnum</display>
+  <name>NoDefaultLiteralEnum</name>
+  <display>NoDefaultLiteralEnum</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

@@ -2772,10 +2772,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#0181bba5-836b-45c3-8d0e-fe0de6f4810e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Nullability/DefaultLiteralEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/DefaultLiteralEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#0c590802-f71b-4d11-b3e1-c8f45a470242</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Nullability/MyEnum.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Nullability/MyEnum.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Nullability/NoDefaultLiteralEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Nullability/NoDefaultLiteralEnum.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
