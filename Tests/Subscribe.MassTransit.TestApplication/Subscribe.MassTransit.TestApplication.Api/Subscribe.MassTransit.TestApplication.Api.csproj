@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Subscribe.MassTransit.TestApplication.Application\Subscribe.MassTransit.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Subscribe.MassTransit.TestApplication.Infrastructure\Subscribe.MassTransit.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Subscribe.MassTransit.TestApplication.Domain\Subscribe.MassTransit.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

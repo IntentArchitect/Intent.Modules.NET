@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Application.SingleIndexEntities;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -39,7 +40,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 SingleIndex = dto.SingleIndex,
             };
             _singleIndexEntityRepository.Add(newSingleIndexEntity);
-            await _singleIndexEntityRepository.UnitOfWork.SaveChangesAsync();
+            await _singleIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newSingleIndexEntity.Id;
         }
 
@@ -48,14 +49,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _singleIndexEntityRepository.FindByIdAsync(id);
+            var element = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
+            }
             return element.MapToSingleIndexEntityDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<SingleIndexEntityDto>> FindSingleIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _singleIndexEntityRepository.FindAllAsync();
+            var elements = await _singleIndexEntityRepository.FindAllAsync(cancellationToken);
             return elements.MapToSingleIndexEntityDtoList(_mapper);
         }
 
@@ -65,7 +71,12 @@ namespace MongoDb.TestApplication.Application.Implementation
             SingleIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id);
+            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingSingleIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
+            }
             existingSingleIndexEntity.SomeField = dto.SomeField;
             existingSingleIndexEntity.SingleIndex = dto.SingleIndex;
         }
@@ -73,7 +84,12 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteSingleIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id);
+            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingSingleIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
+            }
             _singleIndexEntityRepository.Remove(existingSingleIndexEntity);
         }
 

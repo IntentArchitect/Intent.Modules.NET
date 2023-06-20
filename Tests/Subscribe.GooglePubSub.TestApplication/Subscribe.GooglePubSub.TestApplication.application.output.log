@@ -36,10 +36,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>43327851-77cc-4579-bbad-d360ee6083ff</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -176,6 +176,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da34374b-d6e6-45a5-9afc-d97bc9f713e9</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

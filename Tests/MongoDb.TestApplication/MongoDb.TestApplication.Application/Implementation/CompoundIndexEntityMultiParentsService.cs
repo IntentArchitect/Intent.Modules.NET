@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.CompoundIndexEntityMultiParents;
 using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -40,7 +41,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 CompoundIndexEntityMultiChild = dto.CompoundIndexEntityMultiChild.Select(CreateCompoundIndexEntityMultiChild).ToList(),
             };
             _compoundIndexEntityMultiParentRepository.Add(newCompoundIndexEntityMultiParent);
-            await _compoundIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync();
+            await _compoundIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newCompoundIndexEntityMultiParent.Id;
         }
 
@@ -49,14 +50,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var element = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntityMultiParent {id}");
+            }
             return element.MapToCompoundIndexEntityMultiParentDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CompoundIndexEntityMultiParentDto>> FindCompoundIndexEntityMultiParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _compoundIndexEntityMultiParentRepository.FindAllAsync();
+            var elements = await _compoundIndexEntityMultiParentRepository.FindAllAsync(cancellationToken);
             return elements.MapToCompoundIndexEntityMultiParentDtoList(_mapper);
         }
 
@@ -66,14 +72,24 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntityMultiParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntityMultiParent = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntityMultiParent = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntityMultiParent is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntityMultiParent {id}");
+            }
             existingCompoundIndexEntityMultiParent.SomeField = dto.SomeField;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCompoundIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntityMultiParent = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntityMultiParent = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntityMultiParent is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntityMultiParent {id}");
+            }
             _compoundIndexEntityMultiParentRepository.Remove(existingCompoundIndexEntityMultiParent);
         }
 

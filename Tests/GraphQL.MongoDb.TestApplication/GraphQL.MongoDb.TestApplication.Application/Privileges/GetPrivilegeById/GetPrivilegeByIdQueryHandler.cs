@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.MongoDb.TestApplication.Domain.Common.Exceptions;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivilegeByI
         public async Task<PrivilegeDto> Handle(GetPrivilegeByIdQuery request, CancellationToken cancellationToken)
         {
             var privilege = await _privilegeRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (privilege is null)
+            {
+                throw new NotFoundException($"Could not find Privilege {request.Id}");
+            }
             return privilege.MapToPrivilegeDto(_mapper);
         }
     }

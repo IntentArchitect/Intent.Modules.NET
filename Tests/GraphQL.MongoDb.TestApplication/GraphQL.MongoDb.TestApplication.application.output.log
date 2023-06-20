@@ -28,10 +28,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>e85feec0-a0f6-4edf-bb97-c88f40701bbc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -576,6 +576,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1de21cb1-da79-4ead-8da4-bcce42ef85d3</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

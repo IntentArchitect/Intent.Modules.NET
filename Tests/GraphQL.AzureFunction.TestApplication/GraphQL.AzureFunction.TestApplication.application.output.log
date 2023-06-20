@@ -12,6 +12,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
       <CorrelationId>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
@@ -99,6 +107,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>15b0dcbb-43b9-449d-ae9a-aa090f8fa296</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
       <CorrelationId>Intent.AzureFunctions.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -107,11 +123,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>82b9bec5-99d9-423e-b1b4-b30a927cadfe</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -139,6 +171,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2ee45d27-f1d2-4703-be97-2c38194a02d6</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -152,6 +192,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>421d62b9-5b34-4741-b33e-1a106b807847</ProjectId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -232,6 +280,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Interfaces/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -339,11 +395,59 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#defad67b-95af-4436-af24-514d8ae266ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#7d7e6630-73d5-4352-8825-6f219f34987f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e24b9578-de20-41b6-a64a-8489eaf84d0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#687df041-6471-4fbb-8c89-92885e4d1af3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9eefb065-44d7-4782-ab0a-38b313e58e13</ProjectId>
       <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a8a86ac7-7e46-4af9-8f86-4f19bea97ae4</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.Constants.TestApplication.Domain.Common.Exceptions;
 using Entities.Constants.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
         public async Task<Unit> Handle(DeleteTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingTestClass is null)
+            {
+                throw new NotFoundException($"Could not find TestClass {request.Id}");
+            }
             _testClassRepository.Remove(existingTestClass);
             return Unit.Value;
         }

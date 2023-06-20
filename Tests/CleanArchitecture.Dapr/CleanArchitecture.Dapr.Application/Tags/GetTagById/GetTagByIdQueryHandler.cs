@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace CleanArchitecture.Dapr.Application.Tags.GetTagById
         public async Task<TagDto> Handle(GetTagByIdQuery request, CancellationToken cancellationToken)
         {
             var tag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (tag is null)
+            {
+                throw new NotFoundException($"Could not find Tag {request.Id}");
+            }
             return tag.MapToTagDto(_mapper);
         }
     }

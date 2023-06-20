@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain\Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

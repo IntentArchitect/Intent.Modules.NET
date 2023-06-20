@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CosmosDB.Application.Clients.UpdateClient
         public async Task<Unit> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
         {
             var existingClient = await _clientRepository.FindByIdAsync(request.Identifier, cancellationToken);
+
+            if (existingClient is null)
+            {
+                throw new NotFoundException($"Could not find Client {request.Identifier}");
+            }
             existingClient.Identifier = request.Identifier;
             existingClient.Type = request.Type;
             existingClient.Name = request.Name;

@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Identity.MSAL.TestApplication.Application\Application.Identity.MSAL.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Application.Identity.MSAL.TestApplication.Infrastructure\Application.Identity.MSAL.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Application.Identity.MSAL.TestApplication.Domain\Application.Identity.MSAL.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

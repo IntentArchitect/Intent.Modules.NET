@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Application.MultikeyIndexEntitySingleParents;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -40,7 +41,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 MultikeyIndexEntitySingleChild = CreateMultikeyIndexEntitySingleChild(dto.MultikeyIndexEntitySingleChild),
             };
             _multikeyIndexEntitySingleParentRepository.Add(newMultikeyIndexEntitySingleParent);
-            await _multikeyIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync();
+            await _multikeyIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newMultikeyIndexEntitySingleParent.Id;
         }
 
@@ -49,14 +50,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var element = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntitySingleParent {id}");
+            }
             return element.MapToMultikeyIndexEntitySingleParentDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<MultikeyIndexEntitySingleParentDto>> FindMultikeyIndexEntitySingleParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _multikeyIndexEntitySingleParentRepository.FindAllAsync();
+            var elements = await _multikeyIndexEntitySingleParentRepository.FindAllAsync(cancellationToken);
             return elements.MapToMultikeyIndexEntitySingleParentDtoList(_mapper);
         }
 
@@ -66,14 +72,24 @@ namespace MongoDb.TestApplication.Application.Implementation
             MultikeyIndexEntitySingleParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntitySingleParent = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var existingMultikeyIndexEntitySingleParent = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingMultikeyIndexEntitySingleParent is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntitySingleParent {id}");
+            }
             existingMultikeyIndexEntitySingleParent.SomeField = dto.SomeField;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteMultikeyIndexEntitySingleParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntitySingleParent = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var existingMultikeyIndexEntitySingleParent = await _multikeyIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingMultikeyIndexEntitySingleParent is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntitySingleParent {id}");
+            }
             _multikeyIndexEntitySingleParentRepository.Remove(existingMultikeyIndexEntitySingleParent);
         }
 

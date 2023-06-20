@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.Constants.TestApplication.Domain.Common.Exceptions;
 using Entities.Constants.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
         public async Task<Unit> Handle(UpdateTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingTestClass is null)
+            {
+                throw new NotFoundException($"Could not find TestClass {request.Id}");
+            }
             existingTestClass.Att100 = request.Att100;
             existingTestClass.VarChar200 = request.VarChar200;
             existingTestClass.NVarChar300 = request.NVarChar300;

@@ -16,6 +16,7 @@ namespace GraphQL.AzureFunction.TestApplication.Api
         public override void Configure(IFunctionsHostBuilder builder)
         {
             var configuration = builder.GetContext().Configuration;
+            builder.Services.ConfigureApplicationSecurity(configuration);
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(configuration);
             builder.Services.ConfigureGraphQL();

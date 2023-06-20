@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDb.TestApplication.Application;
 using MongoDb.TestApplication.Application.IdTypeOjectIdStrs;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Domain.Common.Interfaces;
@@ -21,11 +22,15 @@ namespace MongoDb.TestApplication.Api.Controllers
     public class IdTypeOjectIdStrsController : ControllerBase
     {
         private readonly IIdTypeOjectIdStrsService _appService;
+        private readonly IValidationService _validationService;
         private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
-        public IdTypeOjectIdStrsController(IIdTypeOjectIdStrsService appService, IMongoDbUnitOfWork mongoDbUnitOfWork)
+        public IdTypeOjectIdStrsController(IIdTypeOjectIdStrsService appService,
+            IValidationService validationService,
+            IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
@@ -41,6 +46,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeOjectIdStrCreateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             var result = default(string);
             result = await _appService.CreateIdTypeOjectIdStr(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
@@ -92,6 +98,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeOjectIdStrUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             await _appService.UpdateIdTypeOjectIdStr(id, dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();

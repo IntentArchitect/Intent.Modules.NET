@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EntityFrameworkCore.CosmosDb.TestApplication.Application\EntityFrameworkCore.CosmosDb.TestApplication.Application.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure\EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.CosmosDb.TestApplication.Domain\EntityFrameworkCore.CosmosDb.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

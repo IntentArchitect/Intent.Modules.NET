@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.EF.CosmosDb.Api.Configuration;
+using Entities.PrivateSetters.EF.CosmosDb.Api.Filters;
 using Entities.PrivateSetters.EF.CosmosDb.Api.StartupJobs;
 using Entities.PrivateSetters.EF.CosmosDb.Application;
 using Entities.PrivateSetters.EF.CosmosDb.Infrastructure;
@@ -32,7 +33,11 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

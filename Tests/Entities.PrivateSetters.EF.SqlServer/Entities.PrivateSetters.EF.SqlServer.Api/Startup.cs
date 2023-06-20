@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.EF.SqlServer.Api.Configuration;
+using Entities.PrivateSetters.EF.SqlServer.Api.Filters;
 using Entities.PrivateSetters.EF.SqlServer.Application;
 using Entities.PrivateSetters.EF.SqlServer.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -31,7 +32,11 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

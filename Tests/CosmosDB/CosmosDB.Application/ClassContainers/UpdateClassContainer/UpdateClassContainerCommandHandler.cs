@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
         public async Task<Unit> Handle(UpdateClassContainerCommand request, CancellationToken cancellationToken)
         {
             var existingClassContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingClassContainer is null)
+            {
+                throw new NotFoundException($"Could not find ClassContainer {request.Id}");
+            }
             existingClassContainer.ClassPartitionKey = request.ClassPartitionKey;
 
             _classContainerRepository.Update(existingClassContainer);

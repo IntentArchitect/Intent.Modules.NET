@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace CosmosDB.Application.Invoices.GetInvoiceById
         public async Task<InvoiceDto> Handle(GetInvoiceByIdQuery request, CancellationToken cancellationToken)
         {
             var invoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (invoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             return invoice.MapToInvoiceDto(_mapper);
         }
     }

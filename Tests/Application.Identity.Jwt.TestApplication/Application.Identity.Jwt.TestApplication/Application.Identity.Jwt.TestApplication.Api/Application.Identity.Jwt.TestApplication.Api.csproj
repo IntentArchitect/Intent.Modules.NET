@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Identity.Jwt.TestApplication.Application\Application.Identity.Jwt.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Application.Identity.Jwt.TestApplication.Infrastructure\Application.Identity.Jwt.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Application.Identity.Jwt.TestApplication.Domain\Application.Identity.Jwt.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

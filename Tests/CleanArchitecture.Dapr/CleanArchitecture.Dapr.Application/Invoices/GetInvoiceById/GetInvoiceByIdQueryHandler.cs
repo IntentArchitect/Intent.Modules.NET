@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace CleanArchitecture.Dapr.Application.Invoices.GetInvoiceById
         public async Task<InvoiceDto> Handle(GetInvoiceByIdQuery request, CancellationToken cancellationToken)
         {
             var invoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (invoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             return invoice.MapToInvoiceDto(_mapper);
         }
     }

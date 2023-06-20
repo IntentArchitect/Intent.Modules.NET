@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.MongoDb.TestApplication.Domain.Common.Exceptions;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.DeletePrivilege
         public async Task<PrivilegeDto> Handle(DeletePrivilegeCommand request, CancellationToken cancellationToken)
         {
             var existingPrivilege = await _privilegeRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingPrivilege is null)
+            {
+                throw new NotFoundException($"Could not find Privilege {request.Id}");
+            }
             _privilegeRepository.Remove(existingPrivilege);
             return existingPrivilege.MapToPrivilegeDto(_mapper);
         }

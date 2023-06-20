@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Application.TextIndexEntities;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -39,7 +40,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 SomeField = dto.SomeField,
             };
             _textIndexEntityRepository.Add(newTextIndexEntity);
-            await _textIndexEntityRepository.UnitOfWork.SaveChangesAsync();
+            await _textIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newTextIndexEntity.Id;
         }
 
@@ -48,14 +49,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _textIndexEntityRepository.FindByIdAsync(id);
+            var element = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntity {id}");
+            }
             return element.MapToTextIndexEntityDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<TextIndexEntityDto>> FindTextIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _textIndexEntityRepository.FindAllAsync();
+            var elements = await _textIndexEntityRepository.FindAllAsync(cancellationToken);
             return elements.MapToTextIndexEntityDtoList(_mapper);
         }
 
@@ -65,7 +71,12 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id);
+            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingTextIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntity {id}");
+            }
             existingTextIndexEntity.FullText = dto.FullText;
             existingTextIndexEntity.SomeField = dto.SomeField;
         }
@@ -73,7 +84,12 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteTextIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id);
+            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingTextIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntity {id}");
+            }
             _textIndexEntityRepository.Remove(existingTextIndexEntity);
         }
 

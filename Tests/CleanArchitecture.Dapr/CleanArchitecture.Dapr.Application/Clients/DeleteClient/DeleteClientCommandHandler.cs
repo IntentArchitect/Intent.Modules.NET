@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CleanArchitecture.Dapr.Application.Clients.DeleteClient
         public async Task<Unit> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             var existingClient = await _clientRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingClient is null)
+            {
+                throw new NotFoundException($"Could not find Client {request.Id}");
+            }
             _clientRepository.Remove(existingClient);
             return Unit.Value;
         }

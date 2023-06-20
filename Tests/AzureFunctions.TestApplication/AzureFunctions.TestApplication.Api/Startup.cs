@@ -1,3 +1,4 @@
+using AzureFunctions.TestApplication.Api.Configuration;
 using AzureFunctions.TestApplication.Application;
 using AzureFunctions.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -17,6 +18,7 @@ namespace AzureFunctions.TestApplication.Api
             var configuration = builder.GetContext().Configuration;
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(configuration);
+            builder.Services.ConfigureApplicationSecurity(configuration);
         }
     }
 }

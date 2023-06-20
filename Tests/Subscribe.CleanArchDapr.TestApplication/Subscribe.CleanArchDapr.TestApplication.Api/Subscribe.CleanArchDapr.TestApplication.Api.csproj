@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Subscribe.CleanArchDapr.TestApplication.Application\Subscribe.CleanArchDapr.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Subscribe.CleanArchDapr.TestApplication.Infrastructure\Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Subscribe.CleanArchDapr.TestApplication.Domain\Subscribe.CleanArchDapr.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

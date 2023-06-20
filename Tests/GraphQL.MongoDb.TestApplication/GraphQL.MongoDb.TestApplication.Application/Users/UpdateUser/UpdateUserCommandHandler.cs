@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.MongoDb.TestApplication.Domain.Common.Exceptions;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -29,6 +30,11 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
         public async Task<UserDto> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var existingUser = await _userRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingUser is null)
+            {
+                throw new NotFoundException($"Could not find User {request.Id}");
+            }
             existingUser.Name = request.Name;
             existingUser.Surname = request.Surname;
             existingUser.Email = request.Email;

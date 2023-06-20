@@ -692,6 +692,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5cca01e1-1277-4a23-ac85-a4cf99c3bc52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#77692819-d0dc-420d-ad69-32e56b21de8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/AggregateRootLongDto.cs</ApplicationRelativeFilePath>
@@ -704,6 +712,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/AggregateRootLongDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/AggregateRootLongDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#77692819-d0dc-420d-ad69-32e56b21de8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/AggregateRootLongDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/AggregateRootLongDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -736,6 +752,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/CreateAggregateRootLongCompositeOfAggrLongDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLongCompositeOfAggrLongDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5dc20893-32fd-4f92-b42c-99b3d8645d33</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/CreateAggregateRootLongCompositeOfAggrLongDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLongCompositeOfAggrLongDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -844,6 +868,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d82577c4-694e-4206-b692-aeb3079d9f1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/UpdateAggregateRootLongCompositeOfAggrLongDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLongCompositeOfAggrLongDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#3849f10a-4373-4be9-a94a-169d6516296e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
@@ -856,6 +888,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootAggregateSingleCDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootAggregateSingleCDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3849f10a-4373-4be9-a94a-169d6516296e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootAggregateSingleCDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootAggregateSingleCDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -876,6 +916,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b2b07641-76d6-4de1-af0a-f672514556b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d966174b-8bcc-4f34-9911-f163ffef8fc7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
@@ -888,6 +936,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d966174b-8bcc-4f34-9911-f163ffef8fc7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -908,6 +964,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0b8ca816-d03e-4855-8291-9a0c244a765f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeManyBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeManyBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
@@ -920,6 +984,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -940,6 +1012,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4f3e2baa-ce89-46f1-b942-2b0e861eafad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#19fd3bc2-bae3-436c-9c5b-eae9720fa0ba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
@@ -956,6 +1036,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#19fd3bc2-bae3-436c-9c5b-eae9720fa0ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleADtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#a733e81e-070d-4219-9158-e2fbe7d98400</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootDto.cs</ApplicationRelativeFilePath>
@@ -968,6 +1056,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a733e81e-070d-4219-9158-e2fbe7d98400</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1004,6 +1100,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b3ccbe02-de93-4834-84f5-d2e349dd17da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootAggregateSingleCDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootAggregateSingleCDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#7e32c772-8408-4429-8af2-820f832d584f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
@@ -1036,10 +1140,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6fb403ca-5147-47bd-b8e5-d9d034361096</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f93fa513-6288-4e17-8fac-4cef0b6fb4e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f93fa513-6288-4e17-8fac-4cef0b6fb4e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1052,10 +1172,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5cfa2694-65ee-4d3d-bd36-2045d7f08bd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeManyBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#8dd143db-99b4-4f77-bb66-52efd58e871e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8dd143db-99b4-4f77-bb66-52efd58e871e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1068,10 +1204,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#047b98a5-2213-40a0-b5d8-45028206da0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4e4f482f-422d-4612-99eb-f85b556d6cbc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4e4f482f-422d-4612-99eb-f85b556d6cbc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/CreateAggregateRootCompositeSingleADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeSingleADtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1252,6 +1404,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a654d5ee-08a9-4f71-918b-610623fd3575</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootAggregateSingleCDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootAggregateSingleCDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
@@ -1284,10 +1444,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5e79f290-4090-46d2-b024-705058178c6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#fc4d0e39-67dc-4c4a-8a94-0999e87e6f32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#fc4d0e39-67dc-4c4a-8a94-0999e87e6f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1300,10 +1476,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e2ab1f3b-917e-414a-aca7-1f3ff5022ad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeManyBDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e99b16ff-0910-436e-93e4-f2cff2790287</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e99b16ff-0910-436e-93e4-f2cff2790287</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1316,10 +1508,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#11cdf9f5-f388-4b3e-b500-2c654f0352db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#56717f98-efb6-4aec-ab3e-f3f854b64a0f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#56717f98-efb6-4aec-ab3e-f3f854b64a0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/UpdateAggregateRootCompositeSingleADtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeSingleADtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1336,6 +1544,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#34c0dd57-94b2-4a81-a9d0-7130c22da98d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateTestNoIdReturns/AggregateTestNoIdReturnDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1780,6 +1996,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#db682d6e-c722-498e-81d9-a9380817fdb3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2a0a86d7-9dd9-4ae4-83bf-4f0608fbd052</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/DeleteImplicitKeyAggrRoot/DeleteImplicitKeyAggrRootCommand.cs</ApplicationRelativeFilePath>
@@ -1940,6 +2164,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#692b9881-11a4-4e0d-b793-0b956e07bdb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/ImplicitKeyAggrRootDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/ImplicitKeyAggrRootDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#30ac497d-6788-4bf8-bdce-279782ba9ef4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/ImplicitKeyAggrRootImplicitKeyNestedCompositionDto.cs</ApplicationRelativeFilePath>
@@ -1952,6 +2184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/ImplicitKeyAggrRootImplicitKeyNestedCompositionDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/ImplicitKeyAggrRootImplicitKeyNestedCompositionDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#30ac497d-6788-4bf8-bdce-279782ba9ef4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/ImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/ImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2008,6 +2248,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c77ca69e-7746-45cc-93cc-6d01e1905021</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2088,6 +2336,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Interfaces/ServiceDispatch/IServiceDispatchWithoutImplementationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceDispatch/IServiceDispatchWithoutImplementationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2348,6 +2604,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c1975adc-6672-4b21-a42a-12962cf6dffe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/TestNullablityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/TestNullablityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#4a032f14-d473-4179-8f02-066bc5cc2441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/UpdateTestNullablity/UpdateTestNullablityCommand.cs</ApplicationRelativeFilePath>
@@ -2416,6 +2680,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Unversioned/Test/TestQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Unversioned/Test/TestQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CleanArchitecture.Dapr.Application.Tags.UpdateTag
         public async Task<Unit> Handle(UpdateTagCommand request, CancellationToken cancellationToken)
         {
             var existingTag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingTag is null)
+            {
+                throw new NotFoundException($"Could not find Tag {request.Id}");
+            }
             existingTag.Name = request.Name;
 
             _tagRepository.Update(existingTag);

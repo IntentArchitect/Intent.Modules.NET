@@ -148,10 +148,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>4b82569a-216d-4120-bb61-222435de1743</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Filters/FluentValidationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FluentValidationFilter.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -228,6 +228,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#918b58a6-2810-4d34-85bc-b9626fe8cfe7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntities/CompoundIndexEntityCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntities/CompoundIndexEntityCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c353e78b-9485-4ce6-a78c-3dd8c3310c61</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntities/CompoundIndexEntityDto.cs</ApplicationRelativeFilePath>
@@ -244,10 +252,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c353e78b-9485-4ce6-a78c-3dd8c3310c61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntities/CompoundIndexEntityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntities/CompoundIndexEntityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#57b4cc6d-513e-460e-8942-df6bb49c9fb9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntities/CompoundIndexEntityUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompoundIndexEntities/CompoundIndexEntityUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#57b4cc6d-513e-460e-8942-df6bb49c9fb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntities/CompoundIndexEntityUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntities/CompoundIndexEntityUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -268,10 +292,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#52a3d86f-01e6-4ec7-aae8-d0c925ef9081</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#3153450e-5692-4db5-9dbd-71ae919377ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3153450e-5692-4db5-9dbd-71ae919377ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -292,10 +332,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0548a6ca-520d-4275-adc3-9687c0a68e5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d90d6296-46e1-47b8-af4d-e7c4ee4ffd84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d90d6296-46e1-47b8-af4d-e7c4ee4ffd84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntityMultiParents/CompoundIndexEntityMultiParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -316,10 +372,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f7e171fa-dd5e-4d12-9e87-2395e68afeb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#56a571cd-ded6-4124-a909-9de09e0360fc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#56a571cd-ded6-4124-a909-9de09e0360fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -340,10 +412,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#11248d11-a04a-465c-a983-2929191f7678</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#93ade859-d298-465a-9603-29037ce4e412</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#93ade859-d298-465a-9603-29037ce4e412</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompoundIndexEntitySingleParents/CompoundIndexEntitySingleParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -364,6 +452,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8d80aff7-7ab9-4c98-a84a-06bcb227f96e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#16499db0-ded9-4923-86ee-369015af5ead</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidDto.cs</ApplicationRelativeFilePath>
@@ -380,6 +476,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#16499db0-ded9-4923-86ee-369015af5ead</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#b44e6e4e-c386-4dfd-b8c8-38ae9dffde34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidUpdateDto.cs</ApplicationRelativeFilePath>
@@ -388,10 +492,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b44e6e4e-c386-4dfd-b8c8-38ae9dffde34</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeGuids/IdTypeGuidUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeGuids/IdTypeGuidUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#8d0ea138-e311-497b-90c5-b536b9f87b2e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8d0ea138-e311-497b-90c5-b536b9f87b2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -412,10 +532,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#343d0629-d001-4b9b-9e44-b2157cde4406</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#169f49d7-a7f3-469f-868a-40c723ed30ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#169f49d7-a7f3-469f-868a-40c723ed30ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdTypeOjectIdStrs/IdTypeOjectIdStrUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -660,6 +796,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#63375f45-a84a-4768-bdc1-1bbf8248fe77</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapAggChildDto.cs</ApplicationRelativeFilePath>
@@ -672,6 +816,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapAggChildDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapperRoots/MapAggChildDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#63375f45-a84a-4768-bdc1-1bbf8248fe77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapAggChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapAggChildDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -692,10 +844,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3ee4c376-5a9b-478e-94b3-acb3fb4787a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapMapMeDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapMapMeDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#9b542bb4-83ba-4207-a48f-b25d6e83eb6e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapperRoots/MapperRootCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9b542bb4-83ba-4207-a48f-b25d6e83eb6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapperRootCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -716,10 +884,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d7287311-b30d-4d1d-84a7-7431e6a18af6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapperRootDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#a3e9e887-f0d3-4caa-ad28-7014f6f1ef9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapperRoots/MapperRootUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a3e9e887-f0d3-4caa-ad28-7014f6f1ef9d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapperRootUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -740,6 +924,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6671596e-7592-4fb0-96dc-88e1606c3616</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntities/MultikeyIndexEntityCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntities/MultikeyIndexEntityCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#36723404-1a0d-4590-be47-6add5f0be61c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntities/MultikeyIndexEntityDto.cs</ApplicationRelativeFilePath>
@@ -756,10 +948,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#36723404-1a0d-4590-be47-6add5f0be61c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntities/MultikeyIndexEntityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntities/MultikeyIndexEntityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f3fb5691-7332-4193-a648-642d1b240476</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntities/MultikeyIndexEntityUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultikeyIndexEntities/MultikeyIndexEntityUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f3fb5691-7332-4193-a648-642d1b240476</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntities/MultikeyIndexEntityUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntities/MultikeyIndexEntityUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -780,10 +988,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0939cb68-d0bf-4574-b292-ab512f70cd72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#586cb3a7-0ddb-48f8-8612-5d4535483aa2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#586cb3a7-0ddb-48f8-8612-5d4535483aa2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -804,10 +1028,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b3a48df3-25f6-4b98-90b1-ddc3389bfd53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#de35b1c6-97aa-49df-a73b-1d64b1eae8fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#de35b1c6-97aa-49df-a73b-1d64b1eae8fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntityMultiParents/MultikeyIndexEntityMultiParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -828,10 +1068,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#deca689c-fea9-40cf-865b-661a7f486f70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#58068f22-d738-4758-9ba0-f26f53910536</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#58068f22-d738-4758-9ba0-f26f53910536</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -852,6 +1108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#bdf34edd-c582-45c7-898e-6b5c837a4c67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#0a2ef785-73f7-4c0f-8fa9-3da736492906</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentUpdateDto.cs</ApplicationRelativeFilePath>
@@ -860,10 +1124,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0a2ef785-73f7-4c0f-8fa9-3da736492906</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultikeyIndexEntitySingleParents/MultikeyIndexEntitySingleParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#2ae2a267-7832-4791-8b6d-15b72fb0d3bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntities/SingleIndexEntityCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SingleIndexEntities/SingleIndexEntityCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2ae2a267-7832-4791-8b6d-15b72fb0d3bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntities/SingleIndexEntityCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntities/SingleIndexEntityCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -884,10 +1164,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#63543d39-481a-403c-9228-781798c930ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntities/SingleIndexEntityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntities/SingleIndexEntityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e8f77801-92e0-4ce4-a3bf-bd57a68aee9b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntities/SingleIndexEntityUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SingleIndexEntities/SingleIndexEntityUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e8f77801-92e0-4ce4-a3bf-bd57a68aee9b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntities/SingleIndexEntityUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntities/SingleIndexEntityUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -908,10 +1204,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a1d9a7a2-32d1-4347-b7b4-774fbd02b557</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4e0651b3-a18e-4f18-873a-7d53b89bd434</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4e0651b3-a18e-4f18-873a-7d53b89bd434</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -932,10 +1244,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f547b8ef-5017-4e85-a600-9bf1bb7630b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#5ada8931-7d91-45dd-bc65-12b20833328d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5ada8931-7d91-45dd-bc65-12b20833328d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntityMultiParents/SingleIndexEntityMultiParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntityMultiParents/SingleIndexEntityMultiParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -956,10 +1284,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#11bd0baa-8c06-4624-bbb5-b98debfd9f31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntitySingleParents/SingleIndexEntitySingleChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ec13285b-354a-490f-b4be-8e19c232e1c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SingleIndexEntitySingleParents/SingleIndexEntitySingleParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ec13285b-354a-490f-b4be-8e19c232e1c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntitySingleParents/SingleIndexEntitySingleParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -980,6 +1324,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#323ea5f8-2469-4e1c-8eb3-42a0878cd702</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntitySingleParents/SingleIndexEntitySingleParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d86ae495-5c30-48a2-8ca4-884a5ff0a445</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleParentUpdateDto.cs</ApplicationRelativeFilePath>
@@ -988,10 +1340,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d86ae495-5c30-48a2-8ca4-884a5ff0a445</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/SingleIndexEntitySingleParents/SingleIndexEntitySingleParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SingleIndexEntitySingleParents/SingleIndexEntitySingleParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#0dcd8d87-5d4d-4010-b159-260665f08d21</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntities/TextIndexEntityCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntities/TextIndexEntityCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0dcd8d87-5d4d-4010-b159-260665f08d21</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntities/TextIndexEntityCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntities/TextIndexEntityCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1012,10 +1380,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#aa9fd435-ba10-4298-9a3a-3c315d2a1631</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntities/TextIndexEntityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntities/TextIndexEntityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#51dae268-3601-47c2-8f83-4587bfacec92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntities/TextIndexEntityUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntities/TextIndexEntityUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#51dae268-3601-47c2-8f83-4587bfacec92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntities/TextIndexEntityUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntities/TextIndexEntityUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1036,10 +1420,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b141b94d-ab61-4ebf-bea6-3d9dcd816b54</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#702251d7-618a-4317-a777-107db09ff053</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#702251d7-618a-4317-a777-107db09ff053</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1060,10 +1460,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#42759608-020f-4a95-9a07-10f7a1604c19</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4c194f01-590c-426f-a482-bfa7705f6ac9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4c194f01-590c-426f-a482-bfa7705f6ac9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntityMultiParents/TextIndexEntityMultiParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntityMultiParents/TextIndexEntityMultiParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1084,10 +1500,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c53e9ab1-8551-4df6-87b1-6ea3cf194bc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#48033a62-7ecc-4de6-8254-a7f71d38e573</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleParentCreateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleParentCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#48033a62-7ecc-4de6-8254-a7f71d38e573</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleParentCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleParentCreateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1108,10 +1540,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#29438e97-fa60-4723-8c23-cb78b382ea23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleParentDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleParentDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ff610287-4211-40fe-93d2-efe1f679bbbf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleParentUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleParentUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ff610287-4211-40fe-93d2-efe1f679bbbf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/TextIndexEntitySingleParents/TextIndexEntitySingleParentUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextIndexEntitySingleParents/TextIndexEntitySingleParentUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1120,6 +1576,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69f13098-4617-4332-aec6-76eec9dd3242</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

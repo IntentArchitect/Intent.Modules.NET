@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitecture.Dapr.Application\CleanArchitecture.Dapr.Application.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Dapr.Infrastructure\CleanArchitecture.Dapr.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Dapr.Domain\CleanArchitecture.Dapr.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

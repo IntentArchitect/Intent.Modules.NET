@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Entities;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -32,13 +33,19 @@ namespace CleanArchitecture.Dapr.Application.Invoices.GetInvoiceInvoiceLineById
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-            if (aggregateRoot == null)
+
+            if (aggregateRoot is null)
             {
-                throw new InvalidOperationException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
+                throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
 
             var element = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
-            return element == null ? null : element.MapToInvoiceInvoiceLineDto(_mapper);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find InvoiceLine {request.Id}");
+            }
+            return element.MapToInvoiceInvoiceLineDto(_mapper);
         }
     }
 }

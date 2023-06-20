@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.CompoundIndexEntitySingleParents;
 using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -40,7 +41,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 CompoundIndexEntitySingleChild = CreateCompoundIndexEntitySingleChild(dto.CompoundIndexEntitySingleChild),
             };
             _compoundIndexEntitySingleParentRepository.Add(newCompoundIndexEntitySingleParent);
-            await _compoundIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync();
+            await _compoundIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newCompoundIndexEntitySingleParent.Id;
         }
 
@@ -49,14 +50,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var element = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
+            }
             return element.MapToCompoundIndexEntitySingleParentDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CompoundIndexEntitySingleParentDto>> FindCompoundIndexEntitySingleParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _compoundIndexEntitySingleParentRepository.FindAllAsync();
+            var elements = await _compoundIndexEntitySingleParentRepository.FindAllAsync(cancellationToken);
             return elements.MapToCompoundIndexEntitySingleParentDtoList(_mapper);
         }
 
@@ -66,14 +72,24 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntitySingleParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntitySingleParent is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
+            }
             existingCompoundIndexEntitySingleParent.SomeField = dto.SomeField;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCompoundIndexEntitySingleParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntitySingleParent is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
+            }
             _compoundIndexEntitySingleParentRepository.Remove(existingCompoundIndexEntitySingleParent);
         }
 

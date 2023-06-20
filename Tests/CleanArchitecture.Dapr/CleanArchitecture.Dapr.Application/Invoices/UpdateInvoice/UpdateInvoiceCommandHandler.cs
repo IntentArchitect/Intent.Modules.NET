@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
         public async Task<Unit> Handle(UpdateInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingInvoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             existingInvoice.Number = request.Number;
             existingInvoice.ClientId = request.ClientId;
 

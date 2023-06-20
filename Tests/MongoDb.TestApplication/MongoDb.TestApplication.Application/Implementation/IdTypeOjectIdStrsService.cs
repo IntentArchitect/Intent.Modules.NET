@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.IdTypeOjectIdStrs;
 using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
 using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 
@@ -38,7 +39,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 Attribute = dto.Attribute,
             };
             _idTypeOjectIdStrRepository.Add(newIdTypeOjectIdStr);
-            await _idTypeOjectIdStrRepository.UnitOfWork.SaveChangesAsync();
+            await _idTypeOjectIdStrRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newIdTypeOjectIdStr.Id;
         }
 
@@ -47,14 +48,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
+            var element = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
+            }
             return element.MapToIdTypeOjectIdStrDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
-            var elements = await _idTypeOjectIdStrRepository.FindAllAsync();
+            var elements = await _idTypeOjectIdStrRepository.FindAllAsync(cancellationToken);
             return elements.MapToIdTypeOjectIdStrDtoList(_mapper);
         }
 
@@ -64,14 +70,24 @@ namespace MongoDb.TestApplication.Application.Implementation
             IdTypeOjectIdStrUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
+            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingIdTypeOjectIdStr is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
+            }
             existingIdTypeOjectIdStr.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteIdTypeOjectIdStr(string id, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
+            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingIdTypeOjectIdStr is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
+            }
             _idTypeOjectIdStrRepository.Remove(existingIdTypeOjectIdStr);
         }
 

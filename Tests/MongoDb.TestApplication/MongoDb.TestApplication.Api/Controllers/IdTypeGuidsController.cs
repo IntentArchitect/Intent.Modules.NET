@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDb.TestApplication.Application;
 using MongoDb.TestApplication.Application.IdTypeGuids;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Domain.Common.Interfaces;
@@ -21,11 +22,15 @@ namespace MongoDb.TestApplication.Api.Controllers
     public class IdTypeGuidsController : ControllerBase
     {
         private readonly IIdTypeGuidsService _appService;
+        private readonly IValidationService _validationService;
         private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
-        public IdTypeGuidsController(IIdTypeGuidsService appService, IMongoDbUnitOfWork mongoDbUnitOfWork)
+        public IdTypeGuidsController(IIdTypeGuidsService appService,
+            IValidationService validationService,
+            IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
@@ -41,6 +46,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeGuidCreateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             result = await _appService.CreateIdTypeGuid(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
@@ -92,6 +98,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             [FromBody] IdTypeGuidUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             await _appService.UpdateIdTypeGuid(id, dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();

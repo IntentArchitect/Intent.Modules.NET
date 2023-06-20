@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CosmosDB.Application.Invoices.UpdateInvoice
         public async Task<Unit> Handle(UpdateInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingInvoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             existingInvoice.ClientIdentifier = request.ClientId;
             existingInvoice.Date = request.Date;
             existingInvoice.Number = request.Number;

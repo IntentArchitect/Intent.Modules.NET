@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.AzureFunction.TestApplication.Domain.Common.Exceptions;
 using GraphQL.AzureFunction.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.GetProductB
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (product is null)
+            {
+                throw new NotFoundException($"Could not find Product {request.Id}");
+            }
             return product.MapToProductDto(_mapper);
         }
     }

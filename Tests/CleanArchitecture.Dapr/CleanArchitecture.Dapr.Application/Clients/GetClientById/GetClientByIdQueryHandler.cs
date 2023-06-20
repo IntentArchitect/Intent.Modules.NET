@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace CleanArchitecture.Dapr.Application.Clients.GetClientById
         public async Task<ClientDto> Handle(GetClientByIdQuery request, CancellationToken cancellationToken)
         {
             var client = await _clientRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (client is null)
+            {
+                throw new NotFoundException($"Could not find Client {request.Id}");
+            }
             return client.MapToClientDto(_mapper);
         }
     }

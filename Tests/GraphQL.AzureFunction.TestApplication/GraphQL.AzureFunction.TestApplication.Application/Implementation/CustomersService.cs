@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using GraphQL.AzureFunction.TestApplication.Application.Customers;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
+using GraphQL.AzureFunction.TestApplication.Domain.Common.Exceptions;
 using GraphQL.AzureFunction.TestApplication.Domain.Entities;
 using GraphQL.AzureFunction.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -37,21 +38,26 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
                 LastName = dto.LastName,
             };
             _customerRepository.Add(newCustomer);
-            await _customerRepository.UnitOfWork.SaveChangesAsync();
+            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newCustomer.MapToCustomerDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> FindCustomerById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _customerRepository.FindByIdAsync(id);
+            var element = await _customerRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find Customer {id}");
+            }
             return element.MapToCustomerDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> FindCustomers(CancellationToken cancellationToken = default)
         {
-            var elements = await _customerRepository.FindAllAsync();
+            var elements = await _customerRepository.FindAllAsync(cancellationToken);
             return elements.MapToCustomerDtoList(_mapper);
         }
 
@@ -61,7 +67,12 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             CustomerUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCustomer = await _customerRepository.FindByIdAsync(id);
+            var existingCustomer = await _customerRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer {id}");
+            }
             existingCustomer.Name = dto.Name;
             existingCustomer.LastName = dto.LastName;
             return existingCustomer.MapToCustomerDto(_mapper);
@@ -70,7 +81,12 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingCustomer = await _customerRepository.FindByIdAsync(id);
+            var existingCustomer = await _customerRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer {id}");
+            }
             _customerRepository.Remove(existingCustomer);
             return existingCustomer.MapToCustomerDto(_mapper);
         }

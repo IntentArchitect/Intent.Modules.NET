@@ -36,7 +36,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api
             services.AddControllers(
                 opt =>
                 {
-                    opt.Filters.Add<FluentValidationFilter>();
+                    opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
             services.AddInfrastructure(Configuration);

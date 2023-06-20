@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EntityFrameworkCore.SqlServer.TestApplication.Application\EntityFrameworkCore.SqlServer.TestApplication.Application.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.TestApplication.Domain\EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

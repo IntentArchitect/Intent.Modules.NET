@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CosmosDB.Application\CosmosDB.Application.csproj" />
     <ProjectReference Include="..\CosmosDB.Infrastructure\CosmosDB.Infrastructure.csproj" />
+    <ProjectReference Include="..\CosmosDB.Domain\CosmosDB.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

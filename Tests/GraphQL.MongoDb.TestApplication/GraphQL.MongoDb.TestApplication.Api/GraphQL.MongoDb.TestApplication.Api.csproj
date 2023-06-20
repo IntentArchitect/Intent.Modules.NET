@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GraphQL.MongoDb.TestApplication.Application\GraphQL.MongoDb.TestApplication.Application.csproj" />
     <ProjectReference Include="..\GraphQL.MongoDb.TestApplication.Infrastructure\GraphQL.MongoDb.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\GraphQL.MongoDb.TestApplication.Domain\GraphQL.MongoDb.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

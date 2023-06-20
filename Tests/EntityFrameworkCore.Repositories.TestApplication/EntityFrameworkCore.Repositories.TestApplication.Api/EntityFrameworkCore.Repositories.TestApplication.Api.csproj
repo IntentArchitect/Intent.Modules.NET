@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EntityFrameworkCore.Repositories.TestApplication.Application\EntityFrameworkCore.Repositories.TestApplication.Application.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore.Repositories.TestApplication.Infrastructure\EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.Repositories.TestApplication.Domain\EntityFrameworkCore.Repositories.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

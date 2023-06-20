@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace AzureFunctions.TestApplication.Application.Customers.UpdateCustomer
         public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer {request.Id}");
+            }
             existingCustomer.Name = request.Name;
             return Unit.Value;
         }

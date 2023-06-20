@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,6 +31,11 @@ namespace CosmosDB.Application.ClassContainers.GetClassContainerById
             CancellationToken cancellationToken)
         {
             var classContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (classContainer is null)
+            {
+                throw new NotFoundException($"Could not find ClassContainer {request.Id}");
+            }
             return classContainer.MapToClassContainerDto(_mapper);
         }
     }

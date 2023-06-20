@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Finbuckle.SeparateDatabase.TestApplication.Api.Controllers.ResponseTypes;
+using Finbuckle.SeparateDatabase.TestApplication.Application;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Common.Interfaces;
@@ -24,11 +25,13 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUsersService _appService;
+        private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UsersController(IUsersService appService, IUnitOfWork unitOfWork)
+        public UsersController(IUsersService appService, IValidationService validationService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -45,6 +48,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
             [FromBody] UserCreateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -101,6 +105,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
             [FromBody] UserUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
+            await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

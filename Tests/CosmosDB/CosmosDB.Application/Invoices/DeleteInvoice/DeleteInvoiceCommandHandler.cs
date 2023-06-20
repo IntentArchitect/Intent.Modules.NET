@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CosmosDB.Application.Invoices.DeleteInvoice
         public async Task<Unit> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingInvoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             _invoiceRepository.Remove(existingInvoice);
             return Unit.Value;
         }

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,6 +27,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
         public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer {request.Id}");
+            }
             return Unit.Value;
         }
     }

@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Application.TextIndexEntityMultiParents;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -40,7 +41,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 TextIndexEntityMultiChild = dto.TextIndexEntityMultiChild.Select(CreateTextIndexEntityMultiChild).ToList(),
             };
             _textIndexEntityMultiParentRepository.Add(newTextIndexEntityMultiParent);
-            await _textIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync();
+            await _textIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newTextIndexEntityMultiParent.Id;
         }
 
@@ -49,14 +50,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _textIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var element = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
+            }
             return element.MapToTextIndexEntityMultiParentDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<TextIndexEntityMultiParentDto>> FindTextIndexEntityMultiParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _textIndexEntityMultiParentRepository.FindAllAsync();
+            var elements = await _textIndexEntityMultiParentRepository.FindAllAsync(cancellationToken);
             return elements.MapToTextIndexEntityMultiParentDtoList(_mapper);
         }
 
@@ -66,14 +72,24 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityMultiParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingTextIndexEntityMultiParent is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
+            }
             existingTextIndexEntityMultiParent.SomeField = dto.SomeField;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteTextIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id);
+            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingTextIndexEntityMultiParent is null)
+            {
+                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
+            }
             _textIndexEntityMultiParentRepository.Remove(existingTextIndexEntityMultiParent);
         }
 

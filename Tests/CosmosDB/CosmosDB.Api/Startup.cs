@@ -36,7 +36,7 @@ namespace CosmosDB.Api
             services.AddControllers(
                 opt =>
                 {
-                    opt.Filters.Add<FluentValidationFilter>();
+                    opt.Filters.Add<ExceptionFilter>();
                 });
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();

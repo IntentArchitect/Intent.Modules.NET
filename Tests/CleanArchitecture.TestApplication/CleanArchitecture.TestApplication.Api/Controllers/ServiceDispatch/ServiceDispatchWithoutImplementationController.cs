@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

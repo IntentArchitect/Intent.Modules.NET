@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,6 +29,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrderById
         public async Task<OrderDto> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
         {
             var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (order is null)
+            {
+                throw new NotFoundException($"Could not find Order {request.Id}");
+            }
             return order.MapToOrderDto(_mapper);
         }
     }

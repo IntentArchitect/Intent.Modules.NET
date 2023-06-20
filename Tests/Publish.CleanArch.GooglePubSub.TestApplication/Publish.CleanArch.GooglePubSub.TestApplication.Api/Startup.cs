@@ -36,7 +36,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
             services.AddControllers(
                 opt =>
                 {
-                    opt.Filters.Add<FluentValidationFilter>();
+                    opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddOptions();
             services.ConfigureApplicationSecurity(Configuration);

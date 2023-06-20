@@ -20,6 +20,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomersService, CustomersService>();
             return services;
         }

@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Entities.Constants.TestApplication.Application\Entities.Constants.TestApplication.Application.csproj" />
     <ProjectReference Include="..\Entities.Constants.TestApplication.Infrastructure\Entities.Constants.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Entities.Constants.TestApplication.Domain\Entities.Constants.TestApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

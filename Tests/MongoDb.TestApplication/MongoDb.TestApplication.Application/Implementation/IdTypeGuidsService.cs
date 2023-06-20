@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.IdTypeGuids;
 using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
 using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 
@@ -36,35 +37,50 @@ namespace MongoDb.TestApplication.Application.Implementation
                 Attribute = dto.Attribute,
             };
             _idTypeGuidRepository.Add(newIdTypeGuid);
-            await _idTypeGuidRepository.UnitOfWork.SaveChangesAsync();
+            await _idTypeGuidRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newIdTypeGuid.Id;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _idTypeGuidRepository.FindByIdAsync(id);
+            var element = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeGuid {id}");
+            }
             return element.MapToIdTypeGuidDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<IdTypeGuidDto>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
-            var elements = await _idTypeGuidRepository.FindAllAsync();
+            var elements = await _idTypeGuidRepository.FindAllAsync(cancellationToken);
             return elements.MapToIdTypeGuidDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id);
+            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingIdTypeGuid is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeGuid {id}");
+            }
             existingIdTypeGuid.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteIdTypeGuid(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id);
+            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingIdTypeGuid is null)
+            {
+                throw new NotFoundException($"Could not find IdTypeGuid {id}");
+            }
             _idTypeGuidRepository.Remove(existingIdTypeGuid);
         }
 

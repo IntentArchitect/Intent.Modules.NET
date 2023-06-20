@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AzureKeyVault.Application\AzureKeyVault.Application.csproj" />
     <ProjectReference Include="..\AzureKeyVault.Infrastructure\AzureKeyVault.Infrastructure.csproj" />
+    <ProjectReference Include="..\AzureKeyVault.Domain\AzureKeyVault.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

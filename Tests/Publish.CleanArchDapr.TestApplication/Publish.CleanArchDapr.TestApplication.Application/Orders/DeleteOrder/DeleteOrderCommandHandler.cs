@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -25,6 +26,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
         public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingOrder is null)
+            {
+                throw new NotFoundException($"Could not find Order {request.Id}");
+            }
             _orderRepository.Remove(existingOrder);
             return Unit.Value;
         }

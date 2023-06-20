@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.CompoundIndexEntities;
 using MongoDb.TestApplication.Application.Interfaces;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -40,7 +41,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 CompoundTwo = dto.CompoundTwo,
             };
             _compoundIndexEntityRepository.Add(newCompoundIndexEntity);
-            await _compoundIndexEntityRepository.UnitOfWork.SaveChangesAsync();
+            await _compoundIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newCompoundIndexEntity.Id;
         }
 
@@ -49,14 +50,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _compoundIndexEntityRepository.FindByIdAsync(id);
+            var element = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
+            }
             return element.MapToCompoundIndexEntityDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CompoundIndexEntityDto>> FindCompoundIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _compoundIndexEntityRepository.FindAllAsync();
+            var elements = await _compoundIndexEntityRepository.FindAllAsync(cancellationToken);
             return elements.MapToCompoundIndexEntityDtoList(_mapper);
         }
 
@@ -66,7 +72,12 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
+            }
             existingCompoundIndexEntity.SomeField = dto.SomeField;
             existingCompoundIndexEntity.CompoundOne = dto.CompoundOne;
             existingCompoundIndexEntity.CompoundTwo = dto.CompoundTwo;
@@ -75,7 +86,12 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCompoundIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id);
+            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingCompoundIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
+            }
             _compoundIndexEntityRepository.Remove(existingCompoundIndexEntity);
         }
 

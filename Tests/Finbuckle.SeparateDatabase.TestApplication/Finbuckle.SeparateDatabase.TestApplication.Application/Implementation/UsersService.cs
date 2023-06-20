@@ -7,6 +7,7 @@ using AutoMapper;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Common;
+using Finbuckle.SeparateDatabase.TestApplication.Domain.Common.Exceptions;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Entities;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -39,28 +40,38 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
                 Roles = dto.Roles.Select(CreateRole).ToList(),
             };
             _userRepository.Add(newUser);
-            await _userRepository.UnitOfWork.SaveChangesAsync();
+            await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newUser.Id;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> FindById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _userRepository.FindByIdAsync(id);
+            var element = await _userRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find User {id}");
+            }
             return element.MapToUserDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<UserDto>> FindAll(CancellationToken cancellationToken = default)
         {
-            var elements = await _userRepository.FindAllAsync();
+            var elements = await _userRepository.FindAllAsync(cancellationToken);
             return elements.MapToUserDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Put(Guid id, UserUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id);
+            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingUser is null)
+            {
+                throw new NotFoundException($"Could not find User {id}");
+            }
             existingUser.Email = dto.Email;
             existingUser.Username = dto.Username;
             existingUser.Roles = UpdateHelper.CreateOrUpdateCollection(existingUser.Roles, dto.Roles, (e, d) => e.Id == d.Id, CreateOrUpdateRole);
@@ -69,7 +80,12 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> Delete(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id);
+            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingUser is null)
+            {
+                throw new NotFoundException($"Could not find User {id}");
+            }
             _userRepository.Remove(existingUser);
             return existingUser.MapToUserDto(_mapper);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.MongoDb.Api.Configuration;
+using Entities.PrivateSetters.MongoDb.Api.Filters;
 using Entities.PrivateSetters.MongoDb.Application;
 using Entities.PrivateSetters.MongoDb.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -31,7 +32,11 @@ namespace Entities.PrivateSetters.MongoDb.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                });
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

@@ -16,6 +16,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IUsersService, UsersService>();
             return services;
         }

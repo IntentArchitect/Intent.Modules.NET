@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.MongoDb.TestApplication.Domain.Common.Exceptions;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUserById
         public async Task<UserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (user is null)
+            {
+                throw new NotFoundException($"Could not find User {request.Id}");
+            }
             return user.MapToUserDto(_mapper);
         }
     }

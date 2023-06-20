@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
         public async Task<Unit> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
         {
             var existingTag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingTag is null)
+            {
+                throw new NotFoundException($"Could not find Tag {request.Id}");
+            }
             _tagRepository.Remove(existingTag);
             return Unit.Value;
         }

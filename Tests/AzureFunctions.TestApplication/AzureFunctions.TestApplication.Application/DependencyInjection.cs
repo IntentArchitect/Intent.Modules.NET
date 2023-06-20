@@ -20,6 +20,7 @@ namespace AzureFunctions.TestApplication.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();
             return services;

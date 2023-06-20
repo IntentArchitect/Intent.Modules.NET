@@ -7,6 +7,7 @@ using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Interfaces;
 using MongoDb.TestApplication.Application.MultikeyIndexEntities;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
@@ -39,7 +40,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 SomeField = dto.SomeField,
             };
             _multikeyIndexEntityRepository.Add(newMultikeyIndexEntity);
-            await _multikeyIndexEntityRepository.UnitOfWork.SaveChangesAsync();
+            await _multikeyIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newMultikeyIndexEntity.Id;
         }
 
@@ -48,14 +49,19 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _multikeyIndexEntityRepository.FindByIdAsync(id);
+            var element = await _multikeyIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (element is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntity {id}");
+            }
             return element.MapToMultikeyIndexEntityDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<MultikeyIndexEntityDto>> FindMultikeyIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _multikeyIndexEntityRepository.FindAllAsync();
+            var elements = await _multikeyIndexEntityRepository.FindAllAsync(cancellationToken);
             return elements.MapToMultikeyIndexEntityDtoList(_mapper);
         }
 
@@ -65,7 +71,12 @@ namespace MongoDb.TestApplication.Application.Implementation
             MultikeyIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntity = await _multikeyIndexEntityRepository.FindByIdAsync(id);
+            var existingMultikeyIndexEntity = await _multikeyIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingMultikeyIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntity {id}");
+            }
             existingMultikeyIndexEntity.MultiKey = dto.MultiKey.ToList();
             existingMultikeyIndexEntity.SomeField = dto.SomeField;
         }
@@ -73,7 +84,12 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteMultikeyIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntity = await _multikeyIndexEntityRepository.FindByIdAsync(id);
+            var existingMultikeyIndexEntity = await _multikeyIndexEntityRepository.FindByIdAsync(id, cancellationToken);
+
+            if (existingMultikeyIndexEntity is null)
+            {
+                throw new NotFoundException($"Could not find MultikeyIndexEntity {id}");
+            }
             _multikeyIndexEntityRepository.Remove(existingMultikeyIndexEntity);
         }
 

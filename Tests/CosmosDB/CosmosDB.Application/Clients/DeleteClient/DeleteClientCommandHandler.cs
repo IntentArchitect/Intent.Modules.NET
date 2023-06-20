@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Domain.Common.Exceptions;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CosmosDB.Application.Clients.DeleteClient
         public async Task<Unit> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             var existingClient = await _clientRepository.FindByIdAsync(request.Identifier, cancellationToken);
+
+            if (existingClient is null)
+            {
+                throw new NotFoundException($"Could not find Client {request.Identifier}");
+            }
             _clientRepository.Remove(existingClient);
             return Unit.Value;
         }

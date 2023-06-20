@@ -16,6 +16,7 @@ namespace MongoDb.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICompoundIndexEntitiesService, CompoundIndexEntitiesService>();
             services.AddTransient<ICompoundIndexEntityMultiParentsService, CompoundIndexEntityMultiParentsService>();
             services.AddTransient<ICompoundIndexEntitySingleParentsService, CompoundIndexEntitySingleParentsService>();

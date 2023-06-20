@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.AzureFunction.TestApplication.Domain.Common.Exceptions;
 using GraphQL.AzureFunction.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.DeleteProdu
         public async Task<ProductDto> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var existingProduct = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingProduct is null)
+            {
+                throw new NotFoundException($"Could not find Product {request.Id}");
+            }
             _productRepository.Remove(existingProduct);
             return existingProduct.MapToProductDto(_mapper);
         }
