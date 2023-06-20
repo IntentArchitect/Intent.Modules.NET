@@ -4,7 +4,10 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,8 +24,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationEventMessageTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
-            AddTypeSource("Domain.Enum");
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             CSharpFile = new CSharpFile(
                     @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
                     relativeLocation: this.GetFolderPath())

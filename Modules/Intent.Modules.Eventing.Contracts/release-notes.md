@@ -1,3 +1,8 @@
+### Version 4.0.5
+
+- Default collection type set to `List<T>`.
+- Fixed: Messages and DTOs not automatically resolving domain Enum using clauses.
+
 ### Version 4.0.4
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

@@ -5,7 +5,9 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,8 +25,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationEventDtoTemplate(IOutputTarget outputTarget, EventingDTOModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateId, "List<{0}>");
-            AddTypeSource(IntegrationEventEnumTemplate.TemplateId, "List<{0}>");
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(TemplateId);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(
                     @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
