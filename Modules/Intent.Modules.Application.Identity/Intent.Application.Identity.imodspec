@@ -14,7 +14,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution</role>
       <location>Configuration</location>
     </template>
     <template id="Intent.Application.Identity.AuthorizeAttribute" externalReference="4d5052dc-6360-46f0-a1e2-e4b81d90424e">
@@ -30,7 +30,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution</role>
       <location>Services</location>
     </template>
     <template id="Intent.Application.Identity.CurrentUserServiceInterface" externalReference="fd12be89-437b-49b9-ba8f-6dba11f39d90">
