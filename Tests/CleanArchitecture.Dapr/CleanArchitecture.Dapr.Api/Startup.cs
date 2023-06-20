@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.Dapr.Api.Configuration;
+using CleanArchitecture.Dapr.Api.Filters;
 using CleanArchitecture.Dapr.Application;
 using CleanArchitecture.Dapr.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -32,7 +33,12 @@ namespace CleanArchitecture.Dapr.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddDapr();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                })
+            .AddDapr();
             services.AddDaprSidekick(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();

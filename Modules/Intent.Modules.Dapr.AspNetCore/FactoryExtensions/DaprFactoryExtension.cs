@@ -18,8 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
     {
         public override string Id => "Intent.Dapr.AspNetCore.DaprFactoryExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
@@ -42,7 +41,8 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
             startupTemplate.AddNugetDependency(NuGetPackages.ManDaprSidekickAspNetCore);
             startupTemplate.CSharpFile.AfterBuild(file =>
             {
-                var configureMethod = file.Classes.First().FindMethod("Configure");
+                var priClass = file.Classes.First();
+                var configureMethod = priClass.FindMethod("Configure");
                 if (configureMethod == null)
                 {
                     return;
@@ -58,10 +58,19 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                     return;
                 }
 
-                var addControllersStatement = configureServicesMethod.FindStatement(x => x.ToString().Contains("services.AddControllers()"));
-                addControllersStatement.InsertBelow("services.AddDaprSidekick(Configuration);");
-                addControllersStatement.Replace("services.AddControllers().AddDapr();");
-            });
+                if (priClass.FindMethod("ConfigureServices")
+                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
+                    CSharpInvocationStatement controllersStatement)
+                {
+                    return;
+                }
+
+                controllersStatement.WithoutSemicolon();
+                controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddDapr"));
+                configureServicesMethod.FindStatement(p => p.GetText(string.Empty).Contains("AddDapr"))
+                    ?.InsertBelow(new CSharpInvocationStatement("services.AddDaprSidekick")
+                        .AddArgument("Configuration"));
+            }, 11);
         }
     }
 }

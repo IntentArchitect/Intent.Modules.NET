@@ -35,20 +35,20 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
             {
                 var priClass = file.Classes.First();
                 if (priClass.FindMethod("ConfigureServices")
-                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement method)
+                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement controllersStatement)
                 {
                     return;
                 }
 
                 CSharpLambdaBlock lambda;
-                if (!method.Statements.Any())
+                if (!controllersStatement.Statements.Any())
                 {
                     lambda = new CSharpLambdaBlock("opt");
-                    method.AddArgument(lambda);
+                    controllersStatement.AddArgument(lambda);
                 }
                 else
                 {
-                    lambda = method.Statements.First() as CSharpLambdaBlock;
+                    lambda = controllersStatement.Statements.First() as CSharpLambdaBlock;
                 }
 
                 lambda.AddStatement($"opt.Filters.Add<{template.GetExceptionFilterName()}>();");

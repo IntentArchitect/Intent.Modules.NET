@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Fixed: Don't overwrite `AddControllers()` statement anymore but apply only the `AddDapr()` where needed.
+
 ### Version 1.0.3
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
