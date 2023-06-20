@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
-                $@"var elements ={(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName.ToPrivateMemberName()}.FindAll{(operationModel.IsAsync() ? "Async" : "")}();");
+                $@"var elements ={(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName.ToPrivateMemberName()}.FindAll{(operationModel.IsAsync() ? "Async" : "")}(cancellationToken);");
             codeLines.Add($@"return elements.MapTo{dtoType}List(_mapper);");
             
             var @class = _template.CSharpFile.Classes.First();

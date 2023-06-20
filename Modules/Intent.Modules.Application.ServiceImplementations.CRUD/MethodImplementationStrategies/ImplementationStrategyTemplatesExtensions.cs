@@ -6,6 +6,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -13,6 +14,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
 public static class ImplementationStrategyTemplatesExtensions
 {
+    public static string GetNotFoundExceptionName(this ICSharpTemplate template)
+    {
+        var exceptionName = template
+            .GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
+        return exceptionName;
+    }
+    
     public record EntityIdAttribute(string IdName);
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity)

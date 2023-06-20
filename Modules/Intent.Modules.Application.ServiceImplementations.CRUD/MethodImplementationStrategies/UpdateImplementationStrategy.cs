@@ -78,7 +78,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var codeLines = new List<CSharpStatement>();
             var idParam = operationModel.Parameters.FirstOrDefault(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase))?.Name 
                 ?? $"{dtoParam.Name}.{dtoModel.Fields.GetEntityIdField(domainModel).Name}";
-            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({idParam});");
+            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({idParam}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"existing{domainTypePascalCased} is null")
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{idParam}}}"");"));
             codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
 
             if (operationModel.TypeReference.Element.IsDTOModel())

@@ -77,7 +77,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
-                $@"var existing{domainTypePascalCased} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()});");
+                $@"var existing{domainTypePascalCased} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"existing{domainTypePascalCased} is null")
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.Single().Name.ToCamelCase()}}}"");"));
             codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Remove(existing{domainTypePascalCased});");
 
             var @class = _template.CSharpFile.Classes.First();

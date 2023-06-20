@@ -75,7 +75,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var repositoryFieldName = $"{domainTypeCamelCased}Repository";
             
             var codeLines = new CSharpStatementAggregator();
-            codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()});");
+            codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"element is null")
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.First().Name.ToCamelCase()}}}"");"));
             codeLines.Add($@"return element.MapTo{dtoType}(_mapper);");
             
             var @class = _template.CSharpFile.Classes.First();

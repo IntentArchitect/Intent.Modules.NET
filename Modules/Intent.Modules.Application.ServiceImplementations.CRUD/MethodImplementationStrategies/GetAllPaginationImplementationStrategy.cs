@@ -71,6 +71,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         codeLines.Add(new CSharpInvocationStatement($@"var results = {(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName.ToPrivateMemberName()}.FindAll{(operationModel.IsAsync() ? "Async" : "")}")
             .AddArgument($"pageNo: {pageNumberVar?.Name.ToParameterName() ?? $"{pageIndexVar.Name.ToParameterName()} + 1"}")
             .AddArgument($"pageSize: {pageSizeVar.Name.ToParameterName()}")
+            .AddStatement("cancellationToken: cancellationToken")
             .WithArgumentsOnNewLines());
         codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{dtoType}(_mapper));");
             

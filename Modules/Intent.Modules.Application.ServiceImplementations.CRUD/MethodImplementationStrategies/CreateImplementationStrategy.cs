@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Add(new{domainTypePascalCased});");
             if (operationModel.TypeReference.Element != null)
             {
-                codeLines.Add($@"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync();");
+                codeLines.Add($@"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 var dtoToReturn = operationModel.TypeReference.Element.AsDTOModel();
                 codeLines.Add(dtoToReturn != null
                     ? $"return new{domainTypePascalCased}.MapTo{_template.GetTypeName(dtoToReturn.InternalElement)}(_mapper);"

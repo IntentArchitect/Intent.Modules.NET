@@ -74,7 +74,9 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
 
         var codeLines = new CSharpStatementAggregator();
         codeLines.Add(
-            $@"var existing{domainModel.Name} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()});");
+            $@"var existing{domainModel.Name} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
+        codeLines.Add(new CSharpIfStatement($"existing{domainModel.Name} is null")
+            .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.Single().Name.ToCamelCase()}}}"");"));
         codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Remove(existing{domainModel.Name});");
         codeLines.Add($@"return existing{domainModel.Name}.MapTo{dtoType}(_mapper);");
 
