@@ -33,6 +33,20 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
         {
             _application = application;
             _template = template;
+            
+            template.AddTypeSource("Domain.NotFoundException");
+            
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var runMethod = @class.FindMethod("Run");
+
+                runMethod.FindStatement<CSharpTryBlock>(x => true)
+                    ?.InsertBelow(new CSharpCatchBlock(template.GetTypeName("Domain.NotFoundException"),
+                            "exception")
+                        .AddStatement("return new NotFoundObjectResult(new { Message = exception.Message });"));
+            });
+            
             if (HttpEndpointModelFactory.GetEndpoint(_template.Model.InternalElement)?.Verb == HttpVerb.Get ||
                 template.Model.Mapping?.Element?.AsOperationModel() == null)
             {
@@ -41,16 +55,14 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
 
             template.CSharpFile.OnBuild(file =>
             {
-                file.AddUsing("FluentValidation");
-                var @class = file.Classes.Single();
+                var @class = file.Classes.First();
                 @class.Constructors.First().AddParameter(GetUnitOfWork(), "unitOfWork", param =>
                 {
                     param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                 });
 
                 var runMethod = @class.FindMethod("Run");
-
-
+                
                 runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
                     ?.InsertBelow($"await _unitOfWork.SaveChangesAsync();");
             }, 10);
