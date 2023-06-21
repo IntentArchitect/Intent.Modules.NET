@@ -1,6 +1,6 @@
 ### Version 4.1.0
 
-- Adds exception handling for NotFoundExceptions if present.
+- AzureFunctions will add catch blocks for `NotFoundExceptions` if that Exception is present due to Repository modules being installed.
 
 ### Version 4.0.2
 

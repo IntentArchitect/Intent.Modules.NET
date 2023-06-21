@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Update: Internal dependency version update to keep compatibility with other modules.
+
 ### Version 4.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

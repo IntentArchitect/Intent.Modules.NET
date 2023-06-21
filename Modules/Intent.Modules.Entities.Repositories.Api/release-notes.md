@@ -1,6 +1,6 @@
 ### Version 4.1.0
 
-- New: Added NotFoundException for queries that can't find Entities by Id.
+- New: Added NotFoundException for queries when they can't find Entities by a search criteria.
 
 ### Version 4.0.6
 

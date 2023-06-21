@@ -1,6 +1,6 @@
 ### Version 1.1.0
 
-- Fixed: Don't overwrite `AddControllers()` statement anymore but apply only the `AddDapr()` where needed.
+- Fixed: Doesn't overwrite `AddControllers()` statement anymore but apply only the `AddDapr()` where needed.
 
 ### Version 1.0.3
 

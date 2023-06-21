@@ -1,3 +1,7 @@
+### Version 4.3.0
+
+- Update: Introduces NotFoundException when an entity is not found.
+
 ### Version 4.2.4
 
 - Supports `pageIndex` and adapts to `pageNo` for pagination implementation.

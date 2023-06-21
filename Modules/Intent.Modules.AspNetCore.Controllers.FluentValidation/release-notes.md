@@ -1,6 +1,6 @@
 ### Version 1.1.0
 
-
+- Obsolete. The functionality of this module has moved to Intent.Application.FluentValidation. It can safely be uninstalled.
 
 ### Version 1.0.1
 

@@ -2,6 +2,7 @@
 
 - FileBuilder metadata updated.
 - Updated contract to include Api Version information.
+- Introduced ExceptionFilter to deal with Exceptions that need to translate into an HTTP response.
 
 ### Version 5.1.1
 
