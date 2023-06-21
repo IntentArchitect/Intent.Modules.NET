@@ -9,20 +9,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="0572ef1a-44db-4147-9795-ae2dea6de472" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
-      <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>0eadc1c3-d3a6-4c82-9213-aa7380c4f54b</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="7db40e3a-4a27-4708-9776-18cf10f59753" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
       <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>

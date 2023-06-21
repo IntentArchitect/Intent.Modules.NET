@@ -23,20 +23,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0d685e1f-3835-4fa5-ae76-bc9824eb5a65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</name>
-      <display>Intent.AspNetCore.Controllers.FluentValidation.FluentValidationFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ad426191-289e-4544-89a5-c45130897c5a</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="6ba24a0a-f013-4e0e-bd1c-c6bbc963119c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
       <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>

@@ -18,7 +18,7 @@
         <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/{version}/version-one" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version">
+    <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>

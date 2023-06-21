@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="89f9074b-2f4a-45f1-bbfa-c4e8e5714b84" type="Version Definition" typeId="0ec760ae-98d8-4e8e-953c-d00691ff7e28">
-  <name>Test Versions</name>
-  <display>Test Versions</display>
+<class id="8e17c7d1-31f7-4a6b-b8e6-1b98c2622a4e" type="Api Version" typeId="0ec760ae-98d8-4e8e-953c-d00691ff7e28">
+  <name>Versions</name>
+  <display>Versions</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>6ecbd572-948c-445a-82f4-e96fee904c03</parentFolderId>
-  <packageId>6ecbd572-948c-445a-82f4-e96fee904c03</packageId>
-  <packageName>Open API Package</packageName>
+  <parentFolderId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</parentFolderId>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="223fa10d-dd98-430b-9f0a-97bf2f98c4e4" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+    <childElement id="0bbd6d09-c92e-4797-9fc8-c8eca8b198e9" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
       <name>V1.0</name>
       <display>V1.0</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>89f9074b-2f4a-45f1-bbfa-c4e8e5714b84</parentFolderId>
-      <packageId>6ecbd572-948c-445a-82f4-e96fee904c03</packageId>
-      <packageName>Open API Package</packageName>
+      <parentFolderId>8e17c7d1-31f7-4a6b-b8e6-1b98c2622a4e</parentFolderId>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -34,15 +30,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="4d0f48cc-eb24-4ca3-8e1e-9423d8698a50" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+    <childElement id="0147fe78-305c-403f-974f-38e024998c78" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
       <name>V2.0</name>
       <display>V2.0</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>89f9074b-2f4a-45f1-bbfa-c4e8e5714b84</parentFolderId>
-      <packageId>6ecbd572-948c-445a-82f4-e96fee904c03</packageId>
-      <packageName>Open API Package</packageName>
+      <parentFolderId>8e17c7d1-31f7-4a6b-b8e6-1b98c2622a4e</parentFolderId>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
           <addedByDefault>false</addedByDefault>

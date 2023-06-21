@@ -60,18 +60,18 @@ public class CqrsControllerModel : IControllerModel
     {
         if (element.IsCommandModel())
         {
-            return element.AsCommandModel().GetApiVersion()
+            return element.AsCommandModel().GetApiVersionSettings()
                 ?.ApplicableVersions()
-                .Select(s => new ApiVersionModel(s))
+                .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
                 .ToList();
         }
 
         if (element.IsQueryModel())
         {
-            return element.AsQueryModel().GetApiVersion()
+            return element.AsQueryModel().GetApiVersionSettings()
                 ?.ApplicableVersions()
-                .Select(s => new ApiVersionModel(s))
+                .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
                 .ToList();
         }

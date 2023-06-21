@@ -18,7 +18,8 @@ using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 namespace Standard.AspNetCore.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/{version}/version-one")]
+    [Route("api/v{version:apiVersion}/version-one")]
+    [ApiVersion("1.0")]
     public class VersionOneController : ControllerBase
     {
         private readonly IVersionOneService _appService;

@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Standard.AspNetCore.TestApplication.Api.Filters;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,16 +22,10 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
     {
         public static IServiceCollection ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ApiVersionSwaggerGenOptions>();
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc(
-                        "v1",
-                        new OpenApiInfo
-                        {
-                            Version = "v1",
-                            Title = "Standard.AspNetCore.TestApplication API"
-                        });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
                 });
@@ -40,7 +39,6 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                 options =>
                 {
                     options.RoutePrefix = "swagger";
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Standard.AspNetCore.TestApplication API V1");
                     options.OAuthAppName("Standard.AspNetCore.TestApplication API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
@@ -49,7 +47,18 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                     options.DocExpansion(DocExpansion.List);
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);
+                    AddSwaggerEndpoints(app, options);
                 });
+        }
+
+        private static void AddSwaggerEndpoints(IApplicationBuilder app, SwaggerUIOptions options)
+        {
+            var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
+
+            foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion))
+            {
+                options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"{options.OAuthConfigObject.AppName} {description.GroupName}");
+            }
         }
     }
 }

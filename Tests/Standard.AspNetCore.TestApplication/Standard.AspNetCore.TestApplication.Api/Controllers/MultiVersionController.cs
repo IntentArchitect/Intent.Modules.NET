@@ -18,7 +18,9 @@ using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 namespace Standard.AspNetCore.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/{version}/multi-version")]
+    [Route("api/v{version:apiVersion}/multi-version")]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     public class MultiVersionController : ControllerBase
     {
         private readonly IMultiVersionService _appService;
@@ -36,6 +38,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [HttpPost("operation-for-version-one")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> OperationForVersionOne(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -54,6 +57,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [HttpPost("operation-for-version-two")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [MapToApiVersion("2.0")]
         public async Task<ActionResult> OperationForVersionTwo(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

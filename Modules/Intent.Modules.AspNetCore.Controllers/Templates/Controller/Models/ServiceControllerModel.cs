@@ -30,9 +30,9 @@ public class ServiceControllerModel : IControllerModel
             .Where(x => x.HasHttpSettings())
             .Select(GetOperation)
             .ToList();
-        ApplicableVersions = model.GetApiVersion()
+        ApplicableVersions = model.GetApiVersionSettings()
             ?.ApplicableVersions()
-            .Select(s => new ApiVersionModel(s))
+            .Select(s => new ControllerApiVersionModel(s))
             .Cast<IApiVersionModel>()
             .ToList() ?? new List<IApiVersionModel>();
     }
@@ -75,9 +75,9 @@ public class ServiceControllerModel : IControllerModel
             allowAnonymous: httpEndpoint.AllowAnonymous,
             authorizationModel: GetAuthorizationModel(model.GetSecured()?.Roles()),
             parameters: httpEndpoint.Inputs.Select(GetInput).ToList(),
-            applicableVersions: model.GetApiVersion()
+            applicableVersions: model.GetApiVersionSettings()
                 ?.ApplicableVersions()
-                .Select(s => new ApiVersionModel(s))
+                .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
                 .ToList() ?? new List<IApiVersionModel>());
     }
@@ -181,16 +181,16 @@ public class ControllerParameterModel : IControllerParameterModel
     public string Value { get; }
 }
 
-public class ApiVersionModel : IApiVersionModel
+public class ControllerApiVersionModel : IApiVersionModel
 {
-    public ApiVersionModel(string definitionName, string version, bool isDeprecated)
+    public ControllerApiVersionModel(string definitionName, string version, bool isDeprecated)
     {
         DefinitionName = definitionName;
         Version = version;
         IsDeprecated = isDeprecated;
     }
 
-    public ApiVersionModel(ICanBeReferencedType element)
+    public ControllerApiVersionModel(ICanBeReferencedType element)
     {
         var versionModel = element.AsVersionModel();
         if (versionModel == null)
@@ -198,7 +198,7 @@ public class ApiVersionModel : IApiVersionModel
             throw new InvalidOperationException($"Element {element.Id} [{element.Name}] is not a VersionModel.");
         }
 
-        DefinitionName = versionModel.VersionDefinition?.Name;
+        DefinitionName = versionModel.ApiVersion?.Name;
         Version = versionModel.Name;
         IsDeprecated = versionModel.GetVersionSettings()?.IsDeprecated() == true;
     }
@@ -207,7 +207,7 @@ public class ApiVersionModel : IApiVersionModel
     public string Version { get; }
     public bool IsDeprecated { get; }
 
-    protected bool Equals(ApiVersionModel other)
+    protected bool Equals(ControllerApiVersionModel other)
     {
         return DefinitionName == other.DefinitionName && 
                Version == other.Version && 
@@ -219,7 +219,7 @@ public class ApiVersionModel : IApiVersionModel
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != this.GetType()) return false;
-        return Equals((ApiVersionModel)obj);
+        return Equals((ControllerApiVersionModel)obj);
     }
 
     public override int GetHashCode()
