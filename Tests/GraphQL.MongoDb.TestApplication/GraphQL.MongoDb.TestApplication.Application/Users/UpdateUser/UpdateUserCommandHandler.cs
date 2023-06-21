@@ -34,6 +34,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
             existingUser.Email = request.Email;
 
             _userRepository.Update(existingUser);
+            await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingUser.MapToUserDto(_mapper);
         }
     }

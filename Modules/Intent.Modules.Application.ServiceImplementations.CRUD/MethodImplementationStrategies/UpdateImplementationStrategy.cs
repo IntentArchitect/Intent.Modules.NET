@@ -88,6 +88,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
             if (operationModel.TypeReference.Element.IsDTOModel())
             {
+                codeLines.Add($"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 codeLines.Add($"return existing{domainTypePascalCased}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
             }
 

@@ -30,6 +30,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.UpdateProdu
         {
             var existingProduct = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
             existingProduct.Name = request.Name;
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingProduct.MapToProductDto(_mapper);
         }
     }

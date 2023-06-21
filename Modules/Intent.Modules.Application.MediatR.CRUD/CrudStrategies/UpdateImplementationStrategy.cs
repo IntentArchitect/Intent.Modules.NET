@@ -104,9 +104,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
-            codeLines.Add(dtoToReturn != null
-                ? $@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
-                : $"return Unit.Value;");
+            if (dtoToReturn != null)
+            {
+                codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
+                codeLines.Add($@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+            }
+            else
+            {
+                codeLines.Add($"return Unit.Value;");
+            }
 
             return codeLines;
 

@@ -33,6 +33,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.UpdatePrivilege
             existingPrivilege.Description = request.Description;
 
             _privilegeRepository.Update(existingPrivilege);
+            await _privilegeRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingPrivilege.MapToPrivilegeDto(_mapper);
         }
     }
