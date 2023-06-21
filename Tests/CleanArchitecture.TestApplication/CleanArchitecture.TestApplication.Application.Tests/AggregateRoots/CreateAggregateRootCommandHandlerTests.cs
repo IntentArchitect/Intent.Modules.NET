@@ -4,21 +4,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
-using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
-using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using FluentAssertions;
-using FluentAssertions.Primitives;
-using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

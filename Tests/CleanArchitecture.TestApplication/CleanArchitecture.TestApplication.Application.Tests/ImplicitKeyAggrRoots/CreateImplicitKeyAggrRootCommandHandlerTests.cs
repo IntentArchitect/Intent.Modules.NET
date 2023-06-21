@@ -4,13 +4,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
-using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.CreateImplicitKeyAggrRoot;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -29,6 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var fixture = new Fixture();
             yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootCommand>() };
         }
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsImplicitKeyAggrRootToRepository(CreateImplicitKeyAggrRootCommand testCommand)

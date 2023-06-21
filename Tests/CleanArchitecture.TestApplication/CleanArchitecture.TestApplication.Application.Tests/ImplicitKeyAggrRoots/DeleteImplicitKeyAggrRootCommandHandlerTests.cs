@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.DeleteImplicitKeyAggrRoot;
 using CleanArchitecture.TestApplication.Domain.Common;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -32,6 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var testCommand = fixture.Create<DeleteImplicitKeyAggrRootCommand>();
             yield return new object[] { testCommand, existingEntity };
         }
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_DeletesImplicitKeyAggrRootFromRepository(

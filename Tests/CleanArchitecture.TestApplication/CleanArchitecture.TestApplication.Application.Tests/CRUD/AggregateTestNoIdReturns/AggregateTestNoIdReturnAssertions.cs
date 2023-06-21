@@ -3,7 +3,6 @@ using System.Linq;
 using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.CreateAggregateTestNoIdReturn;
 using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.UpdateAggregateTestNoIdReturn;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -16,7 +15,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateTest
     public static class AggregateTestNoIdReturnAssertions
     {
         public static void AssertEquivalent(
-            UpdateAggregateTestNoIdReturnCommand expectedDto,
+            CreateAggregateTestNoIdReturnCommand expectedDto,
             AggregateTestNoIdReturn actualEntity)
         {
             if (expectedDto == null)
@@ -27,19 +26,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateTest
 
             actualEntity.Should().NotBeNull();
             actualEntity.Attribute.Should().Be(expectedDto.Attribute);
-        }
-
-        public static void AssertEquivalent(AggregateTestNoIdReturnDto actualDto, AggregateTestNoIdReturn expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.Id.Should().Be(expectedEntity.Id);
-            actualDto.Attribute.Should().Be(expectedEntity.Attribute);
         }
 
         public static void AssertEquivalent(
@@ -69,8 +55,21 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateTest
             }
         }
 
+        public static void AssertEquivalent(AggregateTestNoIdReturnDto actualDto, AggregateTestNoIdReturn expectedEntity)
+        {
+            if (expectedEntity == null)
+            {
+                actualDto.Should().BeNull();
+                return;
+            }
+
+            actualDto.Should().NotBeNull();
+            actualDto.Id.Should().Be(expectedEntity.Id);
+            actualDto.Attribute.Should().Be(expectedEntity.Attribute);
+        }
+
         public static void AssertEquivalent(
-            CreateAggregateTestNoIdReturnCommand expectedDto,
+            UpdateAggregateTestNoIdReturnCommand expectedDto,
             AggregateTestNoIdReturn actualEntity)
         {
             if (expectedDto == null)
