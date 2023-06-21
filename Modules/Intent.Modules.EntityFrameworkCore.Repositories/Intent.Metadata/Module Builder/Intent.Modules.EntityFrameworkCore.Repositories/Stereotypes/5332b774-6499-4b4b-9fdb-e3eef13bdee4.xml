@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" version="3.1.0">
-  <name>Stored Procedure Settings</name>
+<stereotypeDefinition id="5332b774-6499-4b4b-9fdb-e3eef13bdee4" version="3.1.0">
+  <name>Stored Procedure Parameter Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="575edd35-9438-406d-b0a7-b99d6f29b560">Stored Procedure</type>
+    <type id="5823b192-eb03-47c8-90d8-5501c922e9a5">Stored Procedure Parameter</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
@@ -20,14 +20,13 @@
   <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
   <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
   <properties>
-    <property id="1ae41308-484e-41e1-ac94-66f33bc88c36">
-      <hint>The name of the stored procedure in the schema, uses the Element Name if unspecified.</hint>
-      <name>Name in Schema</name>
+    <property id="17aa77a0-c531-49ec-bed0-9cbb125f6ce3">
+      <name>Is Output Parameter</name>
       <type>string</type>
-      <controlType>text</controlType>
+      <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
-      <defaultValue />
+      <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
     </property>

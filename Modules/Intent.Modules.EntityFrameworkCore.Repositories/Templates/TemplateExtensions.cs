@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractExtensionMethods;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
@@ -34,6 +35,16 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
         public static string GetCustomRepositoryInterfaceName(this IIntentTemplate template, Intent.Modelers.Domain.Repositories.Api.RepositoryModel model)
         {
             return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, model);
+        }
+
+        public static string GetDataContractExtensionMethodsName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.DataContractModel
+        {
+            return template.GetTypeName(DataContractExtensionMethodsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDataContractExtensionMethodsName(this IIntentTemplate template, Intent.Modelers.Domain.Api.DataContractModel model)
+        {
+            return template.GetTypeName(DataContractExtensionMethodsTemplate.TemplateId, model);
         }
 
         public static string GetEFRepositoryInterfaceName(this IIntentTemplate template)

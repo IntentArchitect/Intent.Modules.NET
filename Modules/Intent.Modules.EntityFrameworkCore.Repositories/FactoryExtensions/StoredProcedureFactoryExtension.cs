@@ -65,15 +65,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
             foreach (var (entity, repository) in classRepositories)
             {
-                var storedProcedures = StoredProcedureHelpers.GetStoredProcedureModels(repository);
+                var storedProcedures = repository.GetStoredProcedureModels();
                 if (!storedProcedures.Any())
                 {
                     continue;
                 }
 
-                if (TryGetTemplate<ICSharpFileBuilderTemplate>(application, EntityRepositoryInterfaceTemplate.TemplateId, entity, out var interfaceTemplate))
+                if (TryGetTemplate<EntityRepositoryInterfaceTemplate>(application, EntityRepositoryInterfaceTemplate.TemplateId, entity, out var interfaceTemplate))
                 {
-                    StoredProcedureHelpers.ApplyInterfaceMethods(interfaceTemplate, storedProcedures);
+                    StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);
                 }
 
                 if (TryGetTemplate<RepositoryTemplate>(application, RepositoryTemplate.TemplateId, entity, out var implementationTemplate))
@@ -95,7 +95,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                         });
                     }
 
-                    StoredProcedureHelpers.ApplyImplementationMethods(implementationTemplate, storedProcedures);
+                    StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures);
                 }
             }
         }

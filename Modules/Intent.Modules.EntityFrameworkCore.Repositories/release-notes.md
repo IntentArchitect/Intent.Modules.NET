@@ -1,3 +1,7 @@
+### Version 4.2.5
+
+- Stored procedures now support `OUTPUT` and `Table-Valued` parameters.
+
 ### Version 4.2.4
 
 - FindByIdAsync indicates that return type could be null.

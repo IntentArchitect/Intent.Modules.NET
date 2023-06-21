@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#4464fabe-c59e-4d90-81fc-c9245bdd1afd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DataContractModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContractModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#4a72a851-1719-426d-b41c-2996f5d63fec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/RepositoryExtensionsModel.cs</ApplicationRelativeFilePath>
@@ -38,6 +46,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/StoredProcedureParameterModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StoredProcedureParameterModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#5823b192-eb03-47c8-90d8-5501c922e9a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/StoredProcedureParameterModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StoredProcedureParameterModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -118,6 +134,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d500e538-e02c-4c72-844a-887ed913529a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#d500e538-e02c-4c72-844a-887ed913529a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContractExtensionMethods/DataContractExtensionMethodsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

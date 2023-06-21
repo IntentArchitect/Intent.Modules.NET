@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" version="3.1.0">
-  <name>Stored Procedure Settings</name>
+<stereotypeDefinition id="43937e01-7079-4ab1-b5c4-b3cb0dee9dcd" version="3.1.0">
+  <name>User-Defined Table Type Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="575edd35-9438-406d-b0a7-b99d6f29b560">Stored Procedure</type>
+    <type id="4464fabe-c59e-4d90-81fc-c9245bdd1afd">Data Contract</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
@@ -20,9 +20,9 @@
   <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
   <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
   <properties>
-    <property id="1ae41308-484e-41e1-ac94-66f33bc88c36">
-      <hint>The name of the stored procedure in the schema, uses the Element Name if unspecified.</hint>
-      <name>Name in Schema</name>
+    <property id="fe47cbcb-5976-462c-8f85-7dbffcfea97d">
+      <hint>The name of the User-Defined Table Type within the SQL Server schema. Uses the Element Name if unspecified.</hint>
+      <name>Name</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>

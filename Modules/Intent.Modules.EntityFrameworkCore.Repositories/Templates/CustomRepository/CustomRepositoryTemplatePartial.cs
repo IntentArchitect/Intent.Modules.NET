@@ -34,13 +34,13 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                         ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
                     });
 
-                    var storedProcedures = StoredProcedureHelpers.GetStoredProcedureModels(Model);
+                    var storedProcedures = Model.GetStoredProcedureModels();
                     if (!storedProcedures.Any())
                     {
                         return;
                     }
 
-                    StoredProcedureHelpers.ApplyImplementationMethods(this, storedProcedures);
+                    StoredProcedureHelpers.ApplyImplementationMethods<CustomRepositoryTemplate, RepositoryModel>(this, storedProcedures);
                 });
         }
 

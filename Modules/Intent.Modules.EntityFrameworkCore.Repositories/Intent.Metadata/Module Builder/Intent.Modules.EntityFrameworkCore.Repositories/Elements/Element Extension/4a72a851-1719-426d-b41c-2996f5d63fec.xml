@@ -61,8 +61,8 @@
       <metadata />
       <childElements>
         <childElement id="3d02fd30-68db-4830-b49b-3cb809be4e4e" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>New Stored Procedure</name>
-          <display>New Stored Procedure: Stored Procedure</display>
+          <name>Add Stored Procedure</name>
+          <display>Add Stored Procedure: Stored Procedure</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="4f878864-78d5-4b47-a1eb-2b5c5ada8de7">

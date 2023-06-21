@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,13 +27,13 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", _ =>
                 {
-                    var storedProcedures = StoredProcedureHelpers.GetStoredProcedureModels(Model);
+                    var storedProcedures = Model.GetStoredProcedureModels();
                     if (!storedProcedures.Any())
                     {
                         return;
                     }
 
-                    StoredProcedureHelpers.ApplyInterfaceMethods(this, storedProcedures);
+                    StoredProcedureHelpers.ApplyInterfaceMethods<CustomRepositoryInterfaceTemplate, RepositoryModel>(this, storedProcedures);
                 });
         }
 
