@@ -428,6 +428,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/CreateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/CreateClassWithEnumsCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/CreateClassWithEnumsCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/CreateClassWithEnumsCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#8d749a7c-140a-49ca-9bf2-8adb73311a72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/DeleteClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/DeleteClassWithEnumsCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#e87a904e-e8a5-4e19-872e-255e6bf197d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/GetClassWithEnumsByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/UpdateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/UpdateClassWithEnumsCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/UpdateClassWithEnumsCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/UpdateClassWithEnumsCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
@@ -504,6 +552,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Enums/ClassWithEnums/ClassWithEnumsAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/ClassWithEnums/ClassWithEnumsAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1456,6 +1512,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateTestNoIdReturns/UpdateAggregateTestNoIdReturn/UpdateAggregateTestNoIdReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#09590c38-69ac-4e42-a8eb-5bc3645f78a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/ClassWithEnumsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/ClassWithEnumsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#09590c38-69ac-4e42-a8eb-5bc3645f78a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/ClassWithEnumsDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/ClassWithEnumsDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8d749a7c-140a-49ca-9bf2-8adb73311a72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8d749a7c-140a-49ca-9bf2-8adb73311a72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8d749a7c-140a-49ca-9bf2-8adb73311a72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/DeleteClassWithEnums/DeleteClassWithEnumsCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#cbff8e99-069f-41ff-b604-b1899cb7605c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#cbff8e99-069f-41ff-b604-b1899cb7605c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#cbff8e99-069f-41ff-b604-b1899cb7605c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnums/GetClassWithEnumsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e87a904e-e8a5-4e19-872e-255e6bf197d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e87a904e-e8a5-4e19-872e-255e6bf197d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#e87a904e-e8a5-4e19-872e-255e6bf197d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsById/GetClassWithEnumsByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/UpdateClassWithEnums/UpdateClassWithEnumsCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2732,6 +2924,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Enums/ClassWithEnums.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/ClassWithEnums.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/NullabilityPeer.cs</ApplicationRelativeFilePath>
@@ -2752,6 +2952,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/TestNullablityChild.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/TestNullablityChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Enums/EnumWithDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumWithDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#8e99eda1-52d6-4f0a-9b9e-328eefa07361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Enums/EnumWithoutDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumWithoutDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Enums/EnumWithoutValues.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumWithoutValues.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2864,6 +3088,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DefaultDiagram/IClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/IClassWithDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Enums/IClassWithEnumsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/IClassWithEnumsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3148,6 +3380,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Enums/ClassWithEnumsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/ClassWithEnumsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Nullability/NullabilityPeerConfiguration.cs</ApplicationRelativeFilePath>
@@ -3248,6 +3488,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DefaultDiagram/ClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Enums/ClassWithEnumsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/ClassWithEnumsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

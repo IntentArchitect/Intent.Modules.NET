@@ -44,14 +44,34 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.SampleEnum, () => default));
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.SampleEnum, () => (NoDefaultLiteralEnum)0));
             var testCommand = fixture.Create<UpdateTestNullablityCommand>();
             yield return new object[] { testCommand, "SampleEnum", "has a range of values which does not include" };
 
             fixture = new Fixture();
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.SampleEnum, () => (NoDefaultLiteralEnum)3));
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Str, () => default));
             testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            yield return new object[] { testCommand, "SampleEnum", "has a range of values which does not include" };
+
+            fixture = new Fixture();
             yield return new object[] { testCommand, "Str", "not be empty" };
+
+            fixture = new Fixture();
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.NullableEnum, () => (NoDefaultLiteralEnum?)0));
+            testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            yield return new object[] { testCommand, "NullableEnum", "has a range of values which does not include" };
+
+            fixture = new Fixture();
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.NullableEnum, () => (NoDefaultLiteralEnum?)3));
+            testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            yield return new object[] { testCommand, "NullableEnum", "has a range of values which does not include" };
+
+            fixture = new Fixture();
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.DefaultLiteralEnum, () => (DefaultLiteralEnum)3));
+            testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            yield return new object[] { testCommand, "DefaultLiteralEnum", "has a range of values which does not include" };
         }
 
         [Theory]

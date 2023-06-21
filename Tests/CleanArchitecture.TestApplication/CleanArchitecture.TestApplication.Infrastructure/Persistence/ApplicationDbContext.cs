@@ -9,12 +9,14 @@ using CleanArchitecture.TestApplication.Domain.Entities.Async;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
+using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +44,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
         public DbSet<AsyncOperationsClass> AsyncOperationsClasses { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
+        public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
@@ -71,6 +74,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new AggregateTestNoIdReturnConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeManyBConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
