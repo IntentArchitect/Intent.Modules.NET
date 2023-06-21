@@ -50,12 +50,12 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
 
             fixture = new Fixture();
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.SampleEnum, () => (NoDefaultLiteralEnum)3));
-            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Str, () => default));
-            testCommand = fixture.Create<UpdateTestNullablityCommand>();
             testCommand = fixture.Create<UpdateTestNullablityCommand>();
             yield return new object[] { testCommand, "SampleEnum", "has a range of values which does not include" };
 
             fixture = new Fixture();
+            fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Str, () => default));
+            testCommand = fixture.Create<UpdateTestNullablityCommand>();
             yield return new object[] { testCommand, "Str", "not be empty" };
 
             fixture = new Fixture();

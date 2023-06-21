@@ -45,19 +45,19 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithoutDefaultLiteral, () => (EnumWithoutDefaultLiteral)0));
+            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithDefaultLiteral, () => (EnumWithDefaultLiteral)4));
             var testCommand = fixture.Create<CreateClassWithEnumsCommand>();
+            yield return new object[] { testCommand, "EnumWithDefaultLiteral", "has a range of values which does not include" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithoutDefaultLiteral, () => (EnumWithoutDefaultLiteral)0));
+            testCommand = fixture.Create<CreateClassWithEnumsCommand>();
             yield return new object[] { testCommand, "EnumWithoutDefaultLiteral", "has a range of values which does not include" };
 
             fixture = new Fixture();
             fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithoutDefaultLiteral, () => (EnumWithoutDefaultLiteral)4));
             testCommand = fixture.Create<CreateClassWithEnumsCommand>();
             yield return new object[] { testCommand, "EnumWithoutDefaultLiteral", "has a range of values which does not include" };
-
-            fixture = new Fixture();
-            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithDefaultLiteral, () => (EnumWithDefaultLiteral)4));
-            testCommand = fixture.Create<CreateClassWithEnumsCommand>();
-            yield return new object[] { testCommand, "EnumWithDefaultLiteral", "has a range of values which does not include" };
 
             fixture = new Fixture();
             fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.EnumWithoutValues, () => (EnumWithoutValues)3));

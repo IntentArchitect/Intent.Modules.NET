@@ -3,7 +3,6 @@ using System.Linq;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
 {
     public static class AggregateRootLongAssertions
     {
-        public static void AssertEquivalent(UpdateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)
+        public static void AssertEquivalent(CreateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)
         {
             if (expectedDto == null)
             {
@@ -29,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
         }
 
         public static void AssertEquivalent(
-            UpdateAggregateRootLongCompositeOfAggrLongDto expectedDto,
+            CreateAggregateRootLongCompositeOfAggrLongDto expectedDto,
             CompositeOfAggrLong actualEntity)
         {
             if (expectedDto == null)
@@ -71,7 +70,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
-        public static void AssertEquivalent(CreateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)
+        public static void AssertEquivalent(UpdateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)
         {
             if (expectedDto == null)
             {
@@ -85,7 +84,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
         }
 
         public static void AssertEquivalent(
-            CreateAggregateRootLongCompositeOfAggrLongDto expectedDto,
+            UpdateAggregateRootLongCompositeOfAggrLongDto expectedDto,
             CompositeOfAggrLong actualEntity)
         {
             if (expectedDto == null)

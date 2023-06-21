@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.TestNullablities.GetTestNullablityById;
 using CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNullablities;
 using CleanArchitecture.TestApplication.Domain.Common;
