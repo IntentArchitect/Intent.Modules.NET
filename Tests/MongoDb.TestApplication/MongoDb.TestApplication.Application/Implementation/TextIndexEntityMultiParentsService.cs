@@ -68,6 +68,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id);
             existingTextIndexEntityMultiParent.SomeField = dto.SomeField;
+            _textIndexEntityMultiParentRepository.Update(existingTextIndexEntityMultiParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

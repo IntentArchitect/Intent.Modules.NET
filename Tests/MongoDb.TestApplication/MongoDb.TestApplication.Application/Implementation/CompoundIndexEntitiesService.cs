@@ -70,6 +70,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             existingCompoundIndexEntity.SomeField = dto.SomeField;
             existingCompoundIndexEntity.CompoundOne = dto.CompoundOne;
             existingCompoundIndexEntity.CompoundTwo = dto.CompoundTwo;
+            _compoundIndexEntityRepository.Update(existingCompoundIndexEntity);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

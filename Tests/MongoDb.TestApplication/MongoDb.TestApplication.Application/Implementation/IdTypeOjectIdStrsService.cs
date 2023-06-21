@@ -66,6 +66,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id);
             existingIdTypeOjectIdStr.Attribute = dto.Attribute;
+            _idTypeOjectIdStrRepository.Update(existingIdTypeOjectIdStr);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

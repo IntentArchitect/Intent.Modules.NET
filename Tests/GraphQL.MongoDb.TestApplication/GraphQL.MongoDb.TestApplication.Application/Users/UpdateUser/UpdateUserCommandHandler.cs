@@ -32,6 +32,8 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
             existingUser.Name = request.Name;
             existingUser.Surname = request.Surname;
             existingUser.Email = request.Email;
+
+            _userRepository.Update(existingUser);
             return existingUser.MapToUserDto(_mapper);
         }
     }

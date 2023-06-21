@@ -68,6 +68,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingCompoundIndexEntityMultiParent = await _compoundIndexEntityMultiParentRepository.FindByIdAsync(id);
             existingCompoundIndexEntityMultiParent.SomeField = dto.SomeField;
+            _compoundIndexEntityMultiParentRepository.Update(existingCompoundIndexEntityMultiParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

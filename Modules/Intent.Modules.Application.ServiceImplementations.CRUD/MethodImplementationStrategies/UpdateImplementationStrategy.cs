@@ -81,6 +81,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({idParam});");
             codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
 
+            if (RepositoryRequiresExplicitUpdate(domainModel))
+            {
+                codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Update(existing{domainTypePascalCased});");
+            }
+
             if (operationModel.TypeReference.Element.IsDTOModel())
             {
                 codeLines.Add($"return existing{domainTypePascalCased}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
@@ -108,6 +113,17 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
             }
         }
+
+        private bool RepositoryRequiresExplicitUpdate(ClassModel domainModel)
+        {
+            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       domainModel,
+                       out var repositoryInterfaceTemplate) &&
+                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+                   requiresUpdate;
+        }
+
 
         private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, IElement domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {

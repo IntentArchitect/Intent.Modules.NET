@@ -68,6 +68,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingTextIndexEntitySingleParent = await _textIndexEntitySingleParentRepository.FindByIdAsync(id);
             existingTextIndexEntitySingleParent.SomeField = dto.SomeField;
+            _textIndexEntitySingleParentRepository.Update(existingTextIndexEntitySingleParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

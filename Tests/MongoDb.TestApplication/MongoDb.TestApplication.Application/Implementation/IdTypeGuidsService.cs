@@ -59,6 +59,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id);
             existingIdTypeGuid.Attribute = dto.Attribute;
+            _idTypeGuidRepository.Update(existingIdTypeGuid);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

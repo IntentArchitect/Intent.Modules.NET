@@ -68,6 +68,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
             var existingMultikeyIndexEntityMultiParent = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id);
             existingMultikeyIndexEntityMultiParent.SomeField = dto.SomeField;
+            _multikeyIndexEntityMultiParentRepository.Update(existingMultikeyIndexEntityMultiParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

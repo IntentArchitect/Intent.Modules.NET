@@ -71,7 +71,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
 
         public override void AfterTemplateRegistration()
         {
-            base.BeforeTemplateExecution();
+            base.AfterTemplateRegistration();
 
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
             if (contractTemplate == null)

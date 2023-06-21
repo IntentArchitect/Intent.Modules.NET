@@ -68,6 +68,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id);
             existingTextIndexEntity.FullText = dto.FullText;
             existingTextIndexEntity.SomeField = dto.SomeField;
+            _textIndexEntityRepository.Update(existingTextIndexEntity);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
