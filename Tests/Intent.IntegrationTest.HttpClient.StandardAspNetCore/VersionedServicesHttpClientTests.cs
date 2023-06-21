@@ -1,7 +1,9 @@
 ﻿using Intent.IntegrationTest.HttpClient.Common;
 using Intent.IntegrationTest.HttpClient.StandardAspNetCore.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
+using Standard.AspNetCore.TestApplication.Api.Configuration;
 using Standard.AspNetCore.TestApplication.Api.Controllers;
+using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices.IntegrationServiceProxy;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices.MultiVersionServiceProxy;
@@ -60,7 +62,9 @@ public class VersionedServicesHttpClientTests
         var serviceMock = new VersionOneService();
         var mockUnitOfWork = new MockUnitOfWork();
         return x => x.AddTransient<IVersionOneService>(_ => serviceMock)
-            .AddTransient<IUnitOfWork>(_ => mockUnitOfWork);
+            .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
+            .AddTransient<IValidationService, ValidationService>()
+            .ConfigureApiVersioning();
     }
     
     private static Action<IServiceCollection> GetMultiDiServices()
@@ -68,7 +72,9 @@ public class VersionedServicesHttpClientTests
         var serviceMock = new MultiVersionService();
         var mockUnitOfWork = new MockUnitOfWork();
         return x => x.AddTransient<IMultiVersionService>(_ => serviceMock)
-            .AddTransient<IUnitOfWork>(_ => mockUnitOfWork);
+            .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
+            .AddTransient<IValidationService, ValidationService>()
+            .ConfigureApiVersioning();
     }
 
     public class MockUnitOfWork : IUnitOfWork

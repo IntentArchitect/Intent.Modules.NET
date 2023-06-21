@@ -3,7 +3,9 @@ using Intent.IntegrationTest.HttpClient.Common;
 using Intent.IntegrationTest.HttpClient.StandardAspNetCore.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
+using Standard.AspNetCore.TestApplication.Api.Configuration;
 using Standard.AspNetCore.TestApplication.Api.Controllers;
+using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices.InvoiceServiceProxy;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
@@ -47,9 +49,9 @@ public class InvoiceServiceHttpClientTests
     public async Task TestFindInvoiceById()
     {
         var id = new Guid("DDFEE1C9-766A-4C11-9C97-DFB7B820D9DE");
-        var number = "123";
+        const string number = "123";
         var invoiceRepository = Substitute.For<IInvoiceRepository>();
-        invoiceRepository.FindByIdAsync(id, default).Returns(Task.FromResult(new Invoice { Id = id, Number = "123" }));
+        invoiceRepository.FindByIdAsync(id, Arg.Any<CancellationToken>())!.Returns((ci) => Task.FromResult(new Invoice { Id = id, Number = number }));
 
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
@@ -66,6 +68,8 @@ public class InvoiceServiceHttpClientTests
         var mapper = mapperConfiguration.CreateMapper();
         var serviceMock = new InvoicesService(invoiceRepository, mapper);
         return x => x.AddTransient<IInvoicesService>(_ => serviceMock)
-            .AddTransient<IUnitOfWork>(_ => invoiceRepository.UnitOfWork);
+            .AddTransient<IUnitOfWork>(_ => invoiceRepository.UnitOfWork)
+            .AddTransient<IValidationService, ValidationService>()
+            .ConfigureApiVersioning();
     }
 }

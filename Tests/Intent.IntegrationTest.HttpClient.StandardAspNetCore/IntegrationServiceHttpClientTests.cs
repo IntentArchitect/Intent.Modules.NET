@@ -2,7 +2,9 @@
 using Intent.IntegrationTest.HttpClient.Common;
 using Intent.IntegrationTest.HttpClient.StandardAspNetCore.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
+using Standard.AspNetCore.TestApplication.Api.Configuration;
 using Standard.AspNetCore.TestApplication.Api.Controllers;
+using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Common.Exceptions;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices.IntegrationServiceProxy;
@@ -165,7 +167,9 @@ public class IntegrationServiceHttpClientTests
         var serviceMock = new IntegrationService();
         var mockUnitOfWork = new MockUnitOfWork();
         return x => x.AddTransient<IIntegrationService>(_ => serviceMock)
-                .AddTransient<IUnitOfWork>(_ => mockUnitOfWork);
+                .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
+                .AddTransient<IValidationService, ValidationService>()
+                .ConfigureApiVersioning();
     }
 
     public class MockUnitOfWork : IUnitOfWork
