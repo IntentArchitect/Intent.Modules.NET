@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.CQRS.TestApplication.Domain.Common.Exceptions;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer
         public async Task<CustomerDto> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer {request.Id}");
+            }
             _customerRepository.Remove(existingCustomer);
             return existingCustomer.MapToCustomerDto(_mapper);
         }

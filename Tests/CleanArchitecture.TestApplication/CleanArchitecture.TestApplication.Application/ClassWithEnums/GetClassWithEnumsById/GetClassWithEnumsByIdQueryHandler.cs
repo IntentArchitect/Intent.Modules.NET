@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,6 +31,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.GetClassW
             CancellationToken cancellationToken)
         {
             var classWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (classWithEnums is null)
+            {
+                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+            }
             return classWithEnums.MapToClassWithEnumsDto(_mapper);
         }
     }

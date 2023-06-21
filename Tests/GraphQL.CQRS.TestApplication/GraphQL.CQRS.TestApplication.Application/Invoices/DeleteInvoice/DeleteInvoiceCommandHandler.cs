@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.CQRS.TestApplication.Domain.Common.Exceptions;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,11 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.DeleteInvoice
         public async Task<InvoiceDto> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingInvoice is null)
+            {
+                throw new NotFoundException($"Could not find Invoice {request.Id}");
+            }
             _invoiceRepository.Remove(existingInvoice);
             return existingInvoice.MapToInvoiceDto(_mapper);
         }

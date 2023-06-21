@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteClassWithEnums;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using FluentAssertions;
@@ -67,7 +68,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            await act.Should().ThrowAsync<ArgumentNullException>();
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }

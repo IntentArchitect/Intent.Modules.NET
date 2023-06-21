@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -25,6 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
         public async Task<Unit> Handle(DeleteClassWithEnumsCommand request, CancellationToken cancellationToken)
         {
             var existingClassWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingClassWithEnums is null)
+            {
+                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+            }
             _classWithEnumsRepository.Remove(existingClassWithEnums);
             return Unit.Value;
         }

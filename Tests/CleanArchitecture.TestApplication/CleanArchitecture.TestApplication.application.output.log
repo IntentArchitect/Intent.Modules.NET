@@ -1748,6 +1748,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#09590c38-69ac-4e42-a8eb-5bc3645f78a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/ClassWithEnumsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/ClassWithEnumsDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/CreateClassWithEnums/CreateClassWithEnumsCommand.cs</ApplicationRelativeFilePath>

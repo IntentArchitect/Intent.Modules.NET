@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.UpdateCla
         public async Task<Unit> Handle(UpdateClassWithEnumsCommand request, CancellationToken cancellationToken)
         {
             var existingClassWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingClassWithEnums is null)
+            {
+                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+            }
             existingClassWithEnums.EnumWithDefaultLiteral = request.EnumWithDefaultLiteral;
             existingClassWithEnums.EnumWithoutDefaultLiteral = request.EnumWithoutDefaultLiteral;
             existingClassWithEnums.EnumWithoutValues = request.EnumWithoutValues;

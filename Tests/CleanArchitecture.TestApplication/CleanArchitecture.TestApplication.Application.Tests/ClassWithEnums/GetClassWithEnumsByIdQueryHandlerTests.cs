@@ -8,6 +8,7 @@ using AutoMapper;
 using CleanArchitecture.TestApplication.Application.ClassWithEnums.GetClassWithEnumsById;
 using CleanArchitecture.TestApplication.Application.Tests.Enums.ClassWithEnums;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using FluentAssertions;
@@ -65,7 +66,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdQuery_ReturnsEmptyResult()
+        public async Task Handle_WithInvalidIdQuery_ThrowsNotFoundException()
         {
             // Arrange
             var fixture = new Fixture();
@@ -77,10 +78,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             var sut = new GetClassWithEnumsByIdQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(query, CancellationToken.None);
+            var act = async () => await sut.Handle(query, CancellationToken.None);
 
             // Assert
-            result.Should().Be(null);
+            await act.Should().ThrowAsync<NotFoundException>();
         }
     }
 }
