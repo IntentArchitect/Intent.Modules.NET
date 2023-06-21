@@ -31,6 +31,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomRepository, CustomRepository>();
+            services.AddTransient<ISqlParameterRepositoryWithNameRepository, SqlParameterRepositoryWithNameRepository>();
+            services.AddTransient<ISqlParameterRepositoryWithoutNameRepository, SqlParameterRepositoryWithoutNameRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();
             services.AddTransient<IAggregateRoot2CompositionRepository, AggregateRoot2CompositionRepository>();
             services.AddTransient<IAggregateRoot3AggCollectionRepository, AggregateRoot3AggCollectionRepository>();

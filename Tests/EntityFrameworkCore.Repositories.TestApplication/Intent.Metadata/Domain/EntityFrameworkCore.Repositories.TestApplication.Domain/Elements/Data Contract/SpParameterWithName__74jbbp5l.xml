@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ac220ea1-4718-4f07-986f-bc72141bb099" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
-  <name>SpResult</name>
-  <display>SpResult</display>
+<class id="fa9c6567-5c7d-4104-ad4e-d50670173770" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>SpParameterWithName</name>
+  <display>SpParameterWithName</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="a02c7748-61db-472b-82bf-51a94e0108c0">
+  <typeReference id="35443f43-57b0-4c84-9b8d-f1c92a6e53eb">
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -23,18 +23,18 @@
       <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
       <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
       <properties>
-        <property name="fe47cbcb-5976-462c-8f85-7dbffcfea97d" display="Name" value="" isActive="true" />
+        <property name="fe47cbcb-5976-462c-8f85-7dbffcfea97d" display="Name" value="customName" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="bf196a86-b3e3-427a-a1e0-c27d9a9442ff" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Data</name>
-      <display>Data: string</display>
+    <childElement id="935e584a-1895-47ed-8fc3-3ab135d9dbca" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Attribute</name>
+      <display>Attribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="47043640-582e-4a23-b5a9-bfdd2b7787f1">
+      <typeReference id="793b681a-cdff-45dd-a0d0-1c35afd92f42">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -46,7 +46,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>ac220ea1-4718-4f07-986f-bc72141bb099</parentFolderId>
+      <parentFolderId>fa9c6567-5c7d-4104-ad4e-d50670173770</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
       <stereotypes />

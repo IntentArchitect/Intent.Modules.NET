@@ -397,7 +397,16 @@
           <parentFolderId>6db09e83-4578-4e70-a42b-ca5d86f5e932</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -456,7 +465,16 @@
           <parentFolderId>19a4ebcc-5154-42ed-ae54-4e66ae8e96c2</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -515,7 +533,16 @@
           <parentFolderId>2af3124a-062f-4d3b-918d-c2efa1e8fbe7</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -574,7 +601,16 @@
           <parentFolderId>29031e8c-6b6c-4182-9915-15e240f702f5</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -633,7 +669,16 @@
           <parentFolderId>fb653387-2b79-4573-8435-771b68ee235e</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -692,7 +737,16 @@
           <parentFolderId>553b7600-dc90-4fa6-9017-51634a5d50c3</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -751,7 +805,16 @@
           <parentFolderId>80937ae1-d5fd-4259-8da2-6d00df207ad5</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -810,7 +873,16 @@
           <parentFolderId>000b3dee-6a69-4ac0-b65a-4d6c9cdb31b2</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -866,7 +938,16 @@
           <parentFolderId>1736cb1e-def1-4055-8c4d-a0e208d3f58c</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -922,7 +1003,16 @@
           <parentFolderId>95a91117-69f6-4380-a675-009c7e7003d1</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -981,7 +1071,16 @@
           <parentFolderId>a4f26107-7f29-4ba3-914a-17f9cbb12bb0</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1005,7 +1104,16 @@
           <parentFolderId>a4f26107-7f29-4ba3-914a-17f9cbb12bb0</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1064,7 +1172,16 @@
           <parentFolderId>caa9d8ba-c9d9-4d7d-86f7-fb309c748e87</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1088,7 +1205,16 @@
           <parentFolderId>caa9d8ba-c9d9-4d7d-86f7-fb309c748e87</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1147,7 +1273,16 @@
           <parentFolderId>24d09286-4f84-4db7-a09b-7887929c29dd</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1171,7 +1306,16 @@
           <parentFolderId>24d09286-4f84-4db7-a09b-7887929c29dd</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1230,7 +1374,16 @@
           <parentFolderId>04786726-18b8-4b5a-ad5a-7fbf158b2ec8</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1254,7 +1407,16 @@
           <parentFolderId>04786726-18b8-4b5a-ad5a-7fbf158b2ec8</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1313,7 +1475,16 @@
           <parentFolderId>250c3c4c-b1c8-4757-ba7a-cd8620b3f808</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1337,7 +1508,16 @@
           <parentFolderId>250c3c4c-b1c8-4757-ba7a-cd8620b3f808</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1396,7 +1576,16 @@
           <parentFolderId>35834fe3-d069-4e60-8f84-8907050728c6</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1420,7 +1609,16 @@
           <parentFolderId>35834fe3-d069-4e60-8f84-8907050728c6</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1479,7 +1677,16 @@
           <parentFolderId>749331f5-ba6a-4185-9b5e-50ac65d9fd73</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1503,7 +1710,16 @@
           <parentFolderId>749331f5-ba6a-4185-9b5e-50ac65d9fd73</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1562,7 +1778,16 @@
           <parentFolderId>5277a110-2144-439e-93f5-b6580ef21cae</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1586,7 +1811,16 @@
           <parentFolderId>5277a110-2144-439e-93f5-b6580ef21cae</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1642,7 +1876,16 @@
           <parentFolderId>48bd64cf-e820-40ac-9043-53e2b12ec71c</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1666,7 +1909,16 @@
           <parentFolderId>48bd64cf-e820-40ac-9043-53e2b12ec71c</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1722,7 +1974,16 @@
           <parentFolderId>2cb2a54d-617b-4718-97b6-88c0da928924</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
@@ -1746,7 +2007,16 @@
           <parentFolderId>2cb2a54d-617b-4718-97b6-88c0da928924</parentFolderId>
           <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
           <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
-          <stereotypes />
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
           <metadata />
           <childElements />
         </childElement>
