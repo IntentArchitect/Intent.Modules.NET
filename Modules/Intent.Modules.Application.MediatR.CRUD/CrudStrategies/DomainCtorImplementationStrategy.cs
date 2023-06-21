@@ -43,6 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
@@ -129,6 +130,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var list = new List<CSharpStatement>();
             foreach (var parameter in operParameters)
             {
+                if (parameter.TypeReference?.Element?.SpecializationType == "Value Object" || parameter.TypeReference?.Element?.SpecializationType == "Data Contract")
+                {
+                    var constructMethod = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
+                        .Select(field => $"Create{parameter.TypeReference.Element.Name}({dtoVarName}.{field.Name.ToPascalCase()})")
+                        .First();
+                    list.Add(constructMethod);
+                    continue;
+                }
                 var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
                     .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
                     .FirstOrDefault();

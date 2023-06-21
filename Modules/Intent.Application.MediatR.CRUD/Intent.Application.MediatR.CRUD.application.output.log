@@ -20,14 +20,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#c2a6cff8-5143-4ad1-90cc-2d4bb808f0e0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#3e83b75d-9dff-4393-85fb-80801d1b6e22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
@@ -85,7 +77,7 @@
     <FileLog>
       <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3f0ab5fe-e9ef-4069-b690-195694fc1ce5</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Intent.Modules.Application.MediatR.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
