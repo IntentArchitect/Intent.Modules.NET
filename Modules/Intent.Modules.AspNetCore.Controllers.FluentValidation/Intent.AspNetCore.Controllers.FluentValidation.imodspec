@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.FluentValidation</id>
-  <version>1.1.0-pre.0</version>
+  <version>1.1.0</version>
   <supportedClientVersions>[3.4.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Obsolete. The functionality of this module has moved to Intent.Application.FluentValidation. It can safely be uninstalled.</summary>
@@ -15,8 +15,8 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.AspNetCore.Controllers" version="5.2.0-pre.3" />
-    <dependency id="Intent.Application.FluentValidation" version="3.6.0-pre.0" />
+    <dependency id="Intent.AspNetCore.Controllers" version="5.2.0" />
+    <dependency id="Intent.Application.FluentValidation" version="3.6.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
