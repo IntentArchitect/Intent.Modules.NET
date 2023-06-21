@@ -19,7 +19,7 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.5" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.36-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.0-pre.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.1.1" />
@@ -31,7 +31,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.1" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.4-pre.0" />
       </install>
     </detect>
   </interoperability>
