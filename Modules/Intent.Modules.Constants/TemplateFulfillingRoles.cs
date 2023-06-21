@@ -60,6 +60,7 @@ namespace Intent.Modules.Constants
             public static class Contracts
             {
                 public const string Dto = "Application.Contract.Dto";
+                public const string Enum = "Application.Contract.Enum";
             }
             
             public static class Services
