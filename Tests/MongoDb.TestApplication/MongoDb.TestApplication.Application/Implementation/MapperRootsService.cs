@@ -76,6 +76,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             existingMapperRoot.No = dto.No;
             existingMapperRoot.MapAggChildrenIds = dto.MapAggChildrenIds.ToList();
             existingMapperRoot.MapAggPeerId = dto.MapAggPeerId;
+            _mapperRootRepository.Update(existingMapperRoot);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

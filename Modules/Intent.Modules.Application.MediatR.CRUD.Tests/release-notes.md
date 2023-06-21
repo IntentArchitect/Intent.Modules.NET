@@ -4,7 +4,7 @@
 
 ### Version 1.0.1
 
-- Fixed: Enums had invalid failure test scenarios being generated however it will now add test scenarios for when you have a "default" passed through to an Enum that doesn't cater for that scenario so that the validator can catch that.
+- Fixed and improved test scenarios for Enums where Enums that doesn't have a default literal value of `0` will be tested and then also literal values that doesn't exist in an Enum. It will also handle Enums that doesn't have literal values at all. 
 
 ### Version 1.0.0
 

@@ -5,6 +5,7 @@
 ### Version 5.0.5
 
 - Support for DTO return types on Constructor mapped commands.
+- Fix : Add call to `UnitOfWork` `SaveChanges` for Update CRUD operations with results, to ensure any newly created `Entity`s have their Id's populated. 
 
 ### Version 5.0.4
 

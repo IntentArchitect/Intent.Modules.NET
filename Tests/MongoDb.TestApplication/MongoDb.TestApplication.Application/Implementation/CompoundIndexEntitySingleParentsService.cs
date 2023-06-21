@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
             }
             existingCompoundIndexEntitySingleParent.SomeField = dto.SomeField;
+            _compoundIndexEntitySingleParentRepository.Update(existingCompoundIndexEntitySingleParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

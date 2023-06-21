@@ -70,6 +70,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 throw new NotFoundException($"Could not find IdTypeGuid {id}");
             }
             existingIdTypeGuid.Attribute = dto.Attribute;
+            _idTypeGuidRepository.Update(existingIdTypeGuid);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

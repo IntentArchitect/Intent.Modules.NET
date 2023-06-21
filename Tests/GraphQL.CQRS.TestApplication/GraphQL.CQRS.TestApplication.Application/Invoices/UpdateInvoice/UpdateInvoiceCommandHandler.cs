@@ -32,6 +32,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
             existingInvoice.No = request.No;
             existingInvoice.Created = request.Created;
             existingInvoice.CustomerId = request.CustomerId;
+            await _invoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingInvoice.MapToInvoiceDto(_mapper);
         }
     }

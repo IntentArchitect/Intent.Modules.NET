@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             existingSingleIndexEntity.SomeField = dto.SomeField;
             existingSingleIndexEntity.SingleIndex = dto.SingleIndex;
+            _singleIndexEntityRepository.Update(existingSingleIndexEntity);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

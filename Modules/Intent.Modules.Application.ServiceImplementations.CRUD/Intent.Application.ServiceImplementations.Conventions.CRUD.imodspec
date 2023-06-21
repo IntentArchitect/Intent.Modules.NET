@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
   <version>4.3.0-pre.0</version>
@@ -39,6 +39,5 @@
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.ServiceImplementations.Conventions.CRUD.CrudServiceFactoryExtension" externalReference="2d628d87-8a8b-4804-aecf-5d63a480462b" />
-    <factoryExtension id="Intent.Application.ServiceImplementations.Conventions.CRUD.IntegrationFactoryExtension" externalReference="1ef8194e-7945-4dfa-8b13-faa6dd5581bb" />
   </factoryExtensions>
 </package>

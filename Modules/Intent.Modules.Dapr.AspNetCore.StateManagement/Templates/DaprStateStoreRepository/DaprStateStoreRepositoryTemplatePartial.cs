@@ -121,7 +121,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
 
         public override void AfterTemplateRegistration()
         {
-            base.BeforeTemplateExecution();
+            base.AfterTemplateRegistration();
 
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
             if (contractTemplate == null)

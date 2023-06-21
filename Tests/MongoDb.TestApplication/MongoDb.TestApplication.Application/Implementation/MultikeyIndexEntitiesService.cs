@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             existingMultikeyIndexEntity.MultiKey = dto.MultiKey.ToList();
             existingMultikeyIndexEntity.SomeField = dto.SomeField;
+            _multikeyIndexEntityRepository.Update(existingMultikeyIndexEntity);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

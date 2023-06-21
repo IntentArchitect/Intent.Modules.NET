@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 throw new NotFoundException($"Could not find MultikeyIndexEntityMultiParent {id}");
             }
             existingMultikeyIndexEntityMultiParent.SomeField = dto.SomeField;
+            _multikeyIndexEntityMultiParentRepository.Update(existingMultikeyIndexEntityMultiParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

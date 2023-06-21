@@ -36,6 +36,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.UpdateProdu
                 throw new NotFoundException($"Could not find Product {request.Id}");
             }
             existingProduct.Name = request.Name;
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingProduct.MapToProductDto(_mapper);
         }
     }

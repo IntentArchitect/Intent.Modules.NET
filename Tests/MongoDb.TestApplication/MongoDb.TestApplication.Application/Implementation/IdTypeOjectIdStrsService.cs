@@ -77,6 +77,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
             }
             existingIdTypeOjectIdStr.Attribute = dto.Attribute;
+            _idTypeOjectIdStrRepository.Update(existingIdTypeOjectIdStr);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
                 throw new NotFoundException($"Could not find SingleIndexEntitySingleParent {id}");
             }
             existingSingleIndexEntitySingleParent.SomeField = dto.SomeField;
+            _singleIndexEntitySingleParentRepository.Update(existingSingleIndexEntitySingleParent);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

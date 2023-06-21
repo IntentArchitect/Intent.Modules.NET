@@ -75,6 +75,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             }
             existingCustomer.Name = dto.Name;
             existingCustomer.LastName = dto.LastName;
+            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingCustomer.MapToCustomerDto(_mapper);
         }
 

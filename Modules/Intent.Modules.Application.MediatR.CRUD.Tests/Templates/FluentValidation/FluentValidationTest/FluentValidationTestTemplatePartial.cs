@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -18,7 +16,9 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
+using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.Types.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -41,6 +41,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
         AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+        AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
         AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
@@ -191,23 +192,9 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         yield return new object[] {{ testCommand, ""{property.Name.ToPascalCase()}"", ""not be empty"" }};");
                 first = false;
             }
-
-            if (property.GetValidations()?.NotEmpty() == true && !IsEnum(property.TypeReference))
-            {
-                if (!first)
-                {
-                    method.AddStatement(string.Empty);
-                }
-                
-                method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
-                first = false;
-            }
             
-            if (IsEnumAndDoesNotHaveDefaultEnumLiteral(property.TypeReference) && !property.TypeReference.IsNullable)
+            if (property.GetValidations()?.NotEmpty() == true &&
+                !IsEnum(property.TypeReference))
             {
                 if (!first)
                 {
@@ -215,10 +202,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 }
                 
                 method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
+{(first ? "var " : "")}fixture = new Fixture();
+fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
+{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
                 first = false;
             }
 
@@ -285,22 +272,69 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     first = false;
                 }
             }
+
+            HandleEnumCases(method, property, ref first);
         }
+    }
+
+    private void HandleEnumCases(CSharpClassMethod method, DTOFieldModel property, ref bool first)
+    {
+        if (!IsEnum(property.TypeReference)) { return; }
+        var enumModel = property.TypeReference.Element.AsEnumModel();
+        if (enumModel.Literals.Count < 1) { return; }
+
+        var enumLiteralsWithOrdinals = GetConceptualEnumWithOrdinalValues(enumModel);
+        if (!string.IsNullOrWhiteSpace(enumModel.Literals.First().Value) && enumLiteralsWithOrdinals.First() != 0)
+        {
+            if (!first) { method.AddStatement(string.Empty); }
+            method.AddStatements($@"
+{(first ? "var " : "")}fixture = new Fixture();
+fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ({GetTypeName(property.TypeReference)})0));
+{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
+            first = false;
+        }
+        
+        if (!first) { method.AddStatement(string.Empty); }
+        var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
+        var invalidOrdinalValueForTest = lastOrdinalValue + 1;
+        method.AddStatements($@"
+{(first ? "var " : "")}fixture = new Fixture();
+fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}));
+{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
+        first = false;
+    }
+
+    private static int?[] GetConceptualEnumWithOrdinalValues(EnumModel enumModel)
+    {
+        var enumLiteralsWithOrdinals = enumModel.Literals.Select(elem => string.IsNullOrWhiteSpace(elem.Value)
+                ? null
+                : int.TryParse(elem.Value, out var val)
+                    ? val
+                    : (int?)null)
+            .ToArray();
+        var lastValue = -1;
+        for (var index = 0; index < enumLiteralsWithOrdinals.Length; index++)
+        {
+            var value = enumLiteralsWithOrdinals[index];
+            if (value is null)
+            {
+                lastValue++;
+                enumLiteralsWithOrdinals[index] = lastValue;
+            }
+            else
+            {
+                lastValue = (int)value;
+            }
+        }
+
+        return enumLiteralsWithOrdinals;
     }
 
     private static bool IsEnum(ITypeReference typeReference)
     {
-        return typeReference.Element.SpecializationType.EndsWith("Enum", StringComparison.OrdinalIgnoreCase);
-    }
-    
-    private static bool IsEnumAndDoesNotHaveDefaultEnumLiteral(ITypeReference typeReference)
-    {
-        if (!IsEnum(typeReference))
-        {
-            return false;
-        }
-
-        return !typeReference.Element.AsEnumModel().Literals.Any(p => string.IsNullOrWhiteSpace(p.Value) || p.Value == "0");
+        return typeReference?.Element?.SpecializationType.EndsWith("Enum", StringComparison.OrdinalIgnoreCase) == true;
     }
 
     private static string GetStringWithLen(int length)

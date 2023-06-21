@@ -6,6 +6,7 @@
 
 - Supports `pageIndex` and adapts to `pageNo` for pagination implementation.
 - Supports update implementation when no `id` parameter is provided, but when an ID is available on the provided DTO.	
+- Fix : Add call to `UnitOfWork` `SaveChanges` for Update CRUD operations with results, to ensure any newly created `Entity`s have their Id's populated. 
 
 ### Version 4.2.3
 

@@ -77,6 +77,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
             existingProduct.Name = dto.Name;
             existingProduct.Description = dto.Description;
             existingProduct.IsActive = dto.IsActive;
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingProduct.MapToProductDto(_mapper);
         }
 

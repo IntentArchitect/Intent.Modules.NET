@@ -79,6 +79,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             existingTextIndexEntity.FullText = dto.FullText;
             existingTextIndexEntity.SomeField = dto.SomeField;
+            _textIndexEntityRepository.Update(existingTextIndexEntity);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

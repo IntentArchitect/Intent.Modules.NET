@@ -119,13 +119,16 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
             return CSharpFile.ToString();
         }
 
-        public override void BeforeTemplateExecution()
+        public override void AfterTemplateRegistration()
         {
+            base.AfterTemplateRegistration();
+
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
             if (contractTemplate == null)
             {
                 return;
             }
+            ((ICSharpFileBuilderTemplate)contractTemplate).CSharpFile.Interfaces[0].AddMetadata("requires-explicit-update", true);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")
