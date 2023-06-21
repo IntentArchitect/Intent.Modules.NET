@@ -1,3 +1,6 @@
+### Version 4.0.2
+- Update : Added `System.Linq` namespace to `MutationType` and `QueryType` templates.
+
 ### Version 4.0.0
 
 - Update : Bumped `HotChoclate` nuget version to 13.1.0.

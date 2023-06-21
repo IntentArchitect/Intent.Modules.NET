@@ -36,6 +36,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
             AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name}", @class =>

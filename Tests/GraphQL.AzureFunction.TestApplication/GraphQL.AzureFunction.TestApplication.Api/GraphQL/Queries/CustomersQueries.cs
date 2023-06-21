@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GraphQL.AzureFunction.TestApplication.Application.Common.Pagination;
 using GraphQL.AzureFunction.TestApplication.Application.Customers;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
 using HotChocolate;
@@ -25,6 +27,15 @@ namespace GraphQL.AzureFunction.TestApplication.Api.GraphQL.Queries
         public async Task<IReadOnlyList<CustomerDto>> FindCustomers([Service] ICustomersService service)
         {
             return await service.FindCustomers();
+        }
+
+        public async Task<PagedResult<CustomerDto>> GetCustomersPaged(
+            int pageNo,
+            int pageCount,
+            IReadOnlyList<Guid> ids,
+            [Service] ICustomersService service)
+        {
+            return await service.GetCustomersPaged(pageNo, pageCount, ids.ToList());
         }
     }
 }

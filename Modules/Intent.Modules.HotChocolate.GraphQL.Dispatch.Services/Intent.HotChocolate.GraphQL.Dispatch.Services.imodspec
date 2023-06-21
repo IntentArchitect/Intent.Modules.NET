@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.Dispatch.Services</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>GraphQL operation auto-implementations that dispatch to service interfaces.</summary>
   <description>GraphQL operation auto-implementations that dispatch to service interfaces.</description>
@@ -18,7 +18,7 @@
     <dependency id="Intent.Application.Contracts" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.HotChocolate.GraphQL" version="4.0.0" />
+    <dependency id="Intent.HotChocolate.GraphQL" version="4.0.2-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
   </dependencies>
   <files>

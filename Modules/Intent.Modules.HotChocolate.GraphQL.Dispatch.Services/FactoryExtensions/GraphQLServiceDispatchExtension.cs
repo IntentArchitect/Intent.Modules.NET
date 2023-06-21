@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -42,13 +43,13 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                         if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) &&
                             model.MappedElement?.IsOperationModel() == true)
                         {
-                            if (model.Parameters.Count() > 1)
+                            if (template.Id == MutationTypeTemplate.TemplateId && model.Parameters.Count() > 1)
                             {
                                 method.AddAttribute($"[{template.UseType("UseMutationConvention")}]");
                             }
                             var serviceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, model.MappedElement.ParentElement);
                             method.AddParameter(serviceType, "service", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
-                            method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => x.Name.ToParameterName()))});");
+                            method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => GetServiceParameterExpression(x)))});");
                         }
                     }
                 }, 200);
@@ -72,6 +73,15 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                     }
                 }, 200);
             }
+        }
+
+        private string GetServiceParameterExpression(IGraphQLParameterModel x)
+        {
+            if (x.TypeReference.IsCollection)
+            {
+                return $"{x.Name.ToParameterName()}.ToList()";
+            }
+            return x.Name.ToParameterName();
         }
 
         private static string GetPropertyAssignmentValue(ICSharpFileBuilderTemplate template, IGraphQLResolverModel model, IGraphQLParameterModel parameter)

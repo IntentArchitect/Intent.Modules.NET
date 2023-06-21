@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using GraphQL.AzureFunction.TestApplication.Application.Common.Pagination;
 using GraphQL.AzureFunction.TestApplication.Application.Customers;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
 using GraphQL.AzureFunction.TestApplication.Domain.Common.Exceptions;
@@ -90,6 +91,17 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             }
             _customerRepository.Remove(existingCustomer);
             return existingCustomer.MapToCustomerDto(_mapper);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<PagedResult<CustomerDto>> GetCustomersPaged(
+            int pageNo,
+            int pageCount,
+            List<Guid> ids,
+            CancellationToken cancellationToken = default)
+        {
+            var existingCustomers = await _customerRepository.FindAllAsync(pageNo, pageCount, cancellationToken);
+            return existingCustomers.MapToPagedResult(customer => customer.MapToCustomerDto(_mapper));
         }
 
         public void Dispose()

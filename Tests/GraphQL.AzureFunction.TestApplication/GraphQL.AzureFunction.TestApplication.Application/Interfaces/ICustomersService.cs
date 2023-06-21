@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using GraphQL.AzureFunction.TestApplication.Application.Common.Pagination;
 using GraphQL.AzureFunction.TestApplication.Application.Customers;
 using Intent.RoslynWeaver.Attributes;
 
@@ -17,5 +18,6 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Interfaces
         Task<List<CustomerDto>> FindCustomers(CancellationToken cancellationToken = default);
         Task<CustomerDto> UpdateCustomer(Guid id, CustomerUpdateDto dto, CancellationToken cancellationToken = default);
         Task<CustomerDto> DeleteCustomer(Guid id, CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetCustomersPaged(int pageNo, int pageCount, List<Guid> ids, CancellationToken cancellationToken = default);
     }
 }
