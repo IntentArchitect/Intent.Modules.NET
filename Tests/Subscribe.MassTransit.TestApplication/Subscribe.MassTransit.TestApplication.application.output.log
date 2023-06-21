@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8f8bf90-8b33-4dd5-b3a4-7dd5f8005e06</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#284d24d7-d878-47b9-a672-5f3d396f69ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.TestApplication.Application/IntegrationEvents/CollectionEventDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionEventDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8f8bf90-8b33-4dd5-b3a4-7dd5f8005e06</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#21e8725a-7d4a-43dc-ae58-a3248cce709f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.TestApplication.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>

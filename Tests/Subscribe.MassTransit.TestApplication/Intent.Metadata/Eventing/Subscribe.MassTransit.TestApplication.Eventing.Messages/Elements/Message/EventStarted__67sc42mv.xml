@@ -36,5 +36,29 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="129c37b2-6088-4cf7-9ae9-3bb4b33a0b99" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Collection</name>
+      <display>Collection: CollectionEventDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b8cab9c5-d1a5-409c-871d-f896af0f9c8d">
+        <typeId>284d24d7-d878-47b9-a672-5f3d396f69ac</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Subscribe.MassTransit.TestApplication.Eventing.Messages</typePackageName>
+        <typePackageId>60dfbd56-17ed-4b0e-9205-4ca881308ce7</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21e8725a-7d4a-43dc-ae58-a3248cce709f</parentFolderId>
+      <packageId>60dfbd56-17ed-4b0e-9205-4ca881308ce7</packageId>
+      <packageName>Subscribe.MassTransit.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

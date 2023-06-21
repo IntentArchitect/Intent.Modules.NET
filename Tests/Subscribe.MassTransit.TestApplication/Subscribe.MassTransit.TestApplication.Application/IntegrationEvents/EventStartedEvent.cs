@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,5 +9,6 @@ namespace Subscribe.MassTransit.TestApplication.Eventing.Messages
     public record EventStartedEvent
     {
         public string Message { get; init; }
+        public List<CollectionEventDto> Collection { get; init; }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="284d24d7-d878-47b9-a672-5f3d396f69ac" type="Eventing DTO" typeId="544f1d57-27ce-4985-a4ec-cc01568d72b0">
+  <name>CollectionEventDto</name>
+  <display>CollectionEventDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>60dfbd56-17ed-4b0e-9205-4ca881308ce7</parentFolderId>
+  <packageId>60dfbd56-17ed-4b0e-9205-4ca881308ce7</packageId>
+  <packageName>Subscribe.MassTransit.TestApplication.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="48b38adb-f332-4610-a328-8f464ce3a286" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Field</name>
+      <display>Field: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="17f6a6b4-0457-4723-90fa-f781cc2b1da5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>284d24d7-d878-47b9-a672-5f3d396f69ac</parentFolderId>
+      <packageId>60dfbd56-17ed-4b0e-9205-4ca881308ce7</packageId>
+      <packageName>Subscribe.MassTransit.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
