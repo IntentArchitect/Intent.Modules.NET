@@ -19,7 +19,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.0.3" />
+    <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.1.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
