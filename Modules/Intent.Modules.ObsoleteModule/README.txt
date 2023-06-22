@@ -1,0 +1,1 @@
+NOTE: This module only serves as a sample and shouldn't be used for anything else.

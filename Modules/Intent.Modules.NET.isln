@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.25" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.26" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -27,7 +27,6 @@
     <application id="989555da-0ffa-4ade-bacf-69f9cd261300" name="Intent.Modules.Application.DependencyInjection.AutoMapper" relativePath="Intent.Modules.Application.DependencyInjection.AutoMapper/Intent.Modules.Application.DependencyInjection.AutoMapper.application.config" />
     <application id="5d935a54-a908-4812-9169-cf57c94719b3" name="Intent.Modules.Infrastructure.DependencyInjection" relativePath="Intent.Modules.Infrastructure.DependencyInjection/Intent.Modules.Infrastructure.DependencyInjection.application.config" />
     <application id="69f06913-7f0d-4ad1-bf64-0b14901a49cd" name="Intent.Modules.Application.MediatR.FluentValidation" relativePath="Intent.Modules.Application.MediatR.FluentValidation/Intent.Modules.Application.MediatR.FluentValidation.application.config" />
-    <application id="b3270798-d8b7-442c-8140-f5dc8200371a" name="Intent.Modules.Application.DependencyInjection.FluentValidation" relativePath="Intent.Modules.Application.DependencyInjection.FluentValidation/Intent.Modules.Application.DependencyInjection.FluentValidation.application.config" />
     <application id="11cd8cc9-0bc6-456a-9c81-94e640dd2829" name="Intent.Modules.MediatR.DomainEvents" relativePath="Intent.Modules.MediatR.DomainEvents/Intent.Modules.MediatR.DomainEvents.application.config" />
     <application id="0e9a49a4-507f-4e16-8f39-0c7496722ef5" name="Intent.Modules.DomainEvents" relativePath="Intent.Modules.DomainEvents/Intent.Modules.DomainEvents.application.config" />
     <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
@@ -60,7 +59,6 @@
     <application id="eb217aa7-b0ab-48d0-ac8e-73bbb2096769" name="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore/Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.application.config" />
     <application id="20cc8969-8c41-4c7e-a7a8-f4f2a0bf7325" name="Intent.Modules.Application.FluentValidation" relativePath="Intent.Modules.Application.FluentValidation/Intent.Modules.Application.FluentValidation.application.config" />
     <application id="0e1f242f-2b97-41b3-b5e0-4f0b28f838e2" name="Intent.Modules.Application.FluentValidation.Dtos" relativePath="Intent.Modules.Application.FluentValidation.Dtos/Intent.Modules.Application.FluentValidation.Dtos.application.config" />
-    <application id="c2ee8013-fd29-4dae-a6f5-9326c7a19d4f" name="Intent.Modules.Application.ServiceImplementations.FluentValidation" relativePath="Intent.Modules.Application.ServiceImplementations.FluentValidation/Intent.Modules.Application.ServiceImplementations.FluentValidation.application.config" />
     <application id="1c788aee-6d6a-48e5-93c3-91b686ed2d5e" name="Intent.Modules.AzureFunctions.FluentValidation" relativePath="Intent.Modules.AzureFunctions.FluentValidation/Intent.Modules.AzureFunctions.FluentValidation.application.config" />
     <application id="9b8236a0-cc83-4768-9680-579a947ce43d" name="Intent.ApplicationTemplates.NET.Metadata.AzureFunctions" relativePath="Intent.ApplicationTemplates.NET.Metadata.AzureFunctions/Intent.ApplicationTemplates.NET.Metadata.AzureFunctions.application.config" />
     <application id="b40bf9f0-3286-4fe7-8a7d-39df74c0e322" name="Application.Dtos.Pagination" relativePath="Intent.Modules.Application.Dtos.Pagination/Application.Dtos.Pagination.application.config" />
@@ -97,7 +95,6 @@
     <application id="c82cc306-b37d-4f83-affd-432cc01e9a82" name="Intent.Modules.OpenTelemetry" relativePath="Intent.Modules.OpenTelemetry/Intent.Modules.OpenTelemetry.application.config" />
     <application id="a9b4b39d-2b2e-4212-89c9-e639f7219900" name="Intent.Modules.AzureFunctions.Dispatch.MediatR" relativePath="intent/Intent.Modules.AzureFunctions.Dispatch.MediatR/Intent.Modules.AzureFunctions.Dispatch.MediatR.application.config" />
     <application id="dba57f83-0e39-4484-bf7a-b65de87e557f" name="Intent.Modules.DomainServices" relativePath="Intent.Modules.DomainServices/Intent.Modules.DomainServices.application.config" />
-    <application id="8f985483-e0b9-4e58-baf0-632e6bb28fc6" name="Intent.Modules.AspNetCore.Controllers.FluentValidation" relativePath="Intent.Modules.AspNetCore.Controllers.FluentValidation/Intent.Modules.AspNetCore.Controllers.FluentValidation.application.config" />
     <application id="29280c3e-8c72-48c9-8bd3-fd0d42342315" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR/Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.application.config" />
     <application id="6e3ac6b3-6b47-4b2c-acde-a84838179c41" name="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services" relativePath="Intent.Modules.HotChocolate.GraphQL.Dispatch.Services/Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.application.config" />
     <application id="f305457e-36af-497b-94e8-8fe242cf83b6" name="Intent.Modules.EntityFrameworkCore.SoftDelete" relativePath="Intent.Modules.EntityFrameworkCore.SoftDelete/Intent.Modules.EntityFrameworkCore.SoftDelete.application.config" />
@@ -108,5 +105,6 @@
     <application id="722157d8-c582-4e8c-9ec5-e6e1c577d85e" name="Intent.Modules.DocumentDB.Dtos.AutoMapper" relativePath="Intent.Modules.DocumentDB.Dtos.AutoMapper/Intent.Modules.DocumentDB.Dtos.AutoMapper.application.config" />
     <application id="c286b17c-d9cf-4acb-ab05-6256a99d5269" name="Intent.Modules.AspNetCore.Versioning" relativePath="Intent.Modules.AspNetCore.Versioning/Intent.Modules.AspNetCore.Versioning.application.config" />
     <application id="8f7ee5f1-6a37-4f38-b129-6c5d6898c355" name="Intent.Modules.CosmosDB" relativePath="Intent.Modules.CosmosDB/Intent.Modules.CosmosDB.application.config" />
+    <application id="889131be-3f2c-4eb9-8a3a-a10260093907" name="Intent.Modules.ObsoleteModule" relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.application.config" />
   </applications>
 </solution>
