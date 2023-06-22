@@ -48,8 +48,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             yield return new object[] { testCommand, "CompositeAttr", "not be empty" };
 
             fixture = new Fixture();
-            testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.Composites, () => default));
+            testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, "Composites", "not be empty" };
         }
 

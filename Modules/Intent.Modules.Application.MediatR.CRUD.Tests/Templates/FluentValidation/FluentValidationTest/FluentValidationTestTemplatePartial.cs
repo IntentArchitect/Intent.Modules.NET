@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
@@ -181,7 +182,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 !property.TypeReference.IsNullable)
             {
                 if (!first) { method.AddStatement(string.Empty); }
-                AddTestCaseStatements(method, property, first, "default", "not be empty");
+                AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
             
@@ -189,7 +190,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 !IsEnum(property.TypeReference))
             {
                 if (!first) { method.AddStatement(string.Empty); }
-                AddTestCaseStatements(method, property, first, "default", "not be empty");
+                AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
 
@@ -199,19 +200,19 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                 var minLen = property.GetValidations().MinLength().Value;
                 var maxLen = property.GetValidations().MaxLength().Value;
-                AddTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be between {minLen} and {maxLen} characters");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be between {minLen} and {maxLen} characters");
 
                 first = false;
 
                 method.AddStatement(string.Empty);
-                AddTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be between {minLen} and {maxLen} characters");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be between {minLen} and {maxLen} characters");
             }
             else if (property.GetValidations()?.MaxLength() != null)
             {
                 if (!first) { method.AddStatement(string.Empty); }
 
                 var maxLen = property.GetValidations().MaxLength().Value;
-                AddTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
                 first = false;
             }
             else if (property.GetValidations()?.MinLength() != null)
@@ -219,7 +220,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 if (!first) { method.AddStatement(string.Empty); }
 
                 var minLen = property.GetValidations().MinLength().Value;
-                AddTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be at least {minLen} characters");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be at least {minLen} characters");
                 first = false;
             }
 
@@ -232,7 +233,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     if (!first) { method.AddStatement(string.Empty); }
 
                     var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
-                    AddTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
+                    AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
                     first = false;
                 }
             }
@@ -251,22 +252,63 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         if (!string.IsNullOrWhiteSpace(enumModel.Literals.First().Value) && enumLiteralsWithOrdinals.First() != 0)
         {
             if (!first) { method.AddStatement(string.Empty); }
-            AddTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)})0", "has a range of values which does not include");
+            AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)})0", "has a range of values which does not include");
             first = false;
         }
         
         if (!first) { method.AddStatement(string.Empty); }
         var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
         var invalidOrdinalValueForTest = lastOrdinalValue + 1;
-        AddTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}", "has a range of values which does not include");
+        AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}", "has a range of values which does not include");
         first = false;
     }
 
-    private void AddTestCaseStatements(CSharpClassMethod method, DTOFieldModel property, bool first, string testValue, string expectedPhrase)
+    private void AddNegativeTestCaseStatements(CSharpClassMethod method, DTOFieldModel property, bool first,
+        string testValue, string expectedPhrase)
     {
         method.AddStatements($@"
-{(first ? "var " : "")}fixture = new Fixture();
-fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => {testValue}));
+{(first ? "var " : "")}fixture = new Fixture();");
+        var customLambdaBody = new CSharpLambdaBlock("comp");
+        method.AddInvocationStatement($"fixture.Customize<{GetTypeName(Model.InternalElement)}>", inv => inv
+            .AddArgument(customLambdaBody));
+        var otherWithStatements = new List<CSharpStatement>();
+
+        foreach (var otherProperty in Model.Properties.Where(p => p.Id != property.Id))
+        {
+            if (otherProperty.GetValidations()?.MaxLength() != null)
+            {
+                var maxLen = otherProperty.GetValidations().MaxLength().Value;
+                otherWithStatements.Add($@"With(x => x.{otherProperty.Name}, () => $""{GetStringWithLen(maxLen - 1)}"")");
+            }
+            else if (otherProperty.GetValidations()?.MaxLength() == null && otherProperty.InternalElement.IsMapped)
+            {
+                var attribute = otherProperty.InternalElement?.MappedElement?.Element?.AsAttributeModel();
+                if (attribute != null && attribute.HasStereotype("Text Constraints") &&
+                    attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+                {
+                    var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
+                    otherWithStatements.Add($@"With(x => x.{otherProperty.Name}, () => $""{GetStringWithLen(maxLen - 1)}"")");
+                }
+            }
+        }
+
+        if (otherWithStatements.Any())
+        {
+            var chain = new CSharpMethodChainStatement("comp")
+                .WithoutSemicolon()
+                .AddChainStatement($@"With(x => x.{property.Name}, () => {testValue})");
+            foreach (var statement in otherWithStatements)
+            {
+                chain.AddChainStatement(statement);
+            }
+            customLambdaBody.WithExpressionBody(chain);
+        }
+        else
+        {
+            customLambdaBody.WithExpressionBody($@"comp.With(x => x.{property.Name}, () => {testValue})");
+        }
+
+        method.AddStatements($@"
 {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
 yield return new object[] {{ testCommand, ""{property.Name}"", ""{expectedPhrase}"" }};");
     }

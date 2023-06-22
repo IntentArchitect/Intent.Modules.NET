@@ -46,35 +46,51 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public static IEnumerable<object[]> GetFailedResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => default));
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.AggregateAttr, () => default)
+                .With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(9))}")
+                .With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(19))}"));
             var testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "AggregateAttr", "not be empty" };
 
             fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.Composites, () => default)
+                .With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(9))}")
+                .With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(19))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
+            yield return new object[] { testCommand, "Composites", "not be empty" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedDomain, () => default));
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.Composites, () => default));
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.LimitedDomain, () => default)
+                .With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(19))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "LimitedDomain", "not be empty" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(11))}"));
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(11))}")
+                .With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(19))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "LimitedDomain", "must be 10 characters or fewer" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedService, () => default));
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.LimitedService, () => default)
+                .With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(9))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "LimitedService", "not be empty" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}"));
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp
+                .With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}")
+                .With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(9))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "LimitedService", "must be 20 characters or fewer" };
-            yield return new object[] { testCommand, "Composites", "not be empty" };
         }
+
+
 
         [Theory]
         [MemberData(nameof(GetFailedResultTestData))]
