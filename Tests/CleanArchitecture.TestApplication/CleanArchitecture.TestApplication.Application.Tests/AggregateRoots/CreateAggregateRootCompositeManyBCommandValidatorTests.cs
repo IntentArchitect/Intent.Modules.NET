@@ -24,7 +24,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             var testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-            testCommand.CompositeAttr = $"{string.Join(string.Empty, fixture.CreateMany<char>(20))}";
             yield return new object[] { testCommand };
         }
 
@@ -50,13 +49,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             yield return new object[] { testCommand, "CompositeAttr", "not be empty" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.CompositeAttr, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}"));
             testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-            yield return new object[] { testCommand, "CompositeAttr", "must be 20 characters or fewer" };
-
-            fixture = new Fixture();
             fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.Composites, () => default));
-            testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, "Composites", "not be empty" };
         }
 

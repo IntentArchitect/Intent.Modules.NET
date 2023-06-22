@@ -34,6 +34,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             existingAggregateRoot.Composites = UpdateHelper.CreateOrUpdateCollection(existingAggregateRoot.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyB);
             existingAggregateRoot.Composite = CreateOrUpdateCompositeSingleA(existingAggregateRoot.Composite, request.Composite);
 #warning Field not a composite association: Aggregate
+            existingAggregateRoot.LimitedDomain = request.LimitedDomain;
+            existingAggregateRoot.LimitedService = request.LimitedService;
             return Unit.Value;
         }
 

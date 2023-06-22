@@ -24,7 +24,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             var testCommand = fixture.Create<CreateAggregateRootCommand>();
-            testCommand.AggregateAttr = $"{string.Join(string.Empty, fixture.CreateMany<char>(20))}";
+            testCommand.LimitedDomain = $"{string.Join(string.Empty, fixture.CreateMany<char>(10))}";
+            testCommand.LimitedService = $"{string.Join(string.Empty, fixture.CreateMany<char>(20))}";
             yield return new object[] { testCommand };
         }
 
@@ -50,13 +51,28 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             yield return new object[] { testCommand, "AggregateAttr", "not be empty" };
 
             fixture = new Fixture();
-            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}"));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
-            yield return new object[] { testCommand, "AggregateAttr", "must be 20 characters or fewer" };
 
             fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedDomain, () => default));
             fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.Composites, () => default));
             testCommand = fixture.Create<CreateAggregateRootCommand>();
+            yield return new object[] { testCommand, "LimitedDomain", "not be empty" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedDomain, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(11))}"));
+            testCommand = fixture.Create<CreateAggregateRootCommand>();
+            yield return new object[] { testCommand, "LimitedDomain", "must be 10 characters or fewer" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedService, () => default));
+            testCommand = fixture.Create<CreateAggregateRootCommand>();
+            yield return new object[] { testCommand, "LimitedService", "not be empty" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.LimitedService, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}"));
+            testCommand = fixture.Create<CreateAggregateRootCommand>();
+            yield return new object[] { testCommand, "LimitedService", "must be 20 characters or fewer" };
             yield return new object[] { testCommand, "Composites", "not be empty" };
         }
 
