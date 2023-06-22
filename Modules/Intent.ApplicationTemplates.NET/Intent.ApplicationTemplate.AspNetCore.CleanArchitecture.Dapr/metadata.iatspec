@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</id>
-  <version>1.0.13</version>
+  <version>1.0.14</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0)</supportedClientVersions>
   <displayName>(PREVIEW) Clean Architecture .NET with Dapr</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET using Dapr for integration.</shortDescription>
@@ -84,7 +84,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.Application.MediatR" version="4.0.8" metadataOnly="false">
+            <module id="Intent.Application.MediatR" version="4.0.9" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>

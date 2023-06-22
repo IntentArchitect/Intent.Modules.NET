@@ -1,4 +1,8 @@
-﻿### Version 4.0.8
+﻿### Version 4.0.9
+
+- Fixed: DTOs will now be properly referenced with using directives for Command / Query models.
+
+### Version 4.0.8
 
 - Fixed: Namespaces would not be added for enums used on `Query`s and `Command`s.
 
