@@ -15,13 +15,17 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             string aggregateAttr,
             List<UpdateAggregateRootCompositeManyBDto> composites,
             UpdateAggregateRootCompositeSingleADto? composite,
-            UpdateAggregateRootAggregateSingleCDto? aggregate)
+            UpdateAggregateRootAggregateSingleCDto? aggregate,
+            string limitedDomain,
+            string limitedService)
         {
             Id = id;
             AggregateAttr = aggregateAttr;
             Composites = composites;
             Composite = composite;
             Aggregate = aggregate;
+            LimitedDomain = limitedDomain;
+            LimitedService = limitedService;
         }
         public Guid Id { get; set; }
 
@@ -32,6 +36,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         public UpdateAggregateRootCompositeSingleADto? Composite { get; set; }
 
         public UpdateAggregateRootAggregateSingleCDto? Aggregate { get; set; }
+        public string LimitedDomain { get; set; }
+        public string LimitedService { get; set; }
 
     }
 }

@@ -237,6 +237,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             AssertEquivalent(expectedDto.Composites, actualEntity.Composites);
             AssertEquivalent(expectedDto.Composite, actualEntity.Composite);
 #warning Field not a composite association: Aggregate
+            actualEntity.LimitedDomain.Should().Be(expectedDto.LimitedDomain);
+            actualEntity.LimitedService.Should().Be(expectedDto.LimitedService);
         }
 
         public static void AssertEquivalent(
@@ -454,6 +456,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             AssertEquivalent(expectedDto.Composites, actualEntity.Composites);
             AssertEquivalent(expectedDto.Composite, actualEntity.Composite);
 #warning Field not a composite association: Aggregate
+            actualEntity.LimitedDomain.Should().Be(expectedDto.LimitedDomain);
+            actualEntity.LimitedService.Should().Be(expectedDto.LimitedService);
         }
 
         public static void AssertEquivalent(

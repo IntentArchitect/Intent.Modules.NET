@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
@@ -180,32 +181,16 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 !IsEnum(property.TypeReference) &&
                 !property.TypeReference.IsNullable)
             {
-                if (!first)
-                {
-                    method.AddStatement(string.Empty);
-                }
-
-                method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name.ToPascalCase()}, () => default));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name.ToPascalCase()}"", ""not be empty"" }};");
+                if (!first) { method.AddStatement(string.Empty); }
+                AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
             
             if (property.GetValidations()?.NotEmpty() == true &&
                 !IsEnum(property.TypeReference))
             {
-                if (!first)
-                {
-                    method.AddStatement(string.Empty);
-                }
-                
-                method.AddStatements($@"
-{(first ? "var " : "")}fixture = new Fixture();
-fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
-{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" }};");
+                if (!first) { method.AddStatement(string.Empty); }
+                AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
 
@@ -215,31 +200,19 @@ yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" 
 
                 var minLen = property.GetValidations().MinLength().Value;
                 var maxLen = property.GetValidations().MaxLength().Value;
-                method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be between {minLen} and {maxLen} characters");
 
                 first = false;
 
                 method.AddStatement(string.Empty);
-                method.AddStatements($@"
-        fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(minLen - 1)}""));
-        testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be between {minLen} and {maxLen} characters");
             }
             else if (property.GetValidations()?.MaxLength() != null)
             {
                 if (!first) { method.AddStatement(string.Empty); }
 
                 var maxLen = property.GetValidations().MaxLength().Value;
-                method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
                 first = false;
             }
             else if (property.GetValidations()?.MinLength() != null)
@@ -247,11 +220,7 @@ yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" 
                 if (!first) { method.AddStatement(string.Empty); }
 
                 var minLen = property.GetValidations().MinLength().Value;
-                method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(minLen - 1)}""));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be at least {minLen} characters"" }};");
+                AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be at least {minLen} characters");
                 first = false;
             }
 
@@ -264,11 +233,7 @@ yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" 
                     if (!first) { method.AddStatement(string.Empty); }
 
                     var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
-                    method.AddStatements($@"
-        {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
-        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
+                    AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
                     first = false;
                 }
             }
@@ -287,23 +252,65 @@ yield return new object[] {{ testCommand, ""{property.Name}"", ""not be empty"" 
         if (!string.IsNullOrWhiteSpace(enumModel.Literals.First().Value) && enumLiteralsWithOrdinals.First() != 0)
         {
             if (!first) { method.AddStatement(string.Empty); }
-            method.AddStatements($@"
-{(first ? "var " : "")}fixture = new Fixture();
-fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ({GetTypeName(property.TypeReference)})0));
-{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
+            AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)})0", "has a range of values which does not include");
             first = false;
         }
         
         if (!first) { method.AddStatement(string.Empty); }
         var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
         var invalidOrdinalValueForTest = lastOrdinalValue + 1;
-        method.AddStatements($@"
-{(first ? "var " : "")}fixture = new Fixture();
-fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}));
-{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-yield return new object[] {{ testCommand, ""{property.Name}"", ""has a range of values which does not include"" }};");
+        AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}", "has a range of values which does not include");
         first = false;
+    }
+
+    private void AddNegativeTestCaseStatements(CSharpClassMethod method, DTOFieldModel property, bool first,
+        string testValue, string expectedPhrase)
+    {
+        method.AddStatements($@"
+{(first ? "var " : "")}fixture = new Fixture();");
+        var customLambdaBody = new CSharpLambdaBlock("comp");
+        method.AddInvocationStatement($"fixture.Customize<{GetTypeName(Model.InternalElement)}>", inv => inv
+            .AddArgument(customLambdaBody));
+        var otherWithStatements = new List<CSharpStatement>();
+
+        foreach (var otherProperty in Model.Properties.Where(p => p.Id != property.Id))
+        {
+            if (otherProperty.GetValidations()?.MaxLength() != null)
+            {
+                var maxLen = otherProperty.GetValidations().MaxLength().Value;
+                otherWithStatements.Add($@"With(x => x.{otherProperty.Name}, () => $""{GetStringWithLen(maxLen - 1)}"")");
+            }
+            else if (otherProperty.GetValidations()?.MaxLength() == null && otherProperty.InternalElement.IsMapped)
+            {
+                var attribute = otherProperty.InternalElement?.MappedElement?.Element?.AsAttributeModel();
+                if (attribute != null && attribute.HasStereotype("Text Constraints") &&
+                    attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+                {
+                    var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
+                    otherWithStatements.Add($@"With(x => x.{otherProperty.Name}, () => $""{GetStringWithLen(maxLen - 1)}"")");
+                }
+            }
+        }
+
+        if (otherWithStatements.Any())
+        {
+            var chain = new CSharpMethodChainStatement("comp")
+                .WithoutSemicolon()
+                .AddChainStatement($@"With(x => x.{property.Name}, () => {testValue})");
+            foreach (var statement in otherWithStatements)
+            {
+                chain.AddChainStatement(statement);
+            }
+            customLambdaBody.WithExpressionBody(chain);
+        }
+        else
+        {
+            customLambdaBody.WithExpressionBody($@"comp.With(x => x.{property.Name}, () => {testValue})");
+        }
+
+        method.AddStatements($@"
+{(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+yield return new object[] {{ testCommand, ""{property.Name}"", ""{expectedPhrase}"" }};");
     }
 
     private static int?[] GetConceptualEnumWithOrdinalValues(EnumModel enumModel)
