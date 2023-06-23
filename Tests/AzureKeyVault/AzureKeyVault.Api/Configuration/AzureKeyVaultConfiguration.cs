@@ -42,7 +42,6 @@ public static class AzureKeyVaultConfiguration
                 ManagedIdentityClientId = configuration["KeyVault:ClientId"]
             });
         }
-
         // Use the default discovery mechanisms to connect to Azure Key Vault.
         return new DefaultAzureCredential();
     }

@@ -29,8 +29,8 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient<IValidationService, ValidationService>();
-            services.AddTransient<IAccountingDomainService, AccountingDomainService>();
             services.AddTransient<IAsyncableDomainService, AsyncableDomainService>();
+            services.AddTransient<IAccountingDomainService, AccountingDomainService>();
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
             services.AddTransient<IServiceDispatchService, ServiceDispatchService>();

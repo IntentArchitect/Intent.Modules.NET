@@ -66,24 +66,24 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new AccountConfiguration());
-            modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
+            modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateTestNoIdReturnConfiguration());
-            modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
-            modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
-            modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeManyBConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
-            modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
+            modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
             modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
-            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

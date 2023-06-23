@@ -39,8 +39,8 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddOptions();
-            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

@@ -39,8 +39,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

@@ -39,9 +39,9 @@ namespace Application.Identity.AccountController.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.ConfigureIdentity();
-            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
+            services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureIdentity();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
             services.AddTransient<IAccountEmailSender, AccountEmailSender>();

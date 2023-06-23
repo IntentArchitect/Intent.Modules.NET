@@ -40,9 +40,9 @@ namespace CleanArchitecture.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
+            services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureApiVersioning();
-            services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

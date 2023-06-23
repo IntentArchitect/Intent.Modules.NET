@@ -17,8 +17,8 @@ namespace AzureFunctions.TestApplication.Api
         {
             var configuration = builder.GetContext().Configuration;
             builder.Services.AddApplication();
-            builder.Services.AddInfrastructure(configuration);
             builder.Services.ConfigureApplicationSecurity(configuration);
+            builder.Services.AddInfrastructure(configuration);
         }
     }
 }

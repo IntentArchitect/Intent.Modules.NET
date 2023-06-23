@@ -58,14 +58,14 @@ namespace CosmosDB.Infrastructure
             services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
-            services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
+            services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
+            services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
-            services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
     }

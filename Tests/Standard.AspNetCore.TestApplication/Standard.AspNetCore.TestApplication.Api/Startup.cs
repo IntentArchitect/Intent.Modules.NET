@@ -38,8 +38,8 @@ namespace Standard.AspNetCore.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.ConfigureApiVersioning();
             services.AddApplication();
+            services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
