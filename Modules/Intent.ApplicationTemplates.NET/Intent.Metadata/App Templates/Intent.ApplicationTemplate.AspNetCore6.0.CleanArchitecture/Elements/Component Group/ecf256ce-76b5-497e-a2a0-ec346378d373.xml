@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ecf256ce-76b5-497e-a2a0-ec346378d373" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Testing</name>
+  <display>Testing</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>7</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
+  <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="451f294d-fa0f-41ea-8d5d-901438f245a9" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>CRUD Testing (MediatR)</name>
+      <display>CRUD Testing (MediatR)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ecf256ce-76b5-497e-a2a0-ec346378d373</parentFolderId>
+      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Generates unit tests for CRUD Command, Query handlers and Fluent Validation validators." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;1c1be665-9040-4bbd-ab1d-0ce4b004d2c5&quot;,&quot;bdb55c01-453e-42f1-b3aa-ef01f92e4916&quot;]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e05f73f2-4339-4fa0-b55c-fa70fdd2e604" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.MediatR.CRUD.Tests</name>
+          <display>Intent.Application.MediatR.CRUD.Tests</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>451f294d-fa0f-41ea-8d5d-901438f245a9</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.0" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -59,7 +59,7 @@
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#61f239a7-101b-4b4d-bacc-19a6cc318a71</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
