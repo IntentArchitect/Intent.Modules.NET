@@ -18,6 +18,13 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
             builder.Property(x => x.AggregateAttr)
                 .IsRequired();
 
+            builder.Property(x => x.LimitedDomain)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(x => x.LimitedService)
+                .IsRequired();
+
             builder.HasMany(x => x.Composites)
                 .WithOne()
                 .HasForeignKey(x => x.AggregateRootId)

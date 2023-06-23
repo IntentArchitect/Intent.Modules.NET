@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Fixed: Added NotFoundException for nested entity creation scenarios if the Aggregate entity Id could not be found.
+
 ### Version 5.1.0
 
 - Update: Introduces NotFoundException when an entity is not found.

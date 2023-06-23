@@ -79,10 +79,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
-                codeLines.Add($"if (aggregateRoot == null)");
-                codeLines.Add(new CSharpStatementBlock()
-                    .AddStatement(
-                        $@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                codeLines.Add(new CSharpIfStatement($"aggregateRoot is null")
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
             }
 
             var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainModel: foundEntity,

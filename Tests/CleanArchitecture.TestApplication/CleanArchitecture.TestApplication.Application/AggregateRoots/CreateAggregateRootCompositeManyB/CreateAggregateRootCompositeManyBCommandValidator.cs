@@ -20,8 +20,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.CompositeAttr)
-                .NotNull()
-                .MaximumLength(20);
+                .NotNull();
 
             RuleFor(v => v.Composites)
                 .NotNull();

@@ -1,3 +1,7 @@
+### Versuib 1.1.1
+
+- Fixed: Ensure certain fields to be within a certain text range for negative testing to work successfully.
+
 ### Version 1.1.0
 
 - Update: Introduces NotFoundException when an entity is not found in the tests.

@@ -17,6 +17,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
 
         public string AggregateAttr { get; set; }
 
+        public string LimitedDomain { get; set; }
+
+        public string LimitedService { get; set; }
+
         public virtual ICollection<CompositeManyB> Composites { get; set; } = new List<CompositeManyB>();
 
         public virtual CompositeSingleA? Composite { get; set; }

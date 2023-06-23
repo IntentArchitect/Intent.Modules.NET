@@ -35,6 +35,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
                 Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
                 Composite = request.Composite != null ? CreateCompositeSingleA(request.Composite) : null,
 #warning Field not a composite association: Aggregate
+                LimitedDomain = request.LimitedDomain,
+                LimitedService = request.LimitedService,
             };
 
             _aggregateRootRepository.Add(newAggregateRoot);
