@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Entities;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -27,9 +28,10 @@ namespace CleanArchitecture.Dapr.Application.Invoices.CreateInvoiceInvoiceLine
         public async Task<string> Handle(CreateInvoiceInvoiceLineCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-            if (aggregateRoot == null)
+
+            if (aggregateRoot is null)
             {
-                throw new InvalidOperationException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
+                throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
             var newInvoiceLine = new InvoiceLine
             {
