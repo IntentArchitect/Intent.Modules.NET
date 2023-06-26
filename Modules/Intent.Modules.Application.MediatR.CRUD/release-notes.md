@@ -1,6 +1,7 @@
 ### Version 5.1.3
 
 - Fixed: Nested composite entity Command/Query handlers had inconsistent naming conventions that caused other code (like injecting publishers) to break at compile time.
+- Fixed: Compositional deletion implementations weren't explicitly calling repository `Update` methods when required.
 
 ### Version 5.1.2
 

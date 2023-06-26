@@ -85,6 +85,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
 
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(existing{foundEntity.Name});");
+
+                if (RepositoryRequiresExplicitUpdate())
+                {
+                    codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
+                }
+
                 codeLines.Add("return Unit.Value;");
 
                 return codeLines.ToList();
@@ -100,6 +106,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 : $"return Unit.Value;");
 
             return codeLines.ToList();
+        }
+
+        private bool RepositoryRequiresExplicitUpdate()
+        {
+            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       _matchingElementDetails.Value.RepositoryInterfaceModel,
+                       out var repositoryInterfaceTemplate) &&
+                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+                   requiresUpdate;
         }
 
 
@@ -128,7 +144,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
+            var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
+
+            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
             if (repositoryInterface == null)
             {
                 return NoMatch;
@@ -139,20 +157,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
 
-            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn);
+            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn, repositoryInterfaceModel);
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn)
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn, ClassModel repositoryInterfaceModel)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdField = idField;
                 Repository = repository;
                 DtoToReturn = dtoToReturn;
+                RepositoryInterfaceModel = repositoryInterfaceModel;
             }
 
             public bool IsMatch { get; }
@@ -160,6 +179,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             public DTOFieldModel IdField { get; }
             public RequiredService Repository { get; }
             public DTOModel DtoToReturn { get; }
+            public ClassModel RepositoryInterfaceModel { get; }
         }
     }
 }
