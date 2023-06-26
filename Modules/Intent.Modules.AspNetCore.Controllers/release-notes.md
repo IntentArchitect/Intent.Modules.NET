@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Fixed: Ensure that the `IExceptionFilter` doesn't clash with another library's equivalent interface (such as MassTransit).
+
 ### Version 5.2.0
 
 - FileBuilder metadata updated.

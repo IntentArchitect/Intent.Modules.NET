@@ -11,7 +11,7 @@ using Subscribe.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 
 namespace Subscribe.CleanArchDapr.TestApplication.Api.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {
