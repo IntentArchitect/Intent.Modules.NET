@@ -572,6 +572,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b05cf9ac-6bfd-4d2e-a341-1c44b34ca743</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b05cf9ac-6bfd-4d2e-a341-1c44b34ca743</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b05cf9ac-6bfd-4d2e-a341-1c44b34ca743</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#243230b7-c2d4-43c5-a9d1-b69e5a5940bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs</ApplicationRelativeFilePath>
@@ -596,6 +620,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9e0e3fa2-9817-4419-83b4-f483800685ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9e0e3fa2-9817-4419-83b4-f483800685ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9e0e3fa2-9817-4419-83b4-f483800685ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#dfad015d-effe-49c3-a654-66b1a7389250</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs</ApplicationRelativeFilePath>
@@ -616,6 +664,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#631996d0-8ad3-47f8-ac56-8312e3a9201a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#631996d0-8ad3-47f8-ac56-8312e3a9201a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#631996d0-8ad3-47f8-ac56-8312e3a9201a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8e2ef66c-caff-4b5f-8860-708beb2ffd62</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8e2ef66c-caff-4b5f-8860-708beb2ffd62</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8e2ef66c-caff-4b5f-8860-708beb2ffd62</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -712,6 +808,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#595a929b-0271-4e48-9ae1-2e1c05728c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#595a929b-0271-4e48-9ae1-2e1c05728c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#595a929b-0271-4e48-9ae1-2e1c05728c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -16,14 +16,13 @@ namespace CosmosDB.Application.Invoices
         {
             Id = null!;
             Description = null!;
-            Quantity = null!;
         }
 
         public string Id { get; set; }
         public string Description { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
-        public static InvoiceLineItemDto Create(string id, string description, string quantity)
+        public static InvoiceLineItemDto Create(string id, string description, int quantity)
         {
             return new InvoiceLineItemDto
             {
