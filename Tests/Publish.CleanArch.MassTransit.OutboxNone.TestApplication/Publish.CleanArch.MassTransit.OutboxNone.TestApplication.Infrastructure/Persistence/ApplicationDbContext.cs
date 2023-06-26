@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common.Interfaces;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -21,6 +23,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Basket> Baskets { get; set; }
+
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             await DispatchEvents();
@@ -32,6 +36,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new BasketConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

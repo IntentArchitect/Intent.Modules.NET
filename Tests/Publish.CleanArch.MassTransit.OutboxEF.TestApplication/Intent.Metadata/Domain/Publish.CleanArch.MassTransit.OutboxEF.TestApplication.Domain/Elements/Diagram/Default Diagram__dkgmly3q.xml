@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9003d23c-6a13-4706-9d29-ce915fa57a90</parentFolderId>
+  <packageId>9003d23c-6a13-4706-9d29-ce915fa57a90</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>9003d23c-6a13-4706-9d29-ce915fa57a90</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

@@ -28,10 +28,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac8bdcaf-d066-493b-8df1-b9fd537ebd23</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#1f68e265-bb5d-46ef-8593-14b2ffdfd3db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Controllers/DefaultController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrdersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bb957a0-c5de-4ec4-b0ec-fd63a68b20e2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -268,10 +276,234 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ea8529e7-af5a-42c1-af42-a67e21a8e620</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#83d7f774-bef9-4411-a728-614c1c39e77d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventStartedEvent.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#83d7f774-bef9-4411-a728-614c1c39e77d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderCreatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderCreatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#649c4a3e-bd59-4af6-b858-5a452cf6fda0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#649c4a3e-bd59-4af6-b858-5a452cf6fda0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderDeletedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDeletedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#a4470d5a-1d53-43c0-89d2-cf6cddfb31ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#a4470d5a-1d53-43c0-89d2-cf6cddfb31ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderItemDtoExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderItemDtoExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderUpdatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a8bba7cd-3196-4264-8a58-2e5093eb05c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/CreateOrder/CreateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a8bba7cd-3196-4264-8a58-2e5093eb05c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a8bba7cd-3196-4264-8a58-2e5093eb05c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#be1cfea8-a07b-4637-8529-cc719088d22d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/CreateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/DeleteOrder/DeleteOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fb0f5c28-272b-4485-a20b-41745ce9313d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrderById/GetOrderByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fb0f5c28-272b-4485-a20b-41745ce9313d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fb0f5c28-272b-4485-a20b-41745ce9313d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrders/GetOrdersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrders/GetOrdersQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrders/GetOrdersQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#def978d5-6e0d-41b5-b634-b9f158b14681</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/OrderDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#def978d5-6e0d-41b5-b634-b9f158b14681</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/OrderDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d7d02358-2a08-4f8f-90d0-f07bd1d3ff5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/OrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#d7d02358-2a08-4f8f-90d0-f07bd1d3ff5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/OrderOrderItemDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderItemDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#fc38edd7-56f0-4d61-ae4b-08f4ed576679</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/UpdateOrder/UpdateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#fc38edd7-56f0-4d61-ae4b-08f4ed576679</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/UpdateOrder/UpdateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fc38edd7-56f0-4d61-ae4b-08f4ed576679</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/UpdateOrder/UpdateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#51815cda-f305-416c-a92f-9d93a559fa67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/UpdateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderOrderItemDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -280,30 +512,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#da1fb36e-51c7-4e68-af35-c8bfd1e2c25f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/TestPublish/TestPublishCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#da1fb36e-51c7-4e68-af35-c8bfd1e2c25f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/TestPublish/TestPublishCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#da1fb36e-51c7-4e68-af35-c8bfd1e2c25f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/TestPublish/TestPublishCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -355,6 +563,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2be5b222-9575-4343-8749-f21ac2dab7b8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f742cf87-1a4a-4b0e-a3bc-2b495809270d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Order.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2be5b222-9575-4343-8749-f21ac2dab7b8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#fb0d368b-7ee5-45f9-a26e-1cb7e529a751</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain/Entities/OrderItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>add0349a-c6b4-4cce-a8db-d193c08f029c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#add0349a-c6b4-4cce-a8db-d193c08f029c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -368,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5c0fe05-d062-4128-8bb9-9b07d2eab52f</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f742cf87-1a4a-4b0e-a3bc-2b495809270d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain/Repositories/IOrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -427,6 +659,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c35a1d0a-4abb-490a-986b-819c79313e09</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f742cf87-1a4a-4b0e-a3bc-2b495809270d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Persistence/Configurations/OrderConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>be868a4f-0f87-4848-9ec8-affaeb02b80d</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -440,6 +680,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>74a20ef9-313a-4d26-b5d3-92fd9f1b614b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f742cf87-1a4a-4b0e-a3bc-2b495809270d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

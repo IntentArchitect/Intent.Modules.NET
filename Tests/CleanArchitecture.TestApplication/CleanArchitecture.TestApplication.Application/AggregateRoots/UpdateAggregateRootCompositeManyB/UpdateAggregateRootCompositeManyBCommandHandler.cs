@@ -38,17 +38,17 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             {
                 throw new NotFoundException($"{nameof(AggregateRoot)} of Id '{request.AggregateRootId}' could not be found");
             }
-            var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
+            var existingCompositeManyB = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
 
-            if (element is null)
+            if (existingCompositeManyB is null)
             {
                 throw new NotFoundException($"{nameof(CompositeManyB)} of Id '{request.Id}' could not be found associated with {nameof(AggregateRoot)} of Id '{request.AggregateRootId}'");
             }
-            element.AggregateRootId = request.AggregateRootId;
-            element.CompositeAttr = request.CompositeAttr;
-            element.SomeDate = request.SomeDate;
-            element.Composite = CreateOrUpdateCompositeSingleBB(element.Composite, request.Composite);
-            element.Composites = UpdateHelper.CreateOrUpdateCollection(element.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyBB);
+            existingCompositeManyB.AggregateRootId = request.AggregateRootId;
+            existingCompositeManyB.CompositeAttr = request.CompositeAttr;
+            existingCompositeManyB.SomeDate = request.SomeDate;
+            existingCompositeManyB.Composite = CreateOrUpdateCompositeSingleBB(existingCompositeManyB.Composite, request.Composite);
+            existingCompositeManyB.Composites = UpdateHelper.CreateOrUpdateCollection(existingCompositeManyB.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyBB);
             return Unit.Value;
         }
 

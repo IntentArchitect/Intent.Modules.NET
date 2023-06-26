@@ -80,11 +80,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
 
                 codeLines.Add("");
-                codeLines.Add($"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
-                codeLines.Add(new CSharpIfStatement($"element is null")
+                codeLines.Add($"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
+                codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
                     .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
 
-                codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
+                codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(existing{foundEntity.Name});");
                 codeLines.Add("return Unit.Value;");
 
                 return codeLines.ToList();

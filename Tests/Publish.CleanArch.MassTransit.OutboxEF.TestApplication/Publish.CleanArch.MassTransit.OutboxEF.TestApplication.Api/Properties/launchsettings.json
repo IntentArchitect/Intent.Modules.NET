@@ -11,8 +11,8 @@
     "Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:63932/;https://localhost:44392/",
-      "launchUrl": "http://localhost:63932/swagger",
+      "applicationUrl": "https://localhost:44392/",
+      "launchUrl": "https://localhost:44392/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {

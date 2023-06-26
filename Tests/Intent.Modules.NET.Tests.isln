@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.2.3" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.2.8" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -24,7 +24,6 @@
     <application id="5ffa2a75-821a-41f2-8232-af7df2460b0b" name="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication/Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.application.config" />
     <application id="71eac626-755a-4c5d-89f1-e66511d4df64" name="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.application.config" />
     <application id="a0ff54fb-ecb8-4dfd-9389-f476f4047fc5" name="Subscribe.GooglePubSub.TestApplication" relativePath="Subscribe.GooglePubSub.TestApplication/Subscribe.GooglePubSub.TestApplication.application.config" />
-    <application id="baf5adf5-2d56-4174-b786-fdfd481e7d69" name="Subscribe.MassTransit.TestApplication" relativePath="Subscribe.MassTransit.TestApplication/Subscribe.MassTransit.TestApplication.application.config" />
     <application id="be4b0466-617b-4d2d-beb1-5ef601d11ec9" name="MongoDb.TestApplication" relativePath="MongoDb.TestApplication/MongoDb.TestApplication.application.config" />
     <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
     <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
@@ -42,5 +41,7 @@
     <application id="65b33b65-b7ce-4175-8344-4522f421ec6e" name="GraphQL.AzureFunction.TestApplication" relativePath="GraphQL.AzureFunction.TestApplication/GraphQL.AzureFunction.TestApplication.application.config" />
     <application id="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" name="CleanArchitecture.Dapr" relativePath="CleanArchitecture.Dapr/CleanArchitecture.Dapr.application.config" />
     <application id="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" name="CosmosDB" relativePath="CosmosDB/CosmosDB.application.config" />
+    <application id="d3231941-3f20-462d-86ca-a32d4c05484b" name="Subscribe.MassTransit.OutboxMemory" relativePath="Subscribe.MassTransit.OutboxMemory/Subscribe.MassTransit.OutboxMemory.application.config" />
+    <application id="c4e959b3-b652-4224-a8a0-aaf2a2a14942" name="Subscribe.MassTransit.OutboxEF" relativePath="Subscribe.MassTransit.OutboxEF/Subscribe.MassTransit.OutboxEF.application.config" />
   </applications>
 </solution>

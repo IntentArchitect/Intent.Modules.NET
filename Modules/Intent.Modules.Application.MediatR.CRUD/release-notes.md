@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Fixed: Nested composite entity Command/Query handlers had inconsistent naming conventions that caused other code (like injecting publishers) to break at compile time.
+
 ### Version 5.1.2
 
 - Fixed: Added NotFoundException for nested entity creation scenarios if the Aggregate entity Id could not be found.

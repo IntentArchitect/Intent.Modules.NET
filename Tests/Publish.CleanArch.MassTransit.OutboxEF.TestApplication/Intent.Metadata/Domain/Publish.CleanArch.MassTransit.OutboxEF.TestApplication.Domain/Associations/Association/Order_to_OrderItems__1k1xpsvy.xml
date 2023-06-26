@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3dce6e16-909e-48fd-bc46-94ca2128faff">
+  <sourceEnd id="3307e1e5-1376-4c11-b1d3-ce6a82174458" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="8b23bc60-774d-463b-94f9-781f73a7d13f">
+      <typeId>f742cf87-1a4a-4b0e-a3bc-2b495809270d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>9003d23c-6a13-4706-9d29-ce915fa57a90</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3dce6e16-909e-48fd-bc46-94ca2128faff" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OrderItems</name>
+    <display>OrderItems: OrderItem[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="0d8871a0-a80a-421e-94d9-a15bf9d41e38">
+      <typeId>fb0d368b-7ee5-45f9-a26e-1cb7e529a751</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>9003d23c-6a13-4706-9d29-ce915fa57a90</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

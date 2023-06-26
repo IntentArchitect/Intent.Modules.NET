@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="80e47cf7-dd21-49c6-b79e-a8bc0f1e1874">
+  <sourceEnd id="b696d5ad-7a46-46c0-ade4-57b8e76e8c2a" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</name>
+    <display>publisher: Publish.CleanArch.MassTransit.OutboxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="2048e26f-b082-4f87-89eb-b18d047e4fc7">
+      <typeId>fe26704f-5e89-4a7e-90ba-660fffe7f9cd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing</typePackageName>
+      <typePackageId>8623ded6-8707-415c-af08-2fe8e344dfbf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="80e47cf7-dd21-49c6-b79e-a8bc0f1e1874" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>BasketDeletedEvent</name>
+    <display>publish: BasketDeletedEvent</display>
+    <order>2</order>
+    <typeReference id="e3fe63de-c044-44de-a850-d591b1a5179f">
+      <typeId>08220e54-1dd6-4efb-be0c-398044e4bc93</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

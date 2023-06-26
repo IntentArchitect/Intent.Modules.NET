@@ -8,9 +8,11 @@ using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Interfaces;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Repositories;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Configuration;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Eventing;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Persistence;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Repositories;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +33,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();

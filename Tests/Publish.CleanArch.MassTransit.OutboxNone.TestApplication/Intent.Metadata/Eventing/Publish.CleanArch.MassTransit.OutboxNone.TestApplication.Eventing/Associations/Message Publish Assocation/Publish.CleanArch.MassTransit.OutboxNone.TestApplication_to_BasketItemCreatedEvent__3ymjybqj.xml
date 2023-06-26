@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="70c53c39-86f7-4829-aa4d-1792d8d7ffd0">
+  <sourceEnd id="c36f2a4b-2cbf-4f26-b994-82c2dd49016f" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</name>
+    <display>publisher: Publish.CleanArch.MassTransit.OutboxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="ed32e1b2-f560-4c78-92ef-ead22bad90ad">
+      <typeId>fe26704f-5e89-4a7e-90ba-660fffe7f9cd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing</typePackageName>
+      <typePackageId>8623ded6-8707-415c-af08-2fe8e344dfbf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="70c53c39-86f7-4829-aa4d-1792d8d7ffd0" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>BasketItemCreatedEvent</name>
+    <display>publish: BasketItemCreatedEvent</display>
+    <order>3</order>
+    <typeReference id="014132ce-1df4-434f-b1ff-a4b54905cc7f">
+      <typeId>2d3248eb-14ef-4f74-ba54-771e5713b7e0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

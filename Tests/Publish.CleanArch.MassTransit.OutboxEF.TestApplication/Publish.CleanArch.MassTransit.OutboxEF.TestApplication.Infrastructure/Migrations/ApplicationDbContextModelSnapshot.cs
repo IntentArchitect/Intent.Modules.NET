@@ -177,6 +177,52 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
 
                     b.ToTable("OutboxState");
                 });
+
+            modelBuilder.Entity("Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Number")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities.Order", b =>
+                {
+                    b.OwnsMany("Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities.OrderItem", "OrderItems", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Description")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("OrderId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("OrderId");
+
+                            b1.ToTable("OrderItem");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderId");
+                        });
+
+                    b.Navigation("OrderItems");
+                });
 #pragma warning restore 612, 618
         }
     }

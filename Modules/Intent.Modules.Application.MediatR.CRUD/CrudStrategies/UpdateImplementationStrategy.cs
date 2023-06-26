@@ -79,10 +79,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
 
-                codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
-                codeLines.Add(new CSharpIfStatement($"element is null")
+                codeLines.Add($@"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
+                codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
                     .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
+                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 if (RepositoryRequiresExplicitUpdate())
                 {

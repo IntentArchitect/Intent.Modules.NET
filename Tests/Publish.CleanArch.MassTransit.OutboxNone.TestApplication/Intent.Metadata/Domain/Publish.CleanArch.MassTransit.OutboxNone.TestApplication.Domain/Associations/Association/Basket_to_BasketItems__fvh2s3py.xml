@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="372476c8-aa08-49ae-b4e0-85d0e411a264">
+  <sourceEnd id="f5bdca96-61cd-428a-aced-97ca3cf6ce1d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Basket</name>
+    <display>Basket: Basket</display>
+    <order>0</order>
+    <typeReference id="5a18f704-dcd8-41f5-9a56-06396ef020ce">
+      <typeId>29ccb8cb-4860-4366-881b-cd0655b9453c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>4364c544-7a74-40d1-a76b-9de314ee334c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="372476c8-aa08-49ae-b4e0-85d0e411a264" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BasketItems</name>
+    <display>BasketItems: BasketItem[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="2a16886b-2247-4b55-87c3-322d2b5cd89b">
+      <typeId>65fe0448-94b2-4c97-9746-0088607c147a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>4364c544-7a74-40d1-a76b-9de314ee334c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -34,13 +34,13 @@ namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoiceInvoiceLine
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
 
-            var element = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
+            var existingInvoiceLine = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
 
-            if (element is null)
+            if (existingInvoiceLine is null)
             {
                 throw new NotFoundException($"{nameof(InvoiceLine)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");
             }
-            aggregateRoot.InvoiceLines.Remove(element);
+            aggregateRoot.InvoiceLines.Remove(existingInvoiceLine);
             return Unit.Value;
         }
     }

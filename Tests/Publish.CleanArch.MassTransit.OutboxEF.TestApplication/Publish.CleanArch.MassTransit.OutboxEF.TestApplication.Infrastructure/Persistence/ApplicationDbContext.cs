@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Interfaces;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -21,6 +23,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
         {
             _domainEventService = domainEventService;
         }
+
+        public DbSet<Order> Orders { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -37,6 +41,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
             modelBuilder.AddInboxStateEntity();
             modelBuilder.AddOutboxMessageEntity();
             modelBuilder.AddOutboxStateEntity();
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

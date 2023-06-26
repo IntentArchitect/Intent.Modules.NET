@@ -38,13 +38,13 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
                 throw new NotFoundException($"{nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}' could not be found");
             }
 
-            var element = aggregateRoot.ImplicitKeyNestedCompositions.FirstOrDefault(p => p.Id == request.Id);
+            var existingImplicitKeyNestedComposition = aggregateRoot.ImplicitKeyNestedCompositions.FirstOrDefault(p => p.Id == request.Id);
 
-            if (element is null)
+            if (existingImplicitKeyNestedComposition is null)
             {
                 throw new NotFoundException($"{nameof(ImplicitKeyNestedComposition)} of Id '{request.Id}' could not be found associated with {nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}'");
             }
-            aggregateRoot.ImplicitKeyNestedCompositions.Remove(element);
+            aggregateRoot.ImplicitKeyNestedCompositions.Remove(existingImplicitKeyNestedComposition);
             return Unit.Value;
         }
     }

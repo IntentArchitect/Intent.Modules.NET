@@ -8,9 +8,11 @@ using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common.Interfaces;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Repositories;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Configuration;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Eventing;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Persistence;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Repositories;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -29,6 +31,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IBasketRepository, BasketRepository>();
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();

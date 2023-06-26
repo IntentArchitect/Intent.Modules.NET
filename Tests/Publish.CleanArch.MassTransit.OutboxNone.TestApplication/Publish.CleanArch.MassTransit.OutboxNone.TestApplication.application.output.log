@@ -28,10 +28,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>2e5d8763-8039-4969-99f5-224d6a01e9ae</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#18fa2223-34ba-4a11-8f7d-486fac0f0d4f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/DefaultController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/BasketsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>62c0becd-6616-4f1c-8f0a-3fa681e41e11</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -88,6 +96,278 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a6b417eb-3041-441e-9033-f0140bf82b2b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/BasketBasketItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketBasketItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#a6b417eb-3041-441e-9033-f0140bf82b2b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/BasketBasketItemDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketBasketItemDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#997e7c11-87bb-4965-806c-0da9a6b1c2e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/BasketDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#997e7c11-87bb-4965-806c-0da9a6b1c2e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/BasketDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9cc37402-b334-43d5-9744-ac89a33af794</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasket/CreateBasketCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasket/CreateBasketCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9cc37402-b334-43d5-9744-ac89a33af794</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasket/CreateBasketCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasket/CreateBasketCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9cc37402-b334-43d5-9744-ac89a33af794</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasket/CreateBasketCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasket/CreateBasketCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e0b74cb1-6add-4474-ad10-b563acf4816e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e0b74cb1-6add-4474-ad10-b563acf4816e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e0b74cb1-6add-4474-ad10-b563acf4816e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/CreateBasketBasketItem/CreateBasketBasketItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9d806019-63e9-47ba-b1e7-de989f5eb1ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasket/DeleteBasketCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasket/DeleteBasketCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9d806019-63e9-47ba-b1e7-de989f5eb1ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasket/DeleteBasketCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasket/DeleteBasketCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9d806019-63e9-47ba-b1e7-de989f5eb1ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasket/DeleteBasketCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasket/DeleteBasketCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#728e8466-97df-45b1-94c3-0a71ce334c9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#728e8466-97df-45b1-94c3-0a71ce334c9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#728e8466-97df-45b1-94c3-0a71ce334c9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#3c7853ea-e050-44d1-bcdc-9b820654b996</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#3c7853ea-e050-44d1-bcdc-9b820654b996</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3c7853ea-e050-44d1-bcdc-9b820654b996</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2a2a45c8-049a-4452-9d67-d3013c4692d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItems/GetBasketBasketItemsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItems/GetBasketBasketItemsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2a2a45c8-049a-4452-9d67-d3013c4692d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItems/GetBasketBasketItemsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItems/GetBasketBasketItemsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2a2a45c8-049a-4452-9d67-d3013c4692d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItems/GetBasketBasketItemsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketBasketItems/GetBasketBasketItemsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d7014bb2-0449-4399-a362-b0358a4a3e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketById/GetBasketByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketById/GetBasketByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d7014bb2-0449-4399-a362-b0358a4a3e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketById/GetBasketByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketById/GetBasketByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d7014bb2-0449-4399-a362-b0358a4a3e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketById/GetBasketByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBasketById/GetBasketByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7a96783b-914d-4bbd-9e85-75385bc05071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBaskets/GetBasketsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBaskets/GetBasketsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7a96783b-914d-4bbd-9e85-75385bc05071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBaskets/GetBasketsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBaskets/GetBasketsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7a96783b-914d-4bbd-9e85-75385bc05071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBaskets/GetBasketsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/GetBaskets/GetBasketsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#92abf7d5-bca6-4fc7-b3bc-20996e8ee237</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasket/UpdateBasketCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasket/UpdateBasketCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#92abf7d5-bca6-4fc7-b3bc-20996e8ee237</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasket/UpdateBasketCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasket/UpdateBasketCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#92abf7d5-bca6-4fc7-b3bc-20996e8ee237</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasket/UpdateBasketCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasket/UpdateBasketCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#99c296d0-1666-40bf-bc05-1e8bf5b20a45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#99c296d0-1666-40bf-bc05-1e8bf5b20a45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#99c296d0-1666-40bf-bc05-1e8bf5b20a45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/UpdateBasketBasketItem/UpdateBasketBasketItemCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -268,10 +548,114 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#dd88c18d-9dda-404e-970c-b3df4985885e</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#2d3248eb-14ef-4f74-ba54-771e5713b7e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventStartedEvent.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#2d3248eb-14ef-4f74-ba54-771e5713b7e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemCreatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemCreatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#cbdebdf9-bfea-43a2-816c-39302e94812f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#cbdebdf9-bfea-43a2-816c-39302e94812f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemDeletedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemDeletedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItems/BasketItemUpdatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ddac5caa-5754-4917-a198-e4f538e4b1ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ddac5caa-5754-4917-a198-e4f538e4b1ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketCreatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketCreatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#08220e54-1dd6-4efb-be0c-398044e4bc93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#08220e54-1dd6-4efb-be0c-398044e4bc93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketDeletedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketDeletedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#16b0450c-28df-4988-9838-57b25b6e53a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#16b0450c-28df-4988-9838-57b25b6e53a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketItemDtoExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketItemDtoExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#417ad362-5e9e-4638-9e13-c7d1df82873b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#417ad362-5e9e-4638-9e13-c7d1df82873b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Baskets/BasketUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -280,30 +664,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestPublish/TestPublishCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -355,11 +715,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e8cccb56-5e97-47da-8a66-ece0ef1dc163</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#29ccb8cb-4860-4366-881b-cd0655b9453c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain/Entities/Basket.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basket.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8cccb56-5e97-47da-8a66-ece0ef1dc163</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#65fe0448-94b2-4c97-9746-0088607c147a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain/Entities/BasketItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>744bcc4c-a5e5-4ccd-a3a1-b1ffdea1c3c0</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#744bcc4c-a5e5-4ccd-a3a1-b1ffdea1c3c0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b41f4cc9-0865-4127-a3b9-3314106731e9</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#29ccb8cb-4860-4366-881b-cd0655b9453c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain/Repositories/IBasketRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBasketRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -427,6 +811,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d5a1029e-bf35-4aba-8d29-6fb780face6a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#29ccb8cb-4860-4366-881b-cd0655b9453c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Persistence/Configurations/BasketConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>253a668c-97f6-41b3-bc74-e63126bb699e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -440,6 +832,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3961ef07-4459-4137-8cae-2a877c5b2609</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#29ccb8cb-4860-4366-881b-cd0655b9453c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Repositories/BasketRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasketRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

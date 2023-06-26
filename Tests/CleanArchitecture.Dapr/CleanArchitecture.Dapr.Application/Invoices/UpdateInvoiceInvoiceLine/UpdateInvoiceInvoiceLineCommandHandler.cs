@@ -33,15 +33,15 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoiceInvoiceLine
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
-            var element = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
+            var existingInvoiceLine = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
 
-            if (element is null)
+            if (existingInvoiceLine is null)
             {
                 throw new NotFoundException($"{nameof(InvoiceLine)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");
             }
 #warning No matching field found for InvoiceId
-            element.Description = request.Description;
-            element.Quantity = request.Quantity;
+            existingInvoiceLine.Description = request.Description;
+            existingInvoiceLine.Quantity = request.Quantity;
 
             _invoiceRepository.Update(aggregateRoot);
             return Unit.Value;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8c9fe64-8db1-4cca-81d2-1e56963fcdd3" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Subscribe.MassTransit.OutboxMemory</name>
+  <display>Subscribe.MassTransit.OutboxMemory</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0254cf2c-29f8-47aa-bde8-06dd88ef8a91</parentFolderId>
+  <packageId>0254cf2c-29f8-47aa-bde8-06dd88ef8a91</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory.Eventing</packageName>
+  <diagram>
+    <targetPackageId>f75fe29a-6f31-4f71-add8-5b30159e5a55</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

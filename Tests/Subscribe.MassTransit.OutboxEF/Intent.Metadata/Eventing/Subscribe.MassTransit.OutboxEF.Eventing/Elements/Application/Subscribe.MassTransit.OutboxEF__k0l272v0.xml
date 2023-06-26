@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="19603ff6-b69d-4905-b192-08ea7dcd6635" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Subscribe.MassTransit.OutboxEF</name>
+  <display>Subscribe.MassTransit.OutboxEF</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1663c9ec-bcce-45da-8794-6d4a26c7215d</parentFolderId>
+  <packageId>1663c9ec-bcce-45da-8794-6d4a26c7215d</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF.Eventing</packageName>
+  <diagram>
+    <targetPackageId>92bc33ab-1912-4add-aa71-44309e6edf6d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
