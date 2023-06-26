@@ -10,7 +10,7 @@ using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Common.Exceptions;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {

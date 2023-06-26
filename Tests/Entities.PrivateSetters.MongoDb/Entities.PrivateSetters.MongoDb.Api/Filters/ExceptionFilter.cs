@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Entities.PrivateSetters.MongoDb.Api.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {

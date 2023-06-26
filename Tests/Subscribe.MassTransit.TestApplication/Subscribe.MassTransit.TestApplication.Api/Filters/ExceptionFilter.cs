@@ -10,7 +10,7 @@ using Subscribe.MassTransit.TestApplication.Domain.Common.Exceptions;
 
 namespace Subscribe.MassTransit.TestApplication.Api.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {

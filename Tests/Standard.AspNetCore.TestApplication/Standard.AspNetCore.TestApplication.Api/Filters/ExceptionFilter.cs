@@ -11,7 +11,7 @@ using Standard.AspNetCore.TestApplication.Domain.Common.Exceptions;
 
 namespace Standard.AspNetCore.TestApplication.Api.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {
