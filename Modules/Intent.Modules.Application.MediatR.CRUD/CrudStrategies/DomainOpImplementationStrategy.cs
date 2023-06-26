@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -43,6 +44,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+
             _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
@@ -50,7 +53,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
                 param => param.IntroduceReadonlyField());
-            
+
+            if (_matchingElementDetails.Value.DtoToReturn != null)
+            {
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+            }
+
             foreach (var requiredService in _matchingElementDetails.Value.AdditionalServices)
             {
                 ctor.AddParameter(requiredService.Type, requiredService.Name, c => c.IntroduceReadonlyField());
@@ -71,13 +79,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             codeLines.Add($"var entity = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
 
-            GenerateOperationInvocationCode("request", $"entity");
+            var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
+            GenerateOperationInvocationCode("request", $"entity", dtoToReturn != null);
 
-            codeLines.Add($"return Unit.Value;");
+            codeLines.Add(dtoToReturn != null
+                ? $@"return result.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                : $"return Unit.Value;");
 
             return codeLines.ToList();
 
-            void GenerateOperationInvocationCode(string dtoVarName, string entityVarName)
+            void GenerateOperationInvocationCode(string dtoVarName, string entityVarName, bool hasReturn)
             {
                 var oper = OperationModelExtensions.AsOperationModel(_template.Model.Mapping.Element);
                 if (oper == null)
@@ -87,7 +98,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var operParams = oper.Parameters;
                 var paramList = GetInvocationParameters(operParams, _template.Model.Properties, dtoVarName);
-                var statement = new CSharpInvocationStatement($@"{entityVarName}.{oper.Name.ToPascalCase()}");
+                var statement = new CSharpInvocationStatement($@"{(hasReturn ? "var result = " : "")}{entityVarName}.{oper.Name.ToPascalCase()}");
                 foreach (var param in paramList)
                 {
                     statement.AddArgument(param);
@@ -104,6 +115,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var list = new List<CSharpStatement>();
             foreach (var parameter in operParameters)
             {
+                if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
+                {
+                    string mappingMethodName = $"Create{parameter.TypeReference.Element.Name}";
+
+                    var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
+                    var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                    list.Add(constructMethod);
+                    AddMappingMethod(mappingMethodName, mappedField, parameter.TypeReference.Element as IElement);
+                    continue;
+                }
+
                 var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
                     .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
                     .FirstOrDefault();
@@ -124,6 +146,41 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
             return list;
         }
+
+        private void AddMappingMethod(string mappingMethodName, DTOFieldModel field, IElement element)
+        {
+            var @class = _template.CSharpFile.Classes.First();
+            if (@class.FindMethod(mappingMethodName) == null)
+            {
+                var domainType = _template.GetTypeName(element);
+                var targetDto = field.TypeReference.Element.AsDTOModel();
+                @class.AddMethod(domainType, mappingMethodName, method =>
+                {
+                    method.Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
+
+                    var attributeModels = GetDomainAttibuteModels(element);
+                    var ctorParameters = string.Join(",", attributeModels.Select(a => $"{a.Name.ToParameterName()}: dto.{targetDto.Fields.First(f => f.Mapping?.Element.Id == a.Id).Name.ToPascalCase()}"));
+                    method.AddStatement($"return new {domainType}({ctorParameters});");
+                });
+            }
+        }
+
+        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
+        {
+
+            if (element.IsDataContractModel())
+            {
+                return element.AsDataContractModel().Attributes;
+            }
+            if (element.IsValueObjectModel())
+            {
+                return element.AsValueObjectModel().Attributes;
+            }
+            return new List<AttributeModel>();
+        }
+
 
         private StrategyData GetMatchingElementDetails()
         {
@@ -154,19 +211,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, idField, repository, _template.GetAdditionalServicesFromParameters(operationModel.Parameters));
+            return new StrategyData(true, foundEntity, idField, repository, _template.Model.TypeReference.Element?.AsDTOModel(), _template.GetAdditionalServicesFromParameters(operationModel.Parameters));
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null);
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, IReadOnlyCollection<RequiredService> additionalServices)
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn, IReadOnlyCollection<RequiredService> additionalServices)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdField = idField;
                 Repository = repository;
+                DtoToReturn = dtoToReturn;
                 AdditionalServices = additionalServices ?? Array.Empty<RequiredService>();
             }
 
@@ -175,6 +233,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             public DTOFieldModel IdField { get; }
             public RequiredService Repository { get; }
             public IReadOnlyCollection<RequiredService> AdditionalServices { get; }
+            public DTOModel DtoToReturn { get; }
+
         }
     }
 }
