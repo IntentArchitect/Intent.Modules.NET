@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,7 +26,9 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource("Application.Contract.Dto", "System.Collections.Generic.List<{0}>");
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "System.Collections.Generic.List<{0}>");
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto, "System.Collections.Generic.List<{0}>");
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum, "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
                 .AddUsing("System")
