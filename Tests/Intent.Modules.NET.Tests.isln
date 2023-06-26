@@ -43,5 +43,6 @@
     <application id="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" name="CosmosDB" relativePath="CosmosDB/CosmosDB.application.config" />
     <application id="d3231941-3f20-462d-86ca-a32d4c05484b" name="Subscribe.MassTransit.OutboxMemory" relativePath="Subscribe.MassTransit.OutboxMemory/Subscribe.MassTransit.OutboxMemory.application.config" />
     <application id="c4e959b3-b652-4224-a8a0-aaf2a2a14942" name="Subscribe.MassTransit.OutboxEF" relativePath="Subscribe.MassTransit.OutboxEF/Subscribe.MassTransit.OutboxEF.application.config" />
+    <application id="947683f4-e363-421d-b7dc-387173a9aaea" name="MassTransit.AzureServiceBus" relativePath="MassTransit.AzureServiceBus/MassTransit.AzureServiceBus.application.config" />
   </applications>
 </solution>
