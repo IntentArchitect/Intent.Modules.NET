@@ -28,7 +28,6 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());

@@ -23,7 +23,6 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure
         {
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddTransient<IPrivilegeRepository, PrivilegeMongoRepository>();
             services.AddTransient<IUserRepository, UserMongoRepository>();
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());

@@ -21,7 +21,6 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure
         {
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddTransient<IInvoiceRepository, InvoiceMongoRepository>();
             services.AddTransient<ITagRepository, TagMongoRepository>();
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());

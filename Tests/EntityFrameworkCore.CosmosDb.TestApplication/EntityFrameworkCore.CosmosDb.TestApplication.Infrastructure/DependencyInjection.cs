@@ -43,7 +43,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
                     configuration["Cosmos:DatabaseName"]);
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IExplicitKeyClassRepository, ExplicitKeyClassRepository>();
             services.AddTransient<IImplicitKeyClassRepository, ImplicitKeyClassRepository>();

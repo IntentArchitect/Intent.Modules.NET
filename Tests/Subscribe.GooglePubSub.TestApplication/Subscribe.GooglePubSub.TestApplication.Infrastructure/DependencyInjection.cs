@@ -26,7 +26,6 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure
             });
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.RegisterGoogleCloudPubSubServices(configuration);

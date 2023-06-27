@@ -28,7 +28,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomRepository, CustomRepository>();
             services.AddTransient<ISqlParameterRepositoryWithNameRepository, SqlParameterRepositoryWithNameRepository>();

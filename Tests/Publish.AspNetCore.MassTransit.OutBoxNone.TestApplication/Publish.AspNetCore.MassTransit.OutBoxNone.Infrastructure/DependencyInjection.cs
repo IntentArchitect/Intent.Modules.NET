@@ -25,7 +25,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());

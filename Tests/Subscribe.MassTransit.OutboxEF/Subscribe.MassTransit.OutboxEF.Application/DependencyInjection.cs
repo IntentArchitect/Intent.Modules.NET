@@ -1,4 +1,5 @@
 using System.Reflection;
+using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared;
@@ -18,6 +19,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));

@@ -29,7 +29,6 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<MassTransitEventBus>();
             services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());

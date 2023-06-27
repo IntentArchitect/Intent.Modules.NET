@@ -25,7 +25,6 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.RegisterGoogleCloudPubSubServices(configuration);

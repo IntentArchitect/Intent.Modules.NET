@@ -29,7 +29,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IBasketRepository, BasketRepository>();
             services.AddScoped<MassTransitEventBus>();

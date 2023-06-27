@@ -36,7 +36,6 @@ namespace MongoDb.TestApplication.Infrastructure
         {
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeMongoRepository>();
             services.AddTransient<IB_OptionalAggregateRepository, B_OptionalAggregateMongoRepository>();
             services.AddTransient<IB_OptionalDependentRepository, B_OptionalDependentMongoRepository>();
