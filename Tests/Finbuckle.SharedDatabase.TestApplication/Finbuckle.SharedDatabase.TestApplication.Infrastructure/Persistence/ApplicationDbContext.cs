@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Finbuckle.SharedDatabase.TestApplication.Application.Common.Interfaces;
+using Finbuckle.SharedDatabase.TestApplication.Domain.Common;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Entities;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence.Configurations;
@@ -16,8 +18,12 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork, IMultiTenantDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantInfo tenantInfo) : base(options)
+        private readonly IDomainEventService _domainEventService;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            ITenantInfo tenantInfo) : base(options)
         {
+            _domainEventService = domainEventService;
             TenantInfo = tenantInfo;
         }
 
@@ -49,6 +55,23 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             */
         }
 
+        private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
+        {
+            while (true)
+            {
+                var domainEventEntity = ChangeTracker
+                    .Entries<IHasDomainEvent>()
+                    .Select(x => x.Entity.DomainEvents)
+                    .SelectMany(x => x)
+                    .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+
+                if (domainEventEntity == null) break;
+
+                domainEventEntity.IsPublished = true;
+                await _domainEventService.Publish(domainEventEntity, cancellationToken);
+            }
+        }
+
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             this.EnforceMultiTenant();
@@ -59,6 +82,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)
         {
+            await DispatchEventsAsync(cancellationToken);
             this.EnforceMultiTenant();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }

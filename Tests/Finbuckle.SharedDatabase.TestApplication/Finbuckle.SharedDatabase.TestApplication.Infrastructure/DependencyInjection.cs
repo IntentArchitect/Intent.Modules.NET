@@ -2,10 +2,12 @@ using System.Reflection;
 using AutoMapper;
 using Finbuckle.MultiTenant;
 using Finbuckle.SharedDatabase.TestApplication.Application;
+using Finbuckle.SharedDatabase.TestApplication.Application.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Repositories;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Repositories;
+using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
     }

@@ -1,4 +1,9 @@
-﻿### Version 4.4.2
+﻿### Version 4.4.4
+
+- Updated `Intent.EntityFrameworkCore.Interop.DomainEvents` interop version to `4.0.4`.
+
+### Version 4.4.2
+
 - Upgrade: removed some compiler warnings.
 - Fixed: Duplicate DbSet names that were supposed to be de-duplicated will regenerate their Type names to ensure to be unique.
 

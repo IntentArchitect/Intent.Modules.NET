@@ -1,3 +1,8 @@
+### Version 4.0.4
+
+- Update: Changed from overriding `int SaveChangesAsync(CancellationToken)` to instead override `int SaveChangesAsync(bool, CancellationToken)` on the DbContext as the latter is called by the former in the base type.
+- Update: `DispatchEvents`'s name has changed to have an `Async` suffix and now uses a `CancellationToken`.
+
 ### Version 4.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

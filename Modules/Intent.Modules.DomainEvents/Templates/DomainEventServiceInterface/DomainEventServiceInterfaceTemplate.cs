@@ -32,29 +32,29 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
-                    "namespace ");
+            this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultInten" +
+                    "tManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        Task Publish(");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.DomainEvents\Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventBaseType()));
             
             #line default
             #line hidden
-            this.Write(" domainEvent);\r\n    }\r\n}");
+            this.Write(" domainEvent, CancellationToken cancellationToken = default);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

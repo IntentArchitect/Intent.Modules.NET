@@ -33,44 +33,45 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         public override string TransformText()
         {
             this.Write("using MediatR;\r\nusing Microsoft.Extensions.Logging;\r\nusing System;\r\nusing System." +
-                    "Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+                    "Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mod" +
+                    "e.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetInterfaceType()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private readonly ILogger<");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> _logger;\r\n        private readonly IPublisher _mediator;\r\n\r\n        public ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(ILogger<");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -78,20 +79,20 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
             this.Write("> logger, IPublisher mediator)\r\n        {\r\n            _logger = logger;\r\n       " +
                     "     _mediator = mediator;\r\n        }\r\n\r\n        public async Task Publish(");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventBaseType()));
             
             #line default
             #line hidden
-            this.Write(@" domainEvent)
+            this.Write(@" domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation(""Publishing domain event. Event - {event}"", domainEvent.GetType().Name);
-            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent));
+            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
         }
 
         private INotification GetNotificationCorrespondingToDomainEvent(");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventBaseType()));
             
             #line default
@@ -99,7 +100,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
             this.Write(" domainEvent)\r\n        {\r\n            var result = Activator.CreateInstance(\r\n   " +
                     "             typeof(");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventService\DomainEventServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventNotificationType()));
             
             #line default

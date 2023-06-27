@@ -99,6 +99,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d8fa2f1-0d0f-4c95-bd26-f4c9189f964e</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>13004e87-3124-4d40-9310-e0832f270063</ProjectId>
       <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -112,6 +120,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6f3631c9-0682-4b59-af41-de5367086b84</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -299,11 +315,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c352bf3d-91e8-4ca1-a948-7ad9a8a487f9</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>49332859-69fc-4e1b-b819-d3114928d4f1</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c352bf3d-91e8-4ca1-a948-7ad9a8a487f9</ProjectId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -440,6 +472,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/UserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20c13412-802f-463b-863a-49e9e398e3b5</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

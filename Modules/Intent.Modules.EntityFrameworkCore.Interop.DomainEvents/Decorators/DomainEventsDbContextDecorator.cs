@@ -31,28 +31,25 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 {
                     param.IntroduceReadonlyField();
                 });
-                var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
-                if (saveMethod != null)
-                {
-                    saveMethod.InsertStatement(0, $"await DispatchEvents();");
-                }
-                else
+                var saveMethod = @class.Methods
+                    .OrderByDescending(x => x.Parameters.Count)
+                    .SingleOrDefault(x => x.Name == "SaveChangesAsync");
+                if (saveMethod == null)
                 {
                     @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
                     {
+                        saveMethod = method;
                         method.Override().Async()
-                            .AddParameter($"CancellationToken", "cancellationToken",
-                                param =>
-                                {
-                                    param.WithDefaultValue("default(CancellationToken)");
-                                })
-                            .AddStatement("await DispatchEvents();")
-                            .AddStatement("return await base.SaveChangesAsync(cancellationToken);");
+                            .AddParameter("bool", "acceptAllChangesOnSuccess")
+                            .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                            .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);");
                     });
                 }
+                saveMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
 
-                @class.AddMethod("Task", "DispatchEvents", method =>
+                @class.AddMethod("Task", "DispatchEventsAsync", method =>
                 {
+                    method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method.Private().Async()
                         .AddStatement($@"
                 while (true)
@@ -66,7 +63,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                     if (domainEventEntity == null) break;
 
                     domainEventEntity.IsPublished = true;
-                    await _domainEventService.Publish(domainEventEntity);
+                    await _domainEventService.Publish(domainEventEntity, cancellationToken);
                 }}");
                 });
             });

@@ -1,3 +1,7 @@
+### 4.2.1
+
+- `Publish` method on the domain event service now accepts a `CancellationToken`.
+
 ### Version 4.2.0
 
 - Converted Default Domaint Event Handler to use the C# Builder implmentation paradigm. These classes can now be easily extended.

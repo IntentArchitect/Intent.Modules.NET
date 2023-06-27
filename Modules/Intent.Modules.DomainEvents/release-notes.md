@@ -1,3 +1,7 @@
+### 4.1.1
+
+- `Publish` method on the service interface now accepts a `CancellationToken`.
+
 ### 4.1.0
 
 - Added auto-implementation of Domain Events being published from class constructors and methods.
