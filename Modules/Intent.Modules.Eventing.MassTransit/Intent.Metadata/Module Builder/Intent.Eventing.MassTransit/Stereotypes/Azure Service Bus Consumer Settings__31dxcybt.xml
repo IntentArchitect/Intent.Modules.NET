@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a592112c-5f85-4755-b07c-cfa293fce8df" version="3.1.0">
+  <name>Azure Service Bus Consumer Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="21c3df1c-5140-4f65-9814-a68e1a577768">Message Subscribe Assocation Target End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b54febee-38bb-4993-86c0-b86f26e4a696</parentFolderId>
+  <order>0</order>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <properties>
+    <property id="2084d89a-d4d7-4c2c-815b-1eba6eb53f50">
+      <hint>Specify the number of messages to prefetch from the message broker. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Prefetch Count</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="6f645454-16eb-4a6b-97ca-2192d26b0eae">
+      <hint>Sets the queue in session mode, requiring a session for inbound messages. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Requires Session</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="3b7d1adc-528b-4e29-8705-187b87deb246">
+      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Default Message Time To Live</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="e2fb328a-79d4-4de1-b206-656a30fbcfbd">
+      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Lock Duration</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="a6667529-102d-4e86-8623-c71464606f58">
+      <hint>Specify whether this queue requires duplicate detection. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Requires Duplicate Detection</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
+      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Duplicate Detection History Time Window</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return RequiresDuplicateDetection;</isActiveFunction>
+    </property>
+    <property id="dbdcb5ed-3e63-46f9-941f-b7c578fe05db">
+      <hint>Specify whether server-side batched operations are enabled. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Enable Batched Operations</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="94ed3877-3876-4fa2-bc45-ae679ec6cd21">
+      <hint>Move messages to the dead letter queue on expiration (time to live exceeded). [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Enable Dead-lettering On Message Expiration</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="23748e16-ae82-41e6-9bc5-bfeae97ba89e">
+      <hint>Sets the maximum size of the queue in megabytes, which is the size of memory allocated for the queue. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Max Queue Size</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="8482cf1b-82b7-4d47-a5b1-564e699df9ea">
+      <hint>Sets the maximum delivery count. A message is automatically dead-lettered after this number of deliveries. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Max Delivery Count</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

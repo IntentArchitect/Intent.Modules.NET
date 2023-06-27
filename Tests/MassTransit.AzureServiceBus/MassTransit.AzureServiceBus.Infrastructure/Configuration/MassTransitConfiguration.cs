@@ -2,6 +2,10 @@ using System;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
+using MassTransit.AzureServiceBus.Application.Common.Eventing;
+using MassTransit.AzureServiceBus.Eventing.Messages;
+using MassTransit.AzureServiceBus.Infrastructure.Eventing;
+using MassTransit.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,19 +22,55 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             {
                 x.SetKebabCaseEndpointNameFormatter();
 
-                AddConsumers(x);
-
-                x.UsingInMemory((context, cfg) =>
+                x.AddConsumers();
+                
+                x.UsingAzureServiceBus((context, cfg) =>
                 {
-                    cfg.ConfigureEndpoints(context);
-                });
+                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
 
+                    cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
+                    
+                    cfg.ConfigureEndpoints(context);
+                    cfg.ConfigureNonDefaultEndpoints(context);
+                });
             });
         }
 
-        private static void AddConsumers(IRegistrationConfigurator cfg)
+        private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>))
+            .ExcludeFromConfigureEndpoints();
+        }
 
+        private static void ConfigureNonDefaultEndpoints(this IServiceBusBusFactoryConfigurator cfg, IBusRegistrationContext context)
+        {
+            cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+                context,
+                "MassTransit-AzureServiceBus",
+                endpoint =>
+                {
+                    endpoint.DefaultMessageTimeToLive = TimeSpan.FromMinutes(7);
+                });
+        }
+
+        private static void AddCustomConsumerEndpoint<TConsumer>(
+            this IServiceBusBusFactoryConfigurator cfg, 
+            IBusRegistrationContext context,
+            string instanceId,
+            Action<IServiceBusReceiveEndpointConfigurator> configuration)
+            where TConsumer : class, IConsumer
+        {
+            cfg.ReceiveEndpoint(
+                new ConsumerEndpointDefinition<TConsumer>(new EndpointSettings<IEndpointDefinition<TConsumer>>
+                {
+                    InstanceId = instanceId
+                }),
+                KebabCaseEndpointNameFormatter.Instance,
+                endpoint =>
+                {
+                    configuration.Invoke(endpoint);
+                    endpoint.ConfigureConsumer<TConsumer>(context);
+                });
         }
     }
 }

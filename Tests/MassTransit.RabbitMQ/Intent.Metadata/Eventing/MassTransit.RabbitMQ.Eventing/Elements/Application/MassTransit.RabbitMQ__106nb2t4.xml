@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3cc1910e-3aeb-4bd7-b87d-49880d1d472e" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MassTransit.RabbitMQ</name>
+  <display>MassTransit.RabbitMQ</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>368efb54-17a4-4806-adba-a6aaf62e190e</parentFolderId>
+  <packageId>368efb54-17a4-4806-adba-a6aaf62e190e</packageId>
+  <packageName>MassTransit.RabbitMQ.Eventing</packageName>
+  <diagram>
+    <targetPackageId>124b2d89-bac8-4a0b-ad23-5e664053d2fc</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

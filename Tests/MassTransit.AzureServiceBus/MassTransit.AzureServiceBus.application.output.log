@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>818292e8-7c2b-4519-9d83-43e7c168d9ca</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9de6131a-a450-4c42-a8b0-b2406b8dc0a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5df48f5c-568a-465d-8494-c7e0081c11d9</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -259,11 +267,51 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8bc20cb8-c097-4cbb-b3fc-9d92d8e471c2</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#a856eb22-872a-4cb2-aa93-5f50f3f604c2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEventHandlers/TestMessageEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestMessageEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee86121e-4f26-4e17-8282-6638358ca87f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#46d3c3fb-7e4f-4504-8977-2e7b1f13d036</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/TestMessageEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestMessageEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#fdd1efbb-8345-4377-bdf6-450d77403b45</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/MassTransit.AzureServiceBus.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.AzureServiceBus.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6fa65448-ec8f-4e3a-aa75-e38ead8073ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Test/SendTest/SendTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6fa65448-ec8f-4e3a-aa75-e38ead8073ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Test/SendTest/SendTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6fa65448-ec8f-4e3a-aa75-e38ead8073ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Test/SendTest/SendTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

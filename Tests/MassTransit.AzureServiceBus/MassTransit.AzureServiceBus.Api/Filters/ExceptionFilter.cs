@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Exceptions;
 using MassTransit.AzureServiceBus.Domain.Common.Exceptions;
@@ -17,6 +18,14 @@ namespace MassTransit.AzureServiceBus.Api.Filters
         {
             switch (context.Exception)
             {
+                case ValidationException exception:
+                    foreach (var error in exception.Errors)
+                    {
+                        context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                    }
+                    context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
+                    .AddContextInformation(context);
+                    break;
                 case ForbiddenAccessException:
                     context.Result = new ForbidResult();
                     break;

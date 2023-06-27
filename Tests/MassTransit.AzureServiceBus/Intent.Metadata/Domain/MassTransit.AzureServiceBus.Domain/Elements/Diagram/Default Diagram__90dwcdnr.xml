@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</parentFolderId>
+  <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+  <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+  <diagram>
+    <targetPackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

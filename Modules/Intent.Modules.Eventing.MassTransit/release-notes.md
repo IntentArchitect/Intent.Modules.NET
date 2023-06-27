@@ -1,6 +1,7 @@
-### Version 4.1.0
+### Version 5.0.0
 
-- Bumped MassTransit nuget package versions from `8.0.6` to `8.0.16`.
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+- Update: Bumped MassTransit nuget package versions from `8.0.6` to `8.0.16`.
 
 ### Version 4.0.7
 

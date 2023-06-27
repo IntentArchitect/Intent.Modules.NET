@@ -32,7 +32,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
                         h.Username(configuration["RabbitMq:Username"]);
                         h.Password(configuration["RabbitMq:Password"]);
                     });
-
+                    
                     cfg.ConfigureEndpoints(context);
                     cfg.UseInMemoryOutbox();
                 });

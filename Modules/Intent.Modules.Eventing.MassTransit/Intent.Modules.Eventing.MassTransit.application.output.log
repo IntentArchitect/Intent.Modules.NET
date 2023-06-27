@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#21c3df1c-5140-4f65-9814-a68e1a577768</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1c617d6b-f121-4cb3-a91e-c87968c0a47d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -43,7 +51,7 @@
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a5014cab-e575-4d90-afd3-ba92d8e3bec5</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,22 +102,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#96d30d6d-4c0b-470f-9586-2cd3f0984dd1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitConfiguration/MassTransitConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#96d30d6d-4c0b-470f-9586-2cd3f0984dd1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitConfiguration/MassTransitConfigurationTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

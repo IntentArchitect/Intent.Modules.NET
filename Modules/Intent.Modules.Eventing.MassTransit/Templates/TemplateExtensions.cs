@@ -14,28 +14,27 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
 {
     public static class TemplateExtensions
     {
-
-        public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
+        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
+        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
         }
 
-        public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetMassTransitConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
         }
 
-        public static string GetMassTransitEventBusName<T>(this IntentTemplateBase<T> template)
+        public static string GetMassTransitEventBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(MassTransitEventBusTemplate.TemplateId);
         }
 
-        public static string GetWrapperConsumerName<T>(this IntentTemplateBase<T> template)
+        public static string GetWrapperConsumerName(this IIntentTemplate template)
         {
             return template.GetTypeName(WrapperConsumerTemplate.TemplateId);
         }

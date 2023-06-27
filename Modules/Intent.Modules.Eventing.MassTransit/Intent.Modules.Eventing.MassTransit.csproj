@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>4.1.0-pre.0</Version>
+    <Version>5.0.0-pre.0</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -32,11 +32,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MassTransitContainerRegistrationTypeTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MassTransitConfigurationTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\EventHandlerImplementation\EventHandlerImplementationTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -122,10 +117,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MassTransitContainerRegistrationTypeTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MassTransitConfigurationTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\EventHandlerImplementation\EventHandlerImplementationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventHandlerImplementationTemplate.cs</LastGenOutput>
@@ -181,8 +172,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="4.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">

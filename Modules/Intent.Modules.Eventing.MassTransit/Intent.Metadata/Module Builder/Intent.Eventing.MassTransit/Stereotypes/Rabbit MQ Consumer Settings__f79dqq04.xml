@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="43ff81bf-7e41-40c9-a1cd-041b4195cade" version="3.1.0">
+  <name>Rabbit MQ Consumer Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="21c3df1c-5140-4f65-9814-a68e1a577768">Message Subscribe Assocation Target End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABQCAYAAABRX4iyAAAAAXNSR0IArs4c6QAAA1lJREFUeF7tnE1IVFEYhp9vTEltE0REtKhFCyMrKGifUAQlgbYUhJxJatUq29WiTRQIEeEdfyqoIIOgoKBNmxYVbVoFIhWhFWFpScMkOiduqdj4M+e7dyIu88123vec8z3z3su5Z8654o5SxVqagB5gM36fMRwnJcsdP/lilUtzEOhF2OjVhvCJAmkmeCyDTHl5yiwSl+YAwkMgpWy7gOO0ZLmo9OE6aCXFLaBa6Q37bJUs95S+ssjFZXirSFRxp08Zp0nzS7uzpPjAI2B/xApyElAf0RvLFsJyMVoYpYpGucq4bxuujXpqeQZs9/UU6yRAonrj+OLCes8UO+UaE76DcCdYwzTPgW2+HoNlsEpnxZJll2HplAB2z/LC9EdksAzW0gRs6qBIhsEyWAoCCqkly2ApCCikliyDpSCgkFqyDJaCgEIaN1nvgF0S8M23z0pedRhimj3Sz6TBKk3AYJVmNK8wWAbr36w6WLIsWZYsRQYM1n+HNcwPdstNvvuOZHZS+gJo8PUU65L6j3SeAlullxHfwl0Hm0gxBNT6epbQ7ZOAJzH8kaxxH3fCTj8zQ4P08bXUCFw7G6jhFbC+lLbE9x+ZZIfcZixmOyp7OWCBwyGL9kyFmzeKN3BotxitXIxjBqGgqjiK2PEa6CoPrCgDSKDHYCl+NINlsBQEFFJLlsFSEFBILVkGS0FAIbVkGSwFAYXUkmWwFAQUUkuWwVIQUEgtWRUE6wtCAAywapkziD9JITQjdM0uOmqPCs7jTHKyuoHzEvitlroM1QjncJxRhOkvaTJhOYbJ6f4omavaZX4f39sbBVgyYcEDCWiOUrDLcASinYRNJixHn2TpiATrOIdx3I/iTSYs6JGAzigFO4Plj81g+bPCYBmsFQnYPUsREIPlDcvRL1mOeesXCCvxnhV9UpqmBeFuFNBJnWeNUEejdPu/fGPB484bYEslwQprHSTPKbnBqE/hrp3V1HAZos38wz6Smqw5PuF2o0sUGADyy0ITWoALSLx32CQdlk+oyqYxWAqUBstgKQgopJYsg6UgoJBasgyWgoBCaskyWAoCCqkly2ApCCikliwlrFzM42yK7pItDV9E3QZcj7t8kWwMXqPPhZdhHY5DCFeAdV62yhO9pEDnL34QGaDTALhbAAAAAElFTkSuQmCC" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b54febee-38bb-4993-86c0-b86f26e4a696</parentFolderId>
+  <order>0</order>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <properties>
+    <property id="53f8ff4a-6b37-41aa-af03-6f88457a4ab9">
+      <hint>Specify the number of messages to prefetch from the message broker.</hint>
+      <name>Prefetch Count</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="e158d458-ae1b-486a-a3d4-d231a35e79de">
+      <hint>Sets the queue to be lazy. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
+      <name>Lazy</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="36cef3c0-9be1-4885-a96f-193aec2d576d">
+      <hint>Specify the queue should be durable or in-memory. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
+      <name>Durable</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="5e5f2079-b866-4650-bf3c-6e03b65ffac8">
+      <hint>Purge the messages from an existing queue on startup. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
+      <name>Purge On Startup</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813">
+      <hint>Specify that the queue is exclusive to this process and cannot be accessed by other processes at the same time. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
+      <name>Exclusive</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

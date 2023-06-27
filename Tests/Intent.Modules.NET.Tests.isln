@@ -44,5 +44,6 @@
     <application id="d3231941-3f20-462d-86ca-a32d4c05484b" name="Subscribe.MassTransit.OutboxMemory" relativePath="Subscribe.MassTransit.OutboxMemory/Subscribe.MassTransit.OutboxMemory.application.config" />
     <application id="c4e959b3-b652-4224-a8a0-aaf2a2a14942" name="Subscribe.MassTransit.OutboxEF" relativePath="Subscribe.MassTransit.OutboxEF/Subscribe.MassTransit.OutboxEF.application.config" />
     <application id="947683f4-e363-421d-b7dc-387173a9aaea" name="MassTransit.AzureServiceBus" relativePath="MassTransit.AzureServiceBus/MassTransit.AzureServiceBus.application.config" />
+    <application id="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" name="MassTransit.RabbitMQ" relativePath="MassTransit.RabbitMQ/MassTransit.RabbitMQ.application.config" />
   </applications>
 </solution>
