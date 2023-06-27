@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
@@ -9,6 +10,6 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
 {
     public interface IDomainEventService
     {
-        Task Publish(DomainEvent domainEvent);
+        Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default);
     }
 }

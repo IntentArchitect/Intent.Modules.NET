@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -7,7 +8,7 @@ using Publish.CleanArchDapr.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArchDapr.TestApplication.Application.Common.Models;
 using Publish.CleanArchDapr.TestApplication.Domain.Common;
 
-[assembly: DefaultIntentManaged(Mode.Ignore)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "1.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Services
@@ -23,16 +24,20 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Services
             _mediator = mediator;
         }
 
-        public async Task Publish(DomainEvent domainEvent)
+        public async Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Publishing domain event. Event - {event}", domainEvent.GetType().Name);
-            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent));
+            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
         }
 
         private INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)
         {
-            return (INotification)Activator.CreateInstance(
+            var result = Activator.CreateInstance(
                 typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
+            if (result == null)
+                throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>");
+
+            return (INotification)result;
         }
     }
 }

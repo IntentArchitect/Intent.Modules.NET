@@ -25,10 +25,12 @@ namespace Entities.Constants.TestApplication.Infrastructure.Persistence
 
         public DbSet<TestClass> TestClasses { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public override async Task<int> SaveChangesAsync(
+            bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = default)
         {
-            await DispatchEvents();
-            return await base.SaveChangesAsync(cancellationToken);
+            await DispatchEventsAsync(cancellationToken);
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -53,7 +55,7 @@ namespace Entities.Constants.TestApplication.Infrastructure.Persistence
             */
         }
 
-        private async Task DispatchEvents()
+        private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
             while (true)
             {
@@ -66,7 +68,7 @@ namespace Entities.Constants.TestApplication.Infrastructure.Persistence
                 if (domainEventEntity == null) break;
 
                 domainEventEntity.IsPublished = true;
-                await _domainEventService.Publish(domainEventEntity);
+                await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
         }
     }

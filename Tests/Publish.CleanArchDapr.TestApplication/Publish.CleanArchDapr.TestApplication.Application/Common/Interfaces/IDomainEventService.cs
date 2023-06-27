@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArchDapr.TestApplication.Domain.Common;
@@ -9,6 +10,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Common.Interfaces
 {
     public interface IDomainEventService
     {
-        Task Publish(DomainEvent domainEvent);
+        Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default);
     }
 }

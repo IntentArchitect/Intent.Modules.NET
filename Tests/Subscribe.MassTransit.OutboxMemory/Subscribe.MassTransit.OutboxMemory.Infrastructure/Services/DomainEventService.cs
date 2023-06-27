@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -23,10 +24,10 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Services
             _mediator = mediator;
         }
 
-        public async Task Publish(DomainEvent domainEvent)
+        public async Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Publishing domain event. Event - {event}", domainEvent.GetType().Name);
-            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent));
+            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
         }
 
         private INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)

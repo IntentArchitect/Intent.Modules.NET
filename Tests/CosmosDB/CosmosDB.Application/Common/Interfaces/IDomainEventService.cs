@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
@@ -9,6 +10,6 @@ namespace CosmosDB.Application.Common.Interfaces
 {
     public interface IDomainEventService
     {
-        Task Publish(DomainEvent domainEvent);
+        Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default);
     }
 }
