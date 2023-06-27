@@ -21,23 +21,20 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Configuration
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
-
-                AddConsumers(x);
-
+                x.AddConsumers();
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
-
-                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], h =>
+                    cfg.UseMessageRetry(r => r.Interval(
+                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
-                        h.Username(configuration["RabbitMq:Username"]);
-                        h.Password(configuration["RabbitMq:Password"]);
+                        host.Username(configuration["RabbitMq:Username"]);
+                        host.Password(configuration["RabbitMq:Password"]);
                     });
-
                     cfg.ConfigureEndpoints(context);
                 });
-
-                x.AddEntityFrameworkOutbox<ApplicationDbContext>((o) =>
+                x.AddEntityFrameworkOutbox<ApplicationDbContext>(o =>
                 {
                     o.UseSqlServer();
                     o.UseBusOutbox();
@@ -45,11 +42,14 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Configuration
             });
         }
 
-        private static void AddConsumers(IRegistrationConfigurator cfg)
+        private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEvent>))
+            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEvent>))
+            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEvent>))
+            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxEF");
         }
     }
 }

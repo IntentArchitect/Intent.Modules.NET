@@ -17,26 +17,23 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
-
-                AddConsumers(x);
-
+                x.AddConsumers();
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
-
-                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], h =>
+                    cfg.UseMessageRetry(r => r.Interval(
+                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
-                        h.Username(configuration["RabbitMq:Username"]);
-                        h.Password(configuration["RabbitMq:Password"]);
+                        host.Username(configuration["RabbitMq:Username"]);
+                        host.Password(configuration["RabbitMq:Password"]);
                     });
-
                     cfg.ConfigureEndpoints(context);
                 });
-
             });
         }
 
-        private static void AddConsumers(IRegistrationConfigurator cfg)
+        private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
 
         }
