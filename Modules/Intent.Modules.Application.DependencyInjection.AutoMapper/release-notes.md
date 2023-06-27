@@ -1,6 +1,6 @@
-### Version 3.4.3
+### Version 3.4.4
 
-- Moved dependency injection registration to Infrastructure so that can register profiles in both Infrastructure and Application projects.
+- Reverted updates of `3.4.3` as no longer required.
 
 ### Version 3.4.2
 

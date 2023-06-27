@@ -5,13 +5,13 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="0a089070-11f8-4896-9b26-457fca284561">
-    <typeId>08c8b8d6-b827-4ac8-b201-e6ae7614743d</typeId>
+    <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Infrastructure.DependencyInjection</typePackageName>
-    <typePackageId>652850d7-ae15-457c-9c5d-d36266780022</typePackageId>
+    <typePackageName>Intent.Application.DependencyInjection</typePackageName>
+    <typePackageId>33084118-5d41-4965-a200-54aa73ba9021</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

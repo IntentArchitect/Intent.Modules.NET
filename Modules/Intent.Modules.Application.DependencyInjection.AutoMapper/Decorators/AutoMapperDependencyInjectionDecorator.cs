@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
+using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,11 +30,7 @@ namespace Intent.Modules.Application.DependencyInjection.AutoMapper.Decorators
 
         public override string ServiceRegistration()
         {
-            var applicationDependencyTypeName = _template.GetTypeName("Intent.Application.DependencyInjection.DependencyInjection");
-            var assemblyTypeName = _template.UseType("System.Reflection.Assembly");
-
-            // TODO JL: Look into GetTypeName system to work out why this needs ".Application" manually added
-            return $"services.AddAutoMapper({assemblyTypeName}.GetExecutingAssembly(), typeof(Application.{applicationDependencyTypeName}).Assembly);";
+            return "services.AddAutoMapper(Assembly.GetExecutingAssembly());";
         }
 
         public IEnumerable<string> DeclareUsings()

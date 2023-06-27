@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using Intent.Engine;
-using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
+using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 
