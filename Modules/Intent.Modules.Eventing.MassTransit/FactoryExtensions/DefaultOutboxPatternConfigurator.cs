@@ -21,20 +21,20 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
         public override string Id => "Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator";
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
-        
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             if (application.Settings.GetEventingSettings().OutboxPattern().IsNone())
             {
                 return;
             }
-            
+
             var template = application.FindTemplateInstance<MassTransitConfigurationTemplate>(TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
             if (template == null)
             {
                 return;
             }
-            
+
             if (application.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
             {
                 //template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
@@ -51,7 +51,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
                 return;
             }
-            
+
             if (application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework()
                 && application.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
             {

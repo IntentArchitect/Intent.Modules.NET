@@ -8,9 +8,11 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -23,8 +25,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitConfiguration";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-        outputTarget, model)
+    public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
