@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -10,30 +9,37 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class InvoiceDocument : IItem
+    internal class InvoiceDocument : Invoice, ICosmosDBDocument<InvoiceDocument, Invoice>
     {
         private string? _type;
-
-        public InvoiceDocument()
+        [JsonProperty("id")]
+        public new string Id
         {
-            Id = null!;
-            ClientIdentifier = null!;
-            Number = null!;
-            LineItems = null!;
+            get => base.Id ??= Guid.NewGuid().ToString();
+            set => base.Id = value;
         }
-
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().Name;
             set => _type = value;
         }
-        string IItem.PartitionKey => Id;
-        [JsonProperty("id")]
-        public string Id { get; set; }
-        public string ClientIdentifier { get; set; }
-        public DateTime Date { get; set; }
-        public string Number { get; set; }
-        public ICollection<LineItem> LineItems { get; set; }
+
+        public static InvoiceDocument FromEntity(Invoice entity)
+        {
+            if (entity is InvoiceDocument document)
+            {
+                return document;
+            }
+
+            return new InvoiceDocument
+            {
+                Id = entity.Id,
+                ClientIdentifier = entity.ClientIdentifier,
+                Date = entity.Date,
+                Number = entity.Number,
+                LineItems = entity.LineItems
+            };
+        }
     }
 }

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
+using CosmosDB.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository;
@@ -18,21 +17,18 @@ namespace CosmosDB.Infrastructure.Repositories
 {
     internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
         where TPersistence : TDomain
-        where TDocument : IItem
+        where TDocument : TDomain, ICosmosDBDocument<TDocument, TDomain>
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
-        private readonly IMapper _mapper;
         private readonly string _idFieldName;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
-            IMapper mapper,
             string idFieldName)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
-            _mapper = mapper;
             _idFieldName = idFieldName;
         }
 
@@ -40,12 +36,10 @@ namespace CosmosDB.Infrastructure.Repositories
 
         public void Add(TDomain entity)
         {
-            EnsureHasId(entity);
-
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = _mapper.Map<TDocument>(entity);
+                var document = TDocument.FromEntity(entity);
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -54,7 +48,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = _mapper.Map<TDocument>(entity);
+                var document = TDocument.FromEntity(entity);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -63,7 +57,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = _mapper.Map<TDocument>(entity);
+                var document = TDocument.FromEntity(entity);
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -71,7 +65,7 @@ namespace CosmosDB.Infrastructure.Repositories
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
-            var results = _mapper.Map<List<TDomain>>(documents);
+            var results = documents.Cast<TDomain>().ToList();
 
             foreach (var result in results)
             {
@@ -85,7 +79,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
 
-            return _mapper.Map<TDomain>(document);
+            return document;
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -95,7 +89,7 @@ namespace CosmosDB.Infrastructure.Repositories
             var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                 .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
-            var results = _mapper.Map<List<TDomain>>(documents);
+            var results = documents.Cast<TDomain>().ToList();
 
             foreach (var result in results)
             {
@@ -104,7 +98,5 @@ namespace CosmosDB.Infrastructure.Repositories
 
             return results;
         }
-
-        protected abstract void EnsureHasId(TDomain entity);
     }
 }

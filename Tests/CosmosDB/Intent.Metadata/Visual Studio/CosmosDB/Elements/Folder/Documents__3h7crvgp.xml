@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="25b3cea7-9bba-4d6d-bc38-5776b1505868" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile</name>
-      <display>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile</display>
+    <childElement id="64220f36-65e9-4f77-8cc3-c31a54b18528" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.CosmosDB.CosmosDBDocumentInterface</name>
+      <display>Intent.Modules.CosmosDB.CosmosDBDocumentInterface</display>
       <externalReference>Intent.Modules.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

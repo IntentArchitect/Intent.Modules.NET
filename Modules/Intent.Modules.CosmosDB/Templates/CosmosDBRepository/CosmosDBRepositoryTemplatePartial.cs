@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
@@ -28,15 +29,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
         public CosmosDBRepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("System")
-                .AddUsing("System.Collections.Generic")
-                .AddUsing("System.Threading")
-                .AddUsing("System.Threading.Tasks")
-                .AddUsing("CosmosRepository = Microsoft.Azure.CosmosRepository")
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
                     var pkAttribute = Model.Attributes.Single(x => x.HasPrimaryKey());
-                    var pkPropertyName = pkAttribute.Name.ToPascalCase();
                     var pkFieldName = pkAttribute.Name.ToCamelCase();
                     var entityDocumentName = this.GetCosmosDBDocumentName();
 
@@ -48,26 +43,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                     {
                         ctor.AddParameter(this.GetCosmosDBUnitOfWorkName(), "unitOfWork");
                         ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{entityDocumentName}>"), "cosmosRepository");
-                        ctor.AddParameter(UseType("AutoMapper.IMapper"), "mapper");
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("unitOfWork")
                             .AddArgument("cosmosRepository")
-                            .AddArgument("mapper")
                             .AddArgument($"\"{pkFieldName}\"")
                         );
                     });
-
-                    @class.AddMethod("void", "EnsureHasId", m => m
-                        .Protected()
-                        .Override()
-                        .AddParameter(EntityInterfaceName, "entity")
-                        .AddStatement($"entity.{pkPropertyName} ??= Guid.NewGuid().ToString();")
-                    );
                 });
         }
 
-        public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
-        public string EntityStateName => GetTypeName("Domain.Entity", Model);
+        public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+        public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
 
         public override void AfterTemplateRegistration()
         {

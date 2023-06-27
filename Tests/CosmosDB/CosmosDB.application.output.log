@@ -1092,26 +1092,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#8ae28b8f-c25c-4253-82ae-5132f2f126de</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/ClassContainerDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassContainerDocumentMappingProfile.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocument#d929830c-66b5-41d7-8354-ff99c7c1410c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/ClientDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#d929830c-66b5-41d7-8354-ff99c7c1410c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/ClientDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientDocumentMappingProfile.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1124,10 +1108,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#3097fe70-82d5-4a25-b292-01af48e97857</CorrelationId>
+      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/Folder/FolderContainerDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Folder/FolderContainerDocumentMappingProfile.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1140,26 +1124,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#c1d7e051-c293-4746-8f96-ad890505e1bb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/IdTestingDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdTestingDocumentMappingProfile.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocument#95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/InvoiceDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/InvoiceDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceDocumentMappingProfile.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1172,26 +1140,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#e172eac4-3e29-4e36-bcb2-4dc4f0a542dd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/PackageContainerDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PackageContainerDocumentMappingProfile.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocument#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/WithoutPartitionKeyDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithoutPartitionKeyDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/WithoutPartitionKeyDocumentMappingProfile.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WithoutPartitionKeyDocumentMappingProfile.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

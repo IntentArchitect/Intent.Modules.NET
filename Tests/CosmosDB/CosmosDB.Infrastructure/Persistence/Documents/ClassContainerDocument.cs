@@ -1,3 +1,5 @@
+using System;
+using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -7,16 +9,15 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClassContainerDocument : IItem
+    internal class ClassContainerDocument : ClassContainer, ICosmosDBDocument<ClassContainerDocument, ClassContainer>
     {
         private string? _type;
-
-        public ClassContainerDocument()
+        [JsonProperty("id")]
+        public new string Id
         {
-            Id = null!;
-            ClassPartitionKey = null!;
+            get => base.Id ??= Guid.NewGuid().ToString();
+            set => base.Id = value;
         }
-
         [JsonProperty("type")]
         string IItem.Type
         {
@@ -24,8 +25,19 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => _type = value;
         }
         string IItem.PartitionKey => ClassPartitionKey;
-        [JsonProperty("id")]
-        public string Id { get; set; }
-        public string ClassPartitionKey { get; set; }
+
+        public static ClassContainerDocument FromEntity(ClassContainer entity)
+        {
+            if (entity is ClassContainerDocument document)
+            {
+                return document;
+            }
+
+            return new ClassContainerDocument
+            {
+                Id = entity.Id,
+                ClassPartitionKey = entity.ClassPartitionKey
+            };
+        }
     }
 }

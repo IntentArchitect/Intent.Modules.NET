@@ -1,18 +1,18 @@
+using System;
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates;
 using Intent.Modules.DocumentDB.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.Common.CSharp.DependencyInjection;
-using System.Threading;
-using System.Linq;
-using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.CosmosDB.Templates;
-using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

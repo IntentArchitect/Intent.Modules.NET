@@ -1,7 +1,4 @@
 using System;
-using System.Reflection;
-using AutoMapper;
-using CosmosDB.Application;
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Repositories;
@@ -55,7 +52,6 @@ namespace CosmosDB.Infrastructure
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(Application.DependencyInjection).Assembly);
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();

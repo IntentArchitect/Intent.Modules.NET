@@ -21,14 +21,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         public const string TemplateId = "Intent.Modules.CosmosDB.CosmosDBRepositoryBase";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
+        public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
-                .AddUsing("System.Text.Json")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Azure.Cosmos")
@@ -41,15 +41,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .AddGenericParameter("TDocument", out var tDocument)
                         .ImplementsInterface($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomain}, {tPersistence}>")
-                        .AddGenericTypeConstraint(tPersistence, c => c.AddType(tDomain))
-                        .AddGenericTypeConstraint(tDocument, c => c.AddType(UseType("Microsoft.Azure.CosmosRepository.IItem")))
+                        .AddGenericTypeConstraint(tPersistence, c => c
+                            .AddType(tDomain))
+                        .AddGenericTypeConstraint(tDocument, c => c
+                            .AddType(tDomain)
+                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>"))
                         ;
+
                     @class.AddConstructor(ctor =>
                     {
                         ctor.Protected();
-                        ctor.AddParameter(this.GetCosmosDBUnitOfWorkName(), "unitOfWork", p => p.IntroduceReadonlyField());
-                        ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{tDocument}>"), "cosmosRepository", p => p.IntroduceReadonlyField());
-                        ctor.AddParameter(UseType("AutoMapper.IMapper"), "mapper", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetCosmosDBUnitOfWorkName(), "unitOfWork",
+                            p => p.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{tDocument}>"),
+                            "cosmosRepository", p => p.IntroduceReadonlyField());
                         ctor.AddParameter("string", "idFieldName", p => p.IntroduceReadonlyField());
                     });
 
@@ -60,14 +65,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     @class.AddMethod("void", "Add", m => m
                         .AddParameter(tDomain, "entity")
-                        .AddStatement("EnsureHasId(entity);")
                         .AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious())
                         .AddInvocationStatement("_unitOfWork.Enqueue", invocation =>
                         {
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = _mapper.Map<{tDocument}>(entity);")
-                                    .AddStatement("await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement(
+                                        "await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);")
                                 );
                         })
                     );
@@ -79,8 +84,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = _mapper.Map<{tDocument}>(entity);")
-                                    .AddStatement("await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement(
+                                        "await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);")
                                 );
                         })
                     );
@@ -92,8 +98,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = _mapper.Map<{tDocument}>(entity);")
-                                    .AddStatement("await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement(
+                                        "await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);")
                                 );
                         })
                     );
@@ -102,7 +109,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Async()
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement("var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);")
-                        .AddStatement("var results = _mapper.Map<List<TDomain>>(documents);")
+                        .AddStatement("var results = documents.Cast<TDomain>().ToList();")
                         .AddForEachStatement("result", "results", fe =>
                         {
                             fe.SeparatedFromPrevious();
@@ -115,30 +122,27 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Async()
                         .AddParameter("string", "id")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                        .AddStatement("var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);")
-                        .AddStatement("return _mapper.Map<TDomain>(document);", s => s.SeparatedFromPrevious())
+                        .AddStatement(
+                            "var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);")
+                        .AddStatement("return document;", s => s.SeparatedFromPrevious())
                     );
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
                         .AddParameter("IEnumerable<string>", "ids")
                         .Async()
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                        .AddStatement(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
+                        .AddStatement(
+                            @"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                 .WithParameter(""@ids"", ids);")
-                        .AddStatement("var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                        .AddStatement("var results = _mapper.Map<List<TDomain>>(documents);")
+                        .AddStatement(
+                            "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
+                        .AddStatement("var results = documents.Cast<TDomain>().ToList();")
                         .AddForEachStatement("result", "results", fe =>
                         {
                             fe.SeparatedFromPrevious();
                             fe.AddStatement("_unitOfWork.Track(result);");
                         })
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
-                    );
-
-                    @class.AddMethod("void", "EnsureHasId", m => m
-                        .Protected()
-                        .Abstract()
-                        .AddParameter(tDomain, "entity")
                     );
                 });
         }

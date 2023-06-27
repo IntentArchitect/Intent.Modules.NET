@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.CosmosDB</id>
-  <version>1.0.0-alpha.0</version>
+  <version>1.0.0-alpha.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -16,7 +16,7 @@
       <role>Infrastructure.Data.CosmosDB.Document</role>
       <location>Persistence/Documents</location>
     </template>
-    <template id="Intent.Modules.CosmosDB.CosmosDBDocumentMappingProfile" externalReference="cf025629-8b46-4fea-8ce2-61cff0d940f6">
+    <template id="Intent.Modules.CosmosDB.CosmosDBDocumentInterface" externalReference="8a31d7fd-e4d1-4bf3-8916-2bd9209f2228">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -84,15 +84,10 @@
         <package id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.0-alpha.2" />
       </install>
     </detect>
-    <detect id="Intent.AspNetCore">
-      <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.4.3" />
-      </install>
-    </detect>
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36" />
+    <dependency id="Intent.Common.CSharp" version="3.3.37-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.4" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.0.1" />

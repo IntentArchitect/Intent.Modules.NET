@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
-using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentMappingProfile;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
@@ -28,14 +28,9 @@ namespace Intent.Modules.CosmosDB.Templates
             return template.GetTypeName(CosmosDBDocumentTemplate.TemplateId, model);
         }
 
-        public static string GetCosmosDBDocumentMappingProfileName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetCosmosDBDocumentInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(CosmosDBDocumentMappingProfileTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetCosmosDBDocumentMappingProfileName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
-        {
-            return template.GetTypeName(CosmosDBDocumentMappingProfileTemplate.TemplateId, model);
+            return template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId);
         }
         public static string GetCosmosDBRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {

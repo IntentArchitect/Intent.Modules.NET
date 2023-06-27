@@ -1,3 +1,5 @@
+using System;
+using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -7,20 +9,13 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class IdTestingDocument : IItem
+    internal class IdTestingDocument : IdTesting, ICosmosDBDocument<IdTestingDocument, IdTesting>
     {
         private string? _type;
-
-        public IdTestingDocument()
-        {
-            Identifier = null!;
-            Id = null!;
-        }
-
         [JsonProperty("id")]
         string IItem.Id
         {
-            get => Identifier;
+            get => Identifier ??= Guid.NewGuid().ToString();
             set => Identifier = value;
         }
         [JsonProperty("type")]
@@ -29,9 +24,25 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().Name;
             set => _type = value;
         }
-        string IItem.PartitionKey => Identifier;
-        public string Identifier { get; set; }
         [JsonProperty("@id")]
-        public string Id { get; set; }
+        public new string Id
+        {
+            get => base.Id;
+            set => base.Id = value;
+        }
+
+        public static IdTestingDocument FromEntity(IdTesting entity)
+        {
+            if (entity is IdTestingDocument document)
+            {
+                return document;
+            }
+
+            return new IdTestingDocument
+            {
+                Identifier = entity.Identifier,
+                Id = entity.Id
+            };
+        }
     }
 }

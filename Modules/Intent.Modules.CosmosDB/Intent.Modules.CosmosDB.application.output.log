@@ -82,18 +82,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cf025629-8b46-4fea-8ce2-61cff0d940f6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a31d7fd-e4d1-4bf3-8916-2bd9209f2228</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentMappingProfile/CosmosDBDocumentMappingProfileTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDBDocumentMappingProfile/CosmosDBDocumentMappingProfileTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#cf025629-8b46-4fea-8ce2-61cff0d940f6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8a31d7fd-e4d1-4bf3-8916-2bd9209f2228</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentMappingProfile/CosmosDBDocumentMappingProfileTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDBDocumentMappingProfile/CosmosDBDocumentMappingProfileTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBDocumentInterface/CosmosDBDocumentInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
