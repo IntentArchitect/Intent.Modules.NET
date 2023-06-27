@@ -1,3 +1,7 @@
+### Version 4.1.0
+
+- Bumped MassTransit nuget package versions from `8.0.6` to `8.0.16`.
+
 ### Version 4.0.7
 
 - Default Retry Intervals for Rabbit MQ were added so that it will retry to deliver a message after every 30 seconds for 10 attempts before sending the message to the error queue.
