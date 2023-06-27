@@ -9,7 +9,7 @@ using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.Services
 {

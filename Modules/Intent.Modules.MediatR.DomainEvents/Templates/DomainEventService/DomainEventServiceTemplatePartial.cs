@@ -57,5 +57,25 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         {
             return GetTypeName(DomainEventNotificationTemplate.TemplateId);
         }
+
+        public override RoslynMergeConfig ConfigureRoslynMerger()
+        {
+            return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new Migration());
+        }
+
+        /// <summary>
+        /// Fixes that for a very long time this template's default mode was Ignore.
+        /// </summary>
+        private class Migration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText.Replace(
+                    "[assembly: DefaultIntentManaged(Mode.Ignore)]",
+                    "[assembly: DefaultIntentManaged(Mode.Fully)]");
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
+        }
     }
 }

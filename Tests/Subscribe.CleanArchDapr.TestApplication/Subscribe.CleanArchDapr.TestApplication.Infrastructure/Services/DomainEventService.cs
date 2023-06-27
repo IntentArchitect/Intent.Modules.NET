@@ -9,7 +9,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.Common.Models;
 using Subscribe.CleanArchDapr.TestApplication.Domain.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "2.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.Services
 {

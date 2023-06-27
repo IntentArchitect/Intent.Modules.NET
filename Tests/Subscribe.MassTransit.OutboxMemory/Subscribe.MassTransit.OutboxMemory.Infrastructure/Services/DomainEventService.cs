@@ -9,7 +9,7 @@ using Subscribe.MassTransit.OutboxMemory.Application.Common.Models;
 using Subscribe.MassTransit.OutboxMemory.Domain.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "2.0")]
 
 namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Services
 {
