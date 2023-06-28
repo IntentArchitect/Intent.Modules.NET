@@ -54,14 +54,12 @@ namespace CleanArchitecture.Dapr.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCloudEvents();
             app.UseSerilogRequestLogging();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapSubscribeHandler();
                 endpoints.MapControllers();
             });
             app.UseSwashbuckle();

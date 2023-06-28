@@ -9,6 +9,7 @@ namespace Intent.Modules.Constants
             public static class WebApi
             {
                 public const string Controller = "Distribution.WebApi.Controller";
+                public const string Startup = "App.Startup";
             }
         }
         public static class Domain

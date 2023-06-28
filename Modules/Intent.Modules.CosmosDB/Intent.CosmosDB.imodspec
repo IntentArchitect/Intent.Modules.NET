@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.0.0-alpha.0</version>
+  <version>1.0.0-alpha.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -87,7 +87,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.37-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.37-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.4" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.0.1" />

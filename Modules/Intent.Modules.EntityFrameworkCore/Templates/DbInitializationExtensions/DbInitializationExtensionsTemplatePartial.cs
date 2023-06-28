@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -28,25 +29,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() &&
-                TryGetTemplate("App.Startup", out _startupTemplate))
+
+            _startupTemplate.CSharpFile.AddUsing(Namespace);
+            _startupTemplate.CSharpFile.AfterBuild(file =>
             {
-                _startupTemplate.CSharpFile.AddUsing(Namespace);
-                _startupTemplate.CSharpFile.AfterBuild(file =>
-                {
-                    var method = file.Classes.First().FindMethod("Configure");
-                    method.AddStatement(@"
+                var method = file.Classes.First().FindMethod("Configure");
+                method.AddStatement(@"
             if (Configuration.GetValue<bool>(""Cosmos:EnsureDbCreated""))
             {
                 app.EnsureDbCreationAsync().GetAwaiter().GetResult();
             }", s => s.SeparatedFromPrevious());
-                });
-            }
+            });
         }
 
         public override bool CanRunTemplate()
         {
-            return _startupTemplate != null;
+            return ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() &&
+                   TryGetTemplate(TemplateFulfillingRoles.Distribution.WebApi.Startup, out _startupTemplate);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
