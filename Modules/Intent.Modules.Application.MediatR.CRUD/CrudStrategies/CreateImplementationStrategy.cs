@@ -171,11 +171,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                        var toListExpression = field.TypeReference.IsCollection
-                            ? field.TypeReference.IsNullable ? "?.ToList()" : ".ToList()"
-                            : string.Empty;
-                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression},");
-
+                        if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                        {
+                            var property = $"{entityVarExpr}{attribute.Name.ToPascalCase()}";
+                            var updateMethodName = $"Create{attribute.TypeReference.Element.Name.ToPascalCase()}";
+                            if (attribute.TypeReference.IsCollection)
+                            {
+                                codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList()),");
+                            }
+                            else
+                            {
+                                codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                            }
+                            AddValueObjectFactoryMethod(updateMethodName, attribute, field);
+                        }
+                        else
+                        {
+                            var toListExpression = field.TypeReference.IsCollection
+                                ? field.TypeReference.IsNullable ? "?.ToList()" : ".ToList()"
+                                : string.Empty;
+                            codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression},");
+                        }
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
@@ -236,6 +252,46 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             return codeLines.ToList();
         }
+
+        private void AddValueObjectFactoryMethod(string mappingMethodName, AttributeModel domain, DTOFieldModel field)
+        {
+            var @class = _template.CSharpFile.Classes.First();
+            var targetDto = field.TypeReference.Element.AsDTOModel();
+            if (!MethodExists(mappingMethodName, @class, targetDto))
+            {
+                var domainType = _template.GetTypeName(domain);
+                @class.AddMethod(domainType, mappingMethodName, method =>
+                {
+                    method.Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
+
+                    var attributeModels = GetDomainAttibuteModels(domain.TypeReference.Element as IElement);
+
+                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    if (attributeMap.Any(x => x.Dto == null))
+                    {
+                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                    }
+                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
+                    method.AddStatement($"return new {domainType}({ctorParameters});");
+                });
+            }
+        }
+
+        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
+        {
+            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
+        }
+
+        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+        {
+            return @class.FindMethod((method) =>
+                                        method.Name == mappingMethodName
+                                        && method.Parameters.Count == 1
+                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
+        }
+
 
         private StrategyData GetMatchingElementDetails()
         {

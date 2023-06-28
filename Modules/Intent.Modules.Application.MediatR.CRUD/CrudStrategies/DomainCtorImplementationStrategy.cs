@@ -133,7 +133,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
                 {
-                    string mappingMethodName = $"Create{parameter.TypeReference.Element.Name}";
+                    string mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
                     var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
                     var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
@@ -165,10 +165,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private void AddMappingMethod(string mappingMethodName, DTOFieldModel field, IElement element)
         {
             var @class = _template.CSharpFile.Classes.First();
-            if (@class.FindMethod(mappingMethodName) == null)
+            var targetDto = field.TypeReference.Element.AsDTOModel();
+            if (!MethodExists(mappingMethodName, @class, targetDto))
             {
                 var domainType = _template.GetTypeName(element);
-                var targetDto = field.TypeReference.Element.AsDTOModel();
                 @class.AddMethod(domainType, mappingMethodName, method => 
                 {
                     method.Static()
@@ -176,24 +176,29 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
 
                     var attributeModels = GetDomainAttibuteModels(element);
-                    var ctorParameters = string.Join(",", attributeModels.Select(a => $"{a.Name.ToParameterName()}: dto.{targetDto.Fields.First(f => f.Mapping?.Element.Id == a.Id).Name.ToPascalCase()}"));
+
+                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    if (attributeMap.Any(x => x.Dto == null))
+                    {
+                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                    }
+                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
                     method.AddStatement($"return new {domainType}({ctorParameters});");
                 });
             }
         }
 
+        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+        {
+            return @class.FindMethod((method) =>
+                                        method.Name == mappingMethodName
+                                        && method.Parameters.Count == 1
+                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
+        }
+
         private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
         {
-
-            if (element.IsDataContractModel())
-            {
-                return element.AsDataContractModel().Attributes;
-            }
-            if (element.IsValueObjectModel())
-            {
-                return element.AsValueObjectModel().Attributes;
-            }
-            return new List<AttributeModel>();
+            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
         }
 
         private StrategyData GetMatchingElementDetails()

@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -42,6 +46,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var @class = _template.CSharpFile.Classes.First();
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
@@ -82,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($@"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
                 codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
                     .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
+                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 if (RepositoryRequiresExplicitUpdate())
                 {
@@ -96,7 +101,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
             codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} {{request.{idField.Name.ToPascalCase()}}}"");"));
-            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
+            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
 
             if (RepositoryRequiresExplicitUpdate())
             {
@@ -174,7 +179,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return new StrategyData(true, foundEntity, idField, repository, dtoToReturn, repositoryInterfaceModel);
         }
 
-        private IList<CSharpStatement> GetDtoPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
+        private IList<CSharpStatement> GetDtoPropertyAssignments(string entityVarName, string dtoVarName, IList<AttributeModel> domainAttributes, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {
             var codeLines = new CSharpStatementAggregator();
             foreach (var field in dtoFields)
@@ -185,7 +190,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 if (field.Mapping?.Element == null
-                    && domainModel.Attributes.All(p => p.Name != field.Name))
+                    && domainAttributes.All(p => p.Name != field.Name))
                 {
                     codeLines.Add($"#warning No matching field found for {field.Name}");
                     continue;
@@ -203,11 +208,28 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case null:
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
-                                        ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                        var toListExpression = field.TypeReference.IsCollection
-                            ? fieldIsNullable ? "?.ToList()" : ".ToList()"
-                            : string.Empty;
-                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression};");
+                                        ?? domainAttributes.First(p => p.Name == field.Name);
+                        if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                        {
+                            var property = $"{entityVarExpr}{attribute.Name.ToPascalCase()}";
+                            var updateMethodName = $"Create{attribute.TypeReference.Element.Name.ToPascalCase()}";
+                            if (attribute.TypeReference.IsCollection)
+                            {
+                                codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList());");
+                            }
+                            else
+                            {
+                                codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
+                            }
+                            AddValueObjectFactoryMethod(updateMethodName, attribute, field);
+                        }
+                        else
+                        {
+                            var toListExpression = field.TypeReference.IsCollection
+                                ? fieldIsNullable ? "?.ToList()" : ".ToList()"
+                                : string.Empty;
+                            codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression};");
+                        }
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
@@ -233,51 +255,95 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
                                 codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {updateMethodName});");
                             }
-
-                            var entityTypeName = _template.GetTypeName(targetEntity.InternalElement);
-                            var @class = _template.CSharpFile.Classes.First();
-
-                            var existingMethod = @class.FindMethod(x => x.Name == updateMethodName &&
-                                                                        x.ReturnType == entityTypeName &&
-                                                                        x.Parameters.FirstOrDefault()?.Type == entityTypeName &&
-                                                                        x.Parameters.Skip(1).FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
-                            if (existingMethod == null)
-                            {
-                                var nullable = fieldIsNullable ? "?" : string.Empty;
-
-                                @class.AddMethod($"{entityTypeName}{nullable}",
-                                    updateMethodName,
-                                    method =>
-                                    {
-
-                                        method.Private()
-                                            .Static()
-                                            .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                            .AddParameter($"{entityTypeName}{nullable}", "entity")
-                                            .AddParameter($"{_template.GetTypeName((IElement)field.TypeReference.Element)}{nullable}", "dto");
-
-                                        if (fieldIsNullable)
-                                        {
-                                            method.AddIfStatement("dto == null", s => s
-                                                .AddStatement("return null;"));
-                                        }
-
-                                        method.AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
-                                            .AddStatements(GetDtoPropertyAssignments(
-                                                entityVarName: "entity",
-                                                dtoVarName: "dto",
-                                                domainModel: targetEntity,
-                                                dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
-                                                skipIdField: true))
-                                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
-                                    });
-                            }
+                            AddCreateOrUpdateMethod(updateMethodName, targetEntity.InternalElement, field );
                         }
                         break;
                 }
             }
 
             return codeLines.ToList();
+        }
+
+        private void AddValueObjectFactoryMethod(string mappingMethodName, AttributeModel domain, DTOFieldModel field)
+        {
+            var @class = _template.CSharpFile.Classes.First();
+            var targetDto = field.TypeReference.Element.AsDTOModel();
+            if (!MethodExists(mappingMethodName, @class, targetDto))
+            {
+                var domainType = _template.GetTypeName(domain);
+                @class.AddMethod(domainType, mappingMethodName, method =>
+                {
+                    method.Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
+
+                    var attributeModels = GetDomainAttibuteModels(domain.TypeReference.Element as IElement);
+
+                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto:  targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    if (attributeMap.Any(x => x.Dto == null))
+                    {
+                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                    }
+                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
+                    method.AddStatement($"return new {domainType}({ctorParameters});");
+                });
+            }
+        }
+
+        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+        {
+            return @class.FindMethod((method) =>
+                                        method.Name == mappingMethodName
+                                        && method.Parameters.Count == 1
+                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
+        }
+
+        private void AddCreateOrUpdateMethod(string updateMethodName, IElement domainElement, DTOFieldModel field)
+        {
+            var domainTypeName = _template.GetTypeName(domainElement);
+            var fieldIsNullable = field.TypeReference.IsNullable;
+
+            var @class = _template.CSharpFile.Classes.First();
+            var existingMethod = @class.FindMethod(x => x.Name == updateMethodName &&
+                                                        x.ReturnType == domainTypeName &&
+                                                        x.Parameters.FirstOrDefault()?.Type == domainTypeName &&
+                                                        x.Parameters.Skip(1).FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
+            if (existingMethod == null)
+            {
+                var nullable = fieldIsNullable ? "?" : string.Empty;
+
+                @class.AddMethod($"{domainTypeName}{nullable}",
+                    updateMethodName,
+                    method =>
+                    {
+
+                        method.Private()
+                            .Static()
+                            .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                            .AddParameter($"{domainTypeName}{nullable}", "entity")
+                            .AddParameter($"{_template.GetTypeName((IElement)field.TypeReference.Element)}{nullable}", "dto");
+
+                        if (fieldIsNullable)
+                        {
+                            method.AddIfStatement("dto == null", s => s
+                                .AddStatement("return null;"));
+                        }
+
+                        method.AddStatement($"entity ??= new {domainTypeName}();", s => s.SeparatedFromPrevious())
+                            .AddStatements(GetDtoPropertyAssignments(
+                                entityVarName: "entity",
+                                dtoVarName: "dto",
+                                domainAttributes: GetDomainAttibuteModels(domainElement),
+                                dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
+                                skipIdField: true))
+                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                    });
+            }
+        }
+
+        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
+        {
+            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
