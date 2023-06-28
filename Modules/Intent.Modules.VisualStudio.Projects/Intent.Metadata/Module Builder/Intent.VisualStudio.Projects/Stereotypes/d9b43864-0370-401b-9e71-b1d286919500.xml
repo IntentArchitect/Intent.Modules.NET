@@ -39,6 +39,9 @@
         <option>default</option>
         <option>latest</option>
         <option>preview</option>
+        <option>12.0</option>
+        <option>11.0</option>
+        <option>10.0</option>
         <option>9.0</option>
         <option>8.0</option>
         <option>7.3</option>

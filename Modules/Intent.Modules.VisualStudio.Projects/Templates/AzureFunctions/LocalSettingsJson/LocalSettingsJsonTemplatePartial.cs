@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Text.Json;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -60,12 +64,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 return;
             }
 
-            if (@event.Value is not null and not string &&
-                !@event.Value.GetType().IsPrimitive)
-            {
-                Logging.Log.Warning($"Azure Functions local.settings.json files do not support objects for settings values. Key=\"{@event.Key}\", Value=\"{@event.Value}\"");
-            }
-
             if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value))
             {
                 Logging.Log.Warning($"A request already existed for {@event.Key}{Environment.NewLine}" +
@@ -112,16 +110,33 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             }
 
             var json = JsonConvert.DeserializeObject<JObject>(content);
-            var valuesObj = json["Values"] ??= new JObject();
+            var valuesObj = (JObject)(json["Values"] ??= new JObject());
+
+            var preExisting = valuesObj.Properties().Select(x => x.Name).ToArray();
 
             foreach (var (key, (request, _)) in _registrationRequestsByKey)
             {
-                if (request.Value == null)
+                if (preExisting.Any(property => property == request.Key || property.StartsWith($"{request.Key}:")))
                 {
                     continue;
                 }
 
-                valuesObj[key] ??= JToken.FromObject(request.Value);
+                if (request.Value is not null and not string &&
+                    !request.Value.GetType().IsPrimitive)
+                {
+                    foreach (var item in Deconstruct(request.Key, request.Value))
+                    {
+                        valuesObj[item.Key] = item.Value != null
+                            ? JToken.FromObject(item.Value)
+                            : null;
+                    }
+
+                    continue;
+                }
+
+                valuesObj[key] = request.Value != null
+                    ? JToken.FromObject(request.Value)
+                    : null;
             }
 
             foreach (var (key, (request, _)) in _connectionStringRequestByName)
@@ -135,6 +150,61 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);
+        }
+
+        private static IEnumerable<(string Key, object Value)> Deconstruct(string key, object value)
+        {
+            var stack = new Stack<string>();
+            var items = new List<(string Key, object Value)>();
+
+            Populate(
+                name: key,
+                element: JsonDocument.Parse(System.Text.Json.JsonSerializer.Serialize(value)).RootElement);
+
+            return items;
+
+            void Populate(string name, JsonElement element)
+            {
+                stack.Push(name);
+
+                switch (element.ValueKind)
+                {
+                    case JsonValueKind.Object:
+                        foreach (var childElement in element.EnumerateObject())
+                        {
+                            Populate(childElement.Name, childElement.Value);
+                        }
+                        break;
+                    case JsonValueKind.Array:
+                        var arrayElements = element.EnumerateArray().ToArray();
+                        for (var i = 0; i < arrayElements.Length; i++)
+                        {
+                            Populate(i.ToString(CultureInfo.InvariantCulture), arrayElements[i]);
+                        }
+                        break;
+                    case JsonValueKind.Null:
+                        items.Add((string.Join(":", stack.Reverse()), null));
+                        break;
+                    case JsonValueKind.String:
+                        items.Add((string.Join(":", stack.Reverse()), element.GetString()));
+                        break;
+                    case JsonValueKind.Number when element.GetRawText().Contains("."):
+                        items.Add((string.Join(":", stack.Reverse()), element.GetDecimal()));
+                        break;
+                    case JsonValueKind.Number:
+                        items.Add((string.Join(":", stack.Reverse()), element.GetInt64()));
+                        break;
+                    case JsonValueKind.True:
+                    case JsonValueKind.False:
+                        items.Add((string.Join(":", stack.Reverse()), element.GetBoolean()));
+                        break;
+                    case JsonValueKind.Undefined:
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                stack.Pop();
+            }
         }
     }
 }

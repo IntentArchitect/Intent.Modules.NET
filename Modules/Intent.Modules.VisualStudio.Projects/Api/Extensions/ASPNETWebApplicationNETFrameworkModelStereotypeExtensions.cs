@@ -172,6 +172,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return LanguageVersionOptionsEnum.Latest;
                         case "preview":
                             return LanguageVersionOptionsEnum.Preview;
+                        case "12.0":
+                            return LanguageVersionOptionsEnum._120;
+                        case "11.0":
+                            return LanguageVersionOptionsEnum._110;
+                        case "10.0":
+                            return LanguageVersionOptionsEnum._100;
                         case "9.0":
                             return LanguageVersionOptionsEnum._90;
                         case "8.0":
@@ -212,6 +218,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 public bool IsPreview()
                 {
                     return Value == "preview";
+                }
+                public bool Is120()
+                {
+                    return Value == "12.0";
+                }
+                public bool Is110()
+                {
+                    return Value == "11.0";
+                }
+                public bool Is100()
+                {
+                    return Value == "10.0";
                 }
                 public bool Is90()
                 {
@@ -268,6 +286,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 Default,
                 Latest,
                 Preview,
+                _120,
+                _110,
+                _100,
                 _90,
                 _80,
                 _73,

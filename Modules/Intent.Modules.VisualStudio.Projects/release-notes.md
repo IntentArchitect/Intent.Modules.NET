@@ -1,3 +1,9 @@
+### Version 3.3.27
+
+- Update: Added `10.0`, `11.0` and `12.0` as selectable C# Project `Language Version`s.
+- Update: Added `.NET 8.0` as a selectable `.NET Version` option.
+- The template for `local.settings.json` for Azure Functions projects will now automatically flatten hierarchical settings from `AppSettingRegistrationRequest`s into a discrete key per field with `:` used to represent its hierarchical location which .NET's configuration system is able to reassemble into a hierarchical object at runtime.
+
 ### Version 3.3.26
 
 - Fixed : Software Factory would throw "Duplicate Key" exception if a NuGet package, for the same package, existed more than once. If now works with the first one it finds.
