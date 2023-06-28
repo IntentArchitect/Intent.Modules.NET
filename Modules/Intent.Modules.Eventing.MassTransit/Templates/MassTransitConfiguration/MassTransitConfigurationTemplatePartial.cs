@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.MassTransit.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -29,6 +30,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
+        MessageHandlerModels = ExecutionContext.MetadataManager
+            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
+            .SelectMany(x => x.SubscribedMessages());
+        
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddUsing("System.Reflection")
@@ -53,15 +58,54 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.AddParameter("IRegistrationConfigurator", "cfg", parm => parm.WithThisModifier());
                     method.AddStatements(GetConsumerStatements("cfg"));
                 });
+                AddNonDefaultEndpointConfigurationMethods(@class);
             });
     }
 
+    private IEnumerable<MessageSubscribeAssocationTargetEndModel> MessageHandlerModels { get; }
+
+    private void AddNonDefaultEndpointConfigurationMethods(CSharpClass @class)
+    {
+        if (!MessageHandlerModels.Any(HasMessageBrokerStereotype))
+        {
+            return;
+        }
+
+        @class.AddMethod("void", "ConfigureNonDefaultEndpoints", method =>
+        {
+            method.Private().Static();
+            method.AddParameter("IServiceBusBusFactoryConfigurator", "cfg", parm => parm.WithThisModifier());
+            method.AddParameter("IBusRegistrationContext", "context");
+            
+        });
+
+        @class.AddMethod("void", "AddCustomConsumerEndpoint", method =>
+        {
+            method.Private().Static();
+            method.AddGenericParameter("TConsumer", out var tConsumer);
+            method.AddGenericTypeConstraint(tConsumer, c => c.AddType("class").AddType("IConsumer"));
+            method.AddParameter("IServiceBusBusFactoryConfigurator", "cfg", parm => parm.WithThisModifier());
+            method.AddParameter("IBusRegistrationContext", "context");
+            method.AddParameter("string", "instanceId");
+            method.AddParameter("Action<IServiceBusReceiveEndpointConfigurator>", "configuration");
+
+            method.AddInvocationStatement($"cfg.ReceiveEndpoint", stmt => stmt
+                .AddArgument(new CSharpInvocationStatement($"new ConsumerEndpointDefinition<{tConsumer}>")
+                    .WithoutSemicolon()
+                    .AddArgument(new CSharpObjectInitializerBlock($@"new EndpointSettings<IEndpointDefinition<{tConsumer}>>")
+                        .AddInitStatement("InstanceId", "instanceId")))
+                .AddArgument("KebabCaseEndpointNameFormatter.Instance")
+                .AddArgument(new CSharpLambdaBlock("endpoint")
+                    .AddStatement("configuration.Invoke(endpoint);")
+                    .AddStatement($"endpoint.ConfigureConsumer<{tConsumer}>(context);"))
+                .WithArgumentsOnNewLines());
+        });
+    }
+    
     private IReadOnlyCollection<CSharpStatement> GetConsumerStatements(string configParamName)
     {
         var statements = new List<CSharpStatement>();
-        foreach (var messageHandlerModel in ExecutionContext.MetadataManager
-                     .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
-                     .SelectMany(x => x.SubscribedMessages()))
+        foreach (var messageHandlerModel in MessageHandlerModels)
         {
             var messageName =
                 this.GetIntegrationEventMessageName(messageHandlerModel.TypeReference.Element.AsMessageModel());
@@ -71,17 +115,29 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 $@"{this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
             var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
 
-            var addConsumer = new CSharpInvocationStatement($"{configParamName}.AddConsumer<{consumerWrapperType}>")
-                .AddArgument($@"typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>)");
-            addConsumer.WithoutSemicolon();
-            statements.Add(addConsumer);
+            // Until we can do single-line method chaining this will have to do for now...
+            var addConsumer = $@"{configParamName}.AddConsumer<{consumerWrapperType}>"
+                              + $@"(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>))";
 
-            statements.Add(new CSharpInvocationStatement(".Endpoint")
-                .AddArgument(new CSharpLambdaBlock("config")
-                    .WithExpressionBody($@"config.InstanceId = ""{sanitizedAppName}""")));
+            if (HasMessageBrokerStereotype(messageHandlerModel))
+            {
+                addConsumer += $@".ExcludeFromConfigureEndpoints()";
+            }
+            else
+            {
+                addConsumer += $@".Endpoint(config => config.InstanceId = ""{sanitizedAppName}"")";
+            }
+
+            addConsumer += ";";
+            statements.Add(addConsumer);
         }
 
         return statements;
+    }
+
+    private static bool HasMessageBrokerStereotype(MessageSubscribeAssocationTargetEndModel messageHandlerModel)
+    {
+        return messageHandlerModel.HasAzureServiceBusConsumerSettings() || messageHandlerModel.HasRabbitMQConsumerSettings();
     }
 
     private CSharpLambdaBlock GetConfigurationForAddMassTransit(string configurationVarName)
@@ -96,7 +152,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 block.AddInvocationStatement("x.UsingInMemory", memory => memory
                     .AddArgument(new CSharpLambdaBlock("(context, cfg)")
                         .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
-                        .AddStatement("cfg.ConfigureEndpoints(context);", s => s.AddMetadata("configure-endpoints", true)))
+                        .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "memory"));
                 break;
             case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
@@ -109,7 +165,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                             .AddArgument(new CSharpLambdaBlock("host")
                                 .AddStatement(@"host.Username(configuration[""RabbitMq:Username""]);")
                                 .AddStatement(@"host.Password(configuration[""RabbitMq:Password""]);")))
-                        .AddStatement("cfg.ConfigureEndpoints(context);", s => s.AddMetadata("configure-endpoints", true)))
+                        .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "rabbit-mq"));
                 break;
             case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
@@ -118,7 +174,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                         .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
                         .AddInvocationStatement("cfg.Host", host => host
                             .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]"))
-                        .AddStatement("cfg.ConfigureEndpoints(context);", s => s.AddMetadata("configure-endpoints", true)))
+                        .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "azure-service-bus"));
                 break;
             case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
@@ -130,7 +186,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                             .AddArgument(new CSharpLambdaBlock("host")
                                 .AddStatement(@"host.AccessKey(configuration[""AmazonSqs:AccessKey""]);")
                                 .AddStatement(@"host.SecretKey(configuration[""AmazonSqs:SecretKey""]);")))
-                        .AddStatement("cfg.ConfigureEndpoints(context);", s => s.AddMetadata("configure-endpoints", true)))
+                        .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "amazon-sqs"));
                 break;
             default:
@@ -139,6 +195,15 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
 
         return block;
+    }
+
+    private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
+    {
+        yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
+        if (MessageHandlerModels.Any(HasMessageBrokerStereotype))
+        {
+            yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
+        }
     }
 
     private CSharpStatement GetMessageRetryStatement(string configParamName, string configurationVarName)
@@ -212,7 +277,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

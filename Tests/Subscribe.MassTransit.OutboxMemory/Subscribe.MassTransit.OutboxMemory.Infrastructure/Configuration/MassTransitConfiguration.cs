@@ -39,18 +39,12 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEvent>))
-            .Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
         }
     }
 }

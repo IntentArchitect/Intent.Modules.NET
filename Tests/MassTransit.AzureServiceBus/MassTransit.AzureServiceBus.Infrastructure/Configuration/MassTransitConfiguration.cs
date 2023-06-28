@@ -23,13 +23,12 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 x.SetKebabCaseEndpointNameFormatter();
 
                 x.AddConsumers();
-                
+
                 x.UsingAzureServiceBus((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
 
                     cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
-                    
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
                 });
@@ -38,11 +37,12 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>))
-            .ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
         }
 
-        private static void ConfigureNonDefaultEndpoints(this IServiceBusBusFactoryConfigurator cfg, IBusRegistrationContext context)
+        private static void ConfigureNonDefaultEndpoints(
+            this IServiceBusBusFactoryConfigurator cfg,
+            IBusRegistrationContext context)
         {
             cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
                 context,
@@ -54,7 +54,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
         }
 
         private static void AddCustomConsumerEndpoint<TConsumer>(
-            this IServiceBusBusFactoryConfigurator cfg, 
+            this IServiceBusBusFactoryConfigurator cfg,
             IBusRegistrationContext context,
             string instanceId,
             Action<IServiceBusReceiveEndpointConfigurator> configuration)
