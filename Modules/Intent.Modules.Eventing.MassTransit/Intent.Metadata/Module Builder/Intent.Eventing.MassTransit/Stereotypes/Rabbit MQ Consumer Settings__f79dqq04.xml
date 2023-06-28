@@ -31,7 +31,7 @@
       <lookupTypes />
     </property>
     <property id="e158d458-ae1b-486a-a3d4-d231a35e79de">
-      <hint>Sets the queue to be lazy. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
+      <hint>Sets the queue to be lazy.</hint>
       <name>Lazy</name>
       <type>string</type>
       <controlType>checkbox</controlType>

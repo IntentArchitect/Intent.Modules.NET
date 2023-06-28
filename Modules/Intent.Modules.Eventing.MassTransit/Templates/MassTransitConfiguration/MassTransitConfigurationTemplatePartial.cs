@@ -27,8 +27,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitConfiguration";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-        outputTarget, model)
+    public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
@@ -201,19 +200,19 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return $@"{configVarName}.RequiresSession = {settings.RequiresSession().ToString().ToLower()};";
             if (!string.IsNullOrWhiteSpace(settings.DefaultMessageTimeToLive()))
             {
-                ValidateTimeSpanString(settings.DefaultMessageTimeToLive(), nameof(settings.DefaultMessageTimeToLive));
-                yield return $@"{configVarName}.DefaultMessageTimeToLive = TimeSpan.Parse(""{settings.DefaultMessageTimeToLive()}"");";   
+                ValidateTimeSpanString(settings.DefaultMessageTimeToLive(), nameof(settings.DefaultMessageTimeToLive), out var ts);
+                yield return $@"{configVarName}.DefaultMessageTimeToLive = TimeSpan.Parse(""{ts}"");";
             }
             if (!string.IsNullOrWhiteSpace(settings.LockDuration()))
             {
-                ValidateTimeSpanString(settings.LockDuration(), nameof(settings.LockDuration));
-                yield return $@"{configVarName}.LockDuration = TimeSpan.Parse(""{settings.LockDuration()}"");";   
+                ValidateTimeSpanString(settings.LockDuration(), nameof(settings.LockDuration), out var ts);
+                yield return $@"{configVarName}.LockDuration = TimeSpan.Parse(""{ts}"");";
             }
             yield return $@"{configVarName}.RequiresDuplicateDetection = {settings.RequiresDuplicateDetection().ToString().ToLower()};";
             if (settings.RequiresDuplicateDetection() && !string.IsNullOrWhiteSpace(settings.DuplicateDetectionHistoryTimeWindow()))
             {
-                ValidateTimeSpanString(settings.DuplicateDetectionHistoryTimeWindow(), nameof(settings.DuplicateDetectionHistoryTimeWindow));
-                yield return $@"{configVarName}.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse(""{settings.DuplicateDetectionHistoryTimeWindow()}"");";  
+                ValidateTimeSpanString(settings.DuplicateDetectionHistoryTimeWindow(), nameof(settings.DuplicateDetectionHistoryTimeWindow), out var ts);
+                yield return $@"{configVarName}.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse(""{ts}"");";
             }
             yield return $@"{configVarName}.EnableBatchedOperations = {settings.EnableBatchedOperations().ToString().ToLower()};";
             yield return $@"{configVarName}.EnableDeadLetteringOnMessageExpiration = {settings.EnableDeadLetteringOnMessageExpiration().ToString().ToLower()};";
@@ -240,11 +239,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return $@"{configVarName}.PurgeOnStartup = {settings.PurgeOnStartup().ToString().ToLower()};";
             yield return $@"{configVarName}.Exclusive = {settings.Exclusive().ToString().ToLower()};";
         }
-        
+
         // Until we get a nice UI text field that can capture time this will have to do
-        static void ValidateTimeSpanString(string settingStringValue, [CallerArgumentExpression("settingStringValue")] string memberName = "")
+        static void ValidateTimeSpanString(string settingStringValue, string memberName, out TimeSpan parsedTimeSpan)
         {
-            if (!TimeSpan.TryParse(settingStringValue, out var result))
+            if (!TimeSpan.TryParse(settingStringValue, out parsedTimeSpan))
             {
                 throw new Exception($"Unable to parse '{settingStringValue}' for {memberName}. Ensure format is 'hh:mm:ss'.");
             }

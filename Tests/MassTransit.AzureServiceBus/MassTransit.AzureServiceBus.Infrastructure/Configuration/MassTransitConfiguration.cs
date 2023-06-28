@@ -50,16 +50,14 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 "MassTransit-AzureServiceBus",
                 endpoint =>
                 {
-                    endpoint.PrefetchCount = 50;
-                    endpoint.RequiresSession = true;
+                    endpoint.PrefetchCount = 15;
+                    endpoint.RequiresSession = false;
                     endpoint.DefaultMessageTimeToLive = TimeSpan.Parse("00:15:00");
-                    endpoint.LockDuration = TimeSpan.Parse("00:10:00");
                     endpoint.RequiresDuplicateDetection = true;
-                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("15:00");
+                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("00:10:00");
                     endpoint.EnableBatchedOperations = true;
                     endpoint.EnableDeadLetteringOnMessageExpiration = true;
-                    endpoint.MaxSizeInMegabytes = 100;
-                    endpoint.MaxDeliveryCount = 5;
+                    endpoint.MaxSizeInMegabytes = 2048;
                 });
         }
 

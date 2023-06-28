@@ -30,6 +30,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         {
             AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
 
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);

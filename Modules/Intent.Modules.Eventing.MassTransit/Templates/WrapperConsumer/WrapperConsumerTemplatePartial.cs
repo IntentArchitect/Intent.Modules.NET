@@ -22,8 +22,7 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
     public const string TemplateId = "Intent.Eventing.MassTransit.WrapperConsumer";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public WrapperConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget,
-        model)
+    public WrapperConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NuGetPackages.MassTransitAbstractions);
         AddTypeSource(IntegrationEventMessageTemplate.TemplateId);

@@ -62,7 +62,7 @@
       <lookupTypes />
     </property>
     <property id="a6667529-102d-4e86-8623-c71464606f58">
-      <hint>Specify whether this queue requires duplicate detection. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Specify whether this queue requires duplicate detection.</hint>
       <name>Requires Duplicate Detection</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -73,7 +73,7 @@
       <lookupTypes />
     </property>
     <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
-      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Format - hh:mm:ss</hint>
       <name>Duplicate Detection History Time Window</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -84,7 +84,7 @@
       <isActiveFunction>return RequiresDuplicateDetection;</isActiveFunction>
     </property>
     <property id="dbdcb5ed-3e63-46f9-941f-b7c578fe05db">
-      <hint>Specify whether server-side batched operations are enabled. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Specify whether server-side batched operations are enabled.</hint>
       <name>Enable Batched Operations</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -95,7 +95,7 @@
       <lookupTypes />
     </property>
     <property id="94ed3877-3876-4fa2-bc45-ae679ec6cd21">
-      <hint>Move messages to the dead letter queue on expiration (time to live exceeded). [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Move messages to the dead letter queue on expiration (time to live exceeded).</hint>
       <name>Enable Dead-lettering On Message Expiration</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -106,7 +106,7 @@
       <lookupTypes />
     </property>
     <property id="23748e16-ae82-41e6-9bc5-bfeae97ba89e">
-      <hint>Sets the maximum size of the queue in megabytes, which is the size of memory allocated for the queue. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Sets the maximum size of the queue in megabytes (1024 MB is lowest setting).</hint>
       <name>Max Queue Size</name>
       <type>string</type>
       <controlType>number</controlType>
