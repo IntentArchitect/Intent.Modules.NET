@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
+using MassTransit.Configuration;
 using MassTransit.Messages.Shared;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

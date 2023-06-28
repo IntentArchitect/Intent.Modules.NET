@@ -58,7 +58,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("15:00");
                     endpoint.EnableBatchedOperations = true;
                     endpoint.EnableDeadLetteringOnMessageExpiration = true;
-                    endpoint.MaxQueueSize = 100;
+                    endpoint.MaxSizeInMegabytes = 100;
                     endpoint.MaxDeliveryCount = 5;
                 });
         }

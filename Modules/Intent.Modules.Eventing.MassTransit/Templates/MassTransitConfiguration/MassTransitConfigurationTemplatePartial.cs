@@ -40,6 +40,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .AddUsing("System")
             .AddUsing("System.Reflection")
             .AddUsing("MassTransit")
+            .AddUsing("MassTransit.Configuration")
             .AddUsing("Microsoft.Extensions.Configuration")
             .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddClass($"MassTransitConfiguration", @class =>
@@ -99,6 +100,38 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return statements;
     }
 
+    private string GetMessageBrokerBusFactoryConfiguratorName()
+    {
+        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+        {
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
+            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
+                throw new NotSupportedException();
+            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
+                return "IRabbitMqBusFactoryConfigurator";
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                return "IServiceBusBusFactoryConfigurator";
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private string GetMessageBrokerReceiveEndpointConfiguratorName()
+    {
+        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+        {
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
+            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
+                throw new NotSupportedException();
+            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
+                return "IRabbitMqReceiveEndpointConfigurator";
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                return "IServiceBusReceiveEndpointConfigurator";
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
     private void AddNonDefaultEndpointConfigurationMethods(CSharpClass @class)
     {
         if (!MessageHandlerModels.Any(HasMessageBrokerStereotype))
@@ -109,7 +142,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         @class.AddMethod("void", "ConfigureNonDefaultEndpoints", method =>
         {
             method.Private().Static();
-            method.AddParameter("IServiceBusBusFactoryConfigurator", "cfg", parm => parm.WithThisModifier());
+            method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", parm => parm.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
             foreach (var messageHandlerModel in MessageHandlerModels.Where(HasMessageBrokerStereotype))
@@ -136,10 +169,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.Private().Static();
             method.AddGenericParameter("TConsumer", out var tConsumer);
             method.AddGenericTypeConstraint(tConsumer, c => c.AddType("class").AddType("IConsumer"));
-            method.AddParameter("IServiceBusBusFactoryConfigurator", "cfg", parm => parm.WithThisModifier());
+            method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", parm => parm.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
             method.AddParameter("string", "instanceId");
-            method.AddParameter("Action<IServiceBusReceiveEndpointConfigurator>", "configuration");
+            method.AddParameter($"Action<{GetMessageBrokerReceiveEndpointConfiguratorName()}>", "configuration");
 
             method.AddInvocationStatement($"cfg.ReceiveEndpoint", stmt => stmt
                 .AddArgument(new CSharpInvocationStatement($"new ConsumerEndpointDefinition<{tConsumer}>")
@@ -186,7 +219,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return $@"{configVarName}.EnableDeadLetteringOnMessageExpiration = {settings.EnableDeadLetteringOnMessageExpiration().ToString().ToLower()};";
             if (settings.MaxQueueSize().HasValue)
             {
-                yield return $@"{configVarName}.MaxQueueSize = {settings.MaxQueueSize()};";
+                yield return $@"{configVarName}.MaxSizeInMegabytes = {settings.MaxQueueSize()};";
             }
             if (settings.MaxDeliveryCount().HasValue)
             {

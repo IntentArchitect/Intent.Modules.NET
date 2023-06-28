@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
+using MassTransit.Configuration;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Infrastructure.Eventing;
@@ -44,7 +45,7 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
         }
 
         private static void ConfigureNonDefaultEndpoints(
-            this IServiceBusBusFactoryConfigurator cfg,
+            this IRabbitMqBusFactoryConfigurator cfg,
             IBusRegistrationContext context)
         {
             cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
@@ -61,10 +62,10 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
         }
 
         private static void AddCustomConsumerEndpoint<TConsumer>(
-            this IServiceBusBusFactoryConfigurator cfg,
+            this IRabbitMqBusFactoryConfigurator cfg,
             IBusRegistrationContext context,
             string instanceId,
-            Action<IServiceBusReceiveEndpointConfigurator> configuration)
+            Action<IRabbitMqReceiveEndpointConfigurator> configuration)
             where TConsumer : class, IConsumer
         {
             cfg.ReceiveEndpoint(
