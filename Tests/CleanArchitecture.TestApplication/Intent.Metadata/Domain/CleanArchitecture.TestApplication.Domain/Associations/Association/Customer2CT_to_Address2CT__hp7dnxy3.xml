@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9e4df3e2-0208-43f7-a3fa-76130a05e5ee">
+  <sourceEnd id="ab273fe2-ddf6-494d-a5ea-2b8b4102bf90" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer2CT</name>
+    <display>Customer2CT: Customer2CT</display>
+    <order>0</order>
+    <typeReference id="3a37a913-7acd-41b9-b82b-8d3e127e82e1">
+      <typeId>83183f04-e300-45bc-bb65-d9fb62d427d8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9e4df3e2-0208-43f7-a3fa-76130a05e5ee" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address2CT</name>
+    <display>Address2CT: Address2CT   [1 --&gt; 1]</display>
+    <order>6</order>
+    <typeReference id="c17c2009-63ef-4ab0-af44-09b17baa113b">
+      <typeId>18c39be7-670c-4892-8d7c-a0bba970c6d6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

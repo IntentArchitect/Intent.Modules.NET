@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="22918cf5-bcc6-442b-960d-e9f0ceccab58" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>24d1d462-03f9-4bc6-b99e-f71fec80379d</parentFolderId>
+  <packageId>24d1d462-03f9-4bc6-b99e-f71fec80379d</packageId>
+  <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Domain</packageName>
+  <diagram>
+    <targetPackageId>24d1d462-03f9-4bc6-b99e-f71fec80379d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

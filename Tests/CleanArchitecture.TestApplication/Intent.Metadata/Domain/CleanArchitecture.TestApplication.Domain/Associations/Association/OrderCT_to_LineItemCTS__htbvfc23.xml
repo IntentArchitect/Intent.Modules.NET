@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7a86dee4-5fd0-4f89-a859-b97340d14e8a">
+  <sourceEnd id="06cfa23a-4760-4ded-9787-d0820e5f4abd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OrderCT</name>
+    <display>OrderCT: OrderCT</display>
+    <order>0</order>
+    <typeReference id="43d19681-2db9-4375-9d2e-d2f0a1ddceae">
+      <typeId>e142ff82-1796-4ff6-9db9-74d1bfb5248e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7a86dee4-5fd0-4f89-a859-b97340d14e8a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>LineItemCTS</name>
+    <display>LineItemCTS: LineItemCT[*]   [1 --&gt; *]</display>
+    <order>1</order>
+    <typeReference id="f1c0f328-8b48-4779-aeb4-c1f93fa8f384">
+      <typeId>56eff5fe-443c-44a2-89f7-270ed25e7e31</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

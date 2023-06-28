@@ -221,7 +221,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
                             }
-                            AddValueObjectFactoryMethod(updateMethodName, attribute, field);
+                            AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -234,8 +234,25 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetEntity = association.Element.AsClassModel();
                             var attributeName = association.Name.ToPascalCase();
+                            var property = $"{entityVarExpr}{attributeName}";
+                            if (association.Element.IsValueObjectModel())
+                            {
+                                var targetValueObject = association.Element.AsValueObjectModel();
+                                var factoryMethodName = $"Create{targetValueObject.Name.ToPascalCase()}";
+                                if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                                {
+                                    codeLines.Add($"{property} = {factoryMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
+                                }
+                                else
+                                {
+                                    codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {factoryMethodName}(x)).ToList());");
+                                }
+                                AddValueObjectFactoryMethod(factoryMethodName, targetValueObject.InternalElement, field);
+                                break;
+                            }
+
+                            var targetEntity = association.Element.AsClassModel();
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)
                             {
@@ -243,8 +260,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 break;
                             }
 
-                            var property = $"{entityVarExpr}{attributeName}";
-                            var updateMethodName = $"CreateOrUpdate{targetEntity.InternalElement.Name.ToPascalCase()}";
+                            var updateMethodName = $"CreateOrUpdate{targetEntity.Name.ToPascalCase()}";
 
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                             {
@@ -264,7 +280,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return codeLines.ToList();
         }
 
-        private void AddValueObjectFactoryMethod(string mappingMethodName, AttributeModel domain, DTOFieldModel field)
+        private void AddValueObjectFactoryMethod(string mappingMethodName, IElement domain, DTOFieldModel field)
         {
             var @class = _template.CSharpFile.Classes.First();
             var targetDto = field.TypeReference.Element.AsDTOModel();
@@ -277,7 +293,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         .AddAttribute(CSharpIntentManagedAttribute.Fully())
                         .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
 
-                    var attributeModels = GetDomainAttibuteModels(domain.TypeReference.Element as IElement);
+                    var attributeModels = GetDomainAttibuteModels(domain);
 
                     var attributeMap = attributeModels.Select(a => (Domain: a, Dto:  targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
                     if (attributeMap.Any(x => x.Dto == null))

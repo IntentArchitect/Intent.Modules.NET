@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="84991859-9b9a-494d-bc32-f3007e1d62ad">
+  <sourceEnd id="368ebc68-4c0e-4da9-80e5-91bcdc5eeb1f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CustomerAnemic</name>
+    <display>CustomerAnemic: CustomerAnemic</display>
+    <order>0</order>
+    <typeReference id="fcbfe32c-8d3e-4b1b-913b-1c215ad093aa">
+      <typeId>63ba3b13-fe54-42df-b38d-5b332f14cfa8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.ServiceModelling.ComplexTypes.Domain</typePackageName>
+      <typePackageId>24d1d462-03f9-4bc6-b99e-f71fec80379d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="84991859-9b9a-494d-bc32-f3007e1d62ad" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="7ae1e918-8720-44d8-adf6-5484ea65841b">
+      <typeId>0401fdfa-c102-4062-8551-3ef9951986a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.ServiceModelling.ComplexTypes.Domain</typePackageName>
+      <typePackageId>24d1d462-03f9-4bc6-b99e-f71fec80379d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

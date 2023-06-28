@@ -1,0 +1,38 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common.Exceptions;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories;
+using Intent.RoslynWeaver.Attributes;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+
+namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.DeleteCustomerRich
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class DeleteCustomerRichCommandHandler : IRequestHandler<DeleteCustomerRichCommand>
+    {
+        private readonly ICustomerRichRepository _customerRichRepository;
+
+        [IntentManaged(Mode.Merge)]
+        public DeleteCustomerRichCommandHandler(ICustomerRichRepository customerRichRepository)
+        {
+            _customerRichRepository = customerRichRepository;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<Unit> Handle(DeleteCustomerRichCommand request, CancellationToken cancellationToken)
+        {
+            var existingCustomerRich = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
+
+            if (existingCustomerRich is null)
+            {
+                throw new NotFoundException($"Could not find CustomerRich {request.Id}");
+            }
+            _customerRichRepository.Remove(existingCustomerRich);
+            return Unit.Value;
+        }
+    }
+}

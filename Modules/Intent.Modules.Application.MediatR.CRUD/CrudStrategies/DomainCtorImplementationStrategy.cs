@@ -138,7 +138,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
                     var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
                     list.Add(constructMethod);
-                    AddMappingMethod(mappingMethodName, mappedField, parameter.TypeReference.Element as IElement);
+                    AddMappingMethod(mappingMethodName, mappedField, (IElement)parameter.TypeReference.Element );
                     continue;
                 }
                 var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)

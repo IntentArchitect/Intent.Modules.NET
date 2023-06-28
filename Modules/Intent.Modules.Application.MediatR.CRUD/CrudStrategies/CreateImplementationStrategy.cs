@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -83,7 +84,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
             }
 
-            var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainModel: foundEntity,
+            var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
                 dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
                 skipIdField: true);
             codeLines.Add($"var new{foundEntity.Name} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
@@ -143,7 +144,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                    requiresUpdate;
         }
 
-        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
+        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, IList<AttributeModel> domainAttributes, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {
             var codeLines = new CSharpStatementAggregator();
             foreach (var field in dtoFields)
@@ -154,7 +155,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 if (field.Mapping?.Element == null
-                    && domainModel.Attributes.All(p => p.Name != field.Name))
+                    && domainAttributes.All(p => p.Name != field.Name))
                 {
                     codeLines.Add($"#warning No matching field found for {field.Name}");
                     continue;
@@ -170,7 +171,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case null:
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
-                                        ?? domainModel.Attributes.First(p => p.Name == field.Name);
+                                        ?? domainAttributes.First(p => p.Name == field.Name);
                         if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
                         {
                             var property = $"{entityVarExpr}{attribute.Name.ToPascalCase()}";
@@ -183,7 +184,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
                             }
-                            AddValueObjectFactoryMethod(updateMethodName, attribute, field);
+                            AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -196,8 +197,24 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetEntity = association.Element.AsClassModel();
                             var attributeName = association.Name.ToPascalCase();
+                            if (association.Element.IsValueObjectModel())
+                            {
+                                var targetValueObject = association.Element.AsValueObjectModel();
+                                var property = $"{entityVarExpr}{attributeName}";
+                                var updateMethodName = $"Create{targetValueObject.Name.ToPascalCase()}";
+                                if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                                {
+                                    codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                                }
+                                else
+                                {
+                                    codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList()),");
+                                }
+                                AddValueObjectFactoryMethod(updateMethodName, targetValueObject.InternalElement, field);
+                                break;
+                            }
+                            var targetEntity = association.Element.AsClassModel();
                             var createMethodName = GetCreateMethodName(targetEntity.InternalElement);
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)
@@ -240,7 +257,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                             .AddStatements(GetDTOPropertyAssignments(
                                                 entityVarName: "",
                                                 dtoVarName: $"dto",
-                                                domainModel: targetEntity,
+                                                domainAttributes: GetDomainAttibuteModels(targetEntity.InternalElement),
                                                 dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
                                                 skipIdField: true))
                                             .WithSemicolon()));
@@ -253,7 +270,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return codeLines.ToList();
         }
 
-        private void AddValueObjectFactoryMethod(string mappingMethodName, AttributeModel domain, DTOFieldModel field)
+        private void AddValueObjectFactoryMethod(string mappingMethodName, IElement domain, DTOFieldModel field)
         {
             var @class = _template.CSharpFile.Classes.First();
             var targetDto = field.TypeReference.Element.AsDTOModel();
@@ -266,7 +283,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         .AddAttribute(CSharpIntentManagedAttribute.Fully())
                         .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
 
-                    var attributeModels = GetDomainAttibuteModels(domain.TypeReference.Element as IElement);
+                    var attributeModels = GetDomainAttibuteModels(domain);
 
                     var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
                     if (attributeMap.Any(x => x.Dto == null))
