@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="33d3cf48-169f-4d4e-bd67-c8af76377def">
+  <sourceEnd id="b7588fa8-1829-4719-8ab1-2bc768dcaa06" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>MassTransit.RabbitMQ</name>
+    <display>publisher: MassTransit.RabbitMQ</display>
+    <order>0</order>
+    <typeReference id="b7cda181-bcc6-4071-944f-eb808562ff7e">
+      <typeId>3cc1910e-3aeb-4bd7-b87d-49880d1d472e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Eventing</typePackageName>
+      <typePackageId>368efb54-17a4-4806-adba-a6aaf62e190e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="33d3cf48-169f-4d4e-bd67-c8af76377def" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>TestMessage</name>
+    <display>publish: TestMessage</display>
+    <order>0</order>
+    <typeReference id="3338046c-2ab5-4f6f-bcbb-ad6e962b42f1">
+      <typeId>5e2c82e2-52f3-4f0a-9f18-b5e0f6608eee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>124b2d89-bac8-4a0b-ad23-5e664053d2fc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

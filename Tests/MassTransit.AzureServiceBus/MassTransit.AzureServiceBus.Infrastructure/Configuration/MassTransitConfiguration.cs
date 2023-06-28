@@ -26,8 +26,9 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
                 x.UsingAzureServiceBus((context, cfg) =>
                 {
-                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
-
+                    cfg.UseMessageRetry(r => r.Interval(
+                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
                     cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
@@ -49,7 +50,16 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 "MassTransit-AzureServiceBus",
                 endpoint =>
                 {
-                    endpoint.DefaultMessageTimeToLive = TimeSpan.FromMinutes(7);
+                    endpoint.PrefetchCount = 50;
+                    endpoint.RequiresSession = true;
+                    endpoint.DefaultMessageTimeToLive = TimeSpan.Parse("00:15:00");
+                    endpoint.LockDuration = TimeSpan.Parse("00:10:00");
+                    endpoint.RequiresDuplicateDetection = true;
+                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("15:00");
+                    endpoint.EnableBatchedOperations = true;
+                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                    endpoint.MaxQueueSize = 100;
+                    endpoint.MaxDeliveryCount = 5;
                 });
         }
 

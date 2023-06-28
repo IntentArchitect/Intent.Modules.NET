@@ -2,6 +2,9 @@ using System.Reflection;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Behaviours;
+using MassTransit.RabbitMQ.Application.Common.Eventing;
+using MassTransit.RabbitMQ.Application.IntegrationEventHandlers;
+using MassTransit.RabbitMQ.Eventing.Messages;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +25,7 @@ namespace MassTransit.RabbitMQ.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EventBusPublishBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
+            services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
         }
     }

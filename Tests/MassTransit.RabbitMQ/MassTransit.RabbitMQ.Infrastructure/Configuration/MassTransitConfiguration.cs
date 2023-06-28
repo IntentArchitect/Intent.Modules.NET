@@ -2,6 +2,9 @@ using System;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
+using MassTransit.RabbitMQ.Application.Common.Eventing;
+using MassTransit.RabbitMQ.Eventing.Messages;
+using MassTransit.RabbitMQ.Infrastructure.Eventing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,27 +20,64 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
-
-                AddConsumers(x);
-
+                x.AddConsumers();
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.UseMessageRetry(r => r.Interval(10, TimeSpan.FromSeconds(30)));
-
-                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], h =>
+                    cfg.UseMessageRetry(r => r.Interval(
+                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
-                        h.Username(configuration["RabbitMq:Username"]);
-                        h.Password(configuration["RabbitMq:Password"]);
+                        host.Username(configuration["RabbitMq:Username"]);
+                        host.Password(configuration["RabbitMq:Password"]);
                     });
-
                     cfg.ConfigureEndpoints(context);
+                    cfg.ConfigureNonDefaultEndpoints(context);
                 });
             });
         }
 
-        private static void AddConsumers(IRegistrationConfigurator cfg)
+        private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
 
+        }
+
+        private static void ConfigureNonDefaultEndpoints(
+            this IServiceBusBusFactoryConfigurator cfg,
+            IBusRegistrationContext context)
+        {
+            cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+                context,
+                "MassTransit-RabbitMQ",
+                endpoint =>
+                {
+                    endpoint.PrefetchCount = 15;
+                    endpoint.Lazy = true;
+                    endpoint.Durable = true;
+                    endpoint.PurgeOnStartup = true;
+                    endpoint.Exclusive = true;
+                });
+        }
+
+        private static void AddCustomConsumerEndpoint<TConsumer>(
+            this IServiceBusBusFactoryConfigurator cfg,
+            IBusRegistrationContext context,
+            string instanceId,
+            Action<IServiceBusReceiveEndpointConfigurator> configuration)
+            where TConsumer : class, IConsumer
+        {
+            cfg.ReceiveEndpoint(
+                new ConsumerEndpointDefinition<TConsumer>(new EndpointSettings<IEndpointDefinition<TConsumer>>
+                {
+                    InstanceId = instanceId
+                }),
+                KebabCaseEndpointNameFormatter.Instance,
+                endpoint =>
+                {
+                    configuration.Invoke(endpoint);
+                    endpoint.ConfigureConsumer<TConsumer>(context);
+                });
         }
     }
 }

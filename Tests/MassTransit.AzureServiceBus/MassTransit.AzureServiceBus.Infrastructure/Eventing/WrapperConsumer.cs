@@ -29,13 +29,13 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
         {
             var eventBus = _serviceProvider.GetService<MassTransitEventBus>()!;
             eventBus.Current = context;
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                        new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 var handler = _serviceProvider.GetService<THandler>()!;
                 await handler.HandleAsync(context.Message, context.CancellationToken);
                 await _unitOfWork.SaveChangesAsync(context.CancellationToken);
-
                 transaction.Complete();
             }
             await eventBus.FlushAllAsync(context.CancellationToken);
@@ -53,7 +53,9 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             _serviceProvider = serviceProvider;
         }
 
-        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
+        protected override void ConfigureConsumer(
+            IReceiveEndpointConfigurator endpointConfigurator,
+            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
         {
         }
     }
