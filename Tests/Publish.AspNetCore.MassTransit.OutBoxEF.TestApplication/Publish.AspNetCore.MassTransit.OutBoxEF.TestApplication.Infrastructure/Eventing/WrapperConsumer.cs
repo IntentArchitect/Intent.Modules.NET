@@ -45,7 +45,9 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             _serviceProvider = serviceProvider;
         }
 
-        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
+        protected override void ConfigureConsumer(
+            IReceiveEndpointConfigurator endpointConfigurator,
+            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
         {
             endpointConfigurator.UseEntityFrameworkOutbox<ApplicationDbContext>(_serviceProvider);
         }

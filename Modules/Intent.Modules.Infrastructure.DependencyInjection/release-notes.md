@@ -1,4 +1,9 @@
+### Version 4.0.6
+
+- Update: Added Nuget Dependency `Microsoft.Extensions.Configuration.Binder`.
+
 ### Version 4.0.5
+
 - Update: Removed various compiler warnings.
 
 ### Version 4.0.4
@@ -11,7 +16,7 @@
 
 ### Version 4.0.2
 
-- Fixed: Added Nuget Dependancy on `Microsoft.Extensions.Configuration.Abstractions`.
+- Fixed: Added Nuget Dependency `Microsoft.Extensions.Configuration.Abstractions`.
 
 ### Version 4.0.1
 

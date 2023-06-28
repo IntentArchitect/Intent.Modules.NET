@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>8f2d7814-1814-4b57-bbd9-145c55417866</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MassTransit.AzureServiceBus.Application\MassTransit.AzureServiceBus.Application.csproj" />
+    <ProjectReference Include="..\MassTransit.AzureServiceBus.Infrastructure\MassTransit.AzureServiceBus.Infrastructure.csproj" />
+    <ProjectReference Include="..\MassTransit.AzureServiceBus.Domain\MassTransit.AzureServiceBus.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

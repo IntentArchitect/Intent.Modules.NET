@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -24,22 +27,16 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
 
         [IntentManaged(Mode.Ignore)] public override int Order => 10;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             if (!application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework())
             {
                 return;
             }
 
-            var template = application.FindTemplateInstance<MassTransitConfigurationTemplate>(TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
+            var template =
+                application.FindTemplateInstance<MassTransitConfigurationTemplate>(
+                    TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
             if (template == null)
             {
                 return;
@@ -51,37 +48,64 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
                 default:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
-                    Logging.Log.Warning($@"Database Provider {provider} is not supported for Entity Framework outbox pattern.");
+                    Logging.Log.Warning(
+                        $@"Database Provider {provider} is not supported for Entity Framework outbox pattern.");
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
-                    template.AdditionalConfiguration.Add(
-                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
-                            .AppendNestedLines(new[]
-                            {
-                                "o.UseBusOutbox();"
-                            }));
-                    break;
+                    AddEntityFrameworkOutboxStatement(template, conf => conf
+                        .AddStatement("o.UseBusOutbox();"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
-                    template.AdditionalConfiguration.Add(
-                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
-                            .AppendNestedLines(new[]
-                            {
-                                "o.UseSqlServer();",
-                                "o.UseBusOutbox();"
-                            }));
+                    AddEntityFrameworkOutboxStatement(template, conf => conf
+                        .AddStatement("o.UseSqlServer();")
+                        .AddStatement("o.UseBusOutbox();"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
-                    template.AdditionalConfiguration.Add(
-                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
-                            .AppendNestedLines(new[]
-                            {
-                                "o.UsePostgres();",
-                                "o.UseBusOutbox();"
-                            }));
+                    AddEntityFrameworkOutboxStatement(template, conf => conf
+                        .AddStatement("o.UsePostgres();")
+                        .AddStatement("o.UseBusOutbox();"));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
+                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    AddEntityFrameworkOutboxStatement(template, conf => conf
+                        .AddStatement("o.UseMySql();")
+                        .AddStatement("o.UseBusOutbox();"));
                     break;
             }
+        }
+
+        private static void AddEntityFrameworkOutboxStatement(
+            ICSharpFileBuilderTemplate template,
+            Action<CSharpLambdaBlock> outboxConfigBlock)
+        {
+            template.CSharpFile.OnBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var method = priClass.FindMethod("AddMassTransitConfiguration");
+                
+                if (method.FindStatement(p => p.HasMetadata("configure-masstransit")) is not CSharpInvocationStatement configMassTransit) { return; }
+                if (configMassTransit.Statements.First() is not CSharpLambdaBlock configMassTransitBlock) { return; }
+                
+                CSharpLambdaBlock outboxConfigLambda;
+                if (configMassTransitBlock.FindStatement(p => p.HasMetadata("outbox-config")) is not CSharpInvocationStatement outboxConfigInvocation)
+                {
+                    outboxConfigLambda = new CSharpLambdaBlock("o");
+                    configMassTransitBlock.AddStatement(
+                        new CSharpInvocationStatement($@"x.AddEntityFrameworkOutbox<{template.GetDbContextName()}>")
+                            .AddArgument(outboxConfigLambda)
+                            .AddMetadata("outbox-config", true));
+                }
+                else
+                {
+                    outboxConfigLambda = outboxConfigInvocation.Statements.First() as CSharpLambdaBlock;
+                }
+
+                if (outboxConfigLambda is not null)
+                {
+                    outboxConfigBlock(outboxConfigLambda);
+                } 
+            });
         }
     }
 }

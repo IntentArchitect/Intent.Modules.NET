@@ -1,3 +1,8 @@
+### Version 5.0.0
+
+- Updated based on changes made in `Intent.Eventing.MassTransit`.
+- Added support for MySql DB for Outbox pattern.
+
 ### Version 4.0.3
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

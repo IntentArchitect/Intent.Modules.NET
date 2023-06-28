@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1519f880-906c-4af4-b69b-37ad0b3af3c5">
+  <sourceEnd id="e44e5b82-57b7-4c4f-9c79-3d9753a795b8" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>MassTransit.AzureServiceBus</name>
+    <display>publisher: MassTransit.AzureServiceBus</display>
+    <order>0</order>
+    <typeReference id="6fe0d938-2f51-456f-88db-dd53f9c30797">
+      <typeId>f25a3b19-99f5-40f1-8f5d-3eb73ee107d9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Eventing</typePackageName>
+      <typePackageId>2c7b5e16-5806-44be-aaec-4a50bede635c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1519f880-906c-4af4-b69b-37ad0b3af3c5" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>TestMessage</name>
+    <display>publish: TestMessage</display>
+    <order>0</order>
+    <typeReference id="15ba3b06-395f-4778-a905-9582e257f8f0">
+      <typeId>46d3c3fb-7e4f-4504-8977-2e7b1f13d036</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>44a544eb-68c3-4dad-bc59-7440869b230f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

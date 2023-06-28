@@ -33,7 +33,7 @@ public class TelemetryConfigurator : FactoryExtensionBase
     }
 
     private void UpdateOpenTelemetryConfiguration(IApplication application)
-    { 
+    {
         var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.OpenTelemetry"));
         if (template == null)
         {
@@ -47,7 +47,7 @@ public class TelemetryConfigurator : FactoryExtensionBase
             var telemConfigStmt = (CSharpMethodChainStatement)method.FindStatement(stmt => stmt.HasMetadata("telemetry-config"));
             var telemTranceStmt = (CSharpInvocationStatement)telemConfigStmt.FindStatement(stmt => stmt.HasMetadata("telemetry-tracing"));
             var traceChain = (CSharpMethodChainStatement)((CSharpLambdaBlock)telemTranceStmt.Statements.First()).Statements.First();
-            
+
             traceChain.Statements.Insert(0, @"AddSource(""MassTransit"")");
         });
     }

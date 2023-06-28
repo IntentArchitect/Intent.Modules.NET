@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f25a3b19-99f5-40f1-8f5d-3eb73ee107d9" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MassTransit.AzureServiceBus</name>
+  <display>MassTransit.AzureServiceBus</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c7b5e16-5806-44be-aaec-4a50bede635c</parentFolderId>
+  <packageId>2c7b5e16-5806-44be-aaec-4a50bede635c</packageId>
+  <packageName>MassTransit.AzureServiceBus.Eventing</packageName>
+  <diagram>
+    <targetPackageId>44a544eb-68c3-4dad-bc59-7440869b230f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
