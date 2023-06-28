@@ -22,10 +22,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="481bd88b-ca70-4bed-8864-ea0dc9779b70" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.CosmosDB.CosmosDBRepository</name>
-      <display>Intent.Modules.CosmosDB.CosmosDBRepository</display>
-      <externalReference>Intent.Modules.CosmosDB</externalReference>
+    <childElement id="9d427f45-d196-4063-bfdb-10310451515c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepository</name>
+      <display>Intent.CosmosDB.CosmosDBRepository</display>
+      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -38,10 +38,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e9856ad3-83dc-45fd-b0ea-908ffc085beb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.CosmosDB.CosmosDBRepositoryBase</name>
-      <display>Intent.Modules.CosmosDB.CosmosDBRepositoryBase</display>
-      <externalReference>Intent.Modules.CosmosDB</externalReference>
+    <childElement id="1de5db29-8cc9-4885-a402-8e8fd1b9c2f4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepositoryBase</name>
+      <display>Intent.CosmosDB.CosmosDBRepositoryBase</display>
+      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

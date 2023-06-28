@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBUnitOfWorkBehaviour", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour", Version = "1.0")]
 
 namespace CosmosDB.Application.Common.Behaviours
 {

@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepository", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Repositories.Folder
 {

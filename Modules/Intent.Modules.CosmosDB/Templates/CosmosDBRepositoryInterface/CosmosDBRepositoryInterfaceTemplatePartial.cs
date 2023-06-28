@@ -20,7 +20,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CosmosDBRepositoryInterfaceTemplate : CSharpTemplateBase<IList<ClassModel>>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.CosmosDB.CosmosDBRepositoryInterface";
+        public const string TemplateId = "Intent.CosmosDB.CosmosDBRepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBRepositoryInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)

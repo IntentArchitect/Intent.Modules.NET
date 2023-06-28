@@ -5,7 +5,7 @@ using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBDocument", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBDocument", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {

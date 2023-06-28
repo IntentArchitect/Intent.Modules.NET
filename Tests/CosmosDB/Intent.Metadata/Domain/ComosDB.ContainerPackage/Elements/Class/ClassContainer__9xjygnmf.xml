@@ -12,7 +12,7 @@
   <stereotypes>
     <stereotype stereotypeDefinitionId="ef9b1772-18e1-44ad-b606-66406221c805" name="Container">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.Modules.CosmosDB</definitionPackageName>
+      <definitionPackageName>Intent.CosmosDB</definitionPackageName>
       <definitionPackageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</definitionPackageId>
       <properties>
         <property name="7ebc3aff-936c-465b-ac34-3e52362090ef" display="Name" value="Class" isActive="true" />

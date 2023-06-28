@@ -20,7 +20,7 @@
   <parentFolderId>9cb25792-9172-4cb5-a4ff-1ba2a2706d86</parentFolderId>
   <order>0</order>
   <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
-  <packageName>Intent.Modules.CosmosDB</packageName>
+  <packageName>Intent.CosmosDB</packageName>
   <properties>
     <property id="7ebc3aff-936c-465b-ac34-3e52362090ef">
       <name>Name</name>

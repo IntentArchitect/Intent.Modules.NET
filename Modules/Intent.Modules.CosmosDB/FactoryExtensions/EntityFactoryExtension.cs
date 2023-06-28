@@ -22,7 +22,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class EntityFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Modules.CosmosDB.EntityFactoryExtension";
+        public override string Id => "Intent.CosmosDB.EntityFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

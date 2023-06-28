@@ -59,9 +59,9 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
-            services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
     }

@@ -11,7 +11,7 @@ using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBRepositoryBase", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepositoryBase", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Repositories
 {

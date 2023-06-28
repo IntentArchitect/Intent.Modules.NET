@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBUnitOfWorkInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBUnitOfWorkInterface", Version = "1.0")]
 
 namespace CosmosDB.Domain.Common.Interfaces
 {

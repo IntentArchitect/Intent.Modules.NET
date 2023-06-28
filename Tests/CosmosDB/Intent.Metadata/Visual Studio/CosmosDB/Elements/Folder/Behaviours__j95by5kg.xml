@@ -149,10 +149,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="db13e11f-163f-4887-84dd-3c6c1c87faa8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.CosmosDB.CosmosDBUnitOfWorkBehaviour</name>
-      <display>Intent.Modules.CosmosDB.CosmosDBUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Modules.CosmosDB</externalReference>
+    <childElement id="9d85637c-453e-4569-99e8-3a575a097f4a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</name>
+      <display>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</display>
+      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -7,7 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</parentFolderId>
   <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
-  <packageName>Intent.Modules.CosmosDB</packageName>
+  <packageName>Intent.CosmosDB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>

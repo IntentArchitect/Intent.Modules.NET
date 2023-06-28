@@ -16,7 +16,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CosmosDBDocumentInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.CosmosDB.CosmosDBDocumentInterface";
+        public const string TemplateId = "Intent.CosmosDB.CosmosDBDocumentInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBDocumentInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

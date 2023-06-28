@@ -42,18 +42,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>a25be506-f63a-4638-8a59-4069fc088824</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a25be506-f63a-4638-8a59-4069fc088824</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.CosmosDB.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.CosmosDB.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.CosmosDB.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.CosmosDB.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a25be506-f63a-4638-8a59-4069fc088824</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a25be506-f63a-4638-8a59-4069fc088824</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.CosmosDB.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.CosmosDB.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.CosmosDB.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.CosmosDB.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

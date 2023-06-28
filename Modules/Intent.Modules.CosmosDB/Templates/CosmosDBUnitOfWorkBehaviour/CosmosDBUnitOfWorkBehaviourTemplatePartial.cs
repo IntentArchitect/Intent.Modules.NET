@@ -17,7 +17,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CosmosDBUnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.CosmosDB.CosmosDBUnitOfWorkBehaviour";
+        public const string TemplateId = "Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBUnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

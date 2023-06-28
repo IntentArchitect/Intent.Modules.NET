@@ -9,7 +9,7 @@ using CosmosDB.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBUnitOfWork", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBUnitOfWork", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Persistence
 {

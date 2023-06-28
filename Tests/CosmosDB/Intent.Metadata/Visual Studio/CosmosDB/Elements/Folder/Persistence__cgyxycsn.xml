@@ -22,10 +22,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="e14a2848-6245-4e3b-beba-746d075589ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.CosmosDB.CosmosDBUnitOfWork</name>
-      <display>Intent.Modules.CosmosDB.CosmosDBUnitOfWork</display>
-      <externalReference>Intent.Modules.CosmosDB</externalReference>
+    <childElement id="a0bab447-be85-457d-8bb9-b94808d7eb55" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBUnitOfWork</name>
+      <display>Intent.CosmosDB.CosmosDBUnitOfWork</display>
+      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

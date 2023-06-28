@@ -5,7 +5,7 @@ using CosmosDB.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.CosmosDB.CosmosDBRepositoryInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepositoryInterface", Version = "1.0")]
 
 namespace CosmosDB.Domain.Repositories
 {

@@ -18,11 +18,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CosmosDBRepositoryBaseTemplate : CSharpTemplateBase<IList<ClassModel>>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.CosmosDB.CosmosDBRepositoryBase";
+        public const string TemplateId = "Intent.CosmosDB.CosmosDBRepositoryBase";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId,
-            outputTarget, model)
+        public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
 
