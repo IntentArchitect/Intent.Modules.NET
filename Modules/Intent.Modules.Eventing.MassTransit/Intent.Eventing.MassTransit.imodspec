@@ -51,7 +51,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="4.0.3" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.0.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
