@@ -35,6 +35,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
                     cfg.ConfigureEndpoints(context);
                     cfg.UseInMemoryOutbox();
                 });
+                x.AddInMemoryInboxOutbox();
             });
         }
 

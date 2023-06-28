@@ -15,6 +15,7 @@ using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -101,34 +102,26 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private string GetMessageBrokerBusFactoryConfiguratorName()
     {
-        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+        return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum() switch
         {
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
-            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
-                throw new NotSupportedException();
-            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
-                return "IRabbitMqBusFactoryConfigurator";
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
-                return "IServiceBusBusFactoryConfigurator";
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => "IRabbitMqBusFactoryConfigurator",
+            EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => "IServiceBusBusFactoryConfigurator",
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 
     private string GetMessageBrokerReceiveEndpointConfiguratorName()
     {
-        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+        return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum() switch
         {
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
-            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
-                throw new NotSupportedException();
-            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
-                return "IRabbitMqReceiveEndpointConfigurator";
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
-                return "IServiceBusReceiveEndpointConfigurator";
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => "IRabbitMqReceiveEndpointConfigurator",
+            EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => "IServiceBusReceiveEndpointConfigurator",
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 
     private void AddNonDefaultEndpointConfigurationMethods(CSharpClass @class)
@@ -304,6 +297,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum()}");
         }
 
+        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        {
+            block.AddStatement("x.AddInMemoryInboxOutbox();");
+        }
+
         return block;
     }
 
@@ -313,6 +311,15 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         if (MessageHandlerModels.Any(HasMessageBrokerStereotype))
         {
             yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
+        }
+        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        {
+            yield return new CSharpStatement("cfg.UseInMemoryOutbox();");
+        }
+        else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
+                 ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
+        {
+            Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
         }
     }
 

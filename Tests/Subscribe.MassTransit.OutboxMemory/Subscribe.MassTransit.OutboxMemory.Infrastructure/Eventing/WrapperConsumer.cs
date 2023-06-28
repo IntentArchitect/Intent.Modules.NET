@@ -57,6 +57,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Eventing
             IReceiveEndpointConfigurator endpointConfigurator,
             IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
         {
+            endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);
         }
     }
 }

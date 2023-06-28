@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -78,6 +79,10 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
                     method.Protected().Override();
                     method.AddParameter("IReceiveEndpointConfigurator", "endpointConfigurator");
                     method.AddParameter($"IConsumerConfigurator<WrapperConsumer<{tHandler}, {tMessage}>>", "consumerConfigurator");
+                    if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+                    {
+                        method.AddStatement("endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);");
+                    }
                 });
             });
     }

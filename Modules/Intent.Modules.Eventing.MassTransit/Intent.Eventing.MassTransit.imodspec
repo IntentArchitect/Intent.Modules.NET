@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>5.0.0-pre.0</version>
+  <version>5.0.0-pre.1</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -44,7 +44,6 @@
   </templates>
   <decorators />
   <factoryExtensions>
-    <factoryExtension id="Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator" externalReference="1c617d6b-f121-4cb3-a91e-c87968c0a47d" />
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
     <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfigurator" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
