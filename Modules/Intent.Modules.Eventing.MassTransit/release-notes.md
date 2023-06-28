@@ -1,5 +1,7 @@
 ### Version 5.0.0
 
+- New: Configure subscription based concerns for MessageBrokers with Stereotypes for both Azure Service Bus as well as RabbitMQ.
+- New: Message Retry configuration introduced.
 - New: Upgraded Templates to use new Builder Pattern paradigm.
 - Update: Bumped MassTransit nuget package versions from `8.0.6` to `8.0.16`.
 
