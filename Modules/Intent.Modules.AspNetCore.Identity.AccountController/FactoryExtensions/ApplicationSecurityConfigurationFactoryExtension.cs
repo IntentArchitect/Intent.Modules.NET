@@ -53,6 +53,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                             .AddInitStatement("IssuerSigningKey", @"new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
                             .AddInitStatement("NameClaimType", @"""sub""")
                             .WithSemicolon())
+                        .AddStatement(@"options.TokenValidationParameters.RoleClaimType = ""role"";")
                         .AddStatement("options.SaveToken = true;"))
                     .WithArgumentsOnNewLines());
             }, 2);

@@ -41,6 +41,7 @@ namespace Application.Identity.AccountController.Api.Configuration
                             NameClaimType = "sub"
                         };
 
+                        options.TokenValidationParameters.RoleClaimType = "role";
                         options.SaveToken = true;
                     });
 

@@ -1,4 +1,8 @@
-﻿### Version 2.0.0
+﻿### Version 2.0.1
+
+- Fixed: Fixed a issue around "role" claim not being configured.
+
+### Version 2.0.0
 
 - Added Refresh Token functionality.
 - `AccountController` class refactored to have `TokenService` separately.
