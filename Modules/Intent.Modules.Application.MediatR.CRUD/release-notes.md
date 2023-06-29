@@ -2,6 +2,7 @@
 
 - Fixed: Nested composite entity Command/Query handlers had inconsistent naming conventions that caused other code (like injecting publishers) to break at compile time.
 - Fixed: Compositional deletion implementations weren't explicitly calling repository `Update` methods when required.
+- Update: CRUD support for mapping service contracts to `Value Objects` and `Data Contracts`.
 
 ### Version 5.1.2
 
