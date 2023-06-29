@@ -9,6 +9,7 @@ using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
@@ -30,18 +31,17 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
-            AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
-            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "List<{0}>");
             FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
-            AddTypeSource(ContractEnumModelTemplate.TemplateId, "List<{0}>");
+            AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(DtoModelTemplate.TemplateId);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(ContractEnumModelTemplate.TemplateId);
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
-            AddTypeDeclartion(csharpFile);
+            AddTypeDeclaration(csharpFile);
             csharpFile.OnBuild((Action<CSharpFile>)(file =>
                 {
-                    file.AddUsing("System");
-                    file.AddUsing("System.Collections.Generic");
                     var @class = file.TypeDeclarations.First();
 
                     ConfigureClass(@class);
@@ -62,20 +62,23 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 if (NeedsNullabilityAssignment(typeInfo))
                                 {
                                     ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
-                                }                                
+                                }
                             }
                         }
                     });
                     if (!Model.IsAbstract)
                     {
-                        @class.AddMethod(base.GetTypeName(this), "Create", method =>
+                        var genericTypes = Model.GenericTypes.Any()
+                            ? $"<{string.Join(", ", model.GenericTypes)}>"
+                            : string.Empty;
+                        @class.AddMethod($"{base.GetTypeName(this)}{genericTypes}", "Create", method =>
                         {
                             method.Static();
                             foreach (var field in Model.Fields)
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
-                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}", block =>
+                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
                             {
                                 foreach (var field in Model.Fields)
                                 {
@@ -140,7 +143,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
         }
 
-        private void AddTypeDeclartion(CSharpFile csharpFile)
+        private void AddTypeDeclaration(CSharpFile csharpFile)
         {
             var typeDeclarationSetting = ExecutionContext.Settings.GetDTOSettings().Type();
             if (typeDeclarationSetting.IsRecord())

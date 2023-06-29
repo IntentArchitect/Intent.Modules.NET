@@ -1,5 +1,9 @@
+### Version 4.0.6
+
+- Fixed: DTO static factory methods didn't have generic type parameters.
 
 ### Version 4.0.4
+
 - Upgrade : Removed various compiler warnings.
 
 ### Version 4.0.3
