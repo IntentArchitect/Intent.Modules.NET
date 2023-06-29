@@ -1,5 +1,9 @@
 ### Version 4.3.0
 
+- Update: CRUD support for mapping service contracts to `Value Objects`.
+
+### Version 4.3.0
+
 - Update: Introduces NotFoundException when an entity is not found.
 
 ### Version 4.2.4

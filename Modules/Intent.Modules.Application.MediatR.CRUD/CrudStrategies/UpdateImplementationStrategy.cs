@@ -6,7 +6,6 @@ using System.Reflection.Metadata;
 using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -236,9 +235,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
                             var attributeName = association.Name.ToPascalCase();
                             var property = $"{entityVarExpr}{attributeName}";
-                            if (association.Element.IsValueObjectModel())
+                            if (association.Element.SpecializationType == "Value Object")
                             {
-                                var targetValueObject = association.Element.AsValueObjectModel();
+                                var targetValueObject = (IElement)association.Element;
                                 var factoryMethodName = $"Create{targetValueObject.Name.ToPascalCase()}";
                                 if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                                 {
@@ -248,7 +247,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 {
                                     codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {factoryMethodName}(x)).ToList());");
                                 }
-                                AddValueObjectFactoryMethod(factoryMethodName, targetValueObject.InternalElement, field);
+                                AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
                                 break;
                             }
 

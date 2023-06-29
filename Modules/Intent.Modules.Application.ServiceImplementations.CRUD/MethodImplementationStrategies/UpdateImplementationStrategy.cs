@@ -155,6 +155,23 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element
                                         ?? domainModel.ChildElements.First(p => p.Name == field.Name);
+
+                        if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                        {
+                            var property = $"{entityVarName}{attribute.Name.ToPascalCase()}";
+                            var updateMethodName = $"Create{attribute.TypeReference.Element.Name.ToPascalCase()}";
+                            if (attribute.TypeReference.IsCollection)
+                            {
+                                codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList());");
+                            }
+                            else
+                            {
+                                codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
+                            }
+                            AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
+                            break;
+                        }
+
                         if (field.TypeReference.IsCollection)
                         {
                             codeLines.Add($"{entityVarName}.{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}.ToList();");
@@ -167,7 +184,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
                             var targetEntityElement = (IElement)association.Element;
                             var attributeName = association.Name.ToPascalCase();
-
                             if (association.Association.AssociationType == AssociationType.Aggregation)
                             {
                                 codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
@@ -175,6 +191,23 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                             }
 
                             var property = $"{entityVarName}.{attributeName}";
+
+                            if (association.Element.SpecializationType == "Value Object")
+                            {
+                                var targetValueObject = (IElement)association.Element;
+                                var factoryMethodName = $"Create{targetValueObject.Name.ToPascalCase()}";
+                                if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                                {
+                                    codeLines.Add($"{property} = {factoryMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
+                                }
+                                else
+                                {
+                                    codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {factoryMethodName}(x)).ToList());");
+                                }
+                                AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
+                                break;
+                            }
+
                             var updateMethodName = $"CreateOrUpdate{targetEntityElement.Name.ToPascalCase()}";
 
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
@@ -223,5 +256,45 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
             return codeLines.ToList();
         }
+
+        private void AddValueObjectFactoryMethod(string mappingMethodName, IElement domain, DTOFieldModel field)
+        {
+            var @class = _template.CSharpFile.Classes.First();
+            var targetDto = field.TypeReference.Element.AsDTOModel();
+            if (!MethodExists(mappingMethodName, @class, targetDto))
+            {
+                var domainType = _template.GetTypeName(domain);
+                @class.AddMethod(domainType, mappingMethodName, method =>
+                {
+                    method.Static()
+                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
+
+                    var attributeModels = GetDomainAttibuteModels(domain);
+
+                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    if (attributeMap.Any(x => x.Dto == null))
+                    {
+                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                    }
+                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
+                    method.AddStatement($"return new {domainType}({ctorParameters});");
+                });
+            }
+        }
+
+        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
+        {
+            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
+        }
+
+        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+        {
+            return @class.FindMethod((method) =>
+                                        method.Name == mappingMethodName
+                                        && method.Parameters.Count == 1
+                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
+        }
+
     }
 }
