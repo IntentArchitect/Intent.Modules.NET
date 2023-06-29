@@ -26,18 +26,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
         }
         string IItem.PartitionKey => FolderPartitionKey;
 
-        public static FolderContainerDocument FromEntity(FolderContainer entity)
+        public FolderContainerDocument PopulateFromEntity(FolderContainer entity)
         {
-            if (entity is FolderContainerDocument document)
-            {
-                return document;
-            }
+            Id = entity.Id;
+            FolderPartitionKey = entity.FolderPartitionKey;
 
-            return new FolderContainerDocument
-            {
-                Id = entity.Id,
-                FolderPartitionKey = entity.FolderPartitionKey
-            };
+            return this;
         }
     }
 }

@@ -10,6 +10,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         where TDocument : ICosmosDBDocument<TDocument, TDomain>
     {
         string IItem.PartitionKey => Id;
-        static abstract TDocument FromEntity(TDomain entity);
+        TDocument PopulateFromEntity(TDomain entity);
     }
 }

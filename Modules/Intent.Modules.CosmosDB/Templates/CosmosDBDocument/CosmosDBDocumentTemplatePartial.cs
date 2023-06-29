@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.AccessControl;
@@ -59,6 +60,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     if (pkAttribute != null)
                     {
                         var pkPropertyName = pkAttribute.Name.ToPascalCase();
+                        var pkTypeName = pkAttribute.TypeReference.Element?.Name.ToLowerInvariant();
                         @class.AddProperty("string", "Id", property =>
                         {
                             property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
@@ -74,8 +76,32 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                                 property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
                             }
 
-                            property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} ??= {UseType("System.Guid")}.NewGuid().ToString()");
-                            property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = value");
+                            switch (pkTypeName)
+                            {
+                                case "int" or "long":
+                                    {
+                                        var invariantCulture = $"{UseType("System.Globalization.CultureInfo")}.InvariantCulture";
+                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName}.ToString({invariantCulture})");
+                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = {pkTypeName}.Parse(value, {invariantCulture})");
+                                        break;
+                                    }
+                                case "string":
+                                    {
+                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} ??= {UseType("System.Guid")}.NewGuid().ToString()");
+                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = value");
+                                        break;
+                                    }
+                                case "guid":
+                                    {
+                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName}.ToString()");
+                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = {UseType("System.Guid")}.Parse(value)");
+                                        break;
+                                    }
+                                default:
+                                    throw new Exception(
+                                        $"Unsupported primary key type \"{pkTypeName}\" [{pkAttribute.TypeReference.Element?.Id}] for attribute " +
+                                        $"\"{pkAttribute.Name}\" [{pkAttribute.Id}] on Class \"{Model.Name}\" [{Model.Id}]");
+                            }
                         });
                     }
 
@@ -101,7 +127,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         @class.AddProperty("string", "PartitionKey", p => p
                             .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
                             .WithoutSetter()
-                            .Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}")
+                            .Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}")
                         );
                     }
                     else if (partitionKeyAttribute == null)
@@ -136,35 +162,48 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         });
                     }
 
-                    @class.AddMethod(@class.Name, "FromEntity", method =>
+                    @class.AddMethod(@class.Name, "PopulateFromEntity", method =>
                     {
-                        method.Static();
                         method.AddParameter(EntityInterfaceName, "entity");
 
-                        method.AddIfStatement(
-                            $"entity is {@class.Name} document",
-                            @if => @if.AddStatement("return document;"));
-                        method.AddObjectInitializerBlock($"return new {@class.Name}", init =>
+                        var currentClass = Model;
+                        var alreadyHandledProperties = new HashSet<string>();
+
+                        while (currentClass != null)
                         {
-                            var currentClass = Model;
-                            var properties = new HashSet<string>();
-                            while (currentClass != null)
+                            foreach (var attribute in currentClass.Attributes)
                             {
-                                properties.UnionWith(currentClass.Attributes
-                                    .Select(x => x.Name.ToPascalCase()));
-                                properties.UnionWith(currentClass.AssociatedToClasses()
-                                    .Where(x => x.Element.AsClassModel()?.IsAggregateRoot() != true)
-                                    .Select(x => x.Name.ToPascalCase()));
-                                currentClass = currentClass.ParentClass;
+                                var name = attribute.Name.ToPascalCase();
+                                if (!alreadyHandledProperties.Add(name))
+                                {
+                                    continue;
+                                }
+
+                                var toString = name == "Id" &&
+                                               attribute.HasPrimaryKey() &&
+                                               attribute.TypeReference.Element?.Name != "string"
+                                    ? attribute.GetToString(this)
+                                    : string.Empty;
+
+                                method.AddStatement($"{name} = entity.{name}{toString};");
                             }
 
-                            foreach (var attribute in properties)
+                            foreach (var association in currentClass.AssociatedToClasses())
                             {
-                                init.AddInitStatement(attribute, $"entity.{attribute}");
+                                var name = association.Name.ToPascalCase();
+                                if (association.Element.AsClassModel()?.IsAggregateRoot() == true ||
+                                    !alreadyHandledProperties.Add(name))
+                                {
+                                    continue;
+                                }
+
+                                method.AddStatement($"{name} = entity.{name};");
                             }
 
-                            init.WithSemicolon();
-                        });
+                            currentClass = currentClass.ParentClass;
+                        }
+
+                        method.AddStatement("return this;", s => s.SeparatedFromPrevious());
                     });
                 });
         }

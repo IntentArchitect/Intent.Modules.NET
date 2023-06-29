@@ -39,8 +39,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         .Getter.WithExpressionImplementation("Id")
                     );
 
-                    @interface.AddMethod(tDocument, "FromEntity", c => c
-                        .Static()
+                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
                         .AddParameter(tDomain, "entity")
                     );
                 });

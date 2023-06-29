@@ -31,18 +31,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => base.Id = value;
         }
 
-        public static IdTestingDocument FromEntity(IdTesting entity)
+        public IdTestingDocument PopulateFromEntity(IdTesting entity)
         {
-            if (entity is IdTestingDocument document)
-            {
-                return document;
-            }
+            Identifier = entity.Identifier;
+            Id = entity.Id;
 
-            return new IdTestingDocument
-            {
-                Identifier = entity.Identifier,
-                Id = entity.Id
-            };
+            return this;
         }
     }
 }

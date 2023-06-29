@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -65,13 +66,16 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                         .Single()
                         .Replace("IRepository", this.GetCosmosDBRepositoryInterfaceName());
 
-                    var toRemove = @interface.Methods
-                        .Where(x => x.Name is "FindByIdAsync" or "FindByIdsAsync")
-                        .ToArray();
-
-                    foreach (var method in toRemove)
+                    if (model.Attributes.Any(x => x.TypeReference?.Element.Name == "string" && x.HasPrimaryKey()))
                     {
-                        @interface.Methods.Remove(method);
+                        var toRemove = @interface.Methods
+                            .Where(x => x.Name is "FindByIdAsync" or "FindByIdsAsync")
+                            .ToArray();
+
+                        foreach (var method in toRemove)
+                        {
+                            @interface.Methods.Remove(method);
+                        }
                     }
                 }, 1000);
             }

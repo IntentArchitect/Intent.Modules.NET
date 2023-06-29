@@ -25,21 +25,15 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => _type = value;
         }
 
-        public static InvoiceDocument FromEntity(Invoice entity)
+        public InvoiceDocument PopulateFromEntity(Invoice entity)
         {
-            if (entity is InvoiceDocument document)
-            {
-                return document;
-            }
+            Id = entity.Id;
+            ClientIdentifier = entity.ClientIdentifier;
+            Date = entity.Date;
+            Number = entity.Number;
+            LineItems = entity.LineItems;
 
-            return new InvoiceDocument
-            {
-                Id = entity.Id,
-                ClientIdentifier = entity.ClientIdentifier,
-                Date = entity.Date,
-                Number = entity.Number,
-                LineItems = entity.LineItems
-            };
+            return this;
         }
     }
 }

@@ -44,7 +44,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .AddType(tDomain))
                         .AddGenericTypeConstraint(tDocument, c => c
                             .AddType(tDomain)
-                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>"))
+                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>")
+                            .AddType("new()"))
                         ;
 
                     @class.AddConstructor(ctor =>
@@ -69,7 +70,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         {
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);")
                                     .AddStatement(
                                         "await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);")
                                 );
@@ -83,7 +84,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);")
                                     .AddStatement(
                                         "await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);")
                                 );
@@ -97,7 +98,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = {tDocument}.FromEntity(entity);")
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);")
                                     .AddStatement(
                                         "await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);")
                                 );

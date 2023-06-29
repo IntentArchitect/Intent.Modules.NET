@@ -26,18 +26,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         }
         string IItem.PartitionKey => ClassPartitionKey;
 
-        public static ClassContainerDocument FromEntity(ClassContainer entity)
+        public ClassContainerDocument PopulateFromEntity(ClassContainer entity)
         {
-            if (entity is ClassContainerDocument document)
-            {
-                return document;
-            }
+            Id = entity.Id;
+            ClassPartitionKey = entity.ClassPartitionKey;
 
-            return new ClassContainerDocument
-            {
-                Id = entity.Id,
-                ClassPartitionKey = entity.ClassPartitionKey
-            };
+            return this;
         }
     }
 }

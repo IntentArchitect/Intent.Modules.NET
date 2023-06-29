@@ -49,6 +49,31 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                             .AddArgument($"\"{pkFieldName}\"")
                         );
                     });
+
+                    var nonStringPkAttribute = model.Attributes.SingleOrDefault(x =>
+                        x.TypeReference?.Element.Name != "string" &&
+                        x.HasPrimaryKey());
+                    if (nonStringPkAttribute != null)
+                    {
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityInterfaceName}>", "FindByIdAsync", method =>
+                        {
+                            method
+                                .Async()
+                                .AddParameter(GetTypeName(nonStringPkAttribute), "id")
+                                .AddOptionalCancellationTokenParameter(this)
+                                .WithExpressionBody($"await FindByIdAsync(id{nonStringPkAttribute.GetToString(this)}, cancellationToken)");
+                        });
+
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityInterfaceName}>>", "FindByIdsAsync", method =>
+                        {
+                            AddUsing("System.Linq");
+                            method
+                                .Async()
+                                .AddParameter($"{GetTypeName(nonStringPkAttribute)}[]", "ids")
+                                .AddOptionalCancellationTokenParameter(this)
+                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{nonStringPkAttribute.GetToString(this)}).ToArray(), cancellationToken)");
+                        });
+                    }
                 });
         }
 

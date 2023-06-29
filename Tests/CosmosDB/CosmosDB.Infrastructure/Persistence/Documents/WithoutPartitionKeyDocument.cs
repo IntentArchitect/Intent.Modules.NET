@@ -25,17 +25,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => _type = value;
         }
 
-        public static WithoutPartitionKeyDocument FromEntity(WithoutPartitionKey entity)
+        public WithoutPartitionKeyDocument PopulateFromEntity(WithoutPartitionKey entity)
         {
-            if (entity is WithoutPartitionKeyDocument document)
-            {
-                return document;
-            }
+            Id = entity.Id;
 
-            return new WithoutPartitionKeyDocument
-            {
-                Id = entity.Id
-            };
+            return this;
         }
     }
 }

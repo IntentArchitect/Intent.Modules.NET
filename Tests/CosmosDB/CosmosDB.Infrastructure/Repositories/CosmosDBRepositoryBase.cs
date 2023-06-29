@@ -17,7 +17,7 @@ namespace CosmosDB.Infrastructure.Repositories
 {
     internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
         where TPersistence : TDomain
-        where TDocument : TDomain, ICosmosDBDocument<TDocument, TDomain>
+        where TDocument : TDomain, ICosmosDBDocument<TDocument, TDomain>, new()
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
@@ -39,7 +39,7 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = TDocument.FromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -48,7 +48,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = TDocument.FromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -57,7 +57,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = TDocument.FromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }

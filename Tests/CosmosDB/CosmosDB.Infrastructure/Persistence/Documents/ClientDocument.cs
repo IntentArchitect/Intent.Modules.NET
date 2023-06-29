@@ -32,19 +32,13 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => base.Type = value;
         }
 
-        public static ClientDocument FromEntity(Client entity)
+        public ClientDocument PopulateFromEntity(Client entity)
         {
-            if (entity is ClientDocument document)
-            {
-                return document;
-            }
+            Identifier = entity.Identifier;
+            Type = entity.Type;
+            Name = entity.Name;
 
-            return new ClientDocument
-            {
-                Identifier = entity.Identifier,
-                Type = entity.Type,
-                Name = entity.Name
-            };
+            return this;
         }
     }
 }
