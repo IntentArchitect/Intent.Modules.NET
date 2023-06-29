@@ -32,29 +32,29 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResult
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManag" +
-                    "ed(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]" +
+                    "\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("<T>\r\n    {\r\n        public ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("()\r\n        {\r\n        }\r\n\r\n        public static ");
+            this.Write("()\r\n        {\r\n            Data = null!;\r\n        }\r\n\r\n        public static ");
             
             #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResult\PagedResultTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

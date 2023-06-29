@@ -7,7 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-using System;
 using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,6 +17,7 @@ namespace <#= Namespace #>
     {
         public <#= ClassName #>()
         {
+            Data = null!;
         }
 
         public static <#= ClassName #><T> Create(
