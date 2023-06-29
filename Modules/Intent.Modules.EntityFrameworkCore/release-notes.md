@@ -1,6 +1,8 @@
 ﻿### Version 4.4.4
 
 - Updated `Intent.EntityFrameworkCore.Interop.DomainEvents` interop version to `4.0.4`.
+- Fixed: `EntityTypeConfiguration` would create invalid `ToTable` statements in under certain conditions.
+
 
 ### Version 4.4.2
 

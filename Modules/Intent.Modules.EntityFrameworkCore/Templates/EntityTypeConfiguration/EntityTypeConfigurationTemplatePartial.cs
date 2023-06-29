@@ -250,7 +250,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 var statement = new CSharpInvocationStatement("builder.ToTable");
                 if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
-                    !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                    !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ||
+                    model.Triggers.Count == 0)
                 {
                     statement.AddArgument($"\"{model.GetTable()?.Name() ?? model.Name.Pluralize()}\"");
                 }
