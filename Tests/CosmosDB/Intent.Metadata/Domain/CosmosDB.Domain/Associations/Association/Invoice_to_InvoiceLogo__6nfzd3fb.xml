@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="423c5c60-23c7-4bb6-91f4-c80abeeafb37">
+  <sourceEnd id="9fdf9a38-c373-435b-a7bf-72933933600f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="015378ce-9282-4549-a336-a9c013002d36">
+      <typeId>95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="423c5c60-23c7-4bb6-91f4-c80abeeafb37" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InvoiceLogo</name>
+    <display>InvoiceLogo: InvoiceLogo   [1 --&gt; 1]</display>
+    <order>6</order>
+    <typeReference id="fe9d845e-557e-4e69-bac8-626649b6a0f6">
+      <typeId>628cad03-4441-4e85-9b38-30135d5664fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

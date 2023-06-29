@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="628cad03-4441-4e85-9b38-30135d5664fc" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>InvoiceLogo</name>
+  <display>InvoiceLogo</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eca90396-0828-43f5-9bbd-32c16ba595e4</parentFolderId>
+  <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+  <packageName>CosmosDB.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="03da31f2-c8f7-4d39-ba8d-019a9d2f5b8f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Url</name>
+      <display>Url: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="43093de3-a671-42fa-93f1-91e494b37a46">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>628cad03-4441-4e85-9b38-30135d5664fc</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

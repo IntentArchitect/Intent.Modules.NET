@@ -32,6 +32,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Date = entity.Date;
             Number = entity.Number;
             LineItems = entity.LineItems;
+            InvoiceLogo = entity.InvoiceLogo;
 
             return this;
         }

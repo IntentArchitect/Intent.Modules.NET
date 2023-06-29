@@ -948,6 +948,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#628cad03-4441-4e85-9b38-30135d5664fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/InvoiceLogo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceLogo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a2fd5acc-33f4-4755-a358-ce8d59bc5077</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/LineItem.cs</ApplicationRelativeFilePath>
