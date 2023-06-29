@@ -524,6 +524,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#09671592-ce3a-44b1-9436-d142ee540229</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckAddressDCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#09671592-ce3a-44b1-9436-d142ee540229</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckAddressDCDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#09671592-ce3a-44b1-9436-d142ee540229</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckAddressDCDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#73902ee1-d636-4ca9-8fa6-fce61f05b5d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckResult/CheckResultCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#73902ee1-d636-4ca9-8fa6-fce61f05b5d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckResult/CheckResultCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#73902ee1-d636-4ca9-8fa6-fce61f05b5d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRiches/CheckResult/CheckResultCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#0b60c58f-7a79-40fe-9859-2e6bb3350a4b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommand.cs</ApplicationRelativeFilePath>
@@ -680,54 +728,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e6f465c7-87a7-4908-9942-585b5069e52f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestAddressDCDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestAddressDCDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e6f465c7-87a7-4908-9942-585b5069e52f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestAddressDCDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestAddressDCDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e6f465c7-87a7-4908-9942-585b5069e52f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestAddressDCDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestAddressDCDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#0a51a136-a952-4a04-b188-791c99c674d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestResult/TestResultCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestResult/TestResultCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#0a51a136-a952-4a04-b188-791c99c674d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestResult/TestResultCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestResult/TestResultCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0a51a136-a952-4a04-b188-791c99c674d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/TestResult/TestResultCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/TestResult/TestResultCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e6f465c7-87a7-4908-9942-585b5069e52f" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-  <name>TestAddressDCDto</name>
-  <display>TestAddressDCDto</display>
+<class id="09671592-ce3a-44b1-9436-d142ee540229" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CheckAddressDCDto</name>
+  <display>CheckAddressDCDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -20,16 +20,16 @@
   <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Services</packageName>
   <stereotypes />
   <metadata>
-    <entry key="originalVerb" value="Test" />
+    <entry key="originalVerb" value="Check" />
     <entry key="baseName" value="AddressDC" />
   </metadata>
   <childElements>
-    <childElement id="c6b148fc-aa80-46dc-a6f9-8b03203e7b9a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="4318c178-afee-43a4-88fe-798ca53445ae" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Line1</name>
       <display>Line1: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="009acd59-948f-4bd0-a31d-976988ea40fc">
+      <typeReference id="3b39b8c4-44b5-49f8-9a78-b2bfb8be8555">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -48,7 +48,7 @@
           <target id="b0706615-bb55-4693-a0cd-6538b513b616" name="Line1" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e6f465c7-87a7-4908-9942-585b5069e52f</parentFolderId>
+      <parentFolderId>09671592-ce3a-44b1-9436-d142ee540229</parentFolderId>
       <packageId>33b67870-b35f-4565-be3e-ef08bb8d38d9</packageId>
       <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Services</packageName>
       <stereotypes>
@@ -73,12 +73,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="e1f2b40b-cadb-40ce-806c-b1e2dd1a0307" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="3e0cdbfb-62ad-4c26-ad20-a6ab605bdab1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Line2</name>
       <display>Line2: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="6a3af5dc-064e-488f-be60-200407bfffc7">
+      <typeReference id="7299fb3f-805b-4628-a570-536714437d0c">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -97,7 +97,7 @@
           <target id="129f7c47-60a2-4b4f-b22a-3c1e89802d5f" name="Line2" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e6f465c7-87a7-4908-9942-585b5069e52f</parentFolderId>
+      <parentFolderId>09671592-ce3a-44b1-9436-d142ee540229</parentFolderId>
       <packageId>33b67870-b35f-4565-be3e-ef08bb8d38d9</packageId>
       <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Services</packageName>
       <stereotypes>
@@ -122,12 +122,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="1f8b9c6c-4ebe-43ca-96bf-80206e2c2c91" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="dd10ce9c-41ae-4e26-9ce7-63c539ebe3ae" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>City</name>
       <display>City: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="82f735eb-5928-41fe-959d-d227a5c3b924">
+      <typeReference id="a3a51685-5088-4ac3-a180-ae48c948f675">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -146,7 +146,7 @@
           <target id="3cb47bc6-46b7-4756-be08-c2048c559b2f" name="City" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e6f465c7-87a7-4908-9942-585b5069e52f</parentFolderId>
+      <parentFolderId>09671592-ce3a-44b1-9436-d142ee540229</parentFolderId>
       <packageId>33b67870-b35f-4565-be3e-ef08bb8d38d9</packageId>
       <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Services</packageName>
       <stereotypes>

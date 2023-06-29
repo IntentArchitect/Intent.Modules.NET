@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers.ResponseTypes;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.ChangeAddress;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.CheckResult;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.CreateCustomerRich;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.DeleteCustomerRich;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.GetCustomerRichById;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.GetCustomerRiches;
-using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.TestResult;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.UpdateCustomerRich;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -59,6 +59,22 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
 
         /// <summary>
         /// </summary>
+        /// <response code="200">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpPut("api/customer-riches/{id}/check-result")]
+        [ProducesResponseType(typeof(CheckAddressDCDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CheckAddressDCDto>> CheckResult(
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new CheckResultCommand(id: id), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost("api/customer-riches")]
@@ -89,22 +105,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         {
             await _mediator.Send(new DeleteCustomerRichCommand(id: id), cancellationToken);
             return Ok();
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="200">Successfully updated.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPut("api/customer-riches/{id}/test-result")]
-        [ProducesResponseType(typeof(TestAddressDCDto), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<TestAddressDCDto>> TestResult(
-            [FromRoute] Guid id,
-            CancellationToken cancellationToken = default)
-        {
-            var result = await _mediator.Send(new TestResultCommand(id: id), cancellationToken);
-            return Ok(result);
         }
 
         /// <summary>

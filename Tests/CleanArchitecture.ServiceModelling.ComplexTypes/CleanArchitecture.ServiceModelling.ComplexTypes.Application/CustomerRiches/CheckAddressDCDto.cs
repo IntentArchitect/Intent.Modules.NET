@@ -10,9 +10,9 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches
 {
-    public class TestAddressDCDto : IMapFrom<AddressDC>
+    public class CheckAddressDCDto : IMapFrom<AddressDC>
     {
-        public TestAddressDCDto()
+        public CheckAddressDCDto()
         {
             Line1 = null!;
             Line2 = null!;
@@ -23,9 +23,9 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         public string Line2 { get; set; }
         public string City { get; set; }
 
-        public static TestAddressDCDto Create(string line1, string line2, string city)
+        public static CheckAddressDCDto Create(string line1, string line2, string city)
         {
-            return new TestAddressDCDto
+            return new CheckAddressDCDto
             {
                 Line1 = line1,
                 Line2 = line2,
@@ -35,7 +35,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<AddressDC, TestAddressDCDto>();
+            profile.CreateMap<AddressDC, CheckAddressDCDto>();
         }
     }
 }

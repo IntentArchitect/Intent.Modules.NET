@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="0a51a136-a952-4a04-b188-791c99c674d3" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
-  <name>TestResultCommand</name>
-  <display>TestResultCommand: TestAddressDCDto</display>
+<class id="73902ee1-d636-4ca9-8fa6-fce61f05b5d2" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CheckResultCommand</name>
+  <display>CheckResultCommand: CheckAddressDCDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="2bc781aa-3995-45af-b067-6bb9a388ab76">
-    <typeId>e6f465c7-87a7-4908-9942-585b5069e52f</typeId>
+  <typeReference id="ed1b4f9c-ea5e-42d1-bdfd-021819a547e8">
+    <typeId>09671592-ce3a-44b1-9436-d142ee540229</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -37,19 +37,19 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
-        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/customer-riches/{id}/test-result" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/customer-riches/{id}/check-result" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="989de4c7-d135-4986-b3c4-a473a5c88de6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="0ac850d5-d27a-4dd6-a327-f7bcadd4b1a6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="90a86813-88d8-4af3-9a45-4947f931081e">
+      <typeReference id="e91d724b-dfbc-427e-9277-02250e06e4d9">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -61,7 +61,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>0a51a136-a952-4a04-b188-791c99c674d3</parentFolderId>
+      <parentFolderId>73902ee1-d636-4ca9-8fa6-fce61f05b5d2</parentFolderId>
       <packageId>33b67870-b35f-4565-be3e-ef08bb8d38d9</packageId>
       <packageName>CleanArchitecture.ServiceModelling.ComplexTypes.Services</packageName>
       <stereotypes>

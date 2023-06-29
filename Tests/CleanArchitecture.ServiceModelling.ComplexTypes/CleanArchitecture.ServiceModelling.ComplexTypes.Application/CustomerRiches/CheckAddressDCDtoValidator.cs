@@ -8,10 +8,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class TestAddressDCDtoValidator : AbstractValidator<TestAddressDCDto>
+    public class CheckAddressDCDtoValidator : AbstractValidator<CheckAddressDCDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public TestAddressDCDtoValidator()
+        public CheckAddressDCDtoValidator()
         {
             ConfigureValidationRules();
         }
