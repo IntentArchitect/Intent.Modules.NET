@@ -12,6 +12,31 @@
   <stereotypes />
   <metadata />
   <childElements>
+    <childElement id="7cbb4a05-7dac-4b06-b2da-635ab82dd125" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Capture Logs</name>
+      <display>Capture Logs</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ea731c11-8d05-46e0-8040-7ee95a78e27e</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Checkbox" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Include logs (i.e. Serilog) in telemetry export." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>HTTP Instrumentation</name>
       <display>HTTP Instrumentation</display>
@@ -81,17 +106,17 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Where to export the Telemetry data to." isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="application-insights" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="azure-application-insights" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
         <childElement id="03275095-a84b-4b07-8a2c-bf11a9be29e5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Application Insights</name>
-          <display>Application Insights = application-insights</display>
+          <name>Azure Application Insights</name>
+          <display>Azure Application Insights = azure-application-insights</display>
           <isAbstract>false</isAbstract>
-          <value>application-insights</value>
+          <value>azure-application-insights</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e</parentFolderId>

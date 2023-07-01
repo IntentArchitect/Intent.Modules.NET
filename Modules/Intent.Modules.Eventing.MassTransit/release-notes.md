@@ -6,6 +6,7 @@
 - Update: Bumped MassTransit nuget package versions from `8.0.6` to `8.0.16`.
 - Fixed: In Memory Outbox is now properly setup so that it will perform idempotent checks.
 - Update: `In Memory` outbox is now the default setting.
+- Update: Integration with Open Telemetry will no longer add CorrelationId's with each Message type. This is redundant and it is encouraged to use the Operation Id (found in the structured logs) instead.
 
 ### Version 4.0.7
 

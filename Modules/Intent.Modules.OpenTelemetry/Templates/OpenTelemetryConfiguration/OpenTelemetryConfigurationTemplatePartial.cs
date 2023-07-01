@@ -24,7 +24,8 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
     public const string TemplateId = "Intent.OpenTelemetry.OpenTelemetryConfiguration";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public OpenTelemetryConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+    public OpenTelemetryConfigurationTemplate(IOutputTarget outputTarget, object model = null)
+        : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.OpenTelemetry);
         AddNugetDependency(NugetPackages.OpenTelemetryExtensionsHosting);
@@ -35,7 +36,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             .AddUsing("OpenTelemetry.Trace")
             .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddUsing("Microsoft.Extensions.Configuration")
-            .AddClass($"OpenTelemetryConfiguration")
+            .AddClass("OpenTelemetryConfiguration")
             .OnBuild(file =>
             {
                 var priClass = file.Classes.First();
@@ -44,63 +45,91 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                 priClass.AddMethod("IServiceCollection", "AddTelemetryConfiguration", method =>
                 {
                     method.Static();
-                    method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
+                    method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");
                     method.AddMethodChainStatement("services.AddOpenTelemetry()", main => main
                         .AddChainStatement(new CSharpInvocationStatement("ConfigureResource")
-                            .AddArgument(new CSharpLambdaBlock("res")
-                                .AddMethodChainStatement("res", res => res
-                                    .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")
-                                    .AddChainStatement("AddTelemetrySdk()")
-                                    .AddChainStatement("AddEnvironmentVariableDetector()")))
-                            .WithArgumentsOnNewLines()
+                            .AddArgument(GetResourceConfigurationStatement())
                             .WithoutSemicolon()
                             .AddMetadata("telemetry-resource", true))
                         .AddChainStatement(new CSharpInvocationStatement("WithTracing")
-                            .AddArgument(new CSharpLambdaBlock("trace")
-                                .AddMethodChainStatement("trace", trace => trace
-                                    .WithoutSemicolon()
-                                    .AddChainStatement("AddAspNetCoreInstrumentation()")))
-                            .WithArgumentsOnNewLines()
+                            .AddArgument(GetTracingInstrumentationStatements(file))
                             .WithoutSemicolon()
                             .AddMetadata("telemetry-tracing", true))
                         .AddMetadata("telemetry-config", true));
                     method.AddStatement("return services;");
                 });
-            })
-            .OnBuild(file =>
-            {
-                var priClass = file.Classes.First();
-                var method = priClass.FindMethod("AddTelemetryConfiguration");
-                var telemConfigStmt = (CSharpMethodChainStatement)method.FindStatement(stmt => stmt.HasMetadata("telemetry-config"));
-                var telemTranceStmt = (CSharpInvocationStatement)telemConfigStmt.FindStatement(stmt => stmt.HasMetadata("telemetry-tracing"));
-                var traceChain = (CSharpMethodChainStatement)((CSharpLambdaBlock)telemTranceStmt.Statements.First()).Statements.First();
 
-                if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
+                if (ExecutionContext.Settings.GetOpenTelemetry().CaptureLogs())
                 {
-                    AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp);
-                    traceChain.AddChainStatement("AddHttpClientInstrumentation()");
-                }
-
-                if (ExecutionContext.Settings.GetOpenTelemetry().SQLInstrumentation())
-                {
-                    AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient);
-                    traceChain.AddChainStatement("AddSqlClientInstrumentation()");
-                }
-
-                switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
-                {
-                    case Settings.OpenTelemetry.ExportOptionsEnum.ApplicationInsights:
-                        AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter);
-                        file.AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
-                        traceChain.AddChainStatement(new CSharpInvocationStatement("AddAzureMonitorTraceExporter")
-                            .AddStatement(new CSharpLambdaBlock("options")
-                                .AddStatement(@"options.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];")));
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    file.AddUsing("Microsoft.Extensions.Logging");
+                    file.AddUsing("Microsoft.Extensions.Hosting");
+                    priClass.AddMethod("ILoggingBuilder", "AddTelemetryConfiguration", method =>
+                    {
+                        method.Static();
+                        method.AddParameter("ILoggingBuilder", "logBuilder", param => param.WithThisModifier());
+                        method.AddParameter("HostBuilderContext", "context");
+                        method.AddInvocationStatement($"return logBuilder.AddOpenTelemetry", addOpenTel => addOpenTel
+                            .AddArgument(new CSharpLambdaBlock("options")
+                                .AddInvocationStatement("options.SetResourceBuilder", setBuilder => setBuilder
+                                    .AddArgument(new CSharpMethodChainStatement("ResourceBuilder")
+                                        .WithoutSemicolon()
+                                        .AddChainStatement("CreateDefault()")
+                                        .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")))
+                                .AddInvocationStatement("options.AddAzureMonitorLogExporter", logExporter => logExporter
+                                    .AddArgument(new CSharpLambdaBlock("x")
+                                        .AddStatement($@"x.ConnectionString = context.Configuration[""ApplicationInsights:ConnectionString""];")))
+                                .AddStatements($@"
+                                    options.IncludeFormattedMessage = true;
+                                    options.IncludeScopes = true;
+                                    options.ParseStateValues = true;")));
+                    });
                 }
             });
+    }
+
+    private CSharpStatement GetResourceConfigurationStatement()
+    {
+        return new CSharpLambdaBlock("res")
+            .WithExpressionBody(new CSharpMethodChainStatement("res")
+                .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")
+                .AddChainStatement("AddTelemetrySdk()")
+                .AddChainStatement("AddEnvironmentVariableDetector()"));
+    }
+
+    private CSharpStatement GetTracingInstrumentationStatements(CSharpFile file)
+    {
+        var traceChain = new CSharpMethodChainStatement("trace")
+            .WithoutSemicolon()
+            .AddChainStatement("AddAspNetCoreInstrumentation()");
+
+        if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
+        {
+            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp);
+            traceChain.AddChainStatement("AddHttpClientInstrumentation()");
+        }
+
+        if (ExecutionContext.Settings.GetOpenTelemetry().SQLInstrumentation())
+        {
+            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient);
+            traceChain.AddChainStatement("AddSqlClientInstrumentation()");
+        }
+
+        switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
+        {
+            case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
+                AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter);
+                file.AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
+                traceChain.AddChainStatement(new CSharpInvocationStatement("AddAzureMonitorTraceExporter")
+                    .WithoutSemicolon()
+                    .AddArgument(new CSharpLambdaBlock("options")
+                        .AddStatement(@"options.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];")));
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        return new CSharpLambdaBlock("trace").WithExpressionBody(traceChain);
     }
 
     public override void BeforeTemplateExecution()
@@ -111,8 +140,9 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
         {
-            case Settings.OpenTelemetry.ExportOptionsEnum.ApplicationInsights:
-                this.ApplyAppSetting("ApplicationInsights:ConnectionString", "Insert Application Insights Connection String Here");
+            case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
+                this.ApplyAppSetting("ApplicationInsights:ConnectionString",
+                    "Insert Application Insights Connection String Here");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

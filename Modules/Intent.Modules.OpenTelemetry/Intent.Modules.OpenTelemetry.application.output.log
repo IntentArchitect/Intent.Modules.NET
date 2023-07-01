@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3e48651e-9f71-4e15-b91f-b5ddf4b6b376</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#741f5903-5068-49c4-aeeb-31480f0e14a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ProgramConfigurationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProgramConfigurationExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4c241e0e-b274-4d98-a0bb-c0d94f310661</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4c241e0e-b274-4d98-a0bb-c0d94f310661</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

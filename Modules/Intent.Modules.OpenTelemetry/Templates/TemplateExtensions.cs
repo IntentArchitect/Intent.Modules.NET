@@ -11,7 +11,7 @@ namespace Intent.Modules.OpenTelemetry.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetOpenTelemetryConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetOpenTelemetryConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(OpenTelemetryConfigurationTemplate.TemplateId);
         }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="741f5903-5068-49c4-aeeb-31480f0e14a6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ProgramConfigurationExtension</name>
+  <display>ProgramConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>652bd831-c437-4fba-8857-6387959bb71d</parentFolderId>
+  <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+  <packageName>Intent.OpenTelemetry</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

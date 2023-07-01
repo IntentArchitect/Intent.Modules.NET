@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
-  <version>1.0.2</version>
+  <version>1.1.0-pre.0</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an open framework for collecting and exporting telemetry data.</summary>
   <description>Introduces an open framework for collecting and exporting telemetry data.</description>
@@ -19,10 +19,16 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.OpenTelemetry.ProgramConfigurationExtension" externalReference="741f5903-5068-49c4-aeeb-31480f0e14a6" />
+  </factoryExtensions>
   <moduleSettings>
     <group id="ea731c11-8d05-46e0-8040-7ee95a78e27e" title="Open Telemetry" externalReference="ea731c11-8d05-46e0-8040-7ee95a78e27e">
       <settings>
+        <setting id="7cbb4a05-7dac-4b06-b2da-635ab82dd125" title="Capture Logs" type="checkbox">
+          <isRequired>false</isRequired>
+          <hint>Include logs (i.e. Serilog) in telemetry export.</hint>
+        </setting>
         <setting id="d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01" title="HTTP Instrumentation" type="checkbox">
           <isRequired>false</isRequired>
           <hint>Capture Http instrumentation.</hint>
@@ -34,9 +40,9 @@
         <setting id="ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e" title="Export" type="select">
           <isRequired>true</isRequired>
           <hint>Where to export the Telemetry data to.</hint>
-          <defaultValue>application-insights</defaultValue>
+          <defaultValue>azure-application-insights</defaultValue>
           <options>
-            <option value="application-insights" description="Application Insights" />
+            <option value="azure-application-insights" description="Azure Application Insights" />
           </options>
         </setting>
       </settings>
@@ -44,7 +50,7 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.37-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
@@ -54,4 +60,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <tags />
 </package>

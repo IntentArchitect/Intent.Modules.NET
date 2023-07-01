@@ -39,6 +39,8 @@ namespace Intent.Modules.OpenTelemetry.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
+        public bool CaptureLogs() => bool.TryParse(_groupSettings.GetSetting("7cbb4a05-7dac-4b06-b2da-635ab82dd125")?.Value.ToPascalCase(), out var result) && result;
+
         public bool HTTPInstrumentation() => bool.TryParse(_groupSettings.GetSetting("d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01")?.Value.ToPascalCase(), out var result) && result;
 
         public bool SQLInstrumentation() => bool.TryParse(_groupSettings.GetSetting("14d18546-83cd-46b6-8d0e-c9d098ece8e0")?.Value.ToPascalCase(), out var result) && result;
@@ -57,20 +59,20 @@ namespace Intent.Modules.OpenTelemetry.Settings
             {
                 return Value switch
                 {
-                    "application-insights" => ExportOptionsEnum.ApplicationInsights,
+                    "azure-application-insights" => ExportOptionsEnum.AzureApplicationInsights,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsApplicationInsights()
+            public bool IsAzureApplicationInsights()
             {
-                return Value == "application-insights";
+                return Value == "azure-application-insights";
             }
         }
 
         public enum ExportOptionsEnum
         {
-            ApplicationInsights,
+            AzureApplicationInsights,
         }
     }
 }
