@@ -238,7 +238,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status404NotFound)]"));
             }
 
-            attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]"));
+            attributes.Add(new CSharpAttribute(@"[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]"));
             return attributes;
         }
 
