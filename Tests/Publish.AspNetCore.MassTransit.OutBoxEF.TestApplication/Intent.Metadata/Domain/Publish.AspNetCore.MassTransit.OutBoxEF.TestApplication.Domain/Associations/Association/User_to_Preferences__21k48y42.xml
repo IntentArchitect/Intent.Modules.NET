@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6bbfa91d-9f25-40ed-807b-4e21feab8a88">
+  <sourceEnd id="60160553-766c-46b6-ac7d-8fb4cfe21317" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="a3941250-87e8-402a-b406-08c616a154d4">
+      <typeId>91fb6c87-66e4-4483-8eb2-942588f2b3e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Preferences</name>
+    <display>Preferences: Preference[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="e6584ade-8dbb-4d19-8fbd-8c8a9c8d8951">
+      <typeId>713dcb8b-fde1-48c7-9e67-eb43ba829bd0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -20,10 +20,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>cbeeeb37-e492-4a79-8ada-9b12520fcf01</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a53734be-32a8-4d5b-a2ed-debf3a78528d</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#81985beb-9423-4107-9cda-25165eec3dbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api/Controllers/PublishController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api/Controllers/UsersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UsersController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -132,26 +132,90 @@
     </FileLog>
     <FileLog>
       <ProjectId>3ae2e534-bfba-4e6d-ab8c-9fcf482f9bce</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#a53734be-32a8-4d5b-a2ed-debf3a78528d</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#81985beb-9423-4107-9cda-25165eec3dbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Implementation/PublishService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Implementation/UsersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UsersService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#4ee3aa10-de3d-4d47-ada0-9421549c6f5d</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#29bfe9aa-f467-4149-8c54-fa7f84aa3a03</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventStartedEvent.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/PreferenceDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#29bfe9aa-f467-4149-8c54-fa7f84aa3a03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/PreferenceDtoExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDtoExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ce6abaa1-358c-4337-863b-0608803aaca0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ce6abaa1-358c-4337-863b-0608803aaca0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserCreatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#db361f24-a0bc-4284-b03a-5de071d08a70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#db361f24-a0bc-4284-b03a-5de071d08a70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserDeletedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDeletedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7678ff8c-ed1b-46bf-9550-6a9eabb9dca8</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#a53734be-32a8-4d5b-a2ed-debf3a78528d</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#81985beb-9423-4107-9cda-25165eec3dbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Interfaces/IPublishService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPublishService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Interfaces/IUsersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUsersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -160,6 +224,94 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#eef0e2ce-9726-46f0-b58e-818de6323ba5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#eef0e2ce-9726-46f0-b58e-818de6323ba5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#eef0e2ce-9726-46f0-b58e-818de6323ba5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1e8d933e-42c0-4e92-a59d-5d066af4338e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1e8d933e-42c0-4e92-a59d-5d066af4338e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d64fa423-6444-4fc0-adc4-f08e3da9ec50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#d64fa423-6444-4fc0-adc4-f08e3da9ec50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d64fa423-6444-4fc0-adc4-f08e3da9ec50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ced362ed-87a0-4d7c-b118-821aafea5933</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ced362ed-87a0-4d7c-b118-821aafea5933</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -195,6 +347,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e8336fd4-d2ba-44f4-a75c-c1ca3b40ec22</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#713dcb8b-fde1-48c7-9e67-eb43ba829bd0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Entities/Preference.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Preference.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8336fd4-d2ba-44f4-a75c-c1ca3b40ec22</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#91fb6c87-66e4-4483-8eb2-942588f2b3e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Entities/User.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>dcc601c4-10fa-4a16-a8dc-3239dbc6d082</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#dcc601c4-10fa-4a16-a8dc-3239dbc6d082</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -224,6 +392,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d00e4070-7760-4fdc-bbbb-6a32445640fd</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#91fb6c87-66e4-4483-8eb2-942588f2b3e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Repositories/IUserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUserRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -267,6 +443,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fce63dd5-0778-4ae4-8ac5-dc8618a1d31a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#91fb6c87-66e4-4483-8eb2-942588f2b3e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Persistence/Configurations/UserConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bdca82ed-daa6-479c-8f4d-6c5aa730ed85</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -296,6 +480,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>095a789f-0be7-4a2c-a936-c54813387ac5</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#91fb6c87-66e4-4483-8eb2-942588f2b3e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/UserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0b4a0422-c7b3-477d-8800-a0664b9344d4">
+  <sourceEnd id="f0d752e2-2b3d-4edf-814f-e836198b1106" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Role</name>
+    <display>Role: Role</display>
+    <order>0</order>
+    <typeReference id="224f064c-2694-4b7e-be74-4df96399bb6a">
+      <typeId>c9985584-a2d2-496e-beb2-fde2bd8d6bef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>e18d3147-ee5b-4ac4-9f8f-0e8c199a9254</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0b4a0422-c7b3-477d-8800-a0664b9344d4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Priviledges</name>
+    <display>Priviledges: Priviledge[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="49329c84-295f-4e10-8cdf-a01d02b919e5">
+      <typeId>ffedc600-be57-4e3a-a2db-b8e76f1bd20b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>e18d3147-ee5b-4ac4-9f8f-0e8c199a9254</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

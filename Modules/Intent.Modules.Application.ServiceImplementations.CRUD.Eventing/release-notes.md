@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Fixed: Publishers weren't correctly added to Update and Delete operations.
+
 ### Version 1.0.3
 
 - Update: Internal dependency version update to keep compatibility with other modules.

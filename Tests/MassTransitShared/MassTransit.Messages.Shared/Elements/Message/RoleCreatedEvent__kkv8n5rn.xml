@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="624a4efe-d55a-4935-acd6-b94c9c794a30" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>RoleCreatedEvent</name>
+  <display>RoleCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>5ffa2a75-821a-41f2-8232-af7df2460b0b</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>9ca1c701-080d-43bf-8564-f0cdd1e76c93</parentFolderId>
+  <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+  <packageName>MassTransit.Messages.Shared</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3b774df4-1bb2-45ab-adbc-ba04d9fdc75b" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5e670058-dce1-4cb5-82d8-798e630dbdf0">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b9f6720d-4523-4042-90cf-7552ab80aea0" name="Id" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>624a4efe-d55a-4935-acd6-b94c9c794a30</parentFolderId>
+      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+      <packageName>MassTransit.Messages.Shared</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d31dc54e-5288-4759-accf-4a55306ccb40" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="22596485-3c78-4d3c-82a7-e8691d784d9b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f68a4e7e-5e27-491f-9609-c570f5cf58e7" name="Name" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>624a4efe-d55a-4935-acd6-b94c9c794a30</parentFolderId>
+      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+      <packageName>MassTransit.Messages.Shared</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1be26497-3d92-40bf-8e5f-01fd86d4e17d" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Priviledges</name>
+      <display>Priviledges: PriviledgeDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ff320982-5d9a-4a22-bbc4-d5d39ee00253">
+        <typeId>676bbe1f-dd7e-4ea8-a9fd-ea523603f406</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.Messages.Shared</typePackageName>
+        <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>624a4efe-d55a-4935-acd6-b94c9c794a30</parentFolderId>
+      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+      <packageName>MassTransit.Messages.Shared</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

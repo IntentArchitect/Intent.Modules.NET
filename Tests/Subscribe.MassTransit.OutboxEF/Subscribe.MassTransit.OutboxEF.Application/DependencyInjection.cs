@@ -30,6 +30,9 @@ namespace Subscribe.MassTransit.OutboxEF.Application
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<UserCreatedEvent>, UserCreatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<UserUpdatedEvent>, UserUpdatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<UserDeletedEvent>, UserDeletedEventHandler>();
             return services;
         }
     }

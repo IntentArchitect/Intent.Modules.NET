@@ -17,7 +17,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddTransient<IPublishService, PublishService>();
+            services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IUsersService, UsersService>();
             return services;
         }
     }

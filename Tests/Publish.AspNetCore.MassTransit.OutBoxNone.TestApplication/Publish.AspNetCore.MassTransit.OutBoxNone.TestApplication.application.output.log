@@ -20,10 +20,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>15df2036-0102-42e9-ae78-89dba00aba34</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9c20874b-284d-466f-97a1-9c497b013a1c</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a8aa5f16-2d9d-44e3-bc3a-1e9fcf02610d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Api/Controllers/PublishController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Api/Controllers/RolesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RolesController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -132,26 +132,90 @@
     </FileLog>
     <FileLog>
       <ProjectId>61fcdbcb-6c7e-44bb-83e1-993b89635e79</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9c20874b-284d-466f-97a1-9c497b013a1c</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#a8aa5f16-2d9d-44e3-bc3a-1e9fcf02610d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Implementation/PublishService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Implementation/RolesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RolesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#59f75f3c-cded-46d9-bc19-a9bd07292890</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#676bbe1f-dd7e-4ea8-a9fd-ea523603f406</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventStartedEvent.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/PriviledgeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#676bbe1f-dd7e-4ea8-a9fd-ea523603f406</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/PriviledgeDtoExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDtoExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#624a4efe-d55a-4935-acd6-b94c9c794a30</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#624a4efe-d55a-4935-acd6-b94c9c794a30</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleCreatedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#c39fb238-316f-4f29-810f-57dbc7e042af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#c39fb238-316f-4f29-810f-57dbc7e042af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleDeletedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDeletedEventExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d642905f-8484-47cd-a0ee-c0b04e29e9c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#d642905f-8484-47cd-a0ee-c0b04e29e9c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>33df3a7d-aec9-4c40-84db-c21184e30bcd</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#9c20874b-284d-466f-97a1-9c497b013a1c</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#a8aa5f16-2d9d-44e3-bc3a-1e9fcf02610d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Interfaces/IPublishService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPublishService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Interfaces/IRolesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRolesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -160,6 +224,94 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#df224fcd-ad09-47ac-9077-c9af664e5335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#df224fcd-ad09-47ac-9077-c9af664e5335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#df224fcd-ad09-47ac-9077-c9af664e5335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f473f238-7dcc-457d-b8e5-824e1eb3d250</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f473f238-7dcc-457d-b8e5-824e1eb3d250</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#304775d7-c50d-459a-8f23-0b1c97612db9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#304775d7-c50d-459a-8f23-0b1c97612db9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#304775d7-c50d-459a-8f23-0b1c97612db9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4f9ce099-b23f-4963-b721-1ae444722c36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4f9ce099-b23f-4963-b721-1ae444722c36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -195,6 +347,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f9ebed48-1ba2-4f32-b8e4-8a10195d4b06</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ffedc600-be57-4e3a-a2db-b8e76f1bd20b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Priviledge.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Priviledge.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f9ebed48-1ba2-4f32-b8e4-8a10195d4b06</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c9985584-a2d2-496e-beb2-fde2bd8d6bef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Role.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Role.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>49d3ebc7-0fd4-438f-a3eb-da65c44cc05a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#49d3ebc7-0fd4-438f-a3eb-da65c44cc05a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -224,6 +392,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb8a9997-b046-4398-b6c7-bcc5798614a6</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c9985584-a2d2-496e-beb2-fde2bd8d6bef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRoleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRoleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -267,6 +443,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0ea20de2-fa32-48e9-94b9-eb2de35da5f7</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c9985584-a2d2-496e-beb2-fde2bd8d6bef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/Configurations/RoleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RoleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d8618564-7df5-4977-97d7-83ebe59176c3</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -296,6 +480,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81100aee-e5ba-4e43-8e2c-4b1a264423e3</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c9985584-a2d2-496e-beb2-fde2bd8d6bef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RoleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RoleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

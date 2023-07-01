@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="863075d3-0ce9-422e-b718-ee9e4a9da4d5">
+  <sourceEnd id="9ad3f891-2959-4c4e-a3a6-1fdfe2f4a622" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication</name>
+    <display>publisher: Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="0eb77007-abe6-4eb2-8ea0-5e546477cf23">
+      <typeId>6f9abc15-a366-48fb-8dab-fac7f9d525be</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Eventing</typePackageName>
+      <typePackageId>8184411c-df39-4939-8fd0-93c8714e1e60</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="863075d3-0ce9-422e-b718-ee9e4a9da4d5" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>RoleCreatedEvent</name>
+    <display>publish: RoleCreatedEvent</display>
+    <order>0</order>
+    <typeReference id="1c5bbc45-80d2-4857-beb1-e3e2e2a97a7f">
+      <typeId>624a4efe-d55a-4935-acd6-b94c9c794a30</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

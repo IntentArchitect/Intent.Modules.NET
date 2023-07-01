@@ -323,6 +323,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f3cafa71-1673-4016-a0a0-5ba10f4887b4</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#d97f6339-17d1-4164-852f-2578924666b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEventHandlers/RoleCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RoleCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3cafa71-1673-4016-a0a0-5ba10f4887b4</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#d8fd1639-662a-4f7a-b9a6-bda06e3bb328</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEventHandlers/RoleDeletedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RoleDeletedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3cafa71-1673-4016-a0a0-5ba10f4887b4</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#4780fcfb-c3b5-4bd5-93f1-80e12c638dfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEventHandlers/RoleUpdatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RoleUpdatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#2d3248eb-14ef-4f74-ba54-771e5713b7e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -376,6 +400,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Baskets/BasketUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#676bbe1f-dd7e-4ea8-a9fd-ea523603f406</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/PriviledgeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/PriviledgeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#624a4efe-d55a-4935-acd6-b94c9c794a30</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#c39fb238-316f-4f29-810f-57dbc7e042af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d642905f-8484-47cd-a0ee-c0b04e29e9c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Roles/RoleUpdatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

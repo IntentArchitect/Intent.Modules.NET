@@ -299,6 +299,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>95428e68-b1bd-40d2-a342-5c276040b4f9</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#d7785925-e4fa-4e6d-a514-2a9ef88149a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEventHandlers/UserCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>95428e68-b1bd-40d2-a342-5c276040b4f9</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#cbf05775-576c-4b45-a9ac-078c0cec7d5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEventHandlers/UserDeletedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserDeletedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>95428e68-b1bd-40d2-a342-5c276040b4f9</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#67fb5b70-4b56-4265-bdf2-05170b184c94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEventHandlers/UserUpdatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserUpdatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#83d7f774-bef9-4411-a728-614c1c39e77d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -328,6 +352,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Orders/OrderUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#29bfe9aa-f467-4149-8c54-fa7f84aa3a03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/PreferenceDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/PreferenceDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ce6abaa1-358c-4337-863b-0608803aaca0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#db361f24-a0bc-4284-b03a-5de071d08a70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserDeletedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDeletedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/Users/UserUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

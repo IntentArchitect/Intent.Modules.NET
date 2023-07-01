@@ -33,6 +33,9 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
             services.AddTransient<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEventHandler>();
             return services;
         }
     }

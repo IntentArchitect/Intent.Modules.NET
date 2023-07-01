@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.Contracts.DomainMapping.Api;
@@ -51,7 +52,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             if (createStrategy.IsMatch(operation))
             {
                 var (_, domainModel) = operation.GetCreateModelPair();
-                var messageModel = GetMessageModel(application, domainModel);
+                var messageModel = GetMessageModel(application, domainModel, "create");
                 if (messageModel == null)
                 {
                     continue;
@@ -74,7 +75,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             else if (updateStrategy.IsMatch(operation))
             {
                 var (_, domainModel) = operation.GetUpdateModelPair();
-                var messageModel = GetMessageModel(application, domainModel);
+                var messageModel = GetMessageModel(application, domainModel, "update");
                 if (messageModel == null)
                 {
                     continue;
@@ -87,7 +88,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             else if (deleteStrategy.IsMatch(operation))
             {
                 var (_, domainModel) = operation.GetDeleteModelPair();
-                var messageModel = GetMessageModel(application, domainModel);
+                var messageModel = GetMessageModel(application, domainModel, "delete");
                 if (messageModel == null)
                 {
                     continue;
@@ -110,7 +111,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             else if (legacyDeleteStrategy.IsMatch(operation))
             {
                 var domainModel = operation.GetLegacyDeleteDomainModel(application);
-                var messageModel = GetMessageModel(application, domainModel);
+                var messageModel = GetMessageModel(application, domainModel, "delete");
                 if (messageModel == null)
                 {
                     continue;
@@ -140,12 +141,23 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
         cSharpFile.AddUsing(mapToMethodTemplate.Namespace);
     }
 
-    private MessageModel GetMessageModel(IApplication application, ClassModel domainModel)
+    private MessageModel GetMessageModel(IApplication application, ClassModel domainModel, string convention)
     {
         var app = application.MetadataManager.Eventing(application).GetApplicationModels().SingleOrDefault();
         var messageModel = application.MetadataManager.Eventing(application).GetMessageModels()
-            .FirstOrDefault(x => HasMappedDomainEntityPresent(app, x, domainModel));
+            .FirstOrDefault(x => HasMappedDomainEntityPresent(app, x, domainModel) && GetConventionName(x.Name) == convention);
         return messageModel;
+    }
+    
+    private static string GetConventionName(string name)
+    {
+        return name.ToLower() switch
+        {
+            var x when x.Contains("create", StringComparison.OrdinalIgnoreCase) || x.StartsWith("new", StringComparison.OrdinalIgnoreCase) || x.Contains("add", StringComparison.OrdinalIgnoreCase) => "create",
+            var x when x.Contains("update", StringComparison.OrdinalIgnoreCase) || x.Contains("edit", StringComparison.OrdinalIgnoreCase) => "update",
+            var x when x.Contains("delete", StringComparison.OrdinalIgnoreCase) || x.Contains("remove", StringComparison.OrdinalIgnoreCase) => "delete",
+            _ => null
+        };
     }
 
     private bool HasMappedDomainEntityPresent(ApplicationModel applicationModel, MessageModel messageModel, ClassModel domainModel)

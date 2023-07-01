@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ea0e2e98-605e-4106-bd0f-ee3277291875">
+  <sourceEnd id="ef8f5743-25e6-4b19-8ba3-65cc8dfd6927" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</name>
+    <display>publisher: Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</display>
+    <order>0</order>
+    <typeReference id="f615dda9-8d15-4852-9107-2ffba83a0c7e">
+      <typeId>f64d49c1-0936-47be-aafd-f0be86b139e2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Eventing</typePackageName>
+      <typePackageId>495a86eb-f131-473c-84b0-65a4697a70f3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ea0e2e98-605e-4106-bd0f-ee3277291875" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>UserUpdatedEvent</name>
+    <display>publish: UserUpdatedEvent</display>
+    <order>1</order>
+    <typeReference id="b212ab6c-ee61-4aa9-b921-378864060062">
+      <typeId>ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,6 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Common.Interfaces;
+using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities;
+using Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -13,11 +15,14 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Role> Roles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

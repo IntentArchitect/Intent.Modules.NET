@@ -2,6 +2,8 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.Interfaces;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.Persistence.Configurations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -14,6 +16,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
         {
         }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -23,6 +27,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             modelBuilder.AddInboxStateEntity();
             modelBuilder.AddOutboxMessageEntity();
             modelBuilder.AddOutboxStateEntity();
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

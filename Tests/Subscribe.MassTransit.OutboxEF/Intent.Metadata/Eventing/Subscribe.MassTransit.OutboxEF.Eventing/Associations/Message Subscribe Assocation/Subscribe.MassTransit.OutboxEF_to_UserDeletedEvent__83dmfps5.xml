@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cbf05775-576c-4b45-a9ac-078c0cec7d5c">
+  <sourceEnd id="bcb26ba0-57e5-4624-91cb-184ef5c3b913" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
+    <name>Subscribe.MassTransit.OutboxEF</name>
+    <display>subscriber: Subscribe.MassTransit.OutboxEF</display>
+    <order>0</order>
+    <typeReference id="a37f224f-ba8b-4566-836a-aed0b8826cff">
+      <typeId>19603ff6-b69d-4905-b192-08ea7dcd6635</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxEF.Eventing</typePackageName>
+      <typePackageId>1663c9ec-bcce-45da-8794-6d4a26c7215d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cbf05775-576c-4b45-a9ac-078c0cec7d5c" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
+    <name>UserDeletedEvent</name>
+    <display>subscribe: UserDeletedEvent</display>
+    <order>5</order>
+    <typeReference id="87dfad7c-10cb-4868-9e36-68bc00a151db">
+      <typeId>db361f24-a0bc-4284-b03a-5de071d08a70</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Subscribe Assocation</associationType>
+  <associationTypeId>50e0bed1-1387-4d67-8f66-1194763296b1</associationTypeId>
+  <stereotypes />
+</association>
