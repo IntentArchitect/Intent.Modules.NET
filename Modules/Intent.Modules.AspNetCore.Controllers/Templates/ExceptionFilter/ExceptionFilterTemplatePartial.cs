@@ -57,7 +57,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                         .AddStatement("return objectResult;"));
                     method.AddStatements($@"
                         problemDetails.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
-                        problemDetails.Type = ""https://httpstatuses.io/"" + objectResult.StatusCode;
+                        problemDetails.Type = ""https://httpstatuses.io/"" + (objectResult.StatusCode ?? problemDetails.Status);
                         return objectResult;");
                 });
             })
