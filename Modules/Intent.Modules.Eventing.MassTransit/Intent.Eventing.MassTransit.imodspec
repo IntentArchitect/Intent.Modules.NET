@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>5.0.0-pre.1</version>
+  <version>5.0.0-pre.2</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -80,7 +80,7 @@
         <setting id="52006faf-54dc-4b4c-8251-284cdaef7b89" title="Outbox Pattern" type="select">
           <isRequired>true</isRequired>
           <hint>Controls durability of outgoing published messages.</hint>
-          <defaultValue>none</defaultValue>
+          <defaultValue>in-memory</defaultValue>
           <options>
             <option value="none" description="None" />
             <option value="in-memory" description="In Memory" />
