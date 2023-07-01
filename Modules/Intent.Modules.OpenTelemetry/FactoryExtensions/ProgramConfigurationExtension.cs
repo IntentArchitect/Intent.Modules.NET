@@ -47,7 +47,7 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
                 file.AddUsing(configTemplate.Namespace);
                 file.AddUsing("Microsoft.Extensions.Configuration");
                 file.AddUsing("Microsoft.Extensions.Logging");
-        
+
                 var @class = file.Classes.First();
                 var hostBuilder = @class.FindMethod("CreateHostBuilder");
                 var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
@@ -58,7 +58,7 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
                     .AddArgument(new CSharpLambdaBlock("(ctx, logBuilder)")
                         .AddStatements($@"
                         logBuilder.ClearProviders();
-                        logBuilder.AddTelemetryConfiguration(ctx);"))); 
+                        logBuilder.AddTelemetryConfiguration(ctx);")));
             }, 30);
         }
     }

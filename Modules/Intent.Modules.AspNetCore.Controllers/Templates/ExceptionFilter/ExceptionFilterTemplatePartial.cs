@@ -20,25 +20,29 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
     public const string TemplateId = "Intent.AspNetCore.Controllers.ExceptionFilter";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public ExceptionFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget,
-        model)
+    public ExceptionFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddTypeSource("Application.ForbiddenAccessException");
         AddTypeSource("Domain.NotFoundException");
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddUsing("System.Diagnostics")
             .AddUsing("Microsoft.AspNetCore.Mvc")
             .AddUsing("Microsoft.AspNetCore.Mvc.Filters")
+            .AddUsing("Microsoft.Extensions.Hosting")
             .AddClass($"ExceptionFilter", @class =>
             {
                 @class.ImplementsInterface("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter");
+                @class.AddConstructor(ctor => ctor
+                    .AddParameter("IHostEnvironment", "environment", param => param
+                        .IntroduceReadonlyField()));
                 @class.AddMethod("void", "OnException", method =>
                 {
                     method.AddParameter("ExceptionContext", "context");
                     method.AddSwitchStatement("context.Exception",
                         stmt => stmt.AddMetadata("exception-switch", true));
+                    method.AddStatements("context.ExceptionHandled = true;");
                 });
             })
             .AddClass("ProblemDetailsExtensions", @class =>
@@ -103,6 +107,16 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                 .AddInvocationStatement(".AddContextInformation", stmt => stmt.AddArgument("context"))
                 .WithBreak());
         }
+
+        switchStatement.AddDefault(block => block
+            .AddInvocationStatement("context.Result = new ObjectResult", invoke => invoke
+                .AddArgument(new CSharpObjectInitializerBlock("new ProblemDetails")
+                    .AddInitStatement("Detail", "_environment.IsDevelopment() ? context.Exception.ToString() : null")
+                    .AddInitStatement("Status", "500")
+                    .AddInitStatement("Title", @"""Internal Server Error"""))
+                .WithoutSemicolon())
+            .AddInvocationStatement(".AddContextInformation", stmt => stmt.AddArgument("context"))
+            .WithBreak());
     }
 
     private static CSharpSwitchStatement GetExceptionSwitchStatement(CSharpClass priClass)

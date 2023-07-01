@@ -28,6 +28,7 @@
         <setting id="7cbb4a05-7dac-4b06-b2da-635ab82dd125" title="Capture Logs" type="checkbox">
           <isRequired>false</isRequired>
           <hint>Include logs (i.e. Serilog) in telemetry export.</hint>
+          <defaultValue>true</defaultValue>
         </setting>
         <setting id="d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01" title="HTTP Instrumentation" type="checkbox">
           <isRequired>false</isRequired>
