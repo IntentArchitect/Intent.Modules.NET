@@ -1,6 +1,6 @@
 ### Version 5.3.0
 
-- Updated: `ExceptionFilter` will now catch unhandled exceptions and return a `ProblemDetails` response with an HTTP 500 status code to allow for the `Trace ID` to be returned in the response for using with Telemetry systems like Azure Application Insights to troubleshoot errors. To make use of the `Trace ID` examine this example `"00-7e7ba8aacdb26b4300226a11d2e3db91-fc881cc2439952cf-01"`. Copy the number between the first and second `-` as this will be your `Operation Id`: `7e7ba8aacdb26b4300226a11d2e3db91`.
+- Updated: Ensure that Swagger will know about HTTP 500 errors returning `ProblemDetails`.
 
 ### Version 5.2.1
 
