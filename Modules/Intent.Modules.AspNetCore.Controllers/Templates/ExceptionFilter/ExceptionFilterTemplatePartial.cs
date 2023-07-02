@@ -30,19 +30,14 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
             .AddUsing("System.Diagnostics")
             .AddUsing("Microsoft.AspNetCore.Mvc")
             .AddUsing("Microsoft.AspNetCore.Mvc.Filters")
-            .AddUsing("Microsoft.Extensions.Hosting")
             .AddClass($"ExceptionFilter", @class =>
             {
                 @class.ImplementsInterface("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter");
-                @class.AddConstructor(ctor => ctor
-                    .AddParameter("IHostEnvironment", "environment", param => param
-                        .IntroduceReadonlyField()));
                 @class.AddMethod("void", "OnException", method =>
                 {
                     method.AddParameter("ExceptionContext", "context");
                     method.AddSwitchStatement("context.Exception",
                         stmt => stmt.AddMetadata("exception-switch", true));
-                    method.AddStatements("context.ExceptionHandled = true;");
                 });
             })
             .AddClass("ProblemDetailsExtensions", @class =>
@@ -83,6 +78,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                     .AddArgument("new ValidationProblemDetails(context.ModelState)")
                     .WithoutSemicolon())
                 .AddInvocationStatement(".AddContextInformation", stmt => stmt.AddArgument("context"))
+                .AddStatement("context.ExceptionHandled = true;")
                 .WithBreak());
         }
 
@@ -92,6 +88,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
         {
             switchStatement.AddCase(GetTypeName(forbidException),
                 block => block.AddStatement("context.Result = new ForbidResult();")
+                    .AddStatement("context.ExceptionHandled = true;")
                     .WithBreak());
         }
 
@@ -105,18 +102,9 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                         .AddInitStatement("Detail", "exception.Message"))
                     .WithoutSemicolon())
                 .AddInvocationStatement(".AddContextInformation", stmt => stmt.AddArgument("context"))
+                .AddStatement("context.ExceptionHandled = true;")
                 .WithBreak());
         }
-
-        switchStatement.AddDefault(block => block
-            .AddInvocationStatement("context.Result = new ObjectResult", invoke => invoke
-                .AddArgument(new CSharpObjectInitializerBlock("new ProblemDetails")
-                    .AddInitStatement("Detail", "_environment.IsDevelopment() ? context.Exception.ToString() : null")
-                    .AddInitStatement("Status", "500")
-                    .AddInitStatement("Title", @"""Internal Server Error"""))
-                .WithoutSemicolon())
-            .AddInvocationStatement(".AddContextInformation", stmt => stmt.AddArgument("context"))
-            .WithBreak());
     }
 
     private static CSharpSwitchStatement GetExceptionSwitchStatement(CSharpClass priClass)

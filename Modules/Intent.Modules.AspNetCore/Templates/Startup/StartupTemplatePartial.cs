@@ -69,10 +69,9 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                             method.AddParameter("IApplicationBuilder", "app");
                             method.AddParameter("IWebHostEnvironment", "env");
 
-                            method.AddStatement(@"if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }");
+                            method.AddIfStatement("env.IsDevelopment()", s => s
+                                .AddStatement("app.UseDeveloperExceptionPage();"));
+
                             method.AddStatements(GetApplicationConfigurations(), s => s.FirstOrDefault()?.SeparatedFromPrevious());
                         });
                     });
@@ -176,6 +175,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private IEnumerable<CSharpStatement> GetApplicationConfigurations()
         {
             var appConfigElements = new List<(CSharpStatement Code, int Priority)>();
+            appConfigElements.Add(("app.UseExceptionHandler();", -40));
             appConfigElements.Add(("app.UseHttpsRedirection();", -30));
             appConfigElements.Add(("app.UseRouting();", -20));
             appConfigElements.Add(("app.UseAuthorization();", -5));
