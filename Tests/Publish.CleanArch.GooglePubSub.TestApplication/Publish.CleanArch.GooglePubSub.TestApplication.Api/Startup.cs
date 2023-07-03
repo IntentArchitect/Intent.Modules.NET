@@ -41,6 +41,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
             services.AddOptions();
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -54,6 +55,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

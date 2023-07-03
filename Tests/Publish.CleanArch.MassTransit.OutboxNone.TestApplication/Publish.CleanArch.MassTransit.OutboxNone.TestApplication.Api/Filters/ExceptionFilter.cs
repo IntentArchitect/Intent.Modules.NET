@@ -25,9 +25,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Filters
                     }
                     context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
                     .AddContextInformation(context);
+                    context.ExceptionHandled = true;
                     break;
                 case ForbiddenAccessException:
                     context.Result = new ForbidResult();
+                    context.ExceptionHandled = true;
                     break;
                 case NotFoundException exception:
                     context.Result = new NotFoundObjectResult(new ProblemDetails
@@ -35,6 +37,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Filters
                         Detail = exception.Message
                     })
                     .AddContextInformation(context);
+                    context.ExceptionHandled = true;
                     break;
             }
         }
@@ -49,7 +52,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Filters
                 return objectResult;
             }
             problemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
-            problemDetails.Type = "https://httpstatuses.io/" + objectResult.StatusCode;
+            problemDetails.Type = "https://httpstatuses.io/" + (objectResult.StatusCode ?? problemDetails.Status);
             return objectResult;
         }
     }

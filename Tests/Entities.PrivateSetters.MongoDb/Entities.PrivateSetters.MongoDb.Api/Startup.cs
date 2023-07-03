@@ -38,6 +38,7 @@ namespace Entities.PrivateSetters.MongoDb.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -50,6 +51,7 @@ namespace Entities.PrivateSetters.MongoDb.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

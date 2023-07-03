@@ -46,7 +46,7 @@ namespace CosmosDB.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateInvoice(
             [FromBody] CreateInvoiceCommand command,
             CancellationToken cancellationToken = default)
@@ -63,7 +63,7 @@ namespace CosmosDB.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateInvoiceLineItem(
             [FromRoute] string invoiceId,
             [FromBody] CreateInvoiceLineItemCommand command,
@@ -85,7 +85,7 @@ namespace CosmosDB.Api.Controllers
         [HttpDelete("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] string id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteInvoiceCommand(id: id), cancellationToken);
@@ -99,7 +99,7 @@ namespace CosmosDB.Api.Controllers
         [HttpDelete("api/invoices/{invoiceId}/line-items/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoiceLineItem(
             [FromRoute] string invoiceId,
             [FromRoute] string id,
@@ -116,7 +116,7 @@ namespace CosmosDB.Api.Controllers
         [HttpPut("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoice(
             [FromRoute] string id,
             [FromBody] UpdateInvoiceCommand command,
@@ -138,7 +138,7 @@ namespace CosmosDB.Api.Controllers
         [HttpPut("api/invoices/{invoiceId}/line-items/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoiceLineItem(
             [FromRoute] string invoiceId,
             [FromRoute] string id,
@@ -167,7 +167,7 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(InvoiceDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<InvoiceDto>> GetInvoiceById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -185,7 +185,7 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(InvoiceLineItemDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<InvoiceLineItemDto>> GetInvoiceLineItemById(
             [FromRoute] string invoiceId,
             [FromRoute] string id,
@@ -202,7 +202,7 @@ namespace CosmosDB.Api.Controllers
         [HttpGet("api/invoices/{invoiceId}/line-items")]
         [ProducesResponseType(typeof(List<InvoiceLineItemDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<InvoiceLineItemDto>>> GetInvoiceLineItems(
             [FromRoute] string invoiceId,
             CancellationToken cancellationToken = default)
@@ -216,7 +216,7 @@ namespace CosmosDB.Api.Controllers
         /// <response code="200">Returns the specified List&lt;InvoiceDto&gt;.</response>
         [HttpGet("api/invoices")]
         [ProducesResponseType(typeof(List<InvoiceDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<InvoiceDto>>> GetInvoices(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoicesQuery(), cancellationToken);

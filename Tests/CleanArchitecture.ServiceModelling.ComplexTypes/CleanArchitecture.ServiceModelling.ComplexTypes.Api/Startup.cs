@@ -40,6 +40,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api
                 });
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -54,6 +55,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

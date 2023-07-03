@@ -40,6 +40,7 @@ namespace MassTransit.RabbitMQ.Api
                 });
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -53,6 +54,7 @@ namespace MassTransit.RabbitMQ.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

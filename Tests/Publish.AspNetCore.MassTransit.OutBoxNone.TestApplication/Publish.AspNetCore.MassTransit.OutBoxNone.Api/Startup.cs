@@ -39,6 +39,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -52,6 +53,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

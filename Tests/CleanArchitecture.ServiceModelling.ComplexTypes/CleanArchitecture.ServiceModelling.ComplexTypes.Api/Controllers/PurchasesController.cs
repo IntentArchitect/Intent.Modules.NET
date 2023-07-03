@@ -40,7 +40,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(PurchaseDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PurchaseDto>> CreatePurchase(
             [FromBody] CreatePurchaseCommand command,
             CancellationToken cancellationToken = default)
@@ -56,7 +56,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpDelete("api/purchases/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeletePurchase([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeletePurchaseCommand(id: id), cancellationToken);
@@ -70,7 +70,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpPut("api/purchases/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdatePurchase(
             [FromRoute] Guid id,
             [FromBody] UpdatePurchaseCommand command,
@@ -94,7 +94,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [ProducesResponseType(typeof(PurchaseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PurchaseDto>> GetPurchaseById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -108,7 +108,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// <response code="200">Returns the specified List&lt;PurchaseDto&gt;.</response>
         [HttpGet("api/purchases")]
         [ProducesResponseType(typeof(List<PurchaseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<PurchaseDto>>> GetPurchases(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetPurchasesQuery(), cancellationToken);

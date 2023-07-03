@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/request-suffix-queries-without-type/my")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> My(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new MyRequest(), cancellationToken);

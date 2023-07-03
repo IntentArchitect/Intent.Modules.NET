@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         [HttpPost("api/request-suffix-commands-with-type/my")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> My(CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new MyCommandRequest(), cancellationToken);
@@ -44,7 +44,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         [HttpPost("api/request-suffix-commands-with-type/my-request")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MyRequest(CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new MyRequestCommand(), cancellationToken);

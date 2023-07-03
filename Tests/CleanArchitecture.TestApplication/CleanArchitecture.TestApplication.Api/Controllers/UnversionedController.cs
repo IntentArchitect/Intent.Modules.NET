@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPost("api/unversioned/test")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Test([FromBody] TestCommand command, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(command, cancellationToken);
@@ -49,12 +49,10 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<int>> Test(
-            [FromBody] TestQuery query,
-            CancellationToken cancellationToken = default)
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<int>> Test([FromQuery] string value, CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await _mediator.Send(new TestQuery(value: value), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
     }

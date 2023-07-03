@@ -37,7 +37,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         [HttpPost("operation-for-version-one")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("1.0")]
         public async Task<ActionResult> OperationForVersionOne(CancellationToken cancellationToken = default)
         {
@@ -56,7 +56,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         /// <response code="201">Successfully created.</response>
         [HttpPost("operation-for-version-two")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("2.0")]
         public async Task<ActionResult> OperationForVersionTwo(CancellationToken cancellationToken = default)
         {

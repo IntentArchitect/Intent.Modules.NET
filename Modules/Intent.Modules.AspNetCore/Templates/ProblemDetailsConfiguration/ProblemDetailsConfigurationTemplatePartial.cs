@@ -23,6 +23,10 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         public ProblemDetailsConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Diagnostics")
                 .AddClass($"ProblemDetailsConfiguration", @class =>
                 {
                     @class.Static();

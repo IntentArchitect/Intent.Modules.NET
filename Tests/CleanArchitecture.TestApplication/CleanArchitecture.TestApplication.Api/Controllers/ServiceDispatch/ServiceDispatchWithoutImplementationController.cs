@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [HttpPost("mutation-param")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -56,7 +56,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// <response code="201">Successfully created.</response>
         [HttpPost("mutation-async")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationAsync(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -76,7 +76,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [HttpPost("mutation-async-param")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MutationAsync(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -98,7 +98,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> Query(
             [FromQuery] string param,
             CancellationToken cancellationToken = default)
@@ -115,7 +115,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [HttpGet("query")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> Query(CancellationToken cancellationToken = default)
         {
             var result = default(string);
@@ -130,7 +130,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [HttpGet("query-async")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> QueryAsync(CancellationToken cancellationToken = default)
         {
             var result = default(string);
@@ -147,7 +147,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> QueryAsync(
             [FromQuery] string param,
             CancellationToken cancellationToken = default)
@@ -162,7 +162,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// <response code="201">Successfully created.</response>
         [HttpPost("mutation")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,

@@ -39,6 +39,7 @@ namespace Standard.AspNetCore.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -53,6 +54,7 @@ namespace Standard.AspNetCore.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

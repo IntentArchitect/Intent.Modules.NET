@@ -37,7 +37,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create(
             [FromBody] CreateInvoiceDto dto,
             CancellationToken cancellationToken = default)
@@ -57,7 +57,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api.Controllers
         /// <response code="200">Returns the specified List&lt;InvoiceDto&gt;.</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<InvoiceDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<InvoiceDto>>> GetAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<InvoiceDto>);

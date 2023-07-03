@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPost("api/v{version:apiVersion}/versioned/test-command")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("1.0")]
         public async Task<ActionResult> TestCommandV1(
             [FromBody] TestCommandV1 command,
@@ -55,7 +55,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPost("api/v{version:apiVersion}/versioned/test-command")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("2.0")]
         public async Task<ActionResult> TestCommandV2(
             [FromBody] TestCommandV2 command,
@@ -74,13 +74,13 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("1.0")]
         public async Task<ActionResult<int>> TestQueryV1(
-            [FromBody] TestQueryV1 query,
+            [FromQuery] string value,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await _mediator.Send(new TestQueryV1(value: value), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -93,13 +93,13 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [MapToApiVersion("2.0")]
         public async Task<ActionResult<int>> TestQueryV2(
-            [FromBody] TestQueryV2 query,
+            [FromQuery] string value,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await _mediator.Send(new TestQueryV2(value: value), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
     }

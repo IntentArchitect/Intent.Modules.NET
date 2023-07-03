@@ -22,6 +22,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Filters
                         Detail = exception.Message
                     })
                     .AddContextInformation(context);
+                    context.ExceptionHandled = true;
                     break;
             }
         }
@@ -36,7 +37,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Filters
                 return objectResult;
             }
             problemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
-            problemDetails.Type = "https://httpstatuses.io/" + objectResult.StatusCode;
+            problemDetails.Type = "https://httpstatuses.io/" + (objectResult.StatusCode ?? problemDetails.Status);
             return objectResult;
         }
     }

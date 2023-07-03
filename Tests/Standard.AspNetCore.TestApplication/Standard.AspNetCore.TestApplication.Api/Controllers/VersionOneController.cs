@@ -38,7 +38,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [HttpPost("operation-for-version-one/{param}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> OperationForVersionOne(
             [FromRoute] string param,
             CancellationToken cancellationToken = default)

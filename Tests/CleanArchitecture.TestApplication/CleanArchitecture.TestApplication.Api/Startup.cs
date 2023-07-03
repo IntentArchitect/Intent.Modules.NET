@@ -42,6 +42,7 @@ namespace CleanArchitecture.TestApplication.Api
                 });
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -56,6 +57,7 @@ namespace CleanArchitecture.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

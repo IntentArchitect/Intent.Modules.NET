@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateAggregateRoot(
             [FromBody] CreateAggregateRootCommand command,
             CancellationToken cancellationToken = default)
@@ -63,7 +63,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
@@ -85,7 +85,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpDelete("api/aggregate-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateRoot(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -101,7 +101,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpDelete("api/aggregate-roots/{aggregateRootId}/CompositeManyBS/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
@@ -118,7 +118,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPut("api/aggregate-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateAggregateRoot(
             [FromRoute] Guid id,
             [FromBody] UpdateAggregateRootCommand command,
@@ -140,7 +140,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPut("api/aggregate-roots/{aggregateRootId}/CompositeManyBS/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
@@ -169,7 +169,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(AggregateRootDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateRootDto>> GetAggregateRootById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -187,7 +187,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(AggregateRootCompositeManyBDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateRootCompositeManyBDto>> GetAggregateRootCompositeManyBById(
             [FromRoute] Guid aggregateRootId,
             [FromRoute] Guid id,
@@ -204,7 +204,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/aggregate-roots/{aggregateRootId}/CompositeManyBS")]
         [ProducesResponseType(typeof(List<AggregateRootCompositeManyBDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<AggregateRootCompositeManyBDto>>> GetAggregateRootCompositeManyBS(
             [FromRoute] Guid aggregateRootId,
             CancellationToken cancellationToken = default)
@@ -218,7 +218,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;AggregateRootDto&gt;.</response>
         [HttpGet("api/aggregate-roots")]
         [ProducesResponseType(typeof(List<AggregateRootDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<AggregateRootDto>>> GetAggregateRoots(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootsQuery(), cancellationToken);

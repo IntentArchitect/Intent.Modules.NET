@@ -42,7 +42,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpPut("api/customer-riches/{id}/change-address")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ChangeAddress(
             [FromRoute] Guid id,
             [FromBody] ChangeAddressCommand command,
@@ -64,7 +64,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpPut("api/customer-riches/{id}/check-result")]
         [ProducesResponseType(typeof(CheckAddressDCDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CheckAddressDCDto>> CheckResult(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -81,7 +81,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateCustomerRich(
             [FromBody] CreateCustomerRichCommand command,
             CancellationToken cancellationToken = default)
@@ -98,7 +98,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpDelete("api/customer-riches/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomerRich(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -114,7 +114,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpPut("api/customer-riches/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomerRich(
             [FromRoute] Guid id,
             [FromBody] UpdateCustomerRichCommand command,
@@ -138,7 +138,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [ProducesResponseType(typeof(CustomerRichDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CustomerRichDto>> GetCustomerRichById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -152,7 +152,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// <response code="200">Returns the specified List&lt;CustomerRichDto&gt;.</response>
         [HttpGet("api/customer-riches")]
         [ProducesResponseType(typeof(List<CustomerRichDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<CustomerRichDto>>> GetCustomerRiches(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerRichesQuery(), cancellationToken);

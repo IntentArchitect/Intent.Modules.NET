@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPost("api/aggregate-test-no-id-returns")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> CreateAggregateTestNoIdReturn(
             [FromBody] CreateAggregateTestNoIdReturnCommand command,
             CancellationToken cancellationToken = default)
@@ -54,7 +54,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpDelete("api/aggregate-test-no-id-returns/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateTestNoIdReturn(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -70,7 +70,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPut("api/aggregate-test-no-id-returns/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateAggregateTestNoIdReturn(
             [FromRoute] Guid id,
             [FromBody] UpdateAggregateTestNoIdReturnCommand command,
@@ -94,7 +94,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(AggregateTestNoIdReturnDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AggregateTestNoIdReturnDto>> GetAggregateTestNoIdReturnById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -108,7 +108,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;AggregateTestNoIdReturnDto&gt;.</response>
         [HttpGet("api/aggregate-test-no-id-returns")]
         [ProducesResponseType(typeof(List<AggregateTestNoIdReturnDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<AggregateTestNoIdReturnDto>>> GetAggregateTestNoIdReturns(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateTestNoIdReturnsQuery(), cancellationToken);

@@ -41,7 +41,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateClient(
             [FromBody] CreateClientCommand command,
             CancellationToken cancellationToken = default)
@@ -57,7 +57,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [HttpDelete("api/clients/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClient([FromRoute] string id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteClientCommand(id: id), cancellationToken);
@@ -71,7 +71,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [HttpPut("api/clients/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateClient(
             [FromRoute] string id,
             [FromBody] UpdateClientCommand command,
@@ -95,7 +95,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClientDto>> GetClientById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -109,7 +109,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// <response code="200">Returns the specified List&lt;ClientDto&gt;.</response>
         [HttpGet("api/clients")]
         [ProducesResponseType(typeof(List<ClientDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ClientDto>>> GetClients(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientsQuery(), cancellationToken);

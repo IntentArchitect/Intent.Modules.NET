@@ -12,7 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Test
     {
         Task TestCommandV1Async(TestCommandV1 command, CancellationToken cancellationToken = default);
         Task TestCommandV2Async(TestCommandV2 command, CancellationToken cancellationToken = default);
-        Task<int> TestQueryV1Async(TestQueryV1 query, CancellationToken cancellationToken = default);
-        Task<int> TestQueryV2Async(TestQueryV2 query, CancellationToken cancellationToken = default);
+        Task<int> TestQueryV1Async(string value, CancellationToken cancellationToken = default);
+        Task<int> TestQueryV2Async(string value, CancellationToken cancellationToken = default);
     }
 }

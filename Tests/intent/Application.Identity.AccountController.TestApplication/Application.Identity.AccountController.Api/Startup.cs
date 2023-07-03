@@ -42,6 +42,7 @@ namespace Application.Identity.AccountController.Api
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureIdentity();
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
             services.AddTransient<IAccountEmailSender, AccountEmailSender>();
@@ -56,6 +57,7 @@ namespace Application.Identity.AccountController.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

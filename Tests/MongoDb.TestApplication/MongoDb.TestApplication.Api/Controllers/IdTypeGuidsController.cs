@@ -41,7 +41,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateIdTypeGuid(
             [FromBody] IdTypeGuidCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -62,7 +62,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(IdTypeGuidDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IdTypeGuidDto>> FindIdTypeGuidById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -77,7 +77,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;IdTypeGuidDto&gt;.</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<IdTypeGuidDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<IdTypeGuidDto>>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
             var result = default(List<IdTypeGuidDto>);
@@ -92,7 +92,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateIdTypeGuid(
             [FromRoute] Guid id,
             [FromBody] IdTypeGuidUpdateDto dto,
@@ -111,7 +111,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteIdTypeGuid(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)

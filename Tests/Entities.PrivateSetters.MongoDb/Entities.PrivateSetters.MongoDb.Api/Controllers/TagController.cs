@@ -36,7 +36,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create([FromBody] CreateTagDto dto, CancellationToken cancellationToken = default)
         {
             await _appService.Create(dto, cancellationToken);
@@ -49,7 +49,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         /// <response code="200">Returns the specified List&lt;TagDto&gt;.</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<TagDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<TagDto>>> GetAll(CancellationToken cancellationToken = default)
         {
             var result = default(List<TagDto>);

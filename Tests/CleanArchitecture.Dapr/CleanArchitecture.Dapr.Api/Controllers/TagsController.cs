@@ -41,7 +41,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateTag(
             [FromBody] CreateTagCommand command,
             CancellationToken cancellationToken = default)
@@ -57,7 +57,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [HttpDelete("api/tags/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteTag([FromRoute] string id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteTagCommand(id: id), cancellationToken);
@@ -71,7 +71,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [HttpPut("api/tags/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateTag(
             [FromRoute] string id,
             [FromBody] UpdateTagCommand command,
@@ -95,7 +95,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [ProducesResponseType(typeof(TagDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<TagDto>> GetTagById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -109,7 +109,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// <response code="200">Returns the specified List&lt;TagDto&gt;.</response>
         [HttpGet("api/tags")]
         [ProducesResponseType(typeof(List<TagDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<TagDto>>> GetTags(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetTagsQuery(), cancellationToken);

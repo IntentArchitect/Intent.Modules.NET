@@ -41,6 +41,7 @@ namespace GraphQL.CQRS.TestApplication.Api
             services.ConfigureCors();
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
             services.ConfigureGraphQL();
@@ -55,13 +56,13 @@ namespace GraphQL.CQRS.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseWebSockets();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

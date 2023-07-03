@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRoot(
             [FromBody] CreateImplicitKeyAggrRootCommand command,
             CancellationToken cancellationToken = default)
@@ -63,7 +63,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromBody] CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
@@ -85,7 +85,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpDelete("api/implicit-key-aggr-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteImplicitKeyAggrRoot(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -101,7 +101,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpDelete("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
@@ -118,7 +118,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPut("api/implicit-key-aggr-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateImplicitKeyAggrRoot(
             [FromRoute] Guid id,
             [FromBody] UpdateImplicitKeyAggrRootCommand command,
@@ -140,7 +140,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpPut("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
@@ -169,7 +169,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ImplicitKeyAggrRootDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ImplicitKeyAggrRootDto>> GetImplicitKeyAggrRootById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -187,7 +187,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ImplicitKeyAggrRootImplicitKeyNestedCompositionDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>> GetImplicitKeyAggrRootImplicitKeyNestedCompositionById(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromRoute] Guid id,
@@ -204,7 +204,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [HttpGet("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions")]
         [ProducesResponseType(typeof(List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>>> GetImplicitKeyAggrRootImplicitKeyNestedCompositions(
             [FromRoute] Guid implicitKeyAggrRootId,
             CancellationToken cancellationToken = default)
@@ -218,7 +218,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;ImplicitKeyAggrRootDto&gt;.</response>
         [HttpGet("api/implicit-key-aggr-roots")]
         [ProducesResponseType(typeof(List<ImplicitKeyAggrRootDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ImplicitKeyAggrRootDto>>> GetImplicitKeyAggrRoots(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootsQuery(), cancellationToken);

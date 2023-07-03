@@ -41,7 +41,7 @@ namespace CosmosDB.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateClassContainer(
             [FromBody] CreateClassContainerCommand command,
             CancellationToken cancellationToken = default)
@@ -57,7 +57,7 @@ namespace CosmosDB.Api.Controllers
         [HttpDelete("api/class-containers/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClassContainer(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -73,7 +73,7 @@ namespace CosmosDB.Api.Controllers
         [HttpPut("api/class-containers/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateClassContainer(
             [FromRoute] string id,
             [FromBody] UpdateClassContainerCommand command,
@@ -97,7 +97,7 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(ClassContainerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClassContainerDto>> GetClassContainerById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -111,7 +111,7 @@ namespace CosmosDB.Api.Controllers
         /// <response code="200">Returns the specified List&lt;ClassContainerDto&gt;.</response>
         [HttpGet("api/class-containers")]
         [ProducesResponseType(typeof(List<ClassContainerDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ClassContainerDto>>> GetClassContainers(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClassContainersQuery(), cancellationToken);

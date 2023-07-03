@@ -69,14 +69,15 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<int> TestQueryV1Async(TestQueryV1 query, CancellationToken cancellationToken = default)
+        public async Task<int> TestQueryV1Async(string value, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v1/versioned/test-query";
+
+            var queryParams = new Dictionary<string, string>();
+            queryParams.Add("value", value);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var content = JsonSerializer.Serialize(query, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -98,14 +99,15 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<int> TestQueryV2Async(TestQueryV2 query, CancellationToken cancellationToken = default)
+        public async Task<int> TestQueryV2Async(string value, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v2/versioned/test-query";
+
+            var queryParams = new Dictionary<string, string>();
+            queryParams.Add("value", value);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var content = JsonSerializer.Serialize(query, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

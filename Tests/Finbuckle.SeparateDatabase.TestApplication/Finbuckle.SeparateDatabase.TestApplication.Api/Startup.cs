@@ -39,6 +39,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
             services.ConfigureMultiTenancy(Configuration);
@@ -53,6 +54,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseMultiTenancy();

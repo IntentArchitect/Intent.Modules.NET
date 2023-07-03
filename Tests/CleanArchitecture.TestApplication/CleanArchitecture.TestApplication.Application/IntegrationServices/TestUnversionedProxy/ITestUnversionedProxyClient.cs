@@ -11,6 +11,6 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Test
     public interface ITestUnversionedProxyClient : IDisposable
     {
         Task TestAsync(TestCommand command, CancellationToken cancellationToken = default);
-        Task<int> TestAsync(TestQuery query, CancellationToken cancellationToken = default);
+        Task<int> TestAsync(string value, CancellationToken cancellationToken = default);
     }
 }

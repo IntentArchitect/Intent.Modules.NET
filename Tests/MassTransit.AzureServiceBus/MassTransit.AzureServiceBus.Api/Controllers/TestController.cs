@@ -33,7 +33,7 @@ namespace MassTransit.AzureServiceBus.Api.Controllers
         [HttpPost("api/test/send")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> SendTest(
             [FromBody] SendTestCommand command,
             CancellationToken cancellationToken = default)

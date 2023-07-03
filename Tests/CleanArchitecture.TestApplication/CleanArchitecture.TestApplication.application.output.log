@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
@@ -2476,14 +2484,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#cc943c54-9c24-4cb1-b751-170041190cf2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestUnversionedProxy/TestQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestUnversionedProxy/TestQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/ITestVersionedProxyClient.cs</ApplicationRelativeFilePath>
@@ -2504,22 +2504,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestCommandV2.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestVersionedProxy/TestCommandV2.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#d92ce9a4-87dd-4fab-9d1e-107989091fcb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestQueryV1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestVersionedProxy/TestQueryV1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9c1bd072-c6db-46b5-ba90-59fadf19d25a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestQueryV2.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestVersionedProxy/TestQueryV2.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

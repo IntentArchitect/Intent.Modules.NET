@@ -42,6 +42,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
             services.AddDaprSidekick(Configuration);
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddDaprServices();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -57,6 +58,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
 
             app.UseCloudEvents();
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

@@ -40,6 +40,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api
                 });
             services.AddOptions();
             services.AddApplication();
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -53,6 +54,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

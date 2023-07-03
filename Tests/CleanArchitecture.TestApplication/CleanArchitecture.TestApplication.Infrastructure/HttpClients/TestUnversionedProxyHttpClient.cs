@@ -51,14 +51,15 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<int> TestAsync(TestQuery query, CancellationToken cancellationToken = default)
+        public async Task<int> TestAsync(string value, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/unversioned/test";
+
+            var queryParams = new Dictionary<string, string>();
+            queryParams.Add("value", value);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var content = JsonSerializer.Serialize(query, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

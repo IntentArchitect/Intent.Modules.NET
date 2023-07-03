@@ -19,6 +19,7 @@ namespace Application.Identity.Jwt.TestApplication.Api.Filters
             {
                 case ForbiddenAccessException:
                     context.Result = new ForbidResult();
+                    context.ExceptionHandled = true;
                     break;
                 case NotFoundException exception:
                     context.Result = new NotFoundObjectResult(new ProblemDetails
@@ -26,6 +27,7 @@ namespace Application.Identity.Jwt.TestApplication.Api.Filters
                         Detail = exception.Message
                     })
                     .AddContextInformation(context);
+                    context.ExceptionHandled = true;
                     break;
             }
         }
@@ -40,7 +42,7 @@ namespace Application.Identity.Jwt.TestApplication.Api.Filters
                 return objectResult;
             }
             problemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
-            problemDetails.Type = "https://httpstatuses.io/" + objectResult.StatusCode;
+            problemDetails.Type = "https://httpstatuses.io/" + (objectResult.StatusCode ?? problemDetails.Status);
             return objectResult;
         }
     }

@@ -42,6 +42,7 @@ namespace CleanArchitecture.Dapr.Api
             services.AddDaprSidekick(Configuration);
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
@@ -55,6 +56,7 @@ namespace CleanArchitecture.Dapr.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

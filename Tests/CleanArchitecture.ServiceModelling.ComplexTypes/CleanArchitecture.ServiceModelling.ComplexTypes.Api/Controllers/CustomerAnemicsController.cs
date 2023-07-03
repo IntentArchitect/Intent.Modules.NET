@@ -41,7 +41,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> CreateCustomerAnemic(
             [FromBody] CreateCustomerAnemicCommand command,
             CancellationToken cancellationToken = default)
@@ -57,7 +57,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpDelete("api/customer-anemics/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomerAnemic(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -73,7 +73,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [HttpPut("api/customer-anemics/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomerAnemic(
             [FromRoute] Guid id,
             [FromBody] UpdateCustomerAnemicCommand command,
@@ -97,7 +97,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [ProducesResponseType(typeof(CustomerAnemicDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CustomerAnemicDto>> GetCustomerAnemicById(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
@@ -111,7 +111,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// <response code="200">Returns the specified List&lt;CustomerAnemicDto&gt;.</response>
         [HttpGet("api/customer-anemics")]
         [ProducesResponseType(typeof(List<CustomerAnemicDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<CustomerAnemicDto>>> GetCustomerAnemics(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerAnemicsQuery(), cancellationToken);

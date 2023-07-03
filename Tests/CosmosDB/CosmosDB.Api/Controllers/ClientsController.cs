@@ -41,7 +41,7 @@ namespace CosmosDB.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateClient(
             [FromBody] CreateClientCommand command,
             CancellationToken cancellationToken = default)
@@ -57,12 +57,12 @@ namespace CosmosDB.Api.Controllers
         [HttpDelete("api/clients")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClient(
-            [FromBody] DeleteClientCommand command,
+            [FromQuery] string identifier,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteClientCommand(identifier: identifier), cancellationToken);
             return Ok();
         }
 
@@ -73,7 +73,7 @@ namespace CosmosDB.Api.Controllers
         [HttpPut("api/clients")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateClient(
             [FromBody] UpdateClientCommand command,
             CancellationToken cancellationToken = default)
@@ -91,12 +91,12 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClientDto>> GetClientById(
-            [FromBody] GetClientByIdQuery query,
+            [FromQuery] string identifier,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await _mediator.Send(new GetClientByIdQuery(identifier: identifier), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -105,7 +105,7 @@ namespace CosmosDB.Api.Controllers
         /// <response code="200">Returns the specified List&lt;ClientDto&gt;.</response>
         [HttpGet("api/clients")]
         [ProducesResponseType(typeof(List<ClientDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ClientDto>>> GetClients(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientsQuery(), cancellationToken);

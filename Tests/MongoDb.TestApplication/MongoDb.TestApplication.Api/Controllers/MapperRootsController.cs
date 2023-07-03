@@ -41,7 +41,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateMapperRoot(
             [FromBody] MapperRootCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -62,7 +62,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(MapperRootDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<MapperRootDto>> FindMapperRootById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -77,7 +77,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;MapperRootDto&gt;.</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<MapperRootDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<MapperRootDto>>> FindMapperRoots(CancellationToken cancellationToken = default)
         {
             var result = default(List<MapperRootDto>);
@@ -92,7 +92,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateMapperRoot(
             [FromRoute] string id,
             [FromBody] MapperRootUpdateDto dto,
@@ -111,7 +111,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteMapperRoot(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)

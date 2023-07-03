@@ -40,6 +40,7 @@ namespace GraphQL.MongoDb.TestApplication.Api
                 });
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureGraphQL();
         }
@@ -53,6 +54,7 @@ namespace GraphQL.MongoDb.TestApplication.Api
             }
 
             app.UseSerilogRequestLogging();
+            app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

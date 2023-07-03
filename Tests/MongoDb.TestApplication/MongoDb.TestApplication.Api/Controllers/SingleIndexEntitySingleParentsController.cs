@@ -41,7 +41,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> CreateSingleIndexEntitySingleParent(
             [FromBody] SingleIndexEntitySingleParentCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -62,7 +62,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(SingleIndexEntitySingleParentDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<SingleIndexEntitySingleParentDto>> FindSingleIndexEntitySingleParentById(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
@@ -77,7 +77,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified List&lt;SingleIndexEntitySingleParentDto&gt;.</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<SingleIndexEntitySingleParentDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<SingleIndexEntitySingleParentDto>>> FindSingleIndexEntitySingleParents(CancellationToken cancellationToken = default)
         {
             var result = default(List<SingleIndexEntitySingleParentDto>);
@@ -92,7 +92,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateSingleIndexEntitySingleParent(
             [FromRoute] string id,
             [FromBody] SingleIndexEntitySingleParentUpdateDto dto,
@@ -111,7 +111,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteSingleIndexEntitySingleParent(
             [FromRoute] string id,
             CancellationToken cancellationToken = default)
