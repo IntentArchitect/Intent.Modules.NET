@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>5.1.0-pre.0</Version>
+    <Version>5.1.0</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
