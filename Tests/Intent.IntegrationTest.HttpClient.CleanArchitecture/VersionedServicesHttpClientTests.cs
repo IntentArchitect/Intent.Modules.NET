@@ -16,7 +16,6 @@ using Xunit;
 using Xunit.Abstractions;
 using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.TestVersionedProxy.TestCommandV1;
 using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.TestVersionedProxy.TestCommandV2;
-using TestQueryV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.TestVersionedProxy.TestQueryV1;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
@@ -49,7 +48,7 @@ public class VersionedServicesHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<ITestVersionedProxyClient>()!;
-        var result = await service.TestQueryV1Async(new TestQueryV1 { Value = "123" });
+        var result = await service.TestQueryV1Async("123");
         Assert.Equal(123, result);
     }
     
@@ -70,7 +69,7 @@ public class VersionedServicesHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<ITestVersionedProxyClient>()!;
-        var result = await service.TestQueryV2Async(new TestQueryV2 { Value = "123" });
+        var result = await service.TestQueryV2Async("123");
         Assert.Equal(128, result);
     }
 

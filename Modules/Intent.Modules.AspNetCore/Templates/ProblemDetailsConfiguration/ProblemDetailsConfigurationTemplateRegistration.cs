@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -16,6 +17,12 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class ProblemDetailsConfigurationTemplateRegistration : SingleFileTemplateRegistration
     {
+        private readonly IMetadataManager _metadataManager;
+
+        public ProblemDetailsConfigurationTemplateRegistration(IMetadataManager metadataManager)
+        {
+            _metadataManager = metadataManager;
+        }
         public override string TemplateId => ProblemDetailsConfigurationTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)

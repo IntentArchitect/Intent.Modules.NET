@@ -5,7 +5,9 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,10 +25,6 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         public ProblemDetailsConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("Microsoft.Extensions.Hosting")
-                .AddUsing("Microsoft.AspNetCore.Hosting")
-                .AddUsing("Microsoft.AspNetCore.Diagnostics")
                 .AddClass($"ProblemDetailsConfiguration", @class =>
                 {
                     @class.Static();
@@ -34,10 +32,76 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                     {
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
-                        method.AddInvocationStatement("services.AddProblemDetails", addProblemDetails => addProblemDetails
-                                .AddArgument(new CSharpLambdaBlock("conf")
-                                    .WithExpressionBody(new CSharpLambdaBlock("conf.CustomizeProblemDetails = context")
-                                        .AddStatements(@"
+                        if (OutputTarget.GetProject().IsNetApp(6))
+                        {
+                            GetDotNet6Implementation(@class, method);
+                        }
+                        else
+                        {
+                            GetDotNet7AndAboveImplementation(method);
+                        }
+                    });
+                });
+        }
+
+        private void GetDotNet6Implementation(CSharpClass @class, CSharpClassMethod method)
+        {
+            CSharpFile
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Diagnostics")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Microsoft.AspNetCore.Http")
+                .AddUsing("Microsoft.AspNetCore.Mvc")
+                ;
+            @class.AddField(UseType("System.Text.Json.JsonSerializerOptions"), "DefaultOptions", field =>
+            {
+                field.PrivateReadOnly().Static();
+                field.WithAssignment(new CSharpObjectInitializerBlock("new()")
+                    .AddInitStatement("DefaultIgnoreCondition", $"{UseType("System.Text.Json.Serialization.JsonIgnoreCondition")}.Never")
+                    .AddInitStatement("IgnoreReadOnlyFields", "false")
+                    .AddInitStatement("IgnoreReadOnlyProperties", "false")
+                    .AddInitStatement("IncludeFields", "false")
+                    .AddInitStatement("WriteIndented", "false"));
+            });
+            method.AddInvocationStatement("services.AddExceptionHandler", addProblemDetails => addProblemDetails
+                .AddArgument(new CSharpLambdaBlock("conf")
+                    .WithExpressionBody(new CSharpLambdaBlock("conf.ExceptionHandler = context")
+                        .AddStatements(@"
+                        var details = new ProblemDetails
+                        {
+                            Status = context.Response.StatusCode,
+                            Type = $""https://httpstatuses.io/{context.Response.StatusCode}"",
+                            Title = ""Internal Server Error""
+                        };
+                        
+                        var env = context.RequestServices.GetService<IWebHostEnvironment>()!;
+                        var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
+                        if (env.IsDevelopment() && exceptionFeature is not null)
+                        {
+                            details.Detail = exceptionFeature.Error.ToString();
+                        }")
+                        .AddInvocationStatement("return context.Response.WriteAsJsonAsync", inv=>inv
+                            .AddArgument("details")
+                            .AddArgument("DefaultOptions")
+                            .AddArgument(@"contentType: ""application/problem+json"""))
+                    )))
+                .AddStatement("return services;");
+        }
+
+        // .NET 8 might look different: https://anthonygiretti.com/2023/06/14/asp-net-core-8-improved-exception-handling-with-iexceptionhandler/
+        private void GetDotNet7AndAboveImplementation(CSharpClassMethod method)
+        {
+            CSharpFile
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Hosting")
+                .AddUsing("Microsoft.AspNetCore.Diagnostics");
+            method.AddInvocationStatement("services.AddProblemDetails", addProblemDetails => addProblemDetails
+                    .AddArgument(new CSharpLambdaBlock("conf")
+                        .WithExpressionBody(new CSharpLambdaBlock("conf.CustomizeProblemDetails = context")
+                            .AddStatements(@"
                         context.ProblemDetails.Type = $""https://httpstatuses.io/{context.ProblemDetails.Status}"";
                 
                         if (context.ProblemDetails.Status != 500) { return; }
@@ -49,14 +113,28 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                         var exceptionFeature = context.HttpContext.Features.Get<IExceptionHandlerFeature>();
                         if (exceptionFeature is null) { return; }
                         context.ProblemDetails.Detail = exceptionFeature.Error.ToString();")
-                                    )))
-                            .AddStatement("return services;");
-                    });
-                });
+                        )))
+                .AddStatement("return services;");
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return IsExceptionHandlerSupported(OutputTarget);
+        }
+
+        public static bool IsExceptionHandlerSupported(IOutputTarget outputTarget)
+        {
+            var proj = outputTarget.GetProject();
+            return !proj.IsNetCore2App() &&
+                   !proj.IsNetCore3App() &&
+                   !proj.IsNetApp(4) &&
+                   !proj.IsNetApp(5);
         }
 
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate()) { return; }
+            
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureProblemDetails")
                 .HasDependency(this));

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -175,7 +176,11 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private IEnumerable<CSharpStatement> GetApplicationConfigurations()
         {
             var appConfigElements = new List<(CSharpStatement Code, int Priority)>();
-            appConfigElements.Add(("app.UseExceptionHandler();", -40));
+            if (ProblemDetailsConfigurationTemplate.IsExceptionHandlerSupported(OutputTarget))
+            {
+                appConfigElements.Add(("app.UseExceptionHandler();", -40));
+            }
+
             appConfigElements.Add(("app.UseHttpsRedirection();", -30));
             appConfigElements.Add(("app.UseRouting();", -20));
             appConfigElements.Add(("app.UseAuthorization();", -5));

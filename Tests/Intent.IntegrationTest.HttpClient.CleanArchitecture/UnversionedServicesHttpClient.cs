@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
 using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestCommand;
-using TestQuery = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestQuery;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
@@ -45,7 +44,7 @@ public class UnversionedServicesHttpClient
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var service = sp.GetService<ITestUnversionedProxyClient>()!;
-        var result = await service.TestAsync(new TestQuery { Value = "789" });
+        var result = await service.TestAsync("789");
         Assert.Equal(789, result);
     }
     

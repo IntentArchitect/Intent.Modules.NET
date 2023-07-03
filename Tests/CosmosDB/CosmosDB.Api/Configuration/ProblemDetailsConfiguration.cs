@@ -1,6 +1,12 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -11,21 +17,33 @@ namespace CosmosDB.Api.Configuration
 {
     public static class ProblemDetailsConfiguration
     {
+        private readonly static JsonSerializerOptions DefaultOptions = new()
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+            IgnoreReadOnlyFields = false,
+            IgnoreReadOnlyProperties = false,
+            IncludeFields = false,
+            WriteIndented = false
+        };
+
         public static IServiceCollection ConfigureProblemDetails(this IServiceCollection services)
         {
-            services.AddProblemDetails(conf => conf.CustomizeProblemDetails = context =>
+            services.AddExceptionHandler(conf => conf.ExceptionHandler = context =>
             {
-                context.ProblemDetails.Type = $"https://httpstatuses.io/{context.ProblemDetails.Status}";
+                var details = new ProblemDetails
+                {
+                    Status = context.Response.StatusCode,
+                    Type = $"https://httpstatuses.io/{context.Response.StatusCode}",
+                    Title = "Internal Server Error"
+                };
 
-                if (context.ProblemDetails.Status != 500) { return; }
-                context.ProblemDetails.Title = "Internal Server Error";
-
-                var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
-                if (!env.IsDevelopment()) { return; }
-
-                var exceptionFeature = context.HttpContext.Features.Get<IExceptionHandlerFeature>();
-                if (exceptionFeature is null) { return; }
-                context.ProblemDetails.Detail = exceptionFeature.Error.ToString();
+                var env = context.RequestServices.GetService<IWebHostEnvironment>()!;
+                var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
+                if (env.IsDevelopment() && exceptionFeature is not null)
+                {
+                    details.Detail = exceptionFeature.Error.ToString();
+                }
+                return context.Response.WriteAsJsonAsync(details, DefaultOptions, contentType: "application/problem+json");
             });
             return services;
         }
