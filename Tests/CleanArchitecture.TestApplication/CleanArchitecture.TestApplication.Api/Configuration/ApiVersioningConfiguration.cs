@@ -1,6 +1,7 @@
+using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,8 +18,9 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());
-            });
-            services.AddVersionedApiExplorer(options =>
+            })
+            .AddMvc()
+            .AddApiExplorer(options =>
             {
                 options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;

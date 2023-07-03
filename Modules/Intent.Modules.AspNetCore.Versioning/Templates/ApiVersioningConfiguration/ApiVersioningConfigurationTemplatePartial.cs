@@ -22,11 +22,12 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public ApiVersioningConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        AddNugetDependency(NugetPackage.MicrosoftAspNetCoreMvcVersioning);
-        AddNugetDependency(NugetPackage.MicrosoftAspNetCoreMvcVersioningApiExplorer);
+        AddNugetDependency(NugetPackage.AspVersioningMvc(outputTarget));
+        AddNugetDependency(NugetPackage.AspVersioningMvcApiExplorer(outputTarget));
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-            .AddUsing("Microsoft.AspNetCore.Mvc.Versioning")
+            .AddUsing("Asp.Versioning")
+            .AddUsing("Asp.Versioning.ApiExplorer")
             .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddClass($"ApiVersioningConfiguration", @class =>
             {
@@ -34,13 +35,15 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
                 @class.AddMethod("void", "ConfigureApiVersioning", method =>
                 {
                     method.Static();
-                    method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
+                    method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                     method.AddInvocationStatement("services.AddApiVersioning", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("options")
                             .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = true;")
                             .AddStatement($@"options.ReportApiVersions = true;")
-                            .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());")));
-                    method.AddInvocationStatement("services.AddVersionedApiExplorer", stmt => stmt
+                            .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());"))
+                        .WithoutSemicolon());
+                    method.AddStatement(".AddMvc()");
+                    method.AddInvocationStatement(".AddApiExplorer", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("options")
                             .AddStatement($@"options.GroupNameFormat = ""'v'VVV"";")
                             .AddStatement($@"options.SubstituteApiVersionInUrl = true;")));

@@ -36,12 +36,13 @@ public class ControllerInstaller : FactoryExtensionBase
                 var groupedVersions = new HashSet<IApiVersionModel>();
 
                 UpdateControllerActionMethods(@class, groupedVersions);
-                UpdateControllerClass(@class, groupedVersions);
+                UpdateControllerClass(file, @class, groupedVersions);
             });
         }
     }
 
-    private static void UpdateControllerActionMethods(CSharpClass @class, HashSet<IApiVersionModel> groupedVersions)
+    private static void UpdateControllerActionMethods(CSharpClass @class,
+        HashSet<IApiVersionModel> groupedVersions)
     {
         foreach (var method in @class.Methods)
         {
@@ -50,6 +51,7 @@ public class ControllerInstaller : FactoryExtensionBase
             {
                 continue;
             }
+            
             foreach (var version in methodModel.ApplicableVersions)
             {
                 groupedVersions.Add(version);
@@ -63,7 +65,8 @@ public class ControllerInstaller : FactoryExtensionBase
         }
     }
 
-    private static void UpdateControllerClass(CSharpClass @class, HashSet<IApiVersionModel> groupedVersions)
+    private static void UpdateControllerClass(CSharpFile file, CSharpClass @class,
+        HashSet<IApiVersionModel> groupedVersions)
     {
         foreach (var attribute in @class.Attributes.Where(p => p.Name.Contains("{version}")))
         {
@@ -79,6 +82,7 @@ public class ControllerInstaller : FactoryExtensionBase
 
         foreach (var version in groupedVersions)
         {
+            file.AddUsing("Asp.Versioning");
             @class.AddAttribute($@"[ApiVersion(""{version.Version.Replace("v", "", StringComparison.OrdinalIgnoreCase)}""{(version.IsDeprecated?", Deprecated = true" : string.Empty)})]");
         }
     }

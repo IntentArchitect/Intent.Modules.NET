@@ -21,12 +21,12 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ApiVersionSwaggerGenOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackage.MicrosoftAspNetCoreMvcVersioning);
-            AddNugetDependency(NugetPackage.MicrosoftAspNetCoreMvcVersioningApiExplorer);
+            AddNugetDependency(NugetPackage.AspVersioningMvc(outputTarget));
+            AddNugetDependency(NugetPackage.AspVersioningMvcApiExplorer(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.AspNetCore.Mvc")
-                .AddUsing("Microsoft.AspNetCore.Mvc.ApiExplorer")
+                .AddUsing("Asp.Versioning")
+                .AddUsing("Asp.Versioning.ApiExplorer")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddUsing("Microsoft.OpenApi.Models")

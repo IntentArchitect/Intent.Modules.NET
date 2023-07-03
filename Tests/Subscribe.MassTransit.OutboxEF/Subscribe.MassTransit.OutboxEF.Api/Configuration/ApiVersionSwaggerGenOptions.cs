@@ -1,7 +1,7 @@
 using System.Linq;
+using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
