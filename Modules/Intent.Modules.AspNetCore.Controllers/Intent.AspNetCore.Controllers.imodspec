@@ -49,7 +49,7 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.2.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.2.1-pre.0" />
       </install>
     </detect>
   </interoperability>
@@ -58,7 +58,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.37-pre.4" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Metadata.WebApi" version="4.2.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.2.3-pre.1" />
     <dependency id="Intent.Modelers.Services" version="3.4.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

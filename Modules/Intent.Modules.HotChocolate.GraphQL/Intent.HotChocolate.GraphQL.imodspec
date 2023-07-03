@@ -43,7 +43,7 @@
     </detect>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.Dispatch.Services" version="1.0.0" />
+        <package id="Intent.HotChocolate.GraphQL.Dispatch.Services" version="1.0.1-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">

@@ -21,7 +21,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.EntityFrameworkCore" version="4.4.0" />
-    <dependency id="Intent.Eventing.MassTransit" version="5.0.0-pre.0" />
+    <dependency id="Intent.Eventing.MassTransit" version="5.0.0-pre.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

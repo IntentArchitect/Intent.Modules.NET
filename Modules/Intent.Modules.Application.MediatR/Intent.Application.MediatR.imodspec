@@ -70,7 +70,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.3.7" />
+        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.4.4-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">

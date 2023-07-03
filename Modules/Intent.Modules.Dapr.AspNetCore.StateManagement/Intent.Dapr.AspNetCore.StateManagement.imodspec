@@ -82,7 +82,7 @@
   <interoperability>
     <detect id="Intent.Application.Dtos.AutoMapper">
       <install>
-        <package id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.0-alpha.2" />
+        <package id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>
