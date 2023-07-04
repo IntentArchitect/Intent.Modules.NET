@@ -98,7 +98,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     continue;
                                 }
 
-                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name;
+                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
                                 if (!parameter.TypeReference.IsCollection)
                                 {
                                     ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
@@ -143,7 +143,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     continue;
                                 }
 
-                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name;
+                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
                                 if (!parameter.TypeReference.IsCollection)
                                 {
                                     method.AddStatement($"{assignmentTarget} = {parameterName};");

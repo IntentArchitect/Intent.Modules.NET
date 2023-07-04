@@ -1,3 +1,7 @@
+### Version 4.3.3
+
+- Fixed: Constructor and Operation mappings don't respect Pascal-casing of Properties when camel-casing is used in the designer.
+
 ### Version 4.3.2
 
 - Updated code-management instructions to ignore constructor body by default.
