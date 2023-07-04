@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.CreateCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -24,10 +25,12 @@ namespace AzureFunctions.TestApplication.Api
     public class CreateCustomer
     {
         private readonly IMediator _mediator;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomer(IMediator mediator)
+        public CreateCustomer(IMediator mediator, IUnitOfWork unitOfWork)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("CreateCustomer")]
@@ -44,6 +47,7 @@ namespace AzureFunctions.TestApplication.Api
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
                 var result = await _mediator.Send(command, cancellationToken);
+                await _unitOfWork.SaveChangesAsync();
                 return new CreatedResult(string.Empty, result);
             }
             catch (NotFoundException exception)

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +25,12 @@ namespace AzureFunctions.TestApplication.Api
     public class UpdateSampleDomain
     {
         private readonly ISampleDomainsService _appService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateSampleDomain(ISampleDomainsService appService)
+        public UpdateSampleDomain(ISampleDomainsService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("UpdateSampleDomain")]
@@ -45,6 +48,7 @@ namespace AzureFunctions.TestApplication.Api
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var dto = JsonConvert.DeserializeObject<SampleDomainUpdateDto>(requestBody);
                 await _appService.UpdateSampleDomain(id, dto);
+                await _unitOfWork.SaveChangesAsync();
                 return new NoContentResult();
             }
             catch (NotFoundException exception)

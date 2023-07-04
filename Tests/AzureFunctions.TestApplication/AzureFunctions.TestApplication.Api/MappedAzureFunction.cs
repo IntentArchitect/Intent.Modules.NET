@@ -8,6 +8,7 @@ using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
@@ -27,11 +28,13 @@ namespace AzureFunctions.TestApplication.Api
     {
         private readonly ISampleDomainsService _appService;
         private readonly IValidationService _validator;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public MappedAzureFunction(ISampleDomainsService appService, IValidationService validator)
+        public MappedAzureFunction(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("MappedAzureFunction")]
@@ -49,6 +52,7 @@ namespace AzureFunctions.TestApplication.Api
                 var request = JsonConvert.DeserializeObject<SampleMappedRequest>(requestBody);
                 await _validator.Validate(request, default);
                 var result = await _appService.MappedAzureFunction(request);
+                await _unitOfWork.SaveChangesAsync();
                 return new CreatedResult(string.Empty, result);
             }
             catch (ValidationException exception)

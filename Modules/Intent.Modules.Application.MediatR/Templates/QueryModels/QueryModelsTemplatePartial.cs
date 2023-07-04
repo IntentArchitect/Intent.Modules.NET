@@ -24,7 +24,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.QueryModels";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
@@ -83,8 +83,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                 {
                     rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
                 }
-                @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att => 
-                { 
+                @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
+                {
                     foreach (var arg in rolesPolicies)
                     {
                         att.AddArgument(arg);

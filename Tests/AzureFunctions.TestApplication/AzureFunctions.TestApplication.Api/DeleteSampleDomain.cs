@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,10 +23,12 @@ namespace AzureFunctions.TestApplication.Api
     public class DeleteSampleDomain
     {
         private readonly ISampleDomainsService _appService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteSampleDomain(ISampleDomainsService appService)
+        public DeleteSampleDomain(ISampleDomainsService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("DeleteSampleDomain")]
@@ -40,6 +43,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 await _appService.DeleteSampleDomain(id);
+                await _unitOfWork.SaveChangesAsync();
                 return new OkResult();
             }
             catch (NotFoundException exception)

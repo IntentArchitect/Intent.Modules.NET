@@ -96,12 +96,13 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
         private CSharpStatement GetDispatchViaMediatorStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel model)
         {
+            //
             var payload = GetPayloadParameter(model)?.Name
                 ?? GetMappedPayload(template, model);
 
             return model.ReturnType != null
-                ? $"var result = await _mediator.Send({payload}, cancellationToken);"
-                : $@"await _mediator.Send({payload}, cancellationToken);";
+                ? new CSharpStatement($"var result = await _mediator.Send({payload}, cancellationToken);").AddMetadata("service-dispatch-statement", true)
+                : new CSharpStatement($@"await _mediator.Send({payload}, cancellationToken);").AddMetadata("service-dispatch-statement", true);
         }
 
         private IEnumerable<CSharpStatement> GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)

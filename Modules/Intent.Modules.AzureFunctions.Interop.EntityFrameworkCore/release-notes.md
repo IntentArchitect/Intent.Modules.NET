@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed Unit Of Work Save changes being added to Azure Functions.
+
 ### Version 4.1.0
 
 - AzureFunctions will add catch blocks for `NotFoundExceptions` if that Exception is present due to Repository modules being installed.

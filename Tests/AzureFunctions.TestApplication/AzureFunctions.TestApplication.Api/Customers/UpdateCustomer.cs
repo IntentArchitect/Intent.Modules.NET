@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.UpdateCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -24,10 +25,12 @@ namespace AzureFunctions.TestApplication.Api
     public class UpdateCustomer
     {
         private readonly IMediator _mediator;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateCustomer(IMediator mediator)
+        public UpdateCustomer(IMediator mediator, IUnitOfWork unitOfWork)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("UpdateCustomer")]
@@ -49,6 +52,7 @@ namespace AzureFunctions.TestApplication.Api
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });
                 }
                 await _mediator.Send(command, cancellationToken);
+                await _unitOfWork.SaveChangesAsync();
                 return new NoContentResult();
             }
             catch (NotFoundException exception)

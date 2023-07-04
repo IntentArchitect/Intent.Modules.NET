@@ -24,7 +24,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.CommandModels";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                     {
                         foreach (var property in Model.Properties)
                         {
-                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p => 
+                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
                             {
                                 p.IntroduceProperty();
                             });

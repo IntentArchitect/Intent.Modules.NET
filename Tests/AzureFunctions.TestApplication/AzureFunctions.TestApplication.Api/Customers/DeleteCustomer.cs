@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.DeleteCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -23,10 +24,12 @@ namespace AzureFunctions.TestApplication.Api
     public class DeleteCustomer
     {
         private readonly IMediator _mediator;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteCustomer(IMediator mediator)
+        public DeleteCustomer(IMediator mediator, IUnitOfWork unitOfWork)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("DeleteCustomer")]
@@ -41,6 +44,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
+                await _unitOfWork.SaveChangesAsync();
                 return new OkResult();
             }
             catch (NotFoundException exception)
