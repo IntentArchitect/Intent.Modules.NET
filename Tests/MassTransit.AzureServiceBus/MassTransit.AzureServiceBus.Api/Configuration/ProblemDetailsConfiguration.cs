@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,7 @@ namespace MassTransit.AzureServiceBus.Api.Configuration
 
                 if (context.ProblemDetails.Status != 500) { return; }
                 context.ProblemDetails.Title = "Internal Server Error";
+                context.ProblemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
 
                 var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
                 if (!env.IsDevelopment()) { return; }

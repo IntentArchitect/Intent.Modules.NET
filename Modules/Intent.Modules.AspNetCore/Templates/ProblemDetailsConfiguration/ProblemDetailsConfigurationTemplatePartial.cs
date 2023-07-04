@@ -47,6 +47,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         private void GetDotNet6Implementation(CSharpClass @class, CSharpClassMethod method)
         {
             CSharpFile
+                .AddUsing("System.Diagnostics")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.AspNetCore.Hosting")
@@ -75,6 +76,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                             Type = $""https://httpstatuses.io/{context.Response.StatusCode}"",
                             Title = ""Internal Server Error""
                         };
+                        details.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.TraceIdentifier);
                         
                         var env = context.RequestServices.GetService<IWebHostEnvironment>()!;
                         var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
@@ -82,7 +84,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                         {
                             details.Detail = exceptionFeature.Error.ToString();
                         }")
-                        .AddInvocationStatement("return context.Response.WriteAsJsonAsync", inv=>inv
+                        .AddInvocationStatement("return context.Response.WriteAsJsonAsync", inv => inv
                             .AddArgument("details")
                             .AddArgument("DefaultOptions")
                             .AddArgument(@"contentType: ""application/problem+json"""))
@@ -94,6 +96,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         private void GetDotNet7AndAboveImplementation(CSharpClassMethod method)
         {
             CSharpFile
+                .AddUsing("System.Diagnostics")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.AspNetCore.Hosting")
@@ -106,6 +109,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 
                         if (context.ProblemDetails.Status != 500) { return; }
                         context.ProblemDetails.Title = ""Internal Server Error"";
+                        context.ProblemDetails.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
                 
                         var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
                         if (!env.IsDevelopment()) { return; }
@@ -134,10 +138,14 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         public override void BeforeTemplateExecution()
         {
             if (!CanRunTemplate()) { return; }
-            
+
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureProblemDetails")
                 .HasDependency(this));
+            
+            ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
+                .ToRegister("UseExceptionHandler")
+                .WithPriority(-40));
         }
 
         [IntentManaged(Mode.Fully)]
