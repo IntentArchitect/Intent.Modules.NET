@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Update: `Create CQRS CRUD Operations` can not be done on folders, not just the root node of the designer.
+
 ### Version 5.1.3
 
 - Fixed: Nested composite entity Command/Query handlers had inconsistent naming conventions that caused other code (like injecting publishers) to break at compile time.
