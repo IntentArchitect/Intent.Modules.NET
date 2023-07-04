@@ -29,7 +29,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         public override void OnCreated()
         {
             base.OnCreated();
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
+            Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -61,18 +61,18 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         {
             if (!o.Parameters.Any())
             {
-                return "";
+                return "CancellationToken cancellationToken = default";
             }
-            return o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y);
+            return $"{o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y)}, CancellationToken cancellationToken = default";
         }
 
         private string GetOperationCallParameters(OperationModel o)
         {
             if (!o.Parameters.Any())
             {
-                return "";
+                return "cancellationToken";
             }
-            return o.Parameters.Select(x => $"{x.Name}").Aggregate((x, y) => x + ", " + y);
+            return $"{o.Parameters.Select(x => $"{x.Name}").Aggregate((x, y) => x + ", " + y)}, cancellationToken";
         }
 
         private string GetOperationReturnType(OperationModel o)

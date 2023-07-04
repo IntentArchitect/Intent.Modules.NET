@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHandler
@@ -40,9 +41,9 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
         {
             if (!o.Parameters.Any())
             {
-                return "";
+                return "CancellationToken cancellationToken = default";
             }
-            return o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y);
+            return $"{o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y)}, CancellationToken cancellationToken = default";
         }
 
         private string GetOperationReturnType(OperationModel o)
