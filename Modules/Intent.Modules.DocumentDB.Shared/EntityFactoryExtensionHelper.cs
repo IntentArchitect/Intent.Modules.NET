@@ -60,23 +60,21 @@ namespace Intent.Modules.DocumentDB.Shared
                         var existingPk = @class
                             .GetAllProperties()
                             .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                        var fieldName = $"_{attribute.Name.ToCamelCase()}";
 
                         if (!model.IsAggregateRoot())
                         {
-                            @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", "_id");
-                        }
-
-                        if (!model.IsAggregateRoot())
-                        {
-                            var optionalNullCoalescence = attribute.TypeReference.Element.Name switch
+                            @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", fieldName);
+                            var getExpressionSuffix = attribute.TypeReference.Element.Name switch
                             {
                                 "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
                                 "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
+                                "int" or "long" => $"?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
                                 _ => string.Empty
                             };
 
-                            existingPk.Getter.WithExpressionImplementation($"_id{optionalNullCoalescence}");
-                            existingPk.Setter.WithExpressionImplementation($"_id = value");
+                            existingPk.Getter.WithExpressionImplementation($"{fieldName}{getExpressionSuffix}");
+                            existingPk.Setter.WithExpressionImplementation($"{fieldName} = value");
                         }
 
                         primaryKeyProperties.Add(existingPk);
