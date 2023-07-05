@@ -3,7 +3,7 @@
   <sourceEnd id="9ea5b477-091b-4ef4-853e-ea36b7c2631d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>G_RequiredCompositeNav</name>
     <display>G_RequiredCompositeNav: G_RequiredCompositeNav</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="f6c256c4-0058-459c-b046-1f1cb9358f15">
       <typeId>e13b4898-d03a-40a2-88e9-1e00611444df</typeId>
       <isNavigable>true</isNavigable>

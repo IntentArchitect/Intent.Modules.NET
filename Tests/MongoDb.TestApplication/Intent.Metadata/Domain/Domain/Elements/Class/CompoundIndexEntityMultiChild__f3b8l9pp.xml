@@ -12,6 +12,39 @@
   <stereotypes />
   <metadata />
   <childElements>
+    <childElement id="5ebc29bd-4120-425c-9570-afa7e96bf639" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc21a90c-d6eb-4646-b618-4a7c9f82c375">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5663a7bd-193c-4619-8cd1-d1778e65b77b</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="bccb2693-6b73-45c5-8279-24eb8ef94898" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CompoundOne</name>
       <display>CompoundOne: string</display>

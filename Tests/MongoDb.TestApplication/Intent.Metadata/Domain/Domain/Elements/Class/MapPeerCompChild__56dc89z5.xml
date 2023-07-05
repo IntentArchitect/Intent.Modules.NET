@@ -12,32 +12,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="91d9d3d1-7b36-472a-a141-ce8e6fde10f8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Id</name>
-      <display>Id: string</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="42cd0e48-9e58-497f-8b63-e38d7a1a8da4">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>1a15554b-65a1-4416-8904-11ba68d2fd16</parentFolderId>
-      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
-      <packageName>Domain</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="is-managed-key" value="false" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="0012cbde-6903-4064-b950-ab067a979c55" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>PeerCompChildAtt</name>
       <display>PeerCompChildAtt: string</display>

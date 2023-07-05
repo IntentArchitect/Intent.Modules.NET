@@ -104,7 +104,6 @@ namespace MongoDb.TestApplication.Application.Implementation
             return new TextIndexEntityMultiChild
             {
                 FullText = dto.FullText,
-#warning No matching field found for Id
             };
         }
     }
