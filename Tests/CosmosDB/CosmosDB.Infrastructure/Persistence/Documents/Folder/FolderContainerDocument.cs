@@ -13,10 +13,10 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
     {
         private string? _type;
         [JsonProperty("id")]
-        public new string Id
+        string IItem.Id
         {
-            get => base.Id ??= Guid.NewGuid().ToString();
-            set => base.Id = value;
+            get => Id;
+            set => Id = value;
         }
         [JsonProperty("type")]
         string IItem.Type

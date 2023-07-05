@@ -13,7 +13,12 @@ namespace CosmosDB.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassContainer : IHasDomainEvent
     {
-        public string Id { get; set; }
+        private string? _id;
+        public string Id
+        {
+            get => _id ??= Guid.NewGuid().ToString();
+            set => _id = value;
+        }
 
         public string ClassPartitionKey { get; set; }
 

@@ -15,7 +15,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         [JsonProperty("id")]
         string IItem.Id
         {
-            get => Identifier ??= Guid.NewGuid().ToString();
+            get => Identifier;
             set => Identifier = value;
         }
         [JsonProperty("type")]
