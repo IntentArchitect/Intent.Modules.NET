@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="04c25edf-6b6c-4f30-b62b-f620ce62a821">
+  <sourceEnd id="18bc4fbf-4d79-4d79-8d73-c4dc8a584ec1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Region</name>
+    <display>Region: Region</display>
+    <order>0</order>
+    <typeReference id="7c8b1f4b-8516-44b9-a771-cccd7f92f3d7">
+      <typeId>687dc3fd-e929-4243-9849-b6a29670c99b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="04c25edf-6b6c-4f30-b62b-f620ce62a821" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Countries</name>
+    <display>Countries: Country[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="4e03a76c-57fc-4069-8c2d-37c181cd2796">
+      <typeId>a67f11e1-6aa0-45bc-947d-07af215d33c4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

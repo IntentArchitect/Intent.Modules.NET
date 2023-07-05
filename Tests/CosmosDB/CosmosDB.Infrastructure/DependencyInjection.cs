@@ -49,6 +49,8 @@ namespace CosmosDB.Infrastructure
                     .Configure<PackageContainerDocument>(c => c
                         .WithContainer("PackageContainer")
                         .WithPartitionKey("/packagePartitionKey"))
+                    .Configure<RegionDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
@@ -57,6 +59,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
+            services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();

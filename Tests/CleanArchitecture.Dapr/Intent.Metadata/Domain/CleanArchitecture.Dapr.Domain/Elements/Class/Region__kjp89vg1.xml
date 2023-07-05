@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e5e0e3ee-83d0-4c69-ab6c-58c39dad3587" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>InvoiceLine</name>
-  <display>InvoiceLine</display>
+<class id="687dc3fd-e929-4243-9849-b6a29670c99b" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Region</name>
+  <display>Region</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,12 +12,12 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="c2dbc754-fe5c-4760-833a-37c0881ea101" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="5bb11fcf-c279-47c2-8695-55264ddb9f03" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
       <display>Id: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="372c2237-2d5e-4cc4-805d-9ebb172b52b3">
+      <typeReference id="3a2a414b-4589-4bc8-8046-ae24af8d29cf">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +29,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>e5e0e3ee-83d0-4c69-ab6c-58c39dad3587</parentFolderId>
+      <parentFolderId>687dc3fd-e929-4243-9849-b6a29670c99b</parentFolderId>
       <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
       <packageName>CleanArchitecture.Dapr.Domain</packageName>
       <stereotypes>
@@ -45,12 +45,12 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b3dbbe16-cd9d-4964-b47d-47330a397a44" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Description</name>
-      <display>Description: string</display>
+    <childElement id="c2766550-90ad-4e0d-b8fc-82b486b93ffe" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="b8b7dbcf-8025-4980-ad92-61ad2c4f7701">
+      <typeReference id="afaeb71d-5c87-4d1b-aa5a-fff7049141e8">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,31 +62,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>e5e0e3ee-83d0-4c69-ab6c-58c39dad3587</parentFolderId>
-      <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
-      <packageName>CleanArchitecture.Dapr.Domain</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="36a2dce4-2038-42e8-b899-3748ce6a2554" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Quantity</name>
-      <display>Quantity: int</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="84f5b23f-41aa-43da-8f33-fca482eeffe8">
-        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>e5e0e3ee-83d0-4c69-ab6c-58c39dad3587</parentFolderId>
+      <parentFolderId>687dc3fd-e929-4243-9849-b6a29670c99b</parentFolderId>
       <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
       <packageName>CleanArchitecture.Dapr.Domain</packageName>
       <stereotypes />

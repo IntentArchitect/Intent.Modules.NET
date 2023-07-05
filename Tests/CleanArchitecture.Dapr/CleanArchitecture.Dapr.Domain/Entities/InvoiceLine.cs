@@ -11,7 +11,12 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class InvoiceLine
     {
-        public string Id { get; set; }
+        private string? _id;
+        public string Id
+        {
+            get => _id ??= Guid.NewGuid().ToString();
+            set => _id = value;
+        }
 
         public string Description { get; set; }
 

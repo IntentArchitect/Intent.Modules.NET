@@ -980,6 +980,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a67f11e1-6aa0-45bc-947d-07af215d33c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Country.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Country.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#43c8c723-0f27-4996-afb2-3e9b46c64415</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Invoice.cs</ApplicationRelativeFilePath>
@@ -992,6 +1000,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/InvoiceLine.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceLine.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#687dc3fd-e929-4243-9849-b6a29670c99b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Region.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Region.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1048,6 +1064,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02e589b2-631c-4135-8dac-1b1dd0c5a2fb</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#687dc3fd-e929-4243-9849-b6a29670c99b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IRegionRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRegionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1160,6 +1184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c1f4933-bb7d-4a6a-9e41-5ec7b3d49cf3</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository#687dc3fd-e929-4243-9849-b6a29670c99b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Repositories/RegionDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RegionDaprStateStoreRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

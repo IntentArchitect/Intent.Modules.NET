@@ -31,6 +31,7 @@ namespace CleanArchitecture.Dapr.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IClientRepository, ClientDaprStateStoreRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceDaprStateStoreRepository>();
+            services.AddScoped<IRegionRepository, RegionDaprStateStoreRepository>();
             services.AddScoped<ITagRepository, TagDaprStateStoreRepository>();
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());
