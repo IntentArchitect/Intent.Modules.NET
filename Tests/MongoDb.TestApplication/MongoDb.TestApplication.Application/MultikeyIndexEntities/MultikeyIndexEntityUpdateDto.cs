@@ -17,10 +17,10 @@ namespace MongoDb.TestApplication.Application.MultikeyIndexEntities
         }
 
         public string Id { get; set; }
-        public IEnumerable<string> MultiKey { get; set; }
+        public List<string> MultiKey { get; set; }
         public string SomeField { get; set; }
 
-        public static MultikeyIndexEntityUpdateDto Create(string id, IEnumerable<string> multiKey, string someField)
+        public static MultikeyIndexEntityUpdateDto Create(string id, List<string> multiKey, string someField)
         {
             return new MultikeyIndexEntityUpdateDto
             {

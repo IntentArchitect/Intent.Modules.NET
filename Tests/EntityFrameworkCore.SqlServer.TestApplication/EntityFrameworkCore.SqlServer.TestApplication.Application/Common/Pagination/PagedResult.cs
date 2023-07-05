@@ -11,6 +11,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Pagin
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

@@ -11,6 +11,7 @@ namespace Application.Identity.MSAL.TestApplication.Application.Common.Paginatio
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

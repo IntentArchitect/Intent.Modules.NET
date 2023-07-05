@@ -16,10 +16,10 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application
         }
 
         public DateTime Date { get; set; }
-        public IEnumerable<Guid> TagIds { get; set; }
+        public List<Guid> TagIds { get; set; }
         public List<CreateInvoiceLineDto> Lines { get; set; }
 
-        public static CreateInvoiceDto Create(DateTime date, IEnumerable<Guid> tagIds, List<CreateInvoiceLineDto> lines)
+        public static CreateInvoiceDto Create(DateTime date, List<Guid> tagIds, List<CreateInvoiceLineDto> lines)
         {
             return new CreateInvoiceDto
             {

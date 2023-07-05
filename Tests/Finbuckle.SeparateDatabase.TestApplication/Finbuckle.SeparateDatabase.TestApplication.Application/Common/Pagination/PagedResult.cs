@@ -11,6 +11,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Common.Paginati
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

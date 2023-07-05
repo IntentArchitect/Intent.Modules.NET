@@ -11,6 +11,7 @@ namespace MassTransit.RabbitMQ.Application.Common.Pagination
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

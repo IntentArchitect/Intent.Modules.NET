@@ -11,6 +11,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Paginatio
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

@@ -11,6 +11,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Pag
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

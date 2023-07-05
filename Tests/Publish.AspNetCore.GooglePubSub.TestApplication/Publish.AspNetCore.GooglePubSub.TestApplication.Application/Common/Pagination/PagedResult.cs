@@ -11,6 +11,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Pag
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

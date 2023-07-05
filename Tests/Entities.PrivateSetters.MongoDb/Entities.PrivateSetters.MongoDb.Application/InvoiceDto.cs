@@ -24,16 +24,11 @@ namespace Entities.PrivateSetters.MongoDb.Application
 
         public string Id { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<string> TagsIds { get; set; }
+        public List<string> TagsIds { get; set; }
         public List<LineDto> Lines { get; set; }
         public List<TagDto> Tags { get; set; }
 
-        public static InvoiceDto Create(
-            string id,
-            DateTime date,
-            IEnumerable<string> tagsIds,
-            List<LineDto> lines,
-            List<TagDto> tags)
+        public static InvoiceDto Create(string id, DateTime date, List<string> tagsIds, List<LineDto> lines, List<TagDto> tags)
         {
             return new InvoiceDto
             {

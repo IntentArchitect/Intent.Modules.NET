@@ -11,6 +11,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Pa
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

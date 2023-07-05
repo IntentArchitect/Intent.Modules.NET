@@ -36,7 +36,7 @@ namespace MongoDb.TestApplication.Application.MapperRoots
 
         public string Id { get; set; }
         public string No { get; set; }
-        public IEnumerable<string> MapAggChildrenIds { get; set; }
+        public List<string> MapAggChildrenIds { get; set; }
         public string MapAggPeerId { get; set; }
         public string CompChildAtt { get; set; }
         public string CompChildAggAtt { get; set; }
@@ -52,7 +52,7 @@ namespace MongoDb.TestApplication.Application.MapperRoots
         public static MapperRootDto Create(
             string id,
             string no,
-            IEnumerable<string> mapAggChildrenIds,
+            List<string> mapAggChildrenIds,
             string mapAggPeerId,
             string compChildAtt,
             string compChildAggAtt,

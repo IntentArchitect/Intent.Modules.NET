@@ -11,6 +11,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

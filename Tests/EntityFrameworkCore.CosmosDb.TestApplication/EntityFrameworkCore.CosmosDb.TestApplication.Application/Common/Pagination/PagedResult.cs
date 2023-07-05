@@ -11,6 +11,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Pagina
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

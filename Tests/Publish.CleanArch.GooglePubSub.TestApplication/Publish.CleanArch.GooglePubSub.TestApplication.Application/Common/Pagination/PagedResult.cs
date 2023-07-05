@@ -11,6 +11,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Pagi
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

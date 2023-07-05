@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.MapperRoots
 
         public string Id { get; set; }
         public string No { get; set; }
-        public IEnumerable<string> MapAggChildrenIds { get; set; }
+        public List<string> MapAggChildrenIds { get; set; }
         public string MapAggPeerId { get; set; }
 
-        public static MapperRootUpdateDto Create(
-            string id,
-            string no,
-            IEnumerable<string> mapAggChildrenIds,
-            string mapAggPeerId)
+        public static MapperRootUpdateDto Create(string id, string no, List<string> mapAggChildrenIds, string mapAggPeerId)
         {
             return new MapperRootUpdateDto
             {

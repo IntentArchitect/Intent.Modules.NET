@@ -15,10 +15,10 @@ namespace MongoDb.TestApplication.Application.MultikeyIndexEntities
             SomeField = null!;
         }
 
-        public IEnumerable<string> MultiKey { get; set; }
+        public List<string> MultiKey { get; set; }
         public string SomeField { get; set; }
 
-        public static MultikeyIndexEntityCreateDto Create(IEnumerable<string> multiKey, string someField)
+        public static MultikeyIndexEntityCreateDto Create(List<string> multiKey, string someField)
         {
             return new MultikeyIndexEntityCreateDto
             {

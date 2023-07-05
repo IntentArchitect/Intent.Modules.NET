@@ -11,6 +11,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Co
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

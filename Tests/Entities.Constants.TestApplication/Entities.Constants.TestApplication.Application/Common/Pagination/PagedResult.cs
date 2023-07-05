@@ -11,6 +11,7 @@ namespace Entities.Constants.TestApplication.Application.Common.Pagination
     {
         public PagedResult()
         {
+            Data = null!;
         }
 
         public static PagedResult<T> Create(

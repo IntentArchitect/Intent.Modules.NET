@@ -17,10 +17,10 @@ namespace MongoDb.TestApplication.Application.MultikeyIndexEntitySingleParents
             MultiKey = null!;
         }
 
-        public IEnumerable<string> MultiKey { get; set; }
+        public List<string> MultiKey { get; set; }
         public Guid Id { get; set; }
 
-        public static MultikeyIndexEntitySingleChildDto Create(IEnumerable<string> multiKey, Guid id)
+        public static MultikeyIndexEntitySingleChildDto Create(List<string> multiKey, Guid id)
         {
             return new MultikeyIndexEntitySingleChildDto
             {
