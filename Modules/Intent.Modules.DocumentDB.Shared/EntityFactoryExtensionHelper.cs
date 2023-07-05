@@ -26,7 +26,7 @@ namespace Intent.Modules.DocumentDB.Shared
                     continue;
                 }
 
-                template.CSharpFile.OnBuild(file =>
+                template.CSharpFile.OnBuild((Action<CSharpFile>)(file =>
                 {
                     file.AddUsing("System");
                     var @class = file.Classes.First();
@@ -64,17 +64,7 @@ namespace Intent.Modules.DocumentDB.Shared
 
                         if (!model.IsAggregateRoot())
                         {
-                            @class.AddField(template.GetTypeName(attribute.TypeReference) + "?", fieldName);
-                            var getExpressionSuffix = attribute.TypeReference.Element.Name switch
-                            {
-                                "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
-                                "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
-                                "int" or "long" => $"?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
-                                _ => string.Empty
-                            };
-
-                            existingPk.Getter.WithExpressionImplementation($"{fieldName}{getExpressionSuffix}");
-                            existingPk.Setter.WithExpressionImplementation($"{fieldName} = value");
+                            InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
                         }
 
                         primaryKeyProperties.Add(existingPk);
@@ -84,8 +74,23 @@ namespace Intent.Modules.DocumentDB.Shared
                     {
                         @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
-                });
+                }));
             }
+        }
+
+        public static void InitializePrimaryKey(ICSharpFileBuilderTemplate template, CSharpClass @class, AttributeModel attributePk, CSharpProperty existingPk, string fieldName)
+        {
+            @class.AddField(template.GetTypeName(attributePk.TypeReference) + "?", fieldName);
+            var getExpressionSuffix = attributePk.TypeReference.Element.Name switch
+            {
+                "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
+                "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
+                "int" or "long" => $"?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
+                _ => string.Empty
+            };
+
+            existingPk.Getter.WithExpressionImplementation($"{fieldName}{getExpressionSuffix}");
+            existingPk.Setter.WithExpressionImplementation($"{fieldName} = value");
         }
 
         private static bool HasNavigationProperty(ClassModel model, AssociationEndModel association)

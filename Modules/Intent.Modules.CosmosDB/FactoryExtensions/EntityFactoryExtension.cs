@@ -1,13 +1,17 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api.Extensions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates;
 using Intent.Modules.DocumentDB.Shared;
@@ -30,7 +34,48 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             EntityFactoryExtensionHelper.Execute(application);
+            AddDocumentIdentityAssignment(application);
             RegisterServices(application);
+        }
+
+        private void AddDocumentIdentityAssignment(IApplication application)
+        {
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+            foreach (var template in templates)
+            {
+                var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
+                if (!templateModel.InternalElement.Package.HasStereotype("Document Database"))
+                {
+                    continue;
+                }
+
+                template.CSharpFile.OnBuild((Action<CSharpFile>)(file =>
+                {
+                    file.AddUsing("System");
+                    var @class = file.Classes.First();
+                    var model = @class.GetMetadata<ClassModel>("model");
+
+                    var pks = model.GetPrimaryKeys();
+                    if (!pks.Any())
+                    {
+                        return;
+                    }
+
+                    var primaryKeyProperties = new List<CSharpProperty>();
+                    foreach (var attribute in pks)
+                    {
+                        var existingPk = @class
+                            .GetAllProperties()
+                            .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                        var fieldName = $"_{attribute.Name.ToCamelCase()}";
+                        if (model.IsAggregateRoot())
+                        {
+                            EntityFactoryExtensionHelper.InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
+                        }
+
+                    }
+                }));
+            }
         }
 
         private void RegisterServices(IApplication application)

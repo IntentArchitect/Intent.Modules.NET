@@ -63,45 +63,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         var pkTypeName = pkAttribute.TypeReference.Element?.Name.ToLowerInvariant();
                         @class.AddProperty("string", "Id", property =>
                         {
+                            property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
                             property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
-                            string baseQualifier;
-                            if (pkPropertyName == "Id")
-                            {
-                                baseQualifier = "base.";
-                                property.New();
-                            }
-                            else
-                            {
-                                baseQualifier = string.Empty;
-                                property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
-                            }
 
-                            switch (pkTypeName)
-                            {
-                                case "int" or "long":
-                                    {
-                                        var invariantCulture = $"{UseType("System.Globalization.CultureInfo")}.InvariantCulture";
-                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName}.ToString({invariantCulture})");
-                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = {pkTypeName}.Parse(value, {invariantCulture})");
-                                        break;
-                                    }
-                                case "string":
-                                    {
-                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} ??= {UseType("System.Guid")}.NewGuid().ToString()");
-                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = value");
-                                        break;
-                                    }
-                                case "guid":
-                                    {
-                                        property.Getter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName}.ToString()");
-                                        property.Setter.WithExpressionImplementation($"{baseQualifier}{pkPropertyName} = {UseType("System.Guid")}.Parse(value)");
-                                        break;
-                                    }
-                                default:
-                                    throw new Exception(
-                                        $"Unsupported primary key type \"{pkTypeName}\" [{pkAttribute.TypeReference.Element?.Id}] for attribute " +
-                                        $"\"{pkAttribute.Name}\" [{pkAttribute.Id}] on Class \"{Model.Name}\" [{Model.Id}]");
-                            }
+                            property.Getter.WithExpressionImplementation($"{pkPropertyName}");
+                            property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
                         });
                     }
 
