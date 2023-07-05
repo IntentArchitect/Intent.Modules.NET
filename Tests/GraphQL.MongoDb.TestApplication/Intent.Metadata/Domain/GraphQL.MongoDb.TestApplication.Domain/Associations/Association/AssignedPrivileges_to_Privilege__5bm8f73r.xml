@@ -22,7 +22,7 @@
   <targetEnd id="9aa84d4d-3889-4f2c-90a9-ac506626d4bb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Privilege</name>
     <display>Privilege: Privilege   [* --&gt; 1]</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="144207a3-7304-49fa-9f41-9ca4766a9690">
       <typeId>45508427-7011-4c62-a82a-52ce43058b9d</typeId>
       <isNavigable>true</isNavigable>
