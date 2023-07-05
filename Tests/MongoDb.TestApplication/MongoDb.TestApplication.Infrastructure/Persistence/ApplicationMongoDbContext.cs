@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Entities.IdTypes;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
 using MongoDb.TestApplication.Domain.Entities.Mappings;
 using MongoDb.TestApplication.Domain.Entities.NestedAssociations;
+using MongoDb.TestApplication.Domain.Entities.ToManyIds;
 using MongoFramework;
 using MongoFramework.Infrastructure.Mapping;
 
@@ -72,6 +73,7 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<TextIndexEntity> TextIndexEntities { get; set; }
         public MongoDbSet<TextIndexEntityMultiParent> TextIndexEntityMultiParents { get; set; }
         public MongoDbSet<TextIndexEntitySingleParent> TextIndexEntitySingleParents { get; set; }
+        public MongoDbSet<ToManySource> ToManySources { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -276,6 +278,8 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
                     .HasName("TextIndexEntitySingleParents_FullText")
                     .HasType(IndexType.Standard));
 
+            mappingBuilder.Entity<ToManySource>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
             base.OnConfigureMapping(mappingBuilder);
         }
     }

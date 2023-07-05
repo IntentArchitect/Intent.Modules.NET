@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e38ca522-ea4c-4425-8b45-c8e2801f738c">
+  <sourceEnd id="42a0293b-717e-40e9-8ae9-ec93f4435698" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ToManySource</name>
+    <display>ToManySource: ToManySource</display>
+    <order>0</order>
+    <typeReference id="6cf55f3b-ec30-4d06-bd4e-dbeca6aba817">
+      <typeId>699599e1-e321-42d9-a4dd-e42e9eb1a734</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e38ca522-ea4c-4425-8b45-c8e2801f738c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ToManyGuids</name>
+    <display>ToManyGuids: ToManyGuid[*]   [1 --&gt; *]</display>
+    <order>1</order>
+    <typeReference id="49874e5a-3e39-482c-bb90-ddcae728556c">
+      <typeId>6ccb0885-4c8c-442b-a8db-16decc807a27</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

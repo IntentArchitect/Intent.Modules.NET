@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c3e1305a-772b-4402-b7a7-693b5894d209">
+  <sourceEnd id="033b97af-d5b9-46b3-9556-2bcf4dc54ba1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ToManySource</name>
+    <display>ToManySource: ToManySource</display>
+    <order>0</order>
+    <typeReference id="cf55d69b-fd36-40c5-a741-b182aec00921">
+      <typeId>699599e1-e321-42d9-a4dd-e42e9eb1a734</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c3e1305a-772b-4402-b7a7-693b5894d209" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ToManyInts</name>
+    <display>ToManyInts: ToManyInt[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="919f7d7e-f6dc-457c-b606-93b160e90686">
+      <typeId>3ed0cb74-a536-4b05-abaa-a80326017571</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

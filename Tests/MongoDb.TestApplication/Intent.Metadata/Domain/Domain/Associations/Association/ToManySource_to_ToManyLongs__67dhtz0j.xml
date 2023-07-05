@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="213d455a-414e-4252-8d25-dbfe29d08e66">
+  <sourceEnd id="120e10b6-1a41-4db5-ac91-c12b76474b92" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ToManySource</name>
+    <display>ToManySource: ToManySource</display>
+    <order>0</order>
+    <typeReference id="d550727b-2298-41d0-994f-7110c2ccd4cd">
+      <typeId>699599e1-e321-42d9-a4dd-e42e9eb1a734</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="213d455a-414e-4252-8d25-dbfe29d08e66" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ToManyLongs</name>
+    <display>ToManyLongs: ToManyLong[*]   [1 --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="d26d49b0-876d-420b-b504-9daabad47636">
+      <typeId>f3d2107e-3d47-4974-888f-942fccce8b2f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

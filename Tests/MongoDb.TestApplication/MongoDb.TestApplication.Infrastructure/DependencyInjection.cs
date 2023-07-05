@@ -14,6 +14,7 @@ using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Mappings;
 using MongoDb.TestApplication.Domain.Repositories.NestedAssociations;
+using MongoDb.TestApplication.Domain.Repositories.ToManyIds;
 using MongoDb.TestApplication.Infrastructure.Persistence;
 using MongoDb.TestApplication.Infrastructure.Repositories;
 using MongoDb.TestApplication.Infrastructure.Repositories.Associations;
@@ -23,6 +24,7 @@ using MongoDb.TestApplication.Infrastructure.Repositories.IdTypes;
 using MongoDb.TestApplication.Infrastructure.Repositories.Indexes;
 using MongoDb.TestApplication.Infrastructure.Repositories.Mappings;
 using MongoDb.TestApplication.Infrastructure.Repositories.NestedAssociations;
+using MongoDb.TestApplication.Infrastructure.Repositories.ToManyIds;
 using MongoFramework;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -82,6 +84,7 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<IMapperRootRepository, MapperRootMongoRepository>();
             services.AddTransient<IAggregateARepository, AggregateAMongoRepository>();
             services.AddTransient<IAggregateBRepository, AggregateBMongoRepository>();
+            services.AddTransient<IToManySourceRepository, ToManySourceMongoRepository>();
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             return services;
         }
