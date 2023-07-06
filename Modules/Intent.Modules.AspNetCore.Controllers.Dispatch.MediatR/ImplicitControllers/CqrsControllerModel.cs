@@ -79,13 +79,24 @@ public class CqrsControllerModel : IControllerModel
         return new List<IApiVersionModel>();
     }
 
+    private static string GetAuthorizationRoles(IElement element)
+    {
+        if (element.HasStereotype("Authorize") && !string.IsNullOrEmpty(element.GetStereotype("Authorize").GetProperty<string>("Roles", null)))
+        {
+            return element.GetStereotype("Authorize").GetProperty<string>("Roles");
+        }
+        if (element.HasStereotype("Secured") && !string.IsNullOrEmpty(element.GetStereotype("Secured").GetProperty<string>("Roles", null)))
+        {
+            return element.GetStereotype("Secured").GetProperty<string>("Roles");
+        }
+        return null;
+    }
+
     private static AuthorizationModel GetAuthorizationModel(IElement element)
     {
-        if (!element.HasStereotype("Secured") || string.IsNullOrEmpty(element.GetStereotype("Secured").GetProperty<string>("Roles", null)))
-        {
+        var roles = GetAuthorizationRoles(element);
+        if (string.IsNullOrEmpty(roles))
             return null;
-        }
-        var roles = element.GetStereotype("Secured").GetProperty<string>("Roles");
         return new AuthorizationModel
         {
             RolesExpression = !string.IsNullOrWhiteSpace(roles)

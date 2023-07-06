@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Fix: CQRS `Authorization` Stereotypes now adding configured roles to the Controller too.
+
 ### Version 5.2.0
 
 - Updated Controller generation so that nested folders are also taken into account for the controller name.
