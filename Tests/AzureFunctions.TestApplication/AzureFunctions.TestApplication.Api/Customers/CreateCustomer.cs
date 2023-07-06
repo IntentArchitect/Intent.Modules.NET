@@ -47,7 +47,6 @@ namespace AzureFunctions.TestApplication.Api
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
                 var result = await _mediator.Send(command, cancellationToken);
-                await _unitOfWork.SaveChangesAsync();
                 return new CreatedResult(string.Empty, result);
             }
             catch (NotFoundException exception)

@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using FluentValidation;
+using GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours;
 using GraphQL.AzureFunction.TestApplication.Application.Common.Validation;
 using GraphQL.AzureFunction.TestApplication.Application.Implementation;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
@@ -20,6 +21,10 @@ namespace GraphQL.AzureFunction.TestApplication.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomersService, CustomersService>();

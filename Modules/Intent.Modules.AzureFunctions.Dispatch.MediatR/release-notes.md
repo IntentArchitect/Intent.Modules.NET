@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Fix: Added additional MediatR module dependencies so that installing this module works out the box.
+
 ### Version 1.0.5
 
 - Added the necessary File Builder metadata in order to indicate which line of code has to do with service dispatching. This is important for other modules that want to hook-into that space.

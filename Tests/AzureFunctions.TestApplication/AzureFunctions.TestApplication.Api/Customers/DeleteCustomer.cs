@@ -44,7 +44,6 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
-                await _unitOfWork.SaveChangesAsync();
                 return new OkResult();
             }
             catch (NotFoundException exception)

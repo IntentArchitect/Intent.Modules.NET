@@ -66,8 +66,33 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
                             property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
 
-                            property.Getter.WithExpressionImplementation($"{pkPropertyName}");
-                            property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
+                            switch (pkTypeName)
+                            {
+                                case "int" or "long":
+                                    {
+                                        var invariantCulture = $"{UseType("System.Globalization.CultureInfo")}.InvariantCulture";
+                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}.ToString({invariantCulture})");
+                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = {pkTypeName}.Parse(value, {invariantCulture})");
+
+                                        break;
+                                    }
+                                case "string":
+                                    {
+                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}");
+                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
+                                        break;
+                                    }
+                                case "guid":
+                                    {
+                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}.ToString()");
+                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = {UseType("System.Guid")}.Parse(value)");
+                                        break;
+                                    }
+                                default:
+                                    throw new Exception(
+                                        $"Unsupported primary key type \"{pkTypeName}\" [{pkAttribute.TypeReference.Element?.Id}] for attribute " +
+                                        $"\"{pkAttribute.Name}\" [{pkAttribute.Id}] on Class \"{Model.Name}\" [{Model.Id}]");
+                            }
                         });
                     }
 
@@ -145,13 +170,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                                     continue;
                                 }
 
-                                var toString = name == "Id" &&
-                                               attribute.HasPrimaryKey() &&
-                                               attribute.TypeReference.Element?.Name != "string"
-                                    ? attribute.GetToString(this)
-                                    : string.Empty;
-
-                                method.AddStatement($"{name} = entity.{name}{toString};");
+                                method.AddStatement($"{name} = entity.{name};");
                             }
 
                             foreach (var association in currentClass.AssociatedToClasses())

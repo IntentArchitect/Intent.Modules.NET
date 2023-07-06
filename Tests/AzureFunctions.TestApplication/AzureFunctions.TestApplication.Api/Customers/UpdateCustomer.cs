@@ -52,7 +52,6 @@ namespace AzureFunctions.TestApplication.Api
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });
                 }
                 await _mediator.Send(command, cancellationToken);
-                await _unitOfWork.SaveChangesAsync();
                 return new NoContentResult();
             }
             catch (NotFoundException exception)
