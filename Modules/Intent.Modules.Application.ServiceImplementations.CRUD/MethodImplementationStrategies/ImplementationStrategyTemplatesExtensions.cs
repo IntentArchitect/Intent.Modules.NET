@@ -5,7 +5,6 @@ using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
@@ -20,7 +19,7 @@ public static class ImplementationStrategyTemplatesExtensions
             .GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
         return exceptionName;
     }
-    
+
     public record EntityIdAttribute(string IdName);
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity)
@@ -41,7 +40,7 @@ public static class ImplementationStrategyTemplatesExtensions
         if (explicitKeyField != null) return explicitKeyField;
         var implicitKeyField = GetImplicitEntityIdField(properties, entity);
         return implicitKeyField;
-        
+
         DTOFieldModel GetExplicitEntityIdField(IEnumerable<DTOFieldModel> properties, ClassModel entity)
         {
             var idField = properties
@@ -95,7 +94,7 @@ public static class ImplementationStrategyTemplatesExtensions
         var domainModel = GetDomainForService(operationModel.ParentService, application);
         return domainModel;
     }
-    
+
     private static ClassModel GetDomainForService(ServiceModel service, IApplication application)
     {
         var serviceIdentifier = service.Name.RemoveSuffix("RestController", "Controller", "Service", "Manager").ToLower();

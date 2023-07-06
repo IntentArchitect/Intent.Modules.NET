@@ -16,6 +16,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
         }
 
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Plurals> Plurals { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
+            modelBuilder.ApplyConfiguration(new PluralsConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

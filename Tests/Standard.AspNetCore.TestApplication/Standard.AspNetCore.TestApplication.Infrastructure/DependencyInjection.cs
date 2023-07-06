@@ -27,6 +27,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IPluralsRepository, PluralsRepository>();
             services.AddHttpClients(configuration);
             return services;
         }

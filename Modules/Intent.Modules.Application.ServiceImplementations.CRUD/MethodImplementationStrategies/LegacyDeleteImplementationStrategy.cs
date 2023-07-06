@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
@@ -28,25 +25,25 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
-            var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);;
+            var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);
             if (domainModel == null)
             {
                 return false;
             }
-        
+
             var lowerDomainName = domainModel.Name.ToLower();
             var lowerOperationName = operationModel.Name.ToLower();
             if (operationModel.Parameters.Count != 1)
             {
                 return false;
             }
-        
+
             if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
                                                     string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
             {
                 return false;
             }
-        
+
             if (operationModel.TypeReference.Element != null)
             {
                 return false;
@@ -67,20 +64,17 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddUsing("System.Linq");
 
             var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);
-            var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
-                ? result
-                : domainModel.Name;
-            var domainTypePascalCased = domainType.ToPascalCase();
-            var domainTypeCamelCased = domainType.ToCamelCase();
             var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
-            var repositoryFieldName = $"{domainTypeCamelCased}Repository";
+            var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
+            var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
+            var existingVariableName = $"existing{domainModel.Name.ToPascalCase()}";
 
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
-                $@"var existing{domainTypePascalCased} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
-            codeLines.Add(new CSharpIfStatement($"existing{domainTypePascalCased} is null")
+                $@"var {existingVariableName} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"{existingVariableName} is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.Single().Name.ToCamelCase()}}}"");"));
-            codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Remove(existing{domainTypePascalCased});");
+            codeLines.Add($"{repositoryFieldName}.Remove({existingVariableName});");
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
@@ -96,14 +90,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             method.AddStatements(codeLines.ToList());
 
             var ctor = @class.Constructors.First();
-            if (ctor.Parameters.All(p => p.Name != repositoryFieldName))
+            if (ctor.Parameters.All(p => p.Name != repositoryParameterName))
             {
-                ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
+                ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
 
             if (ctor.Parameters.All(p => p.Name != "mapper"))
             {
-                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }
         }
     }

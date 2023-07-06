@@ -1,33 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
-using JetBrains.Annotations;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
-using Intent.Metadata.RDBMS.Api;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
     public class UpdateImplementationStrategy : IImplementationStrategy
     {
         private readonly ServiceImplementationTemplate _template;
-        private readonly IApplication _application;
 
         public UpdateImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
         {
             _template = template;
-            _application = application;
         }
 
         public bool IsMatch(OperationModel operationModel)
@@ -66,32 +60,29 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddUsing("System.Linq");
 
             var (dtoModel, domainModel) = operationModel.GetUpdateModelPair();
-            var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
-                ? result
-                : domainModel.Name;
-            var domainTypePascalCased = domainType.ToPascalCase();
-            var domainTypeCamelCased = domainType.ToCamelCase();
             var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
-            var repositoryFieldName = $"{domainTypeCamelCased}Repository";
+            var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
+            var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
+            var existingEntityVariableName = $"existing{domainModel.Name.ToPascalCase()}";
 
             var codeLines = new List<CSharpStatement>();
-            var idParam = operationModel.Parameters.FirstOrDefault(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase))?.Name 
+            var idParam = operationModel.Parameters.FirstOrDefault(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase))?.Name
                 ?? $"{dtoParam.Name}.{dtoModel.Fields.GetEntityIdField(domainModel).Name}";
-            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({idParam}, cancellationToken);");
-            codeLines.Add(new CSharpIfStatement($"existing{domainTypePascalCased} is null")
+            codeLines.Add($"var {existingEntityVariableName} = await {repositoryFieldName}.FindByIdAsync({idParam}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"{existingEntityVariableName} is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{idParam}}}"");"));
-            codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
+            codeLines.AddRange(GetDTOPropertyAssignments($"{existingEntityVariableName}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
 
             if (RepositoryRequiresExplicitUpdate(domainModel))
             {
-                codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Update(existing{domainTypePascalCased});");
+                codeLines.Add($"{repositoryFieldName}.Update({existingEntityVariableName});");
             }
 
             if (operationModel.TypeReference.Element.IsDTOModel())
             {
-                codeLines.Add($"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return existing{domainTypePascalCased}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
+                codeLines.Add($"await {repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
+                codeLines.Add($"return {existingEntityVariableName}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
             }
 
             var @class = _template.CSharpFile.Classes.First();
@@ -107,13 +98,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             method.AddStatements(codeLines);
 
             var ctor = @class.Constructors.First();
-            if (ctor.Parameters.All(p => p.Name != repositoryFieldName))
+            if (ctor.Parameters.All(p => p.Name != repositoryParameterName))
             {
-                ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
+                ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
             if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper"))
             {
-                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
+                ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }
         }
 
@@ -270,12 +261,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                         .AddAttribute(CSharpIntentManagedAttribute.Fully())
                         .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
 
-                    var attributeModels = GetDomainAttibuteModels(domain);
+                    var attributeModels = GetDomainAttributeModels(domain);
 
-                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id))).ToArray();
                     if (attributeMap.Any(x => x.Dto == null))
                     {
-                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                        method.AddStatement(@"#warning Not all fields specified for ValueObject.");
                     }
                     var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
                     method.AddStatement($"return new {domainType}({ctorParameters});");
@@ -283,7 +274,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             }
         }
 
-        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
+        private IList<AttributeModel> GetDomainAttributeModels(IElement element)
         {
             return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
         }

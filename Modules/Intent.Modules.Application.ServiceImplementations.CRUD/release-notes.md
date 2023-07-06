@@ -1,3 +1,7 @@
+### Version 4.3.2
+
+- Fixed: Type disambiguation rules were incorrectly being applied to variable names for some CRUD operation implementations.
+
 ### Version 4.3.0
 
 - Update: CRUD support for mapping service contracts to `Value Objects`.

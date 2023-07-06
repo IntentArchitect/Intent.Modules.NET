@@ -204,6 +204,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/PluralsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PluralsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/VersionOneService.cs</ApplicationRelativeFilePath>
@@ -316,6 +324,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IPluralsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPluralsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IVersionOneService.cs</ApplicationRelativeFilePath>
@@ -388,6 +404,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#10156545-1e6c-4797-ac87-62fdd6eaefc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Plurals/PluralsCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#64db448e-2f3d-44ec-b0af-86b6684c491a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Plurals/PluralsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#64db448e-2f3d-44ec-b0af-86b6684c491a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Plurals/PluralsDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6e5f3436-7cd2-4a98-a38e-ccec7ce923c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Plurals/PluralsUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#19ecc7da-5642-4311-86d7-fffa2e71c5a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Standard.AspNetCore.TestApplication.Application.csproj</ApplicationRelativeFilePath>
@@ -451,6 +499,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d33a1bc5-ceab-495d-a7d1-11b0fd9606a2</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a6fac94f-2c7f-4638-9ae2-cb0400006809</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Domain/Entities/Plurals.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Plurals.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ff2d8d85-dc8c-4f07-9e6f-a91fdd5fc9b2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -472,6 +528,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff2d8d85-dc8c-4f07-9e6f-a91fdd5fc9b2</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a6fac94f-2c7f-4638-9ae2-cb0400006809</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Domain/Repositories/IPluralsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPluralsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -563,6 +627,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0ad8fa0c-3d1f-4d4e-a17a-4d1a6dec5114</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6fac94f-2c7f-4638-9ae2-cb0400006809</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/Persistence/Configurations/PluralsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PluralsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>34fe3bf9-ae58-48d7-8c11-d10905095dd5</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -584,6 +656,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>23b24241-f464-4189-8c79-2426dc709f85</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6fac94f-2c7f-4638-9ae2-cb0400006809</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/Repositories/PluralsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PluralsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
