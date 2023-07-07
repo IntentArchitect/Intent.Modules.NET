@@ -158,6 +158,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return SDKOptionsEnum.MicrosoftNETSdk;
                         case "Microsoft.NET.Sdk.Web":
                             return SDKOptionsEnum.MicrosoftNETSdkWeb;
+                        case "Microsoft.NET.Sdk.BlazorWebAssembly":
+                            return SDKOptionsEnum.MicrosoftNETSdkBlazorWebAssembly;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -171,12 +173,17 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "Microsoft.NET.Sdk.Web";
                 }
+                public bool IsMicrosoftNETSdkBlazorWebAssembly()
+                {
+                    return Value == "Microsoft.NET.Sdk.BlazorWebAssembly";
+                }
             }
 
             public enum SDKOptionsEnum
             {
                 MicrosoftNETSdk,
-                MicrosoftNETSdkWeb
+                MicrosoftNETSdkWeb,
+                MicrosoftNETSdkBlazorWebAssembly
             }
             public class OutputTypeOptions
             {

@@ -414,7 +414,9 @@ const sdk = dotnetSettings.getProperty("SDK").getValue();
 const outputType = dotnetSettings.getProperty("Output Type").getValue();
 const azureFunctionsVersion = dotnetSettings.getProperty("Azure Functions Version").getValue();
 
-if (sdk == "Microsoft.NET.Sdk.Web") {
+if (sdk === "Microsoft.NET.Sdk.Web" ||
+    sdk === "Microsoft.NET.Sdk.BlazorWebAssembly"
+) {
     return aspNetIcon;
 }
 

@@ -30,6 +30,7 @@
       <valueOptions>
         <option>Microsoft.NET.Sdk</option>
         <option>Microsoft.NET.Sdk.Web</option>
+        <option>Microsoft.NET.Sdk.BlazorWebAssembly</option>
       </valueOptions>
       <lookupTypes />
       <isActiveFunction />

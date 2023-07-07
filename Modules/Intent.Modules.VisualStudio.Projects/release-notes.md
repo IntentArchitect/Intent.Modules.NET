@@ -1,3 +1,7 @@
+### Version 3.3.28
+
+- Update: Added `Microsoft.NET.Sdk.BlazorWebAssembly` as an available SDK option for .NET Projects.
+
 ### Version 3.3.27
 
 - Update: Added `10.0`, `11.0` and `12.0` as selectable C# Project `Language Version`s.
