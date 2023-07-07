@@ -20,6 +20,9 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             builder.Property(x => x.UserName)
                 .IsRequired();
 
+            builder.Property(x => x.Type)
+                .IsRequired();
+
             builder.OwnsMany(x => x.Preferences, ConfigurePreferences);
         }
 

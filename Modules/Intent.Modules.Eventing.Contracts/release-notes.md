@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Fixed: Messages and DTOs will now prefer the generated Integration Enum above the Domain Enum for type referencing.
+
 ### Version 4.0.5
 
 - Default collection type set to `List<T>`.

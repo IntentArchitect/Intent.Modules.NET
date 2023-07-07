@@ -6,6 +6,8 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 
@@ -47,7 +49,7 @@ internal static class MappingExtensionHelper
                     }
                     else
                     {
-                        codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath},");
+                        codeLines.Add($"{property.Name.ToPascalCase()} = {GetCastingIfNecessary(template, property, mappedPropertyElement?.Path)}{sourcePath},");
                     }
                     break;
                 case AssociationTargetEndModel.SpecializationTypeId:
@@ -82,6 +84,34 @@ internal static class MappingExtensionHelper
         }
 
         return codeLines;
+    }
+
+    private static string GetCastingIfNecessary<TModel>(CSharpTemplateBase<TModel> template, IElement destProperty, IList<IElementMappingPathTarget> mappedAttribute)
+    {
+        if (mappedAttribute is null)
+        {
+            return string.Empty;
+        }
+
+        if (!destProperty.TypeReference.Element.IsEnumModel())
+        {
+            return string.Empty;
+        }
+
+        var mappedAttrElement = mappedAttribute.LastOrDefault()?.Element;
+        if (mappedAttrElement is null)
+        {
+            return string.Empty;
+        }
+
+        var destPropTypeFullName = template.GetFullyQualifiedTypeName(destProperty.TypeReference);
+        var mappedAttrTypeFullName = template.GetFullyQualifiedTypeName(TemplateFulfillingRoles.Domain.Enum, mappedAttrElement.TypeReference.Element);
+        if (destPropTypeFullName == mappedAttrTypeFullName)
+        {
+            return string.Empty;
+        }
+
+        return $"({template.GetTypeName(destProperty.TypeReference)}) ";
     }
 
     private static string GetPath(IEnumerable<IElementMappingPathTarget> path)

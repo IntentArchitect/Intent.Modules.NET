@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.IntegrationEvents;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,6 +18,7 @@ namespace MassTransit.Messages.Shared
                 Email = projectFrom.Email,
                 UserName = projectFrom.UserName,
                 Preferences = projectFrom.Preferences.Select(PreferenceDtoExtensions.MapToPreferenceDto).ToList(),
+                Type = (UserType)projectFrom.Type,
             };
         }
     }
