@@ -395,6 +395,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventEnum#50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/UserType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d2f445c3-2185-4f69-9492-742b7fa349e6</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d2f445c3-2185-4f69-9492-742b7fa349e6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

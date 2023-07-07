@@ -18,6 +18,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
 
         public string UserName { get; set; }
 
+        public UserType Type { get; set; }
+
         public virtual ICollection<Preference> Preferences { get; set; } = new List<Preference>();
     }
 }

@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed: Messages and DTOs will now prefer the generated Integration Enum above the Domain Enum for type referencing and will perform Enum casting where necessary.
+
 ### Version 4.1.0
 
 - Now supports mapping Messages from Domain Events and will automatically implement publishing in the default Domain Event Handler.

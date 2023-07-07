@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>UserType</name>
+  <display>UserType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</parentFolderId>
+  <packageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c210986f-83e2-40b3-b31a-9689b177381d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Normal</name>
+      <display>Normal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225</parentFolderId>
+      <packageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6d683e49-3f1d-4a2d-9214-fa0ea21effd1" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Admin</name>
+      <display>Admin</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225</parentFolderId>
+      <packageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

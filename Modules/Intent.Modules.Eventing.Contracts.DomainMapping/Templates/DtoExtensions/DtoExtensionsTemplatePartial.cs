@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -29,6 +30,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DtoExtensionsTemplate(IOutputTarget outputTarget, EventingDTOModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum);

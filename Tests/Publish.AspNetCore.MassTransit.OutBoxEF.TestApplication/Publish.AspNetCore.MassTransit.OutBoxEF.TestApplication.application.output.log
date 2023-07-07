@@ -211,6 +211,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventEnum#50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/UserType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7678ff8c-ed1b-46bf-9550-6a9eabb9dca8</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#81985beb-9423-4107-9cda-25165eec3dbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -408,6 +416,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Repositories/IUserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc601c4-10fa-4a16-a8dc-3239dbc6d082</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#50d15b2e-1f6a-4c6e-ae6b-b4f6fd7cf225</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/UserType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserType.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
