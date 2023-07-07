@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a711f094-48c5-4011-ae90-666e83bd959f" version="3.1.0">
+  <name>Hub Publish Message Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="eff4de68-2ecb-4f61-a240-638c500693e2">Publish Message</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>on-create</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>4a11c655-af5c-455b-9c64-a0c9500fac6b</parentFolderId>
+  <order>0</order>
+  <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+  <packageName>Intent.AspNetCore.SignalR</packageName>
+  <properties>
+    <property id="58131a09-d682-4586-a94a-d2b9b5a8d555">
+      <name>Target Clients</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>All</defaultValue>
+      <valueOptions>
+        <option>All</option>
+        <option>User</option>
+        <option>Users</option>
+        <option>Group</option>
+        <option>Groups</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

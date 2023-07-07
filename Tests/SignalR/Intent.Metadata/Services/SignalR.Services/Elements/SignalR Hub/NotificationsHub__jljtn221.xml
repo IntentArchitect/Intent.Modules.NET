@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e" type="SignalR Hub" typeId="5ceb7e81-e2c6-4421-aa53-f74a81b0e312">
+  <name>NotificationsHub</name>
+  <display>NotificationsHub</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</parentFolderId>
+  <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+  <packageName>SignalR.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ba101028-d276-496d-bab2-5e7b707449a4" name="Hub Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+      <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+      <properties>
+        <property name="f31b39ce-ed38-42c8-958c-f050d2818fb5" display="Route" value="/hub/notifications" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b514a707-095b-4fb4-82e4-bae6af1b12fd" type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Publish</name>
+      <display>Publish: SendToAllDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="073a6c8a-7115-40fb-8ca3-c97f67512475">
+        <typeId>65a266b6-fa9f-4fbd-bf46-7d8fff731f00</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="All" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="50e98701-c98f-4438-91de-a2729695b44d" type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Publish</name>
+      <display>Publish: SendToUserDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5b6aac00-06ed-496d-828b-aa6766f2f62c">
+        <typeId>cd8abdb7-6a5c-4dff-8de3-76f693891d86</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="User" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="848453d7-b878-477a-8da9-eba6756fe606" type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Publish</name>
+      <display>Publish: SendToUsersDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3d2d985d-231c-4827-965c-90263b97f483">
+        <typeId>bdf57b47-c048-489b-b00d-e9477f2158ab</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="Users" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="220ca47d-e03f-4eae-a844-38412c0035b1" type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Publish</name>
+      <display>Publish: SendToGroupDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="06ee44aa-83e4-4baf-a944-c41d5d6f7bc1">
+        <typeId>d29af056-dca2-4525-b8af-b5331bd45380</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="Group" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fdcfb11b-513f-4ba4-aa66-19581f2173aa" type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Publish</name>
+      <display>Publish: SendToGroupsDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bc317fbb-5c1c-464f-8127-988e175c0bdf">
+        <typeId>eeac4455-9094-4ea8-a4bd-fda4ffccd4b8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="Groups" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

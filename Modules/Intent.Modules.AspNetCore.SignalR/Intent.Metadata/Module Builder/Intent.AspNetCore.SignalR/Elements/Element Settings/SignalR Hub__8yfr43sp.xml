@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5ceb7e81-e2c6-4421-aa53-f74a81b0e312" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
+  <name>SignalR Hub</name>
+  <display>SignalR Hub</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a7abc2ef-cac2-4911-8e93-8be8bf7ca051</parentFolderId>
+  <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+  <packageName>Intent.AspNetCore.SignalR</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="d8f6f331-d4f0-4c75-aa91-f2e715cd9591" name="Type Reference Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8da796ff-e5b8-4a53-9c18-9176bfff8fbc" display="Mode" value="Disabled" isActive="true" />
+        <property name="07613cf6-d1bf-411c-96db-65daad7d07f4" display="Display Name" isActive="false" />
+        <property name="3941cc0b-503e-495a-bef3-9923a6554cee" display="Hint" isActive="false" />
+        <property name="b94f760c-0ce7-4176-bbae-97e26914b39c" display="Target Types" isActive="false" />
+        <property name="eedd06e4-e2b8-42f2-b882-c8ae9cecabb8" display="Represents" value="Reference" isActive="false" />
+        <property name="ff4b18c5-397b-4639-ba79-89939deb9834" display="Default Type Id" isActive="false" />
+        <property name="229dcbe7-f000-4ee9-a06a-febad727f7e1" display="Allow Nullable" value="true" isActive="false" />
+        <property name="d04ec558-6f6a-462b-b16a-9da1d7b4e9db" display="Allow Collection" value="true" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f406222b-31a8-435e-80f6-6a08f9108649" name="Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="5a9277a9-b808-4ade-bb57-840b51b0da3a" display="Save Mode" value="Default" isActive="true" />
+        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+        <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
+        <property name="b966a8e9-f298-4741-8397-fe49f29c248b" display="Icon Function" isActive="true" />
+        <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
+        <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
+        <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
+        <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
+        <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
+        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="true" isActive="true" />
+        <property name="3a68e3cb-8014-4c43-9965-f6fc35589d37" display="Sort Children" isActive="true" />
+        <property name="46180320-9a7e-4fe3-8351-f7524612a52c" display="Allow Find in View" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="a92e35c3-4031-4889-b085-e9742d195eee" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5ceb7e81-e2c6-4421-aa53-f74a81b0e312</parentFolderId>
+      <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+      <packageName>Intent.AspNetCore.SignalR</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="68918c9f-f48c-4a36-b7bf-da850e9582ff" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>Add Publish</name>
+          <display>Add Publish: Publish Message</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2f36817d-ce04-4331-9f82-963530b99c56">
+            <typeId>eff4de68-2ecb-4f61-a240-638c500693e2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.AspNetCore.SignalR</typePackageName>
+            <typePackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a92e35c3-4031-4889-b085-e9742d195eee</parentFolderId>
+          <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+          <packageName>Intent.AspNetCore.SignalR</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="Publish" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="74dfbd9b-feab-4e3e-833d-f2ea17ca6847" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5ceb7e81-e2c6-4421-aa53-f74a81b0e312</parentFolderId>
+      <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+      <packageName>Intent.AspNetCore.SignalR</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="bf29f0ef-a1ed-4ab4-9be6-58c765b01ec4" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Created</name>
+          <display>On Created: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fc9b5850-23a1-4376-b707-36888b6a890e">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>74dfbd9b-feab-4e3e-833d-f2ea17ca6847</parentFolderId>
+          <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+          <packageName>Intent.AspNetCore.SignalR</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const hubSettingsStereotypeId = &quot;ba101028-d276-496d-bab2-5e7b707449a4&quot;;&#xD;&#xA;element.setName(&quot;NotificationsHub&quot;);&#xD;&#xA;element.addStereotype(hubSettingsStereotypeId);&#xD;&#xA;element.getStereotype(hubSettingsStereotypeId).getProperty(&quot;Route&quot;).setValue(&quot;/hub/notifications&quot;);&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd853d91-9a67-4ad6-a42b-7a1fc04c3424" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Package Extension</name>
+  <display>Package Extension: Services Package</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="ffb8a8f9-51be-4f0a-b8aa-a3b44c2d5728">
+    <typeId>df45eaf6-9202-4c25-8dd5-677e9ba1e906</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>a7abc2ef-cac2-4911-8e93-8be8bf7ca051</parentFolderId>
+  <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+  <packageName>Intent.AspNetCore.SignalR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4fd38481-1b13-4460-b6c7-3a893e4a7071" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cd853d91-9a67-4ad6-a42b-7a1fc04c3424</parentFolderId>
+      <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+      <packageName>Intent.AspNetCore.SignalR</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="bf4de5da-56f0-459d-b85f-54e20228252a" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>New SignalR Hub</name>
+          <display>New SignalR Hub: SignalR Hub</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7dae37b0-3554-4c22-8c05-2c04aa85925f">
+            <typeId>5ceb7e81-e2c6-4421-aa53-f74a81b0e312</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.AspNetCore.SignalR</typePackageName>
+            <typePackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4fd38481-1b13-4460-b6c7-3a893e4a7071</parentFolderId>
+          <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+          <packageName>Intent.AspNetCore.SignalR</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

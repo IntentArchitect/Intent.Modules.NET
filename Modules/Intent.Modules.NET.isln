@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.26" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.28" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -106,5 +106,6 @@
     <application id="c286b17c-d9cf-4acb-ab05-6256a99d5269" name="Intent.Modules.AspNetCore.Versioning" relativePath="Intent.Modules.AspNetCore.Versioning/Intent.Modules.AspNetCore.Versioning.application.config" />
     <application id="8f7ee5f1-6a37-4f38-b129-6c5d6898c355" name="Intent.Modules.CosmosDB" relativePath="Intent.Modules.CosmosDB/Intent.Modules.CosmosDB.application.config" />
     <application id="889131be-3f2c-4eb9-8a3a-a10260093907" name="Intent.Modules.ObsoleteModule" relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.application.config" />
+    <application id="3c870573-3449-4986-82f0-1bf3299ab1d1" name="Intent.Modules.AspNetCore.SignalR" relativePath="Intent.Modules.AspNetCore.SignalR/Intent.Modules.AspNetCore.SignalR.application.config" />
   </applications>
 </solution>

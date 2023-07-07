@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="ba101028-d276-496d-bab2-5e7b707449a4" version="3.1.0">
+  <name>Hub Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="5ceb7e81-e2c6-4421-aa53-f74a81b0e312">SignalR Hub</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>return properties["Route"].value ? `Route("${properties["Route"].value}")` : "";</displayFunction>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>4a11c655-af5c-455b-9c64-a0c9500fac6b</parentFolderId>
+  <order>0</order>
+  <packageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</packageId>
+  <packageName>Intent.AspNetCore.SignalR</packageName>
+  <properties>
+    <property id="f31b39ce-ed38-42c8-958c-f050d2818fb5">
+      <name>Route</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

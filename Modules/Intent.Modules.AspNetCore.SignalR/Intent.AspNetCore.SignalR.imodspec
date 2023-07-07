@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.AspNetCore.SignalR</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <summary>Server to Client side communication using SignalR.</summary>
+  <description>Server to Client side communication using SignalR.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <tags>csharp dotnet aspnetcore signalr</tags>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates>
+    <template id="Intent.AspNetCore.SignalR.Hub" externalReference="db93ed59-9670-45d2-891f-116b680a517c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.Hub</role>
+      <location>Hubs</location>
+    </template>
+    <template id="Intent.AspNetCore.SignalR.HubService" externalReference="aafe2d87-a7c6-4588-93f2-2391a44d1c74">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.Hub.Service</role>
+      <location>Hubs\Services</location>
+    </template>
+    <template id="Intent.AspNetCore.SignalR.HubServiceInterface" externalReference="eb4dfcd5-b900-4717-86e4-123333ea2ead">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.HubServiceInterface</role>
+      <location>Interfaces\Hubs</location>
+    </template>
+    <template id="Intent.AspNetCore.SignalR.SignalRConfiguration" externalReference="35c0ede1-1250-412f-a87e-c3791d66f120">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.SignalRConfiguration</role>
+      <location>Configuration</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.37" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Services" version="3.4.4" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install src="modelers/SignalR Designer Settings.designer.settings" externalReference="a7abc2ef-cac2-4911-8e93-8be8bf7ca051" target="Services" />
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.AspNetCore.SignalR/Intent.AspNetCore.SignalR.pkg.config" externalReference="6378d2f9-b84e-4b0f-a097-226cec1b8553" />
+  </metadata>
+</package>
