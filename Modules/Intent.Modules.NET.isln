@@ -107,5 +107,6 @@
     <application id="8f7ee5f1-6a37-4f38-b129-6c5d6898c355" name="Intent.Modules.CosmosDB" relativePath="Intent.Modules.CosmosDB/Intent.Modules.CosmosDB.application.config" />
     <application id="889131be-3f2c-4eb9-8a3a-a10260093907" name="Intent.Modules.ObsoleteModule" relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.application.config" />
     <application id="3c870573-3449-4986-82f0-1bf3299ab1d1" name="Intent.Modules.AspNetCore.SignalR" relativePath="Intent.Modules.AspNetCore.SignalR/Intent.Modules.AspNetCore.SignalR.application.config" />
+    <application id="f51fb36a-8aba-46a5-8c18-b9f9c8c496da" name="Intent.Modules.Blazor.HttpClients" relativePath="Intent.Modules.Blazor.HttpClients/Intent.Modules.Blazor.HttpClients.application.config" />
   </applications>
 </solution>

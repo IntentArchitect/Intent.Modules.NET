@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1" />
-    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.7" />
-    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="4.0.0" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="4.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="4.0.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,33 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\DtoContract\DtoContractTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DtoContractTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\ServiceContract\ServiceContractTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ServiceContractTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\DtoContract\DtoContractTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DtoContractTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\ServiceContract\ServiceContractTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceContractTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="4.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="4.0.1" />
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HttpClientConfigurationTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HttpClientConfigurationTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
+
+</Project>

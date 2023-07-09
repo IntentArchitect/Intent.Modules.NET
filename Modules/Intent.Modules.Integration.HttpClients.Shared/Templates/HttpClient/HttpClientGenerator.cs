@@ -1,15 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modules.Application.Contracts.Clients;
-using Intent.Modules.Application.Contracts.Clients.Templates;
-using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
-using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
@@ -19,25 +16,38 @@ public class HttpClientGenerator
     private readonly CSharpTemplateBase<ServiceProxyModel> _template;
     private readonly string _httpClientRequestExceptionTemplateId;
     private readonly string _jsonResponseTemplateId;
+    private readonly string _serviceContractTemplateId;
+    private readonly string _dtoContractTemplateId;
     private readonly IReadOnlyCollection<IHttpEndpointModel> _endpoints;
 
     private HttpClientGenerator(
         CSharpTemplateBase<ServiceProxyModel> template,
         string httpClientRequestExceptionTemplateId,
-        string jsonResponseTemplateId)
+        string jsonResponseTemplateId,
+        string serviceContractTemplateId,
+        string dtoContractTemplateId)
     {
         _template = template;
         _httpClientRequestExceptionTemplateId = httpClientRequestExceptionTemplateId;
         _jsonResponseTemplateId = jsonResponseTemplateId;
+        _serviceContractTemplateId = serviceContractTemplateId;
+        _dtoContractTemplateId = dtoContractTemplateId;
         _endpoints = template.Model.GetMappedEndpoints().ToArray();
     }
 
     public static CSharpFile CreateCSharpFile(
         CSharpTemplateBase<ServiceProxyModel> template,
         string httpClientRequestExceptionTemplateId,
-        string jsonResponseTemplateId)
+        string jsonResponseTemplateId,
+        string serviceContractTemplateId,
+        string dtoContractTemplateId)
     {
-        return new HttpClientGenerator(template, httpClientRequestExceptionTemplateId, jsonResponseTemplateId).Create();
+        return new HttpClientGenerator(
+            template: template,
+            httpClientRequestExceptionTemplateId: httpClientRequestExceptionTemplateId,
+            jsonResponseTemplateId: jsonResponseTemplateId,
+            serviceContractTemplateId: serviceContractTemplateId,
+            dtoContractTemplateId: dtoContractTemplateId).Create();
     }
 
     private CSharpFile Create()
@@ -45,8 +55,8 @@ public class HttpClientGenerator
         _template.AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
         _template.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
-        _template.AddTypeSource(ServiceContractTemplate.TemplateId);
-        _template.AddTypeSource(DtoContractTemplate.TemplateId).WithCollectionFormat("List<{0}>");
+        _template.AddTypeSource(_serviceContractTemplateId);
+        _template.AddTypeSource(_dtoContractTemplateId).WithCollectionFormat("List<{0}>");
         _template.SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
 
         return new CSharpFile(_template.GetNamespace(), _template.GetFolderPath())
@@ -66,7 +76,7 @@ public class HttpClientGenerator
             .AddClass($"{_template.Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
             {
                 @class
-                    .ImplementsInterface(_template.GetServiceContractName())
+                    .ImplementsInterface(_template.GetTypeName(_serviceContractTemplateId, _template.Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
                     .AddConstructor(constructor => constructor
                         .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -28,7 +30,9 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             CSharpFile = HttpClientGenerator.CreateCSharpFile(
                 template: this,
                 httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
-                jsonResponseTemplateId: JsonResponseTemplate.TemplateId);
+                jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
+                serviceContractTemplateId: ServiceContractTemplate.TemplateId,
+                dtoContractTemplateId: DtoContractTemplate.TemplateId);
         }
 
         [IntentManaged(Mode.Fully)]
