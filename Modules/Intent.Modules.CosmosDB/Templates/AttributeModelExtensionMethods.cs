@@ -1,4 +1,7 @@
-﻿using Intent.Modelers.Domain.Api;
+﻿using System;
+using System.Linq;
+using Intent.Metadata.DocumentDB.Api;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.CosmosDB.Templates
@@ -13,6 +16,40 @@ namespace Intent.Modules.CosmosDB.Templates
                 "long" or "int" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                 _ => ".ToString()"
             };
+        }
+
+        public static AttributeModel GetPrimaryKeyAttribute(this ClassModel model)
+        {
+            var @class = model;
+            while (@class != null)
+            {
+                var primaryKeyAttribute = @class.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
+                if (primaryKeyAttribute != null)
+                {
+                    return primaryKeyAttribute;
+                }
+
+                @class = @class.ParentClass;
+            }
+
+            return null;
+        }
+
+        public static AttributeModel GetAttributeOrDerivedWithName(this ClassModel model, string name)
+        {
+            var @class = model;
+            while (@class != null)
+            {
+                var primaryKeyAttribute = @class.Attributes.SingleOrDefault(x => name.Equals(x.Name, StringComparison.OrdinalIgnoreCase));
+                if (primaryKeyAttribute != null)
+                {
+                    return primaryKeyAttribute;
+                }
+
+                @class = @class.ParentClass;
+            }
+
+            return null;
         }
     }
 }

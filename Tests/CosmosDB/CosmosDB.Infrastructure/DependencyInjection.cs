@@ -34,10 +34,14 @@ namespace CosmosDB.Infrastructure
                 options.ContainerPerItemType = true;
 
                 options.ContainerBuilder
+                    .Configure<BaseTypeDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<ClassContainerDocument>(c => c
                         .WithContainer("Class")
                         .WithPartitionKey("/classPartitionKey"))
                     .Configure<ClientDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<DerivedTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<FolderContainerDocument>(c => c
                         .WithContainer("Folder")
@@ -54,8 +58,10 @@ namespace CosmosDB.Infrastructure
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
+            services.AddScoped<IBaseTypeRepository, BaseTypeCosmosDBRepository>();
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
+            services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();

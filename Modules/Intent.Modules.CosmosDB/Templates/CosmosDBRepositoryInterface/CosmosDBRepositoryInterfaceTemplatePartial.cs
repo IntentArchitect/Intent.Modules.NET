@@ -66,7 +66,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                         .Single()
                         .Replace("IRepository", this.GetCosmosDBRepositoryInterfaceName());
 
-                    if (model.Attributes.Any(x => x.TypeReference?.Element.Name == "string" && x.HasPrimaryKey()))
+                    if (model.GetPrimaryKeyAttribute()?.TypeReference?.Element.Name == "string")
                     {
                         var toRemove = @interface.Methods
                             .Where(x => x.Name is "FindByIdAsync" or "FindByIdsAsync")

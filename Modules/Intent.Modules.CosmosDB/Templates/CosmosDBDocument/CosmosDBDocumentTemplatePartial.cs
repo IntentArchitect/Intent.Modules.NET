@@ -56,7 +56,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     @class.AddField("string?", "_type");
 
                     // IItem.Id implementation:
-                    var pkAttribute = Model.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
+                    var pkAttribute = Model.GetPrimaryKeyAttribute();
                     if (pkAttribute != null)
                     {
                         var pkPropertyName = pkAttribute.Name.ToPascalCase();
@@ -111,7 +111,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     Model.TryGetContainerSettings(out var containerName, out var partitionKey);
                     var partitionKeyAttribute = partitionKey == null
                         ? pkAttribute
-                        : model.Attributes.SingleOrDefault(x => partitionKey.Equals(x.Name, StringComparison.OrdinalIgnoreCase));
+                        : model.GetAttributeOrDerivedWithName(partitionKey);
                     if (partitionKeyAttribute != null &&
                         partitionKeyAttribute.Id != pkAttribute?.Id)
                     {
@@ -123,12 +123,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
                     else if (partitionKeyAttribute == null)
                     {
-                        Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have attribute with name matching " +
+                        Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have an attribute with name matching " +
                                             $"partition key \"{partitionKey}\" for \"{containerName}\" container.");
                     }
 
                     // Add "Id" property with JsonProperty attribute if not the PK
-                    var idAttribute = Model.Attributes.FirstOrDefault(x => "id".Equals(x.Name, StringComparison.OrdinalIgnoreCase));
+                    var idAttribute = Model.GetAttributeOrDerivedWithName("id");
                     if (idAttribute?.HasPrimaryKey() == false)
                     {
                         @class.AddProperty(GetTypeName(idAttribute), "Id", property =>
@@ -141,7 +141,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
 
                     // Add "Type" property with JsonProperty attribute so as to not conflict with the IItem.Type property
-                    var typeAttribute = Model.Attributes.FirstOrDefault(x => "type".Equals(x.Name, StringComparison.OrdinalIgnoreCase));
+                    var typeAttribute = Model.GetAttributeOrDerivedWithName("type");
                     if (typeAttribute != null)
                     {
                         @class.AddProperty(GetTypeName(typeAttribute), "Type", property =>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
+using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -31,7 +32,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
-                    var pkAttribute = Model.Attributes.Single(x => x.HasPrimaryKey());
+                    var pkAttribute = Model.GetPrimaryKeyAttribute();
                     var pkFieldName = pkAttribute.Name.ToCamelCase();
                     var entityDocumentName = this.GetCosmosDBDocumentName();
 
@@ -50,18 +51,15 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                         );
                     });
 
-                    var nonStringPkAttribute = model.Attributes.SingleOrDefault(x =>
-                        x.TypeReference?.Element.Name != "string" &&
-                        x.HasPrimaryKey());
-                    if (nonStringPkAttribute != null)
+                    if (pkAttribute.TypeReference?.Element.Name != "string")
                     {
                         @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityInterfaceName}>", "FindByIdAsync", method =>
                         {
                             method
                                 .Async()
-                                .AddParameter(GetTypeName(nonStringPkAttribute), "id")
+                                .AddParameter(GetTypeName(pkAttribute), "id")
                                 .AddOptionalCancellationTokenParameter(this)
-                                .WithExpressionBody($"await FindByIdAsync(id{nonStringPkAttribute.GetToString(this)}, cancellationToken)");
+                                .WithExpressionBody($"await FindByIdAsync(id{pkAttribute.GetToString(this)}, cancellationToken)");
                         });
 
                         @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityInterfaceName}>>", "FindByIdsAsync", method =>
@@ -69,9 +67,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                             AddUsing("System.Linq");
                             method
                                 .Async()
-                                .AddParameter($"{GetTypeName(nonStringPkAttribute)}[]", "ids")
+                                .AddParameter($"{GetTypeName(pkAttribute)}[]", "ids")
                                 .AddOptionalCancellationTokenParameter(this)
-                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{nonStringPkAttribute.GetToString(this)}).ToArray(), cancellationToken)");
+                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.GetToString(this)}).ToArray(), cancellationToken)");
                         });
                     }
                 });
