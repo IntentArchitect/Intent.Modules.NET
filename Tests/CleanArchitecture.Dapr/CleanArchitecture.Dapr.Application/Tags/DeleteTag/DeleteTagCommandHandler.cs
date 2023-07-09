@@ -29,7 +29,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
 
             if (existingTag is null)
             {
-                throw new NotFoundException($"Could not find Tag {request.Id}");
+                throw new NotFoundException($"Could not find Tag '{request.Id}' ");
             }
             _tagRepository.Remove(existingTag);
             return Unit.Value;

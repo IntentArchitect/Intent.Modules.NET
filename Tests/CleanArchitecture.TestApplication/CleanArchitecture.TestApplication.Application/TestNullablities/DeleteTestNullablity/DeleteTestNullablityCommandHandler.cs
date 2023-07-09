@@ -29,7 +29,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
 
             if (existingTestNullablity is null)
             {
-                throw new NotFoundException($"Could not find TestNullablity {request.Id}");
+                throw new NotFoundException($"Could not find TestNullablity '{request.Id}' ");
             }
             _testNullablityRepository.Remove(existingTestNullablity);
             return Unit.Value;

@@ -43,7 +43,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
 
             if (element is null)
             {
-                throw new NotFoundException($"Could not find BasketItem {request.Id}");
+                throw new NotFoundException($"Could not find BasketItem '{request.Id}'");
             }
             return element.MapToBasketBasketItemDto(_mapper);
         }

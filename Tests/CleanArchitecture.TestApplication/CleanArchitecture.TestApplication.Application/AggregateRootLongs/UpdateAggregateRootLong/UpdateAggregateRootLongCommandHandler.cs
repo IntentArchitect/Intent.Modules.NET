@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
 
             if (existingAggregateRootLong is null)
             {
-                throw new NotFoundException($"Could not find AggregateRootLong {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRootLong '{request.Id}'");
             }
             existingAggregateRootLong.Attribute = request.Attribute;
             existingAggregateRootLong.CompositeOfAggrLong = CreateOrUpdateCompositeOfAggrLong(existingAggregateRootLong.CompositeOfAggrLong, request.CompositeOfAggrLong);

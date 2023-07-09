@@ -32,7 +32,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoiceById
 
             if (invoice is null)
             {
-                throw new NotFoundException($"Could not find Invoice {request.Id}");
+                throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
             return invoice.MapToInvoiceDto(_mapper);
         }

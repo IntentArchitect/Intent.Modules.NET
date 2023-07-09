@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.GetClassW
 
             if (classWithEnums is null)
             {
-                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+                throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}'");
             }
             return classWithEnums.MapToClassWithEnumsDto(_mapper);
         }

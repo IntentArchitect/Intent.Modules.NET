@@ -30,7 +30,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
 
             if (existingCustomer is null)
             {
-                throw new NotFoundException($"Could not find Customer {request.Id}");
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
             return Unit.Value;
         }

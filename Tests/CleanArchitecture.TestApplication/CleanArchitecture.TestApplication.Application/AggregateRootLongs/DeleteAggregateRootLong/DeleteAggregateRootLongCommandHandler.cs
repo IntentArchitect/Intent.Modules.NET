@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Delet
 
             if (existingAggregateRootLong is null)
             {
-                throw new NotFoundException($"Could not find AggregateRootLong {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRootLong '{request.Id}' ");
             }
             _aggregateRootLongRepository.Remove(existingAggregateRootLong);
             return Unit.Value;

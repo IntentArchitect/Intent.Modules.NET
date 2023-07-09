@@ -30,7 +30,7 @@ namespace CosmosDB.Application.Clients.UpdateClient
 
             if (existingClient is null)
             {
-                throw new NotFoundException($"Could not find Client {request.Identifier}");
+                throw new NotFoundException($"Could not find Client '{request.Identifier}'");
             }
             existingClient.Identifier = request.Identifier;
             existingClient.Type = request.Type;

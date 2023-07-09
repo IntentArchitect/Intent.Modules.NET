@@ -32,7 +32,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
 
             if (customerRich is null)
             {
-                throw new NotFoundException($"Could not find CustomerRich {request.Id}");
+                throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
             }
             return customerRich.MapToCustomerRichDto(_mapper);
         }

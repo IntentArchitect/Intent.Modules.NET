@@ -32,7 +32,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.DeleteProdu
 
             if (existingProduct is null)
             {
-                throw new NotFoundException($"Could not find Product {request.Id}");
+                throw new NotFoundException($"Could not find Product '{request.Id}' ");
             }
             _productRepository.Remove(existingProduct);
             return existingProduct.MapToProductDto(_mapper);

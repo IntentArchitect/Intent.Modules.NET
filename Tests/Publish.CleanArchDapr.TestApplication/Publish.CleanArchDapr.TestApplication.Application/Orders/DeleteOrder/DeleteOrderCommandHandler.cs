@@ -29,7 +29,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
 
             if (existingOrder is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}' ");
             }
             _orderRepository.Remove(existingOrder);
             return Unit.Value;

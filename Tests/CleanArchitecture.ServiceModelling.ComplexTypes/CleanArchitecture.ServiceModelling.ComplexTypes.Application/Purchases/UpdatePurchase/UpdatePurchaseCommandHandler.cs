@@ -31,7 +31,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
 
             if (existingPurchase is null)
             {
-                throw new NotFoundException($"Could not find Purchase {request.Id}");
+                throw new NotFoundException($"Could not find Purchase '{request.Id}'");
             }
             existingPurchase.Cost = CreateMoney(request.Cost);
             return Unit.Value;

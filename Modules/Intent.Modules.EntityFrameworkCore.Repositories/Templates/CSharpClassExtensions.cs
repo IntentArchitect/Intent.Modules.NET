@@ -16,6 +16,12 @@ public static class CSharpClassExtensions
         return entity;
     }
 
+    public static bool HasPrimaryKey(this CSharpClass rootEntity)
+    {
+        return rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
+               && pks.Length > 0;
+    }
+
     public static bool HasSinglePrimaryKey(this CSharpClass rootEntity)
     {
         return rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks) 
@@ -34,5 +40,11 @@ public static class CSharpClassExtensions
             throw new InvalidOperationException($"Entity [{rootEntity.Name}] has more than one Primary Key");
         }
         return pks.First();
+    }
+
+    public static CSharpProperty[] GetPropertiesWithPrimaryKey(this CSharpClass rootEntity)
+    {
+        rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks);
+        return pks;
     }
 }

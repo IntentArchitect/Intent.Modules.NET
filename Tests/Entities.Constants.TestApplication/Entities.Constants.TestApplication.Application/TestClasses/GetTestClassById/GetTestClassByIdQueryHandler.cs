@@ -32,7 +32,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
 
             if (testClass is null)
             {
-                throw new NotFoundException($"Could not find TestClass {request.Id}");
+                throw new NotFoundException($"Could not find TestClass '{request.Id}'");
             }
             return testClass.MapToTestClassDto(_mapper);
         }

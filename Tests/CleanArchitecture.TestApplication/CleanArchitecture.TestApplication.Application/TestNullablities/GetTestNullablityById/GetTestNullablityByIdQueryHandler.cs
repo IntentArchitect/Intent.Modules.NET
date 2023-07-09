@@ -35,7 +35,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.GetTest
 
             if (testNullablity is null)
             {
-                throw new NotFoundException($"Could not find TestNullablity {request.Id}");
+                throw new NotFoundException($"Could not find TestNullablity '{request.Id}'");
             }
             return testNullablity.MapToTestNullablityDto(_mapper);
         }

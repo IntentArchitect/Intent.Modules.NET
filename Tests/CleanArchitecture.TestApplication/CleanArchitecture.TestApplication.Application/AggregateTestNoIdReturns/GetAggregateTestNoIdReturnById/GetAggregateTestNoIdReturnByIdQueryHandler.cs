@@ -36,7 +36,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 
             if (aggregateTestNoIdReturn is null)
             {
-                throw new NotFoundException($"Could not find AggregateTestNoIdReturn {request.Id}");
+                throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}'");
             }
             return aggregateTestNoIdReturn.MapToAggregateTestNoIdReturnDto(_mapper);
         }

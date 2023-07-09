@@ -73,15 +73,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var nestedCompOwnerIdField = _template.Model.Properties.GetNestedCompositionalOwnerIdField(owner: nestedCompOwner);
-                if (nestedCompOwnerIdField == null)
+                var nestedCompOwnerIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(owner: nestedCompOwner);
+                if (!nestedCompOwnerIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest()}, cancellationToken);");
                 codeLines.Add(new CSharpIfStatement($"aggregateRoot is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"");"));
             }
 
             var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
@@ -184,7 +184,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
                             }
-                            AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
+                            _template.AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -211,7 +211,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 {
                                     codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList()),");
                                 }
-                                AddValueObjectFactoryMethod(updateMethodName, targetValueObject, field);
+                                _template.AddValueObjectFactoryMethod(updateMethodName, targetValueObject, field);
                                 break;
                             }
                             var targetEntity = association.Element.AsClassModel();
@@ -257,7 +257,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                             .AddStatements(GetDTOPropertyAssignments(
                                                 entityVarName: "",
                                                 dtoVarName: $"dto",
-                                                domainAttributes: GetDomainAttibuteModels(targetEntity.InternalElement),
+                                                domainAttributes: targetEntity.InternalElement.GetDomainAttibuteModels(),
                                                 dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
                                                 skipIdField: true))
                                             .WithSemicolon()));
@@ -269,46 +269,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             return codeLines.ToList();
         }
-
-        private void AddValueObjectFactoryMethod(string mappingMethodName, IElement domain, DTOFieldModel field)
-        {
-            var @class = _template.CSharpFile.Classes.First();
-            var targetDto = field.TypeReference.Element.AsDTOModel();
-            if (!MethodExists(mappingMethodName, @class, targetDto))
-            {
-                var domainType = _template.GetTypeName(domain);
-                @class.AddMethod(domainType, mappingMethodName, method =>
-                {
-                    method.Static()
-                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
-
-                    var attributeModels = GetDomainAttibuteModels(domain);
-
-                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
-                    if (attributeMap.Any(x => x.Dto == null))
-                    {
-                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
-                    }
-                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
-                    method.AddStatement($"return new {domainType}({ctorParameters});");
-                });
-            }
-        }
-
-        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
-        {
-            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
-        }
-
-        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
-        {
-            return @class.FindMethod((method) =>
-                                        method.Name == mappingMethodName
-                                        && method.Parameters.Count == 1
-                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
-        }
-
 
         private StrategyData GetMatchingElementDetails()
         {

@@ -32,7 +32,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.DeletePrivilege
 
             if (existingPrivilege is null)
             {
-                throw new NotFoundException($"Could not find Privilege {request.Id}");
+                throw new NotFoundException($"Could not find Privilege '{request.Id}' ");
             }
             _privilegeRepository.Remove(existingPrivilege);
             return existingPrivilege.MapToPrivilegeDto(_mapper);

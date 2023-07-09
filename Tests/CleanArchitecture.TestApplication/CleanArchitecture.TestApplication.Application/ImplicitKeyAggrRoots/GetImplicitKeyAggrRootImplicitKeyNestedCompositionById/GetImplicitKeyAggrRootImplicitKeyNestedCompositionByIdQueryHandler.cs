@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
 
             if (element is null)
             {
-                throw new NotFoundException($"Could not find ImplicitKeyNestedComposition {request.Id}");
+                throw new NotFoundException($"Could not find ImplicitKeyNestedComposition '{request.Id}'");
             }
             return element.MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDto(_mapper);
         }

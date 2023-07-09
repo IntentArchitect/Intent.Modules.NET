@@ -32,7 +32,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
 
             if (order is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
             return order.MapToOrderDto(_mapper);
         }

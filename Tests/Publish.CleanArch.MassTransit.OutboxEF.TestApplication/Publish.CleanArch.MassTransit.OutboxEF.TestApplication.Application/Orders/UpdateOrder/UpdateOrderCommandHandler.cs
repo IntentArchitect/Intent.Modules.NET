@@ -36,7 +36,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
 
             if (existingOrder is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
             existingOrder.Number = request.Number;
             existingOrder.OrderItems = UpdateHelper.CreateOrUpdateCollection(existingOrder.OrderItems, request.OrderItems, (e, d) => e.Id == d.Id, CreateOrUpdateOrderItem);

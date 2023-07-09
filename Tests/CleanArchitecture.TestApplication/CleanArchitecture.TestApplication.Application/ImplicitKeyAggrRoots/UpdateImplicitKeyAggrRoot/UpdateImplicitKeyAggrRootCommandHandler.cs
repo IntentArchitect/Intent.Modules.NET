@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 
             if (existingImplicitKeyAggrRoot is null)
             {
-                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot {request.Id}");
+                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot '{request.Id}'");
             }
             existingImplicitKeyAggrRoot.Attribute = request.Attribute;
             existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions = UpdateHelper.CreateOrUpdateCollection(existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions, request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, CreateOrUpdateImplicitKeyNestedComposition);

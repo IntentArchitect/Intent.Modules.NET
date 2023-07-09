@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
             if (existingAggregateRoot is null)
             {
-                throw new NotFoundException($"Could not find AggregateRoot {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRoot '{request.Id}'");
             }
             existingAggregateRoot.AggregateAttr = request.AggregateAttr;
             existingAggregateRoot.Composites = UpdateHelper.CreateOrUpdateCollection(existingAggregateRoot.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyB);

@@ -1,3 +1,7 @@
+### Version 4.2.6
+
+- Update: Support for Composite PrimaryKeys on repositories.
+
 ### Version 4.2.5
 
 - Stored procedures now support `OUTPUT` and `Table-Valued` parameters.

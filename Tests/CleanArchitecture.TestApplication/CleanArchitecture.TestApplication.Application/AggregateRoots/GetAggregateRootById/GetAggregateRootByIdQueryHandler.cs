@@ -34,7 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
 
             if (aggregateRoot is null)
             {
-                throw new NotFoundException($"Could not find AggregateRoot {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRoot '{request.Id}'");
             }
             return aggregateRoot.MapToAggregateRootDto(_mapper);
         }

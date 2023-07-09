@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.UpdateCla
 
             if (existingClassWithEnums is null)
             {
-                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+                throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}'");
             }
             existingClassWithEnums.EnumWithDefaultLiteral = request.EnumWithDefaultLiteral;
             existingClassWithEnums.EnumWithoutDefaultLiteral = request.EnumWithoutDefaultLiteral;

@@ -65,27 +65,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
-            var idField = _matchingElementDetails.Value.IdField;
+            var idFields = _matchingElementDetails.Value.IdFields;
 
             var codeLines = new List<CSharpStatement>();
             var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var aggregateRootField = _template.Model.Properties.GetNestedCompositionalOwnerIdField(nestedCompOwner);
-                if (aggregateRootField == null)
+                var aggregateRootIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner);
+                if (!aggregateRootIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest()}, cancellationToken);");
                 codeLines.Add(new CSharpIfStatement($"aggregateRoot is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"");"));
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
 
-                codeLines.Add($@"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
+                codeLines.Add($@"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"");"));
                 codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 if (RepositoryRequiresExplicitUpdate())
@@ -97,9 +97,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines;
             }
 
-            codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
+            codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
             codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} {{request.{idField.Name.ToPascalCase()}}}"");"));
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"");"));
             codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
 
             if (RepositoryRequiresExplicitUpdate())
@@ -155,8 +155,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var foundEntity = _template.Model.Mapping.Element.AsClassModel();
 
-            var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
-            if (idField == null)
+            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+            if (!idFields.Any())
             {
                 return NoMatch;
             }
@@ -175,7 +175,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
 
-            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn, repositoryInterfaceModel);
+            return new StrategyData(true, foundEntity, idFields, repository, dtoToReturn, repositoryInterfaceModel);
         }
 
         private IList<CSharpStatement> GetDtoPropertyAssignments(string entityVarName, string dtoVarName, IList<AttributeModel> domainAttributes, IList<DTOFieldModel> dtoFields, bool skipIdField)
@@ -220,7 +220,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
                             }
-                            AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
+                            _template.AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -247,7 +247,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 {
                                     codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {factoryMethodName}(x)).ToList());");
                                 }
-                                AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
+                                _template.AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
                                 break;
                             }
 
@@ -268,9 +268,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             else
                             {
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {updateMethodName});");
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, {DomainToDtoMatch(targetDto.Fields.GetEntityIdFields(targetEntity))}, {updateMethodName});");
                             }
-                            AddCreateOrUpdateMethod(updateMethodName, targetEntity.InternalElement, field );
+                            AddCreateOrUpdateMethod(updateMethodName, targetEntity.InternalElement, field);
                         }
                         break;
                 }
@@ -279,38 +279,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return codeLines.ToList();
         }
 
-        private void AddValueObjectFactoryMethod(string mappingMethodName, IElement domain, DTOFieldModel field)
+        private string DomainToDtoMatch(List<DTOFieldModel> dtoFields)
         {
-            var @class = _template.CSharpFile.Classes.First();
-            var targetDto = field.TypeReference.Element.AsDTOModel();
-            if (!MethodExists(mappingMethodName, @class, targetDto))
-            {
-                var domainType = _template.GetTypeName(domain);
-                @class.AddMethod(domainType, mappingMethodName, method =>
-                {
-                    method.Static()
-                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                        .AddParameter(_template.GetTypeName(targetDto.InternalElement), "dto");
-
-                    var attributeModels = GetDomainAttibuteModels(domain);
-
-                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto:  targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
-                    if (attributeMap.Any(x => x.Dto == null))
-                    {
-                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
-                    }
-                    var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
-                    method.AddStatement($"return new {domainType}({ctorParameters});");
-                });
-            }
-        }
-
-        private bool MethodExists(string mappingMethodName, CSharpClass @class, DTOModel targetDto)
-        {
-            return @class.FindMethod((method) =>
-                                        method.Name == mappingMethodName
-                                        && method.Parameters.Count == 1
-                                        && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
+            return $"(e, d) => {string.Join(" && ", dtoFields.Select(dtoField => $"e.{(dtoField.Mapping != null ? dtoField.Mapping.Element.AsAttributeModel().Name.ToPascalCase() : "Id")} == d.{dtoField.Name.ToPascalCase()}"))}";
         }
 
         private void AddCreateOrUpdateMethod(string updateMethodName, IElement domainElement, DTOFieldModel field)
@@ -348,7 +319,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             .AddStatements(GetDtoPropertyAssignments(
                                 entityVarName: "entity",
                                 dtoVarName: "dto",
-                                domainAttributes: GetDomainAttibuteModels(domainElement),
+                                domainAttributes: domainElement.GetDomainAttibuteModels(),
                                 dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
                                 skipIdField: true))
                             .AddStatement("return entity;", s => s.SeparatedFromPrevious());
@@ -356,20 +327,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
         }
 
-        private IList<AttributeModel> GetDomainAttibuteModels(IElement element)
-        {
-            return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
-        }
-
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn, ClassModel repositoryInterfaceModel)
+            public StrategyData(bool isMatch, ClassModel foundEntity, List<DTOFieldModel> idFields, RequiredService repository, DTOModel dtoToReturn, ClassModel repositoryInterfaceModel)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
-                IdField = idField;
+                IdFields = idFields;
                 Repository = repository;
                 DtoToReturn = dtoToReturn;
                 RepositoryInterfaceModel = repositoryInterfaceModel;
@@ -377,7 +343,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
-            public DTOFieldModel IdField { get; }
+            public List<DTOFieldModel> IdFields { get; }
             public RequiredService Repository { get; }
             public DTOModel DtoToReturn { get; }
             public ClassModel RepositoryInterfaceModel { get; }

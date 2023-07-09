@@ -32,7 +32,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.GetProductB
 
             if (product is null)
             {
-                throw new NotFoundException($"Could not find Product {request.Id}");
+                throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
             return product.MapToProductDto(_mapper);
         }

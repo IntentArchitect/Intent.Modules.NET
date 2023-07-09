@@ -33,7 +33,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
 
             if (existingUser is null)
             {
-                throw new NotFoundException($"Could not find User {request.Id}");
+                throw new NotFoundException($"Could not find User '{request.Id}'");
             }
             existingUser.Name = request.Name;
             existingUser.Surname = request.Surname;

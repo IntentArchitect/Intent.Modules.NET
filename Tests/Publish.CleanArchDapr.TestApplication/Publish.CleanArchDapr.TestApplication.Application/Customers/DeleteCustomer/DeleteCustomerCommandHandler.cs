@@ -29,7 +29,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
 
             if (existingCustomer is null)
             {
-                throw new NotFoundException($"Could not find Customer {request.Id}");
+                throw new NotFoundException($"Could not find Customer '{request.Id}' ");
             }
             _customerRepository.Remove(existingCustomer);
             return Unit.Value;

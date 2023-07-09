@@ -34,7 +34,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
 
             if (customerAnemic is null)
             {
-                throw new NotFoundException($"Could not find CustomerAnemic {request.Id}");
+                throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");
             }
             return customerAnemic.MapToCustomerAnemicDto(_mapper);
         }

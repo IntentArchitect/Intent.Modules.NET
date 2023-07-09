@@ -21,5 +21,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         public PK_A_CompositeKeyRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<PK_A_CompositeKey?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
+        }
     }
 }

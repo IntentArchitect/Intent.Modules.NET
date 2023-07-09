@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         public IEnumerable<CSharpStatement> GetImplementation()
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
-            var idField = _matchingElementDetails.Value.IdField;
+            var idFields = _matchingElementDetails.Value.IdFields;
             var repository = _matchingElementDetails.Value.Repository;
 
             var codeLines = new CSharpStatementAggregator();
@@ -65,24 +65,24 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var nestedCompOwnerIdField = _template.Model.Properties.GetNestedCompositionalOwnerIdField(nestedCompOwner);
-                if (nestedCompOwnerIdField == null)
+                var nestedCompOwnerIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner);
+                if (!nestedCompOwnerIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
                 _template.AddUsing("System.Linq");
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest()}, cancellationToken);");
                 codeLines.Add(new CSharpIfStatement($"aggregateRoot is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"");"));
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
 
                 codeLines.Add("");
-                codeLines.Add($"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
+                codeLines.Add($"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
+                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"");"));
 
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(existing{foundEntity.Name});");
 
@@ -96,9 +96,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines.ToList();
             }
 
-            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
+            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
             codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} {{request.{idField.Name.ToPascalCase()}}}"");"));
+                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}' "");"));
             codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
             codeLines.Add(dtoToReturn != null
@@ -137,8 +137,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return NoMatch;
             }
 
-            var idField = _template.Model.Properties.GetEntityIdField(foundEntity);
-            if (idField == null)
+            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+            if (!idFields.Any())
             {
                 return NoMatch;
             }
@@ -157,18 +157,18 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var dtoToReturn = _template.Model.TypeReference.Element?.AsDTOModel();
 
-            return new StrategyData(true, foundEntity, idField, repository, dtoToReturn, repositoryInterfaceModel);
+            return new StrategyData(true, foundEntity, idFields, repository, dtoToReturn, repositoryInterfaceModel);
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository, DTOModel dtoToReturn, ClassModel repositoryInterfaceModel)
+            public StrategyData(bool isMatch, ClassModel foundEntity, List<DTOFieldModel> idFields, RequiredService repository, DTOModel dtoToReturn, ClassModel repositoryInterfaceModel)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
-                IdField = idField;
+                IdFields = idFields;
                 Repository = repository;
                 DtoToReturn = dtoToReturn;
                 RepositoryInterfaceModel = repositoryInterfaceModel;
@@ -176,7 +176,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             public bool IsMatch { get; }
             public ClassModel FoundEntity { get; }
-            public DTOFieldModel IdField { get; }
+            public List<DTOFieldModel> IdFields { get; }
             public RequiredService Repository { get; }
             public DTOModel DtoToReturn { get; }
             public ClassModel RepositoryInterfaceModel { get; }

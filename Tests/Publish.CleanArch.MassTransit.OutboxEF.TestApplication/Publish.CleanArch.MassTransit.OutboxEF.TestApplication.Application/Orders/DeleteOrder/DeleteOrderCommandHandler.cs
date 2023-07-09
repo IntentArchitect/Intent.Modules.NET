@@ -33,7 +33,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
 
             if (existingOrder is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}' ");
             }
             _orderRepository.Remove(existingOrder);
             _eventBus.Publish(existingOrder.MapToOrderDeletedEvent());

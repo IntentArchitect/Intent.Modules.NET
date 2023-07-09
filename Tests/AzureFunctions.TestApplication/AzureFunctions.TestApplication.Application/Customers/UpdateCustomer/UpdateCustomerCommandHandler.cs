@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Application.Customers.UpdateCustomer
 
             if (existingCustomer is null)
             {
-                throw new NotFoundException($"Could not find Customer {request.Id}");
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
             existingCustomer.Name = request.Name;
             return Unit.Value;

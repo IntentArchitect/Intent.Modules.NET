@@ -29,7 +29,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
 
             if (existingPurchase is null)
             {
-                throw new NotFoundException($"Could not find Purchase {request.Id}");
+                throw new NotFoundException($"Could not find Purchase '{request.Id}' ");
             }
             _purchaseRepository.Remove(existingPurchase);
             return Unit.Value;

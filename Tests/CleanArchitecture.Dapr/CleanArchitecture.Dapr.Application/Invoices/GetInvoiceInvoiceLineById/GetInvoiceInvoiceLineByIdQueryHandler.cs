@@ -43,7 +43,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.GetInvoiceInvoiceLineById
 
             if (element is null)
             {
-                throw new NotFoundException($"Could not find InvoiceLine {request.Id}");
+                throw new NotFoundException($"Could not find InvoiceLine '{request.Id}'");
             }
             return element.MapToInvoiceInvoiceLineDto(_mapper);
         }

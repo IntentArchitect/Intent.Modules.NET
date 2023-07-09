@@ -33,7 +33,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.UpdatePrivilege
 
             if (existingPrivilege is null)
             {
-                throw new NotFoundException($"Could not find Privilege {request.Id}");
+                throw new NotFoundException($"Could not find Privilege '{request.Id}'");
             }
             existingPrivilege.Name = request.Name;
             existingPrivilege.Description = request.Description;

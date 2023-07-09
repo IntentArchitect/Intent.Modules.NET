@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
 
             if (existingAggregateRoot is null)
             {
-                throw new NotFoundException($"Could not find AggregateRoot {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRoot '{request.Id}' ");
             }
             _aggregateRootRepository.Remove(existingAggregateRoot);
             return Unit.Value;

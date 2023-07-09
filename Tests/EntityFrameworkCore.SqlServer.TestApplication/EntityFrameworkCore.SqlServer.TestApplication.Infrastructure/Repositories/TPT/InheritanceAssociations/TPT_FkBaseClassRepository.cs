@@ -21,5 +21,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         public TPT_FkBaseClassRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<TPT_FkBaseClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.GetTagById
 
             if (tag is null)
             {
-                throw new NotFoundException($"Could not find Tag {request.Id}");
+                throw new NotFoundException($"Could not find Tag '{request.Id}'");
             }
             return tag.MapToTagDto(_mapper);
         }

@@ -64,23 +64,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                // This little detour needs to happen since the scenario where in explicit key mode
-                // this query property isn't mapped and so we need to do a simple lookup first
-                var nestedCompOwnerIdField = _template.Model.Properties
-                    .FirstOrDefault(p => foundEntity.Attributes.Any(q => q.IsForeignKey() && q.Name == p.Name));
-                if (nestedCompOwnerIdField == null)
+                var nestedCompOwnerIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner);
+                if (!nestedCompOwnerIdFields.Any())
                 {
-                    nestedCompOwnerIdField = _template.Model.Properties.GetNestedCompositionalOwnerIdField(nestedCompOwner);
-                    if (nestedCompOwnerIdField == null)
-                    {
-                        throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
-                    }
+                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest()}, cancellationToken);");
                 codeLines.Add($"if (aggregateRoot == null)");
                 codeLines.Add(new CSharpStatementBlock()
-                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{nestedCompOwnerIdField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"");"));
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
                 codeLines.Add($@"return aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.MapTo{_template.GetDtoName(result.DtoToReturn)}List(_mapper);");                

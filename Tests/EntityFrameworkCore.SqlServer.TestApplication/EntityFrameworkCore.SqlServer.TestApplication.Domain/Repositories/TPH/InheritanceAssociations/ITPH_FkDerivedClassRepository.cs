@@ -14,5 +14,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ITPH_FkDerivedClassRepository : IEFRepository<TPH_FkDerivedClass, TPH_FkDerivedClass>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TPH_FkDerivedClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
     }
 }

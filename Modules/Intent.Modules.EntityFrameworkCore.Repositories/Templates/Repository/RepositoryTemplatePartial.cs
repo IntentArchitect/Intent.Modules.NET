@@ -72,26 +72,39 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
                             var rootEntity = file.Classes.First().GetRootEntity();
-                            if (rootEntity.HasSinglePrimaryKey())
+                            if (rootEntity.HasPrimaryKey())
                             {
+                                var pks = rootEntity.GetPropertiesWithPrimaryKey();
                                 @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
                                 {
-                                    var pk = rootEntity.GetPropertyWithPrimaryKey();
                                     method.Async();
-                                    method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
-                                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-
-                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
+                                    if (pks.Length == 1)
+                                    {
+                                        var pk = rootEntity.GetPropertyWithPrimaryKey();
+                                        method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                        method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
+                                    }
+                                    else
+                                    {
+                                        method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
+                                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                        method.AddStatement($"return await FindAsync(x => {string.Join(" && ", pks.Select(pk => $"x.{pk.Name} == id.{pk.Name.ToPascalCase()}"))}, cancellationToken);");
+                                    }
                                 });
-                                @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
+
+                                if (pks.Length == 1)
                                 {
-                                    var pk = rootEntity.GetPropertyWithPrimaryKey();
-                                    method.Async();
-                                    method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
-                                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                    @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
+                                    {
+                                        var pk = rootEntity.GetPropertyWithPrimaryKey();
+                                        method.Async();
+                                        method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
+                                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                                    method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
-                                });
+                                        method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
+                                    });
+                                }
                             }
                         });
                     }

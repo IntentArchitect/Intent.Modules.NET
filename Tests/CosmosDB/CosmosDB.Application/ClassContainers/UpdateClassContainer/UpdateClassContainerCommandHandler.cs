@@ -30,7 +30,7 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
 
             if (existingClassContainer is null)
             {
-                throw new NotFoundException($"Could not find ClassContainer {request.Id}");
+                throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");
             }
             existingClassContainer.ClassPartitionKey = request.ClassPartitionKey;
 

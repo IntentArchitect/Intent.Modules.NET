@@ -14,5 +14,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Expl
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IPK_B_CompositeKeyRepository : IEFRepository<PK_B_CompositeKey, PK_B_CompositeKey>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<PK_B_CompositeKey?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
     }
 }

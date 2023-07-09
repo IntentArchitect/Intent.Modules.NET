@@ -30,7 +30,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
 
             if (existingInvoice is null)
             {
-                throw new NotFoundException($"Could not find Invoice {request.Id}");
+                throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
             existingInvoice.Number = request.Number;
             existingInvoice.ClientId = request.ClientId;

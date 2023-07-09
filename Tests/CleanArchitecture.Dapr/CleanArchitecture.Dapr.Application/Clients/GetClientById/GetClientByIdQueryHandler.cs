@@ -32,7 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Clients.GetClientById
 
             if (client is null)
             {
-                throw new NotFoundException($"Could not find Client {request.Id}");
+                throw new NotFoundException($"Could not find Client '{request.Id}'");
             }
             return client.MapToClientDto(_mapper);
         }

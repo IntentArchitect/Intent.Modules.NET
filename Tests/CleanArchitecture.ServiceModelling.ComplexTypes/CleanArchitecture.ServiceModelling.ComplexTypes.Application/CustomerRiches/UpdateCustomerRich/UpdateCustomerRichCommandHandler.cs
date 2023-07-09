@@ -31,7 +31,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
 
             if (existingCustomerRich is null)
             {
-                throw new NotFoundException($"Could not find CustomerRich {request.Id}");
+                throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
             }
             existingCustomerRich.Address = CreateAddress(request.Address);
             return Unit.Value;

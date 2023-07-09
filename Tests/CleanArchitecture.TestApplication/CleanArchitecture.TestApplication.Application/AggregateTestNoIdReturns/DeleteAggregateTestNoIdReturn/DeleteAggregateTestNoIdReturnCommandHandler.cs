@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 
             if (existingAggregateTestNoIdReturn is null)
             {
-                throw new NotFoundException($"Could not find AggregateTestNoIdReturn {request.Id}");
+                throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}' ");
             }
             _aggregateTestNoIdReturnRepository.Remove(existingAggregateTestNoIdReturn);
             return Unit.Value;

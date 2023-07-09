@@ -30,7 +30,7 @@ namespace CosmosDB.Application.Invoices.UpdateInvoice
 
             if (existingInvoice is null)
             {
-                throw new NotFoundException($"Could not find Invoice {request.Id}");
+                throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
             existingInvoice.ClientIdentifier = request.ClientId;
             existingInvoice.Date = request.Date;

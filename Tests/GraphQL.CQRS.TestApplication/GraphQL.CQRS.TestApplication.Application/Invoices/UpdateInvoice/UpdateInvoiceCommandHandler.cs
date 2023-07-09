@@ -33,7 +33,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
 
             if (existingInvoice is null)
             {
-                throw new NotFoundException($"Could not find Invoice {request.Id}");
+                throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
             existingInvoice.No = request.No;
             existingInvoice.Created = request.Created;

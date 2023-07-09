@@ -32,7 +32,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivilegeByI
 
             if (privilege is null)
             {
-                throw new NotFoundException($"Could not find Privilege {request.Id}");
+                throw new NotFoundException($"Could not find Privilege '{request.Id}'");
             }
             return privilege.MapToPrivilegeDto(_mapper);
         }

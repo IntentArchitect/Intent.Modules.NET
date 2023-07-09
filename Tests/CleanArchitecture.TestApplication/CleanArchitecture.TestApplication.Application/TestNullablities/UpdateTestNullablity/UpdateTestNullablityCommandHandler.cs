@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
 
             if (existingTestNullablity is null)
             {
-                throw new NotFoundException($"Could not find TestNullablity {request.Id}");
+                throw new NotFoundException($"Could not find TestNullablity '{request.Id}'");
             }
             existingTestNullablity.SampleEnum = request.SampleEnum;
             existingTestNullablity.Str = request.Str;

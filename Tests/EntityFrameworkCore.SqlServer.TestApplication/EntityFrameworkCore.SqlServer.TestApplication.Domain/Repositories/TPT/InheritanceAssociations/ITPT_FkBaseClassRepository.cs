@@ -14,5 +14,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ITPT_FkBaseClassRepository : IEFRepository<TPT_FkBaseClass, TPT_FkBaseClass>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TPT_FkBaseClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
     }
 }

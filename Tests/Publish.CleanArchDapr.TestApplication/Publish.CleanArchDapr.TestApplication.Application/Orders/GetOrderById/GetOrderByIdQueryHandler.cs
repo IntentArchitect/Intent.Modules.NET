@@ -32,7 +32,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrderById
 
             if (order is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
             return order.MapToOrderDto(_mapper);
         }

@@ -1,6 +1,8 @@
+
 ### Version 5.1.4
 
-- Update: `Create CQRS CRUD Operations` can not be done on folders, not just the root node of the designer.
+- Update: `Create CQRS CRUD Operations` can now be done on folders, not just the root node of the designer.
+- Update: Better CRUD support for Entities with Composite Primary Keys.
 
 ### Version 5.1.3
 

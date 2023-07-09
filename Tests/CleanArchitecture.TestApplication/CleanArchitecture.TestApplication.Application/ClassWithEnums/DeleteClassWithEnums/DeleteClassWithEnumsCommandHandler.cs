@@ -29,7 +29,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
 
             if (existingClassWithEnums is null)
             {
-                throw new NotFoundException($"Could not find ClassWithEnums {request.Id}");
+                throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}' ");
             }
             _classWithEnumsRepository.Remove(existingClassWithEnums);
             return Unit.Value;

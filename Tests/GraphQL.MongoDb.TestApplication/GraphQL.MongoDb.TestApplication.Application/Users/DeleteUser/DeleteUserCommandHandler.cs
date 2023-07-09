@@ -32,7 +32,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.DeleteUser
 
             if (existingUser is null)
             {
-                throw new NotFoundException($"Could not find User {request.Id}");
+                throw new NotFoundException($"Could not find User '{request.Id}' ");
             }
             _userRepository.Remove(existingUser);
             return existingUser.MapToUserDto(_mapper);

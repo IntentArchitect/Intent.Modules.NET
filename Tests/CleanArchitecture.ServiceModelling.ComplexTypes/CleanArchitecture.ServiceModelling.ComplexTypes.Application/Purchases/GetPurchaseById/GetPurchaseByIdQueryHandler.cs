@@ -32,7 +32,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
 
             if (purchase is null)
             {
-                throw new NotFoundException($"Could not find Purchase {request.Id}");
+                throw new NotFoundException($"Could not find Purchase '{request.Id}'");
             }
             return purchase.MapToPurchaseDto(_mapper);
         }

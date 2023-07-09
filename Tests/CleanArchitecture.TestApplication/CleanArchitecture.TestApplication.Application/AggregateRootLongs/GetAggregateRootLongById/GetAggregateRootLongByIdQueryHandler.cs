@@ -36,7 +36,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
 
             if (aggregateRootLong is null)
             {
-                throw new NotFoundException($"Could not find AggregateRootLong {request.Id}");
+                throw new NotFoundException($"Could not find AggregateRootLong '{request.Id}'");
             }
             return aggregateRootLong.MapToAggregateRootLongDto(_mapper);
         }

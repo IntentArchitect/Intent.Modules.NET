@@ -32,7 +32,7 @@ namespace CosmosDB.Application.Clients.GetClientById
 
             if (client is null)
             {
-                throw new NotFoundException($"Could not find Client {request.Identifier}");
+                throw new NotFoundException($"Could not find Client '{request.Identifier}'");
             }
             return client.MapToClientDto(_mapper);
         }

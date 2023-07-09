@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
 
             if (existingImplicitKeyAggrRoot is null)
             {
-                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot {request.Id}");
+                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot '{request.Id}' ");
             }
             _implicitKeyAggrRootRepository.Remove(existingImplicitKeyAggrRoot);
             return Unit.Value;

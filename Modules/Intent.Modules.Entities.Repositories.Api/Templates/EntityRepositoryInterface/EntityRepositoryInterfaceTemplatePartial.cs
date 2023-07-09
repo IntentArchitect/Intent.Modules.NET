@@ -47,23 +47,32 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                             {
                                 rootEntity = rootEntity.BaseType;
                             }
-                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
-                                && pks.Length == 1)
+                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
                             {
                                 @interface.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
                                 {
                                     method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                    var pk = pks.First();
-                                    method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                    if (pks.Length == 1)
+                                    {
+                                        var pk = pks.First();
+                                        method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                    }
+                                    else
+                                    {
+                                        method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
+                                    }
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                                 });
-                                @interface.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
+                                if (pks.Length == 1)
                                 {
-                                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                    var pk = pks.First();
-                                    method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
-                                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                });
+                                    @interface.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
+                                    {
+                                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                                        var pk = pks.First();
+                                        method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
+                                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                    });
+                                }
                             }
                         });
                     }

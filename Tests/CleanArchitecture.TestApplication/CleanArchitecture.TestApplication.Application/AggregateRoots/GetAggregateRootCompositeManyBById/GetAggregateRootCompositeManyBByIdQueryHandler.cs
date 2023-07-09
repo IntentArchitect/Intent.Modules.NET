@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
 
             if (element is null)
             {
-                throw new NotFoundException($"Could not find CompositeManyB {request.Id}");
+                throw new NotFoundException($"Could not find CompositeManyB '{request.Id}'");
             }
             return element.MapToAggregateRootCompositeManyBDto(_mapper);
         }

@@ -30,7 +30,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.UpdateTag
 
             if (existingTag is null)
             {
-                throw new NotFoundException($"Could not find Tag {request.Id}");
+                throw new NotFoundException($"Could not find Tag '{request.Id}'");
             }
             existingTag.Name = request.Name;
 

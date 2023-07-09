@@ -36,7 +36,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
 
             if (implicitKeyAggrRoot is null)
             {
-                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot {request.Id}");
+                throw new NotFoundException($"Could not find ImplicitKeyAggrRoot '{request.Id}'");
             }
             return implicitKeyAggrRoot.MapToImplicitKeyAggrRootDto(_mapper);
         }

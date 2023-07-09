@@ -21,5 +21,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
         public TPH_FkDerivedClassRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<TPH_FkDerivedClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
 
             if (existingOrder is null)
             {
-                throw new NotFoundException($"Could not find Order {request.Id}");
+                throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
             existingOrder.CustomerId = request.CustomerId;
             return Unit.Value;

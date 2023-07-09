@@ -31,7 +31,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
 
             if (existingCustomerAnemic is null)
             {
-                throw new NotFoundException($"Could not find CustomerAnemic {request.Id}");
+                throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");
             }
             existingCustomerAnemic.Name = request.Name;
             existingCustomerAnemic.Address = CreateAddress(request.Address);

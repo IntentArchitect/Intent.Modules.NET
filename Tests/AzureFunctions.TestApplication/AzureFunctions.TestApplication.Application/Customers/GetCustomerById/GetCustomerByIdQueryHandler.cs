@@ -32,7 +32,7 @@ namespace AzureFunctions.TestApplication.Application.Customers.GetCustomerById
 
             if (customer is null)
             {
-                throw new NotFoundException($"Could not find Customer {request.Id}");
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
             return customer.MapToCustomerDto(_mapper);
         }

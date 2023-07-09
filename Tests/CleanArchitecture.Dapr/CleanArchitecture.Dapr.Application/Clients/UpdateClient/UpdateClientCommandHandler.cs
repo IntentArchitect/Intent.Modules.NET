@@ -30,7 +30,7 @@ namespace CleanArchitecture.Dapr.Application.Clients.UpdateClient
 
             if (existingClient is null)
             {
-                throw new NotFoundException($"Could not find Client {request.Id}");
+                throw new NotFoundException($"Could not find Client '{request.Id}'");
             }
             existingClient.Name = request.Name;
             existingClient.TagsIds = request.TagsIds.ToList();
