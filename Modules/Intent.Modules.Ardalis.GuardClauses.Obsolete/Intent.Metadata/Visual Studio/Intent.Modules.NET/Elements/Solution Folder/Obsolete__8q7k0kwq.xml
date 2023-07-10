@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="689f227e-f500-4b71-86ef-3a522965c86c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Obsolete</name>
+  <display>Obsolete</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1f8d9aeb-8cf2-4422-adde-d6d658b308a6</parentFolderId>
+  <packageId>b5905b46-3725-4941-8f14-76997c6e9db2</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -18,7 +18,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class ReadRepositoryInterfaceTemplate : CSharpTemplateBase<ClassModel>
     {
-        public const string TemplateId = "Ardalis.Repositories.ReadRepositoryInterface";
+        public const string TemplateId = "Intent.Ardalis.Repositories.ReadRepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ReadRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)

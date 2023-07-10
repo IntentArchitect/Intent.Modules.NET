@@ -14,7 +14,7 @@ namespace Intent.Modules.Ardalis.GuardClauses.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GuardClausesFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "Ardalis.GuardClauses.GuardClausesFactoryExtension";
+        public override string Id => "Intent.Ardalis.GuardClauses.GuardClausesFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

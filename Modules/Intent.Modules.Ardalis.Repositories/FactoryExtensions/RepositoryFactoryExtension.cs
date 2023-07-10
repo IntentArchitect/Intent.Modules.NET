@@ -25,7 +25,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class RepositoryFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "Ardalis.Repositories.RepositoryFactoryExtension";
+        public override string Id => "Intent.Ardalis.Repositories.RepositoryFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -44,7 +44,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             UpdateEntityRepositoryInterface(application);
             UpdateEntityRepository(application);
         }
-        
+
         private static void UpdateRepositoryBase(IApplication application)
         {
             var template = application.FindTemplateInstance<CSharpTemplateBase<object>>(TemplateDependency.OnTemplate(RepositoryBaseTemplate.TemplateId));
@@ -57,7 +57,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     file.AddUsing("Ardalis.Specification");
                     file.AddUsing("Ardalis.Specification.EntityFrameworkCore");
                     file.AddUsing("Microsoft.EntityFrameworkCore");
-                    
+
                     var @class = file.Classes.First();
                     @class.ExtendsClass($"RepositoryBase<TPersistence>");
                     @class.Interfaces.Clear();
@@ -66,7 +66,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
                     var ctor = @class.Constructors.First();
                     ctor.CallsBase(b => b.AddArgument("dbContext"));
-                    
+
                     @class.AddMethod("void", "Add", method =>
                     {
                         method.AddAttribute("[IntentManaged(Mode.Fully)]");
@@ -80,7 +80,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter("TPersistence", "entity");
                         method.AddStatement("base.DeleteAsync(entity).Wait();");
                     });
-                    
+
                     @class.AddMethod(
                         $"Task<List<TDomain>>",
                         "FindAllAsync",
@@ -197,7 +197,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             foreach (var template in entityRepoTemplates)
             {
                 template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore);
-                
+
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
                     file.AddUsing("System");
@@ -261,9 +261,9 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
         private string GetEntityStateName(CSharpTemplateBase<ClassModel> template) => template.GetTypeName("Domain.Entity", template.Model);
 
         private string GetEntityInterfaceName(CSharpTemplateBase<ClassModel> template) => template.GetTypeName("Domain.Entity.Interface", template.Model);
-        
+
         public string GetDbContextName(CSharpTemplateBase<ClassModel> template) => template.TryGetTypeName("Infrastructure.Data.DbContext", out var dbContextName) ? dbContextName : $"{template.Model.Application.Name}DbContext";
-        
+
         private bool HasSinglePrimaryKey(CSharpTemplateBase<ClassModel> template)
         {
             if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, template.Model, out var entityTemplate))

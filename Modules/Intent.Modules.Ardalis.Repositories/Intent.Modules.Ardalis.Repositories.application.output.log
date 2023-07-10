@@ -9,19 +9,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>06ec06d8-3910-40d1-aa25-d2680ee39c4d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Ardalis.Repositories.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ardalis.Repositories.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>fdb55ff0-739c-4e6b-96fa-b7da40b78694</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#7670d5f1-f428-4e4e-8331-2349a16f0969</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/RepositoryFactoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>06ec06d8-3910-40d1-aa25-d2680ee39c4d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Ardalis.Repositories.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Ardalis.Repositories.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
