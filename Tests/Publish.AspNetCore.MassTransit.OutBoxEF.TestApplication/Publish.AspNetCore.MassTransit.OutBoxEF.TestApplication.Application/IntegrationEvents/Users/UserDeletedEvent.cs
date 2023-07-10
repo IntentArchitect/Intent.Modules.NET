@@ -1,6 +1,6 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
-using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.IntegrationEvents;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]

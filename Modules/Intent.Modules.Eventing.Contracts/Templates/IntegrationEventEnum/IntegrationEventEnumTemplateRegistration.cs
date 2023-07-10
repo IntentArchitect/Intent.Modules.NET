@@ -36,7 +36,8 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetSubscribedToEnumModels(application).Union(_metadataManager.GetPublishedEnumModels(application));
+            return _metadataManager.GetSubscribedToEnumModels(application)
+                .ToArray();
         }
     }
 }
