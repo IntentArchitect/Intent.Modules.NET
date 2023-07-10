@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Enums;
 using Intent.RoslynWeaver.Attributes;
@@ -16,7 +17,9 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
             EnumWithoutValues enumWithoutValues,
             EnumWithDefaultLiteral? nullibleEnumWithDefaultLiteral,
             EnumWithoutDefaultLiteral? nullibleEnumWithoutDefaultLiteral,
-            EnumWithoutValues? nullibleEnumWithoutValues)
+            EnumWithoutValues? nullibleEnumWithoutValues,
+            IEnumerable<EnumWithDefaultLiteral> collectionEnum,
+            List<string> collectionStrings)
         {
             EnumWithDefaultLiteral = enumWithDefaultLiteral;
             EnumWithoutDefaultLiteral = enumWithoutDefaultLiteral;
@@ -24,6 +27,8 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
             NullibleEnumWithDefaultLiteral = nullibleEnumWithDefaultLiteral;
             NullibleEnumWithoutDefaultLiteral = nullibleEnumWithoutDefaultLiteral;
             NullibleEnumWithoutValues = nullibleEnumWithoutValues;
+            CollectionEnum = collectionEnum;
+            CollectionStrings = collectionStrings;
         }
 
         public EnumWithDefaultLiteral EnumWithDefaultLiteral { get; set; }
@@ -32,5 +37,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
         public EnumWithDefaultLiteral? NullibleEnumWithDefaultLiteral { get; set; }
         public EnumWithoutDefaultLiteral? NullibleEnumWithoutDefaultLiteral { get; set; }
         public EnumWithoutValues? NullibleEnumWithoutValues { get; set; }
+        public IEnumerable<EnumWithDefaultLiteral> CollectionEnum { get; set; }
+        public List<string> CollectionStrings { get; set; }
     }
 }

@@ -59,7 +59,9 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                 }
                 if (property.TypeReference.Element.IsEnumModel())
                 {
-                    validations.AddChainStatement("IsInEnum()");
+                    validations.AddChainStatement(property.TypeReference.IsCollection 
+                        ? "ForEach(x => x.IsInEnum())" 
+                        : "IsInEnum()");
                 }
 
                 if (property.HasValidations())

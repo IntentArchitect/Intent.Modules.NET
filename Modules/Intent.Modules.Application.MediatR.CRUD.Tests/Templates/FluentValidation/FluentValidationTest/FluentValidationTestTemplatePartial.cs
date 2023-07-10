@@ -252,15 +252,25 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         if (!string.IsNullOrWhiteSpace(enumModel.Literals.First().Value) && enumLiteralsWithOrdinals.First() != 0)
         {
             if (!first) { method.AddStatement(string.Empty); }
-            AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)})0", "has a range of values which does not include");
+            AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, "0"), "has a range of values which does not include");
             first = false;
         }
         
         if (!first) { method.AddStatement(string.Empty); }
         var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
         var invalidOrdinalValueForTest = lastOrdinalValue + 1;
-        AddNegativeTestCaseStatements(method, property, first, $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}", "has a range of values which does not include");
+        AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, invalidOrdinalValueForTest.ToString()), "has a range of values which does not include");
         first = false;
+    }
+
+    private string GetInvalidEnumExpression(DTOFieldModel property, string invalidOrdinalValueForTest)
+    {
+        if (property.TypeReference.IsCollection)
+        {
+            return $"new {UseType($"System.Collections.Generic.List<{GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}>")} {{ ({GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}){invalidOrdinalValueForTest} }}";
+        }
+
+        return $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}";
     }
 
     private void AddNegativeTestCaseStatements(CSharpClassMethod method, DTOFieldModel property, bool first,
@@ -310,7 +320,14 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
         method.AddStatements($@"
 {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-yield return new object[] {{ testCommand, ""{property.Name}"", ""{expectedPhrase}"" }};");
+yield return new object[] {{ testCommand, ""{GetPropertyNameWithArray(property)}"", ""{expectedPhrase}"" }};");
+    }
+
+    private static string GetPropertyNameWithArray(DTOFieldModel property)
+    {
+        return property.TypeReference.Element.IsEnumModel() && property.TypeReference.IsCollection
+            ? $"{property.Name}[0]"
+            : property.Name;
     }
 
     private static int?[] GetConceptualEnumWithOrdinalValues(EnumModel enumModel)

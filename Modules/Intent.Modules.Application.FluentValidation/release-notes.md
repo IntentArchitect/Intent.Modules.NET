@@ -2,6 +2,10 @@
 
 - Update: Removed a deprecated Fluent Validation module dependency. 
 
+### Version 3.5.3
+
+- Fixed: Individual Enums have the `IsInEnum()` rules, and now collection Enums will have `ForEach(x => x.IsInEnum())`.
+
 ### Version 3.5.2
 
 - Update: Upgraded Fluent Validations to support `CSharpFileBuilder` template paradigm.

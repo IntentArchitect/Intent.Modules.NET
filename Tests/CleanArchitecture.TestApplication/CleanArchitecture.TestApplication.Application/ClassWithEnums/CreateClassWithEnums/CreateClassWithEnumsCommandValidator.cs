@@ -38,6 +38,13 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
 
             RuleFor(v => v.NullibleEnumWithoutValues)
                 .IsInEnum();
+
+            RuleFor(v => v.CollectionEnum)
+                .NotNull()
+                .ForEach(x => x.IsInEnum());
+
+            RuleFor(v => v.CollectionStrings)
+                .NotNull();
         }
     }
 }
