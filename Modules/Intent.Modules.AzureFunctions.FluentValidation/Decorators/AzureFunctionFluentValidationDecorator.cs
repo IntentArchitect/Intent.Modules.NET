@@ -26,6 +26,11 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
 
+        [IntentManaged(Mode.Fully)]
+        private readonly AzureFunctionClassTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionFluentValidationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {

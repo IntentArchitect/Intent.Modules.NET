@@ -1,3 +1,7 @@
+### Version 4.1.0
+
+- Updated: `FluentValidation` to version `11.6.0`.
+
 ### Version 4.0.4
 
 - Update: Internal dependency version update to keep compatibility with other modules.
