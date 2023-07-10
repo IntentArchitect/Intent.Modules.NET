@@ -207,15 +207,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DocumentDB.D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.DocumentDB.Shared", "Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.shproj", "{B5867BA4-E8AB-4E4A-986E-B7938D12795E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
-EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.GuardClauses.Obsolete", "Intent.Modules.Ardalis.GuardClauses.Obsolete\Intent.Modules.Ardalis.GuardClauses.Obsolete.csproj", "{ED52DC09-90EA-456F-BFAA-1F30B582DEB6}"
-EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.Repositories.Obsolete", "Intent.Modules.Ardalis.Repositories.Obsolete\Intent.Modules.Ardalis.Repositories.Obsolete.csproj", "{F073C20B-316C-4BED-885C-A95BCEAF549D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -603,14 +599,6 @@ Global
 		{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED52DC09-90EA-456F-BFAA-1F30B582DEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED52DC09-90EA-456F-BFAA-1F30B582DEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED52DC09-90EA-456F-BFAA-1F30B582DEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED52DC09-90EA-456F-BFAA-1F30B582DEB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F073C20B-316C-4BED-885C-A95BCEAF549D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F073C20B-316C-4BED-885C-A95BCEAF549D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F073C20B-316C-4BED-885C-A95BCEAF549D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F073C20B-316C-4BED-885C-A95BCEAF549D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -715,8 +703,6 @@ Global
 		{3CB282CE-95EA-454A-8531-423391B2DE6D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A25BE506-F63A-4638-8A59-4069FC088824} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
-		{ED52DC09-90EA-456F-BFAA-1F30B582DEB6} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
-		{F073C20B-316C-4BED-885C-A95BCEAF549D} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
