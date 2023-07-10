@@ -157,6 +157,10 @@ dotnet ef database update --startup-project "SimplifiedEShopTutorial.Api" --proj
 
 ### Factory Extension : Dependency Injection  
 
+This extension does the following handles various Entity Framework Core configuration concerns.
+
+Adds a default connection string to your `app.settings.config` file, if the connection is not present.
+
 ```json
 {
   ...
@@ -169,6 +173,8 @@ dotnet ef database update --startup-project "SimplifiedEShopTutorial.Api" --proj
 
 }
 ```
+
+Wires up the dependency injection registrations and EF application configuration.
 
 ```csharp
 
@@ -198,6 +204,12 @@ namespace {{Application Name}}.Infrastructure
 
 ### Intent.Metadata.RDBMS
 
+This modules provides RDBMS related Stereotypes for extending the Domain Designer with RDBMS technology specific data.
+
 ### Intent.Entities
 
+This module realized Domain entities as C# classes, which are used by this model.
+
 ### Intent.EntityFrameworkCore.Repositories
+
+This module provides an Entity Framework repository pattern implementation.
