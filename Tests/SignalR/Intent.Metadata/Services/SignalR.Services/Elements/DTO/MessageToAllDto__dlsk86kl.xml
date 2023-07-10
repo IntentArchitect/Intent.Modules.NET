@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="65a266b6-fa9f-4fbd-bf46-7d8fff731f00" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-  <name>SendToAllDto</name>
-  <display>SendToAllDto</display>
+  <name>MessageToAllDto</name>
+  <display>MessageToAllDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

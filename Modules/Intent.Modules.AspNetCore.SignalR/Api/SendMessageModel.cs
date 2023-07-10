@@ -11,14 +11,14 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.AspNetCore.SignalR.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class PublishMessageModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
+    public class SendMessageModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
     {
-        public const string SpecializationType = "Publish Message";
+        public const string SpecializationType = "Send Message";
         public const string SpecializationTypeId = "eff4de68-2ecb-4f61-a240-638c500693e2";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public PublishMessageModel(IElement element, string requiredType = SpecializationType)
+        public SendMessageModel(IElement element, string requiredType = SpecializationType)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {
@@ -45,7 +45,7 @@ namespace Intent.AspNetCore.SignalR.Api
             return _element.ToString();
         }
 
-        public bool Equals(PublishMessageModel other)
+        public bool Equals(SendMessageModel other)
         {
             return Equals(_element, other?._element);
         }
@@ -55,7 +55,7 @@ namespace Intent.AspNetCore.SignalR.Api
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((PublishMessageModel)obj);
+            return Equals((SendMessageModel)obj);
         }
 
         public override int GetHashCode()
@@ -65,17 +65,17 @@ namespace Intent.AspNetCore.SignalR.Api
     }
 
     [IntentManaged(Mode.Fully)]
-    public static class PublishMessageModelExtensions
+    public static class SendMessageModelExtensions
     {
 
-        public static bool IsPublishMessageModel(this ICanBeReferencedType type)
+        public static bool IsSendMessageModel(this ICanBeReferencedType type)
         {
-            return type != null && type is IElement element && element.SpecializationTypeId == PublishMessageModel.SpecializationTypeId;
+            return type != null && type is IElement element && element.SpecializationTypeId == SendMessageModel.SpecializationTypeId;
         }
 
-        public static PublishMessageModel AsPublishMessageModel(this ICanBeReferencedType type)
+        public static SendMessageModel AsSendMessageModel(this ICanBeReferencedType type)
         {
-            return type.IsPublishMessageModel() ? new PublishMessageModel((IElement)type) : null;
+            return type.IsSendMessageModel() ? new SendMessageModel((IElement)type) : null;
         }
     }
 }

@@ -59,6 +59,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a31311de-1fc3-4b4f-a94e-dcf54bcc96d3</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Api/Controllers/DefaultController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>53e1426a-098c-49da-9cdf-7d1745401e8f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -302,80 +310,80 @@
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#65a266b6-fa9f-4fbd-bf46-7d8fff731f00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToAllDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToAllDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToAllDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToAllDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#65a266b6-fa9f-4fbd-bf46-7d8fff731f00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToAllDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToAllDtoValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToAllDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToAllDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d29af056-dca2-4525-b8af-b5331bd45380</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToGroupDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToGroupDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToGroupDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToGroupDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d29af056-dca2-4525-b8af-b5331bd45380</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToGroupDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToGroupDtoValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToGroupDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToGroupDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#eeac4455-9094-4ea8-a4bd-fda4ffccd4b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToGroupsDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToGroupsDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToGroupsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToGroupsDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#eeac4455-9094-4ea8-a4bd-fda4ffccd4b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToGroupsDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToGroupsDtoValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToGroupsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToGroupsDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#cd8abdb7-6a5c-4dff-8de3-76f693891d86</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToUserDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToUserDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToUserDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToUserDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#cd8abdb7-6a5c-4dff-8de3-76f693891d86</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToUserDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToUserDtoValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToUserDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToUserDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#bdf57b47-c048-489b-b00d-e9477f2158ab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToUsersDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToUsersDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToUsersDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToUsersDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#bdf57b47-c048-489b-b00d-e9477f2158ab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SignalR.Application/SendToUsersDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SendToUsersDtoValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToUsersDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToUsersDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -384,6 +392,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Application/SignalR.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SignalR.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Application/TestSendMessage/TestSendMessageCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestSendMessage/TestSendMessageCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Application/TestSendMessage/TestSendMessageCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestSendMessage/TestSendMessageCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Application/TestSendMessage/TestSendMessageCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestSendMessage/TestSendMessageCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

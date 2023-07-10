@@ -40,39 +40,39 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
 
         private void AddOperations(CSharpClass @class)
         {
-            foreach (var publish in Model.Publishes)
+            foreach (var sendMessage in Model.SendMessages)
             {
-                var messageType = GetTypeInfo(publish.InternalElement.TypeReference).Name.ToPascalCase();
-                var operationName = $"Publish{messageType}Async";
+                var operationName = $"SendAsync";
                 @class.AddMethod(UseType("System.Threading.Tasks.Task"), $"{operationName}", method =>
                 {
                     method.Async();
+                    method.AddParameter(GetTypeName(sendMessage.InternalElement.TypeReference), "model");
                     string clientTarget;
-                    switch (publish.GetHubPublishMessageSettings().TargetClients().AsEnum())
+                    switch (sendMessage.GetHubPublishMessageSettings().TargetClients().AsEnum())
                     {
-                        case PublishMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.All:
+                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.All:
                             clientTarget = "All";
                             break;
-                        case PublishMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.User:
+                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.User:
                             clientTarget = "User(userId)";
                             method.AddParameter("string", "userId");
                             break;
-                        case PublishMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Users:
+                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Users:
                             clientTarget = "Users(userIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "userIds");
                             break;
-                        case PublishMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Group:
+                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Group:
                             clientTarget = "Group(groupId)";
                             method.AddParameter("string", "groupId");
                             break;
-                        case PublishMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Groups:
+                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Groups:
                             clientTarget = "Groups(groupIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-                    method.AddParameter(GetTypeName(publish.InternalElement.TypeReference), "model");
+                    var messageType = GetTypeInfo(sendMessage.InternalElement.TypeReference).Name.ToPascalCase();
                     method.AddStatement($@"await _hub.Clients.{clientTarget}.SendAsync(""{messageType}"", model);");
                 });
             }

@@ -10,21 +10,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.AspNetCore.SignalR.Api
 {
-    public static class PublishMessageModelStereotypeExtensions
+    public static class SendMessageModelStereotypeExtensions
     {
-        public static HubPublishMessageSettings GetHubPublishMessageSettings(this PublishMessageModel model)
+        public static HubPublishMessageSettings GetHubPublishMessageSettings(this SendMessageModel model)
         {
             var stereotype = model.GetStereotype("Hub Publish Message Settings");
             return stereotype != null ? new HubPublishMessageSettings(stereotype) : null;
         }
 
 
-        public static bool HasHubPublishMessageSettings(this PublishMessageModel model)
+        public static bool HasHubPublishMessageSettings(this SendMessageModel model)
         {
             return model.HasStereotype("Hub Publish Message Settings");
         }
 
-        public static bool TryGetHubPublishMessageSettings(this PublishMessageModel model, out HubPublishMessageSettings stereotype)
+        public static bool TryGetHubPublishMessageSettings(this SendMessageModel model, out HubPublishMessageSettings stereotype)
         {
             if (!HasHubPublishMessageSettings(model))
             {

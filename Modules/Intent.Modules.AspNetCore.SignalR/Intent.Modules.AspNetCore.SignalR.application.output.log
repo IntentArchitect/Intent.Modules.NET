@@ -28,16 +28,16 @@
       <ProjectId>f028641f-514c-430d-a673-e58281afae97</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#eff4de68-2ecb-4f61-a240-638c500693e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/PublishMessageModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishMessageModel.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/SendMessageModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SendMessageModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f028641f-514c-430d-a673-e58281afae97</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#eff4de68-2ecb-4f61-a240-638c500693e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/PublishMessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublishMessageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/SendMessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SendMessageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

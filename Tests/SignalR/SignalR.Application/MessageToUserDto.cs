@@ -7,18 +7,18 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace SignalR.Application
 {
-    public class SendToAllDto
+    public class MessageToUserDto
     {
-        public SendToAllDto()
+        public MessageToUserDto()
         {
             Message = null!;
         }
 
         public string Message { get; set; }
 
-        public static SendToAllDto Create(string message)
+        public static MessageToUserDto Create(string message)
         {
-            return new SendToAllDto
+            return new MessageToUserDto
             {
                 Message = message
             };

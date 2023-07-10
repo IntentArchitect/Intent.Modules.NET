@@ -41,9 +41,9 @@ namespace Intent.AspNetCore.SignalR.Api
 
         public IElement InternalElement => _element;
 
-        public IList<PublishMessageModel> Publishes => _element.ChildElements
-            .GetElementsOfType(PublishMessageModel.SpecializationTypeId)
-            .Select(x => new PublishMessageModel(x))
+        public IList<SendMessageModel> SendMessages => _element.ChildElements
+            .GetElementsOfType(SendMessageModel.SpecializationTypeId)
+            .Select(x => new SendMessageModel(x))
             .ToList();
 
         public override string ToString()

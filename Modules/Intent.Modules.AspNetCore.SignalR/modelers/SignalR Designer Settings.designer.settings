@@ -38,15 +38,15 @@
       <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
       <allowSetValue>false</allowSetValue>
       <typeOrder>
-        <type order="0">Publish Message</type>
+        <type order="0">Send Message</type>
       </typeOrder>
       <creationOptions>
         <option type="element">
-          <specializationType>Publish Message</specializationType>
+          <specializationType>Send Message</specializationType>
           <specializationTypeId>eff4de68-2ecb-4f61-a240-638c500693e2</specializationTypeId>
-          <text>Add Publish</text>
-          <defaultName>Publish</defaultName>
-          <icon type="FontAwesome" source="file-o" />
+          <text>New Send Message</text>
+          <defaultName>Send</defaultName>
+          <icon type="FontAwesome" source="envelope-square" />
           <allowMultiple>true</allowMultiple>
         </option>
       </creationOptions>
@@ -62,8 +62,8 @@ element.getStereotype(hubSettingsStereotypeId).getProperty("Route").setValue("/h
         </macro>
       </macros>
       <childElementSettings>
-        <childElementSetting type="Publish Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
-          <icon type="FontAwesome" source="file-o" />
+        <childElementSetting type="Send Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+          <icon type="FontAwesome" source="envelope-square" />
           <saveAsOwnFile>false</saveAsOwnFile>
           <allowRename>false</allowRename>
           <allowAbstract>false</allowAbstract>

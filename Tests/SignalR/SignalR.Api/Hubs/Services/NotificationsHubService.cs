@@ -20,29 +20,29 @@ namespace SignalR.Api.Hubs.Services
             _hub = hub;
         }
 
-        public async Task PublishSendToAllDtoAsync(SendToAllDto model)
+        public async Task SendAsync(MessageToAllDto model)
         {
-            await _hub.Clients.All.SendAsync("SendToAllDto", model);
+            await _hub.Clients.All.SendAsync("MessageToAllDto", model);
         }
 
-        public async Task PublishSendToUserDtoAsync(string userId, SendToUserDto model)
+        public async Task SendAsync(MessageToGroupDto model, string groupId)
         {
-            await _hub.Clients.User(userId).SendAsync("SendToUserDto", model);
+            await _hub.Clients.Group(groupId).SendAsync("MessageToGroupDto", model);
         }
 
-        public async Task PublishSendToUsersDtoAsync(IReadOnlyList<string> userIds, SendToUsersDto model)
+        public async Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupIds)
         {
-            await _hub.Clients.Users(userIds).SendAsync("SendToUsersDto", model);
+            await _hub.Clients.Groups(groupIds).SendAsync("MessageToGroupsDto", model);
         }
 
-        public async Task PublishSendToGroupDtoAsync(string groupId, SendToGroupDto model)
+        public async Task SendAsync(MessageToUserDto model, string userId)
         {
-            await _hub.Clients.Group(groupId).SendAsync("SendToGroupDto", model);
+            await _hub.Clients.User(userId).SendAsync("MessageToUserDto", model);
         }
 
-        public async Task PublishSendToGroupsDtoAsync(IReadOnlyList<string> groupIds, SendToGroupsDto model)
+        public async Task SendAsync(MessageToUsersDto model, IReadOnlyList<string> userIds)
         {
-            await _hub.Clients.Groups(groupIds).SendAsync("SendToGroupsDto", model);
+            await _hub.Clients.Users(userIds).SendAsync("MessageToUsersDto", model);
         }
     }
 }

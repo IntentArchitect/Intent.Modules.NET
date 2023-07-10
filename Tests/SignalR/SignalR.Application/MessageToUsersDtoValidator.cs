@@ -8,10 +8,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace SignalR.Application
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class SendToAllDtoValidator : AbstractValidator<SendToAllDto>
+    public class MessageToUsersDtoValidator : AbstractValidator<MessageToUsersDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public SendToAllDtoValidator()
+        public MessageToUsersDtoValidator()
         {
             ConfigureValidationRules();
         }
