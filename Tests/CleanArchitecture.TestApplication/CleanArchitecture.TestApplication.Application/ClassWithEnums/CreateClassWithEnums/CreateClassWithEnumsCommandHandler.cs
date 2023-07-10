@@ -34,6 +34,8 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
                 NullibleEnumWithDefaultLiteral = request.NullibleEnumWithDefaultLiteral,
                 NullibleEnumWithoutDefaultLiteral = request.NullibleEnumWithoutDefaultLiteral,
                 NullibleEnumWithoutValues = request.NullibleEnumWithoutValues,
+#warning No matching field found for CollectionEnum
+#warning No matching field found for CollectionStrings
             };
 
             _classWithEnumsRepository.Add(newClassWithEnums);

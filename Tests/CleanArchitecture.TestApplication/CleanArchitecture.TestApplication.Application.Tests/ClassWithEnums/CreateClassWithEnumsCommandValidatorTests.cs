@@ -83,6 +83,16 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.NullibleEnumWithoutValues, () => (EnumWithoutValues?)3));
             testCommand = fixture.Create<CreateClassWithEnumsCommand>();
             yield return new object[] { testCommand, "NullibleEnumWithoutValues", "has a range of values which does not include" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.CollectionEnum, () => new List<EnumWithDefaultLiteral> { (EnumWithDefaultLiteral)4 }));
+            testCommand = fixture.Create<CreateClassWithEnumsCommand>();
+            yield return new object[] { testCommand, "CollectionEnum[0]", "has a range of values which does not include" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateClassWithEnumsCommand>(comp => comp.With(x => x.CollectionStrings, () => default));
+            testCommand = fixture.Create<CreateClassWithEnumsCommand>();
+            yield return new object[] { testCommand, "CollectionStrings", "not be empty" };
         }
 
         [Theory]
