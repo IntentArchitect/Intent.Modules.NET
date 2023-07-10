@@ -102,4 +102,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="docs\images\" />
+  </ItemGroup>
+
 </Project>

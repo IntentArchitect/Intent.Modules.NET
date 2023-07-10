@@ -84,7 +84,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                         @interface.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
                         {
                             property.AddMetadata("model", associationEnd);
-                            property.Virtual();
+                            //property.Virtual();
                             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
                             {
                                 property.ReadOnly();
