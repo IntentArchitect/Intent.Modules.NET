@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.FluentValidation);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("FluentValidation")

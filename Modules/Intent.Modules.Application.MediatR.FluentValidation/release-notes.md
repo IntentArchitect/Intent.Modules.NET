@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Updated: `FluentValidation` to version `11.6.0`.
+
 ### Version 4.1.2
 
 - Upgrade: `CommandValidatorTemplate` moved to the the `CSharpFileBuilder` paradigm.

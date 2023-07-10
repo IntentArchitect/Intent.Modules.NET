@@ -1,3 +1,7 @@
+### Version 3.6.0
+
+- Updated: `FluentValidation` to version `11.6.0`.
+
 ### Version 3.4.1
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

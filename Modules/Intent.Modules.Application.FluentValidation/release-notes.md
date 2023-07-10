@@ -1,3 +1,7 @@
+### Version 3.7.0
+
+- Updated: `FluentValidation.DependencyInjectionExtensions` to version `11.6.0`.
+
 ### Version 3.6.0
 
 - Update: Removed a deprecated Fluent Validation module dependency. 

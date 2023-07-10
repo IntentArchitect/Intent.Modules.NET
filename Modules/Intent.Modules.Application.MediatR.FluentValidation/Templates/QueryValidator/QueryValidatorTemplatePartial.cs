@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
         public QueryValidatorTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);
+
             var csharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), this.GetFolderPath(additionalFolders: Model.GetConceptName()));
             csharpFile.AddClass($"{Model.Name}Validator");
             csharpFile.OnBuild((Action<CSharpFile>)(file =>
