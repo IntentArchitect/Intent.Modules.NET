@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Fixed: Enums generated for Integration purposes will only be done with Subscriber messages and no longer for Publisher messages.
+
 ### Version 4.0.6
 
 - Fixed: Messages and DTOs will now prefer the generated Integration Enum above the Domain Enum for type referencing.
