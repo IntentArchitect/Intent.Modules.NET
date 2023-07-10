@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="a711f094-48c5-4011-ae90-666e83bd959f" version="3.1.0">
-  <name>Hub Publish Message Settings</name>
+  <name>Hub Send Message Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="eff4de68-2ecb-4f61-a240-638c500693e2">Publish Message</type>
+    <type id="eff4de68-2ecb-4f61-a240-638c500693e2">Send Message</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>on-create</applyMode>

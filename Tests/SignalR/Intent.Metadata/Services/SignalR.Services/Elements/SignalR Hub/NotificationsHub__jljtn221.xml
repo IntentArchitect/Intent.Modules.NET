@@ -42,8 +42,8 @@
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
-          <addedByDefault>true</addedByDefault>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
           <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
           <properties>
@@ -75,8 +75,8 @@
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
-          <addedByDefault>true</addedByDefault>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
           <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
           <properties>
@@ -108,8 +108,8 @@
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
-          <addedByDefault>true</addedByDefault>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
           <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
           <properties>
@@ -141,8 +141,8 @@
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
-          <addedByDefault>true</addedByDefault>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
           <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
           <properties>
@@ -174,8 +174,8 @@
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Publish Message Settings">
-          <addedByDefault>true</addedByDefault>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
           <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
           <properties>

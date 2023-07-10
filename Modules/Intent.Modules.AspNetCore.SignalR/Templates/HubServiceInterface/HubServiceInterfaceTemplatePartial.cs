@@ -37,20 +37,20 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
                 inter.AddMethod(UseType("System.Threading.Tasks.Task"), $"{operationName}", method =>
                 {
                     method.AddParameter(GetTypeName(sendMessage.InternalElement.TypeReference), "model");
-                    switch (sendMessage.GetHubPublishMessageSettings().TargetClients().AsEnum())
+                    switch (sendMessage.GetHubSendMessageSettings().TargetClients().AsEnum())
                     {
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.All:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.All:
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.User:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.User:
                             method.AddParameter("string", "userId");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Users:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Users:
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "userIds");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Group:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Group:
                             method.AddParameter("string", "groupId");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Groups:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
                             break;
                         default:

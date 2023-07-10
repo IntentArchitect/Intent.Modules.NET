@@ -48,24 +48,24 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
                     method.Async();
                     method.AddParameter(GetTypeName(sendMessage.InternalElement.TypeReference), "model");
                     string clientTarget;
-                    switch (sendMessage.GetHubPublishMessageSettings().TargetClients().AsEnum())
+                    switch (sendMessage.GetHubSendMessageSettings().TargetClients().AsEnum())
                     {
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.All:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.All:
                             clientTarget = "All";
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.User:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.User:
                             clientTarget = "User(userId)";
                             method.AddParameter("string", "userId");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Users:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Users:
                             clientTarget = "Users(userIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "userIds");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Group:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Group:
                             clientTarget = "Group(groupId)";
                             method.AddParameter("string", "groupId");
                             break;
-                        case SendMessageModelStereotypeExtensions.HubPublishMessageSettings.TargetClientsOptionsEnum.Groups:
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
                             clientTarget = "Groups(groupIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
                             break;

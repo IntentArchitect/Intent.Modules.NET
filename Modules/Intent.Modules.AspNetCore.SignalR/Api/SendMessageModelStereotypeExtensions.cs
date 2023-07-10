@@ -12,35 +12,35 @@ namespace Intent.AspNetCore.SignalR.Api
 {
     public static class SendMessageModelStereotypeExtensions
     {
-        public static HubPublishMessageSettings GetHubPublishMessageSettings(this SendMessageModel model)
+        public static HubSendMessageSettings GetHubSendMessageSettings(this SendMessageModel model)
         {
-            var stereotype = model.GetStereotype("Hub Publish Message Settings");
-            return stereotype != null ? new HubPublishMessageSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Hub Send Message Settings");
+            return stereotype != null ? new HubSendMessageSettings(stereotype) : null;
         }
 
 
-        public static bool HasHubPublishMessageSettings(this SendMessageModel model)
+        public static bool HasHubSendMessageSettings(this SendMessageModel model)
         {
-            return model.HasStereotype("Hub Publish Message Settings");
+            return model.HasStereotype("Hub Send Message Settings");
         }
 
-        public static bool TryGetHubPublishMessageSettings(this SendMessageModel model, out HubPublishMessageSettings stereotype)
+        public static bool TryGetHubSendMessageSettings(this SendMessageModel model, out HubSendMessageSettings stereotype)
         {
-            if (!HasHubPublishMessageSettings(model))
+            if (!HasHubSendMessageSettings(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new HubPublishMessageSettings(model.GetStereotype("Hub Publish Message Settings"));
+            stereotype = new HubSendMessageSettings(model.GetStereotype("Hub Send Message Settings"));
             return true;
         }
 
-        public class HubPublishMessageSettings
+        public class HubSendMessageSettings
         {
             private IStereotype _stereotype;
 
-            public HubPublishMessageSettings(IStereotype stereotype)
+            public HubSendMessageSettings(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

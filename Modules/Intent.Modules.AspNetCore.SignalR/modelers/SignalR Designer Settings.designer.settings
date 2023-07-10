@@ -57,8 +57,17 @@
           <script>const hubSettingsStereotypeId = "ba101028-d276-496d-bab2-5e7b707449a4";
 element.setName("NotificationsHub");
 element.addStereotype(hubSettingsStereotypeId);
-element.getStereotype(hubSettingsStereotypeId).getProperty("Route").setValue("/hub/notifications");
+element.getStereotype(hubSettingsStereotypeId)
+    .getProperty("Route")
+    .setValue("/hub/notifications");
 </script>
+        </macro>
+        <macro trigger="on-name-changed">
+          <script>const hubSettingsStereotypeId = "ba101028-d276-496d-bab2-5e7b707449a4";
+let hubName = removeSuffix(element.getName(), "Hub");
+element.getStereotype(hubSettingsStereotypeId)
+    .getProperty("Route")
+    .setValue(`/hub/${toCamelCase(hubName)}`);</script>
         </macro>
       </macros>
       <childElementSettings>
