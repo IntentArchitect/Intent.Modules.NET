@@ -130,10 +130,15 @@ You can also model your SQL indexes in the `Domain Designer`.
 
 * Find the `Class` you want to add an Index to, in the `Domain Designer` tree panel.
 * Right-click the `Class` and select `Add Index`.
+
 ![Select Add Index](./docs/images/index-add-context.png)
+
 * In dialog box, select the attributes you want to include in your index.
+
 ![Select Attributes which make up your Index](./docs/images/index-choose-attributes.png)
+
 * Click `Done`.
+
 ![See Index Added](./docs/images/index-created.png)
 
 You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct ,you can re-order them by dragging them around.
