@@ -9,14 +9,12 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationService
 {
     public class OrderConfirmed
     {
-        public static OrderConfirmed Create(
-            Guid id,
-            string refNo)
+        public static OrderConfirmed Create(Guid id, string refNo)
         {
             return new OrderConfirmed
             {
                 Id = id,
-                RefNo = refNo,
+                RefNo = refNo
             };
         }
 

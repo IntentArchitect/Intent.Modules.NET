@@ -8,12 +8,11 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices.In
 {
     public class InvoiceCreateDto
     {
-        public static InvoiceCreateDto Create(
-            string number)
+        public static InvoiceCreateDto Create(string number)
         {
             return new InvoiceCreateDto
             {
-                Number = number,
+                Number = number
             };
         }
 

@@ -40,6 +40,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
 
                     @class.AddMethod($"{ClassName}{GenericTypes}", "Create", method =>
                     {
+                        method.Static();
+
                         foreach (var field in Model.Fields)
                         {
                             method.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());

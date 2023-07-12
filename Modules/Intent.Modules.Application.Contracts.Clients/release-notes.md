@@ -1,6 +1,7 @@
 ### Version 4.0.2
 
 - Removed dependency on Domain module
+- Migrated remaining templates to use CSharpFileBuilder.
 
 ### Version 4.0.1
 

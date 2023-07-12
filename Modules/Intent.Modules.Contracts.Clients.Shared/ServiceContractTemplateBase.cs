@@ -38,6 +38,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
                 .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client")}Client",
                     @interface =>
                     {
+                        @interface.ImplementsInterfaces("IDisposable");
+
                         foreach (var endpoint in model.GetMappedEndpoints().ToArray())
                         {
                             @interface.AddMethod(GetOperationReturnType(endpoint), GetOperationName(endpoint), method =>
