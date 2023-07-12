@@ -12,7 +12,7 @@
   <stereotypes>
     <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Audit">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.EntityFrameworkCore.BasicAudit</definitionPackageName>
+      <definitionPackageName>Intent.EntityFrameworkCore.BasicAuditing</definitionPackageName>
       <definitionPackageId>ef879334-e14d-46cc-b361-604ca8e95f60</definitionPackageId>
       <properties />
     </stereotype>

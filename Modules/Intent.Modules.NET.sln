@@ -215,7 +215,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ObsoleteModu
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.SignalR", "Intent.Modules.AspNetCore.SignalR\Intent.Modules.AspNetCore.SignalR.csproj", "{DCEEDF9C-F645-408B-8E3C-8E3F214BB797}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.BasicAudit", "Intent.Modules.EntityFrameworkCore.BasicAudit\Intent.Modules.EntityFrameworkCore.BasicAudit.csproj", "{E4CEE586-384A-4B39-A49E-D8E2F83F8E70}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.BasicAuditing", "Intent.Modules.EntityFrameworkCore.BasicAuditing\Intent.Modules.EntityFrameworkCore.BasicAuditing.csproj", "{E4CEE586-384A-4B39-A49E-D8E2F83F8E70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
