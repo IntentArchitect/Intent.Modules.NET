@@ -28,31 +28,31 @@ This setting allows you to configure which `Database Provider` you want Entity F
 
 ## Domain Designer modelling
 
-The `Domain Designer` has been extended with many stereotypes which enable you to model RDBMS technology specific concepts in your domain.
+The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
 
 ### Primary Key - Attribute stereotype
 
 The `Primary Key` stereotype indicates that an `Attribute` is the database table's primary key.
 
-By default any `Class`'s added to your domain will have an `Attribute` added name `Id` with the `Primary Key` stereotype applied. The type of this attribute will default to the configured 'Database Settings > Key Type' which can be configured in your application settings.
+By default any `Class`'s added to your domain will have an `Attribute` added named `Id` with the `Primary Key` stereotype applied to it. The type of this attribute will default to the configured 'Database Settings > Key Type', which can be configured in your application settings.
 
-This stereotype can be manually applied to `Attribute`s and can be applied to multiple `Attribute`s in the case of composite primary keys. This stereotype is visualizes as a golden key icon.
+This stereotype can be manually applied to `Attribute`s and can be applied to multiple `Attribute`s in the case of composite primary keys. This stereotype is visualized as a golden key icon.
 
 ![Primary Key visual](./docs/images/primary-key-stereotype.png)
 
 ### Foreign Key - Attribute stereotype
 
-The `Foreign Key` stereotype indicates an `Attribute` has been introduced to an Entity as a result of a modelled `Association`, for example:
+The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `Class` as a result of a modelled `Association`, for example:
 
 ![Foreign Key visual](./docs/images/foreign-key-stereotype.png)
 
 In this diagram you can see the `CustomerId` attribute has been introduced, with the `Foreign Key` stereotype, as a result of the many-to-one relationship between `Basket` and `Customer`.
 
-The `Foreign Key` stereotype's are automatically managed when modelling associations. This stereotype is visualizes as a silver key icon.
+The `Foreign Key` stereotype's are automatically managed when modelling associations. This stereotype is visualized as a silver key icon.
 
 ### Text Constraint - Attribute Stereotype
 
-The `Text Constraint` stereotype allows you to configure the specifics of how the `string` type should be realized in the database.
+The `Text Constraint` stereotype allows you to configure the specifics of how an `Attribute` of type `string` should be realized in the database.
 
 This stereotype can be used to specify:
 
@@ -65,17 +65,17 @@ By default `strings` are realized in SQL as `nvarchar(max)`. The `Text Constrain
 
 ### Decimal Constraint - Attribute stereotype
 
-The `Decimal Constraint` stereotype allows you to configure the precision and scale for your `decimal` type.
+The `Decimal Constraint` stereotype allows you to configure the precision and scale for your `decimal` type attributes.
 
-The `Decimal Constraint` stereotype can be manually applied to any attributes of type `decimal`. This stereotype is visualized by the `({precision},{scale})` text after the `decimal` type.
+The `Decimal Constraint` stereotype can be manually applied to any attribute of type `decimal`. This stereotype is visualized by the `({precision},{scale})` text after the `decimal` type.
 
 ![Decimal Constraint visual](./docs/images/decimal-constraint-stereotype.png)
 
 ### Computed Value - Attribute stereotype
 
-The `Computed Value` stereotype allows you to configure SQL computed columns in your model.
+The `Computed Value` stereotype allows you to model SQL computed columns.
 
-The `Computed Value` stereotype can be manually applied to an attribute, allowing you to specify the formula for the calculation and whether or nopt the calculated result is persisted in the database. This stereotype is visualized by the blue computed column icon.
+The `Computed Value` stereotype can be manually applied to an attribute, allowing you to specify the formula for the calculation and whether or not the calculated result is persisted in the database. This stereotype is visualized by the blue computed column icon.
 
 ![Computed Value visual](./docs/images/computed-value-stereotype.png)
 
@@ -83,13 +83,13 @@ The `Computed Value` stereotype can be manually applied to an attribute, allowin
 
 The `Column` stereotype allows you to override the SQL column details from your model, if required.
 
-The `Column` stereotype can be manually applied to an attribute, allowing you to specify the SQL column name and / or SQL column type. This stereotype is visualized by the orange and blue column icon.
+The `Column` stereotype can be manually applied to an attribute, allowing you to specify the SQL column name and / or SQL column type. This stereotype is visualized by the stereotype's icon.
 
 ![Column visual](./docs/images/column-stereotype.png)
 
 ### Row Version - Attribute stereotype
 
-The `Row Version` stereotype when applied to a byte[] Attribute, denotes that the property should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion`` type.
+The `Row Version` stereotype when applied to a byte[] `Attribute`, denotes that it should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion` type.
 
 The `Row Version` stereotype can be manually applied. This stereotype is visualized by the time stamp icon.
 
@@ -97,7 +97,7 @@ The `Row Version` stereotype can be manually applied. This stereotype is visuali
 
 ### Default Constraint - Attribute stereotype
 
-The `Default Constraint` stereotype allows you to specify SQL column defaults from your model, if required.
+The `Default Constraint` stereotype allows you to specify SQL column defaults in your model, if required.
 
 The `Default Constraint` stereotype can be manually applied to an attribute, allowing you to specify either a default value or a default sql expression. This stereotype is visualized by stereotype's icon.
 
@@ -107,7 +107,7 @@ The `Default Constraint` stereotype can be manually applied to an attribute, all
 
 The `Table` stereotype allows you to specify a SQL tables name and/or schema name , if required.
 
-By default SQL table names will be the pluralized version of the `Class` name, and go in the `dbo` schema.
+By default SQL table names will be the pluralized version of the `Class` name, and go into the `dbo` schema.
 
 The `Table` stereotype can be manually applied to an `Class`. If `Name` or `Schema` are not populated the default value will be used. This stereotype is visualized by stereotype's icon on the top right of the `Class`.
 
@@ -115,8 +115,7 @@ The `Table` stereotype can be manually applied to an `Class`. If `Name` or `Sche
 
 ### View - Entity stereotype
 
-If you have SQL Views in you database which you want to reference in you domain, you can model those views as `Class`s and apply the `View` stereotype to them.
-This will allow you to access these views in code, through Entity Framework.
+If you have SQL Views in you database which you want to reference in you domain, you can model those views as `Class`s and apply the `View` stereotype to them. This will allow you to access these views through Entity Framework.
 
 On the `View` stereotype you can specify the `Name` and `Schema` for the view, if they are not specified they will default to the pluralized version of the `Class` name, and the `dbo` schema. The SQL view must exist in the database for this to work.
 
@@ -133,7 +132,7 @@ You can also model your SQL indexes in the `Domain Designer`.
 
 ![Select Add Index](./docs/images/index-add-context.png)
 
-* In dialog box, select the attributes you want to include in your index.
+* In dialog box, select the attributes you want to include in the index.
 
 ![Select Attributes which make up your Index](./docs/images/index-choose-attributes.png)
 
@@ -141,7 +140,7 @@ You can also model your SQL indexes in the `Domain Designer`.
 
 ![See Index Added](./docs/images/index-created.png)
 
-You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct ,you can re-order them by dragging them around.
+You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct, you can re-order them by dragging them around.
 
 ### Modelling Inheritance
 
@@ -167,6 +166,8 @@ Resulting database structure:
 
 Modelling:
 
+Note the `Table` stereotypes, you don't need to fill in the name schema if you are happy with the defaults.
+
 ![Table per type Model](./docs/images/tpt-model.png)
 
 Resulting database structure:
@@ -177,7 +178,7 @@ Resulting database structure:
 
 Modelling:
 
-Note : the base class is marked as abstract.
+Note the base class is marked as abstract.
 
 ![Table per concrete type Model](./docs/images/tpc-model.png)
 
@@ -371,7 +372,7 @@ This modules provides RDBMS related stereotypes for extending the Domain Designe
 
 ### Intent.Entities
 
-This module realized Domain entities as C# classes, which are used by this model.
+This module generated domain entities as C# classes, which are used by this model.
 
 ### Intent.EntityFrameworkCore.Repositories
 
