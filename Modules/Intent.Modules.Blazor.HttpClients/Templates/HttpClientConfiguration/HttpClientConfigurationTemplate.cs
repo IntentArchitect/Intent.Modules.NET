@@ -32,25 +32,26 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using Microsoft.Extensions.Configuration;\r\nusing Microsoft.Extensions.DependencyI" +
-                    "njection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing Microsoft.Extensions.Configuration;\r\nusing Microsoft.Extensi" +
+                    "ons.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nname" +
+                    "space ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public static void AddHttpClients(this IServiceCollection servic" +
-                    "es, IConfiguration configuration)\r\n        {\r\n");
+                    "es, IConfiguration configuration, Uri? defaultUri = null)\r\n        {\r\n");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
 
     foreach (var proxy in Model)
     {
@@ -60,36 +61,37 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
             #line hidden
             this.Write("            services.AddHttpClient<");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetServiceContractName(proxy)));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetHttpClientName(proxy)));
             
             #line default
             #line hidden
             this.Write(">(http =>\r\n            {\r\n                http.BaseAddress = configuration.GetVal" +
-                    "ue<Uri>(\"");
+                    "ue<Uri?>(\"");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Uri")));
             
             #line default
             #line hidden
-            this.Write("\");\r\n                http.Timeout = configuration.GetValue<TimeSpan?>(\"");
+            this.Write("\") ?? defaultUri ?? throw new Exception(\"No Uri defined\");\r\n                http." +
+                    "Timeout = configuration.GetValue<TimeSpan?>(\"");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Timeout")));
             
             #line default
             #line hidden
             this.Write("\") ?? TimeSpan.FromSeconds(100);\r\n            });\r\n");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
         
     }
 

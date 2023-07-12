@@ -9,6 +9,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>717fa29d-7c74-4ddf-9b6c-0f201d435b6a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#8371ee14-a615-4fb9-ac3f-089be5ff9e26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/FolderServiceProxyExtensionsModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FolderServiceProxyExtensionsModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>717fa29d-7c74-4ddf-9b6c-0f201d435b6a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#9c72073e-8988-4ff4-8126-a54f7bfda121</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/PackageServiceProxyExtensionsModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageServiceProxyExtensionsModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>717fa29d-7c74-4ddf-9b6c-0f201d435b6a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ed353532-9d48-485a-a381-2e952cf26d38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ServiceProxyExtensionsModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxyExtensionsModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -22,6 +46,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bbc9ccd-c6da-4cce-8e53-488f7ad86d62</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#22e606c7-0ac5-45cc-9f31-a3026070a6ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Service Proxies Extension.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Service Proxies Extension.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

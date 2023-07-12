@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.ServiceProxies.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -10,7 +10,7 @@ using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse
 {
-    public class JsonResponseTemplateBase : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public abstract class JsonResponseTemplateBase : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         protected JsonResponseTemplateBase(string templateId, IOutputTarget outputTarget, object model = null) : base(templateId, outputTarget, model)
         {
@@ -37,11 +37,11 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse
 
         public override string TransformText() => CSharpFile.ToString();
 
+        protected abstract IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId);
+
         public override bool CanRunTemplate()
         {
-            return ExecutionContext
-                .MetadataManager
-                .ServiceProxies(ExecutionContext.GetApplicationConfig().Id)
+            return GetSourceDesigner(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
                 .GetServiceProxyModels()
                 .SelectMany(s => s.GetMappedEndpoints())
                 .Any(x => x.MediaType == HttpMediaType.ApplicationJson);

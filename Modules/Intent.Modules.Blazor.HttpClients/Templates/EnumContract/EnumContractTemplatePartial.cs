@@ -28,8 +28,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.EnumContract
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
+                relativeLocation: $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}");
         }
     }
 }

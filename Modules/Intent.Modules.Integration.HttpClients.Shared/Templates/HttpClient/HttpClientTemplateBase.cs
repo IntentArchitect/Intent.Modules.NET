@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -8,58 +10,35 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 
-public class HttpClientGenerator
+public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
 {
-    private readonly CSharpTemplateBase<ServiceProxyModel> _template;
-    private readonly string _httpClientRequestExceptionTemplateId;
-    private readonly string _jsonResponseTemplateId;
-    private readonly string _serviceContractTemplateId;
-    private readonly string _dtoContractTemplateId;
-    private readonly IReadOnlyCollection<IHttpEndpointModel> _endpoints;
-
-    private HttpClientGenerator(
-        CSharpTemplateBase<ServiceProxyModel> template,
+    protected HttpClientTemplateBase(
+        string templateId,
+        IOutputTarget outputTarget,
+        ServiceProxyModel model,
         string httpClientRequestExceptionTemplateId,
         string jsonResponseTemplateId,
         string serviceContractTemplateId,
-        string dtoContractTemplateId)
+        string dtoContractTemplateId,
+        IEnumerable<string> additionalFolderParts = null)
+        : base(templateId, outputTarget, model)
     {
-        _template = template;
-        _httpClientRequestExceptionTemplateId = httpClientRequestExceptionTemplateId;
-        _jsonResponseTemplateId = jsonResponseTemplateId;
-        _serviceContractTemplateId = serviceContractTemplateId;
-        _dtoContractTemplateId = dtoContractTemplateId;
-        _endpoints = template.Model.GetMappedEndpoints().ToArray();
-    }
+        var serviceContractTemplateId1 = serviceContractTemplateId;
+        var endpoints = Model.GetMappedEndpoints().ToArray();
+        var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
 
-    public static CSharpFile CreateCSharpFile(
-        CSharpTemplateBase<ServiceProxyModel> template,
-        string httpClientRequestExceptionTemplateId,
-        string jsonResponseTemplateId,
-        string serviceContractTemplateId,
-        string dtoContractTemplateId)
-    {
-        return new HttpClientGenerator(
-            template: template,
-            httpClientRequestExceptionTemplateId: httpClientRequestExceptionTemplateId,
-            jsonResponseTemplateId: jsonResponseTemplateId,
-            serviceContractTemplateId: serviceContractTemplateId,
-            dtoContractTemplateId: dtoContractTemplateId).Create();
-    }
+        AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
+        AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
-    private CSharpFile Create()
-    {
-        _template.AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
-        _template.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
+        AddTypeSource(serviceContractTemplateId1);
+        AddTypeSource(dtoContractTemplateId).WithCollectionFormat("List<{0}>");
+        SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
 
-        _template.AddTypeSource(_serviceContractTemplateId);
-        _template.AddTypeSource(_dtoContractTemplateId).WithCollectionFormat("List<{0}>");
-        _template.SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
-
-        return new CSharpFile(_template.GetNamespace(), _template.GetFolderPath())
+        CSharpFile = new CSharpFile(this.GetNamespace(additionalFolderPartsAsArray), this.GetFolderPath(additionalFolderPartsAsArray))
             .AddUsing("System")
             .AddUsing("System.Collections.Generic")
             .AddUsing("System.IO")
@@ -73,10 +52,10 @@ public class HttpClientGenerator
             .AddUsing("System.Threading.Tasks")
             .AddUsing("Microsoft.AspNetCore.WebUtilities")
             .IntentManagedFully()
-            .AddClass($"{_template.Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
+            .AddClass($"{Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
             {
                 @class
-                    .ImplementsInterface(_template.GetTypeName(_serviceContractTemplateId, _template.Model))
+                    .ImplementsInterface(GetTypeName(serviceContractTemplateId1, Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
                     .AddConstructor(constructor => constructor
                         .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
@@ -85,7 +64,7 @@ public class HttpClientGenerator
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };"));
 
-                foreach (var endpoint in _endpoints)
+                foreach (var endpoint in endpoints)
                 {
                     var inputsBySource = endpoint.Inputs
                         .GroupBy(x => x.Source)
@@ -98,7 +77,7 @@ public class HttpClientGenerator
 
                         foreach (var input in endpoint.Inputs)
                         {
-                            method.AddParameter(_template.GetTypeName(input.TypeReference), input.Name.ToParameterName());
+                            method.AddParameter(GetTypeName(input.TypeReference), input.Name.ToParameterName());
                         }
 
                         method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
@@ -154,7 +133,7 @@ public class HttpClientGenerator
                             usingResponseBlock.SeparatedFromPrevious();
 
                             usingResponseBlock.AddStatementBlock("if (!response.IsSuccessStatusCode)", s => s
-                                .AddStatement($"throw await {_template.GetTypeName(_httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);")
+                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);")
                             );
 
                             if (endpoint.ReturnType?.Element == null)
@@ -171,14 +150,14 @@ public class HttpClientGenerator
                                 var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
                                 var returnsCollection = endpoint.ReturnType.IsCollection;
                                 var returnsString = endpoint.ReturnType.HasStringType();
-                                var returnsPrimitive = _template.GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
+                                var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
                                                        !returnsCollection;
 
                                 usingContentStreamBlock.SeparatedFromPrevious();
 
                                 if (isWrappedReturnType && (returnsPrimitive || returnsString))
                                 {
-                                    usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{_template.GetTypeName(_jsonResponseTemplateId)}<{_template.GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("return wrappedObj.Value;");
                                 }
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
@@ -191,11 +170,11 @@ public class HttpClientGenerator
                                 {
                                     usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
-                                    usingContentStreamBlock.AddStatement($"return {_template.GetTypeName(endpoint.ReturnType)}.Parse(str);");
+                                    usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                 }
                                 else
                                 {
-                                    usingContentStreamBlock.AddStatement($"return await JsonSerializer.DeserializeAsync<{_template.GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"return await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
                                 }
                             });
                         });
@@ -206,11 +185,26 @@ public class HttpClientGenerator
             });
     }
 
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
+
+    [IntentManaged(Mode.Fully)]
+    protected override CSharpFileConfig DefineFileConfig()
+    {
+        return CSharpFile.GetConfig();
+    }
+
+    [IntentManaged(Mode.Fully)]
+    public override string TransformText()
+    {
+        return CSharpFile.ToString();
+    }
+
     private string GetReturnType(IHttpEndpointModel endpoint)
     {
         return endpoint.ReturnType?.Element == null
             ? "Task"
-            : $"Task<{_template.GetTypeName(endpoint.ReturnType)}>";
+            : $"Task<{GetTypeName(endpoint.ReturnType)}>";
     }
 
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)

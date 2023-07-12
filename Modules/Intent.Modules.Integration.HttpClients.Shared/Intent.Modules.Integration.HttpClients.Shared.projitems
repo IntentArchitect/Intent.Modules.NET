@@ -11,7 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientRequestException\HttpClientRequestExceptionTemplateBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
   </ItemGroup>
 </Project>

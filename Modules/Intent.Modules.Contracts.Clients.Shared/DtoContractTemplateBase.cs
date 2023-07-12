@@ -18,7 +18,9 @@ namespace Intent.Modules.Contracts.Clients.Shared
             string templateId,
             IOutputTarget outputTarget,
             ServiceProxyDTOModel model,
-            string enumContractTemplateId)
+            string enumContractTemplateId,
+            string @namespace = null,
+            string relativeLocation = null)
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
@@ -27,8 +29,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
             AddTypeSource(enumContractTemplateId, "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(
-                    @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase().RemoveSuffix())}",
-                    relativeLocation: $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}")
+                    @namespace: @namespace ?? $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
+                    relativeLocation: relativeLocation ?? $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}")
                 .AddClass($"{Model.Name}", @class =>
                 {
                     foreach (var genericType in Model.GenericTypes)

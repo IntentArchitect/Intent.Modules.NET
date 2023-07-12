@@ -19,35 +19,23 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class HttpClientTemplate : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Ignore)]
+    public class HttpClientTemplate : HttpClientTemplateBase
     {
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.HttpClients.HttpClient";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
-        {
-            CSharpFile = HttpClientGenerator.CreateCSharpFile(
-                template: this,
+        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model)
+            : base(
+                templateId: TemplateId,
+                outputTarget: outputTarget,
+                model: model,
                 httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
                 jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
                 serviceContractTemplateId: ServiceContractTemplate.TemplateId,
-                dtoContractTemplateId: DtoContractTemplate.TemplateId);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
-
-        [IntentManaged(Mode.Fully)]
-        protected override CSharpFileConfig DefineFileConfig()
+                dtoContractTemplateId: DtoContractTemplate.TemplateId,
+                additionalFolderParts: new[] { model.Name.ToPascalCase() })
         {
-            return CSharpFile.GetConfig();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        public override string TransformText()
-        {
-            return CSharpFile.ToString();
         }
     }
 }

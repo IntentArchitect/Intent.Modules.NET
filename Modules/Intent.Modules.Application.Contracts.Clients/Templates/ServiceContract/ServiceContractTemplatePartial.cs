@@ -29,7 +29,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
                 outputTarget: outputTarget,
                 model: model,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
-                dtoContractTemplateId: DtoContractTemplate.TemplateId)
+                dtoContractTemplateId: DtoContractTemplate.TemplateId,
+                additionalNamespaceParts: new[] { model.Name.ToPascalCase() })
         {
         }
     }

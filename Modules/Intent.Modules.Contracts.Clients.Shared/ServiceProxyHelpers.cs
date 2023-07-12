@@ -4,6 +4,10 @@ using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Common.CSharp.Api;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Contracts.Clients.Shared;
@@ -37,5 +41,36 @@ public static class ServiceProxyHelpers
             .Cast<IElement>()
             .Where(x => x?.TryGetHttpSettings(out _) == true)
             .Select(HttpEndpointModelFactory.GetEndpoint);
+    }
+
+    public static string GetNamespace<TModel>(
+        this CSharpTemplateBase<TModel> template,
+        ServiceProxyModel serviceProxyModel)
+        where TModel : IHasFolder
+    {
+        return string.Join('.', template.GetNamespaceParts(serviceProxyModel));
+    }
+
+    public static string GetFolderPath<TModel>(
+        this CSharpTemplateBase<TModel> template,
+        ServiceProxyModel serviceProxyModel)
+        where TModel : IHasFolder
+    {
+        return string.Join('/', template.GetNamespaceParts(serviceProxyModel));
+    }
+
+    private static IEnumerable<string> GetNamespaceParts<TModel>(
+        this CSharpTemplateBase<TModel> template,
+        ServiceProxyModel serviceProxyModel)
+        where TModel : IHasFolder
+    {
+        var modelNamespace = template.Model.GetParentFolders()
+            .Where(x => !string.IsNullOrWhiteSpace(x.Name) &&
+                        (!x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider()))
+            .Select(x => x.Name);
+
+        return template.OutputTarget.GetNamespace().Split('.')
+            .Append(serviceProxyModel.Name.ToPascalCase())
+            .Concat(modelNamespace);
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -17,16 +19,19 @@ namespace Intent.Modules.Contracts.Clients.Shared
             IOutputTarget outputTarget,
             ServiceProxyModel model,
             string enumContractTemplateId,
-            string dtoContractTemplateId)
+            string dtoContractTemplateId,
+            IEnumerable<string> additionalFolderParts = null)
             : base(templateId, outputTarget, model)
         {
+            var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
+            
             AddTypeSource(enumContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(dtoContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
 
             CSharpFile = new CSharpFile(
-                    @namespace: $"{this.GetNamespace(Model.Name.ToPascalCase())}",
-                    relativeLocation: $"{this.GetFolderPath(Model.Name.ToPascalCase())}")
+                    @namespace: $"{this.GetNamespace(additionalFolderPartsAsArray)}",
+                    relativeLocation: $"{this.GetFolderPath(additionalFolderPartsAsArray)}")
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
