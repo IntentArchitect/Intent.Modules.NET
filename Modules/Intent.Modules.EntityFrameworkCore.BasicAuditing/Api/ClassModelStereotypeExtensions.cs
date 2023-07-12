@@ -13,35 +13,35 @@ namespace Intent.EntityFrameworkCore.BasicAuditing.Api
 {
     public static class ClassModelStereotypeExtensions
     {
-        public static BasicAudit GetBasicAudit(this ClassModel model)
+        public static BasicAuditing GetBasicAuditing(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("Basic Audit");
-            return stereotype != null ? new BasicAudit(stereotype) : null;
+            var stereotype = model.GetStereotype("Basic Auditing");
+            return stereotype != null ? new BasicAuditing(stereotype) : null;
         }
 
 
-        public static bool HasBasicAudit(this ClassModel model)
+        public static bool HasBasicAuditing(this ClassModel model)
         {
-            return model.HasStereotype("Basic Audit");
+            return model.HasStereotype("Basic Auditing");
         }
 
-        public static bool TryGetBasicAudit(this ClassModel model, out BasicAudit stereotype)
+        public static bool TryGetBasicAuditing(this ClassModel model, out BasicAuditing stereotype)
         {
-            if (!HasBasicAudit(model))
+            if (!HasBasicAuditing(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new BasicAudit(model.GetStereotype("Basic Audit"));
+            stereotype = new BasicAuditing(model.GetStereotype("Basic Auditing"));
             return true;
         }
 
-        public class BasicAudit
+        public class BasicAuditing
         {
             private IStereotype _stereotype;
 
-            public BasicAudit(IStereotype stereotype)
+            public BasicAuditing(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

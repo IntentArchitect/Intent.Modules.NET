@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" version="3.1.0">
-  <name>Basic Audit</name>
+  <name>Basic Auditing</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>

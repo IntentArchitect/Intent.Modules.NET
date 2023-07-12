@@ -70,7 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
                 {
                     var priClass = file.Classes.First();
                     var model = priClass.GetMetadata<ClassModel>("model");
-                    if (!model.HasBasicAudit()) { return; }
+                    if (!model.HasBasicAuditing()) { return; }
                     priClass.ImplementsInterface(entity.GetAuditableInterfaceName());
                 });
             }
