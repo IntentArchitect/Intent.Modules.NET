@@ -88,7 +88,7 @@ namespace CosmosDB.Infrastructure.Repositories
             Expression<Func<TPersistence, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
-            var documents = await _cosmosRepository.GetAsync(AdaptPredicate(filterExpression), cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
             return documents.Cast<TDomain>().ToList();
         }
 
@@ -109,7 +109,10 @@ namespace CosmosDB.Infrastructure.Repositories
             return results;
         }
 
-        public static Expression<Func<TDocument, bool>> AdaptPredicate(Expression<Func<TPersistence, bool>> expression)
+        /// <summary>
+        /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
+        /// </summary>
+        public static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
         {
             if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format("{0} is not assignable from {1}.", typeof(TPersistence), typeof(TDocument)));
             var beforeParameter = expression.Parameters.Single();

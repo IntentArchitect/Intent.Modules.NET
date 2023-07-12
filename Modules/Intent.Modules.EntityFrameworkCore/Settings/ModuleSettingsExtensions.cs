@@ -73,6 +73,51 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             MySql,
             Cosmos,
         }
+
+        public static TableNamingConventionOptions TableNamingConvention(this DatabaseSettings groupSettings) => new TableNamingConventionOptions(groupSettings.GetSetting("49b09c68-e86a-4e15-96ab-cd482168ef22")?.Value);
+
+        public class TableNamingConventionOptions
+        {
+            public readonly string Value;
+
+            public TableNamingConventionOptions(string value)
+            {
+                Value = value;
+            }
+
+            public TableNamingConventionOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "pluralized" => TableNamingConventionOptionsEnum.Pluralized,
+                    "singularized" => TableNamingConventionOptionsEnum.Singularized,
+                    "none" => TableNamingConventionOptionsEnum.None,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsPluralized()
+            {
+                return Value == "pluralized";
+            }
+
+            public bool IsSingularized()
+            {
+                return Value == "singularized";
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+        }
+
+        public enum TableNamingConventionOptionsEnum
+        {
+            Pluralized,
+            Singularized,
+            None,
+        }
     }
 
     //public static class ModuleSettingsExtensions

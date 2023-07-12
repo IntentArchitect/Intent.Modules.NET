@@ -226,7 +226,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (model.HasView())
             {
-                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetView()?.Schema()) ? @$", ""{model.GetView().Schema()}""" : "")});";
+                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.GetView()?.Schema()) ? @$", ""{model.GetView().Schema()}""" : "")});";
             }
             else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
             {
@@ -245,15 +245,19 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
+            else if (RequiresToTableStatementForConvention(model.Name)) 
+            {
+                yield return ToTableStatement(model);
+            }
 
-            static CSharpStatement ToTableStatement(ClassExtensionModel model)
+            CSharpStatement ToTableStatement(ClassExtensionModel model)
             {
                 var statement = new CSharpInvocationStatement("builder.ToTable");
                 if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
                     !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ||
                     model.Triggers.Count == 0)
                 {
-                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? model.Name.Pluralize()}\"");
+                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? GetTableNameByConvention( model.Name)}\"");
                 }
 
                 if (!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
@@ -279,6 +283,35 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 }
 
                 return statement;
+            }
+        }
+
+        private bool RequiresToTableStatementForConvention(string className)
+        {
+            switch (ExecutionContext.Settings.GetDatabaseSettings().TableNamingConvention().AsEnum())
+            {
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Singularized:
+                    return true;
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.None:
+                    //Because DBSets are plural table names default to table, we need to add ToTables in the name is not pluralized
+                    return className != className.Pluralize();
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Pluralized:
+                default:
+                    return false;
+            }
+        }
+
+        private string GetTableNameByConvention(string className)
+        {
+            switch (ExecutionContext.Settings.GetDatabaseSettings().TableNamingConvention().AsEnum())
+            {
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Singularized:
+                    return className.Singularize();
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.None:
+                    return className;
+                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Pluralized:
+                default:
+                    return className.Pluralize();
             }
         }
 
@@ -389,11 +422,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             return field;
                         }
                     }
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd)
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention)
                         .WithForeignKey();
 
                 case RelationshipType.ManyToMany:
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd);
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention);
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
@@ -586,8 +619,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
-            return !(typeInfo.IsPrimitive 
-                || typeInfo.IsNullable == true 
+            return !(typeInfo.IsPrimitive
+                || typeInfo.IsNullable == true
                 || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 

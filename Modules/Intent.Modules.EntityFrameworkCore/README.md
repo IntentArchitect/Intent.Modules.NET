@@ -26,6 +26,14 @@ This setting allows you to configure which `Database Provider` you want Entity F
 
 ![Database Settings - `Database Provider`](./docs/images/database-provider.png)
 
+### Database Settings - `Table naming convention`
+
+This setting allows you to configure a convention for your SQL table name. The available options are as follows:
+
+* Pluralized, SQL table name will be the pluralized version of the domain model `Class`'s name.
+* Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
+* None, SQL table name will be the same as domain model `Class`'s name.
+
 ## Domain Designer modelling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.

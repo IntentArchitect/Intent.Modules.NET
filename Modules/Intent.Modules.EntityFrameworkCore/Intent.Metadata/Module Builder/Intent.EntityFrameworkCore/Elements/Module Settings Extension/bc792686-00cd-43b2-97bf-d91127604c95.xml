@@ -120,5 +120,74 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="49b09c68-e86a-4e15-96ab-cd482168ef22" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Table naming convention</name>
+      <display>Table naming convention</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bc792686-00cd-43b2-97bf-d91127604c95</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Naming convention for SQL table names." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="pluralized" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2b162c57-4226-4d89-ab8a-45e29a5885a4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Pluralized</name>
+          <display>Pluralized = pluralized</display>
+          <isAbstract>false</isAbstract>
+          <value>pluralized</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>49b09c68-e86a-4e15-96ab-cd482168ef22</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="896dbc5e-10fd-4683-9fc8-5d53dc6bb8ec" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Singularized</name>
+          <display>Singularized = singularized</display>
+          <isAbstract>false</isAbstract>
+          <value>singularized</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>49b09c68-e86a-4e15-96ab-cd482168ef22</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7dcc1477-baca-4486-9bd2-353ee146e1e6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>49b09c68-e86a-4e15-96ab-cd482168ef22</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -138,7 +138,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                                                                      
-                        method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptPredicate(filterExpression), cancellationToken);");
+                        method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);");
                         method.AddStatement($"return documents.Cast<TDomain>().ToList();");
                     });
 
@@ -160,11 +160,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod("Expression<Func<TDocument, bool>>", "AdaptPredicate", method =>
+                    @class.AddMethod("Expression<Func<TDocument, bool>>", "AdaptFilterPredicate", method =>
                     {
                         method
                             .Static()
-                            .AddParameter("Expression<Func<TPersistence, bool>>", "expression");
+                            .AddParameter("Expression<Func<TPersistence, bool>>", "expression")
+                            .WithComments(new[]
+                            {
+                                "/// <summary>",
+                                "/// Adapts a <typeparamref name=\"TPersistence\"/> predicate to a <typeparamref name=\"TDocument\"/> predicate.",
+                                "/// </summary>"
+                            });
 
                         method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format(\"{0} is not assignable from {1}.\", typeof(TPersistence), typeof(TDocument)));");
                         method.AddStatement("var beforeParameter = expression.Parameters.Single();");

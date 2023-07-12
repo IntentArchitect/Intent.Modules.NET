@@ -1,6 +1,7 @@
 ﻿### Version 4.4.5
 
 - Updated tags and project URL to point to GitHub repository.
+- Upgrade: SQL Table naming convention is now configurable in Application Settings.
 
 ### Version 4.4.4
 

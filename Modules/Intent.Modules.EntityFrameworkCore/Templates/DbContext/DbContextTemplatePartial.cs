@@ -108,7 +108,7 @@ modelBuilder.Entity<Car>().HasData(
                 }
 
                 CSharpFile.AfterBuild(DoPostTypeConfigProcess);
-                
+
                 _addedPostTypeConfigProcess = true;
             });
         }
@@ -128,14 +128,14 @@ modelBuilder.Entity<Car>().HasData(
 
                 var collisionEntry = dbSetNameLookup[entry.DbSetName];
                 dbSetNameLookup.Remove(entry.DbSetName);
-                
+
                 entry.DbSetName = entry.Prefix + entry.DbSetName;
                 collisionEntry.DbSetName = collisionEntry.Prefix + collisionEntry.DbSetName;
-                
+
                 dbSetNameLookup.Add(entry.DbSetName, entry);
                 dbSetNameLookup.Add(collisionEntry.DbSetName, collisionEntry);
             }
-            
+
             var dbSetElementTypeLookup = new Dictionary<string, CapturedEntityTypeConfiguration>();
             foreach (var entry in _capturedEntityTypeConfigurations)
             {
@@ -150,7 +150,7 @@ modelBuilder.Entity<Car>().HasData(
                 // Ensure that the GetTypeName system picks up the duplicate and re-resolves them to a full type name
                 entry.DbSetElementType = GetEntityName(entry.Event.Template.Model);
                 collisionEntry.DbSetElementType = GetEntityName(collisionEntry.Event.Template.Model);
-                
+
                 dbSetElementTypeLookup.Add(entry.DbSetElementType, entry);
                 dbSetElementTypeLookup.Add(collisionEntry.DbSetElementType, collisionEntry);
             }

@@ -69,14 +69,14 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         return statement;
     }
 
-    public static EfCoreAssociationConfigStatement CreateHasMany(AssociationEndModel associationEnd)
+    public static EfCoreAssociationConfigStatement CreateHasMany(AssociationEndModel associationEnd, Func<string, string> getTableNameByConvention)
     {
         var statement = new EfCoreAssociationConfigStatement(associationEnd);
         statement.RelationshipStatements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
         if (associationEnd.OtherEnd().IsCollection)
         {
             statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
-            statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+            statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{getTableNameByConvention(associationEnd.OtherEnd().Class.Name + associationEnd.Class.Name)}\"))");
             statement.RequiredProperties = new[]
             {
                 new RequiredEntityProperty(

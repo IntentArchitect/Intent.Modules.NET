@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.5-pre.0</version>
+  <version>4.4.5-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -86,6 +86,16 @@
             <option value="postgresql" description="PostgreSQL" />
             <option value="my-sql" description="My SQL" />
             <option value="cosmos" description="Cosmos DB" />
+          </options>
+        </setting>
+        <setting id="49b09c68-e86a-4e15-96ab-cd482168ef22" title="Table naming convention" type="select">
+          <isRequired>true</isRequired>
+          <hint>Naming convention for SQL table names.</hint>
+          <defaultValue>pluralized</defaultValue>
+          <options>
+            <option value="pluralized" description="Pluralized" />
+            <option value="singularized" description="Singularized" />
+            <option value="none" description="None" />
           </options>
         </setting>
       </settings>
