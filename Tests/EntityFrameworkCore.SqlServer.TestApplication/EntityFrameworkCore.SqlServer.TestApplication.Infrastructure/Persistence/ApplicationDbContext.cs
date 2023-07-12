@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -7,6 +8,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAssociations;
@@ -20,6 +22,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorp
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Associations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.NestedAssociations;
@@ -44,16 +47,21 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            ICurrentUserService currentUserService) : base(options)
         {
             _domainEventService = domainEventService;
+            _currentUserService = currentUserService;
         }
 
         [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             _domainEventService = new DummyDomainEventService();
+            _currentUserService = new DummyCurrentUserService();
         }
 
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
@@ -121,6 +129,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<N_ComplexRoot> N_ComplexRoots { get; set; }
         public DbSet<N_CompositeOne> N_CompositeOnes { get; set; }
         public DbSet<N_CompositeTwo> N_CompositeTwos { get; set; }
+        public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
+        public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
         public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
@@ -159,6 +169,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             CancellationToken cancellationToken = default)
         {
             SetSoftDeleteProperties();
+            SetAuditableFields();
             await DispatchEventsAsync(cancellationToken);
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
@@ -188,6 +199,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new N_ComplexRootConfiguration());
             modelBuilder.ApplyConfiguration(new N_CompositeOneConfiguration());
             modelBuilder.ApplyConfiguration(new N_CompositeTwoConfiguration());
+            modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
@@ -317,6 +330,39 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 var entity = (ISoftDelete)entry.Entity;
                 entity.IsDeleted = true;
                 entry.State = EntityState.Modified;
+            }
+        }
+
+        private void SetAuditableFields()
+        {
+            ChangeTracker.DetectChanges();
+            var userName = _currentUserService.UserName;
+            var timestamp = DateTimeOffset.UtcNow;
+            var entries = ChangeTracker.Entries().ToArray();
+
+            foreach (var entry in entries)
+            {
+                if (entry.Entity is not IAuditable auditable)
+                {
+                    continue;
+                }
+
+                switch (entry.State)
+                {
+                    case EntityState.Modified or EntityState.Deleted:
+                        auditable.UpdatedBy = userName;
+                        auditable.UpdatedDate = timestamp;
+                        break;
+                    case EntityState.Added:
+                        auditable.CreatedBy = userName;
+                        auditable.CreatedDate = timestamp;
+                        break;
+                    case EntityState.Detached:
+                    case EntityState.Unchanged:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
     }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>a545c987-4b2e-4dca-8637-be46efe8686b</id>
+  <name>Basic Audit Domain Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>function execute() {
+    const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+
+    if (element.hasStereotype(auditStereotypeId)) {
+        ensureAttribute(stringTypeId, true, "CreatedBy");
+        ensureAttribute(dateTimeOffsetTypeId, false, "CreatedDate");
+        ensureAttribute(stringTypeId, true, "UpdatedBy");
+        ensureAttribute(dateTimeOffsetTypeId, true, "UpdatedDate");
+    } else {
+        removeAttribute("CreatedBy");
+        removeAttribute("CreatedDate");
+        removeAttribute("UpdatedBy");
+        removeAttribute("UpdatedDate");
+    }
+}
+
+function ensureAttribute(typeId, isNullable, name) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (!el) {
+        el = createElement("Attribute", name, element.id);
+    }
+    el.typeReference.setType(typeId);
+    el.typeReference.setIsNullable(isNullable);
+}
+
+function removeAttribute(name) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (!el) { return; }
+    el.delete();
+}
+
+execute();</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

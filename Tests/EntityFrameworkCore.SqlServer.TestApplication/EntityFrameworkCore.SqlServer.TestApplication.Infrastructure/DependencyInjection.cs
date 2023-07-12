@@ -5,6 +5,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Interface
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.NestedAssociations;
@@ -19,6 +20,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ValueObj
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Associations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositories.NestedAssociations;

@@ -284,6 +284,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>95bae7a6-0c46-40ac-9c52-d49839194d3f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.BasicAudit.AuditableInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>95bae7a6-0c46-40ac-9c52-d49839194d3f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
@@ -504,6 +512,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/N_CompositeTwo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/N_CompositeTwo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c7983517-cc40-46d6-accd-ca9530d37fcc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/BasicAudit/Audit_BaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_BaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a564a7e8-0b35-4d87-9832-87a9da6dc142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/BasicAudit/Audit_DerivedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_DerivedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#64644b0c-b41d-4aef-8224-1fb4caa62923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/BasicAudit/Audit_SoloClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_SoloClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1312,6 +1344,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Associations/IN_ComplexRootRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/IN_ComplexRootRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a564a7e8-0b35-4d87-9832-87a9da6dc142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/BasicAudit/IAudit_DerivedClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/IAudit_DerivedClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#64644b0c-b41d-4aef-8224-1fb4caa62923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/BasicAudit/IAudit_SoloClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/IAudit_SoloClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2156,6 +2204,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a564a7e8-0b35-4d87-9832-87a9da6dc142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/BasicAudit/Audit_DerivedClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_DerivedClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#64644b0c-b41d-4aef-8224-1fb4caa62923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/BasicAudit/Audit_SoloClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_SoloClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/ExplicitKeys/FK_A_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
@@ -2920,6 +2984,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Associations/N_ComplexRootRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/N_ComplexRootRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a564a7e8-0b35-4d87-9832-87a9da6dc142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/BasicAudit/Audit_DerivedClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_DerivedClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#64644b0c-b41d-4aef-8224-1fb4caa62923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/BasicAudit/Audit_SoloClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicAudit/Audit_SoloClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
