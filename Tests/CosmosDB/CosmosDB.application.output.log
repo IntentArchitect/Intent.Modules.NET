@@ -348,6 +348,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7021eb2e-a354-48fa-8806-80fe2f872557</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientByName/GetClientByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientByName/GetClientByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7021eb2e-a354-48fa-8806-80fe2f872557</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientByName/GetClientByNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientByName/GetClientByNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7021eb2e-a354-48fa-8806-80fe2f872557</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientByName/GetClientByNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientByName/GetClientByNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#fff0fb87-3aae-479a-a5c6-e217fc10d60a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClients/GetClientsQuery.cs</ApplicationRelativeFilePath>

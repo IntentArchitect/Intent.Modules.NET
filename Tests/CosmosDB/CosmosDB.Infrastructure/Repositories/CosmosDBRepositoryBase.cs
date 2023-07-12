@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Common.Interfaces;
@@ -17,7 +19,7 @@ namespace CosmosDB.Infrastructure.Repositories
 {
     internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
         where TPersistence : TDomain
-        where TDocument : TDomain, ICosmosDBDocument<TDocument, TDomain>, new()
+        where TDocument : TPersistence, ICosmosDBDocument<TDocument, TDomain>, new()
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
@@ -82,6 +84,14 @@ namespace CosmosDB.Infrastructure.Repositories
             return document;
         }
 
+        public virtual async Task<List<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var documents = await _cosmosRepository.GetAsync(AdaptPredicate(filterExpression), cancellationToken);
+            return documents.Cast<TDomain>().ToList();
+        }
+
         public async Task<List<TDomain>> FindByIdsAsync(
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
@@ -97,6 +107,32 @@ namespace CosmosDB.Infrastructure.Repositories
             }
 
             return results;
+        }
+
+        public static Expression<Func<TDocument, bool>> AdaptPredicate(Expression<Func<TPersistence, bool>> expression)
+        {
+            if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format("{0} is not assignable from {1}.", typeof(TPersistence), typeof(TDocument)));
+            var beforeParameter = expression.Parameters.Single();
+            var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
+            var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
+            return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body), afterParameter);
+        }
+
+        private class SubstitutionExpressionVisitor : ExpressionVisitor
+        {
+            private readonly Expression _before;
+            private readonly Expression _after;
+
+            public SubstitutionExpressionVisitor(Expression before, Expression after)
+            {
+                _before = before;
+                _after = after;
+            }
+
+            public override Expression Visit(Expression node)
+            {
+                return node == _before ? _after : base.Visit(node);
+            }
         }
     }
 }

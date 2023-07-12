@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Common.Interfaces;
@@ -14,6 +16,7 @@ namespace CosmosDB.Domain.Repositories
         ICosmosDBUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindByIdsAsync(IEnumerable<string> ids, CancellationToken cancellationToken = default);
     }
 }

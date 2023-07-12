@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -26,8 +28,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
+                .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Azure.Cosmos")
@@ -43,7 +47,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddGenericTypeConstraint(tPersistence, c => c
                             .AddType(tDomain))
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType(tDomain)
+                            .AddType(tPersistence)
                             .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>")
                             .AddType("new()"))
                         ;
@@ -127,6 +131,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement("return document;", s => s.SeparatedFromPrevious())
                     );
 
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                                                     
+                        method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptPredicate(filterExpression), cancellationToken);");
+                        method.AddStatement($"return documents.Cast<TDomain>().ToList();");
+                    });
+
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
                         .AddParameter("IEnumerable<string>", "ids")
                         .Async()
@@ -144,6 +159,42 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         })
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
+
+                    @class.AddMethod("Expression<Func<TDocument, bool>>", "AdaptPredicate", method =>
+                    {
+                        method
+                            .Static()
+                            .AddParameter("Expression<Func<TPersistence, bool>>", "expression");
+
+                        method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format(\"{0} is not assignable from {1}.\", typeof(TPersistence), typeof(TDocument)));");
+                        method.AddStatement("var beforeParameter = expression.Parameters.Single();");
+                        method.AddStatement("var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);");
+                        method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
+                        method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body), afterParameter);");
+                      
+                    });
+
+                    @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
+                    {
+                        nestClass
+                            .Private()
+                            .WithBaseType("ExpressionVisitor");
+                        nestClass.AddConstructor(ctor => 
+                        {
+                            ctor
+                                .AddParameter("Expression", "before", p => p.IntroduceReadonlyField())
+                                .AddParameter("Expression", "after", p => p.IntroduceReadonlyField());
+                        });
+
+                        nestClass.AddMethod("Expression", "Visit", method => 
+                        {
+                            method
+                                .Override()
+                                .AddParameter("Expression", "node");
+
+                            method.AddStatement("return node == _before ? _after : base.Visit(node);");
+                        });
+                    });
                 });
         }
 

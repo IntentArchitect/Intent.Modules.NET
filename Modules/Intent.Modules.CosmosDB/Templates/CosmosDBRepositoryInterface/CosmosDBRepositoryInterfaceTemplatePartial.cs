@@ -27,12 +27,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
         public CosmosDBRepositoryInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"ICosmosDBRepository", @interface => @interface
                     .AddGenericParameter("TDomain", out var tDomain)
-                    .AddGenericParameter("TPersistence")
+                    .AddGenericParameter("TPersistence", out var tPersistence)
                     .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
                     .AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                         .WithoutSetter()
@@ -43,6 +45,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                     .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
                         .AddParameter("string", "id")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                    )
+                    .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                     )
                     .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
                         .AddParameter($"IEnumerable<string>", "ids")
