@@ -2,7 +2,7 @@
 
 Extend Domain Entities to have fields that record which user created / updated them and at what time.
 
-> [!NOTE]
+> **Note**
 > This is not an Audit Trail but merely a way to determine who touched an Entity and when.
 
 Select an Entity in the Domain Designer.
@@ -24,5 +24,5 @@ Your Entity will now be extended with the following attributes:
 * UpdatedBy - User name that updated this Entity instance.
 * UpdatedDate - Timestamp when creation took place.
 
-> [!NOTE]
+> **Note**
 > It is worth noting that the "updated" attributes remain null upon creation and only get populated when an update has taken place.
