@@ -46,6 +46,8 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAudit.FactoryExtensions
             
             dbContext?.CSharpFile.AfterBuild(file =>
             {
+                file.AddUsing("System");
+                
                 var priClass = file.Classes.First();
 
                 AddSetAuditableFieldsMethod(dbContext, priClass);

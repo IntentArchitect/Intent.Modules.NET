@@ -5,6 +5,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Interfaces
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Associations;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.BasicAudit;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.NestedComposition;
@@ -14,6 +15,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObje
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Associations;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.BasicAudit;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.NestedComposition;
@@ -62,6 +64,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IJ_RequiredDependentRepository, J_RequiredDependentRepository>();
             services.AddTransient<IK_SelfReferenceRepository, K_SelfReferenceRepository>();
             services.AddTransient<IM_SelfReferenceBiNavRepository, M_SelfReferenceBiNavRepository>();
+            services.AddTransient<IAudit_DerivedClassRepository, Audit_DerivedClassRepository>();
+            services.AddTransient<IAudit_SoloClassRepository, Audit_SoloClassRepository>();
             services.AddTransient<IAssociatedRepository, AssociatedRepository>();
             services.AddTransient<IBaseRepository, BaseRepository>();
             services.AddTransient<IBaseAssociatedRepository, BaseAssociatedRepository>();

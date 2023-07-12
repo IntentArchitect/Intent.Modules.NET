@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedComposition;
@@ -14,6 +16,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Associations;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.BasicAudit;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.NestedComposition;
@@ -32,10 +35,14 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            ICurrentUserService currentUserService) : base(options)
         {
             _domainEventService = domainEventService;
+            _currentUserService = currentUserService;
         }
 
         [IntentManaged(Mode.Ignore)]
@@ -79,6 +86,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
+        public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
         public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
@@ -93,6 +102,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             CancellationToken cancellationToken = default)
         {
             SetSoftDeleteProperties();
+            SetAuditableFields();
             await DispatchEventsAsync(cancellationToken);
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
@@ -120,6 +130,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
             modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new BaseConfiguration());
             modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());
@@ -184,6 +196,39 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);
+            }
+        }
+
+        private void SetAuditableFields()
+        {
+            ChangeTracker.DetectChanges();
+            var userName = _currentUserService.UserName;
+            var timestamp = DateTimeOffset.UtcNow;
+            var entries = ChangeTracker.Entries().ToArray();
+
+            foreach (var entry in entries)
+            {
+                if (entry.Entity is not IAuditable auditable)
+                {
+                    continue;
+                }
+
+                switch (entry.State)
+                {
+                    case EntityState.Modified or EntityState.Deleted:
+                        auditable.UpdatedBy = userName;
+                        auditable.UpdatedDate = timestamp;
+                        break;
+                    case EntityState.Added:
+                        auditable.CreatedBy = userName;
+                        auditable.CreatedDate = timestamp;
+                        break;
+                    case EntityState.Detached:
+                    case EntityState.Unchanged:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
