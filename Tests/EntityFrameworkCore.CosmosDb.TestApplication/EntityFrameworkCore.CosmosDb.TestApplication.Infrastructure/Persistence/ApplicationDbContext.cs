@@ -49,6 +49,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             _domainEventService = new DummyDomainEventService();
+            _currentUserService = new DummyCurrentUserService();
         }
 
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
