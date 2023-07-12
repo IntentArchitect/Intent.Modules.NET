@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>4.1.1</version>
+  <version>4.2.0-pre.0</version>
   <supportedClientVersions>[4.0.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>

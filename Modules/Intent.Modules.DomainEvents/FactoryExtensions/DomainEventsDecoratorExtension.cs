@@ -55,10 +55,18 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             var ctor = @class.Constructors.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, ctorModel));
                             if (ctor != null)
                             {
-                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
                                 {
                                     ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                    var mapping = publishedDomainEvent.InternalAssociation.Mapping;
+                                    if (mapping != null)
+                                    {
+                                        ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())});");
+                                    }
+                                    else
+                                    {
+                                        ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())});");
+                                    }
                                 }
                             }
                         }
@@ -94,6 +102,51 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             }
         }
 
+        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
+            IElementToElementMapping mapping,
+            DomainEventModel model)
+        {
+            var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;
+            var invocation = new CSharpInvocationStatement(template.GetTypeName(DomainEventTemplate.TemplateId, model)).WithoutSemicolon();
+            if (classModel == null)
+            {
+                throw new Exception("Constructing a domain event cannot be done from a template that doesn't have a ClassModel");
+            }
+
+            foreach (var property in model.Properties)
+            {
+                var connection = mapping.Connections.SingleOrDefault(x => x.ToPath.Last().Element.Id == property.Id);
+                if (connection == null)
+                {
+                    continue;
+                }
+                if (connection.FromPath.Count == 1)
+                {
+                    invocation.AddArgument("this");
+                    continue;
+                }
+
+                if (connection.FromPath.Count == 2)
+                {
+                    if (connection.FromPath[1].Specialization == OperationModel.SpecializationType)
+                    {
+                        invocation.AddArgument(connection.FromPath[1].Element.Name.ToPascalCase() + "()");
+                        continue;
+                    }
+                    invocation.AddArgument(connection.FromPath[1].Element.Name.ToPascalCase());
+                    continue;
+                }
+
+                if (connection.FromPath.Count == 3)
+                {
+                    invocation.AddArgument(connection.FromPath[2].Element.Name.ToCamelCase());
+                    continue;
+                }
+            }
+
+            return $"new {invocation}";
+        }
+
         private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
             IList<string> availableParameters, 
             DomainEventModel model)
@@ -104,6 +157,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             {
                 throw new Exception("Constructing a domain event cannot be done from a template that doesn't have a ClassModel");
             }
+
             foreach (var property in model.Properties)
             {
                 if (property.TypeReference.Element.Id == classModel.Id)
