@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>ec7c85f2-e395-4742-adf8-6c1503a6c346</id>
+  <name>Pagination Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="FontAwesome" source="angle-double-right" />
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function changeReturnType(element) {
+    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
+    let currentReturnType = element.typeReference.typeId;
+    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
+    element.typeReference.setIsCollection(false);
+    element.typeReference.setIsNullable(false);
+}
+function addPagingParameters(element, childElementType) {
+    const commonTypes = {
+        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
+        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
+        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"
+    };
+    var pageOffsetAttributes = ["pageno", "pageindex"];
+    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
+        let pageSize = createElement(childElementType, "PageNo", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
+        let pageSize = createElement(childElementType, "PageSize", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+}
+/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/service/add-pagination-service.ts
+ */
+function addPagination(element) {
+    addPagingParameters(element, "Parameter");
+    changeReturnType(element);
+}
+addPagination(element);
+</script>
+        </option>
+      </scriptOptions>
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+    <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="FontAwesome" source="angle-double-right" />
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function changeReturnType(element) {
+    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
+    let currentReturnType = element.typeReference.typeId;
+    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
+    element.typeReference.setIsCollection(false);
+    element.typeReference.setIsNullable(false);
+}
+function addPagingParameters(element, childElementType) {
+    const commonTypes = {
+        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
+        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
+        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"
+    };
+    var pageOffsetAttributes = ["pageno", "pageindex"];
+    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
+        let pageSize = createElement(childElementType, "PageNo", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
+        let pageSize = createElement(childElementType, "PageSize", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+}
+/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/cqrs/add-pagination-cqrs.ts
+ */
+function addPagination(element) {
+    addPagingParameters(element, "DTO-Field");
+    changeReturnType(element);
+}
+addPagination(element);
+</script>
+        </option>
+      </scriptOptions>
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

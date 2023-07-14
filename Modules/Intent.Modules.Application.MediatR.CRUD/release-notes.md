@@ -3,6 +3,7 @@
 
 - Update: `Create CQRS CRUD Operations` can now be done on folders, not just the root node of the designer.
 - Update: Better CRUD support for Entities with Composite Primary Keys.
+- Update: Pagination implementation support `PageIndex` which is similar to `PageNo` but 0 based.
 
 ### Version 5.1.3
 

@@ -1,6 +1,7 @@
 ### Version 4.0.5
 
 - Stop generating code for `PagedResult` which causes non-nullable data compilation warnings.
+- Added : `Add Pagination` designer extension for CQRS `Query`s and service `Operation`s.
 
 ### Version 4.0.4
 

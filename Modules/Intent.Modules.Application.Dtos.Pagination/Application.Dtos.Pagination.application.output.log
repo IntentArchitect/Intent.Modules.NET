@@ -9,6 +9,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d37bc92d-7fe6-4e5c-a79c-eeaa46b3a349</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#f0ad8d35-1d03-4e22-8559-a432e1cbc38a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d37bc92d-7fe6-4e5c-a79c-eeaa46b3a349</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#70ff650a-b470-42a9-9b8d-e2bdb1e0da08</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>957843bc-dc22-4ac3-8e82-3b0224ea0a09</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#50814641-2526-49db-8aa8-d032bf4531d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -22,14 +38,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.Dtos.Pagination.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.Dtos.Pagination.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2f154fbe-bd9a-47d5-b1df-287729fb872b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#2f154fbe-bd9a-47d5-b1df-287729fb872b</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.Dtos.Pagination.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.Dtos.Pagination.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a9c2f904-8a2e-4226-92e5-fa2f469928f9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#ec7c85f2-e395-4742-adf8-6c1503a6c346</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Pagination Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -110,7 +134,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>
