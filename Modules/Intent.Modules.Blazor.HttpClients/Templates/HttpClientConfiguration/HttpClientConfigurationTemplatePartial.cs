@@ -32,9 +32,12 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
-        private string GetConfigKey(ServiceProxyModel proxy, string key)
+        private string GetUrlConfigKey(ServiceProxyModel model)
         {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
+            var applicationId = model.InternalElement.MappedElement.ApplicationId;
+            var applicationConfig = ExecutionContext.GetApplicationConfig(applicationId);
+
+            return $"Urls:{applicationConfig.Name.ToCSharpIdentifier()}";
         }
     }
 }

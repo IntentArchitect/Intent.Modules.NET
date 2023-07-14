@@ -49,7 +49,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public static void AddHttpClients(this IServiceCollection servic" +
-                    "es, IConfiguration configuration, Uri? defaultUri = null)\r\n        {\r\n");
+                    "es, IConfiguration configuration)\r\n        {\r\n");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
 
@@ -77,21 +77,20 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                     "ue<Uri?>(\"");
             
             #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Uri")));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetUrlConfigKey(proxy)));
             
             #line default
             #line hidden
-            this.Write("\") ?? defaultUri ?? throw new Exception(\"No Uri defined\");\r\n                http." +
-                    "Timeout = configuration.GetValue<TimeSpan?>(\"");
+            this.Write("\") ?? throw new Exception(\"Configuration key \\\"");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Timeout")));
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetUrlConfigKey(proxy)));
             
             #line default
             #line hidden
-            this.Write("\") ?? TimeSpan.FromSeconds(100);\r\n            });\r\n");
+            this.Write("\\\" is not set\");\r\n            });\r\n");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Blazor.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
         
     }
 

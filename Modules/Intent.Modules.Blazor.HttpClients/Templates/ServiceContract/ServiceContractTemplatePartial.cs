@@ -29,7 +29,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.ServiceContract
                 outputTarget: outputTarget,
                 model: model,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
-                dtoContractTemplateId: DtoContractTemplate.TemplateId)
+                dtoContractTemplateId: DtoContractTemplate.TemplateId,
+                typeNameSuffix: "Service")
         {
         }
     }

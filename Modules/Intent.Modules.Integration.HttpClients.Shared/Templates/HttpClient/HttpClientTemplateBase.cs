@@ -50,7 +50,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             .AddUsing("System.Text.Json")
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
-            .AddUsing("Microsoft.AspNetCore.WebUtilities")
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
             {
@@ -59,7 +58,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
                     .AddConstructor(constructor => constructor
                         .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
-                        .AddStatement(@"_serializerOptions = new JsonSerializerOptions()
+                        .AddStatement(@"_serializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };"));
@@ -75,16 +74,20 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                     {
                         method.Async();
 
+                        var endpointRoute = endpoint.Route;
                         foreach (var input in endpoint.Inputs)
                         {
-                            method.AddParameter(GetTypeName(input.TypeReference), input.Name.ToParameterName());
+                            var parameterName = input.Name.ToParameterName();
+                            method.AddParameter(GetTypeName(input.TypeReference), parameterName);
+
+                            endpointRoute = endpointRoute.Replace($"{{{parameterName}}}", $"{{{parameterName}}}", StringComparison.OrdinalIgnoreCase);
                         }
 
                         method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
 
                         // We're leveraging the C# $"" notation to actually take leverage of the parameters
                         // that are meant to be Route-based.
-                        method.AddStatement($"var relativeUri = $\"{endpoint.Route}\";");
+                        method.AddStatement($"var relativeUri = $\"{endpointRoute}\";");
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromQuery, out var queryParams))
                         {
@@ -133,7 +136,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             usingResponseBlock.SeparatedFromPrevious();
 
                             usingResponseBlock.AddStatementBlock("if (!response.IsSuccessStatusCode)", s => s
-                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);")
+                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);")
                             );
 
                             if (endpoint.ReturnType?.Element == null)
@@ -158,7 +161,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 if (isWrappedReturnType && (returnsPrimitive || returnsString))
                                 {
                                     usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddStatement("return wrappedObj.Value;");
+                                    usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
                                 }
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                 {
@@ -202,9 +205,16 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
     private string GetReturnType(IHttpEndpointModel endpoint)
     {
+        var typeInfo = GetTypeInfo(endpoint.ReturnType);
+        var typeName = UseType(typeInfo);
+        if (!typeInfo.IsPrimitive)
+        {
+            typeName = $"{typeName}?";
+        }
+
         return endpoint.ReturnType?.Element == null
             ? "Task"
-            : $"Task<{GetTypeName(endpoint.ReturnType)}>";
+            : $"Task<{typeName}>";
     }
 
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)

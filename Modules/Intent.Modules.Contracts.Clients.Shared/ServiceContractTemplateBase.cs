@@ -20,7 +20,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
             ServiceProxyModel model,
             string enumContractTemplateId,
             string dtoContractTemplateId,
-            IEnumerable<string> additionalFolderParts = null)
+            IEnumerable<string> additionalFolderParts = null,
+            string typeNameSuffix = "Client")
             : base(templateId, outputTarget, model)
         {
             var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
@@ -35,7 +36,7 @@ namespace Intent.Modules.Contracts.Clients.Shared
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client")}Client",
+                .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client")}{typeNameSuffix}",
                     @interface =>
                     {
                         @interface.ImplementsInterfaces("IDisposable");
@@ -57,9 +58,16 @@ namespace Intent.Modules.Contracts.Clients.Shared
 
         private string GetOperationReturnType(IHttpEndpointModel endpoint)
         {
+            var typeInfo = GetTypeInfo(endpoint.ReturnType);
+            var typeName = UseType(typeInfo);
+            if (!typeInfo.IsPrimitive)
+            {
+                typeName = $"{typeName}?";
+            }
+
             return endpoint.ReturnType?.Element == null
                 ? "Task"
-                : $"Task<{GetTypeName(endpoint.ReturnType)}>";
+                : $"Task<{typeName}>";
         }
 
         private static string GetOperationName(IHttpEndpointModel endpoint)

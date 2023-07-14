@@ -119,7 +119,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="if (element.getName() !== &quot;ServiceProxy&quot;) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;const elementName = removeSuffix(element.getMapping().getElement().getName(), &quot;Service&quot;, &quot;Proxy&quot;);&#xD;&#xA;element.setName(`${elementName}ServiceProxy`);&#xD;&#xA;" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="if (element.getName() === &quot;Service&quot;) {&#xD;&#xA;    const elementName = removeSuffix(element.getMapping().getElement().getName(), &quot;Service&quot;, &quot;Proxy&quot;);&#xD;&#xA;    element.setName(`${elementName}Service`);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;element.getChildren(&quot;Operation&quot;).forEach(operation =&gt; {&#xD;&#xA;    operation.setName(removeSuffix(operation.getName(), &quot;Command&quot;, &quot;Query&quot;));&#xD;&#xA;});&#xD;&#xA;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

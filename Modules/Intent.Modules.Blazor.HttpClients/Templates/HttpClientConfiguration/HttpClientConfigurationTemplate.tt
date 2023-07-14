@@ -17,7 +17,7 @@ namespace <#= Namespace #>
 {
     public static class <#= ClassName #>
     {
-        public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration, Uri? defaultUri = null)
+        public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
 <#
     foreach (var proxy in Model)
@@ -25,8 +25,7 @@ namespace <#= Namespace #>
 #>
             services.AddHttpClient<<#= this.GetServiceContractName(proxy) #>, <#= this.GetHttpClientName(proxy) #>>(http =>
             {
-                http.BaseAddress = configuration.GetValue<Uri?>("<#= GetConfigKey(proxy, "Uri") #>") ?? defaultUri ?? throw new Exception("No Uri defined");
-                http.Timeout = configuration.GetValue<TimeSpan?>("<#= GetConfigKey(proxy, "Timeout") #>") ?? TimeSpan.FromSeconds(100);
+                http.BaseAddress = configuration.GetValue<Uri?>("<#= GetUrlConfigKey(proxy) #>") ?? throw new Exception("Configuration key \"<#= GetUrlConfigKey(proxy) #>\" is not set");
             });
 <#        
     }
