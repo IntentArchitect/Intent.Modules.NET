@@ -61,6 +61,7 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
 
             PatchValidator<CommandModel>(application, "Intent.Application.MediatR.FluentValidation.CommandValidator");
             PatchValidator<QueryModel>(application, "Intent.Application.MediatR.FluentValidation.QueryValidator");
+            PatchValidator<DTOModel>(application, "Intent.Application.FluentValidation.Dtos.DTOValidator");
         }
 
         private static void PatchValidator<TModel>(IApplication application, string validatorTemplateId)
