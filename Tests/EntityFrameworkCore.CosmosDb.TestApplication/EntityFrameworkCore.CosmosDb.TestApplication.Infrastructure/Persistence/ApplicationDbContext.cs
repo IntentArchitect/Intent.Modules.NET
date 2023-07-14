@@ -202,7 +202,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         private void SetAuditableFields()
         {
-            ChangeTracker.DetectChanges();
             var userName = _currentUserService.UserName;
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();
@@ -235,7 +234,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         private void SetSoftDeleteProperties()
         {
-            ChangeTracker.DetectChanges();
 
             var entities = ChangeTracker
                 .Entries()

@@ -313,7 +313,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         private void SetSoftDeleteProperties()
         {
-            ChangeTracker.DetectChanges();
 
             var entities = ChangeTracker
                 .Entries()
@@ -335,7 +334,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         private void SetAuditableFields()
         {
-            ChangeTracker.DetectChanges();
             var userName = _currentUserService.UserName;
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();

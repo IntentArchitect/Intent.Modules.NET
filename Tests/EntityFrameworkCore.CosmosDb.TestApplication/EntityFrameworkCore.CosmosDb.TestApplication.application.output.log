@@ -292,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c2adcba4-ab05-4a92-a25f-a5768e12a669</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.BasicAudit.AuditableInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
