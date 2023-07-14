@@ -8,12 +8,11 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices.In
 {
     public class CustomDTO
     {
-        public static CustomDTO Create(
-            string referenceNumber)
+        public static CustomDTO Create(string referenceNumber)
         {
             return new CustomDTO
             {
-                ReferenceNumber = referenceNumber,
+                ReferenceNumber = referenceNumber
             };
         }
 

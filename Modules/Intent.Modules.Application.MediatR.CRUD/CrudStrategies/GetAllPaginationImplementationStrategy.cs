@@ -29,7 +29,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
 
     public bool IsMatch()
     {
-        return _template.Model.Properties.Any(IsPageNumberParam)
+        return (_template.Model.Properties.Any(IsPageNumberParam) || _template.Model.Properties.Any(IsPageIndexParam))
                && _template.Model.Properties.Any(IsPageSizeParam)
                && _matchingElementDetails.Value.IsMatch;
     }
@@ -50,11 +50,12 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
 
     public IEnumerable<CSharpStatement> GetImplementation()
     {
-        var pageNumberVar = _template.Model.Properties.Single(IsPageNumberParam);
+        var pageNumberVar = _template.Model.Properties.SingleOrDefault(IsPageNumberParam);
+        var pageIndexVar = pageNumberVar == null ? _template.Model.Properties.Single(IsPageIndexParam) : null;
         var pageSizeVar = _template.Model.Properties.Single(IsPageSizeParam);
         yield return
             $@"var results = await {_matchingElementDetails.Value.Repository.FieldName}.FindAllAsync(
-                pageNo: request.{pageNumberVar.Name.ToPascalCase()},
+                pageNo: request.{(pageNumberVar?.Name.ToPascalCase() ?? $"{ pageIndexVar!.Name.ToPascalCase()}+1")},
                 pageSize: request.{pageSizeVar.Name.ToPascalCase()},
                 cancellationToken: cancellationToken);
             return results.MapToPagedResult(x => x.MapTo{_template.GetDtoName(_matchingElementDetails.Value.DtoModel)}(_mapper));";
@@ -107,6 +108,22 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         }
 
         return false;
+    }
+
+    private bool IsPageIndexParam(DTOFieldModel param)
+    {
+        if (param.TypeReference.Element.Name != "int")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "pageindex":
+                return true;
+            default:
+                return false;
+        }
     }
 
     private bool IsPageSizeParam(DTOFieldModel param)

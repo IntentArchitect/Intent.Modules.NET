@@ -9,14 +9,12 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices.In
 {
     public class InvoiceDto
     {
-        public static InvoiceDto Create(
-            Guid id,
-            string number)
+        public static InvoiceDto Create(Guid id, string number)
         {
             return new InvoiceDto
             {
                 Id = id,
-                Number = number,
+                Number = number
             };
         }
 

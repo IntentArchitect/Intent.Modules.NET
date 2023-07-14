@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -21,6 +23,11 @@ namespace Intent.Modules.Integration.HttpClients.Templates.JsonResponse
 
         public JsonResponseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+        }
+
+        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
+        {
+            return metadataManager.ServiceProxies(applicationId);
         }
     }
 }

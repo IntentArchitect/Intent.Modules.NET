@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f2d877d3-cbe3-4165-853e-8dc4461b9b5d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Intent.Modules.Contracts.Clients.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DtoContractTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceContractTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
+  </ItemGroup>
+</Project>

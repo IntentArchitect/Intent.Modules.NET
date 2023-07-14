@@ -79,8 +79,6 @@
           <symbol>fa-long-arrow-right</symbol>
           <targetTypeOptions>
             <option specializationType="b16578a5-27b1-4047-a8df-f0b783d706bd" displayText="Service" />
-            <option specializationType="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" displayText="Command" />
-            <option specializationType="e71b0662-e29d-4db2-868b-8a12464b25d0" displayText="Query" />
           </targetTypeOptions>
           <mapFrom>root</mapFrom>
           <mappings>
@@ -113,48 +111,6 @@
                       <childMappings />
                     </mapping>
                   </childMappings>
-                </mapping>
-              </childMappings>
-            </mapping>
-            <mapping id="3dfefc5c-aca9-472b-9230-6bdd15915121">
-              <criteria specializationType="Command">
-                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-              </criteria>
-              <mapTo specializationType="Azure Function" childMappingMode="map-to-child" />
-              <behaviour autoSelectChildren="false" />
-              <childMappings>
-                <mapping id="0fedfaa1-3eb3-4d2e-8b3f-76b168aa5694">
-                  <criteria specializationType="DTO-Field">
-                    <hasTypeReference>true</hasTypeReference>
-                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
-                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
-                  </criteria>
-                  <mapTo specializationType="Azure Function Parameter" childMappingMode="map-to-child" />
-                  <behaviour autoSelectChildren="false" />
-                  <childMappings />
-                </mapping>
-              </childMappings>
-            </mapping>
-            <mapping id="490c568e-31a9-495b-ba6f-43d69d35124e">
-              <criteria specializationType="Query">
-                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
-              </criteria>
-              <mapTo specializationType="Azure Function" childMappingMode="map-to-child" />
-              <behaviour autoSelectChildren="true" />
-              <childMappings>
-                <mapping id="f9c56259-418b-4914-a149-e2607a07c51c">
-                  <criteria specializationType="DTO-Field">
-                    <hasTypeReference>true</hasTypeReference>
-                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
-                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
-                  </criteria>
-                  <mapTo specializationType="Azure Function Parameter" childMappingMode="map-to-child" />
-                  <behaviour autoSelectChildren="false" />
-                  <childMappings />
                 </mapping>
               </childMappings>
             </mapping>

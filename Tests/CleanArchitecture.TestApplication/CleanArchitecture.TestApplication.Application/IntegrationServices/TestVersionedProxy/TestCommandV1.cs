@@ -8,12 +8,11 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Test
 {
     public class TestCommandV1
     {
-        public static TestCommandV1 Create(
-            string value)
+        public static TestCommandV1 Create(string value)
         {
             return new TestCommandV1
             {
-                Value = value,
+                Value = value
             };
         }
 
