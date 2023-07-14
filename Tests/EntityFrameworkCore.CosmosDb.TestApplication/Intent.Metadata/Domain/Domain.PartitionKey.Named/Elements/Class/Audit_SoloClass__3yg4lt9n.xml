@@ -10,7 +10,7 @@
   <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
   <packageName>Domain.PartitionKey.Named</packageName>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Audit">
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.EntityFrameworkCore.BasicAuditing</definitionPackageName>
       <definitionPackageId>ef879334-e14d-46cc-b361-604ca8e95f60</definitionPackageId>
@@ -130,15 +130,15 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="51ebeb15-ed37-42a1-b708-3cf87ff7107a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="85274562-781c-4d24-bab6-2eca6c962001" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CreatedBy</name>
-      <display>CreatedBy: string?</display>
+      <display>CreatedBy: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="d37ddfa4-e65f-4178-b820-de22c44cd0a5">
+      <typeReference id="349a6486-95f1-43bc-9696-52577f040fb1">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>true</isNullable>
+        <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
@@ -162,15 +162,17 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="c5b1cc21-2910-4b15-9d4c-56541cc5c924" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="8d81c7c9-236e-422d-8dc7-62cb551aa959" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CreatedDate</name>
       <display>CreatedDate: datetimeoffset</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="13f83aad-7158-4f16-8089-a4f5fe491a95">
+      <typeReference id="20611653-0bc8-4fa9-b35e-a7b50099eb63">
         <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -186,15 +188,17 @@
       <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
       <packageName>Domain.PartitionKey.Named</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="08822191-6647-4707-bb84-76bbbb39e2e4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="2f2128ef-9967-4526-aa0a-c528910b7633" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>UpdatedBy</name>
       <display>UpdatedBy: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="d00fe1bf-3fb3-465f-8d29-f5423ccd15af">
+      <typeReference id="6d6e3f4e-60df-4408-93de-4bdae2d41484">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -221,15 +225,17 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="7fff61b9-42e1-4566-85d0-fa1721d75e0e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="7f465cfe-e653-4fd7-94a4-5f390fcb41b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>UpdatedDate</name>
       <display>UpdatedDate: datetimeoffset?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="3811babf-433d-4eb8-8a70-3be1831c3f65">
+      <typeReference id="d14031a9-ab85-4fc0-b62d-06df4e99e06a">
         <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -245,7 +251,9 @@
       <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
       <packageName>Domain.PartitionKey.Named</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

@@ -10,7 +10,7 @@
   <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
   <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Audit">
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.EntityFrameworkCore.BasicAuditing</definitionPackageName>
       <definitionPackageId>ef879334-e14d-46cc-b361-604ca8e95f60</definitionPackageId>
@@ -54,15 +54,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a6f4a79c-ffbf-402b-bd10-fa46c4a4ba44" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="bd8e0e06-657f-4ff9-a18c-26026c19b7e0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CreatedBy</name>
-      <display>CreatedBy: string?</display>
+      <display>CreatedBy: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="f8067705-eb55-4efb-b0c8-6c21790eab6d">
+      <typeReference id="4d25f80d-d468-4f65-adf1-4f34dc793644">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>true</isNullable>
+        <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
@@ -86,15 +86,17 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="3f1588c3-86d7-4983-999f-f2de3d203afc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="92567bde-d3e4-44c4-bfae-9882162ee63c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CreatedDate</name>
       <display>CreatedDate: datetimeoffset</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="494df72e-b687-4bce-9e03-8c1cf97026f3">
+      <typeReference id="63e08768-6f8c-4017-b9f3-d431dfca5124">
         <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -110,15 +112,17 @@
       <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
       <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="30653578-4791-4bd3-9709-d7c9c2b759bb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="f847a060-1e31-4a7a-bea6-63d597238fab" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>UpdatedBy</name>
       <display>UpdatedBy: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="5e30bcd7-1bab-4c30-a13d-7e594ad4c29f">
+      <typeReference id="54803e28-0da4-493c-b8b7-f906c47d6180">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -145,15 +149,17 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
-    <childElement id="f24cd5fe-8b48-47bf-b66c-55937f502361" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="2bc3588c-9eb8-452f-96a3-5e2078b74cb7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>UpdatedDate</name>
       <display>UpdatedDate: datetimeoffset?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="3ba3cc6e-2948-41fe-8f73-a5b71ad680f4">
+      <typeReference id="57e48bdc-35cc-4e02-bf7b-dc10e5243080">
         <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -169,7 +175,9 @@
       <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
       <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>
