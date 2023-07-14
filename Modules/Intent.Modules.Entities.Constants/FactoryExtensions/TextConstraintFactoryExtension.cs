@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -11,11 +13,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -38,22 +35,26 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
             {
                 template.CSharpFile.OnBuild(file =>
                 {
-                    var @class = file.Classes.FirstOrDefault();
-                    if (@class.TryGetMetadata<ClassModel>("model", out var classModel))
+                    var @class = file.Classes.First();
+                    if (!@class.TryGetMetadata<ClassModel>("model", out var classModel))
                     {
-                        foreach (var attributeModel in classModel.Attributes)
-                        {
-                            if (RequiresConstant(attributeModel, out var length))
-                            {
-                                @class.AddField("int", $"{attributeModel.Name}MaxLength", field =>
-                                {
-                                    field.Metadata.Add("model", attributeModel);
-                                    field.Constant(length.ToString());
+                        return;
+                    }
 
-                                    UpdateEFConfiguration(application, template, classModel, attributeModel, field);
-                                });
-                            }
+                    foreach (var attributeModel in classModel.Attributes)
+                    {
+                        if (!RequiresConstant(attributeModel, out var length))
+                        {
+                            continue;
                         }
+
+                        @class.AddField("int", $"{attributeModel.Name}MaxLength", field =>
+                        {
+                            field.Metadata.Add("model", attributeModel);
+                            field.Constant(length.ToString());
+
+                            UpdateEfConfiguration(application, template, classModel, attributeModel, field);
+                        });
                     }
                 });
             }
@@ -67,67 +68,76 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
             var templates = application.FindTemplateInstances<CSharpTemplateBase<TModel>>(TemplateDependency.OnTemplate(validatorTemplateId));
             foreach (var template in templates)
             {
-                if (template is ICSharpFileBuilderTemplate csTemplate)
+                if (template is not ICSharpFileBuilderTemplate csTemplate)
                 {
-                    csTemplate.CSharpFile.AfterBuild(file =>
-                    {
-                        var @class = file.Classes.FirstOrDefault();
-                        var method = @class.FindMethod("ConfigureValidationRules");
-                        foreach (var statement in method.Statements)
-                        {
-                            if (statement is CSharpMethodChainStatement propertyStatement)
-                            {
-                                var maxLengthStatement = propertyStatement.Statements
-                                    .FirstOrDefault(s => s.GetText(string.Empty).StartsWith("MaximumLength"));
-                                if (maxLengthStatement != null)
-                                {
-                                    if (propertyStatement.TryGetMetadata<DTOFieldModel>("model", out var dtoField))
-                                    {
-                                        if (dtoField.Mapping != null && dtoField.Mapping.Element.IsAttributeModel())
-                                        {
-                                            var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
-                                            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
-
-                                            string entityTypeName = template.GetTypeName(entityTemplate);
-                                            var entityOutput = entityTemplate.CSharpFile.Classes.First();
-                                            var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);
-                                            if (constant != null)
-                                            {
-                                                maxLengthStatement.Replace(new CSharpStatement($"MaximumLength( {entityTypeName}.{constant.Name} )"));
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
+                    continue;
                 }
+
+                csTemplate.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("ConfigureValidationRules");
+                    foreach (var statement in method.Statements)
+                    {
+                        if (statement is not CSharpMethodChainStatement propertyStatement)
+                        {
+                            continue;
+                        }
+
+                        var maxLengthStatement = propertyStatement.Statements
+                            .FirstOrDefault(s => s.GetText(string.Empty).StartsWith("MaximumLength"));
+
+                        if (maxLengthStatement == null ||
+                            !propertyStatement.TryGetMetadata<DTOFieldModel>("model", out var dtoField) ||
+                            dtoField.Mapping == null ||
+                            !dtoField.Mapping.Element.IsAttributeModel())
+                        {
+                            continue;
+                        }
+
+                        var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
+                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
+
+                        var entityTypeName = template.GetTypeName(entityTemplate);
+                        var entityOutput = entityTemplate.CSharpFile.Classes.First();
+
+                        var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);
+                        if (constant != null)
+                        {
+                            maxLengthStatement.Replace(new CSharpStatement($"MaximumLength( {entityTypeName}.{constant.Name} )"));
+                        }
+                    }
+                });
             }
         }
 
-        private void UpdateEFConfiguration(IApplication application, ICSharpFileBuilderTemplate  entityTemplate, ClassModel classModel, AttributeModel attributeModel, CSharpField constant)
+        private static void UpdateEfConfiguration(IApplication application, ICSharpFileBuilderTemplate entityTemplate, ClassModel classModel, AttributeModel attributeModel, CSharpField constant)
         {
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.EntityTypeConfiguration", classModel);
             if (template == null)
-                return;
-
-            template.CSharpFile.OnBuild(file => 
             {
-                var @class = file.Classes.FirstOrDefault();
+                return;
+            }
+
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
                 var method = @class.FindMethod("Configure");
-                var propertyBuilderStatement = method.FindStatement((s) => s.TryGetMetadata<AttributeModel>("model", out var configuredAttribute) && configuredAttribute.Id == attributeModel.Id);
-                var parentStatement = propertyBuilderStatement as IHasCSharpStatements;
-                if (parentStatement == null)
+
+                var propertyBuilderStatement = method
+                    .FindStatement(s => s.TryGetMetadata<AttributeModel>("model", out var configuredAttribute) &&
+                                        configuredAttribute.Id == attributeModel.Id);
+                if (propertyBuilderStatement is not IHasCSharpStatements parentStatement)
                 {
                     //Upgrade Intent.EntityFrameworkCore module to >= 4.4.1"
                     return;
                 }
 
-                for (var i = 0; i < parentStatement.Statements.Count; i++)
+                foreach (var statement in parentStatement.Statements.ToArray())
                 {
-                    var statement = parentStatement.Statements[i];
-                    string actualStatement = statement.GetText("");
-                    string constantExpression = $" {((CSharpTemplateBase<ClassModel>)template).GetTypeName(entityTemplate)}.{constant.Name} ";
+                    var actualStatement = statement.GetText("");
+                    var constantExpression = $" {((CSharpTemplateBase<ClassModel>)template).GetTypeName(entityTemplate)}.{constant.Name} ";
+
                     if (actualStatement.StartsWith(".HasMaxLength("))
                     {
                         statement.Replace(new CSharpStatement($".HasMaxLength({constantExpression})"));
@@ -155,11 +165,16 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
         {
             length = -1;
             if (!attribute.HasTextConstraints())
+            {
                 return false;
+            }
 
             var maxLength = attribute.GetTextConstraints().MaxLength();
             if (!maxLength.HasValue)
+            {
                 return false;
+            }
+
             length = maxLength.Value;
             if (attribute.GetTextConstraints()?.SQLDataType().IsDEFAULT() == true)
             {
@@ -183,6 +198,7 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                         break;
                 }
             }
+
             return false;
         }
     }
