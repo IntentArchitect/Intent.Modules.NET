@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.FluentValidation.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -10,9 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using static Intent.Application.FluentValidation.Api.DTOFieldModelStereotypeExtensions;
 
 namespace Intent.Modules.Application.FluentValidation.Templates
 {
@@ -25,7 +24,7 @@ namespace Intent.Modules.Application.FluentValidation.Templates
 
         public static IEnumerable<string> GetValidationRules<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
         {
-            var statements = GetValidationRulesStatements<TModel>(template, fields);
+            var statements = GetValidationRulesStatements(template, fields);
             foreach (var statement in statements)
             {
                 yield return statement.ToString();
@@ -46,21 +45,21 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                     defaultCollectionFormatter: CSharpCollectionFormatter.Create("System.Collections.Generic.IEnumerable<{0}>"),
                     defaultNullableFormatter: null)
                 : template.Types;
-            
+
             foreach (var property in fields)
             {
                 var validations = new CSharpMethodChainStatement($"RuleFor(v => v.{property.Name.ToPascalCase()})");
                 validations.AddMetadata("model", property);
 
-                if (!resolvedTypeInfo.Get(property.TypeReference).IsPrimitive && 
+                if (!resolvedTypeInfo.Get(property.TypeReference).IsPrimitive &&
                     !property.TypeReference.IsNullable)
                 {
                     validations.AddChainStatement("NotNull()");
                 }
                 if (property.TypeReference.Element.IsEnumModel())
                 {
-                    validations.AddChainStatement(property.TypeReference.IsCollection 
-                        ? "ForEach(x => x.IsInEnum())" 
+                    validations.AddChainStatement(property.TypeReference.IsCollection
+                        ? "ForEach(x => x.IsInEnum())"
                         : "IsInEnum()");
                 }
 
@@ -117,11 +116,12 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                         validations.AddChainStatement($"MustAsync(Validate{property.Name}Async)");
                     }
                 }
-                if (!validations.Statements.Any(x => x.GetText("").StartsWith("MaximumLength")) && property.InternalElement.MappedElement?.Element.IsAttributeModel() == true)
+
+                if (!validations.Statements.Any(x => x.GetText("").StartsWith("MaximumLength")) &&
+                    TryGetMappedAttribute(property, out var attribute))
                 {
                     try
                     {
-                        var attribute = property.InternalElement.MappedElement.Element.AsAttributeModel();
                         if (attribute.HasStereotype("Text Constraints") &&
                             attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0 &&
                             property.GetValidations()?.MaxLength() == null)
@@ -142,6 +142,24 @@ namespace Intent.Modules.Application.FluentValidation.Templates
 
                 yield return validations;
             }
+        }
+
+        private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute)
+        {
+            var mappedElement = field.InternalElement.MappedElement?.Element as IElement;
+            while (mappedElement != null)
+            {
+                if (mappedElement.IsAttributeModel())
+                {
+                    attribute = mappedElement.AsAttributeModel();
+                    return true;
+                }
+
+                mappedElement = mappedElement.MappedElement?.Element as IElement;
+            }
+
+            attribute = default;
+            return false;
         }
     }
 }

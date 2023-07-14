@@ -1,6 +1,7 @@
 ### Version 3.7.0
 
 - Updated: `FluentValidation.DependencyInjectionExtensions` to version `11.6.0`.
+- Field mapping targets are now checked recursively to see if they ultimately map to an `Attribute` in order to possibly apply MaximumLength validation due to the presense of an RDBMS `MaxLength` `Text Constraint`. This now covers scenarios where a field is mapped to a Class Operation's Parameter, which itself is mapped to a Class Attribute.
 
 ### Version 3.6.0
 
