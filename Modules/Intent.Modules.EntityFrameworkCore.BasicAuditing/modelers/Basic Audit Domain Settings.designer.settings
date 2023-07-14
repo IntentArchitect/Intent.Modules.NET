@@ -17,7 +17,7 @@
     const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
 
     if (element.hasStereotype(auditStereotypeId)) {
-        ensureAttribute(stringTypeId, true, "CreatedBy");
+        ensureAttribute(stringTypeId, false, "CreatedBy");
         ensureAttribute(dateTimeOffsetTypeId, false, "CreatedDate");
         ensureAttribute(stringTypeId, true, "UpdatedBy");
         ensureAttribute(dateTimeOffsetTypeId, true, "UpdatedDate");
@@ -33,9 +33,10 @@ function ensureAttribute(typeId, isNullable, name) {
     let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
     if (!el) {
         el = createElement("Attribute", name, element.id);
+        el.typeReference.setIsNullable(isNullable);
+        el.setMetadata("set-by-infrastructure", true);
     }
     el.typeReference.setType(typeId);
-    el.typeReference.setIsNullable(isNullable);
 }
 
 function removeAttribute(name) {

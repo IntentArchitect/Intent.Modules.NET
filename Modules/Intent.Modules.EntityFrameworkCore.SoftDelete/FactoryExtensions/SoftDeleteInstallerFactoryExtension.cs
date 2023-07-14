@@ -82,7 +82,6 @@ public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
         priClass.AddMethod("void", "SetSoftDeleteProperties", method =>
         {
             method.Private();
-            method.AddStatement("ChangeTracker.DetectChanges();");
             method.AddMethodChainStatement("var entities = ChangeTracker", stmt => stmt
                 .AddChainStatement("Entries()")
                 .AddChainStatement(
