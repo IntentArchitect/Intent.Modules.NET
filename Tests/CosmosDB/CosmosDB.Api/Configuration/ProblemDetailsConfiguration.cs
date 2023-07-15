@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -37,7 +38,7 @@ namespace CosmosDB.Api.Configuration
                     Type = $"https://httpstatuses.io/{context.Response.StatusCode}",
                     Title = "Internal Server Error"
                 };
-                details.Extensions.Add("traceId", Activity.Current?.Id ?? context.TraceIdentifier);
+                details.Extensions.TryAdd("traceId", Activity.Current?.Id ?? context.TraceIdentifier);
 
                 var env = context.RequestServices.GetService<IWebHostEnvironment>()!;
                 var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();

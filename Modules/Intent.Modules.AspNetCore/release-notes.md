@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Fixed: In some cases there are "traceId" data already specified when the Generic Exception handler executes, this will ensure that the code won't break when that is the case.
+
 ### Version 5.1.1
 
 - Fixed: Minor fixes around Trace Id and Startup.cs code generation.
