@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Diagnostics;
@@ -20,7 +21,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Configuration
 
                 if (context.ProblemDetails.Status != 500) { return; }
                 context.ProblemDetails.Title = "Internal Server Error";
-                context.ProblemDetails.Extensions.Add("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
+                context.ProblemDetails.Extensions.TryAdd("traceId", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
 
                 var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
                 if (!env.IsDevelopment()) { return; }

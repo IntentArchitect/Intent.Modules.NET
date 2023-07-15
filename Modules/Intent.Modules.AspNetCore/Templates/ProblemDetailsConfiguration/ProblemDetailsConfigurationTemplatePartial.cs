@@ -55,6 +55,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.AspNetCore.Http")
                 .AddUsing("Microsoft.AspNetCore.Mvc")
+                .AddUsing("System.Collections.Generic")
                 ;
             @class.AddField(UseType("System.Text.Json.JsonSerializerOptions"), "DefaultOptions", field =>
             {
@@ -76,7 +77,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                             Type = $""https://httpstatuses.io/{context.Response.StatusCode}"",
                             Title = ""Internal Server Error""
                         };
-                        details.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.TraceIdentifier);
+                        details.Extensions.TryAdd(""traceId"", Activity.Current?.Id ?? context.TraceIdentifier);
                         
                         var env = context.RequestServices.GetService<IWebHostEnvironment>()!;
                         var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
@@ -100,7 +101,8 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.AspNetCore.Hosting")
-                .AddUsing("Microsoft.AspNetCore.Diagnostics");
+                .AddUsing("Microsoft.AspNetCore.Diagnostics")
+                .AddUsing("System.Collections.Generic");
             method.AddInvocationStatement("services.AddProblemDetails", addProblemDetails => addProblemDetails
                     .AddArgument(new CSharpLambdaBlock("conf")
                         .WithExpressionBody(new CSharpLambdaBlock("conf.CustomizeProblemDetails = context")
@@ -109,7 +111,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 
                         if (context.ProblemDetails.Status != 500) { return; }
                         context.ProblemDetails.Title = ""Internal Server Error"";
-                        context.ProblemDetails.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
+                        context.ProblemDetails.Extensions.TryAdd(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
                 
                         var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
                         if (!env.IsDevelopment()) { return; }
