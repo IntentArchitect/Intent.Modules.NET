@@ -24,7 +24,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.SoloAttr)
                 .IsRequired();
 
-            builder.Property(x => x.CreatedBy);
+            builder.Property(x => x.CreatedBy)
+                .IsRequired();
 
             builder.Property(x => x.CreatedDate)
                 .IsRequired();

@@ -18,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAud
 
         public string SoloAttr { get; set; }
 
-        public string? CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
 

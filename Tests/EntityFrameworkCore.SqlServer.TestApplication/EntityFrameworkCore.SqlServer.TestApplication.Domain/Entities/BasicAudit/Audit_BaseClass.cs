@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAud
     {
         public Guid Id { get; set; }
 
-        public string? CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
 

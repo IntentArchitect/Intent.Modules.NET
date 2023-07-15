@@ -14,7 +14,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.CreatedBy);
+            builder.Property(x => x.CreatedBy)
+                .IsRequired();
 
             builder.Property(x => x.CreatedDate)
                 .IsRequired();

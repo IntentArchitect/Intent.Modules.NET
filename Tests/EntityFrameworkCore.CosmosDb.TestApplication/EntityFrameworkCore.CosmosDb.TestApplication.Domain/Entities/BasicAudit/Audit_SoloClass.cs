@@ -20,7 +20,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudi
 
         public string SoloAttr { get; set; }
 
-        public string? CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
 
