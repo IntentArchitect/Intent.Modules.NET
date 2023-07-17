@@ -334,7 +334,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         private void SetAuditableFields()
         {
-            var userName = _currentUserService.UserName;
+            var userName = _currentUserService.UserId;
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();
 

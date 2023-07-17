@@ -202,7 +202,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         private void SetAuditableFields()
         {
-            var userName = _currentUserService.UserName;
+            var userName = _currentUserService.UserId;
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();
 

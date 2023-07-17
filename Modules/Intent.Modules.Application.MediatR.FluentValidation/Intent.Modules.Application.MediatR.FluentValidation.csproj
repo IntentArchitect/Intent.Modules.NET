@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.7.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
