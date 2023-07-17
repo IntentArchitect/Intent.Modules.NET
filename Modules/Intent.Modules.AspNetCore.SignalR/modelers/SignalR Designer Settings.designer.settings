@@ -66,8 +66,8 @@ element.getStereotype(hubSettingsStereotypeId)
           <script>const hubSettingsStereotypeId = "ba101028-d276-496d-bab2-5e7b707449a4";
 let hubName = removeSuffix(element.getName(), "Hub");
 element.getStereotype(hubSettingsStereotypeId)
-    .getProperty("Route")
-    .setValue(`/hub/${toCamelCase(hubName)}`);</script>
+    ?.getProperty("Route")
+    ?.setValue(`/hub/${toCamelCase(hubName)}`);</script>
         </macro>
       </macros>
       <childElementSettings>
