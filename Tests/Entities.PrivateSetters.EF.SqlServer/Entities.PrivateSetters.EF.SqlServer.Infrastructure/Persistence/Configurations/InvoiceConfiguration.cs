@@ -31,13 +31,13 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence.Config
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.InvoiceId)
-                .IsRequired();
-
             builder.Property(x => x.Description)
                 .IsRequired();
 
             builder.Property(x => x.Quantity)
+                .IsRequired();
+
+            builder.Property(x => x.InvoiceId)
                 .IsRequired();
         }
     }

@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8050468c-8226-43bd-b0f4-5d6c86666bfb</parentFolderId>
+  <packageId>8050468c-8226-43bd-b0f4-5d6c86666bfb</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF.Domain</packageName>
+  <diagram>
+    <targetPackageId>8050468c-8226-43bd-b0f4-5d6c86666bfb</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />

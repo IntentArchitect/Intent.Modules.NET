@@ -47,43 +47,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3736ac45-fe8d-4fa9-a771-4ea0d75a21f6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>InvoiceId</name>
-      <display>InvoiceId: guid</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="ad9f3931-9ad2-435c-bcd8-9bec48a4c90a">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>c1e377b0-1bef-4ab9-8530-13773c217194</parentFolderId>
-      <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
-      <packageName>Domain</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
-          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties>
-            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="01638048-2dc7-4343-b7e4-07c76f4d521f" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="fk-original-name" value="InvoiceId" />
-        <entry key="association" value="01638048-2dc7-4343-b7e4-07c76f4d521f" />
-        <entry key="is-managed-key" value="true" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="cc00369c-3ce5-45e3-9dd4-399798d65424" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Description</name>
       <display>Description: string</display>
@@ -130,6 +93,43 @@
       <packageName>Domain</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="71f37e34-edc7-40a3-854a-b8f7dc0817c3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>InvoiceId</name>
+      <display>InvoiceId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d674329d-cbb3-4f09-8b15-0b8019c84c5e">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c1e377b0-1bef-4ab9-8530-13773c217194</parentFolderId>
+      <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="01638048-2dc7-4343-b7e4-07c76f4d521f" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="InvoiceId" />
+        <entry key="association" value="01638048-2dc7-4343-b7e4-07c76f4d521f" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="49870d81-54d3-417e-94af-0db3df0b9a9e" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
