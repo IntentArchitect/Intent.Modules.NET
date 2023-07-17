@@ -6,7 +6,7 @@
     <type id="4464fabe-c59e-4d90-81fc-c9245bdd1afd">Data Contract</type>
   </targetTypes>
   <targetReferenceTypes />
-  <applyMode>always</applyMode>
+  <applyMode>manually</applyMode>
   <icon type="FontAwesome" source="cogs" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>

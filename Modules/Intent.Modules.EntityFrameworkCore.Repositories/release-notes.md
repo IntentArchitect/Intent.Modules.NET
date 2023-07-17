@@ -1,6 +1,7 @@
 ### Version 4.2.6
 
 - Update: Support for Composite PrimaryKeys on repositories.
+- Fixed: `User-Defined Table Type Settings` stereotype will no longer be automatically applied to `Data Contract` elements (it can still be applied manually).
 
 ### Version 4.2.5
 
