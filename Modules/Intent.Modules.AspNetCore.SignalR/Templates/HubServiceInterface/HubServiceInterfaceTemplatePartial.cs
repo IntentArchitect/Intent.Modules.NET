@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,6 +23,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HubServiceInterfaceTemplate(IOutputTarget outputTarget, SignalRHubModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name.RemoveSuffix("Hub")}Hub", inter =>
                 {
