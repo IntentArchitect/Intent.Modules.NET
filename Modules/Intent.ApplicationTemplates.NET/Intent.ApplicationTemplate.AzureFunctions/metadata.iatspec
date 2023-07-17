@@ -182,7 +182,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.EntityFrameworkCore.Repositories" version="4.2.6-pre.1" metadataOnly="false">
+            <module id="Intent.EntityFrameworkCore.Repositories" version="4.2.6-pre.2" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>false</required>
             </module>
