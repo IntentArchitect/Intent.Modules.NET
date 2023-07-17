@@ -27,7 +27,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public MultiVersionServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
@@ -43,7 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

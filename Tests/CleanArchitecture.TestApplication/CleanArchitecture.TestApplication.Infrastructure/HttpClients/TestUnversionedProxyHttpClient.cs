@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         public TestUnversionedProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {

@@ -27,7 +27,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
         public MyProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
@@ -46,7 +46,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

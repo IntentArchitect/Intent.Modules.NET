@@ -27,13 +27,13 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public IntegrationServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
         }
 
-        public async Task<CustomDTO> QueryParamOpAsync(
+        public async Task<CustomDTO?> QueryParamOpAsync(
             string param1,
             int param2,
             CancellationToken cancellationToken = default)
@@ -51,7 +51,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -76,7 +76,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -130,7 +130,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -160,7 +160,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -170,12 +170,12 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
-                    return wrappedObj.Value;
+                    return wrappedObj!.Value;
                 }
             }
         }
 
-        public async Task<string> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
+        public async Task<string?> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getwrappedprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -185,7 +185,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -195,7 +195,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
-                    return wrappedObj.Value;
+                    return wrappedObj!.Value;
                 }
             }
         }
@@ -210,7 +210,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -220,7 +220,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<int>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
-                    return wrappedObj.Value;
+                    return wrappedObj!.Value;
                 }
             }
         }
@@ -235,7 +235,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -251,7 +251,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<string> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
+        public async Task<string?> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -261,7 +261,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -287,7 +287,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -303,7 +303,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<List<string>> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
+        public async Task<List<string>?> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getprimitivestringlist";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -313,7 +313,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -327,7 +327,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<CustomDTO> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default)
+        public async Task<CustomDTO?> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getinvoiceopwithreturntypewrapped";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -337,7 +337,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {

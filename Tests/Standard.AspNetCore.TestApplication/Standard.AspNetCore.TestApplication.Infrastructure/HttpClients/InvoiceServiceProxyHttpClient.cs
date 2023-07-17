@@ -27,7 +27,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public InvoiceServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
@@ -46,7 +46,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -62,7 +62,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<InvoiceDto> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<InvoiceDto?> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices/{id}";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -72,7 +72,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -86,7 +86,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
-        public async Task<List<InvoiceDto>> FindInvoicesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<InvoiceDto>?> FindInvoicesAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -96,7 +96,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -123,7 +123,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -138,7 +138,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

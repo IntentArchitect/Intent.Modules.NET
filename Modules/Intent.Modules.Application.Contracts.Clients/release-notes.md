@@ -1,7 +1,8 @@
 ### Version 4.0.2
 
-- Removed dependency on Domain module
+- Removed dependency on Domain module.
 - Migrated remaining templates to use CSharpFileBuilder.
+- Add nullable annotations to reduce C# warnings generated when compiling.
 
 ### Version 4.0.1
 

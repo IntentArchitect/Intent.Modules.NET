@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Add nullable annotations to reduce C# warnings generated when compiling.
+
 ### Version 1.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
