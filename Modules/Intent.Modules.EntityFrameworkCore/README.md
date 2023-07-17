@@ -111,13 +111,28 @@ The `Default Constraint` stereotype can be manually applied to an attribute, all
 
 ![Default Constraint visual](./docs/images/default-constraint-stereotype.png)
 
+### Schema - Entity / Package / Folder stereotype
+
+The `Schema` stereotype allows you to specify the SQL Schema for your tables / views , if required.
+
+The `Schema` stereotype can be manually applied to a `Class`, `Folder` or `Package`.
+
+The `Schema` stereotype can be applied hierarchically i.e. if you apply it to a `Package` all tables / views in the package will belong to that schema.
+Similarly you can apply the `Schema` stereotype to a folder, all tables / views under that folder belong to that schema.
+
+The "Closest" `Schema` stereotype to the `Class` will apply to the class.
+
+Note. If you have `Table` or `View` stereotypes with schema's specified these are more specific and will override the `Schema` stereotype. If you do not fill the schema in on these stereotypes, the schema name will fall back to the "Closest" `Schema` stereotype.
+
+![Schema visual](./docs/images/schema-stereotype.png)
+
 ### Table - Entity stereotype
 
 The `Table` stereotype allows you to specify a SQL tables name and/or schema name , if required.
 
 By default SQL table names will be the pluralized version of the `Class` name, and go into the `dbo` schema.
 
-The `Table` stereotype can be manually applied to an `Class`. If `Name` or `Schema` are not populated the default value will be used. This stereotype is visualized by stereotype's icon on the top right of the `Class`.
+The `Table` stereotype can be manually applied to a `Class`. If `Name` or `Schema` are not populated the default value will be used. This stereotype is visualized by stereotype's icon on the top right of the `Class`.
 
 ![Table visual](./docs/images/table-stereotype.png)
 
