@@ -1,0 +1,44 @@
+﻿@page "/fetchdata"
+@using CleanArchitecture.TestApplication.BlazorClient.HttpClients
+@using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AggregateRootsService
+@inject IAggregateRootsService AggregateRootsService
+
+<PageTitle>Fetch data demo</PageTitle>
+
+<h1>Fetch data demo</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_entities == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AggregateAttr</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entity in _entities)
+            {
+                <tr>
+                    <td>@entity.Id</td>
+                    <td>@entity.AggregateAttr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<AggregateRootDto>? _entities;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _entities = await AggregateRootsService.GetAggregateRootsAsync();
+    }
+}

@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>feffff61-d1c3-45c8-bb22-a64e0942d77b</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -91,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>feffff61-d1c3-45c8-bb22-a64e0942d77b</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

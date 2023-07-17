@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="942ed60a-24c4-4732-b8b1-462e4566e080" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>AggregateRootsService</name>
+  <display>AggregateRootsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="acc2c837-4400-4947-b384-e08adaf288f9" name="AggregateRoots" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
+  <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+  <packageName>Web Client</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="07edd050-1296-427f-a253-fbfc8d2d1fbe" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateAggregateRoot</name>
+      <display>CreateAggregateRoot(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="04f5b035-d39f-485b-a00d-d7704b9376d8">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="5fafef2d-e558-4060-ac43-7f09f1ec434a" name="CreateAggregateRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9a68c05f-76d3-4abd-a95d-3259c9fe7836" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateAggregateRootCompositeManyB</name>
+      <display>CreateAggregateRootCompositeManyB(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0ca23416-6523-42b9-afb6-be4e117cc97f">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="7e32c772-8408-4429-8af2-820f832d584f" name="CreateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="85706628-2db6-466c-8671-9e018b8a75fb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteAggregateRoot</name>
+      <display>DeleteAggregateRoot(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="32003dbd-b5d6-4086-b00e-2a481d084595">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="3d3444db-2f5e-4233-af74-d7d967bb9725" name="DeleteAggregateRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="92213dbe-8e0b-4c24-9128-45d1d030a631" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteAggregateRootCompositeManyB</name>
+      <display>DeleteAggregateRootCompositeManyB(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b6371256-b542-4257-b392-0d70760e3498">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="70b86d61-b601-4e58-a89f-39689143238d" name="DeleteAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8a4f5fd2-cdbd-4a44-9f4d-e714d4284106" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateAggregateRoot</name>
+      <display>UpdateAggregateRoot(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cafe4111-ffb8-41cd-90e1-c63a659d4c37">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="3a89f77c-28f9-41ab-91e3-bfcd99a1abf3" name="UpdateAggregateRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4d6d546f-ec0d-4da9-a9a6-7db631ae6760" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateAggregateRootCompositeManyB</name>
+      <display>UpdateAggregateRootCompositeManyB(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2b08018a-53be-4bf4-96d2-53b5a5d9b307">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="095c5ed0-1106-4475-9a90-33f5eaf115bb" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="df7d2291-c3a3-40dd-9191-c8b205a77b16" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateRootById</name>
+      <display>GetAggregateRootById(): AggregateRootDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8b503fea-1a0c-4b80-8444-4eee2d52b9b3">
+        <typeId>a733e81e-070d-4219-9158-e2fbe7d98400</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fdb4c6fc-b7d1-46f3-ab31-76167f193139" name="GetAggregateRootByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5f558551-7a3b-45f0-a777-40fb332466ac" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateRootCompositeManyBById</name>
+      <display>GetAggregateRootCompositeManyBById(): AggregateRootCompositeManyBDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b646282c-a48d-45b9-a995-ddfce16ec1ee">
+        <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ff740d69-6fa5-43c7-8dc9-f837016cde2d" name="GetAggregateRootCompositeManyBByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a499317c-09dc-4de7-a67c-735d37983c49" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateRootCompositeManyBS</name>
+      <display>GetAggregateRootCompositeManyBS(): AggregateRootCompositeManyBDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="505d8b40-29a7-4464-936d-5b9302796424">
+        <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="51e005b0-9b7e-4651-9cd8-32cfa379541a" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a387dd4c-e989-4544-aa1b-6c6c48aa74ad" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateRoots</name>
+      <display>GetAggregateRoots(): AggregateRootDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3afc53c4-6369-4f5e-9ac1-12c28d8a4c7f">
+        <typeId>a733e81e-070d-4219-9158-e2fbe7d98400</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="64c75571-c2bf-4443-aa3f-260cdd334084" name="GetAggregateRootsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
