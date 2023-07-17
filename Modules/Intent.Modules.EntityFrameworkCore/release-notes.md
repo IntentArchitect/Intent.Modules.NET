@@ -1,4 +1,8 @@
-﻿### Version 4.4.5
+﻿### Version 4.4.6
+
+- New: EF Patterns implement support for Schema stereotype.
+
+### Version 4.4.5
 
 - Updated tags and project URL to point to GitHub repository.
 - Upgrade: SQL Table naming convention is now configurable in Application Settings.

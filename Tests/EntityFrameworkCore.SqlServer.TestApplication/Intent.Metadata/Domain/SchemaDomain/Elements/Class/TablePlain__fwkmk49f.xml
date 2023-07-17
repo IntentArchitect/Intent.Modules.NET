@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="546cf7c8-6f50-4e8e-8d52-201e0e1def76" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>TablePlain</name>
+  <display>TablePlain</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ee01c53-cde5-493b-a787-cf75d7c6a24f</parentFolderId>
+  <packageId>4ee01c53-cde5-493b-a787-cf75d7c6a24f</packageId>
+  <packageName>SchemaDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,34 +1,46 @@
 ﻿using System;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common;
 //using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates
 {
     public static class Extensions
     {
-        //public static string GetDefaultSurrogateKeyType(this ISoftwareFactoryExecutionContext executionContext)
-        //{
-        //    var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
-        //    switch (settingType)
-        //    {
-        //        case "guid":
-        //            return "System.Guid";
-        //        case "int":
-        //            return "int";
-        //        case "long":
-        //            return "long";
-        //        default:
-        //            return settingType;
-        //    }
-        //}
+        public static string FindSchema(this ClassModel classModel)
+        {
+            IHasStereotypes currentElement = classModel.InternalElement;
 
-        //public static string GetDefaultSurrogateKeyType(this ICSharpTemplate template)
-        //{
-        //    return GetDefaultSurrogateKeyType(template.ExecutionContext);
-        //}
+            if (currentElement.HasStereotype("Table") && !string.IsNullOrEmpty(currentElement.GetStereotypeProperty<string>("Table", "Schema")?.Trim()))
+            {
+                return currentElement.GetStereotypeProperty<string>("Table", "Schema")?.Trim();
+            }
+
+            if (currentElement.HasStereotype("View") && !string.IsNullOrEmpty(currentElement.GetStereotypeProperty<string>("View", "Schema")?.Trim()))
+            {
+                return currentElement.GetStereotypeProperty<string>("View", "Schema")?.Trim();
+            }
+
+            while (currentElement != null)
+            {
+                if (currentElement.HasStereotype("Schema"))
+                {
+                    return currentElement.GetStereotypeProperty<string>("Schema", "Name")?.Trim();
+                }
+
+                if (currentElement is not IElement element)
+                {
+                    break;
+                }
+
+                currentElement = element.ParentElement ?? (IHasStereotypes)element.Package;
+            }
+            return null;
+        }
 
         public static RelationshipType GetRelationshipType(this AssociationModel association)
         {

@@ -37,6 +37,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="bda983fa-befd-44e3-9676-bcc0536dcd2c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>26c32cbe-1ef2-4ecd-a6a7-b418c9dbd24c</parentFolderId>
+      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="8e366d10-e145-4f78-bcdc-5e113c8380c3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
       <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
@@ -63,20 +79,6 @@
       <parentFolderId>26c32cbe-1ef2-4ecd-a6a7-b418c9dbd24c</parentFolderId>
       <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
       <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="bda983fa-befd-44e3-9676-bcc0536dcd2c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>26c32cbe-1ef2-4ecd-a6a7-b418c9dbd24c</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

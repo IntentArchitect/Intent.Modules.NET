@@ -226,9 +226,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (model.HasView())
             {
-                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.GetView()?.Schema()) ? @$", ""{model.GetView().Schema()}""" : "")});";
+                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.FindSchema()) ? @$", ""{model.FindSchema()}""" : "")});";
             }
-            else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
+            else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.FindSchema())))
             {
                 yield return ToTableStatement(model);
             }
@@ -245,24 +245,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
-            else if (RequiresToTableStatementForConvention(model.Name)) 
+            else if (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)) 
             {
                 yield return ToTableStatement(model);
             }
 
             CSharpStatement ToTableStatement(ClassExtensionModel model)
             {
+                string schema = model.FindSchema();
                 var statement = new CSharpInvocationStatement("builder.ToTable");
                 if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
-                    !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ||
+                    !string.IsNullOrWhiteSpace(schema) ||
                     model.Triggers.Count == 0)
                 {
                     statement.AddArgument($"\"{model.GetTable()?.Name() ?? GetTableNameByConvention( model.Name)}\"");
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                if (!string.IsNullOrWhiteSpace(schema))
                 {
-                    statement.AddArgument($"\"{model.GetTable().Schema()}\"");
+                    statement.AddArgument($"\"{schema}\"");
                 }
 
                 if (model.Triggers.Count == 1)

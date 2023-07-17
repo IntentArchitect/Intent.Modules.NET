@@ -34,7 +34,7 @@ This setting allows you to configure a convention for your SQL table name. The a
 * Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
 * None, SQL table name will be the same as domain model `Class`'s name.
 
-## Domain Designer modelling
+## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
 
@@ -50,13 +50,13 @@ This stereotype can be manually applied to `Attribute`s and can be applied to mu
 
 ### Foreign Key - Attribute stereotype
 
-The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `Class` as a result of a modelled `Association`, for example:
+The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `Class` as a result of a modeled `Association`, for example:
 
 ![Foreign Key visual](./docs/images/foreign-key-stereotype.png)
 
 In this diagram you can see the `CustomerId` attribute has been introduced, with the `Foreign Key` stereotype, as a result of the many-to-one relationship between `Basket` and `Customer`.
 
-The `Foreign Key` stereotype's are automatically managed when modelling associations. This stereotype is visualized as a silver key icon.
+The `Foreign Key` stereotype's are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
 
 ### Text Constraint - Attribute Stereotype
 
@@ -107,7 +107,7 @@ The `Row Version` stereotype can be manually applied. This stereotype is visuali
 
 The `Default Constraint` stereotype allows you to specify SQL column defaults in your model, if required.
 
-The `Default Constraint` stereotype can be manually applied to an attribute, allowing you to specify either a default value or a default sql expression. This stereotype is visualized by stereotype's icon.
+The `Default Constraint` stereotype can be manually applied to an attribute, allowing you to specify either a default value or a default SQL expression. This stereotype is visualized by stereotype's icon.
 
 ![Default Constraint visual](./docs/images/default-constraint-stereotype.png)
 
@@ -150,7 +150,7 @@ You can also model your SQL indexes in the `Domain Designer`.
 
 You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct, you can re-order them by dragging them around.
 
-### Modelling Inheritance
+### Modeling Inheritance
 
 In Entity Framework Core there are 3 ways to model inheritance namely:
 
@@ -158,11 +158,11 @@ In Entity Framework Core there are 3 ways to model inheritance namely:
 * Table per type (TPT).
 * Table per concrete type (TPC).
 
-For more information on modelling inheritance with Entity Framework Core see the [documentation](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
+For more information on modeling inheritance with Entity Framework Core see the [documentation](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
 
 #### Table per hierarchy
 
-Modelling:
+Modeling:
 
 ![Table per hierarchy Model](./docs/images/tph-model.png)
 
@@ -172,7 +172,7 @@ Resulting database structure:
 
 #### Table per type
 
-Modelling:
+Modeling:
 
 Note the `Table` stereotypes, you don't need to fill in the name schema if you are happy with the defaults.
 
@@ -184,7 +184,7 @@ Resulting database structure:
 
 #### Table per concrete type
 
-Modelling:
+Modeling:
 
 Note the base class is marked as abstract.
 

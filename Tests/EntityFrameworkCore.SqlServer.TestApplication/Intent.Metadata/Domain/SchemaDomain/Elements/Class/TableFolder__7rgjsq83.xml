@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="50f63c70-04ca-4568-90d0-62f611452e8c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>TableFolder</name>
+  <display>TableFolder</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>740a3187-0397-4510-9c54-b8ea560267b9</parentFolderId>
+  <packageId>4ee01c53-cde5-493b-a787-cf75d7c6a24f</packageId>
+  <packageName>SchemaDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

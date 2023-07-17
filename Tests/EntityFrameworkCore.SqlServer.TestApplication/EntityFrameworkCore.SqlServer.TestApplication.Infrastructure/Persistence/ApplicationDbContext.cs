@@ -7,11 +7,14 @@ using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Interface
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Accounts;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Polymorphic;
@@ -21,11 +24,14 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Inherita
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Accounts;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.Indexes;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.NestedAssociations;
+using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence.Configurations.TPC.Polymorphic;
@@ -56,6 +62,19 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             _domainEventService = domainEventService;
             _currentUserService = currentUserService;
         }
+
+        public DbSet<Table> Tables { get; set; }
+        public DbSet<TableExplicitSchema> TableExplicitSchemas { get; set; }
+        public DbSet<TableOverride> TableOverrides { get; set; }
+        public DbSet<TablePlain> TablePlains { get; set; }
+        public DbSet<View> Views { get; set; }
+        public DbSet<ViewOverride> ViewOverrides { get; set; }
+        public DbSet<AccTable> AccTables { get; set; }
+        public DbSet<AccTableOverride> AccTableOverrides { get; set; }
+        public DbSet<AccView> AccViews { get; set; }
+        public DbSet<AccViewOverride> AccViewOverrides { get; set; }
+        public DbSet<AccTableFolder> AccTableFolders { get; set; }
+        public DbSet<AccViewFolder> AccViewFolders { get; set; }
 
         [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -163,6 +182,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<Texture> Textures { get; set; }
         public DbSet<Tree> Trees { get; set; }
         public DbSet<Worm> Worms { get; set; }
+        public DbSet<TableFolder> TableFolders { get; set; }
+        public DbSet<ViewExplicitSchema> ViewExplicitSchemas { get; set; }
+        public DbSet<ViewFolder> ViewFolders { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -179,6 +201,19 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new TableConfiguration());
+            modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
+            modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());
+            modelBuilder.ApplyConfiguration(new TablePlainConfiguration());
+            modelBuilder.ApplyConfiguration(new ViewConfiguration());
+            modelBuilder.ApplyConfiguration(new ViewExplicitSchemaConfiguration());
+            modelBuilder.ApplyConfiguration(new ViewOverrideConfiguration());
+            modelBuilder.ApplyConfiguration(new AccTableConfiguration());
+            modelBuilder.ApplyConfiguration(new AccTableOverrideConfiguration());
+            modelBuilder.ApplyConfiguration(new AccViewConfiguration());
+            modelBuilder.ApplyConfiguration(new AccViewOverrideConfiguration());
+            modelBuilder.ApplyConfiguration(new AccTableFolderConfiguration());
+            modelBuilder.ApplyConfiguration(new AccViewFolderConfiguration());
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
@@ -218,6 +253,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new TextureConfiguration());
             modelBuilder.ApplyConfiguration(new TreeConfiguration());
             modelBuilder.ApplyConfiguration(new WormConfiguration());
+            modelBuilder.ApplyConfiguration(new TableFolderConfiguration());
+            modelBuilder.ApplyConfiguration(new ViewFolderConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithSoftDeleteConfiguration());
             modelBuilder.ApplyConfiguration(new TPC_ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new TPC_ConcreteBaseClassAssociatedConfiguration());
