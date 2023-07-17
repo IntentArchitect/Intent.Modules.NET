@@ -84,7 +84,7 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
             {
                 method.Private();
                 method.AddStatements(@"
-            var userName = _currentUserService.UserName;
+            var userName = _currentUserService.UserId;
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();");
                 method.AddForEachStatement("entry", "entries", forStmt =>
