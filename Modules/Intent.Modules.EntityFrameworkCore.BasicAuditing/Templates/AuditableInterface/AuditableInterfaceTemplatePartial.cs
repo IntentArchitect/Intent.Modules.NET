@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.Templates.AuditableIn
                 {
                     var nullable = outputTarget.GetProject().IsNullableAwareContext();
                     var questionMark = nullable ? "?" : string.Empty;
-                    inter.AddProperty($"string{questionMark}", "CreatedBy");
+                    inter.AddProperty($"string", "CreatedBy");
                     inter.AddProperty("DateTimeOffset", "CreatedDate");
                     inter.AddProperty($"string{questionMark}", "UpdatedBy");
                     inter.AddProperty($"DateTimeOffset{questionMark}", "UpdatedDate");

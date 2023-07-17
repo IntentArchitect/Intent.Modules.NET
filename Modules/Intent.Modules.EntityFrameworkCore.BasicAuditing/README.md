@@ -10,11 +10,7 @@ Select an Entity in the Domain Designer.
 
 ![Domain Entity without Basic Auditing](docs/images/person-without-auditing.png)
 
-Right click and select `Apply Stereotype` (or press F3).
-
-![Auditing Stereotype](docs/images/basic-auditing-stereotype.png)
-
-Select the `Basic Auditing` stereotype.
+Right click and select `Toggle Basic Auditing`.
 
 ![Domain Entity with Basic Auditing](docs/images/person-with-auditing.png)
 
@@ -34,7 +30,7 @@ This introduces a `IAuditible` interface in your `Domain`project which gets adde
 ```csharp
 public interface IAuditable
 {
-    string? CreatedBy { get; set; }
+    string CreatedBy { get; set; }
     DateTimeOffset CreatedDate { get; set; }
     string? UpdatedBy { get; set; }
     DateTimeOffset? UpdatedDate { get; set; }
@@ -54,7 +50,7 @@ public class Person : IHasDomainEvent, IAuditable
     
     public DateTime DateOfBirth { get; set; }
 
-    public string? CreatedBy { get; set; }
+    public string CreatedBy { get; set; }
 
     public DateTimeOffset CreatedDate { get; set; }
 

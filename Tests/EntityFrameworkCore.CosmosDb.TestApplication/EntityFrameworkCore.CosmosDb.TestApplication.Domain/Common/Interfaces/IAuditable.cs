@@ -8,7 +8,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces
 {
     public interface IAuditable
     {
-        string? CreatedBy { get; set; }
+        string CreatedBy { get; set; }
         DateTimeOffset CreatedDate { get; set; }
         string? UpdatedBy { get; set; }
         DateTimeOffset? UpdatedDate { get; set; }
