@@ -1,8 +1,8 @@
 $intent_solution = 'Tests/Intent.Modules.NET.Tests.isln'
 
-# Username and password use the same environment variables as the packager, see:
-# https://github.com/garethbaars/Intent/blob/14f6f75be682e8d38e3b2c6c185fe45eac72399a/Intent.IntentArchitect/IntentArchitect.ElectronClient/Intent.IArchitect.Packager.CommandLine/Program.cs#L166
-# (NOTE: System.Security.Cryptography.ProtectedData is not available on non-Windows platforms)
+# This uses a Windows-based secure way to store and retrieve your credentials to execute the intent-cli tool.
+# To encode and encrypt your password run the following Powershell script:
+# $encodedEncryptedPassword = [System.Convert]::ToBase64String([System.Security.Cryptography.ProtectedData]::Protect([System.Text.Encoding]::Unicode.GetBytes("Your password"), $null, "CurrentUser"))
 $intent_architect_user = $Env:INTENT_PACKAGER_USERNAME
 $intent_architect_password = [System.Text.Encoding]::Unicode.GetString([System.Security.Cryptography.ProtectedData]::Unprotect([System.Convert]::FromBase64String($Env:INTENT_PACKAGER_PASSWORD), $null, "CurrentUser"))
 
