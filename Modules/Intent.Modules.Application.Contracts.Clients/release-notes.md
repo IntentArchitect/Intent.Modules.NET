@@ -1,3 +1,7 @@
+### Version 4.1.0
+
+- Service references will allow operation selection for generating proxy client contracts.
+
 ### Version 4.0.2
 
 - Removed dependency on Domain module.
