@@ -11,18 +11,14 @@ $testSln = [xml] (Get-Content "./$($intent_solution)" -Encoding UTF8)
 $block = { Param($application, $intent_architect_user, $intent_architect_password, $intent_solution)
 	$testsFailed = $false
 	$appId = $application.id
-	Write-Host ==================================================
-	Write-Host Application = $application.name
-	Write-Host ==================================================
 	$output = intent-cli "$($intent_architect_user)" "$($intent_architect_password)" "$($intent_solution)" "$($appId)"
 
 	if ($LASTEXITCODE -ne 0) {
 		$testsFailed = $true
-		Write-Error "Changes detected."
+		Write-Error "$($application.name): Changes detected."
 	} else {
-		Write-Host "No changes detected."
+		Write-Host "$($application.name): No changes detected."
 	}
-	Write-Host ""
 
 	return $testsFailed
 }
@@ -34,6 +30,9 @@ Get-Job | Remove-Job
 $MaxThreads = 4
 $count = 0
 
+Write-Host "Starting test projects:"
+Write-Host ""
+
 # Start the jobs. Max 4 jobs running simultaneously.
 foreach ($application in $testSln.solution.applications.application) {
 	While ($(Get-Job -state running).count -ge $MaxThreads) {
@@ -41,8 +40,14 @@ foreach ($application in $testSln.solution.applications.application) {
 	}
 
 	$count++
-	Start-Job -Name "$count of $($testSln.solution.applications.ChildNodes.count) ($($application.name))" -Scriptblock $block -ArgumentList @($application, $intent_architect_user, $intent_architect_password, $intent_solution)
+	$job = Start-Job -Name "$count of $($testSln.solution.applications.ChildNodes.count) ($($application.name))" -Scriptblock $block -ArgumentList @($application, $intent_architect_user, $intent_architect_password, $intent_solution)
+	Write-Host "$($job.Name)"
 }
+
+Write-Host ""
+Write-Host "Outcome:"
+Write-Host ""
+
 # Wait for all jobs to finish.
 While ($(Get-Job -State Running).count -gt 0) {
 	start-sleep 1
@@ -60,8 +65,12 @@ Get-Job | Remove-Job
 
 $endTime = Get-Date
 $executionTime = $endTime - $startTime
+
+Write-Host ""
 Write-Output "Total Execution Time: $($executionTime.TotalSeconds) seconds"
 
 if ($testsFailed -eq $true) {
-	throw "Template Testing failed. Please review [error] tags."
+	Write-Host ""
+	Write-Error "Template Testing failed. Look at the projects that have changes and then run Intent UI to inspect those changes."
+	$LASTEXITCODE = 1
 }
