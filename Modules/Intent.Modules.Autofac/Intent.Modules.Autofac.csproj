@@ -19,22 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\AutofacConfig\AutofacConfigTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AutofacConfigTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\AutofacConfig\AutofacConfigTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AutofacConfigTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
 </Project>
