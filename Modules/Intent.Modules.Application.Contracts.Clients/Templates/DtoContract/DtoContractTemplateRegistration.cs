@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
@@ -38,7 +37,17 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyDTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetProxyMappedServiceDTOModels()
+            return _metadataManager.ServiceProxies(application)
+                .GetServiceProxyModels()
+                .SelectMany(s =>
+                {
+                    // Backwards compatibility - when we didn't have operations on service proxies
+                    if (!s.Operations.Any())
+                    {
+                        return s.GetMappedServiceDTOModels();
+                    }
+                    return s.GetDTOModels();
+                })
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())

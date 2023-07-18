@@ -16,7 +16,8 @@ public static class ServiceProxyHelpers
 {
     public static bool HasMappedEndpoints(this ServiceProxyModel model)
     {
-        if (model.Mapping?.Element?.IsServiceModel() == true)
+        // Backwards compatibility - when we didn't have operations on service proxies
+        if (model.Mapping?.Element?.IsServiceModel() == true && !model.Operations.Any())
         {
             return model.MappedService.Operations.Any(x => x.HasHttpSettings());
         }
@@ -29,7 +30,8 @@ public static class ServiceProxyHelpers
 
     public static IEnumerable<IHttpEndpointModel> GetMappedEndpoints(this ServiceProxyModel model)
     {
-        if (model.Mapping?.Element?.IsServiceModel() == true)
+        // Backwards compatibility - when we didn't have operations on service proxies
+        if (model.Mapping?.Element?.IsServiceModel() == true && !model.Operations.Any())
         {
             return model.MappedService.Operations
                 .Where(x => x.HasHttpSettings())

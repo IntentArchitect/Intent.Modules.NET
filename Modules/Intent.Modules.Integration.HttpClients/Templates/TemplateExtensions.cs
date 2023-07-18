@@ -14,27 +14,27 @@ namespace Intent.Modules.Integration.HttpClients.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetHttpClientName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
+        public static string GetHttpClientName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHttpClientName(this IntentTemplateBase template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
+        public static string GetHttpClientName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, model);
         }
 
-        public static string GetHttpClientConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetHttpClientConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(HttpClientConfigurationTemplate.TemplateId);
         }
 
-        public static string GetHttpClientRequestExceptionName<T>(this IntentTemplateBase<T> template)
+        public static string GetHttpClientRequestExceptionName(this IIntentTemplate template)
         {
             return template.GetTypeName(HttpClientRequestExceptionTemplate.TemplateId);
         }
 
-        public static string GetJsonResponseName<T>(this IntentTemplateBase<T> template)
+        public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
         }
