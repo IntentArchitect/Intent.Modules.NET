@@ -2,6 +2,7 @@
 @using CleanArchitecture.TestApplication.BlazorClient.HttpClients
 @using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AggregateRootsService
 @inject IAggregateRootsService AggregateRootsService
+@inject ISecuredService SecuredService
 
 <PageTitle>Fetch data demo</PageTitle>
 
@@ -40,5 +41,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         _entities = await AggregateRootsService.GetAggregateRootsAsync();
+
+        await SecuredService.SecuredAsync();
     }
 }

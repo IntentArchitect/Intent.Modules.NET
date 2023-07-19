@@ -122,22 +122,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#dc09e8b0-3fa3-48f5-9c9a-12378dce269e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#dc09e8b0-3fa3-48f5-9c9a-12378dce269e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dc09e8b0-3fa3-48f5-9c9a-12378dce269e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>

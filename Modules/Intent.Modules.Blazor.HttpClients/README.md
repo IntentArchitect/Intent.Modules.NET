@@ -9,7 +9,10 @@ This Intent Architect module generates HttpClients for Blazor applications.
 - In Intent Architect, open `Visual Studio` designer.
 - Create a new `.NET Project` with a name and folder structure which matches that of the Blazor project in the Visual Studio IDE:
   ![Create a new ".NET Project" context menu option in Intent Architect's Visual Studio Designer](docs/create-new-project.png)
-- Set the SDK fro the project to `Microsoft.NET.Sdk.BlazorWebAssembly` (if you don't see such an option, ensure you have at least `3.3.28-pre.0` of the `Intent.VisualStudio.Projects` module installed):
+- Set the SDK for the project:
+  - For a `Blazor WebAssembly App` set it to `Microsoft.NET.Sdk.BlazorWebAssembly` (if you don't see such an option, ensure you have at least `3.3.28` of the `Intent.VisualStudio.Projects` module installed).
+  - For a `Blazor Server App` set it to `Microsoft.NET.Sdk.Web`.
+
   ![Selecting the SDK in the Visual Studio Designer](docs/select-the-sdk.png)
 - Within the desired location within the project you wish for the `HttpClient`s and contracts to be generated, create a `Blazor.HttpClient` role:
   ![Create the "Blazor.HttpClient" role in Intent Architect's Visual Studio Designer](docs/create-the-role.png)
@@ -84,9 +87,63 @@ namespace BlazorApp1
 }
 ```
 
+### Attaching JWTs to outgoing requests
+
+The generated `HttpClient`s will automatically include Bearer [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) headers in outgoing requests to secured endpoints, but they require security to already be configured for the Blazor application.
+
+Depending on your authentication and authorization strategy, you may be able to use [one of the available options as documented by Microsoft](https://learn.microsoft.com/aspnet/core/blazor/security/webassembly/) and the generated `HttpClient`s should just work with no additional configuration.
+
+If you have a custom authentication/authorization strategy, you may commonly encounter either or both of the following errors:
+
+#### `No service for type 'Microsoft.AspNetCore.Components.WebAssembly.Authentication.AuthorizationMessageHandler' has been registered.`
+
+To resolve this, add the following line to your `Program.cs` file:
+
+```csharp
+builder.Services.AddTransient<AuthorizationMessageHandler>();
+```
+
+#### `Unable to resolve service for type 'Microsoft.AspNetCore.Components.WebAssembly.Authentication.IAccessTokenProvider' while attempting to activate 'Microsoft.AspNetCore.Components.WebAssembly.Authentication.AuthorizationMessageHandler'.`
+
+You will need to create an implementation of [IAccessTokenProvider](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.authentication.iaccesstokenprovider) and register it as a service.
+
+A simple implementation could be as follows:
+
+```csharp
+internal class AccessTokenProvider : IAccessTokenProvider
+{
+    public ValueTask<AccessTokenResult> RequestAccessToken()
+    {
+        var accessToken = new AccessToken
+        {
+            Value = "<your access token here>"
+        };
+
+        var result = new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null);
+
+        return ValueTask.FromResult(result);
+    }
+
+    public async ValueTask<AccessTokenResult> RequestAccessToken(AccessTokenRequestOptions options)
+    {
+        return await RequestAccessToken();
+    }
+}
+```
+
+You would customize the implementation to populate `AccessToken`'s `Value` with an actual JWT.
+
+You can register your implementation in `Program.cs` with the following (or similar) code:
+
+```csharp
+builder.Services.AddScoped<IAccessTokenProvider, AccessTokenProvider>();
+```
+
+You can also review [Microsoft's documentation on covering additional Blazor security scenarios](https://learn.microsoft.com/aspnet/core/blazor/security/webassembly/additional-scenarios) for more information.
+
 ## Adding CORS to your Api project
 
-For the HTTP calls to be allowed by web browsers, the API has to use CORS to allow requests from the URL of the Blazor App.
+If your Blazor App is hosted on a different BaseUrl to that of your API, the browser will block these cross-origin requests unless you configure the CORS in the API to allow requests from the Blazor App's URL.
 
 In the Api's `Startup.cs` file you will need to add the following to the `ConfigureServices` method:
 
@@ -97,7 +154,11 @@ services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://localhost:7014");
+            policy
+                .WithOrigins("https://localhost:7014")
+                .AllowAnyMethod()
+                .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
+                .AllowCredentials();
         });
 });
 ```
@@ -126,6 +187,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 using NewApplication1.Api.Configuration;
 using NewApplication1.Api.Filters;
 using NewApplication1.Application;
@@ -167,7 +229,11 @@ namespace NewApplication1.Api
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.WithOrigins("https://localhost:7014");
+                        policy
+                            .WithOrigins("https://localhost:7014")
+                            .AllowAnyMethod()
+                            .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
+                            .AllowCredentials();
                     });
             });
         }
@@ -205,8 +271,8 @@ From within a `.razor` file it is now possible to inject HttpClients and call me
 ```razor
 @page "/fetchdata"
 @using BlazorApp1.HttpClients
-@using BlazorApp1.HttpClients.InvoicesServiceProxy
-@inject IInvoicesServiceProxyClient Http
+@using BlazorApp1.HttpClients.InvoicesService
+@inject IInvoicesService Http
 
 <PageTitle>Invoices</PageTitle>
 

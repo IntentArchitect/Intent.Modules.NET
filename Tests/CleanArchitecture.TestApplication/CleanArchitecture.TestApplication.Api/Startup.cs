@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -52,7 +53,10 @@ namespace CleanArchitecture.TestApplication.Api
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.WithOrigins("https://localhost:7019");
+                        policy.WithOrigins("https://localhost:7019")
+                            .AllowAnyMethod()
+                            .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
+                            .AllowCredentials();
                     });
             });
         }

@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b43628ea-b7d1-40b7-8b79-5b1df954f310</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/SecuredController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#0e37dc3d-3654-40bd-8d6b-3e94c5bf21a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/SecureServicesController.cs</ApplicationRelativeFilePath>
@@ -2700,6 +2708,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#7df138cf-8762-43d1-a344-c36a474e7e86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/Secured/SecuredCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/Secured/SecuredCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#7df138cf-8762-43d1-a344-c36a474e7e86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/Secured/SecuredCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/Secured/SecuredCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#7df138cf-8762-43d1-a344-c36a474e7e86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/Secured/SecuredCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/Secured/SecuredCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecureServices/Secure/SecureCommand.cs</ApplicationRelativeFilePath>
@@ -3272,6 +3304,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IAggregateRootsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRootsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#96a967fc-4cac-444e-8409-36fe946ef90d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/ISecuredService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecuredService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#96a967fc-4cac-444e-8409-36fe946ef90d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/SecuredService/SecuredServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/SecuredServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

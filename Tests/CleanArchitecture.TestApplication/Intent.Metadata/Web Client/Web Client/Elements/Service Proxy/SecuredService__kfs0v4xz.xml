@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="96a967fc-4cac-444e-8409-36fe946ef90d" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>SecuredService</name>
+  <display>SecuredService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="b43628ea-b7d1-40b7-8b79-5b1df954f310" name="SecuredService" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
+  <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+  <packageName>Web Client</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b2439e03-c197-42a6-ac48-5a60901a15bb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Secured</name>
+      <display>Secured(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="653fb77f-a2da-49a5-b0f4-af6ac977a288">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="7df138cf-8762-43d1-a344-c36a474e7e86" name="SecuredCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>96a967fc-4cac-444e-8409-36fe946ef90d</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
