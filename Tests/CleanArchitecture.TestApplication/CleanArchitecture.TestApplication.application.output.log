@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#0e37dc3d-3654-40bd-8d6b-3e94c5bf21a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/SecureServicesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServicesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ServiceDispatch/ServiceDispatchController.cs</ApplicationRelativeFilePath>
@@ -2468,6 +2476,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#df30d82b-dcbe-46a7-990f-906b0044d463</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/SecureServicesService/ISecureServicesClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServicesService/ISecureServicesClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/SecureServicesService/SecureCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServicesService/SecureCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d609d381-84ee-434f-9a26-b74091101d9c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestUnversionedProxy/ITestUnversionedProxyClient.cs</ApplicationRelativeFilePath>
@@ -2672,6 +2696,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestSuffixQueriesWithType/MyRequest/MyRequestQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecureServices/Secure/SecureCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServices/Secure/SecureCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecureServices/Secure/SecureCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServices/Secure/SecureCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecureServices/Secure/SecureCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServices/Secure/SecureCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3760,6 +3808,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#df30d82b-dcbe-46a7-990f-906b0044d463</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/SecureServicesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecureServicesServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

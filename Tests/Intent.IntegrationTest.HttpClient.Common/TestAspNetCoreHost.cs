@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,7 @@ public static class TestAspNetCoreHost
                 {
                     services.AddControllers();
                 }
+                JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
                 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                     {
@@ -41,6 +43,8 @@ public static class TestAspNetCoreHost
                         {
                             ValidateAudience = false
                         };
+                        options.TokenValidationParameters.RoleClaimType = "role";
+                        options.SaveToken = true;
                     });
                 services.AddAuthorization();
                 if (outputHelper != null)

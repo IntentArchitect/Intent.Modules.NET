@@ -32,7 +32,7 @@ public class AuditTests
 
         var existingClass = DbContext.Audit_SoloClasses.FirstOrDefault(p => p.Id == soloClass.Id);
         Assert.NotNull(existingClass);
-        Assert.Equal("Test User", existingClass.CreatedBy);
+        Assert.Equal("user@test.com", existingClass.CreatedBy);
         Assert.NotNull(existingClass.CreatedDate);
 
         soloClass.SoloAttr += " Modify";
@@ -40,7 +40,7 @@ public class AuditTests
         
         var existingClassModify = DbContext.Audit_SoloClasses.FirstOrDefault(p => p.Id == soloClass.Id);
         Assert.NotNull(existingClassModify);
-        Assert.Equal("Test User", existingClassModify.UpdatedBy);
+        Assert.Equal("user@test.com", existingClassModify.UpdatedBy);
         Assert.NotNull(existingClassModify.UpdatedDate);
     }
 }

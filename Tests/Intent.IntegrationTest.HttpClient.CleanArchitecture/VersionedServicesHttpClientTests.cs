@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.TestApplication.Api.Configuration;
+﻿using System.IdentityModel.Tokens.Jwt;
+using CleanArchitecture.TestApplication.Api.Configuration;
 using CleanArchitecture.TestApplication.Api.Controllers;
 using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
@@ -79,6 +80,7 @@ public class VersionedServicesHttpClientTests
         return x => x.AddApplication()
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
             .AddTransient<ICurrentUserService, CurrentUserService>()
+            .AddHttpContextAccessor()
             .ConfigureApiVersioning();
     }
 

@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Standard.AspNetCore.TestApplication.Application.Common.Exceptions;
 using Standard.AspNetCore.TestApplication.Domain.Common.Exceptions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,6 +25,10 @@ namespace Standard.AspNetCore.TestApplication.Api.Filters
                     }
                     context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
                     .AddContextInformation(context);
+                    context.ExceptionHandled = true;
+                    break;
+                case ForbiddenAccessException:
+                    context.Result = new ForbidResult();
                     context.ExceptionHandled = true;
                     break;
                 case NotFoundException exception:

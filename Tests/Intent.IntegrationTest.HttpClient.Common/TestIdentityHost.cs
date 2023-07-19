@@ -37,7 +37,9 @@ public static class TestIdentityHost
                             RequireClientSecret = true,
                             AllowedGrantTypes = new List<string> { GrantType.ClientCredentials },
                             AllowedScopes = new List<string> { "api" },
-                            ClientSecrets = new List<Secret> { new Secret("secret".Sha256()) }
+                            ClientSecrets = new List<Secret> { new Secret("secret".Sha256()) },
+                            Claims = new List<ClientClaim>() { new ClientClaim("sub", "7869616D-2885-4B8D-847B-25AC5CFE511E") },
+                            ClientClaimsPrefix = ""
                         }
                     })
                     .AddInMemoryApiResources(new[]

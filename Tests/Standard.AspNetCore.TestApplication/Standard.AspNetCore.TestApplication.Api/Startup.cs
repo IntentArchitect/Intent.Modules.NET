@@ -39,6 +39,7 @@ namespace Standard.AspNetCore.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
@@ -57,6 +58,7 @@ namespace Standard.AspNetCore.TestApplication.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

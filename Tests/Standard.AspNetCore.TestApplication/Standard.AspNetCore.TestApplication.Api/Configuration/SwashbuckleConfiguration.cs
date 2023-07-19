@@ -4,6 +4,7 @@ using System.Linq;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -30,6 +31,28 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                 {
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var securityScheme = new OpenApiSecurityScheme()
+                    {
+                        Name = "Authorization",
+                        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "bearer",
+                        BearerFormat = "JWT",
+                        Reference = new OpenApiReference
+                        {
+                            Id = JwtBearerDefaults.AuthenticationScheme,
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    };
+
+                    options.AddSecurityDefinition("Bearer", securityScheme);
+                    options.AddSecurityRequirement(
+                        new OpenApiSecurityRequirement
+                        {
+                            { securityScheme, Array.Empty<string>() }
+                        });
                 });
             return services;
         }
@@ -50,6 +73,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);
                     AddSwaggerEndpoints(app, options);
+                    options.OAuthScopeSeparator(" ");
                 });
         }
 

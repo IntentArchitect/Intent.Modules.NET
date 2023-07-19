@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8a926f99-3091-49b9-918b-f7e6fd96be1a</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8a926f99-3091-49b9-918b-f7e6fd96be1a</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
@@ -115,6 +123,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a44f6280-6194-4532-8856-57ac11560538</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.CSProject#418c6192-1fbf-4d24-81f7-f1a060223c2c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -132,10 +148,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>f4335db4-6fd0-4af2-89ee-060537a9ee1f</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4335db4-6fd0-4af2-89ee-060537a9ee1f</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f043e3b2-b938-4ef3-a2b7-50367f911690</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -155,6 +187,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>177f3199-c495-4de5-95c6-9b689f3a0ef0</ProjectId>
+      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>62b90e6a-9668-4a22-a1ca-1ee3b5350612</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -168,6 +208,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef92e3ad-c69c-48f8-8d51-adcf2b6a2243</ProjectId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

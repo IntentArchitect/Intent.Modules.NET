@@ -92,6 +92,11 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                     .WithBreak());
         }
 
+        switchStatement.AddCase(UseType("System.UnauthorizedAccessException"),
+            block => block.AddStatement("context.Result = new ForbidResult();")
+                .AddStatement("context.ExceptionHandled = true;")
+                .WithBreak());
+
         var notFoundException = ExecutionContext.FindTemplateInstance(
             TemplateDependency.OnTemplate("Domain.NotFoundException"));
         if (notFoundException is not null)

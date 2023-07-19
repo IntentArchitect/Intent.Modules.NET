@@ -1,3 +1,7 @@
+### Version 5.3.2
+
+- Updated: `ExceptionFilter` will also look out for `UnauthorizedAccessException` exceptions for being thrown and returned as `FORBIDDEN` HTTP result types. 
+
 ### Version 5.3.0
 
 - Updated: Ensure that Swagger will know about HTTP 500 errors returning `ProblemDetails`.
