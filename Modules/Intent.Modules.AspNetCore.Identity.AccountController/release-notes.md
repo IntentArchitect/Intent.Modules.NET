@@ -1,4 +1,8 @@
-﻿### Version 2.0.1
+﻿### Version 2.0.2
+
+- Update: Nuget package version of `Microsoft.AspNetCore.Authentication.JwtBearer` is now bumped to the latest version based on the configured .NET version to eliminate the known security vulnerabilities.
+
+### Version 2.0.1
 
 - Fixed: Fixed a issue around "role" claim not being configured.
 

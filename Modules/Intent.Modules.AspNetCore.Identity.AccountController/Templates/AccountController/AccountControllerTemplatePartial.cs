@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         public AccountControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.IdentityModel);
-            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer);
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(OutputTarget));
         }
 
         public override void BeforeTemplateExecution()

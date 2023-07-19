@@ -32,7 +32,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
             return;
         }
 
-        template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer);
+        template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(template.OutputTarget));
         template.AddNugetDependency(NugetPackages.IdentityModel);
         template.CSharpFile.AfterBuild(file =>
         {

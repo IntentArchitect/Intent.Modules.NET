@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Update: Nuget package version of `Microsoft.AspNetCore.Authentication.JwtBearer` is now bumped to the latest version based on the configured .NET version to eliminate the known security vulnerabilities.
+
 ### Version 4.1.2
 
 - Update: removed various compiler warnings.
