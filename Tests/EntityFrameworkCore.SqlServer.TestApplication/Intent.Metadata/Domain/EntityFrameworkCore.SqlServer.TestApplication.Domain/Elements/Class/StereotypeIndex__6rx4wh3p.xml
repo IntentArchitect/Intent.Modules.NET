@@ -41,6 +41,7 @@
             <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" isActive="true" />
             <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" isActive="true" />
             <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -76,6 +77,7 @@
             <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" value="CustomIndexField" isActive="true" />
             <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" value="0" isActive="true" />
             <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -111,6 +113,7 @@
             <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" value="GroupedIndexField" isActive="true" />
             <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" value="0" isActive="true" />
             <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="true" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -146,6 +149,7 @@
             <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" value="GroupedIndexField" isActive="true" />
             <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" value="1" isActive="true" />
             <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="true" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

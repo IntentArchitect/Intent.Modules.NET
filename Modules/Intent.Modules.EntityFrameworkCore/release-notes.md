@@ -1,6 +1,7 @@
 ﻿### Version 4.4.6
 
 - New: EF Patterns implement support for Schema stereotype.
+- New: EF Patterns implement support for Sort Direction on `Index`s.
 
 ### Version 4.4.5
 

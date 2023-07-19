@@ -660,6 +660,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#2f4a0dae-0db9-4243-9726-2402c34e4414</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/SortDirectionIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f52c15b7-55d0-4294-9b5a-fa9e2988fc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/SortDirectionStereotype.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionStereotype.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/StereotypeIndex.cs</ApplicationRelativeFilePath>
@@ -1608,6 +1624,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/IDefaultIndexRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/IDefaultIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#2f4a0dae-0db9-4243-9726-2402c34e4414</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/ISortDirectionIndexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ISortDirectionIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f52c15b7-55d0-4294-9b5a-fa9e2988fc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/ISortDirectionStereotypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ISortDirectionStereotypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2580,6 +2612,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#2f4a0dae-0db9-4243-9726-2402c34e4414</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/SortDirectionIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionIndexConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f52c15b7-55d0-4294-9b5a-fa9e2988fc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/SortDirectionStereotypeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionStereotypeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
@@ -3480,6 +3528,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/DefaultIndexRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/DefaultIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#2f4a0dae-0db9-4243-9726-2402c34e4414</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/SortDirectionIndexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f52c15b7-55d0-4294-9b5a-fa9e2988fc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/SortDirectionStereotypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/SortDirectionStereotypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

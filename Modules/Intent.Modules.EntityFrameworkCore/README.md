@@ -164,6 +164,7 @@ You can also model your SQL indexes in the `Domain Designer`.
 ![See Index Added](./docs/images/index-created.png)
 
 You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct, you can re-order them by dragging them around.
+You can also configure the Sort Direction on the Index Columns, this is ascending by default.
 
 ### Modeling Inheritance
 

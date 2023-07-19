@@ -104,6 +104,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public DbSet<DefaultIndex> DefaultIndices { get; set; }
+        public DbSet<SortDirectionIndex> SortDirectionIndices { get; set; }
+        public DbSet<SortDirectionStereotype> SortDirectionStereotypes { get; set; }
         public DbSet<TPC_DerivedClassForAbstract> TPC_DerivedClassForAbstracts { get; set; }
         public DbSet<TPH_DerivedClassForAbstract> TPH_DerivedClassForAbstracts { get; set; }
         public DbSet<TPT_DerivedClassForAbstract> TPT_DerivedClassForAbstracts { get; set; }
@@ -245,6 +247,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
             modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new SortDirectionIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new SortDirectionStereotypeConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new InhabitantConfiguration());

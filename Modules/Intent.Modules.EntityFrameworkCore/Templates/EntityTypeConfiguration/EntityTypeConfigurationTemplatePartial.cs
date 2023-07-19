@@ -488,6 +488,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
 
+                if (index.KeyColumns.Any(x => x.SortDirection == SortDirection.Descending))
+                {
+                    sb.Append($@"
+                .IsDescending({string.Join(", ", index.KeyColumns.Select(x => x.SortDirection == SortDirection.Ascending ? "false" : "true"))})");
+                }
+
                 if (dbSupportsIncludedProperties && index.IncludedColumns.Length > 0)
                 {
                     sb.Append($@"
