@@ -1,3 +1,7 @@
+### Version 4.3.4
+
+- Update: Base classes not have `protected` setters, rather than `private` setters, to make them more accessible in the inheritance hierarchy.
+
 ### Version 4.3.3
 
 - Fixed: Constructor and Operation mappings don't respect Pascal-casing of Properties when camel-casing is used in the designer.

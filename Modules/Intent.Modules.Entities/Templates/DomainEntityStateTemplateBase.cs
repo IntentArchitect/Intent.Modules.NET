@@ -33,9 +33,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
     protected void AddProperties(CSharpClass @class)
     {
+        bool isBaseClasss = Model.ChildClasses.Any();
+
         foreach (var attribute in Model.Attributes)
         {
-            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement);
+            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement, isBaseClasss);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
@@ -47,7 +49,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
         {
-            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd);
+            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd, isBaseClasss);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !GetTypeName(associationEnd).Equals(InterfaceTemplate.GetTypeName(associationEnd)))
@@ -57,7 +59,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         }
     }
 
-    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element)
+    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element, bool isBaseClass)
     {
         var isPrivateSetterCollection = typeReference.IsCollection &&
                                             ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters();
@@ -96,7 +98,14 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
             {
-                property.PrivateSetter();
+                if (isBaseClass)
+                {
+                    property.ProtectedSetter();
+                }
+                else 
+                { 
+                    property.PrivateSetter(); 
+                }
             }
 
             if (model is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
