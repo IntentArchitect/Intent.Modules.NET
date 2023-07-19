@@ -1,3 +1,6 @@
+### Version 4.0.5
+
+- Updated Interop dependencies for App Services and MediatR dispatch.
 
 ### Version 4.0.3
 
