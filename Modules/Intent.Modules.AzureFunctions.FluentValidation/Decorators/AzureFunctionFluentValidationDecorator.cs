@@ -38,8 +38,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
             : null;
 
-            if (requestDtoTypeName == null || template.Model.TriggerType != TriggerType.HttpTrigger ||
-                template.Model.Mapping?.Element?.AsOperationModel() == null)
+            if (requestDtoTypeName == null || template.Model.TriggerType != TriggerType.HttpTrigger)
             {
                 return;
             }
@@ -50,14 +49,19 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 file.AddUsing("FluentValidation");
                 var @class = file.Classes.Single();
-                @class.Constructors.First().AddParameter(template.GetValidationServiceInterfaceName(), "validator", param =>
-                    {
-                        param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
 
                 var runMethod = @class.FindMethod("Run");
-                runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
-                    ?.InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+
+                var dispatchStatement = runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"));
+                if (dispatchStatement != null)
+                {
+                    @class.Constructors.First()
+                        .AddParameter(
+                            type: template.GetValidationServiceInterfaceName(),
+                            name: "validator",
+                            configure: param => param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
+                    dispatchStatement.InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+                }
 
                 runMethod.FindStatement<CSharpTryBlock>(x => true)
                     ?.InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
