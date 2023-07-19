@@ -16,6 +16,10 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Filters
         {
             switch (context.Exception)
             {
+                case UnauthorizedAccessException:
+                    context.Result = new ForbidResult();
+                    context.ExceptionHandled = true;
+                    break;
                 case NotFoundException exception:
                     context.Result = new NotFoundObjectResult(new ProblemDetails
                     {

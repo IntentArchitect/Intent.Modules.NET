@@ -21,6 +21,10 @@ namespace Application.Identity.MSAL.TestApplication.Api.Filters
                     context.Result = new ForbidResult();
                     context.ExceptionHandled = true;
                     break;
+                case UnauthorizedAccessException:
+                    context.Result = new ForbidResult();
+                    context.ExceptionHandled = true;
+                    break;
                 case NotFoundException exception:
                     context.Result = new NotFoundObjectResult(new ProblemDetails
                     {
