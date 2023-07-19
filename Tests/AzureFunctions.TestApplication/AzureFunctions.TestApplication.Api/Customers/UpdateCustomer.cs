@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.UpdateCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -53,6 +54,10 @@ namespace AzureFunctions.TestApplication.Api
                 }
                 await _mediator.Send(command, cancellationToken);
                 return new NoContentResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

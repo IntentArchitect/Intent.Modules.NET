@@ -163,6 +163,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>82b9bec5-99d9-423e-b1b4-b30a927cadfe</ProjectId>
       <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -468,10 +476,50 @@
     </FileLog>
     <FileLog>
       <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8269acf9-51dd-4327-b68b-5a57ec168cc0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/CreateProduct/CreateProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#afea2217-eb2b-4dc6-bbab-52deeef252d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/DeleteProduct/DeleteProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0642cec8-5948-462a-baa2-806e01d50c6f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProductById/GetProductByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ef643498-90ca-4440-b993-49b95d9c4498</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProducts/GetProductsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#687df041-6471-4fbb-8c89-92885e4d1af3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d3203a02-665d-4a6a-ab18-85773dc241cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/UpdateProduct/UpdateProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

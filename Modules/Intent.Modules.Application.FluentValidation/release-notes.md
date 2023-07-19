@@ -1,3 +1,7 @@
+### Version 3.7.1
+
+- Updated interop dependencies for installing Fluent validation modules based on the presence of App Services or MediatR dispatch.
+
 ### Version 3.7.0
 
 - Updated: `FluentValidation.DependencyInjectionExtensions` to version `11.6.0`.

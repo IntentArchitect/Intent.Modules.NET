@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Fixed spelling mistake in generated exception message.
+
 ### Version 4.2.0
 
 - Updated: `FluentValidation` to version `11.6.0`.

@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed so that Validation Exception is now expected to be caught on a Function level when any Fluent Validation module is present.
+
 ### Version 4.1.0
 
 - Updated: `FluentValidation` to version `11.6.0`.
