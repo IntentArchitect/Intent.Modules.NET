@@ -15,7 +15,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Customer> Customers { get; set; }
+
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +26,9 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new TagConfiguration());
         }
 

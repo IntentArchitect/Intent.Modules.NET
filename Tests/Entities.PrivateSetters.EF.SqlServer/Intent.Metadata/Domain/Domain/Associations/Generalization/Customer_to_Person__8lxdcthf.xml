@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5c0a957c-8f3d-40ee-b3d3-e9b75ed95375">
+  <sourceEnd id="cbc42754-e958-49d8-9e64-47d0918f603e" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="e23789ed-8795-4e22-b592-55b6475b4c8b">
+      <typeId>7e821a00-137b-4e7a-9d7e-6d5bb5259c48</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5c0a957c-8f3d-40ee-b3d3-e9b75ed95375" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>Person</name>
+    <display>Person: Person</display>
+    <order>1</order>
+    <typeReference id="c7c34b22-c8e2-4dc3-b5ed-6f9cd2c744f5">
+      <typeId>573fc6d4-941a-45f0-8dcc-b4b39bf257a5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>
