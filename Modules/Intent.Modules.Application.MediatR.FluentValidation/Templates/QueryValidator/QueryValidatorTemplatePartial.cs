@@ -73,7 +73,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                             method.AddParameter(GetQueryModel(), "command");
                             method.AddParameter(GetTypeName(property), "value");
                             method.AddParameter("CancellationToken", "cancellationToken");
-                            method.AddStatement("throw new NotImplementedException(\"our custom validation rules here...\");");
+                            method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
                         });
                     }
                 }
