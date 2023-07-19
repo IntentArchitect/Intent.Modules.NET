@@ -219,6 +219,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5d97067c-7715-443b-aee9-424e192ffe28</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>da9d9f58-8dd2-4c37-8002-73239d0b9058</ProjectId>
       <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -516,10 +524,50 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#729da320-1a7e-4314-98df-01c7562afe9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#30029fad-9d4e-4b94-854a-b6b426a28b18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3d847d50-cd55-4778-930f-2d231412be09</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b6345a10-400f-423c-97e9-e30ea079b2ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/GetCustomers/GetCustomersQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

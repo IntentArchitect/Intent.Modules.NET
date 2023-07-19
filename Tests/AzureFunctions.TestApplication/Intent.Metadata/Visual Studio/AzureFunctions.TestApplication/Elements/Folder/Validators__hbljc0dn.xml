@@ -52,5 +52,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="d60cac1b-55d9-46ca-9f6c-2581c0dce2fa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.FluentValidation.CommandValidator</name>
+      <display>Intent.Application.MediatR.FluentValidation.CommandValidator</display>
+      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6cc960fc-0d41-4f18-b2be-559180719f8a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.FluentValidation.QueryValidator</name>
+      <display>Intent.Application.MediatR.FluentValidation.QueryValidator</display>
+      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

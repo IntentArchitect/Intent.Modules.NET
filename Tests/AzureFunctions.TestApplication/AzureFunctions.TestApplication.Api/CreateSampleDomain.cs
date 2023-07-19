@@ -4,10 +4,12 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,11 +27,13 @@ namespace AzureFunctions.TestApplication.Api
     public class CreateSampleDomain
     {
         private readonly ISampleDomainsService _appService;
+        private readonly IValidationService _validator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSampleDomain(ISampleDomainsService appService, IUnitOfWork unitOfWork)
+        public CreateSampleDomain(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -46,9 +50,14 @@ namespace AzureFunctions.TestApplication.Api
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody);
+                await _validator.Validate(dto, default);
                 var result = await _appService.CreateSampleDomain(dto);
                 await _unitOfWork.SaveChangesAsync();
                 return new CreatedResult(string.Empty, result);
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

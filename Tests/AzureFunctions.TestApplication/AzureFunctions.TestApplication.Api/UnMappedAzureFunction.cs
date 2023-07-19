@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,10 @@ namespace AzureFunctions.TestApplication.Api
                 var request = JsonConvert.DeserializeObject<SampleDomainDto>(requestBody);
                 //IntentIgnore
                 return new NoContentResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

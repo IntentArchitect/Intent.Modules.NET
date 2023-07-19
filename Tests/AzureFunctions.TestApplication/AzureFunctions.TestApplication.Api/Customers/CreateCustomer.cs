@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Customers.CreateCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -48,6 +49,10 @@ namespace AzureFunctions.TestApplication.Api
                 var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
                 var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {
