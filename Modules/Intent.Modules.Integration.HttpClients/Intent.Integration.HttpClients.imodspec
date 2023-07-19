@@ -64,5 +64,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install src="modelers/Service Proxies Extension.designer.settings" externalReference="0369aeff-6e47-4619-9170-2a802bd9ef82" target="Service Proxies" />
+  </metadata>
 </package>

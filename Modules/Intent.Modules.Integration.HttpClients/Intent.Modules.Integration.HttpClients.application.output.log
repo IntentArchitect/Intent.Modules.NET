@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>48d019ae-205e-4cfa-8e54-fd5fdb15ef3d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#6d0ca789-1132-4a0e-a2bb-364e10e89e5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ServiceProxyExtensionsModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxyExtensionsModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>46ad781b-04fc-4d8d-9a46-4dbffe73628d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -22,6 +30,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Integration.HttpClients.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Integration.HttpClients.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e25a918f-c82f-4f2a-b32e-203e6d673849</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#0369aeff-6e47-4619-9170-2a802bd9ef82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Service Proxies Extension.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Service Proxies Extension.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
