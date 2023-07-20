@@ -20,7 +20,8 @@ namespace CleanArchitecture.TestApplication.Application.SecuredService.Secured
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Unit> Handle(SecuredCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            // NOP
+            return Unit.Value;
         }
     }
 }

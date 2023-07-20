@@ -8,6 +8,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.Client
         {
             var accessToken = new AccessToken
             {
+                Expires = DateTimeOffset.MaxValue,
                 Value = "<your access token here>"
             };
 

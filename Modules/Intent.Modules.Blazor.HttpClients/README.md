@@ -116,6 +116,7 @@ internal class AccessTokenProvider : IAccessTokenProvider
     {
         var accessToken = new AccessToken
         {
+            Expires = DateTimeOffset.MaxValue,
             Value = "<your access token here>"
         };
 
@@ -143,126 +144,9 @@ You can also review [Microsoft's documentation on covering additional Blazor sec
 
 ## Adding CORS to your Api project
 
-If your Blazor App is hosted on a different BaseUrl to that of your API, the browser will block these cross-origin requests unless you configure the CORS in the API to allow requests from the Blazor App's URL.
+If your Blazor App is hosted on a different BaseUrl to that of your API, the browser will block these cross-origin requests unless you configure [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API project.
 
-In the Api's `Startup.cs` file you will need to add the following to the `ConfigureServices` method:
-
-```csharp
-// IntentIgnore
-services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy
-                .WithOrigins("https://localhost:7014")
-                .AllowAnyMethod()
-                .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
-                .AllowCredentials();
-        });
-});
-```
-
-`https://localhost:7014` should be replaced with the URL of your `Blazor` project, in development you can get this url from the `Blazor` project's `Properties/launchsettings.json` file.
-
-And the following to the `Configure` method:
-
-```csharp
-// IntentIgnore
-app.UseCors();
-```
-
-The file should now look something like this:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.Net.Http.Headers;
-using NewApplication1.Api.Configuration;
-using NewApplication1.Api.Filters;
-using NewApplication1.Application;
-using NewApplication1.Infrastructure;
-using Serilog;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
-
-namespace NewApplication1.Api
-{
-    [IntentManaged(Mode.Merge)]
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers(
-                opt =>
-                {
-                    opt.Filters.Add<ExceptionFilter>();
-                });
-
-            services.AddApplication();
-            services.ConfigureApplicationSecurity(Configuration);
-            services.ConfigureProblemDetails();
-            services.ConfigureApiVersioning();
-            services.AddInfrastructure(Configuration);
-            services.ConfigureSwagger(Configuration);
-            // IntentIgnore
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        policy
-                            .WithOrigins("https://localhost:7014")
-                            .AllowAnyMethod()
-                            .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
-                            .AllowCredentials();
-                    });
-            });
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseSerilogRequestLogging();
-            app.UseExceptionHandler();
-            app.UseHttpsRedirection();
-            app.UseRouting();
-            // IntentIgnore
-            app.UseCors();
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-            app.UseSwashbuckle();
-        }
-    }
-}
-```
+You can install the `Intent.Modules.AspNetCore.Cors` module in the same Intent Architect Application as your API, run the Software Factory and it will then apply the required updates to enable CORS.
 
 ## Using the service proxy in a Razor file
 

@@ -41,24 +41,13 @@ namespace CleanArchitecture.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
+            services.ConfigureCors();
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
-            // IntentIgnore
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        policy.WithOrigins("https://localhost:7019")
-                            .AllowAnyMethod()
-                            .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
-                            .AllowCredentials();
-                    });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,11 +61,10 @@ namespace CleanArchitecture.TestApplication.Api
             app.UseSerilogRequestLogging();
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
-            // IntentIgnore
-            app.UseCors();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
