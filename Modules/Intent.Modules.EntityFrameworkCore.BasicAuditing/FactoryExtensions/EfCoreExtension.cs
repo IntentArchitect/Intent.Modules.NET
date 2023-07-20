@@ -101,27 +101,44 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
             ICSharpFileBuilderTemplate template,
             CSharpClass priClass)
         {
+            var auditableTypeName = template.GetAuditableInterfaceName();
+
             priClass.AddMethod("void", "SetAuditableFields", method =>
             {
                 method.Private();
-                method.AddStatements(@"
-            var userName = _currentUserService.UserId ?? throw new InvalidOperationException(""UserId is null"");
-            var timestamp = DateTimeOffset.UtcNow;
-            var entries = ChangeTracker.Entries().ToArray();");
-                method.AddForEachStatement("entry", "entries", forStmt =>
+                method.AddMethodChainStatement("var auditableEntries = ChangeTracker.Entries()", chain =>
                 {
-                    forStmt.AddIfStatement($"entry.Entity is not {template.GetAuditableInterfaceName()} auditable",
-                        ifStmt => ifStmt.AddStatement("continue;"));
+                    chain.AddChainStatement(new CSharpInvocationStatement("Where").AddArgument(new CSharpLambdaBlock("entry")
+                        .WithExpressionBody(@$"entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
+                                entry.Entity is {auditableTypeName}"))
+                        .WithoutSemicolon());
+                    chain.AddChainStatement(new CSharpInvocationStatement("Select").AddArgument(new CSharpLambdaBlock("entry")
+                        .WithExpressionBody(@$"new
+                {{
+                    entry.State,
+                    Auditable = ({auditableTypeName})entry.Entity
+                }}"))
+                        .WithoutSemicolon());
+                    chain.AddChainStatement(new CSharpInvocationStatement("ToArray"))
+                        .WithoutSemicolon();
+                });
 
+                method.AddIfStatement("!auditableEntries.Any()", @if => @if.AddStatement("return;"));
+
+                method.AddStatement(
+                    "var userName = _currentUserService.UserId ?? throw new InvalidOperationException(\"UserId is null\");",
+                    s => s.SeparatedFromPrevious());
+                method.AddStatement(
+                    "var timestamp = DateTimeOffset.UtcNow;");
+
+                method.AddForEachStatement("entry", "auditableEntries", forStmt =>
+                {
                     forStmt.AddSwitchStatement("entry.State", switchStmt => switchStmt
                         .AddCase("EntityState.Added", block => block
-                            .AddStatement("auditable.SetCreated(userName, timestamp);")
+                            .AddStatement("entry.Auditable.SetCreated(userName, timestamp);")
                             .WithBreak())
                         .AddCase("EntityState.Modified or EntityState.Deleted", block => block
-                            .AddStatement("auditable.SetUpdated(userName, timestamp);")
-                            .WithBreak())
-                        .AddCase("EntityState.Detached")
-                        .AddCase("EntityState.Unchanged", block => block
+                            .AddStatement("entry.Auditable.SetUpdated(userName, timestamp);")
                             .WithBreak())
                         .AddDefault(block => block
                             .AddStatement("throw new ArgumentOutOfRangeException();")));

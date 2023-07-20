@@ -72,27 +72,33 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
 
         private void SetAuditableFields()
         {
+            var auditableEntries = ChangeTracker.Entries()
+                .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
+                                entry.Entity is IAuditable)
+                .Select(entry => new
+                {
+                    entry.State,
+                    Auditable = (IAuditable)entry.Entity
+                })
+                .ToArray();
+
+            if (!auditableEntries.Any())
+            {
+                return;
+            }
+
             var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
             var timestamp = DateTimeOffset.UtcNow;
-            var entries = ChangeTracker.Entries().ToArray();
 
-            foreach (var entry in entries)
+            foreach (var entry in auditableEntries)
             {
-                if (entry.Entity is not IAuditable auditable)
-                {
-                    continue;
-                }
-
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        auditable.SetCreated(userName, timestamp);
+                        entry.Auditable.SetCreated(userName, timestamp);
                         break;
                     case EntityState.Modified or EntityState.Deleted:
-                        auditable.SetUpdated(userName, timestamp);
-                        break;
-                    case EntityState.Detached:
-                    case EntityState.Unchanged:
+                        entry.Auditable.SetUpdated(userName, timestamp);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
