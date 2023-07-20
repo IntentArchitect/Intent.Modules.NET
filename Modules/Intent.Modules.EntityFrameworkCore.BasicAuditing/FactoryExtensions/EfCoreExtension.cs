@@ -11,6 +11,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.BasicAuditing.Templates;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,7 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             InstallDbContext(application);
-            InstallInterfaceOnEntities(application);
+            UpdateEntities(application);
         }
 
         private static void InstallDbContext(IApplication application)
@@ -47,32 +48,52 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
             dbContext?.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System");
+                file.AddUsing("System.Linq");
 
                 var priClass = file.Classes.First();
 
                 AddSetAuditableFieldsMethod(dbContext, priClass);
 
-                var asyncSaveChanges = priClass.Methods.Where(p => p.Name == "SaveChangesAsync").MaxBy(o => o.Parameters.Count);
-                var normalSaveChanges = priClass.Methods.Where(p => p.Name == "SaveChanges").MaxBy(o => o.Parameters.Count);
+                var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
+                var normalSaveChanges = dbContext.GetSaveChangesMethod();
 
-                asyncSaveChanges?.Statements.Insert(0, "SetAuditableFields();");
-
-                normalSaveChanges?.Statements.Insert(0, "SetAuditableFields();");
+                asyncSaveChanges.Statements.Insert(0, "SetAuditableFields();");
+                normalSaveChanges.Statements.Insert(0, "SetAuditableFields();");
             }, 100);
         }
 
-        private static void InstallInterfaceOnEntities(IApplication application)
+        private static void UpdateEntities(IApplication application)
         {
             var entityStateClasses = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
             foreach (var entity in entityStateClasses)
             {
-                entity.CSharpFile.OnBuild(file =>
+                // This needs to be an AfterBuild because DomainEntityTemplate automatically adds [IntentManaged(Mode.Fully, Body = Mode.Merge)] to
+                // all methods in its own AfterBuild which we don't want for the ones we're adding here.
+                entity.CSharpFile.AfterBuild(file =>
                 {
-                    var priClass = file.Classes.First();
-                    var model = priClass.GetMetadata<ClassModel>("model");
+                    var @class = file.Classes.First();
+                    var model = @class.GetMetadata<ClassModel>("model");
                     if (!model.HasBasicAuditing()) { return; }
-                    priClass.ImplementsInterface(entity.GetAuditableInterfaceName());
-                });
+
+                    var auditableInterfaceName = entity.GetAuditableInterfaceName();
+                    @class.ImplementsInterface(auditableInterfaceName);
+
+                    @class.AddMethod("void", "SetCreated", method =>
+                    {
+                        method.AddParameter("string", "createdBy");
+                        method.AddParameter("DateTimeOffset", "createdDate");
+                        method.IsExplicitImplementationFor(auditableInterfaceName);
+                        method.WithExpressionBody("(CreatedBy, CreatedDate) = (createdBy, createdDate)");
+                    });
+
+                    @class.AddMethod("void", "SetUpdated", method =>
+                    {
+                        method.AddParameter("string", "updatedBy");
+                        method.AddParameter("DateTimeOffset", "updatedDate");
+                        method.IsExplicitImplementationFor(auditableInterfaceName);
+                        method.WithExpressionBody("(UpdatedBy, UpdatedDate) = (updatedBy, updatedDate)");
+                    });
+                }, 100);
             }
         }
 
@@ -84,7 +105,7 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
             {
                 method.Private();
                 method.AddStatements(@"
-            var userName = _currentUserService.UserId;
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException(""UserId is null"");
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();");
                 method.AddForEachStatement("entry", "entries", forStmt =>
@@ -93,16 +114,15 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
                         ifStmt => ifStmt.AddStatement("continue;"));
 
                     forStmt.AddSwitchStatement("entry.State", switchStmt => switchStmt
-                        .AddCase("EntityState.Modified or EntityState.Deleted", block => block
-                            .AddStatement("auditable.UpdatedBy = userName;")
-                            .AddStatement("auditable.UpdatedDate = timestamp;")
-                            .WithBreak())
                         .AddCase("EntityState.Added", block => block
-                            .AddStatement("auditable.CreatedBy = userName;")
-                            .AddStatement("auditable.CreatedDate = timestamp;")
+                            .AddStatement("auditable.SetCreated(userName, timestamp);")
+                            .WithBreak())
+                        .AddCase("EntityState.Modified or EntityState.Deleted", block => block
+                            .AddStatement("auditable.SetUpdated(userName, timestamp);")
                             .WithBreak())
                         .AddCase("EntityState.Detached")
-                        .AddCase("EntityState.Unchanged", block => block.WithBreak())
+                        .AddCase("EntityState.Unchanged", block => block
+                            .WithBreak())
                         .AddDefault(block => block
                             .AddStatement("throw new ArgumentOutOfRangeException();")));
                 });

@@ -25,6 +25,33 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Audited", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Attribute")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Auditeds");
+                });
+
             modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Invoice", b =>
                 {
                     b.Property<Guid>("Id")
@@ -37,6 +64,29 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Person", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("People");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Tag", b =>
@@ -67,6 +117,17 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Migrations
                     b.HasIndex("TagsId");
 
                     b.ToTable("InvoiceTags", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Customer", b =>
+                {
+                    b.HasBaseType("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Person");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Customer");
                 });
 
             modelBuilder.Entity("Entities.PrivateSetters.EF.SqlServer.Domain.Entities.Invoice", b =>

@@ -13,6 +13,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -137,27 +138,9 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             priClass.AddProperty("TenantMismatchMode", "TenantMismatchMode", prop => prop.WithInitialValue("TenantMismatchMode.Throw"));
             priClass.AddProperty("TenantNotSetMode", "TenantNotSetMode", prop => prop.WithInitialValue("TenantNotSetMode.Throw"));
 
-            var syncSave = priClass.FindMethod(p => "SaveChanges".Equals(p.Name) && p.Parameters.Count == 1);
-            if (syncSave == null)
-            {
-                priClass.AddMethod("int", "SaveChanges", method => method
-                    .Override()
-                    .AddParameter("bool", "acceptAllChangesOnSuccess")
-                    .AddStatement("return base.SaveChanges(acceptAllChangesOnSuccess);"));
-                syncSave = priClass.FindMethod(p => "SaveChanges".Equals(p.Name) && p.Parameters.Count == 1);
-            }
-            
-            var asyncSave = priClass.FindMethod(p => "SaveChangesAsync".Equals(p.Name) && p.Parameters.Count == 2);
-            if (asyncSave == null)
-            {
-                priClass.AddMethod("Task<int>", "SaveChangesAsync", method => method
-                    .Override()
-                    .Async()
-                    .AddParameter("bool", "acceptAllChangesOnSuccess")
-                    .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"))
-                    .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);"));
-                asyncSave = priClass.FindMethod(p => "SaveChangesAsync".Equals(p.Name) && p.Parameters.Count == 2);
-            }
+            var syncSave = dbContextTemplate.GetSaveChangesMethod();
+
+            var asyncSave = dbContextTemplate.GetSaveChangesAsyncMethod();
 
             syncSave.FindStatement(stmt => stmt.GetText("").Contains("return"))
                 .InsertAbove("this.EnforceMultiTenant();");

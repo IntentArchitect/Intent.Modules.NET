@@ -15,6 +15,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddTransient<IAuditedService, AuditedService>();
             services.AddTransient<IInvoiceService, InvoiceService>();
             services.AddTransient<ITagService, TagService>();
             return services;

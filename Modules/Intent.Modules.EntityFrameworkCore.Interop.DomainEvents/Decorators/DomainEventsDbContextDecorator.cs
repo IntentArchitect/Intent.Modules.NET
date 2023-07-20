@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -31,20 +32,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 {
                     param.IntroduceReadonlyField();
                 });
-                var saveMethod = @class.Methods
-                    .OrderByDescending(x => x.Parameters.Count)
-                    .SingleOrDefault(x => x.Name == "SaveChangesAsync");
-                if (saveMethod == null)
-                {
-                    @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
-                    {
-                        saveMethod = method;
-                        method.Override().Async()
-                            .AddParameter("bool", "acceptAllChangesOnSuccess")
-                            .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                            .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);");
-                    });
-                }
+                var saveMethod = template.GetSaveChangesAsyncMethod();
                 saveMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
 
                 @class.AddMethod("Task", "DispatchEventsAsync", method =>

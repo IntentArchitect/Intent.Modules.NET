@@ -38,6 +38,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -54,6 +55,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

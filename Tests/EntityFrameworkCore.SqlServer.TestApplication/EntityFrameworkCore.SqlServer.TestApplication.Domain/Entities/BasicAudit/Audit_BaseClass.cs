@@ -25,5 +25,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAud
         public DateTimeOffset? UpdatedDate { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
+        void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedBy, CreatedDate) = (createdBy, createdDate);
+
+        void IAuditable.SetUpdated(string updatedBy, DateTimeOffset updatedDate) => (UpdatedBy, UpdatedDate) = (updatedBy, updatedDate);
     }
 }

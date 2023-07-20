@@ -27,6 +27,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IAuditedRepository, AuditedRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();

@@ -64,7 +64,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Services</typePackageName>
+            <typePackageName>Services</typePackageName>
             <typePackageId>5fab54f8-6d26-479d-8ca5-d7d36d07eeb7</typePackageId>
             <stereotypes />
             <genericTypeParameters />
@@ -90,7 +90,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.SqlServer.TestApplication.Services</typePackageName>
+        <typePackageName>Services</typePackageName>
         <typePackageId>5fab54f8-6d26-479d-8ca5-d7d36d07eeb7</typePackageId>
         <stereotypes />
         <genericTypeParameters />

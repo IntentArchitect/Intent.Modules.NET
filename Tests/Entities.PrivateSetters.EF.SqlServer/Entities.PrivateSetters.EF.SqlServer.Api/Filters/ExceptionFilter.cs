@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using Entities.PrivateSetters.EF.SqlServer.Application.Common.Exceptions;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Filters
         {
             switch (context.Exception)
             {
+                case ForbiddenAccessException:
+                    context.Result = new ForbidResult();
+                    context.ExceptionHandled = true;
+                    break;
                 case UnauthorizedAccessException:
                     context.Result = new ForbidResult();
                     context.ExceptionHandled = true;

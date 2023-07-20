@@ -24,14 +24,19 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.Templates.AuditableIn
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
-                .AddInterface($"IAuditable", inter =>
+                .AddInterface($"IAuditable", @interface =>
                 {
-                    var nullable = outputTarget.GetProject().IsNullableAwareContext();
-                    var questionMark = nullable ? "?" : string.Empty;
-                    inter.AddProperty($"string", "CreatedBy");
-                    inter.AddProperty("DateTimeOffset", "CreatedDate");
-                    inter.AddProperty($"string{questionMark}", "UpdatedBy");
-                    inter.AddProperty($"DateTimeOffset{questionMark}", "UpdatedDate");
+                    @interface.AddMethod("void", "SetCreated", method =>
+                    {
+                        method.AddParameter("string", "createdBy");
+                        method.AddParameter("DateTimeOffset", "createdDate");
+                    });
+
+                    @interface.AddMethod("void", "SetUpdated", method =>
+                    {
+                        method.AddParameter("string", "updatedBy");
+                        method.AddParameter("DateTimeOffset", "updatedDate");
+                    });
                 });
         }
 

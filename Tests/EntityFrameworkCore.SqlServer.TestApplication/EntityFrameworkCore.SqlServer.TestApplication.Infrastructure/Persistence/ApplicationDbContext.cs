@@ -198,6 +198,13 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            SetSoftDeleteProperties();
+            SetAuditableFields();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -375,7 +382,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         private void SetAuditableFields()
         {
-            var userName = _currentUserService.UserId;
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
             var timestamp = DateTimeOffset.UtcNow;
             var entries = ChangeTracker.Entries().ToArray();
 
@@ -388,13 +395,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
                 switch (entry.State)
                 {
-                    case EntityState.Modified or EntityState.Deleted:
-                        auditable.UpdatedBy = userName;
-                        auditable.UpdatedDate = timestamp;
-                        break;
                     case EntityState.Added:
-                        auditable.CreatedBy = userName;
-                        auditable.CreatedDate = timestamp;
+                        auditable.SetCreated(userName, timestamp);
+                        break;
+                    case EntityState.Modified or EntityState.Deleted:
+                        auditable.SetUpdated(userName, timestamp);
                         break;
                     case EntityState.Detached:
                     case EntityState.Unchanged:
