@@ -38,7 +38,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                     .AddConstructor(constructor => constructor
                         .AddAttribute("[IntentManaged(Mode.Ignore)]")
                     )
-                    .AddMethod("Task<Unit>", "Handle", method => method
+                    .AddMethod("Task", "Handle", method => method
                         .Async()
                         .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
                         .AddParameter(this.GetIntegrationEventMessageName(), "@event")

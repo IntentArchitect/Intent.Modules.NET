@@ -87,8 +87,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             #line default
             #line hidden
             this.Write(" dataSource)\r\n        {\r\n            _dataSource = dataSource;\r\n        }\r\n\r\n    " +
-                    "    public async Task<TResponse> Handle(TRequest request, CancellationToken canc" +
-                    "ellationToken, RequestHandlerDelegate<TResponse> next)\r\n        {\r\n            /" +
+                    "    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate" +
+                    "<TResponse> next, CancellationToken cancellationToken)\r\n        {\r\n            /" +
                     "/ The pipeline execution is wrapped in a transaction scope to ensure that if any" +
                     " other\r\n            // SaveChanges calls to the data source (e.g. EF Core) are c" +
                     "alled, that they are\r\n            // transacted atomically. The isolation is set" +

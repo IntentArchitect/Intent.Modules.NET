@@ -6,7 +6,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates
 {
     public class NuGetPackages
     {
-        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "10.0.1");
+        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "12.1.1");
         public static NugetPackageInfo MicrosoftExtensionsLogging(IOutputTarget outputTarget) => new("Microsoft.Extensions.Logging", GetVersion(outputTarget.GetProject()));
 
         private static string GetVersion(ICSharpProject project)

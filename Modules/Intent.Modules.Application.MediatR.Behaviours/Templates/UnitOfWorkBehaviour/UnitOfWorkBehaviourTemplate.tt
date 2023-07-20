@@ -34,7 +34,7 @@ namespace <#= Namespace #>
             _dataSource = dataSource;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             // The pipeline execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are

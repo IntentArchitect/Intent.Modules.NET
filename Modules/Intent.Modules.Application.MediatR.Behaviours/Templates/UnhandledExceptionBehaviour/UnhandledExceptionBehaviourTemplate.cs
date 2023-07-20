@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
             _logger = logger;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             try
             {

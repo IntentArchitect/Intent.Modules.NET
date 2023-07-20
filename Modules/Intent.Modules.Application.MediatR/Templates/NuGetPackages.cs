@@ -9,6 +9,6 @@ namespace Intent.Modules.Application.MediatR.Templates
 {
     public class NuGetPackages
     {
-        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "10.0.1");
+        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "12.1.1");
     }
 }

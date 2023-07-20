@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
         _eventBus = eventBus;
     }
     
-    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var response = await next();
 
