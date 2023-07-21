@@ -9,35 +9,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dc25b026-1726-4c90-bf24-672de80e1879</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b50fb7b1-4cfd-4f18-a37c-3c3f65f12e4c</CorrelationId>
+      <ProjectId>3d3183a9-5f38-4f01-a525-46d1c4afd2c9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/CorsStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CorsStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dc25b026-1726-4c90-bf24-672de80e1879</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#b50fb7b1-4cfd-4f18-a37c-3c3f65f12e4c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/CorsStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CorsStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Cors.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Cors.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3d3183a9-5f38-4f01-a525-46d1c4afd2c9</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3d3183a9-5f38-4f01-a525-46d1c4afd2c9</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Cors.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Cors.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d3183a9-5f38-4f01-a525-46d1c4afd2c9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Cors.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Cors.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -46,22 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c7a6d34f-fb92-4aec-b70e-1a686c7b9ae3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#09bba66a-1579-42ad-9c66-6fc35faa6cee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CorsConfiguration/CorsConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CorsConfiguration/CorsConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c7a6d34f-fb92-4aec-b70e-1a686c7b9ae3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#09bba66a-1579-42ad-9c66-6fc35faa6cee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CorsConfiguration/CorsConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CorsConfiguration/CorsConfigurationTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -4,9 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Configuration;
 using CleanArchitecture.TestApplication.Api.Filters;
-using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
-using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
@@ -16,7 +14,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Net.Http.Headers;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -41,9 +38,9 @@ namespace CleanArchitecture.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.ConfigureCors();
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureCors(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);

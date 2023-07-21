@@ -10,7 +10,7 @@ namespace Intent.Modules.AspNetCore.Cors.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCorsConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetCorsConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(CorsConfigurationTemplate.TemplateId);
         }
