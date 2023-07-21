@@ -3068,6 +3068,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.AccountController.AccountServiceHttpClientTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AccountService/AccountServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountService/AccountServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#3849f10a-4373-4be9-a94a-169d6516296e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AggregateRootsService/AggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
@@ -3304,6 +3312,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.AccountController.AccountServiceInterfaceTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IAccountService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAccountService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

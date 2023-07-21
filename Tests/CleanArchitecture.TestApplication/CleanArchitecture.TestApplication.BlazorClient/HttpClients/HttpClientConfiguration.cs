@@ -1,3 +1,4 @@
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AggregateRootsService;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.SecuredService;
 using Intent.RoslynWeaver.Attributes;
@@ -28,6 +29,18 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                     return sp.GetRequiredService<AuthorizationMessageHandler>()
                         .ConfigureHandler(
                             authorizedUrls: new[] { GetUrl(configuration, "CleanArchitectureTestApplication").AbsoluteUri });
+                });
+
+            services
+                .AddHttpClient<IAccountService, AccountServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "STSApplication");
+                })
+                .AddHttpMessageHandler(sp =>
+                {
+                    return sp.GetRequiredService<AuthorizationMessageHandler>()
+                    .ConfigureHandler(
+                        authorizedUrls: new[] { GetUrl(configuration, "STSApplication").AbsoluteUri });
                 });
         }
 

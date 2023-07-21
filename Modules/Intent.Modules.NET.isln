@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.28" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.30" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -109,5 +109,6 @@
     <application id="3c870573-3449-4986-82f0-1bf3299ab1d1" name="Intent.Modules.AspNetCore.SignalR" relativePath="Intent.Modules.AspNetCore.SignalR/Intent.Modules.AspNetCore.SignalR.application.config" />
     <application id="f51fb36a-8aba-46a5-8c18-b9f9c8c496da" name="Intent.Modules.Blazor.HttpClients" relativePath="Intent.Modules.Blazor.HttpClients/Intent.Modules.Blazor.HttpClients.application.config" />
     <application id="aa397c5c-7cbc-421d-8671-596b0a2cd970" name="Intent.Modules.EntityFrameworkCore.BasicAuditing" relativePath="Intent.Modules.EntityFrameworkCore.BasicAuditing/Intent.Modules.EntityFrameworkCore.BasicAuditing.application.config" />
+    <application id="5692b8df-ecfc-4d14-bbb3-9f2ecacf9879" name="Intent.Modules.Blazor.HttpClients.AccountController" relativePath="Intent.Modules.Blazor.HttpClients.AccountController/Intent.Modules.Blazor.HttpClients.AccountController.application.config" />
   </applications>
 </solution>

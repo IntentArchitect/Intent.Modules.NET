@@ -25,7 +25,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient
             {
                 InitialData = new Dictionary<string, string>
                 {
-                    ["Urls:CleanArchitectureTestApplication"] = "https://localhost:44341/"
+                    ["Urls:CleanArchitectureTestApplication"] = "https://localhost:44341/",
+                    ["Urls:STSApplication"] = "https://localhost:44384/",                    
                 }
             });
             builder.Services.AddHttpClients(builder.Configuration);
