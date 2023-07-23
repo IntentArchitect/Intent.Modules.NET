@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df6f56e4-28b8-48e0-ae73-6d908c10d820" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>BaseOfT</name>
+  <display>BaseOfT&lt;T&gt;</display>
+  <isAbstract>true</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes>
+    <genericType id="8a6e0304-5ef6-480b-bd73-4e79358199f3">
+      <name>T</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>115c384e-2212-4690-a788-c55bbe9a2ec2</parentFolderId>
+  <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
+  <packageName>CleanArchitecture.Dapr.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ce1bc4ee-fe87-48d9-ae3e-ae25a57fac7b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1e91d9a8-c1d3-4c3e-8160-529ea5af753b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df6f56e4-28b8-48e0-ae73-6d908c10d820</parentFolderId>
+      <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
+      <packageName>CleanArchitecture.Dapr.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e4aad7cb-0d74-43f6-9c73-dd233c698ccf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>GenericTypeAttribute</name>
+      <display>GenericTypeAttribute: T</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="44ec4360-b13c-4418-b31a-1e3a52a1851f">
+        <typeId>8a6e0304-5ef6-480b-bd73-4e79358199f3</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df6f56e4-28b8-48e0-ae73-6d908c10d820</parentFolderId>
+      <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
+      <packageName>CleanArchitecture.Dapr.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

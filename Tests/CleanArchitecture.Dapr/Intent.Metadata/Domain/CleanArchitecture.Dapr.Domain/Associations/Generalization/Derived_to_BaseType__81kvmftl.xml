@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c0217d74-f3bf-4e7c-84e6-ab93287d23ad">
+  <sourceEnd id="38a32c28-92d7-49fc-99f3-da32ccae3bf6" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>Derived</name>
+    <display>Derived: Derived</display>
+    <order>0</order>
+    <typeReference id="946c5f37-a393-49dc-a462-e47a72fabc7e">
+      <typeId>dfebf1cd-ec0c-4a7b-9f51-005af2791470</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c0217d74-f3bf-4e7c-84e6-ab93287d23ad" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>BaseType</name>
+    <display>BaseType: BaseType</display>
+    <order>1</order>
+    <typeReference id="04c68299-b54e-4ab9-9ce6-c2ea4bece68b">
+      <typeId>ce9ba206-d42b-46ba-a637-e6ed709a60f7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

@@ -52,6 +52,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d5357c76-d451-4541-9061-7b0a3184ccf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/DerivedOfTSController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTSController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#0d79e7ba-b529-43cc-9ad9-d8a516bd1e55</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/DerivedsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#b72af0d7-599e-4fcf-b182-136baca46905</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/InvoicesController.cs</ApplicationRelativeFilePath>
@@ -480,6 +496,278 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#da7a9046-7741-4362-88e7-a527ee20b5fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#da7a9046-7741-4362-88e7-a527ee20b5fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#da7a9046-7741-4362-88e7-a527ee20b5fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#99341199-ac94-4e34-8fa3-963c5cdcaf23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#99341199-ac94-4e34-8fa3-963c5cdcaf23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#99341199-ac94-4e34-8fa3-963c5cdcaf23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3d4f78bc-3eca-4520-a2d8-8036a7b4e93d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DerivedOfTDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/DerivedOfTDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#3d4f78bc-3eca-4520-a2d8-8036a7b4e93d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DerivedOfTDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/DerivedOfTDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#f76706e2-6da1-416f-b5f1-5f608b972640</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#f76706e2-6da1-416f-b5f1-5f608b972640</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f76706e2-6da1-416f-b5f1-5f608b972640</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2b6c4e6f-f452-487d-b912-476abc806652</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2b6c4e6f-f452-487d-b912-476abc806652</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2b6c4e6f-f452-487d-b912-476abc806652</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b42c51ce-6491-4a99-879e-e22e1e5c3346</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b42c51ce-6491-4a99-879e-e22e1e5c3346</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b42c51ce-6491-4a99-879e-e22e1e5c3346</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8716f54f-3117-4ad3-82a8-3f56e0f8d2b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/CreateDerived/CreateDerivedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/CreateDerived/CreateDerivedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8716f54f-3117-4ad3-82a8-3f56e0f8d2b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/CreateDerived/CreateDerivedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/CreateDerived/CreateDerivedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8716f54f-3117-4ad3-82a8-3f56e0f8d2b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/CreateDerived/CreateDerivedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/CreateDerived/CreateDerivedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6dd934cb-82cb-41be-bbc3-9e8306f8248b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DeleteDerived/DeleteDerivedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/DeleteDerived/DeleteDerivedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6dd934cb-82cb-41be-bbc3-9e8306f8248b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DeleteDerived/DeleteDerivedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/DeleteDerived/DeleteDerivedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6dd934cb-82cb-41be-bbc3-9e8306f8248b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DeleteDerived/DeleteDerivedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/DeleteDerived/DeleteDerivedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#88dc730c-8916-4f27-b475-323c18463a11</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DerivedDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/DerivedDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#88dc730c-8916-4f27-b475-323c18463a11</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DerivedDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/DerivedDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a410c202-6012-4ac4-807b-69207ceb05f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDerivedById/GetDerivedByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDerivedById/GetDerivedByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a410c202-6012-4ac4-807b-69207ceb05f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDerivedById/GetDerivedByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDerivedById/GetDerivedByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a410c202-6012-4ac4-807b-69207ceb05f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDerivedById/GetDerivedByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDerivedById/GetDerivedByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#df962310-cd4d-400b-8603-bbf8de083d44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDeriveds/GetDerivedsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDeriveds/GetDerivedsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#df962310-cd4d-400b-8603-bbf8de083d44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDeriveds/GetDerivedsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDeriveds/GetDerivedsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#df962310-cd4d-400b-8603-bbf8de083d44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/GetDeriveds/GetDerivedsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/GetDeriveds/GetDerivedsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d00cbe7e-065d-4951-9129-5fc2af669abf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/UpdateDerived/UpdateDerivedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/UpdateDerived/UpdateDerivedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d00cbe7e-065d-4951-9129-5fc2af669abf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/UpdateDerived/UpdateDerivedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/UpdateDerived/UpdateDerivedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d00cbe7e-065d-4951-9129-5fc2af669abf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/UpdateDerived/UpdateDerivedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Deriveds/UpdateDerived/UpdateDerivedCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -972,6 +1260,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#df6f56e4-28b8-48e0-ae73-6d908c10d820</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/BaseOfT.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BaseOfT.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ce9ba206-d42b-46ba-a637-e6ed709a60f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/BaseType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BaseType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#9257c32a-49d8-4f04-8e4b-840b89ebdf14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Client.cs</ApplicationRelativeFilePath>
@@ -984,6 +1288,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Country.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Country.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#dfebf1cd-ec0c-4a7b-9f51-005af2791470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/Derived.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Derived.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0c7f51fb-d544-4250-8757-eb43c467e62a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#32d8c096-18f3-40c9-945d-00f565c9cb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Entities/DerivedOfT.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfT.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1040,6 +1360,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02e589b2-631c-4135-8dac-1b1dd0c5a2fb</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#32d8c096-18f3-40c9-945d-00f565c9cb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IDerivedOfTRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedOfTRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02e589b2-631c-4135-8dac-1b1dd0c5a2fb</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#dfebf1cd-ec0c-4a7b-9f51-005af2791470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Domain/Repositories/IDerivedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1168,6 +1504,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreRepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c1f4933-bb7d-4a6a-9e41-5ec7b3d49cf3</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository#dfebf1cd-ec0c-4a7b-9f51-005af2791470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Repositories/DerivedDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedDaprStateStoreRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c1f4933-bb7d-4a6a-9e41-5ec7b3d49cf3</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository#32d8c096-18f3-40c9-945d-00f565c9cb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Repositories/DerivedOfTDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedOfTDaprStateStoreRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

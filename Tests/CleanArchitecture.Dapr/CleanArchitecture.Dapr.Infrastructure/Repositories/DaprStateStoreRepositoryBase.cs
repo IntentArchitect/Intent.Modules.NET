@@ -36,9 +36,9 @@ namespace CleanArchitecture.Dapr.Infrastructure.Repositories
 
         public IDaprStateStoreUnitOfWork UnitOfWork => _unitOfWork;
 
-        public async Task<TDomain> FindByKeyAsync(string key, CancellationToken cancellationToken = default)
+        public async Task<TDomain?> FindByKeyAsync(string key, CancellationToken cancellationToken = default)
         {
-            var entity = await _daprClient.GetStateAsync<TDomain>(
+            var entity = await _daprClient.GetStateAsync<TDomain?>(
                 storeName: _storeName,
                 key: key,
                 cancellationToken: cancellationToken,

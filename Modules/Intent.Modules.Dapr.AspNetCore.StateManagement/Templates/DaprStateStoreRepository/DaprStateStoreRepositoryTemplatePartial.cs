@@ -39,7 +39,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                 .AddUsing("Dapr.Client")
                 .AddClass($"{Model.Name}DaprStateStoreRepository", @class =>
                 {
-                    var pkAttribute = Model.Attributes.Single(x => x.HasPrimaryKey());
+                    var pkAttribute = Model.GetPrimaryKeyAttribute();
                     var pkPropertyName = pkAttribute.Name.ToPascalCase();
                     var pkTypeName = GetTypeName((IElement)pkAttribute.TypeReference.Element);
                     var pkToString = pkTypeName switch
@@ -78,22 +78,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         .AddMethod("void", "Add", method =>
                         {
                             method.AddParameter(EntityInterfaceName, "entity");
-
-                            var shouldAutoSet = pkTypeName is "Guid" or "string";
-                            if (shouldAutoSet)
-                            {
-                                method.AddIfStatement($"entity.{pkPropertyName} == default", s => s
-                                    .AddStatement($"entity.{pkPropertyName} = Guid.NewGuid().ToString();")
-                                );
-                            }
-
-                            method.AddStatement($"Upsert(entity.{pkPropertyName}{pkToString}, entity);", s =>
-                            {
-                                if (shouldAutoSet)
-                                {
-                                    s.SeparatedFromPrevious();
-                                }
-                            });
+                            method.AddStatement($"Upsert(entity.{pkPropertyName}{pkToString}, entity);");
                         })
                         .AddMethod("void", "Update", method => method
                             .AddParameter(EntityInterfaceName, "entity")
@@ -103,7 +88,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                             .AddParameter(EntityInterfaceName, "entity")
                             .AddStatement($"Remove(entity.{pkPropertyName}{pkToString}, entity);")
                         )
-                        .AddMethod($"Task<{EntityInterfaceName}>", "FindByIdAsync", method => method
+                        .AddMethod($"Task<{EntityInterfaceName}?>", "FindByIdAsync", method => method
                             .AddParameter(pkTypeName, "id")
                             .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                             .AddStatement($"return FindByKeyAsync(id{pkToString}, cancellationToken);")

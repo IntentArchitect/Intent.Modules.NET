@@ -21,11 +21,6 @@ namespace CleanArchitecture.Dapr.Infrastructure.Repositories
 
         public void Add(Client entity)
         {
-            if (entity.Id == default)
-            {
-                entity.Id = Guid.NewGuid().ToString();
-            }
-
             Upsert(entity.Id, entity);
         }
 
@@ -39,7 +34,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.Repositories
             Remove(entity.Id, entity);
         }
 
-        public Task<Client> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public Task<Client?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return FindByKeyAsync(id, cancellationToken);
         }

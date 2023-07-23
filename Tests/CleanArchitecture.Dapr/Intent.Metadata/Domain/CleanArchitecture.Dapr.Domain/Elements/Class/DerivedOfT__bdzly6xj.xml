@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="32d8c096-18f3-40c9-945d-00f565c9cb47" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>DerivedOfT</name>
+  <display>DerivedOfT : BaseOfT&lt;int&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>115c384e-2212-4690-a788-c55bbe9a2ec2</parentFolderId>
+  <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
+  <packageName>CleanArchitecture.Dapr.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="632d05cd-c9ad-4cce-9386-670027f47f8e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DerivedAttribute</name>
+      <display>DerivedAttribute: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f8e4d8c9-1a49-4ef3-bc38-de46ab6878ec">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>32d8c096-18f3-40c9-945d-00f565c9cb47</parentFolderId>
+      <packageId>115c384e-2212-4690-a788-c55bbe9a2ec2</packageId>
+      <packageName>CleanArchitecture.Dapr.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

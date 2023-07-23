@@ -53,11 +53,11 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                         .WithoutSetter()
                         .Getter.WithExpressionImplementation("_unitOfWork")
                     )
-                    .AddMethod($"Task<{tDomain}>", "FindByKeyAsync", method => method
+                    .AddMethod($"Task<{tDomain}?>", "FindByKeyAsync", method => method
                         .Async()
                         .AddParameter("string", "key")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                        .AddStatement(@"var entity = await _daprClient.GetStateAsync<TDomain>(
+                        .AddStatement(@"var entity = await _daprClient.GetStateAsync<TDomain?>(
                 storeName: _storeName,
                 key: key,
                 cancellationToken: cancellationToken,

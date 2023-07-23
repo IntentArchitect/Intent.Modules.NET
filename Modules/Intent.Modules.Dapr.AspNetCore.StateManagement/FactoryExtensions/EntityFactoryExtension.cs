@@ -19,7 +19,9 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            EntityFactoryExtensionHelper.Execute(application);
+            EntityFactoryExtensionHelper.Execute(
+                application: application,
+                initializePrimaryKeyOnAggregateRoots: true);
         }
     }
 }

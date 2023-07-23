@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -15,7 +16,7 @@ namespace Intent.Modules.DocumentDB.Shared
 {
     internal static class EntityFactoryExtensionHelper
     {
-        public static void Execute(IApplication application)
+        public static void Execute(IApplication application, bool initializePrimaryKeyOnAggregateRoots)
         {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
             foreach (var template in templates)
@@ -48,7 +49,7 @@ namespace Intent.Modules.DocumentDB.Shared
                         }
                     }
 
-                    var pks = model.GetPrimaryKeys();
+                    var pks = model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
                     if (!pks.Any())
                     {
                         return;
@@ -62,7 +63,7 @@ namespace Intent.Modules.DocumentDB.Shared
                             .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
                         var fieldName = $"_{attribute.Name.ToCamelCase()}";
 
-                        if (!model.IsAggregateRoot())
+                        if (!model.IsAggregateRoot() || initializePrimaryKeyOnAggregateRoots)
                         {
                             InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
                         }
@@ -78,7 +79,7 @@ namespace Intent.Modules.DocumentDB.Shared
             }
         }
 
-        public static void InitializePrimaryKey(ICSharpFileBuilderTemplate template, CSharpClass @class, AttributeModel attributePk, CSharpProperty existingPk, string fieldName)
+        private static void InitializePrimaryKey(ICSharpTemplate template, CSharpClass @class, AttributeModel attributePk, CSharpProperty existingPk, string fieldName)
         {
             @class.AddField(template.GetTypeName(attributePk.TypeReference) + "?", fieldName);
             var getExpressionSuffix = attributePk.TypeReference.Element.Name switch
