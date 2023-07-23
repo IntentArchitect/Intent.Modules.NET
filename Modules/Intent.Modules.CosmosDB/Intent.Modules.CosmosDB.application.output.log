@@ -98,6 +98,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f266346d-4cca-4e9c-8fbf-c3c8d6e78495</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f266346d-4cca-4e9c-8fbf-c3c8d6e78495</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f6ce433e-4f92-4909-895e-3ea3fff71d00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CosmosDBRepository/CosmosDBRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>

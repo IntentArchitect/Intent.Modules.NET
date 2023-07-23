@@ -41,6 +41,8 @@ namespace CosmosDB.Infrastructure
                         .WithPartitionKey("/classPartitionKey"))
                     .Configure<ClientDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<DerivedOfTDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<DerivedTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<FolderContainerDocument>(c => c
@@ -61,6 +63,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IBaseTypeRepository, BaseTypeCosmosDBRepository>();
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
+            services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
             services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();

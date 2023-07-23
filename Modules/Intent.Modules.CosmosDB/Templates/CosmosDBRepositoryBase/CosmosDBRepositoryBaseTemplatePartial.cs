@@ -137,7 +137,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.Async();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                                                     
+
                         method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);");
                         method.AddStatement($"return documents.Cast<TDomain>().ToList();");
                     });
@@ -177,7 +177,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddStatement("var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);");
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
                         method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body), afterParameter);");
-                      
+
                     });
 
                     @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
@@ -185,14 +185,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         nestClass
                             .Private()
                             .WithBaseType("ExpressionVisitor");
-                        nestClass.AddConstructor(ctor => 
+                        nestClass.AddConstructor(ctor =>
                         {
                             ctor
                                 .AddParameter("Expression", "before", p => p.IntroduceReadonlyField())
                                 .AddParameter("Expression", "after", p => p.IntroduceReadonlyField());
                         });
 
-                        nestClass.AddMethod("Expression", "Visit", method => 
+                        nestClass.AddMethod("Expression", "Visit", method =>
                         {
                             method
                                 .Override()

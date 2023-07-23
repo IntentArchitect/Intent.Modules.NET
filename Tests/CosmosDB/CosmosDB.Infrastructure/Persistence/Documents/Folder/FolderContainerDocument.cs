@@ -21,7 +21,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
         [JsonProperty("type")]
         string IItem.Type
         {
-            get => _type ??= GetType().Name;
+            get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
         string IItem.PartitionKey => FolderPartitionKey;

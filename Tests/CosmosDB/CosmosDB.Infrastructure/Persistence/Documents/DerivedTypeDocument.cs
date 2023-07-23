@@ -20,7 +20,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         [JsonProperty("type")]
         string IItem.Type
         {
-            get => _type ??= GetType().Name;
+            get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
 

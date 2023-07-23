@@ -30,48 +30,10 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            EntityFactoryExtensionHelper.Execute(application);
-            AddDocumentIdentityAssignment(application);
+            EntityFactoryExtensionHelper.Execute(
+                application: application,
+                initializePrimaryKeyOnAggregateRoots: true);
             RegisterServices(application);
-        }
-
-        private static void AddDocumentIdentityAssignment(IApplication application)
-        {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
-            foreach (var template in templates)
-            {
-                var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
-                if (!templateModel.InternalElement.Package.HasStereotype("Document Database"))
-                {
-                    continue;
-                }
-
-                template.CSharpFile.OnBuild(file =>
-                {
-                    file.AddUsing("System");
-                    var @class = file.Classes.First();
-                    var model = @class.GetMetadata<ClassModel>("model");
-
-                    var pks = model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
-                    if (!pks.Any())
-                    {
-                        return;
-                    }
-
-                    foreach (var attribute in pks)
-                    {
-                        var existingPk = @class
-                            .GetAllProperties()
-                            .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
-
-                        var fieldName = $"_{attribute.Name.ToCamelCase()}";
-                        if (model.IsAggregateRoot())
-                        {
-                            EntityFactoryExtensionHelper.InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
-                        }
-                    }
-                });
-            }
         }
 
         private static void RegisterServices(IApplication application)

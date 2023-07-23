@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class BaseTypeDocument : BaseType, ICosmosDBDocument<BaseTypeDocument, BaseType>
+    internal class DerivedOfTDocument : DerivedOfT, ICosmosDBDocument<DerivedOfTDocument, DerivedOfT>
     {
         private string? _type;
         [JsonProperty("id")]
@@ -24,9 +24,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => _type = value;
         }
 
-        public BaseTypeDocument PopulateFromEntity(BaseType entity)
+        public DerivedOfTDocument PopulateFromEntity(DerivedOfT entity)
         {
+            DerivedAttribute = entity.DerivedAttribute;
             Id = entity.Id;
+            GenericAttribute = entity.GenericAttribute;
 
             return this;
         }

@@ -103,7 +103,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             .AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"type\")")
                             .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
 
-                        property.Getter.WithExpressionImplementation("_type ??= GetType().Name");
+                        this.GetCosmosDBDocumentTypeExtensionMethodsName(); // Ensure using is added for extension method
+                        property.Getter.WithExpressionImplementation("_type ??= GetType().GetNameForDocument()");
                         property.Setter.WithExpressionImplementation("_type = value");
                     });
 
