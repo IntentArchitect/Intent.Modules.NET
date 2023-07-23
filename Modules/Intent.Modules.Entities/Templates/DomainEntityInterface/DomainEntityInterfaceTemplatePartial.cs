@@ -59,12 +59,23 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name}", @interface =>
                 {
+                    foreach (var genericType in Model.GenericTypes)
+                    {
+                        @interface.AddGenericParameter(genericType);
+                    }
+
                     @interface.AddMetadata("model", Model);
                     @interface.WithMembersSeparated();
 
                     if (Model.ParentClass != null)
                     {
-                        @interface.ExtendsInterface(this.GetDomainEntityInterfaceName(Model.ParentClass));
+                        var baseType = this.GetDomainEntityInterfaceName(Model.ParentClass);
+                        if (Model.ParentClassTypeReference.GenericTypeParameters.Any())
+                        {
+                            baseType = $"{baseType}<{string.Join(", ", Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>";
+                        }
+
+                        @interface.ExtendsInterface(baseType);
                     }
 
                     foreach (var attribute in Model.Attributes)

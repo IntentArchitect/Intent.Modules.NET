@@ -1,6 +1,7 @@
 ### Version 4.3.4
 
 - Update: Base classes not have `protected` setters, rather than `private` setters, to make them more accessible in the inheritance hierarchy.
+- Update: Generic type parameters specified for `Class`es in the Domain Designer are now respected during generation of entities.
 
 ### Version 4.3.3
 

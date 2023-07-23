@@ -51,6 +51,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
+                    foreach (var genericType in Model.GenericTypes)
+                    {
+                        @class.AddGenericParameter(genericType);
+                    }
+
                     @class.AddMetadata("model", Model);
                     @class.AddMetadata(IsMerged, true);
                     @class.WithPropertiesSeparated();
@@ -68,11 +73,25 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     if (Model.ParentClass != null)
                     {
-                        @class.ExtendsClass(GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
+                        // It's important we use the actual CSharpClass here from the other template
+                        // and not a string because its metadata is checked by other templates and/or
+                        // factory extensions.
+                        var baseType = GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First();
+
+                        @class.ExtendsClass(
+                            @class: baseType,
+                            genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
                     }
+
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                     {
-                        @class.ImplementsInterface(this.GetDomainEntityInterfaceName());
+                        var domainEntityInterfaceName = this.GetDomainEntityInterfaceName();
+                        if (Model.GenericTypes.Any())
+                        {
+                            domainEntityInterfaceName = $"{domainEntityInterfaceName}<{string.Join(", ", Model.GenericTypes)}>";
+                        }
+
+                        @class.ImplementsInterface(domainEntityInterfaceName);
                     }
 
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)")

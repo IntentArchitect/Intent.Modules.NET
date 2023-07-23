@@ -47,6 +47,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                             {
                                 rootEntity = rootEntity.BaseType;
                             }
+
                             if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
                             {
                                 @interface.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>

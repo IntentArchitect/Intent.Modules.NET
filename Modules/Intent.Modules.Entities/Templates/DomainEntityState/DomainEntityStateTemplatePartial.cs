@@ -18,6 +18,7 @@ using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateFulfillingRoles.Repository;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -49,17 +50,35 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
+                    foreach (var genericType in Model.GenericTypes)
+                    {
+                        @class.AddGenericParameter(genericType);
+                    }
+
                     @class.AddMetadata("model", Model);
                     @class.Partial();
                     @class.WithPropertiesSeparated();
 
                     if (Model.ParentClass != null)
                     {
-                        @class.ExtendsClass(GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
+                        var baseType = this.GetDomainEntityName(Model.ParentClass);
+                        if (Model.ParentClassTypeReference.GenericTypeParameters.Any())
+                        {
+                            baseType = $"{baseType}<{string.Join(", ", Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>";
+                        }
+
+                        @class.ExtendsClass(baseType);
                     }
+
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                     {
-                        @class.ImplementsInterface(this.GetDomainEntityInterfaceName());
+                        var domainEntityInterfaceName = this.GetDomainEntityInterfaceName();
+                        if (Model.GenericTypes.Any())
+                        {
+                            domainEntityInterfaceName = $"{domainEntityInterfaceName}<{string.Join(", ", Model.GenericTypes)}>";
+                        }
+
+                        @class.ImplementsInterface(domainEntityInterfaceName);
                     }
 
                     AddProperties(@class);
