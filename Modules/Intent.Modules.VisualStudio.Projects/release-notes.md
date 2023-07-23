@@ -1,3 +1,10 @@
+### Version 3.3.29
+
+- Update: Added the following as available SDK options for .NET Projects making the list [complete](https://learn.microsoft.com/dotnet/core/project-sdk/overview#available-sdks):
+  - `Microsoft.NET.Sdk.Razor`
+  - `Microsoft.NET.Sdk.Worker`
+  - `Microsoft.NET.Sdk.WindowsDesktop`
+
 ### Version 3.3.28
 
 - Update: Added `Microsoft.NET.Sdk.BlazorWebAssembly` as an available SDK option for .NET Projects.

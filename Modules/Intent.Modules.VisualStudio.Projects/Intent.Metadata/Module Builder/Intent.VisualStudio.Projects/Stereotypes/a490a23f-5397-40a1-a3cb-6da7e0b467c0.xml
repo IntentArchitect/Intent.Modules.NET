@@ -31,6 +31,9 @@
         <option>Microsoft.NET.Sdk</option>
         <option>Microsoft.NET.Sdk.Web</option>
         <option>Microsoft.NET.Sdk.BlazorWebAssembly</option>
+        <option>Microsoft.NET.Sdk.Razor</option>
+        <option>Microsoft.NET.Sdk.Worker</option>
+        <option>Microsoft.NET.Sdk.WindowsDesktop</option>
       </valueOptions>
       <lookupTypes />
       <isActiveFunction />
