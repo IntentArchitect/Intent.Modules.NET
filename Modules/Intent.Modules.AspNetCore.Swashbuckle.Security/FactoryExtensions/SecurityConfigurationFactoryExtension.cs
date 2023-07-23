@@ -140,7 +140,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         {
             configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
                 .AddInitStatement("Name", @"""Authorization""")
-                .AddInitStatement("Description", @"""Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`""")
+                    .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
                 .AddInitStatement("In", "ParameterLocation.Header")
                 .AddInitStatement("Type", "SecuritySchemeType.Http")
                 .AddInitStatement("Scheme", @"""bearer""")

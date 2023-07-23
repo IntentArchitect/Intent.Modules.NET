@@ -35,7 +35,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                     var securityScheme = new OpenApiSecurityScheme()
                     {
                         Name = "Authorization",
-                        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+                        Description = "Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.",
                         In = ParameterLocation.Header,
                         Type = SecuritySchemeType.Http,
                         Scheme = "bearer",
