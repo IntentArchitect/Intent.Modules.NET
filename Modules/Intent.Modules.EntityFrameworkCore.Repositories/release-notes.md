@@ -1,3 +1,7 @@
+### Version 4.2.7
+
+- Fixed: In some cases, custom repositories weren't adding a using directive when `IReadOnlyCollection<T>` was used.
+
 ### Version 4.2.6
 
 - Update: Support for Composite PrimaryKeys on repositories.

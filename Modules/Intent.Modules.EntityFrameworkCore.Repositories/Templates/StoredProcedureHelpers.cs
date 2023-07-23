@@ -321,7 +321,7 @@ internal static class StoredProcedureHelpers
             tupleProperties.Insert(0, new
             {
                 Name = storedProcedure.TypeReference.IsCollection ? "Results" : "Result",
-                TypeName = template.GetTypeName(storedProcedure.TypeReference, "IReadOnlyCollection<{0}>")
+                TypeName = template.GetTypeName(storedProcedure.TypeReference, "System.Collections.Generic.IReadOnlyCollection<{0}>")
             });
         }
 
