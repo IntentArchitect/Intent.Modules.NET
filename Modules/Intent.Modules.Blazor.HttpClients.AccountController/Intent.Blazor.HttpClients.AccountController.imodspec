@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients.AccountController</id>
-  <version>1.0.0</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Create blazor http proxy for interacting with the AccountController</summary>
   <description>Create blazor http proxies for interacting with the AccountController</description>
