@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e426784c-6ef5-4669-8f80-cbf6f4b9ac81</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Cors.CorsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Cors.CorsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Configuration/CorsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CorsConfiguration.cs</ProjectRelativeFilePath>
