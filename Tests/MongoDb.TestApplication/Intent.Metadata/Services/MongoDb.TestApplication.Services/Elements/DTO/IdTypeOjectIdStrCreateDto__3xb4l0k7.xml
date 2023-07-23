@@ -9,7 +9,7 @@
   <mappedClass>
     <applicationId>be4b0466-617b-4d2d-beb1-5ef601d11ec9</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>01d74d4f-e478-4fde-a2f0-9ea92255f3c5</mappingSettingsId>
+    <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="1e3f34eb-5f22-4b21-8ee4-3b978c3c09b9" name="IdTypeOjectIdStr" type="element" specialization="Class" />

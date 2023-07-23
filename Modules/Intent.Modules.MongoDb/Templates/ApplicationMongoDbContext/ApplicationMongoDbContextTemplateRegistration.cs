@@ -35,7 +35,9 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         public override IList<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true && p.IsAggregateRoot())
+                .Where(p =>
+                    p.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true &&
+                    p.IsAggregateRoot())
                 .ToArray();
         }
     }

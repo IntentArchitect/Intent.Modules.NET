@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Intent.Engine;
-using Intent.Metadata.DocumentDB.Api.Extensions;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -18,6 +14,7 @@ using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.MongoDb.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using ClassExtensionModel = Intent.MongoDb.Api.ClassExtensionModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -56,13 +53,19 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
 
                     foreach (var aggregate in Model)
                     {
+                        // MongoFramework doesn't seem to support entities with generic type parameters
+                        if (aggregate.GenericTypes.Any())
+                        {
+                            continue;
+                        }
+
                         @class.AddProperty($"MongoDbSet<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>", aggregate.Name.Pluralize().ToPascalCase());
                     }
 
                     @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
                     {
                         method.Override().Async()
-                            .AddParameter($"CancellationToken", "cancellationToken",
+                            .AddParameter("CancellationToken", "cancellationToken",
                                 param =>
                                 {
                                     param.WithDefaultValue("default");
@@ -70,25 +73,6 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                             .AddStatement("await base.SaveChangesAsync(cancellationToken);")
                             .AddStatement("return default;");
                     });
-
-                    /*
-                    @class.AddMethod("Task<int>", $"{GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId)}.SaveChangesAsync", method =>
-                    {
-                        method.WithoutAccessModifier().Async().AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement("await SaveChangesAsync(cancellationToken);");
-                        method.AddStatement("return default;");
-                    });
-
-                    var originalUnitOfWorkInterfaceName = this.GetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, TemplateDiscoveryOptions.DoNotThrow);
-                    if (!string.IsNullOrEmpty(originalUnitOfWorkInterfaceName))
-                    {
-                        @class.AddMethod("Task<int>", $"{originalUnitOfWorkInterfaceName}.SaveChangesAsync", method =>
-                        {
-                            method.WithoutAccessModifier().Async().AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            method.AddStatement("await SaveChangesAsync(cancellationToken);");
-                            method.AddStatement("return default;");
-                        });
-                    }*/
 
                     @class.AddMethod("void", "Dispose", method =>
                     {
@@ -105,6 +89,12 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
 
                         foreach (var aggregate in Model)
                         {
+                            if (aggregate.GenericTypes.Any())
+                            {
+                                // MongoFramework doesn't seem to support entities with generic type parameters
+                                continue;
+                            }
+
                             method.AddStatement(GetEntityRegistrationStatements(aggregate));
                         }
 
@@ -118,12 +108,15 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
 
             var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>()");
-            var pk = aggregate.GetPrimaryKeys().Single();
 
-            result.AddChainStatement(new CSharpInvocationStatement("HasKey")
-                .WithoutSemicolon()
-                .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
-                .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
+            var pk = aggregate.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
+            if (pk != null)
+            {
+                result.AddChainStatement(new CSharpInvocationStatement("HasKey")
+                    .WithoutSemicolon()
+                    .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
+                    .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
+            }
 
             if (aggregate.HasCollection() || aggregate.Folder?.HasCollection() == true)
             {
@@ -143,11 +136,11 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                     .WithoutSemicolon()
                     .AddChainStatement($@"HasName(""{index.Name}"")");
 
-                build.AddChainStatement($"HasType(IndexType.Standard)");
+                build.AddChainStatement("HasType(IndexType.Standard)");
 
                 if (index.GetSettings().SortOrder().IsDescending())
                 {
-                    build.AddChainStatement($"IsDescending()");
+                    build.AddChainStatement("IsDescending()");
                 }
 
                 result.AddChainStatement(new CSharpInvocationStatement("HasIndex")
@@ -165,7 +158,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             var entityClass = entityTemplate.CSharpFile.Classes.First();
             foreach (var property in entityClass.GetAllProperties())
             {
-                if (property.TryGetMetadata("non-persistent", out bool nonPersistent))
+                if (property.TryGetMetadata("non-persistent", out _))
                 {
                     result.AddChainStatement($"Ignore(entity => entity.{property.Name})");
                 }

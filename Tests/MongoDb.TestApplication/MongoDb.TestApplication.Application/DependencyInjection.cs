@@ -21,6 +21,8 @@ namespace MongoDb.TestApplication.Application
             services.AddTransient<ICompoundIndexEntitiesService, CompoundIndexEntitiesService>();
             services.AddTransient<ICompoundIndexEntityMultiParentsService, CompoundIndexEntityMultiParentsService>();
             services.AddTransient<ICompoundIndexEntitySingleParentsService, CompoundIndexEntitySingleParentsService>();
+            services.AddTransient<IDerivedOfTSService, DerivedOfTSService>();
+            services.AddTransient<IDerivedsService, DerivedsService>();
             services.AddTransient<IIdTypeGuidsService, IdTypeGuidsService>();
             services.AddTransient<IIdTypeOjectIdStrsService, IdTypeOjectIdStrsService>();
             services.AddTransient<IMapperRootsService, MapperRootsService>();

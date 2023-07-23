@@ -32,6 +32,7 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<AggregateB> AggregateBs { get; set; }
         public MongoDbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public MongoDbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        public MongoDbSet<BaseType> BaseTypes { get; set; }
         public MongoDbSet<C_RequireComposite> C_RequireComposites { get; set; }
         public MongoDbSet<CompoundIndexEntity> CompoundIndexEntities { get; set; }
         public MongoDbSet<CompoundIndexEntityMultiParent> CompoundIndexEntityMultiParents { get; set; }
@@ -40,6 +41,8 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<CustomCollectionEntityB> CustomCollectionEntityBs { get; set; }
         public MongoDbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public MongoDbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
+        public MongoDbSet<Derived> Deriveds { get; set; }
+        public MongoDbSet<DerivedOfT> DerivedOfTs { get; set; }
         public MongoDbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public MongoDbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public MongoDbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
@@ -103,6 +106,9 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
             mappingBuilder.Entity<B_OptionalDependent>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
+            mappingBuilder.Entity<BaseType>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
             mappingBuilder.Entity<C_RequireComposite>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
@@ -149,6 +155,10 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
 
             mappingBuilder.Entity<D_OptionalAggregate>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<Derived>();
+
+            mappingBuilder.Entity<DerivedOfT>();
 
             mappingBuilder.Entity<E_RequiredCompositeNav>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
