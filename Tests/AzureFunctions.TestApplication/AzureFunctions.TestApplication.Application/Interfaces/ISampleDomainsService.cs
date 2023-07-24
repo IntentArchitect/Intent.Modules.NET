@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Application.Common.Pagination;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using Intent.RoslynWeaver.Attributes;
 
@@ -18,5 +19,6 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         Task UpdateSampleDomain(Guid id, SampleDomainUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default);
         Task<string> MappedAzureFunction(SampleMappedRequest request, CancellationToken cancellationToken = default);
+        Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(int pageNo, int pageSize, CancellationToken cancellationToken = default);
     }
 }

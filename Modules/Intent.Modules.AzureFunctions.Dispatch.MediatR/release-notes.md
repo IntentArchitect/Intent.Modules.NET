@@ -1,5 +1,9 @@
 ### Version 1.0.6
 
+- Fix: Query parameters were not being dispatched correctly to CommnadHandlers for `Query`'s.
+
+### Version 1.0.6
+
 - Fix: Added additional MediatR module dependencies so that installing this module works out the box.
 
 ### Version 1.0.5

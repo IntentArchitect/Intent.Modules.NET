@@ -68,6 +68,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Customers/GetCustomersPaged.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Customers/GetPagedWithParameters.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetPagedWithParameters.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Customers/UpdateCustomer.cs</ApplicationRelativeFilePath>
@@ -96,6 +112,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindSampleDomains.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FindSampleDomains.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#1d15dc90-312a-4874-9381-1cf22c954edb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FindSampleDomainsPaged.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FindSampleDomainsPaged.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -404,6 +428,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParameters.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetPagedWithParameters/GetPagedWithParameters.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParametersHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetPagedWithParameters/GetPagedWithParametersHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -560,6 +616,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/GetCustomers/GetCustomersQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/GetCustomersPaged/GetCustomersPagedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/GetPagedWithParameters/GetPagedWithParametersValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetPagedWithParameters/GetPagedWithParametersValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

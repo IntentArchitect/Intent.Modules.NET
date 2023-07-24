@@ -489,5 +489,139 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="1d15dc90-312a-4874-9381-1cf22c954edb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainsPaged</name>
+      <display>FindSampleDomainsPaged(pageNo: int, pageSize: int): PagedResult&lt;SampleDomainDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6b20756c-afde-482e-b3fe-eb770cdfaa65">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Application.Dtos.Pagination</typePackageName>
+        <typePackageId>9baa3476-269d-4a87-a854-34e150a93bc8</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="6361c890-b9e8-4bdc-a562-746e970a80a1">
+            <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains-paged" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a9a74009-0cfc-450f-aa41-814522a6f039" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageNo</name>
+          <display>in : pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cdc2b5d2-5ffc-4ed3-90fe-c75f2179c7a8">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1d15dc90-312a-4874-9381-1cf22c954edb</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7a1638fe-0307-463c-ab4c-09c19f12f097" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageSize</name>
+          <display>in : pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="67b5b2a7-fe89-4000-9408-7ceb8ce9430e">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1d15dc90-312a-4874-9381-1cf22c954edb</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

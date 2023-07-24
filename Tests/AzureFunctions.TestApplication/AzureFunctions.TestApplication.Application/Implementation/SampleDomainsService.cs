@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using AzureFunctions.TestApplication.Application.Common.Pagination;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
@@ -95,6 +96,19 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var results = await _sampleDomainRepository.FindAllAsync(
+                pageNo: pageNo,
+                pageSize: pageSize,
+                cancellationToken: cancellationToken);
+            return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
         }
 
         public void Dispose()

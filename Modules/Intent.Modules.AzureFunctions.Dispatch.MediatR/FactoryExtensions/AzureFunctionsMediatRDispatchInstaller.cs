@@ -80,7 +80,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             var payloadParameter = GetPayloadParameter(model);
             if (payloadParameter != null)
             {
-                foreach (var mappedParameter in GetMappedParameters(model))
+                foreach (var mappedParameter in GetRouteParameters(model))
                 {
                     validations.Add($@"
             if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.MappedPath.ToPascalCase()})
@@ -98,7 +98,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
         {
             //
             var payload = GetPayloadParameter(model)?.Name
-                ?? GetMappedPayload(template, model);
+                ?? GetParametersPayload(template, model);
 
             return model.ReturnType != null
                 ? new CSharpStatement($"var result = await _mediator.Send({payload}, cancellationToken);")
@@ -166,21 +166,21 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 x.TypeReference.Element.SpecializationTypeId == QueryModel.SpecializationTypeId);
         }
 
-        private string GetMappedPayload(ICSharpFileBuilderTemplate template, IAzureFunctionModel operation)
+        private string GetParametersPayload(ICSharpFileBuilderTemplate template, IAzureFunctionModel operation)
         {
             var requestType = operation.InternalElement.IsCommandModel() || operation.InternalElement.IsQueryModel()
                 ? operation.InternalElement.AsTypeReference()
                 : operation.InternalElement.MappedElement;
 
-            if (GetMappedParameters(operation).Any())
+            if (operation.Parameters.Any())
             {
-                return $"new {template.GetTypeName(requestType)} ( {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPath.ToParameterName() + " : " + x.Name.ToParameterName()))} )";
+                return $"new {template.GetTypeName(requestType)} ( {string.Join(", ", operation.Parameters.Select(x => x.Name.ToParameterName() + " : " + x.Name.ToParameterName()))} )";
             }
 
             return $"new {template.GetTypeName(requestType)}()";
         }
 
-        private IList<IAzureFunctionParameterModel> GetMappedParameters(IAzureFunctionModel operationModel)
+        private IList<IAzureFunctionParameterModel> GetRouteParameters(IAzureFunctionModel operationModel)
         {
             return operationModel.Parameters.Where(x => x.IsMapped).ToList();
         }
