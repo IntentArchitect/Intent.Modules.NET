@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Update: All EF Core nuget packages are now updated to use the latest versions to date.
+
 ### Version 4.1.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

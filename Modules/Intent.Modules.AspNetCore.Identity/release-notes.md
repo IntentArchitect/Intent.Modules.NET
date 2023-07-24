@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Updated `IdentityServer4.EntityFramework` nuget package to 7.0.9.
+
 ### Version 4.0.5
 
 - Fixed: Under certain circumstances `Startup.cs` would not have `services.ConfigureIdentity();` added to it.

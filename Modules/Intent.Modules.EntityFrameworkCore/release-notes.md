@@ -2,6 +2,7 @@
 
 - New: EF Patterns implement support for Schema stereotype.
 - New: EF Patterns implement support for Sort Direction on `Index`s.
+- Update: All EF Core nuget packages are now updated to use the latest versions to date.
 
 ### Version 4.4.5
 

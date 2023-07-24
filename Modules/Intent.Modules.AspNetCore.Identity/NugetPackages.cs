@@ -14,10 +14,11 @@ public static class NugetPackages
         {
             _ when project.IsNetCore2App() => "2.1.14",
             _ when project.IsNetCore3App() => "3.1.15",
-            _ when project.IsNetApp(5) => "5.0.6",
-            _ when project.IsNetApp(6) => "6.0.11",
-            _ when project.IsNetApp(7) => "7.0.1",
-            _ => "5.0.6"
+            _ when project.IsNetApp(5) => "5.0.17",
+            _ when project.IsNetApp(6) => "6.0.20",
+            _ when project.IsNetApp(7) => "7.0.9",
+            _ when project.IsNetApp(8) => "8.0.0-preview.6.23329.11",
+            _ => "6.0.20"
         };
     }
     

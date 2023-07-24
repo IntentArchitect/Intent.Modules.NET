@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Updated `IdentityServer4.EntityFramework` nuget package to 7.0.9.
+
 ### Version 4.0.3
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

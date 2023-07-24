@@ -22,9 +22,10 @@ namespace Intent.Modules.EntityFrameworkCore
         {
             return project switch
             {
-                _ when project.IsNetApp(5) => "5.0.2",
-                _ when project.IsNetApp(6) => "6.0.4",
-                _ when project.IsNetApp(7) => "7.0.1",
+                _ when project.IsNetApp(5) => "5.0.10",
+                _ when project.IsNetApp(6) => "6.0.8",
+                _ when project.IsNetApp(7) => "7.0.4",
+                _ when project.IsNetApp(8) => "8.0.0-preview.4",
                 _ => throw new Exception("Not supported version of .NET Core") 
             };
         }
@@ -36,6 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore
                 _ when project.IsNetApp(5) => "5.0.4",
                 _ when project.IsNetApp(6) => "6.0.2",
                 _ when project.IsNetApp(7) => "7.0.0",
+                _ when project.IsNetApp(8) => "7.0.0",
                 _ => throw new Exception("Not supported version of .NET Core") 
             };
         }
@@ -46,10 +48,11 @@ namespace Intent.Modules.EntityFrameworkCore
             {
                 _ when project.IsNetCore2App() => throw new Exception(".NET Core 2.x is no longer supported."),
                 _ when project.IsNetCore3App() => "3.1.24",
-                _ when project.IsNetApp(5) => "5.0.16",
-                _ when project.IsNetApp(6) => "6.0.4",
-                _ when project.IsNetApp(7) => "7.0.2",
-                _ => "6.0.4"
+                _ when project.IsNetApp(5) => "5.0.17",
+                _ when project.IsNetApp(6) => "6.0.20",
+                _ when project.IsNetApp(7) => "7.0.9",
+                _ when project.IsNetApp(8) => "8.0.0-preview.6.23329.4",
+                _ => "6.0.20"
             };
         }
     }
