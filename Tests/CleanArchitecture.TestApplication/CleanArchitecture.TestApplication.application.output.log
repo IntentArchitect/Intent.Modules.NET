@@ -2164,6 +2164,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#0e993a94-e4d2-4617-9dc8-416a97cdada0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Implementation/Comments/CommentTestService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Comments/CommentTestService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs</ApplicationRelativeFilePath>
@@ -2544,6 +2552,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/TestVersionedProxy/TestCommandV2.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestVersionedProxy/TestCommandV2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#0e993a94-e4d2-4617-9dc8-416a97cdada0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Interfaces/Comments/ICommentTestService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Comments/ICommentTestService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

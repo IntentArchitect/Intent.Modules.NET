@@ -45,7 +45,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
 
                             foreach (var parameterModel in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name);
+                                method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name, p => p.WithXmlDocComment(parameterModel.InternalElement));
                             }
 
                             if (operation.IsAsync())

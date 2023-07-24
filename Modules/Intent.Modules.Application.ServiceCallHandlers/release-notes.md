@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- New: Support for XmlDocComments on Operation Parameters.
+
 ### Version 4.2.0
 
 - Support CancellationTokens to align with interface.

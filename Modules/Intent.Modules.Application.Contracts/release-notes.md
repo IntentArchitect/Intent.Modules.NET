@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- New: Support for XmlDocComments on Operation Parameters.
+
 ### Version 5.0.1
 
 - Asynchronous operations now have `CancellationToken cancellationToken = default` parameter.

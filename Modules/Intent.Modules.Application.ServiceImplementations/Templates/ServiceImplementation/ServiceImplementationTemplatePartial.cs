@@ -57,7 +57,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, parm => parm.WithDefaultValue(parameter.Value));
+                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, parm =>
+                                {
+                                    parm.WithDefaultValue(parameter.Value)
+                                        .WithXmlDocComment(parameter.InternalElement);
+                                });
                             }
 
                             if (operation.IsAsync())

@@ -12,7 +12,7 @@
 
 ### Version 1.0.3
 
-- Fix: Azure Route info for `Http Tigger` on `ServiceOperations`.
+- Fix: Azure Route info for `Http Trigger` on `ServiceOperations`.
 - Update: Changed dispatcher to use constructors, inline with `Command`s and `Queries`s not having parameterless constructors.
 
 ### Version 1.0.2

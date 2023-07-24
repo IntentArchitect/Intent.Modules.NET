@@ -1,7 +1,9 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Implementation.Comments;
 using CleanArchitecture.TestApplication.Application.Implementation.ServiceDispatch;
+using CleanArchitecture.TestApplication.Application.Interfaces.Comments;
 using CleanArchitecture.TestApplication.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.TestApplication.Domain.Services;
 using CleanArchitecture.TestApplication.Domain.Services.Async;
@@ -34,6 +36,7 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
+            services.AddTransient<ICommentTestService, CommentTestService>();
             services.AddTransient<IServiceDispatchService, ServiceDispatchService>();
             return services;
         }

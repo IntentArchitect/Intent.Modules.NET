@@ -1,3 +1,7 @@
+### Version 4.3.1
+
+- New: Support for XmlDocComments on Operation Parameters.
+
 ### Version 4.2.2
 
 - Feature: It is now possible to specify that only contracts should be generated for a service by applying the `Contract Only` Stereotype to a Service. When applied, the interface ("contract") for the service will still be generated, but no implementation and corresponding dependency injection registration.
