@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>dcddae39-35b7-4aaa-b121-6cb87ea53f67</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#dc90cc72-2170-4cc5-b685-43317caacfd6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/DependencyInjectionFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjectionFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

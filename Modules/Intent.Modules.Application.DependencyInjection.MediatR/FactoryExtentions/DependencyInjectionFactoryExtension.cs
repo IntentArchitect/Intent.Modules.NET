@@ -14,10 +14,11 @@ using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
+
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.FactoryExtentions
+namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DependencyInjectionFactoryExtension : FactoryExtensionBase
@@ -65,6 +66,7 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
             {
                 return;
             }
+            template.AddNugetDependency(NuGetPackages.MediatR);
             application.EventDispatcher.Publish(new RemoveNugetPackageEvent("MediatR.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
 
             template.CSharpFile.AfterBuild(file =>

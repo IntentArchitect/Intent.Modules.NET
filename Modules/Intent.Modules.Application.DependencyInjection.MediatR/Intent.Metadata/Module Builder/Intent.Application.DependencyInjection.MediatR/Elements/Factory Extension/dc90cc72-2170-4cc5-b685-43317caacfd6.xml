@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc90cc72-2170-4cc5-b685-43317caacfd6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DependencyInjectionFactoryExtension</name>
+  <display>DependencyInjectionFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>00e3615b-00c1-480e-ac73-2ee3715c95fc</parentFolderId>
+  <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+  <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
