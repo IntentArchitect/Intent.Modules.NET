@@ -1,6 +1,9 @@
 ﻿### Version 4.1.0
 
-- Upgrade: Upgrades MediatR package to 12.1.1, updated pattern accordingly.
+- Upgrade - Breaking Changes: Upgrades MediatR package to 12.1.1, updated patterns accordingly. 
+
+NB there are breaking changes in MediatR 12.1.1, if you have custom `IPipelineBehavior`s you will need to update these, of particular importance is the change to the generic constraints 
+i.e. `where TRequest : IRequest<TResponse>` changes to `where TRequest : notnull` 
 
 ### Version 4.0.10
 
