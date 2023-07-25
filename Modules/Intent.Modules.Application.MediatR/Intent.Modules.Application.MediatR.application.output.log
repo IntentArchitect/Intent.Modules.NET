@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ab3a1aff-76f9-4d81-bd2c-2cd86187ec90</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b0b36661-ead0-44a5-829e-d8248c3aca10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/DependencyInjectionFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjectionFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

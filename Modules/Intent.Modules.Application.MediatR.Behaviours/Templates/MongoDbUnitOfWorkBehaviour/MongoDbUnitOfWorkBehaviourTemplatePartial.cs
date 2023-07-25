@@ -49,8 +49,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MongoDbUnitOfW
                     {
                         method.Async();
                         method.AddParameter(TRequest, "request")
-                            .AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
-                            .AddParameter("CancellationToken", "cancellationToken")
+                            .AddParameter($"RequestHandlerDelegate<{TResponse}>", "next")
+                            .AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement($"var response = await next();")
                             .AddStatement($"await _dataSource.SaveChangesAsync(cancellationToken);")
                             .AddStatement($"return response;");

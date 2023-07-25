@@ -1,3 +1,8 @@
+### Version 4.3.0
+
+- Update : Upgraded MediatR Package v12.
+
+
 ### Version 4.2.1
 
 - Fixed spelling mistake in generated exception message.

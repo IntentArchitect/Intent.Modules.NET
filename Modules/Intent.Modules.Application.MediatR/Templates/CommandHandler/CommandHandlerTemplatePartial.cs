@@ -44,7 +44,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     {
                         ctor.AddAttribute("IntentManaged(Mode.Merge)");
                     });
-                    @class.AddMethod($"Task<{GetReturnType()}>", "Handle", method =>
+                    @class.AddMethod(GetReturnType(), "Handle", method =>
                     {
                         method.TryAddXmlDocComments(Model.InternalElement);
                         method.Async();
@@ -89,9 +89,28 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         private string GetReturnType()
         {
             return Model.TypeReference.Element != null
-                ? GetTypeName(Model.TypeReference)
-                : "Unit";
+                ? $"Task<{GetTypeName(Model.TypeReference)}>"
+                : "Task";
         }
 
+        public override RoslynMergeConfig ConfigureRoslynMerger()
+        {
+            return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new Mediator12Migration());
+        }
+
+        /// <summary>
+        /// Fixes that for a very long time this template's default mode was Ignore.
+        /// </summary>
+        private class Mediator12Migration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText.Replace(@"return Unit.Value;\r\n", "")
+                    .Replace(@"return Unit.Value;\n", "")
+                    .Replace(@"return Unit.Value;", "");
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
+        }
     }
 }

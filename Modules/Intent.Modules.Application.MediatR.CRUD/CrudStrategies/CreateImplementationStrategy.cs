@@ -119,10 +119,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     ? $"return new{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
                     : $"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
-            else
-            {
-                codeLines.Add($"return Unit.Value;");
-            }
 
             return codeLines.ToList();
 

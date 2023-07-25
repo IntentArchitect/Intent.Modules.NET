@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
   <version>4.1.0-pre.0</version>
@@ -61,7 +61,7 @@
   </templates>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.35" />
+    <dependency id="Intent.Common.CSharp" version="3.3.37" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
@@ -69,15 +69,14 @@
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <interoperability>
-    <detect id="Intent.AspNetCore">
-      <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.0-pre.0" />
-      </install>
-    </detect>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.0-pre.0" />
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.6" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.DependencyInjection.MediatR">
+      <install>
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.0-pre.0" />
       </install>
     </detect>
   </interoperability>
@@ -90,4 +89,7 @@
   </metadata>
   <moduleSettings />
   <moduleSettingsExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.MediatR.DependencyInjectionFactoryExtension" externalReference="b0b36661-ead0-44a5-829e-d8248c3aca10" />
+  </factoryExtensions>
 </package>

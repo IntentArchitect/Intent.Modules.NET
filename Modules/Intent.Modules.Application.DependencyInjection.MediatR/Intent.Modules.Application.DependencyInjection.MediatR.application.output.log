@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

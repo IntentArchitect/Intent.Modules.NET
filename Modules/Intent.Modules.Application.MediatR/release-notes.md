@@ -1,4 +1,8 @@
-﻿### Version 4.0.10
+﻿### Version 4.1.0
+
+- Upgrade: Upgrades MediatR package to 12.1.1, updated pattern accordingly.
+
+### Version 4.0.10
 
 - Fixed: Namespaces would not be added for enums used on `QueryHandler`s and `CommandHandler`s.
 

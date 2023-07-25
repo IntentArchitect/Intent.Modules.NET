@@ -40,8 +40,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour
                     .AddMethod("Task<TResponse>", "Handle", method => method
                         .Async()
                         .AddParameter("TRequest", "request")
-                        .AddParameter("CancellationToken", "cancellationToken")
                         .AddParameter("RequestHandlerDelegate<TResponse>", "next")
+                        .AddParameter("CancellationToken", "cancellationToken")
                         .AddStatement("var response = await next();")
                         .AddStatement("await _cosmosDBUnitOfWork.SaveChangesAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                         .AddStatement("return response;", s => s.SeparatedFromPrevious())

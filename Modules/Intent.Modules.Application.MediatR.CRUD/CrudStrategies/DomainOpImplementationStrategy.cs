@@ -81,9 +81,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
             GenerateOperationInvocationCode("request", $"entity", dtoToReturn != null);
 
-            codeLines.Add(dtoToReturn != null
-                ? $@"return result.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
-                : $"return Unit.Value;");
+            if (dtoToReturn != null)
+            {
+                codeLines.Add($@"return result.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+            }
 
             return codeLines.ToList();
 

@@ -90,9 +90,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 {
                     codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
                 }
-
-                codeLines.Add("return Unit.Value;");
-
+                
                 return codeLines.ToList();
             }
 
@@ -101,9 +99,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}' "");"));
             codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
-            codeLines.Add(dtoToReturn != null
-                ? $@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
-                : $"return Unit.Value;");
+            if (dtoToReturn != null)
+            {
+                codeLines.Add($@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+            }
 
             return codeLines.ToList();
         }
