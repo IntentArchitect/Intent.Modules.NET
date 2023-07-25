@@ -110,5 +110,6 @@
     <application id="f51fb36a-8aba-46a5-8c18-b9f9c8c496da" name="Intent.Modules.Blazor.HttpClients" relativePath="Intent.Modules.Blazor.HttpClients/Intent.Modules.Blazor.HttpClients.application.config" />
     <application id="aa397c5c-7cbc-421d-8671-596b0a2cd970" name="Intent.Modules.EntityFrameworkCore.BasicAuditing" relativePath="Intent.Modules.EntityFrameworkCore.BasicAuditing/Intent.Modules.EntityFrameworkCore.BasicAuditing.application.config" />
     <application id="5692b8df-ecfc-4d14-bbb3-9f2ecacf9879" name="Intent.Modules.Blazor.HttpClients.AccountController" relativePath="Intent.Modules.Blazor.HttpClients.AccountController/Intent.Modules.Blazor.HttpClients.AccountController.application.config" />
+    <application id="c432a6b5-0208-4aa7-aa55-006c90cb04d5" name="Intent.Modules.AspNetCore.HealthChecks" relativePath="Intent.Modules.AspNetCore.HealthChecks/Intent.Modules.AspNetCore.HealthChecks.application.config" />
   </applications>
 </solution>
