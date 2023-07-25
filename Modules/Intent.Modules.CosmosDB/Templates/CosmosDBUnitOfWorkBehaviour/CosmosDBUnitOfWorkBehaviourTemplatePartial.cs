@@ -60,7 +60,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(6)
-                .ForConcern("Application")
+                .ForConcern("MediatR")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }

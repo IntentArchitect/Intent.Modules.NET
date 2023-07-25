@@ -7,6 +7,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
 {
     internal class NuGetProject
     {
+        public string ProjectId { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
         public Dictionary<string, NuGetPackage> RequestedPackages { get; set; } = new Dictionary<string, NuGetPackage>();

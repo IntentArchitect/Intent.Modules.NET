@@ -61,7 +61,7 @@
   </templates>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.37" />
+    <dependency id="Intent.Common.CSharp" version="3.3.39-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
@@ -74,9 +74,35 @@
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.6" />
       </install>
     </detect>
+    <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.DependencyInjection.MediatR">
       <install>
         <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="3.3.29-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.DependencyInjection">
+      <install>
+        <package id="Intent.Application.DependencyInjection" version="4.0.5-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.CRUD">
+      <install>
+        <package id="Intent.Application.MediatR.CRUD" version="5.2.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.FluentValidation">
+      <install>
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.3.0-pre.0" />
       </install>
     </detect>
   </interoperability>

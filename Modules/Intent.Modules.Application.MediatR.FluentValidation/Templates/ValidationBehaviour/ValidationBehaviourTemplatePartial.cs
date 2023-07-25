@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(4)
-                .ForConcern("Application")
+                .ForConcern("MediatR")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }

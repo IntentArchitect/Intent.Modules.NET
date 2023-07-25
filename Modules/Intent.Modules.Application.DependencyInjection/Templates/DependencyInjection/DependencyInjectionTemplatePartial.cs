@@ -62,7 +62,7 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
                     method.AddStatement(ServiceConfigurationRegistration(registration));
                 }
                 method.AddStatement("return services;");
-            });
+            }, 1000);
 
         ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
         ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);

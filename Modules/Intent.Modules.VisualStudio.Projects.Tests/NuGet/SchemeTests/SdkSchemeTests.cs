@@ -124,6 +124,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.Content,
                 project.RequestedPackages,
                 project.InstalledPackages,
+                new List<string>(),
                 project.Name,
                 tracing,
                 depVerMan);
@@ -152,6 +153,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.Content,
                 project.RequestedPackages,
                 project.InstalledPackages,
+                new List<string>(),
                 project.Name,
                 tracing,
                 DependencyVersionOverwriteBehaviorOption.IfNewer);

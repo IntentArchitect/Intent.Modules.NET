@@ -50,6 +50,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
         public string InstallPackages(string projectContent,
             Dictionary<string, NuGetPackage> requestedPackages,
             Dictionary<string, NuGetPackage> installedPackages,
+            List<string> toRemovePackages,
             string projectName,
             ITracing tracing,
             DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
@@ -66,6 +67,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
                 }
 
                 projectElement.Add(packageReferenceItemGroup = new XElement("ItemGroup"));
+            }
+
+            foreach (var packageId in toRemovePackages)
+            {
+                var packageReferenceElement =
+                    packageReferenceItemGroup.XPathSelectElement($"PackageReference[@Include='{packageId}']");
+                if (packageReferenceElement != null)
+                {
+                    packageReferenceElement.Remove();
+                }
             }
 
             foreach (var requestedPackage in requestedPackages)

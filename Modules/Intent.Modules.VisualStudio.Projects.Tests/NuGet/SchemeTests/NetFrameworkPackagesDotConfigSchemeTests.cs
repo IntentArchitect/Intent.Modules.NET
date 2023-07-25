@@ -47,6 +47,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.Content,
                 project.RequestedPackages,
                 project.InstalledPackages,
+                new List<string>(),
                 project.Name,
                 tracing,
                 DependencyVersionOverwriteBehaviorOption.IfNewer);
@@ -74,9 +75,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 project.Content,
                 project.RequestedPackages,
                 project.InstalledPackages,
+                new List<string>(),
                 project.Name,
                 tracing,
-                DependencyVersionOverwriteBehaviorOption.IfNewer);
+                DependencyVersionOverwriteBehaviorOption.IfNewer); ;
 
             // Assert
             Assert.Collection(tracing.WarningEntries,

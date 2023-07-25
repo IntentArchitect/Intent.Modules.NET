@@ -4,6 +4,7 @@
   - `Microsoft.NET.Sdk.Razor`
   - `Microsoft.NET.Sdk.Worker`
   - `Microsoft.NET.Sdk.WindowsDesktop`
+- Added" Support for `RemoveNugetPackageEvent` event to un-install removed / redundant Nuget packages.
 
 ### Version 3.3.28
 

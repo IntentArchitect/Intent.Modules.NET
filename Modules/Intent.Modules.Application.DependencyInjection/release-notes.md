@@ -1,3 +1,7 @@
+### Version 4.0.5
+- Update: Made the `DependencyInjectionTemplate` AfterBuild run later to better accommodate other templates wanting to interact with it during the AfterBuild step .
+
+
 ### Version 4.0.4
 - Update: Removed various compiler warnings.
 

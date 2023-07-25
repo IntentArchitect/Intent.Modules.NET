@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(1)
-                .ForConcern("Application")
+                .ForConcern("MediatR")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }

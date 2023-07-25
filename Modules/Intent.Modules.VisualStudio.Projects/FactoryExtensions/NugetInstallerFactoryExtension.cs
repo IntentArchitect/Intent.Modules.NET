@@ -19,6 +19,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 using NuGet.Versioning;
 using Intent.Modules.VisualStudio.Projects.Settings;
+using Intent.Modules.Common.CSharp.VisualStudio;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
@@ -33,6 +34,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         private bool _settingWarnOnMultipleVersionsOfSamePackage;
         private readonly IDictionary<string, IVisualStudioProjectTemplate> _projectRegistry = new Dictionary<string, IVisualStudioProjectTemplate>();
         private static readonly IDictionary<VisualStudioProjectScheme, INuGetSchemeProcessor> NuGetProjectSchemeProcessors;
+        private readonly IDictionary<string, List<string>> _projectPackgeRemoveRequests = new Dictionary<string, List<string>>();
 
         static NugetInstallerFactoryExtension()
         {
@@ -73,6 +75,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
             application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(HandleEvent);
+            application.EventDispatcher.Subscribe<RemoveNugetPackageEvent>(HandleEvent);
             base.OnBeforeTemplateRegistrations(application);
         }
 
@@ -95,6 +98,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             tracing.Info("Package processing complete");
             base.OnAfterTemplateExecution(application);
+        }
+
+        private void HandleEvent(RemoveNugetPackageEvent @event)
+        {
+            if (!_projectPackgeRemoveRequests.TryGetValue(@event.Target.GetProject().Id, out var removeEvents))
+            {
+                removeEvents = new List<string>();
+                _projectPackgeRemoveRequests.Add(@event.Target.GetProject().Id, removeEvents);
+            }
+            removeEvents.Add(@event.NugetPackageName);
         }
 
         private void HandleEvent(VisualStudioProjectCreatedEvent @event)
@@ -167,10 +180,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     continue;
                 }
 
+                if (!_projectPackgeRemoveRequests.TryGetValue(projectPackage.ProjectId, out var packagesToRemove))
+                {
+                    packagesToRemove = new List<string>();
+                }
+
                 var updatedProjectContent = projectPackage.Processor.InstallPackages(
                     projectContent: projectPackage.Content,
                     requestedPackages: projectPackage.RequestedPackages,
                     installedPackages: projectPackage.InstalledPackages,
+                    packagesToRemove: packagesToRemove,
                     projectName: projectPackage.Name,
                     tracing: tracing,
                     dependencyVersionOverwriteBehavior: dependencyVersionOverwriteBehavior);
@@ -285,6 +304,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             return new NuGetProject
             {
+                ProjectId = project.ProjectId,
                 Content = projectContent,
                 RequestedPackages = requestedPackages,
                 InstalledPackages = installedPackages,

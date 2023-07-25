@@ -49,7 +49,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
 
         public string InstallPackages(string projectContent,
             Dictionary<string, NuGetPackage> requestedPackages,
-            Dictionary<string, NuGetPackage> installedPackages,
+            Dictionary<string, NuGetPackage> installedPackages, 
+            List<string> toRemovePackages,
             string projectName,
             ITracing tracing,
             DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
