@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
-                    "quest : IRequest<TResponse>, ");
+                    "quest : notnull, ");
             
             #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCommandInterfaceName()));

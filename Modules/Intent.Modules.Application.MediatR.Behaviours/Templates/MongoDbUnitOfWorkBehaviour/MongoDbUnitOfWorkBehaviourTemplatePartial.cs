@@ -41,7 +41,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MongoDbUnitOfW
                         .AddGenericParameter("TResponse", out var TResponse);
                     @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
                     @class.AddGenericTypeConstraint(TRequest, type => type
-                        .AddType($"IRequest<{TResponse}>")
+                        .AddType($"notnull")
                         .AddType(GetTypeName("Application.Command.Interface")));
                     @class.AddConstructor(ctor =>
                         ctor.AddParameter(GetTypeName(TemplateFulfillingRoles.Domain.MongoDbUnitOfWork), "dataSource", param => param.IntroduceReadonlyField()));

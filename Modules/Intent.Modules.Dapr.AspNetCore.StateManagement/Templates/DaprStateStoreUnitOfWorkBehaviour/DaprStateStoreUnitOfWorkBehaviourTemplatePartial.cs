@@ -31,7 +31,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                     .AddGenericParameter("TResponse")
                     .ImplementsInterface("IPipelineBehavior<TRequest, TResponse>")
                     .ImplementsInterface(GetTypeName("Intent.Application.MediatR.CommandInterface"))
-                    .AddGenericTypeConstraint("TRequest", c => c.AddType("IRequest<TResponse>"))
+                    .AddGenericTypeConstraint("TRequest", c => c.AddType("notnull"))
                     .AddConstructor(constructor => constructor
                         .AddParameter(this.GetDaprStateStoreUnitOfWorkInterfaceName(), "daprStateStoreUnitOfWork", p => p.IntroduceReadonlyField())
                     )

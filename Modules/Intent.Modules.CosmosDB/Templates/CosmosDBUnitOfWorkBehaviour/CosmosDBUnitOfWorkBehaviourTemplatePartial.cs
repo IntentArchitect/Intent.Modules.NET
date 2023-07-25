@@ -31,7 +31,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour
                     .AddGenericParameter("TResponse")
                     .ImplementsInterface("IPipelineBehavior<TRequest, TResponse>")
                     .AddGenericTypeConstraint("TRequest", c => c
-                        .AddType("IRequest<TResponse>")
+                        .AddType("notnull")
                         .AddType(GetTypeName("Intent.Application.MediatR.CommandInterface"))
                     )
                     .AddConstructor(constructor => constructor

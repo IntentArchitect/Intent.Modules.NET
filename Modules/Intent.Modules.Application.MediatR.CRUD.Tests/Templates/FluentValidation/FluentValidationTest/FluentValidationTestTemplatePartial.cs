@@ -90,19 +90,13 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     if (isCommandWithReturnId)
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
-                        method.AddStatements($@"
+                    }
+                    method.AddStatements($@"
         // Act
-        var result = await validator.Handle(testCommand, () => Task.FromResult(expectedId), CancellationToken.None);
+        var result = await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
 
         // Assert
-        result.Should().Be(expectedId);");
-                    }
-                    else
-                    {
-                        method.AddStatements($@"
-        // Act
-        var result = await validator.Handle(testCommand, CancellationToken.None);");
-                    }
+        result.Should().Be({(isCommandWithReturnId ? "expectedId" : "Unit.Value")});");
                 });
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetFailedResultTestData", method =>
@@ -125,18 +119,11 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     if (isCommandWithReturnId)
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
-                        method.AddStatements($@"
-        // Act
-        var act = async () => await validator.Handle(testCommand, () => Task.FromResult(expectedId), CancellationToken.None);");
-                    }
-                    else
-                    {
-                        method.AddStatements($@"
-        // Act
-        var act = async () => await validator.Handle(testCommand, CancellationToken.None));");
-
                     }
                     method.AddStatements($@"
+        // Act
+        var act = async () => await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
+
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
             .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));");
@@ -198,7 +185,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
-            
+
             if (property.GetValidations()?.NotEmpty() == true &&
                 !IsEnum(property.TypeReference))
             {
@@ -268,7 +255,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, "0"), "has a range of values which does not include");
             first = false;
         }
-        
+
         if (!first) { method.AddStatement(string.Empty); }
         var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
         var invalidOrdinalValueForTest = lastOrdinalValue + 1;

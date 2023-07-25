@@ -49,7 +49,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
-                    "quest : IRequest<TResponse>\r\n    {\r\n        private readonly ");
+                    "quest : notnull\r\n    {\r\n        private readonly ");
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));

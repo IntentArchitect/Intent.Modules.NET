@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -117,11 +118,14 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                             )
                         );
                     }
+                    string act = hasIdReturnType ?
+                        "var result = await sut.Handle(testCommand, CancellationToken.None);"
+                        : "await sut.Handle(testCommand, CancellationToken.None);";
 
                     method.AddStatements($@"var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
-        var result = await sut.Handle(testCommand, CancellationToken.None);
+        {act}
 
         // Assert");
                     if (hasIdReturnType)

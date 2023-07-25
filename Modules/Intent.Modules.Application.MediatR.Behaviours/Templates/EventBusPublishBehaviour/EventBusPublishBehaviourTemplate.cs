@@ -48,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\nwhere TRequest : " +
-                    "IRequest<TResponse>\r\n{\r\n    private readonly ");
+                    "notnull\r\n{\r\n    private readonly ");
             
             #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));

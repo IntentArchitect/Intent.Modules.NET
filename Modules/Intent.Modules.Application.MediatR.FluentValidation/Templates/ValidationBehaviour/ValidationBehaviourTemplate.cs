@@ -49,8 +49,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> \r\n        where TR" +
-                    "equest : IRequest<TResponse>\r\n    {\r\n        private readonly IEnumerable<IValid" +
-                    "ator<TRequest>> _validators;\r\n\r\n        public ");
+                    "equest : notnull\r\n    {\r\n        private readonly IEnumerable<IValidator<TReques" +
+                    "t>> _validators;\r\n\r\n        public ");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

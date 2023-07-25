@@ -49,8 +49,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
-                    "quest : IRequest<TResponse>\r\n    {\r\n        private readonly Stopwatch _timer;\r\n" +
-                    "        private readonly ILogger<TRequest> _logger;\r\n        private readonly ");
+                    "quest : notnull\r\n    {\r\n        private readonly Stopwatch _timer;\r\n        priv" +
+                    "ate readonly ILogger<TRequest> _logger;\r\n        private readonly ");
             
             #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
