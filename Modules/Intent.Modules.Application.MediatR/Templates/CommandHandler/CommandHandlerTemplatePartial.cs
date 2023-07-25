@@ -98,9 +98,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new Mediator12Migration());
         }
 
-        /// <summary>
-        /// Fixes that for a very long time this template's default mode was Ignore.
-        /// </summary>
         private class Mediator12Migration : ITemplateMigration
         {
             public string Execute(string currentText)

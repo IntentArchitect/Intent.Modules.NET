@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Update : Upgraded to MediatR 12.
+
 ### Version 1.0.5
 
 - Fixed: Software Factory executions on case-sensitive file systems would fail due to file not found errors.

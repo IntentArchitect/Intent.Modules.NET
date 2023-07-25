@@ -62,5 +62,23 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
         {
             return CSharpFile.ToString();
         }
+
+        public override RoslynMergeConfig ConfigureRoslynMerger()
+        {
+            return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new Mediator12Migration());
+        }
+
+        private class Mediator12Migration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText.Replace(@"return Unit.Value;\r\n", "")
+                    .Replace(@"return Unit.Value;\n", "")
+                    .Replace(@"return Unit.Value;", "");
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
+        }
+
     }
 }

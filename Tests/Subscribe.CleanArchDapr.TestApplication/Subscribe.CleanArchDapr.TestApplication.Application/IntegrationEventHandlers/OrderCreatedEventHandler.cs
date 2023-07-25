@@ -7,7 +7,7 @@ using Publish.CleanArchDapr.TestApplication.Eventing.Messages;
 using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.MyProxy;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "2.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {
@@ -25,9 +25,8 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHa
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(OrderCreatedEvent @event, CancellationToken cancellationToken)
         {
-
             await _myProxy.OrderConfirmedAsync(@event.Id, new OrderConfirmed() { RefNo = "Bob", Id = @event.Id }, cancellationToken);
-            return Unit.Value;
+
         }
     }
 }
