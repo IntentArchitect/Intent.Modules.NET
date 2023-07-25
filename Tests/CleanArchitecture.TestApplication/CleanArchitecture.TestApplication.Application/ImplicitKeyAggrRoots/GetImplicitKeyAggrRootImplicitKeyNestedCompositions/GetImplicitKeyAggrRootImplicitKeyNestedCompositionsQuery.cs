@@ -15,7 +15,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
         {
             ImplicitKeyAggrRootId = implicitKeyAggrRootId;
         }
-        public Guid ImplicitKeyAggrRootId { get; set; }
 
+        public Guid ImplicitKeyAggrRootId { get; set; }
     }
 }

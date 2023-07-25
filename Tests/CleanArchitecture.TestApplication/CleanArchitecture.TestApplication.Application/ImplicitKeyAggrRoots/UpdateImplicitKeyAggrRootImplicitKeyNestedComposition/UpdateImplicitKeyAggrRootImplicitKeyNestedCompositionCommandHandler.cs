@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
     {
         private readonly IImplicitKeyAggrRootRepository _implicitKeyAggrRootRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository)
         {
             _implicitKeyAggrRootRepository = implicitKeyAggrRootRepository;
@@ -32,17 +30,17 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.ImplicitKeyAggrRootId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}' could not be found");
             }
-            var existingImplicitKeyNestedComposition = aggregateRoot.ImplicitKeyNestedCompositions.FirstOrDefault(p => p.Id == request.Id);
 
+            var existingImplicitKeyNestedComposition = aggregateRoot.ImplicitKeyNestedCompositions.FirstOrDefault(p => p.Id == request.Id);
             if (existingImplicitKeyNestedComposition is null)
             {
                 throw new NotFoundException($"{nameof(ImplicitKeyNestedComposition)} of Id '{request.Id}' could not be found associated with {nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}'");
             }
+
 #warning No matching field found for ImplicitKeyAggrRootId
             existingImplicitKeyNestedComposition.Attribute = request.Attribute;
 

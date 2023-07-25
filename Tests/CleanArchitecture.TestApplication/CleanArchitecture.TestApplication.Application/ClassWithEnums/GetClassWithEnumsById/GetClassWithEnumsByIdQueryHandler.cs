@@ -31,11 +31,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.GetClassW
             CancellationToken cancellationToken)
         {
             var classWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (classWithEnums is null)
             {
                 throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}'");
             }
+
             return classWithEnums.MapToClassWithEnumsDto(_mapper);
         }
     }

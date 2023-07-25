@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,13 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
 {
-
     public class UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto
     {
         public UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto()
         {
             Attribute = null!;
         }
+
+        public string Attribute { get; set; }
+        public Guid Id { get; set; }
 
         public static UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto Create(string attribute, Guid id)
         {
@@ -23,10 +24,5 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
                 Id = id
             };
         }
-
-        public string Attribute { get; set; }
-
-        public Guid Id { get; set; }
-
     }
 }

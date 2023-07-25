@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetAggregateTestNoIdReturnsQueryHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository, IMapper mapper)
+        public GetAggregateTestNoIdReturnsQueryHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository,
+            IMapper mapper)
         {
             _aggregateTestNoIdReturnRepository = aggregateTestNoIdReturnRepository;
             _mapper = mapper;

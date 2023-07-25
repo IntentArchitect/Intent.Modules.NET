@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -17,9 +15,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Creat
             Attribute = attribute;
             CompositeOfAggrLong = compositeOfAggrLong;
         }
+
         public string Attribute { get; set; }
-
         public CreateAggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
-
     }
 }

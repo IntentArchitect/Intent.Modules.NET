@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
     {
         private readonly IAggregateRootRepository _aggregateRootRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateRootCommandHandler(IAggregateRootRepository aggregateRootRepository)
         {
             _aggregateRootRepository = aggregateRootRepository;

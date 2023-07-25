@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,7 +10,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class AggregateRootCompositeManyBDto : IMapFrom<CompositeManyB>
     {
         public AggregateRootCompositeManyBDto()
@@ -19,6 +17,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             CompositeAttr = null!;
             Composites = null!;
         }
+
+        public string CompositeAttr { get; set; }
+        public DateTime? SomeDate { get; set; }
+        public Guid AggregateRootId { get; set; }
+        public Guid Id { get; set; }
+        public AggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
+        public List<AggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
         public static AggregateRootCompositeManyBDto Create(
             string compositeAttr,
@@ -38,18 +43,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Composites = composites
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public DateTime? SomeDate { get; set; }
-
-        public Guid AggregateRootId { get; set; }
-
-        public Guid Id { get; set; }
-
-        public AggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
-
-        public List<AggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
         public void Mapping(Profile profile)
         {

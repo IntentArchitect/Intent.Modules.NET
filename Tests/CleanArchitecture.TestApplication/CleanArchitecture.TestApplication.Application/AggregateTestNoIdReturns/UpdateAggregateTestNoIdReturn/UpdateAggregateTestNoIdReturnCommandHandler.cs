@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -18,7 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
     {
         private readonly IAggregateTestNoIdReturnRepository _aggregateTestNoIdReturnRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAggregateTestNoIdReturnCommandHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository)
         {
             _aggregateTestNoIdReturnRepository = aggregateTestNoIdReturnRepository;
@@ -28,11 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         public async Task Handle(UpdateAggregateTestNoIdReturnCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateTestNoIdReturn = await _aggregateTestNoIdReturnRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingAggregateTestNoIdReturn is null)
             {
                 throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}'");
             }
+
             existingAggregateTestNoIdReturn.Attribute = request.Attribute;
 
         }

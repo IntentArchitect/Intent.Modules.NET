@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetImplicitKeyAggrRootsQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository, IMapper mapper)
+        public GetImplicitKeyAggrRootsQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository,
+            IMapper mapper)
         {
             _implicitKeyAggrRootRepository = implicitKeyAggrRootRepository;
             _mapper = mapper;

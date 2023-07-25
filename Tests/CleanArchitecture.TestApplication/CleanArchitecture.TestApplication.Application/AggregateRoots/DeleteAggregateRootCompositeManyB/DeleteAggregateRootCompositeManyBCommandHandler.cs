@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
     {
         private readonly IAggregateRootRepository _aggregateRootRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DeleteAggregateRootCompositeManyBCommandHandler(IAggregateRootRepository aggregateRootRepository)
         {
             _aggregateRootRepository = aggregateRootRepository;
@@ -30,18 +28,17 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
         public async Task Handle(DeleteAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(AggregateRoot)} of Id '{request.AggregateRootId}' could not be found");
             }
 
             var existingCompositeManyB = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
-
             if (existingCompositeManyB is null)
             {
                 throw new NotFoundException($"{nameof(CompositeManyB)} of Id '{request.Id}' could not be found associated with {nameof(AggregateRoot)} of Id '{request.AggregateRootId}'");
             }
+
             aggregateRoot.Composites.Remove(existingCompositeManyB);
 
         }

@@ -4,9 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
     {
         private readonly IAggregateRootRepository _aggregateRootRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAggregateRootCommandHandler(IAggregateRootRepository aggregateRootRepository)
         {
             _aggregateRootRepository = aggregateRootRepository;
@@ -31,11 +29,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         public async Task Handle(UpdateAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingAggregateRoot is null)
             {
                 throw new NotFoundException($"Could not find AggregateRoot '{request.Id}'");
             }
+
             existingAggregateRoot.AggregateAttr = request.AggregateAttr;
             existingAggregateRoot.Composites = UpdateHelper.CreateOrUpdateCollection(existingAggregateRoot.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyB);
             existingAggregateRoot.Composite = CreateOrUpdateCompositeSingleA(existingAggregateRoot.Composite, request.Composite);
@@ -50,7 +48,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyB entity,
             UpdateAggregateRootCompositeManyBDto dto)
         {
-
             entity ??= new CompositeManyB();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.SomeDate = dto.SomeDate;
@@ -66,7 +63,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyBB entity,
             UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
-
             entity ??= new CompositeManyBB();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeManyBId = dto.CompositeManyBId;
@@ -129,7 +125,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             CompositeManyAA entity,
             UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
         {
-
             entity ??= new CompositeManyAA();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeSingleAId = dto.CompositeSingleAId;

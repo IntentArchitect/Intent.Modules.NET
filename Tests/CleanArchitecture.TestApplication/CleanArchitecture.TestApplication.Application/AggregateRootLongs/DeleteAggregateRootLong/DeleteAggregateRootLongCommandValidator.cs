@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.DeleteAggregateRootLong
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteAggregateRootLongCommandValidator : AbstractValidator<DeleteAggregateRootLongCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]

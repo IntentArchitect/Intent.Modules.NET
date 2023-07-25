@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -22,7 +20,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetAggregateRootCompositeManyBSQueryHandler(IAggregateRootRepository aggregateRootRepository, IMapper mapper)
+        public GetAggregateRootCompositeManyBSQueryHandler(IAggregateRootRepository aggregateRootRepository,
+            IMapper mapper)
         {
             _aggregateRootRepository = aggregateRootRepository;
             _mapper = mapper;

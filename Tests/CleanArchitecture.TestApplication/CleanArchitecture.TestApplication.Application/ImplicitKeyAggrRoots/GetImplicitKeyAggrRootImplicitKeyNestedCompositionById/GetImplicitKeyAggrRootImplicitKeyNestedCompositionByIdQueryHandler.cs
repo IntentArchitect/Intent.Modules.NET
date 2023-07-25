@@ -3,11 +3,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -24,7 +21,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository, IMapper mapper)
+        public GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository,
+            IMapper mapper)
         {
             _implicitKeyAggrRootRepository = implicitKeyAggrRootRepository;
             _mapper = mapper;
@@ -36,18 +34,17 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.ImplicitKeyAggrRootId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}' could not be found");
             }
 
             var element = aggregateRoot.ImplicitKeyNestedCompositions.FirstOrDefault(p => p.Id == request.Id);
-
             if (element is null)
             {
                 throw new NotFoundException($"Could not find ImplicitKeyNestedComposition '{request.Id}'");
             }
+
             return element.MapToImplicitKeyAggrRootImplicitKeyNestedCompositionDto(_mapper);
         }
     }

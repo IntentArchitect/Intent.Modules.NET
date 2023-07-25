@@ -27,11 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.UpdateCla
         public async Task Handle(UpdateClassWithEnumsCommand request, CancellationToken cancellationToken)
         {
             var existingClassWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingClassWithEnums is null)
             {
                 throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}'");
             }
+
             existingClassWithEnums.EnumWithDefaultLiteral = request.EnumWithDefaultLiteral;
             existingClassWithEnums.EnumWithoutDefaultLiteral = request.EnumWithoutDefaultLiteral;
             existingClassWithEnums.EnumWithoutValues = request.EnumWithoutValues;

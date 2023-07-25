@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,7 +10,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
 {
-
     public class ImplicitKeyAggrRootDto : IMapFrom<ImplicitKeyAggrRoot>
     {
         public ImplicitKeyAggrRootDto()
@@ -19,6 +17,10 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
             Attribute = null!;
             ImplicitKeyNestedCompositions = null!;
         }
+
+        public Guid Id { get; set; }
+        public string Attribute { get; set; }
+        public List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
 
         public static ImplicitKeyAggrRootDto Create(
             Guid id,
@@ -32,12 +34,6 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
                 ImplicitKeyNestedCompositions = implicitKeyNestedCompositions
             };
         }
-
-        public Guid Id { get; set; }
-
-        public string Attribute { get; set; }
-
-        public List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
 
         public void Mapping(Profile profile)
         {

@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class UpdateAggregateRootCompositeManyBDto
     {
         public UpdateAggregateRootCompositeManyBDto()
@@ -15,6 +14,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             CompositeAttr = null!;
             Composites = null!;
         }
+
+        public string CompositeAttr { get; set; }
+        public DateTime? SomeDate { get; set; }
+        public Guid AggregateRootId { get; set; }
+        public Guid Id { get; set; }
+        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
+        public UpdateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
 
         public static UpdateAggregateRootCompositeManyBDto Create(
             string compositeAttr,
@@ -34,18 +40,5 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Composite = composite
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public DateTime? SomeDate { get; set; }
-
-        public Guid AggregateRootId { get; set; }
-
-        public Guid Id { get; set; }
-
-        public UpdateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
-
-        public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
-
     }
 }

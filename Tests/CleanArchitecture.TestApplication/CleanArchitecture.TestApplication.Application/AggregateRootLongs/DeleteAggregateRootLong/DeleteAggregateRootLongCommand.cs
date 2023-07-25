@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -15,7 +13,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Delet
         {
             Id = id;
         }
-        public long Id { get; set; }
 
+        public long Id { get; set; }
     }
 }

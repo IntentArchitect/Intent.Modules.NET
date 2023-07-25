@@ -26,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
         public async Task Handle(DeleteClassWithEnumsCommand request, CancellationToken cancellationToken)
         {
             var existingClassWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingClassWithEnums is null)
             {
-                throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}' ");
+                throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}'");
             }
+
             _classWithEnumsRepository.Remove(existingClassWithEnums);
 
         }

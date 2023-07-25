@@ -1,3 +1,6 @@
+### Version 5.1.5
+
+- Update: Asynchronous domain operation will now be `await`ed and have `CancellationToken`s passed in as a parameter.
 
 ### Version 5.1.4
 

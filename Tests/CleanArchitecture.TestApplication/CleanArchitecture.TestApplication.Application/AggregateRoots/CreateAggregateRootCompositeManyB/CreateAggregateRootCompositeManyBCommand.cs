@@ -23,15 +23,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             Composite = composite;
             Composites = composites;
         }
+
         public Guid AggregateRootId { get; set; }
-
         public string CompositeAttr { get; set; }
-
         public DateTime? SomeDate { get; set; }
-
         public CreateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
-
         public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
-
     }
 }

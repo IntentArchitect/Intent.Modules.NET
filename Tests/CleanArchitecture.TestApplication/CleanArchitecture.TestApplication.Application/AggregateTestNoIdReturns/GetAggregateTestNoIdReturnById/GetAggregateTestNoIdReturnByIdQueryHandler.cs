@@ -2,9 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetAggregateTestNoIdReturnByIdQueryHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository, IMapper mapper)
+        public GetAggregateTestNoIdReturnByIdQueryHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository,
+            IMapper mapper)
         {
             _aggregateTestNoIdReturnRepository = aggregateTestNoIdReturnRepository;
             _mapper = mapper;
@@ -33,11 +32,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
             CancellationToken cancellationToken)
         {
             var aggregateTestNoIdReturn = await _aggregateTestNoIdReturnRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (aggregateTestNoIdReturn is null)
             {
                 throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}'");
             }
+
             return aggregateTestNoIdReturn.MapToAggregateTestNoIdReturnDto(_mapper);
         }
     }

@@ -17,9 +17,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
             Attribute = attribute;
             ImplicitKeyNestedCompositions = implicitKeyNestedCompositions;
         }
+
         public string Attribute { get; set; }
-
         public List<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
-
     }
 }

@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,13 +9,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 {
-
     public class AggregateTestNoIdReturnDto : IMapFrom<AggregateTestNoIdReturn>
     {
         public AggregateTestNoIdReturnDto()
         {
             Attribute = null!;
         }
+
+        public Guid Id { get; set; }
+        public string Attribute { get; set; }
 
         public static AggregateTestNoIdReturnDto Create(Guid id, string attribute)
         {
@@ -27,10 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
                 Attribute = attribute
             };
         }
-
-        public Guid Id { get; set; }
-
-        public string Attribute { get; set; }
 
         public void Mapping(Profile profile)
         {

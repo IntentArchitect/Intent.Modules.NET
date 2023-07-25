@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
     {
         private readonly IImplicitKeyAggrRootRepository _implicitKeyAggrRootRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository)
         {
             _implicitKeyAggrRootRepository = implicitKeyAggrRootRepository;
@@ -32,11 +30,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.ImplicitKeyAggrRootId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}' could not be found");
             }
+
             var newImplicitKeyNestedComposition = new ImplicitKeyNestedComposition
             {
 #warning No matching field found for ImplicitKeyAggrRootId

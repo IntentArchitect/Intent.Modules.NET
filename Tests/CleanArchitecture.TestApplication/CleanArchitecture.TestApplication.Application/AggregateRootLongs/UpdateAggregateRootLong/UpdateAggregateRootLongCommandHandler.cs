@@ -2,11 +2,8 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
     {
         private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAggregateRootLongCommandHandler(IAggregateRootLongRepository aggregateRootLongRepository)
         {
             _aggregateRootLongRepository = aggregateRootLongRepository;
@@ -31,11 +28,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
         public async Task Handle(UpdateAggregateRootLongCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRootLong = await _aggregateRootLongRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingAggregateRootLong is null)
             {
                 throw new NotFoundException($"Could not find AggregateRootLong '{request.Id}'");
             }
+
             existingAggregateRootLong.Attribute = request.Attribute;
             existingAggregateRootLong.CompositeOfAggrLong = CreateOrUpdateCompositeOfAggrLong(existingAggregateRootLong.CompositeOfAggrLong, request.CompositeOfAggrLong);
 

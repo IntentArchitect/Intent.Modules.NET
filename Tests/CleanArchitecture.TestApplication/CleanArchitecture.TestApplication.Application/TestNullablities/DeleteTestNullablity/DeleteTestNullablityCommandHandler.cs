@@ -26,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
         public async Task Handle(DeleteTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingTestNullablity is null)
             {
-                throw new NotFoundException($"Could not find TestNullablity '{request.Id}' ");
+                throw new NotFoundException($"Could not find TestNullablity '{request.Id}'");
             }
+
             _testNullablityRepository.Remove(existingTestNullablity);
 
         }

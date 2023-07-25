@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

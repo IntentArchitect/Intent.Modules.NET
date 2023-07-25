@@ -2,9 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -19,7 +17,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
     {
         private readonly IAccountHolderRepository _accountHolderRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateAccountHolderHandler(IAccountHolderRepository accountHolderRepository)
         {
             _accountHolderRepository = accountHolderRepository;

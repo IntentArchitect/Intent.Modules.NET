@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderName
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ChangeAccountHolderNameValidator : AbstractValidator<ChangeAccountHolderName>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -21,7 +20,6 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
         {
             RuleFor(v => v.Name)
                 .NotNull();
-
         }
     }
 }

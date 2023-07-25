@@ -15,7 +15,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
         {
             AggregateRootId = aggregateRootId;
         }
-        public Guid AggregateRootId { get; set; }
 
+        public Guid AggregateRootId { get; set; }
     }
 }

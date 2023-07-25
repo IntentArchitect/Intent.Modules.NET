@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootCompositeManyBCommandValidator : AbstractValidator<CreateAggregateRootCompositeManyBCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -24,7 +23,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
 
             RuleFor(v => v.Composites)
                 .NotNull();
-
         }
     }
 }

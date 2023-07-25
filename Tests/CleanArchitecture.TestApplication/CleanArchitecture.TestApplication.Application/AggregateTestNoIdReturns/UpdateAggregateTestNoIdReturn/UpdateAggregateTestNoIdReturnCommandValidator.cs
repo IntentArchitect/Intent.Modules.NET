@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.UpdateAggregateTestNoIdReturn
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateAggregateTestNoIdReturnCommandValidator : AbstractValidator<UpdateAggregateTestNoIdReturnCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -21,7 +20,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
-
         }
     }
 }

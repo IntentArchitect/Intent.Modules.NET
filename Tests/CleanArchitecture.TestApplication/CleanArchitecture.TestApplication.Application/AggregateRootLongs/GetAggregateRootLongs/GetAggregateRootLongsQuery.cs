@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
@@ -17,8 +15,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
             PageNo = pageNo;
             PageSize = pageSize;
         }
-        public int PageNo { get; set; }
 
+        public int PageNo { get; set; }
         public int PageSize { get; set; }
     }
 }

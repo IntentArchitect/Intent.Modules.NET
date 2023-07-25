@@ -2,9 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetAggregateRootLongByIdQueryHandler(IAggregateRootLongRepository aggregateRootLongRepository, IMapper mapper)
+        public GetAggregateRootLongByIdQueryHandler(IAggregateRootLongRepository aggregateRootLongRepository,
+            IMapper mapper)
         {
             _aggregateRootLongRepository = aggregateRootLongRepository;
             _mapper = mapper;
@@ -33,11 +32,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAg
             CancellationToken cancellationToken)
         {
             var aggregateRootLong = await _aggregateRootLongRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (aggregateRootLong is null)
             {
                 throw new NotFoundException($"Could not find AggregateRootLong '{request.Id}'");
             }
+
             return aggregateRootLong.MapToAggregateRootLongDto(_mapper);
         }
     }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -18,13 +17,10 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
             Amount = amount;
             Currency = currency;
         }
+
         public Guid Id { get; set; }
-
         public string Description { get; set; }
-
         public decimal Amount { get; set; }
-
         public string Currency { get; set; }
-
     }
 }

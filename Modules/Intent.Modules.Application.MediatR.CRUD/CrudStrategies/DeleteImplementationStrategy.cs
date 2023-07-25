@@ -74,15 +74,18 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 _template.AddUsing("System.Linq");
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest()}, cancellationToken);");
-                codeLines.Add(new CSharpIfStatement($"aggregateRoot is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"");"));
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: "aggregateRoot",
+                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                codeLines.Add(string.Empty);
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
 
-                codeLines.Add("");
                 codeLines.Add($"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
-                codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                    .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"");"));
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: $"existing{foundEntity.Name}",
+                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"));
+                codeLines.Add(string.Empty);
 
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(existing{foundEntity.Name});");
 
@@ -95,8 +98,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
-            codeLines.Add(new CSharpIfStatement($"existing{foundEntity.Name} is null")
-                .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}' "");"));
+            codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                variable: $"existing{foundEntity.Name}",
+                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
+            codeLines.Add(string.Empty);
+
             codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
             if (dtoToReturn != null)

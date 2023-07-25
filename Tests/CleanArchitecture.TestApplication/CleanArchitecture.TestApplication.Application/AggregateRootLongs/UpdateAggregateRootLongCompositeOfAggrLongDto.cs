@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,13 +5,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
 {
-
     public class UpdateAggregateRootLongCompositeOfAggrLongDto
     {
         public UpdateAggregateRootLongCompositeOfAggrLongDto()
         {
             Attribute = null!;
         }
+
+        public string Attribute { get; set; }
+        public long Id { get; set; }
 
         public static UpdateAggregateRootLongCompositeOfAggrLongDto Create(string attribute, long id)
         {
@@ -23,10 +23,5 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
                 Id = id
             };
         }
-
-        public string Attribute { get; set; }
-
-        public long Id { get; set; }
-
     }
 }

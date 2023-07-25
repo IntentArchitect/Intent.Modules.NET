@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -17,7 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
     {
         private readonly IAggregateTestNoIdReturnRepository _aggregateTestNoIdReturnRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DeleteAggregateTestNoIdReturnCommandHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository)
         {
             _aggregateTestNoIdReturnRepository = aggregateTestNoIdReturnRepository;
@@ -27,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         public async Task Handle(DeleteAggregateTestNoIdReturnCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateTestNoIdReturn = await _aggregateTestNoIdReturnRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingAggregateTestNoIdReturn is null)
             {
-                throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}' ");
+                throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}'");
             }
+
             _aggregateTestNoIdReturnRepository.Remove(existingAggregateTestNoIdReturn);
 
         }

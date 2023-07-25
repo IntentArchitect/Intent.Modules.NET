@@ -2,9 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetImplicitKeyAggrRootByIdQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository, IMapper mapper)
+        public GetImplicitKeyAggrRootByIdQueryHandler(IImplicitKeyAggrRootRepository implicitKeyAggrRootRepository,
+            IMapper mapper)
         {
             _implicitKeyAggrRootRepository = implicitKeyAggrRootRepository;
             _mapper = mapper;
@@ -33,11 +32,11 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Get
             CancellationToken cancellationToken)
         {
             var implicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (implicitKeyAggrRoot is null)
             {
                 throw new NotFoundException($"Could not find ImplicitKeyAggrRoot '{request.Id}'");
             }
+
             return implicitKeyAggrRoot.MapToImplicitKeyAggrRootDto(_mapper);
         }
     }

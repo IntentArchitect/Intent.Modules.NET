@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,13 +6,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class UpdateAggregateRootCompositeSingleACompositeManyAADto
     {
         public UpdateAggregateRootCompositeSingleACompositeManyAADto()
         {
             CompositeAttr = null!;
         }
+
+        public string CompositeAttr { get; set; }
+        public Guid CompositeSingleAId { get; set; }
+        public Guid Id { get; set; }
 
         public static UpdateAggregateRootCompositeSingleACompositeManyAADto Create(
             string compositeAttr,
@@ -27,12 +29,5 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Id = id
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public Guid CompositeSingleAId { get; set; }
-
-        public Guid Id { get; set; }
-
     }
 }

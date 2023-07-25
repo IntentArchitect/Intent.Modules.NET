@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;

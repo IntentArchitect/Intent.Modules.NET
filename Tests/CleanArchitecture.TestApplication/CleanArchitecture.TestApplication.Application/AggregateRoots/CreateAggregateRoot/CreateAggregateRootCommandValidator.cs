@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootCommandValidator : AbstractValidator<CreateAggregateRootCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -32,7 +31,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             RuleFor(v => v.LimitedService)
                 .NotNull()
                 .MaximumLength(20);
-
         }
     }
 }

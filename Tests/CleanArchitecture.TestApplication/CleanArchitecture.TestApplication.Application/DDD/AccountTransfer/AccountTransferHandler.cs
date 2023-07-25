@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Domain.Services.DDD;
 using Intent.RoslynWeaver.Attributes;
@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
         private readonly IAccountHolderRepository _accountHolderRepository;
         private readonly IAccountingDomainService _domainService;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public AccountTransferHandler(IAccountHolderRepository accountHolderRepository,
             IAccountingDomainService domainService)
         {
@@ -31,6 +31,11 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
         public async Task Handle(AccountTransfer request, CancellationToken cancellationToken)
         {
             var entity = await _accountHolderRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (entity is null)
+            {
+                throw new NotFoundException($"Could not find AccountHolder '{request.Id}'");
+            }
+
             entity.Transfer(request.Description, _domainService, request.Amount, request.Currency);
 
         }

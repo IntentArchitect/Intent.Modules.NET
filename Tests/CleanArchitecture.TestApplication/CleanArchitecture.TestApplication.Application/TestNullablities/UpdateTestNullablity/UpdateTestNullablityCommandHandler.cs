@@ -27,11 +27,11 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
         public async Task Handle(UpdateTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingTestNullablity is null)
             {
                 throw new NotFoundException($"Could not find TestNullablity '{request.Id}'");
             }
+
             existingTestNullablity.SampleEnum = request.SampleEnum;
             existingTestNullablity.Str = request.Str;
             existingTestNullablity.Date = request.Date;

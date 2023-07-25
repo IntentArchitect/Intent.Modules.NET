@@ -2,9 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -31,11 +29,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggreg
         public async Task<AggregateRootDto> Handle(GetAggregateRootByIdQuery request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"Could not find AggregateRoot '{request.Id}'");
             }
+
             return aggregateRoot.MapToAggregateRootDto(_mapper);
         }
     }

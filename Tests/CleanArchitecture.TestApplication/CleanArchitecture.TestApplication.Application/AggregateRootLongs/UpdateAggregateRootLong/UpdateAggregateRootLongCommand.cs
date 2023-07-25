@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -19,11 +17,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
             Attribute = attribute;
             CompositeOfAggrLong = compositeOfAggrLong;
         }
+
         public long Id { get; set; }
-
         public string Attribute { get; set; }
-
         public UpdateAggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
-
     }
 }

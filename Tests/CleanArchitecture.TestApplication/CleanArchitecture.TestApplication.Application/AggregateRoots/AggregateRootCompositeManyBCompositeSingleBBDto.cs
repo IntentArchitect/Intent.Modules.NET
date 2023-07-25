@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,13 +9,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class AggregateRootCompositeManyBCompositeSingleBBDto : IMapFrom<CompositeSingleBB>
     {
         public AggregateRootCompositeManyBCompositeSingleBBDto()
         {
             CompositeAttr = null!;
         }
+
+        public string CompositeAttr { get; set; }
+        public Guid Id { get; set; }
 
         public static AggregateRootCompositeManyBCompositeSingleBBDto Create(string compositeAttr, Guid id)
         {
@@ -27,10 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Id = id
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public Guid Id { get; set; }
 
         public void Mapping(Profile profile)
         {

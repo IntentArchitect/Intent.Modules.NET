@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.CreateImplicitKeyAggrRootImplicitKeyNestedComposition
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidator : AbstractValidator<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -21,7 +20,6 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
-
         }
     }
 }

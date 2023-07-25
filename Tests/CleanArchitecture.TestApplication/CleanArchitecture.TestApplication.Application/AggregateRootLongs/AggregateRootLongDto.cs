@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,13 +8,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
 {
-
     public class AggregateRootLongDto : IMapFrom<AggregateRootLong>
     {
         public AggregateRootLongDto()
         {
             Attribute = null!;
         }
+
+        public long Id { get; set; }
+        public string Attribute { get; set; }
+        public AggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
 
         public static AggregateRootLongDto Create(
             long id,
@@ -31,12 +31,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
                 CompositeOfAggrLong = compositeOfAggrLong
             };
         }
-
-        public long Id { get; set; }
-
-        public string Attribute { get; set; }
-
-        public AggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
 
         public void Mapping(Profile profile)
         {

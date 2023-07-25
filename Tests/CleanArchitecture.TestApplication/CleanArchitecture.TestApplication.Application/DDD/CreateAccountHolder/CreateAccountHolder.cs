@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -15,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
         {
             Name = name;
         }
-        public string Name { get; set; }
 
+        public string Name { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,7 +6,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class CreateAggregateRootCompositeSingleADto
     {
         public CreateAggregateRootCompositeSingleADto()
@@ -15,6 +13,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             CompositeAttr = null!;
             Composites = null!;
         }
+
+        public string CompositeAttr { get; set; }
+        public CreateAggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
+        public List<CreateAggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
 
         public static CreateAggregateRootCompositeSingleADto Create(
             string compositeAttr,
@@ -28,12 +30,5 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Composites = composites
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public CreateAggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
-
-        public List<CreateAggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
-
     }
 }

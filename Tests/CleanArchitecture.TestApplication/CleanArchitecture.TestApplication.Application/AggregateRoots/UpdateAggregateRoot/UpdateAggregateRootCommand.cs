@@ -27,17 +27,13 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             LimitedDomain = limitedDomain;
             LimitedService = limitedService;
         }
+
         public Guid Id { get; set; }
-
         public string AggregateAttr { get; set; }
-
         public List<UpdateAggregateRootCompositeManyBDto> Composites { get; set; }
-
         public UpdateAggregateRootCompositeSingleADto? Composite { get; set; }
-
         public UpdateAggregateRootAggregateSingleCDto? Aggregate { get; set; }
         public string LimitedDomain { get; set; }
         public string LimitedService { get; set; }
-
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -16,9 +15,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
             ImplicitKeyAggrRootId = implicitKeyAggrRootId;
             Attribute = attribute;
         }
+
         public Guid ImplicitKeyAggrRootId { get; set; }
-
         public string Attribute { get; set; }
-
     }
 }

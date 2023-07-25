@@ -11,6 +11,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
+using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
@@ -18,6 +19,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -53,6 +55,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
         public DbSet<NullabilityPeer> NullabilityPeers { get; set; }
         public DbSet<TestNullablity> TestNullablities { get; set; }
+        public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -86,6 +89,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
             modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
+            modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

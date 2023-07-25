@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,13 +5,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class CreateAggregateRootAggregateSingleCDto
     {
         public CreateAggregateRootAggregateSingleCDto()
         {
             AggregationAttr = null!;
         }
+
+        public string AggregationAttr { get; set; }
 
         public static CreateAggregateRootAggregateSingleCDto Create(string aggregationAttr)
         {
@@ -22,8 +21,5 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 AggregationAttr = aggregationAttr
             };
         }
-
-        public string AggregationAttr { get; set; }
-
     }
 }

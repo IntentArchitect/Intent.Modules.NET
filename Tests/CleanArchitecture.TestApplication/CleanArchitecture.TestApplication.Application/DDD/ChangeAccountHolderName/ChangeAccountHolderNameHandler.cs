@@ -12,7 +12,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ChangeAccountHolderNameHandler : IRequestHandler<ChangeAccountHolderName>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public ChangeAccountHolderNameHandler()
         {
         }

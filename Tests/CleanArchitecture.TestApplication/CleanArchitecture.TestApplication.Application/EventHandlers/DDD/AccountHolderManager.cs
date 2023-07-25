@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Application.Common.Models;
-using CleanArchitecture.TestApplication.Domain.Events;
 using CleanArchitecture.TestApplication.Domain.Events.DDD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;

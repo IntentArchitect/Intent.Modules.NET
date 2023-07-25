@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
-using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,13 +9,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 {
-
     public class AggregateRootAggregateSingleCDto : IMapFrom<AggregateSingleC>
     {
         public AggregateRootAggregateSingleCDto()
         {
             AggregationAttr = null!;
         }
+
+        public string AggregationAttr { get; set; }
+        public Guid Id { get; set; }
 
         public static AggregateRootAggregateSingleCDto Create(string aggregationAttr, Guid id)
         {
@@ -27,10 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Id = id
             };
         }
-
-        public string AggregationAttr { get; set; }
-
-        public Guid Id { get; set; }
 
         public void Mapping(Profile profile)
         {

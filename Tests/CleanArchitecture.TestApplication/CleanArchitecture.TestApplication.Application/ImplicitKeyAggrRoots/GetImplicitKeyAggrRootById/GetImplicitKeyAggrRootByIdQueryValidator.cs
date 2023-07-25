@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.GetImplicitKeyAggrRootById
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetImplicitKeyAggrRootByIdQueryValidator : AbstractValidator<GetImplicitKeyAggrRootByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]

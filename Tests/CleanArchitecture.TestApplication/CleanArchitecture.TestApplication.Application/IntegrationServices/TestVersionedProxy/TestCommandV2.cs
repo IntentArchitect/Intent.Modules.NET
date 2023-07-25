@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,6 +7,8 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Test
 {
     public class TestCommandV2
     {
+        public string Value { get; set; }
+
         public static TestCommandV2 Create(string value)
         {
             return new TestCommandV2
@@ -15,7 +16,5 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Test
                 Value = value
             };
         }
-
-        public string Value { get; set; }
     }
 }

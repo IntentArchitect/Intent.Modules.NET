@@ -25,15 +25,12 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             LimitedDomain = limitedDomain;
             LimitedService = limitedService;
         }
+
         public string AggregateAttr { get; set; }
-
         public List<CreateAggregateRootCompositeManyBDto> Composites { get; set; }
-
         public CreateAggregateRootCompositeSingleADto? Composite { get; set; }
-
         public CreateAggregateRootAggregateSingleCDto? Aggregate { get; set; }
         public string LimitedDomain { get; set; }
         public string LimitedService { get; set; }
-
     }
 }

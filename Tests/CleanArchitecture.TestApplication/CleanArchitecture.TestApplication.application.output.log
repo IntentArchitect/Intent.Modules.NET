@@ -100,10 +100,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b82bc310-ab8a-474b-9832-6845ed8379c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/AsyncOperationsClassesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClassesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#01e2ecf5-ce0a-4df3-acd6-cb5ce203237f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ImplicitKeyAggrRootsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRootsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#94822e16-398b-41b6-aa4e-a06d3779fe53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/OperationsClassesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClassesController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -736,6 +752,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/TestNullablities/TestNullablityAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Operations/OperationsClasses/OperationsClassAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Operations/OperationsClasses/OperationsClassAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1772,6 +1796,102 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0ce3cbd1-859f-4982-83c2-35bce9196419</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/Explicit/ExplicitCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/Explicit/ExplicitCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0ce3cbd1-859f-4982-83c2-35bce9196419</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/Explicit/ExplicitCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/Explicit/ExplicitCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0ce3cbd1-859f-4982-83c2-35bce9196419</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/Explicit/ExplicitCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/Explicit/ExplicitCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bda0bdda-ad20-4744-a33f-d017a4e77958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bda0bdda-ad20-4744-a33f-d017a4e77958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bda0bdda-ad20-4744-a33f-d017a4e77958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ExplicitWithReturn/ExplicitWithReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#da92af64-5873-4c8b-9818-09314eb35e13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#da92af64-5873-4c8b-9818-09314eb35e13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#da92af64-5873-4c8b-9818-09314eb35e13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsync/ImplicitAsyncCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#84c7c80c-9430-4fa6-98f2-27a0dd0bced7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#84c7c80c-9430-4fa6-98f2-27a0dd0bced7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#84c7c80c-9430-4fa6-98f2-27a0dd0bced7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#09590c38-69ac-4e42-a8eb-5bc3645f78a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ClassWithEnums/ClassWithEnumsDto.cs</ApplicationRelativeFilePath>
@@ -2592,6 +2712,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6682232e-5dc3-4797-9bb8-882238c0f971</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/Sync/Sync.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/Sync/Sync.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6682232e-5dc3-4797-9bb8-882238c0f971</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/Sync/SyncHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/Sync/SyncHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6682232e-5dc3-4797-9bb8-882238c0f971</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/Sync/SyncValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/Sync/SyncValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8abed546-9bf6-4205-a321-5fb81de9fecd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/SyncWithReturn/SyncWithReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/SyncWithReturn/SyncWithReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8abed546-9bf6-4205-a321-5fb81de9fecd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/SyncWithReturn/SyncWithReturnHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/SyncWithReturn/SyncWithReturnHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8abed546-9bf6-4205-a321-5fb81de9fecd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/SyncWithReturn/SyncWithReturnValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationsClasses/SyncWithReturn/SyncWithReturnValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3651,6 +3819,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Operations/OperationsClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Operations/OperationsClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3832,6 +4008,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Nullability/ITestNullablityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/ITestNullablityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Operations/IOperationsClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Operations/IOperationsClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4107,6 +4291,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Operations/OperationsClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Operations/OperationsClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4216,6 +4408,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Nullability/TestNullablityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/TestNullablityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Operations/OperationsClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Operations/OperationsClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

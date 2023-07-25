@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateAggregateRootLongCommandValidator : AbstractValidator<UpdateAggregateRootLongCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
@@ -21,7 +20,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
-
         }
     }
 }
