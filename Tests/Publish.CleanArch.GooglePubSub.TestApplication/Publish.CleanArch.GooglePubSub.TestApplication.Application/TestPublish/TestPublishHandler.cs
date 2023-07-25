@@ -7,7 +7,7 @@ using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Eventing
 using Publish.CleanArch.GooglePubSub.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish
 {
@@ -23,10 +23,10 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(TestPublish request, CancellationToken cancellationToken)
+        public async Task Handle(TestPublish request, CancellationToken cancellationToken)
         {
             _eventBus.Publish(new EventStartedEvent() { Message = request.Message });
-            return Unit.Value;
+
         }
     }
 }

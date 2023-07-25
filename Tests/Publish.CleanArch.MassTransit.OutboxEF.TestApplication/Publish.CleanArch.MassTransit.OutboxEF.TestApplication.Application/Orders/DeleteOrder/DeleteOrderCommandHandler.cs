@@ -9,7 +9,7 @@ using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Excep
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Orders.DeleteOrder
 {
@@ -27,7 +27,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -37,7 +37,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             }
             _orderRepository.Remove(existingOrder);
             _eventBus.Publish(existingOrder.MapToOrderDeletedEvent());
-            return Unit.Value;
+
         }
     }
 }

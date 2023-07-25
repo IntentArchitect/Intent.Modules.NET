@@ -35,7 +35,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             // Arrange
             var validator = GetValidationBehaviour();
             // Act
-            var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
+            var result = await validator.Handle(testCommand, () => Task.FromResult(Unit.Value), CancellationToken.None);
 
             // Assert
             result.Should().Be(Unit.Value);
@@ -64,7 +64,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             // Arrange
             var validator = GetValidationBehaviour();
             // Act
-            var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
+            var act = async () => await validator.Handle(testCommand, () => Task.FromResult(Unit.Value), CancellationToken.None);
 
             // Assert
             act.Should().ThrowAsync<ValidationException>().Result

@@ -11,7 +11,7 @@ using MediatR;
 namespace CosmosDB.Application.Common.Behaviours
 {
     public class CosmosDBUnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>, ICommand
+        where TRequest : notnull, ICommand
     {
         private readonly ICosmosDBUnitOfWork _cosmosDBUnitOfWork;
 
@@ -22,8 +22,8 @@ namespace CosmosDB.Application.Common.Behaviours
 
         public async Task<TResponse> Handle(
             TRequest request,
-            CancellationToken cancellationToken,
-            RequestHandlerDelegate<TResponse> next)
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
             var response = await next();
 

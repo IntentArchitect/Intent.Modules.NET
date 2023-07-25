@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteClassWithEnums
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteClassWithEnumsCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteClassWithEnumsCommand request, CancellationToken cancellationToken)
         {
             var existingClassWithEnums = await _classWithEnumsRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
                 throw new NotFoundException($"Could not find ClassWithEnums '{request.Id}' ");
             }
             _classWithEnumsRepository.Remove(existingClassWithEnums);
-            return Unit.Value;
+
         }
     }
 }

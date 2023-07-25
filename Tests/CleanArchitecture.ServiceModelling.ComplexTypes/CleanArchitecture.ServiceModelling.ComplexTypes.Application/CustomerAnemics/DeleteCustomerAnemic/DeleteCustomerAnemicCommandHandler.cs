@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAnemics.DeleteCustomerAnemic
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteCustomerAnemicCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteCustomerAnemicCommand request, CancellationToken cancellationToken)
         {
             var existingCustomerAnemic = await _customerAnemicRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
                 throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}' ");
             }
             _customerAnemicRepository.Remove(existingCustomerAnemic);
-            return Unit.Value;
+
         }
     }
 }

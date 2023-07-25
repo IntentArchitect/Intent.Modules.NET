@@ -11,7 +11,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
 namespace Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours
 {
     public class DaprStateStoreUnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>, ICommand
-        where TRequest : IRequest<TResponse>
+        where TRequest : notnull
     {
         private readonly IDaprStateStoreUnitOfWork _daprStateStoreUnitOfWork;
 
@@ -22,8 +22,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours
 
         public async Task<TResponse> Handle(
             TRequest request,
-            CancellationToken cancellationToken,
-            RequestHandlerDelegate<TResponse> next)
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
             var response = await next();
 

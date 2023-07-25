@@ -9,7 +9,7 @@ using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common.Exc
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.DeleteBasket
 {
@@ -27,7 +27,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteBasketCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteBasketCommand request, CancellationToken cancellationToken)
         {
             var existingBasket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -37,7 +37,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             }
             _basketRepository.Remove(existingBasket);
             _eventBus.Publish(existingBasket.MapToBasketDeletedEvent());
-            return Unit.Value;
+
         }
     }
 }

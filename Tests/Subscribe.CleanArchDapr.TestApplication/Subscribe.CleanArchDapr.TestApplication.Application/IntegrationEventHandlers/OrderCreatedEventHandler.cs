@@ -23,7 +23,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHa
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(OrderCreatedEvent @event, CancellationToken cancellationToken)
+        public async Task Handle(OrderCreatedEvent @event, CancellationToken cancellationToken)
         {
 
             await _myProxy.OrderConfirmedAsync(@event.Id, new OrderConfirmed() { RefNo = "Bob", Id = @event.Id }, cancellationToken);

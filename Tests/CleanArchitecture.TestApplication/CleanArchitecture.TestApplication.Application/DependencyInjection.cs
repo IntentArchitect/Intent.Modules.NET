@@ -24,13 +24,16 @@ namespace CleanArchitecture.TestApplication.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
+            });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAsyncableDomainService, AsyncableDomainService>();
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();

@@ -7,7 +7,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCustomer
 {
@@ -23,7 +23,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
                 throw new NotFoundException($"Could not find Customer '{request.Id}' ");
             }
             _customerRepository.Remove(existingCustomer);
-            return Unit.Value;
+
         }
     }
 }

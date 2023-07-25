@@ -18,7 +18,7 @@ namespace SignalR.Application.Common.Behaviours
     /// be avoided unless absolutely necessary.
     /// </summary>
     public class UnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>, ICommand
+        where TRequest : notnull, ICommand
     {
         private readonly IUnitOfWork _dataSource;
 
@@ -27,7 +27,7 @@ namespace SignalR.Application.Common.Behaviours
             _dataSource = dataSource;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             // The pipeline execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are

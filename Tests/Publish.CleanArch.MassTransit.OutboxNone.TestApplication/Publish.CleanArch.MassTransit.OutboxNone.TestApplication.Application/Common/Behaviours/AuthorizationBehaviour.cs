@@ -15,7 +15,7 @@ using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Commo
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Behaviours
 {
     public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+        where TRequest : notnull
     {
         private readonly ICurrentUserService _currentUserService;
 
@@ -25,7 +25,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
             _currentUserService = currentUserService;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             var authorizeAttributes = request.GetType().GetCustomAttributes<AuthorizeAttribute>();
 

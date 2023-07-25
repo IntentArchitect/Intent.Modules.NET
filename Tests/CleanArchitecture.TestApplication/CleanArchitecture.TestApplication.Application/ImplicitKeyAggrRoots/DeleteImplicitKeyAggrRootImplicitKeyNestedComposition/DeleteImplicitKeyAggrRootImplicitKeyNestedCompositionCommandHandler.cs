@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.DeleteImplicitKeyAggrRootImplicitKeyNestedComposition
 {
@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(
+        public async Task Handle(
             DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand request,
             CancellationToken cancellationToken)
         {
@@ -45,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
                 throw new NotFoundException($"{nameof(ImplicitKeyNestedComposition)} of Id '{request.Id}' could not be found associated with {nameof(ImplicitKeyAggrRoot)} of Id '{request.ImplicitKeyAggrRootId}'");
             }
             aggregateRoot.ImplicitKeyNestedCompositions.Remove(existingImplicitKeyNestedComposition);
-            return Unit.Value;
+
         }
     }
 }

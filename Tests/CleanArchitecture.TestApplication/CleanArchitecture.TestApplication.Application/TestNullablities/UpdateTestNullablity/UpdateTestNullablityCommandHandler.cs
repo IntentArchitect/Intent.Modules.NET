@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateTestNullablity
 {
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateTestNullablityCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -40,7 +40,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
             existingTestNullablity.NullableEnum = request.NullableEnum;
             existingTestNullablity.NullabilityPeerId = request.NullabilityPeerId;
             existingTestNullablity.DefaultLiteralEnum = request.DefaultLiteralEnum;
-            return Unit.Value;
+
         }
     }
 }

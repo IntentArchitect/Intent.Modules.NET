@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRoot
 {
@@ -28,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateAggregateRootCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -42,7 +42,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 #warning Field not a composite association: Aggregate
             existingAggregateRoot.LimitedDomain = request.LimitedDomain;
             existingAggregateRoot.LimitedService = request.LimitedService;
-            return Unit.Value;
+
         }
 
         [IntentManaged(Mode.Fully)]

@@ -10,7 +10,7 @@ using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Behaviours;
 
 public class EventBusPublishBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-where TRequest : IRequest<TResponse>
+where TRequest : notnull
 {
     private readonly IEventBus _eventBus;
 
@@ -19,7 +19,7 @@ where TRequest : IRequest<TResponse>
         _eventBus = eventBus;
     }
 
-    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var response = await next();
 

@@ -77,10 +77,10 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
 
                 method.AddInvocationStatement("services.AddMediatR", invocation =>
                 {
+                    invocation.AddMetadata("mediatr-config", true);
                     invocation.AddArgument(new CSharpLambdaBlock("cfg"), a =>
                     {
                         var options = (CSharpLambdaBlock)a;
-                        options.AddMetadata("mediatr-config", true);
                         options.AddStatement("cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());");
 
                         foreach (var registration in _containerRegistrationRequests.OrderBy(x => x.Priority))

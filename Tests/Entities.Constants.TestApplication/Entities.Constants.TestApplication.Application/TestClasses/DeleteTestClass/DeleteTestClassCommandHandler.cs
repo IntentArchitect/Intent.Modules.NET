@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestClass
 {
@@ -23,7 +23,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteTestClassCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
                 throw new NotFoundException($"Could not find TestClass '{request.Id}' ");
             }
             _testClassRepository.Remove(existingTestClass);
-            return Unit.Value;
+
         }
     }
 }

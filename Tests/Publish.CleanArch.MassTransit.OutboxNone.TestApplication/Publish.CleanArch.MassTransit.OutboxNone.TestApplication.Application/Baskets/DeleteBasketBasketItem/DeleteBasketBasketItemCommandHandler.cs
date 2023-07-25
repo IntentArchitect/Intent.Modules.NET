@@ -11,7 +11,7 @@ using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.DeleteBasketBasketItem
 {
@@ -29,7 +29,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteBasketBasketItemCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteBasketBasketItemCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
 
@@ -46,7 +46,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             }
             aggregateRoot.BasketItems.Remove(existingBasketItem);
             _eventBus.Publish(existingBasketItem.MapToBasketItemDeletedEvent());
-            return Unit.Value;
+
         }
     }
 }

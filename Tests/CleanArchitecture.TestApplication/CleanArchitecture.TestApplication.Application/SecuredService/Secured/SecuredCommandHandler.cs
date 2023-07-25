@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.SecuredService.Secured
 {
@@ -18,10 +18,10 @@ namespace CleanArchitecture.TestApplication.Application.SecuredService.Secured
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(SecuredCommand request, CancellationToken cancellationToken)
+        public async Task Handle(SecuredCommand request, CancellationToken cancellationToken)
         {
             // NOP
-            return Unit.Value;
+
         }
     }
 }

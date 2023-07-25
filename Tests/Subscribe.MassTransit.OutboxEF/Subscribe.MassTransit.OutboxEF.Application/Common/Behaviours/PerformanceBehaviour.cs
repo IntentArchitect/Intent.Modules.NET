@@ -12,7 +12,7 @@ using Subscribe.MassTransit.OutboxEF.Application.Common.Interfaces;
 namespace Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours
 {
     public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+        where TRequest : notnull
     {
         private readonly Stopwatch _timer;
         private readonly ILogger<TRequest> _logger;
@@ -28,7 +28,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours
             _currentUserService = currentUserService;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             _timer.Start();
 

@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.DeleteCustomerRich
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteCustomerRichCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteCustomerRichCommand request, CancellationToken cancellationToken)
         {
             var existingCustomerRich = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
                 throw new NotFoundException($"Could not find CustomerRich '{request.Id}' ");
             }
             _customerRichRepository.Remove(existingCustomerRich);
-            return Unit.Value;
+
         }
     }
 }

@@ -46,13 +46,19 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             {
                 var priClass = file.Classes.First();
                 var method = priClass.FindMethod("AddApplication");
-                var statementToMove = method.FindStatement(stmt => stmt.GetText("").Contains("EventBusPublishBehaviour"));
+                var meditarConfigLambda = (CSharpInvocationStatement)method.FindStatement(stmt => stmt.HasMetadata("mediatr-config"));
+                if (meditarConfigLambda == null)
+                {
+                    return;
+                }
+                var mediatorConfig = (CSharpLambdaBlock)(meditarConfigLambda.Statements.FirstOrDefault());
+                var statementToMove = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("EventBusPublishBehaviour"));
                 if (statementToMove == null)
                 {
                     return;
                 }
                 statementToMove.Remove();
-                var unitOfWork = method.FindStatement(stmt => stmt.GetText("").Contains("UnitOfWorkBehaviour"));
+                var unitOfWork = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("UnitOfWorkBehaviour"));
                 unitOfWork.InsertBelow(statementToMove);
             }, 1000);
         }

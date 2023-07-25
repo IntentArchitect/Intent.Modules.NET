@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             var sut = new CreateAggregateTestNoIdReturnCommandHandler(repository);
 
             // Act
-            var result = await sut.Handle(testCommand, CancellationToken.None);
+            await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
             AggregateTestNoIdReturnAssertions.AssertEquivalent(testCommand, addedAggregateTestNoIdReturn);

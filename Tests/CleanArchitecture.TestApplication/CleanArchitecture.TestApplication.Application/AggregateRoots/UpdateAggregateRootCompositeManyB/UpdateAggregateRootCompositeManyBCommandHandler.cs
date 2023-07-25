@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRootCompositeManyB
 {
@@ -28,9 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(
-            UpdateAggregateRootCompositeManyBCommand request,
-            CancellationToken cancellationToken)
+        public async Task Handle(UpdateAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
 
@@ -49,7 +47,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             existingCompositeManyB.SomeDate = request.SomeDate;
             existingCompositeManyB.Composite = CreateOrUpdateCompositeSingleBB(existingCompositeManyB.Composite, request.Composite);
             existingCompositeManyB.Composites = UpdateHelper.CreateOrUpdateCollection(existingCompositeManyB.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyBB);
-            return Unit.Value;
+
         }
 
         [IntentManaged(Mode.Fully)]

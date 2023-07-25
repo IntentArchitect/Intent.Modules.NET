@@ -7,7 +7,7 @@ using MassTransit.AzureServiceBus.Eventing.Messages;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace MassTransit.AzureServiceBus.Application.Test.SendTest
 {
@@ -23,10 +23,10 @@ namespace MassTransit.AzureServiceBus.Application.Test.SendTest
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(SendTestCommand request, CancellationToken cancellationToken)
+        public async Task Handle(SendTestCommand request, CancellationToken cancellationToken)
         {
             _eventBus.Publish(new TestMessageEvent() { Message = request.Message });
-            return Unit.Value;
+
         }
     }
 }

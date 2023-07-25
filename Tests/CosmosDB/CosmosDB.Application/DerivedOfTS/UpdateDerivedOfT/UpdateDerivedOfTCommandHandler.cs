@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
 {
@@ -24,7 +24,7 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateDerivedOfTCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateDerivedOfTCommand request, CancellationToken cancellationToken)
         {
             var existingDerivedOfT = await _derivedOfTRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -36,7 +36,7 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
             existingDerivedOfT.GenericAttribute = request.GenericAttribute;
 
             _derivedOfTRepository.Update(existingDerivedOfT);
-            return Unit.Value;
+
         }
     }
 }

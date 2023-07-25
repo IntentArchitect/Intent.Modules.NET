@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAggregateRootCompositeManyB
 {
@@ -27,9 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(
-            DeleteAggregateRootCompositeManyBCommand request,
-            CancellationToken cancellationToken)
+        public async Task Handle(DeleteAggregateRootCompositeManyBCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
 
@@ -45,7 +43,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
                 throw new NotFoundException($"{nameof(CompositeManyB)} of Id '{request.Id}' could not be found associated with {nameof(AggregateRoot)} of Id '{request.AggregateRootId}'");
             }
             aggregateRoot.Composites.Remove(existingCompositeManyB);
-            return Unit.Value;
+
         }
     }
 }

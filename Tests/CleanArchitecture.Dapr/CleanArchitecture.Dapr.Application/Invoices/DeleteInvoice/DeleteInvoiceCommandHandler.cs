@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoice
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoice
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoice
                 throw new NotFoundException($"Could not find Invoice '{request.Id}' ");
             }
             _invoiceRepository.Remove(existingInvoice);
-            return Unit.Value;
+
         }
     }
 }

@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestClass
 {
@@ -24,7 +24,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateTestClassCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -38,7 +38,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
             existingTestClass.AttMax = request.AttMax;
             existingTestClass.VarCharMax = request.VarCharMax;
             existingTestClass.NVarCharMax = request.NVarCharMax;
-            return Unit.Value;
+
         }
     }
 }

@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderName
 {
@@ -18,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(ChangeAccountHolderName request, CancellationToken cancellationToken)
+        public async Task Handle(ChangeAccountHolderName request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");
         }

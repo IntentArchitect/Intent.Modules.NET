@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.UpdateImplicitKeyAggrRootImplicitKeyNestedComposition
 {
@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(
+        public async Task Handle(
             UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand request,
             CancellationToken cancellationToken)
         {
@@ -45,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
             }
 #warning No matching field found for ImplicitKeyAggrRootId
             existingImplicitKeyNestedComposition.Attribute = request.Attribute;
-            return Unit.Value;
+
         }
     }
 }

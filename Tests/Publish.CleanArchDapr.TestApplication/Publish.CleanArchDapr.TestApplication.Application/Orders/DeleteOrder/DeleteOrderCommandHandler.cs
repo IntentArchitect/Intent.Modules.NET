@@ -7,7 +7,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
 {
@@ -23,7 +23,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
                 throw new NotFoundException($"Could not find Order '{request.Id}' ");
             }
             _orderRepository.Remove(existingOrder);
-            return Unit.Value;
+
         }
     }
 }

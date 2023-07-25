@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.DeleteImplicitKeyAggrRoot
 {
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteImplicitKeyAggrRootCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteImplicitKeyAggrRootCommand request, CancellationToken cancellationToken)
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
                 throw new NotFoundException($"Could not find ImplicitKeyAggrRoot '{request.Id}' ");
             }
             _implicitKeyAggrRootRepository.Remove(existingImplicitKeyAggrRoot);
-            return Unit.Value;
+
         }
     }
 }

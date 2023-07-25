@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CosmosDB.Application.Clients.DeleteClient
 {
@@ -23,7 +23,7 @@ namespace CosmosDB.Application.Clients.DeleteClient
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             var existingClient = await _clientRepository.FindByIdAsync(request.Identifier, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CosmosDB.Application.Clients.DeleteClient
                 throw new NotFoundException($"Could not find Client '{request.Identifier}' ");
             }
             _clientRepository.Remove(existingClient);
-            return Unit.Value;
+
         }
     }
 }

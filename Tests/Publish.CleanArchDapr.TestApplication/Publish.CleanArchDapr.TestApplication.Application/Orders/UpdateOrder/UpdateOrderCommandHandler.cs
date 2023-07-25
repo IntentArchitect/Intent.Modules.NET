@@ -8,7 +8,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Common.Exceptions;
 using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
 {
@@ -24,7 +24,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
             var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -33,7 +33,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
             existingOrder.CustomerId = request.CustomerId;
-            return Unit.Value;
+
         }
     }
 }

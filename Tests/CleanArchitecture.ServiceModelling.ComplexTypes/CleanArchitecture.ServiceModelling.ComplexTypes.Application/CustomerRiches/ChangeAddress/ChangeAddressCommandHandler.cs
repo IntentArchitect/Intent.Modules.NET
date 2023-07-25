@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.ChangeAddress
 {
@@ -24,11 +24,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(ChangeAddressCommand request, CancellationToken cancellationToken)
+        public async Task Handle(ChangeAddressCommand request, CancellationToken cancellationToken)
         {
             var entity = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
             entity.UpdateAddress(CreateAddressDC(request.Address));
-            return Unit.Value;
+
         }
 
         [IntentManaged(Mode.Fully)]

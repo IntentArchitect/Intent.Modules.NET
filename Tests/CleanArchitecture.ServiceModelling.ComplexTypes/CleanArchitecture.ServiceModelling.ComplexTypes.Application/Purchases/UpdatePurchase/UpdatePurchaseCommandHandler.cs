@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.UpdatePurchase
 {
@@ -25,7 +25,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdatePurchaseCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdatePurchaseCommand request, CancellationToken cancellationToken)
         {
             var existingPurchase = await _purchaseRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -34,7 +34,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
                 throw new NotFoundException($"Could not find Purchase '{request.Id}'");
             }
             existingPurchase.Cost = CreateMoney(request.Cost);
-            return Unit.Value;
+
         }
 
         [IntentManaged(Mode.Fully)]

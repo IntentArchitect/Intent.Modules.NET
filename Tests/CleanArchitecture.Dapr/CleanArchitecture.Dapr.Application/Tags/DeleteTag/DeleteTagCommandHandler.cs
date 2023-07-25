@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteTagCommand request, CancellationToken cancellationToken)
         {
             var existingTag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
                 throw new NotFoundException($"Could not find Tag '{request.Id}' ");
             }
             _tagRepository.Remove(existingTag);
-            return Unit.Value;
+
         }
     }
 }

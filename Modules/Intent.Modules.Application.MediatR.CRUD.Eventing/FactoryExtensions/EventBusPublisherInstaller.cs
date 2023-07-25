@@ -112,29 +112,47 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
             switch (convention)
             {
                 case "create":
-                    InjectEventBusCode(@class, template);
-                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                    @class.FindMethod("Handle")
-                        .Statements
-                        .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(new{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    {
+                        InjectEventBusCode(@class, template);
+                        AddMessageExtensionsUsings(application, template.CSharpFile, message);
+                        var method = @class.FindMethod("Handle");
+                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
+                        string publishStatement = $"_eventBus.Publish(new{entity.Name}.MapTo{messageTemplate.ClassName}());";
+                        AddPublishStatement(method, returnClause, publishStatement);
+                    }
                     break;
                 case "update":
-                    InjectEventBusCode(@class, template);
-                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                    @class.FindMethod("Handle")
-                        .Statements
-                        .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    {
+                        InjectEventBusCode(@class, template);
+                        AddMessageExtensionsUsings(application, template.CSharpFile, message);
+                        var method = @class.FindMethod("Handle");
+                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
+                        string publishStatement = $"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());";
+                        AddPublishStatement(method, returnClause, publishStatement);
+                    }
                     break;
                 case "delete":
-                    InjectEventBusCode(@class, template);
-                    AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                    @class.FindMethod("Handle")
-                        .Statements
-                        .FirstOrDefault(p => p.GetText("").Contains("return"))
-                        ?.InsertAbove($"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());");
+                    {
+                        InjectEventBusCode(@class, template);
+                        AddMessageExtensionsUsings(application, template.CSharpFile, message);
+                        var method = @class.FindMethod("Handle");
+                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
+                        string publishStatement = $"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());";
+                        AddPublishStatement(method, returnClause, publishStatement);
+                    }
                     break;
+            }
+        }
+
+        private static void AddPublishStatement(CSharpClassMethod method, CSharpStatement returnClause, string publishStatement)
+        {
+            if (returnClause != null)
+            {
+                returnClause.InsertAbove(publishStatement);
+            }
+            else
+            {
+                method.Statements.Add(publishStatement);
             }
         }
 

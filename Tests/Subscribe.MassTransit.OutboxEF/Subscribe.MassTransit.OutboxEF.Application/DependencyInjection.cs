@@ -19,14 +19,17 @@ namespace Subscribe.MassTransit.OutboxEF.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
+            });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EventBusPublishBehaviour<,>));
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEventHandler>();

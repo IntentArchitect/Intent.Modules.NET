@@ -12,7 +12,7 @@ using MediatR;
 namespace SignalR.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+        where TRequest : notnull
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -21,7 +21,7 @@ namespace SignalR.Application.Common.Behaviours
             _validators = validators;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             if (_validators.Any())
             {

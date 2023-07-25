@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAnemics.UpdateCustomerAnemic
 {
@@ -25,7 +25,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateCustomerAnemicCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateCustomerAnemicCommand request, CancellationToken cancellationToken)
         {
             var existingCustomerAnemic = await _customerAnemicRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -35,7 +35,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
             }
             existingCustomerAnemic.Name = request.Name;
             existingCustomerAnemic.Address = CreateAddress(request.Address);
-            return Unit.Value;
+
         }
 
         [IntentManaged(Mode.Fully)]

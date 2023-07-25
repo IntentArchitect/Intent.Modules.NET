@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+Update : upgraded to MediatR 12.
+
 ### Version 5.0.0
 
 - New: Configure subscription based concerns for MessageBrokers with Stereotypes for both Azure Service Bus as well as RabbitMQ.

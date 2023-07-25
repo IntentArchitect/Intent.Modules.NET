@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirmed
 {
@@ -18,9 +18,9 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirme
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(OrderConfirmed request, CancellationToken cancellationToken)
+        public async Task Handle(OrderConfirmed request, CancellationToken cancellationToken)
         {
-            return Unit.Value;
+
         }
     }
 }

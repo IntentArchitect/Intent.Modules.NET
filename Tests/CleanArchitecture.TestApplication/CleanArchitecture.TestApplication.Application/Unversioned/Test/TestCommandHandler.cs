@@ -6,7 +6,7 @@ using MediatR;
 using Xunit;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
 {
@@ -21,10 +21,10 @@ namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(TestCommand request, CancellationToken cancellationToken)
+        public async Task Handle(TestCommand request, CancellationToken cancellationToken)
         {
             Assert.Equal(ExpectedInput, request.Value);
-            return Unit.Value;
+
         }
     }
 }

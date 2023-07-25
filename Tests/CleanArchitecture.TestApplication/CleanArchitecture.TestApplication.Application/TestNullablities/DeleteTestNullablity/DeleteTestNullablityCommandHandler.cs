@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteTestNullablity
 {
@@ -23,7 +23,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteTestNullablityCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteTestNullablityCommand request, CancellationToken cancellationToken)
         {
             var existingTestNullablity = await _testNullablityRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
                 throw new NotFoundException($"Could not find TestNullablity '{request.Id}' ");
             }
             _testNullablityRepository.Remove(existingTestNullablity);
-            return Unit.Value;
+
         }
     }
 }

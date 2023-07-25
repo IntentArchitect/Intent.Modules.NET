@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.DeleteAggregateTestNoIdReturn
 {
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteAggregateTestNoIdReturnCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteAggregateTestNoIdReturnCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateTestNoIdReturn = await _aggregateTestNoIdReturnRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
                 throw new NotFoundException($"Could not find AggregateTestNoIdReturn '{request.Id}' ");
             }
             _aggregateTestNoIdReturnRepository.Remove(existingAggregateTestNoIdReturn);
-            return Unit.Value;
+
         }
     }
 }

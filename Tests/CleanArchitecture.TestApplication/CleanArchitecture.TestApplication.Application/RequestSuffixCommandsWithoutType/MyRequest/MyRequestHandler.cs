@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.RequestSuffixCommandsWithoutType.MyRequest
 {
@@ -18,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.RequestSuffixCommandsWit
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<Unit> Handle(MyRequest request, CancellationToken cancellationToken)
+        public async Task Handle(MyRequest request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");
         }

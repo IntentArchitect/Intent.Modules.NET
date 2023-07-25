@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAggregateRoot
 {
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(DeleteAggregateRootCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteAggregateRootCommand request, CancellationToken cancellationToken)
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAgg
                 throw new NotFoundException($"Could not find AggregateRoot '{request.Id}' ");
             }
             _aggregateRootRepository.Remove(existingAggregateRoot);
-            return Unit.Value;
+
         }
     }
 }

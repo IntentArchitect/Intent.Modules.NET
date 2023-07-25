@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
 {
@@ -24,7 +24,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Unit> Handle(UpdateInvoiceCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
 
@@ -36,7 +36,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
             existingInvoice.ClientId = request.ClientId;
 
             _invoiceRepository.Update(existingInvoice);
-            return Unit.Value;
+
         }
     }
 }
