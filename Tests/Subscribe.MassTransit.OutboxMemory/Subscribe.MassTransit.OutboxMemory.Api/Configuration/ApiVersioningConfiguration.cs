@@ -10,7 +10,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Api.Configuration
 {
     public static class ApiVersioningConfiguration
     {
-        public static void ConfigureApiVersioning(this IServiceCollection services)
+        public static IServiceCollection ConfigureApiVersioning(this IServiceCollection services)
         {
             services.AddApiVersioning(options =>
             {
@@ -24,6 +24,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Api.Configuration
                 options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;
             });
+            return services;
         }
     }
 }

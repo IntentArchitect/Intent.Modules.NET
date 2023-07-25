@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Update: Small update in Configuration class.
+
 ### Version 1.0.2
 
 - Fixed: Moving away from obsolete `Microsoft.AspNetCore.Mvc.Versioning` and `Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer` nuget packages for `Asp.Versioning.Mvc` and `Asp.Versioning.Mvc.ApiExplorer`.

@@ -32,7 +32,7 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
             .AddClass($"ApiVersioningConfiguration", @class =>
             {
                 @class.Static();
-                @class.AddMethod("void", "ConfigureApiVersioning", method =>
+                @class.AddMethod("IServiceCollection", "ConfigureApiVersioning", method =>
                 {
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
@@ -47,6 +47,7 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
                         .AddArgument(new CSharpLambdaBlock("options")
                             .AddStatement($@"options.GroupNameFormat = ""'v'VVV"";")
                             .AddStatement($@"options.SubstituteApiVersionInUrl = true;")));
+                    method.AddStatement("return services;");
                 });
             });
     }
