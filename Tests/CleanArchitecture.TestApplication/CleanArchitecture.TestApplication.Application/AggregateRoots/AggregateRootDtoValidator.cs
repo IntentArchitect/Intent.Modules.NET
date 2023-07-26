@@ -24,6 +24,18 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
             RuleFor(v => v.Composites)
                 .NotNull();
+
+            RuleFor(v => v.EnumType1)
+                .NotNull()
+                .IsInEnum();
+
+            RuleFor(v => v.EnumType2)
+                .NotNull()
+                .IsInEnum();
+
+            RuleFor(v => v.EnumType3)
+                .NotNull()
+                .IsInEnum();
         }
     }
 }

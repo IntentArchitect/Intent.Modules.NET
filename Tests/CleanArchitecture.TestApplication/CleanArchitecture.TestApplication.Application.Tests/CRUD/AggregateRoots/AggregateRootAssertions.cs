@@ -353,6 +353,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 AssertEquivalent(dto.Composites, entity.Composites);
                 AssertEquivalent(dto.Composite, entity.Composite);
                 AssertEquivalent(dto.Aggregate, entity.Aggregate);
+                dto.EnumType1.Should().Be(entity.EnumType1);
+                dto.EnumType2.Should().Be(entity.EnumType2);
+                dto.EnumType3.Should().Be(entity.EnumType3);
             }
         }
 
@@ -441,6 +444,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
             AssertEquivalent(actualDto.Composite, expectedEntity.Composite);
             AssertEquivalent(actualDto.Aggregate, expectedEntity.Aggregate);
+            actualDto.EnumType1.Should().Be(expectedEntity.EnumType1);
+            actualDto.EnumType2.Should().Be(expectedEntity.EnumType2);
+            actualDto.EnumType3.Should().Be(expectedEntity.EnumType3);
         }
 
         public static void AssertEquivalent(UpdateAggregateRootCommand expectedDto, AggregateRoot actualEntity)

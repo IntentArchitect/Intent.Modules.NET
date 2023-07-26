@@ -22,7 +22,7 @@
   <targetEnd id="bda60a81-5d83-4a4c-83a7-0ca2988dd628" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composite</name>
     <display>Composite: CompositeSingleA?   [1 --&gt; 0..1]</display>
-    <order>5</order>
+    <order>8</order>
     <typeReference id="6201556a-84b6-43b5-9b28-7f2cafa75051">
       <typeId>445f6443-589b-4ae1-9d6a-3bc8bffa43a8</typeId>
       <isNavigable>true</isNavigable>

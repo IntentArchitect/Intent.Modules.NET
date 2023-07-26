@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Enums;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,6 +21,12 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
         public string LimitedDomain { get; set; }
 
         public string LimitedService { get; set; }
+
+        public EnumWithoutValues EnumType1 { get; set; }
+
+        public EnumWithDefaultLiteral EnumType2 { get; set; }
+
+        public EnumWithoutDefaultLiteral EnumType3 { get; set; }
 
         public virtual ICollection<CompositeManyB> Composites { get; set; } = new List<CompositeManyB>();
 

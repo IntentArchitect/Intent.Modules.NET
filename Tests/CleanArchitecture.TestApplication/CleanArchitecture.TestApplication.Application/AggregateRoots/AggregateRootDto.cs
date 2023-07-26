@@ -4,6 +4,7 @@ using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Mappings;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
+using CleanArchitecture.TestApplication.Domain.Enums;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -25,7 +26,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             string aggregateAttr,
             List<AggregateRootCompositeManyBDto> composites,
             AggregateRootCompositeSingleADto? composite,
-            AggregateRootAggregateSingleCDto? aggregate)
+            AggregateRootAggregateSingleCDto? aggregate,
+            EnumWithoutValues enumType1,
+            EnumWithDefaultLiteral enumType2,
+            EnumWithoutDefaultLiteral enumType3)
         {
             return new AggregateRootDto
             {
@@ -33,7 +37,10 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 AggregateAttr = aggregateAttr,
                 Composites = composites,
                 Composite = composite,
-                Aggregate = aggregate
+                Aggregate = aggregate,
+                EnumType1 = enumType1,
+                EnumType2 = enumType2,
+                EnumType3 = enumType3
             };
         }
 
@@ -46,6 +53,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         public AggregateRootCompositeSingleADto? Composite { get; set; }
 
         public AggregateRootAggregateSingleCDto? Aggregate { get; set; }
+        public EnumWithoutValues EnumType1 { get; set; }
+        public EnumWithDefaultLiteral EnumType2 { get; set; }
+        public EnumWithoutDefaultLiteral EnumType3 { get; set; }
 
         public void Mapping(Profile profile)
         {

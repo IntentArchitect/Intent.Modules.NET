@@ -25,7 +25,6 @@ namespace Intent.Modules.Contracts.Clients.Shared
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(templateId, "System.Collections.Generic.List<{0}>");
-            AddTypeSource("Domain.Enum", "System.Collections.Generic.List<{0}>");
             AddTypeSource(enumContractTemplateId, "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(

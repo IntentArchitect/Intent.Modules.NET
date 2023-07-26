@@ -25,6 +25,15 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
             builder.Property(x => x.LimitedService)
                 .IsRequired();
 
+            builder.Property(x => x.EnumType1)
+                .IsRequired();
+
+            builder.Property(x => x.EnumType2)
+                .IsRequired();
+
+            builder.Property(x => x.EnumType3)
+                .IsRequired();
+
             builder.HasMany(x => x.Composites)
                 .WithOne()
                 .HasForeignKey(x => x.AggregateRootId)

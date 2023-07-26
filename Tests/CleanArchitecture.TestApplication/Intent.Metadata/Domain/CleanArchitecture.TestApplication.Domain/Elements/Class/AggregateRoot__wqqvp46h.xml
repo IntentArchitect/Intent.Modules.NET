@@ -152,5 +152,77 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="95946bf4-5292-43aa-a4e7-9eb5b7de8182" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType1</name>
+      <display>EnumType1: EnumWithoutValues</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="908a6fd5-99d8-4110-a538-913479447ce5">
+        <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d4caf10c-064e-41ff-9202-7ba1c44d40c4</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a6cb1287-f829-4740-bfbf-da0669f957e1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType2</name>
+      <display>EnumType2: EnumWithDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="32129bf3-3ee6-4600-8589-428f9ca22790">
+        <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d4caf10c-064e-41ff-9202-7ba1c44d40c4</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="13c3fe48-2614-48db-b76a-56e081b6fe9d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType3</name>
+      <display>EnumType3: EnumWithoutDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="36914f7c-8ee3-4987-b889-ce0303d9d1d5">
+        <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d4caf10c-064e-41ff-9202-7ba1c44d40c4</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

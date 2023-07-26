@@ -3236,6 +3236,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AggregateRootsService/EnumWithDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootsService/EnumWithDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#8e99eda1-52d6-4f0a-9b9e-328eefa07361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AggregateRootsService/EnumWithoutDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootsService/EnumWithoutDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AggregateRootsService/EnumWithoutValues.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootsService/EnumWithoutValues.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#a654d5ee-08a9-4f71-918b-610623fd3575</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AggregateRootsService/UpdateAggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
