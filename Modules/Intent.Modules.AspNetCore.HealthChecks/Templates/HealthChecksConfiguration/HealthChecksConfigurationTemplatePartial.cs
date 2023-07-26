@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.HealthChecks.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -42,7 +43,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement("var hcBuilder = services.AddHealthChecks();", stmt => stmt.AddMetadata("health-checks-builder", true));
+                        method.AddStatement("var hcBuilder = services.AddHealthChecks();", 
+                            stmt => stmt.AddMetadata("health-checks-builder", true));
+                        
+                        AddEventPublishing(method);
+                        
                         method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
                     @class.AddMethod("IEndpointRouteBuilder", "MapDefaultHealthChecks", method =>
@@ -60,6 +65,22 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                     });
                 });
             ExecutionContext.EventDispatcher.Subscribe<InfrastructureRegisteredEvent>(Handle);
+        }
+
+        private void AddEventPublishing(CSharpClassMethod method)
+        {
+            switch (ExecutionContext.Settings.GetHealthChecks().PublishEvents().AsEnum())
+            {
+                case Settings.HealthChecks.PublishEventsOptionsEnum.None:
+                    break;
+                case Settings.HealthChecks.PublishEventsOptionsEnum.AzureApplicationInsights:
+                    this.ApplyAppSetting("ApplicationInsights:ConnectionString",
+                        "Insert Application Insights Connection String Here");
+                    method.AddStatement($@"hcBuilder.AddApplicationInsightsPublisher(connectionString: configuration[""ApplicationInsights:ConnectionString""]);");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void Handle(InfrastructureRegisteredEvent @event)

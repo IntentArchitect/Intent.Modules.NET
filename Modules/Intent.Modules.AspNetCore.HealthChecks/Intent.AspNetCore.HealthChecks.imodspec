@@ -21,7 +21,21 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions />
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="842cff41-d028-438f-913e-85932ce0f6e8" title="Health Checks" externalReference="842cff41-d028-438f-913e-85932ce0f6e8">
+      <settings>
+        <setting id="1405e444-058b-423c-83a7-217b3da1f9d3" title="Publish Events" type="select">
+          <isRequired>true</isRequired>
+          <hint>Specify where to publish events for monitoring health status availability.</hint>
+          <defaultValue>none</defaultValue>
+          <options>
+            <option value="none" description="None" />
+            <option value="azure-application-insights" description="Azure Application Insights" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.39-pre.6" />
