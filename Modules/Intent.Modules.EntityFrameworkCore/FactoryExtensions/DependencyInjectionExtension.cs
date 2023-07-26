@@ -58,9 +58,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         name: "DefaultConnection",
                         connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjection.OutputTarget.GetProject())}",
                         providerName: "System.Data.SqlClient"));
-                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.SqlServer)
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringName, "DefaultConnection")
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, dependencyInjection.OutputTarget.ApplicationName()));
+                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.SqlServer.Name)
+                        .WithProperty(Infrastructure.SqlServer.Property.ConnectionStringName, "DefaultConnection"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
@@ -68,9 +67,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         name: "DefaultConnection",
                         connectionString: $"Host=127.0.0.1;Port=5432;Database={dependencyInjection.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
                         providerName: ""));
-                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.PostgreSql)
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringName, "DefaultConnection")
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, dependencyInjection.OutputTarget.ApplicationName()));
+                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.PostgreSql.Name)
+                        .WithProperty(Infrastructure.PostgreSql.Property.ConnectionStringName, "DefaultConnection"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                     dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
@@ -78,9 +76,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         name: "DefaultConnection",
                         connectionString: $"Server=localhost;Database={dependencyInjection.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
                         providerName: ""));
-                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.MySql)
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringName, "DefaultConnection")
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, dependencyInjection.OutputTarget.ApplicationName()));
+                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.MySql.Name)
+                        .WithProperty(Infrastructure.MySql.Property.ConnectionStringName, "DefaultConnection"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
@@ -88,9 +85,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName", $"{dependencyInjection.OutputTarget.GetProject().ApplicationName()}DB"));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
-                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.CosmosDb)
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringName, "DefaultConnection")
-                        .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, dependencyInjection.OutputTarget.ApplicationName()));
+                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
+                        .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringName, "DefaultConnection"));
                     break;
                 default:
                     break;

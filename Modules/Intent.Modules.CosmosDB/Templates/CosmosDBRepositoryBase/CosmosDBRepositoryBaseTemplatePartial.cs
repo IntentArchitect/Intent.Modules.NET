@@ -215,9 +215,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                 DatabaseId = ExecutionContext.GetApplicationConfig().Name,
                 ContainerId = "Container"
             });
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.CosmosDb)
-                .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString")
-                .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, ExecutionContext.GetApplicationConfig().Name));
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
+                .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
         }
 
         [IntentManaged(Mode.Fully)]

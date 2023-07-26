@@ -69,74 +69,76 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                 var priClass = file.Classes.First();
                 var method = priClass.FindMethod("ConfigureHealthChecks");
                 var hcBuilder = method.FindStatement(p => p.HasMetadata("health-checks-builder"));
-                hcBuilder.InsertBelow(GetKnownHealthConfigurationStatement(@event));
+                var healthCheckConfigStatement = GetKnownHealthConfigurationStatement(@event);
+                if (healthCheckConfigStatement is not null)
+                {
+                    hcBuilder.InsertBelow(healthCheckConfigStatement);
+                }
             }, 10);
         }
 
         private CSharpStatement GetKnownHealthConfigurationStatement(InfrastructureRegisteredEvent @event)
         {
-            var registration = GetHealthCheckRegistrationDetail(@event);
-            var configStmt = new CSharpInvocationStatement(registration.ExtensionMethod);
-
-            switch (registration.Type)
+            switch (@event.InfrastructureComponent)
             {
-                case InfrastructureType.Database:
-                    if (@event.ConnectionDetails.TryGetValue(InfrastructureComponent.ConnectionDetail.ConnectionStringName, out var connectionStringName))
-                    {
-                        configStmt.AddArgument($@"configuration.GetConnectionString(""{connectionStringName}"")");
-                    }
-                    else if (@event.ConnectionDetails.TryGetValue(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath, out var connectionStringSettingPath))
-                    {
-                        configStmt.AddArgument($@"configuration[""{connectionStringSettingPath}""]");
-                    }
-                    else
-                    {
-                        throw new Exception($"Registered Infrastructure Event {@event.InfrastructureComponent} did not specify connection detail of {nameof(InfrastructureComponent.ConnectionDetail.ConnectionStringName)} or {nameof(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath)}");
-                    }
-                    
-                    configStmt.AddArgument($@"name: ""{GetConnectionDetail(@event, InfrastructureComponent.ConnectionDetail.DatabaseName)}""");
-                    break;
-                default:
-                    break;
+                case Infrastructure.SqlServer.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksSqlServer(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddSqlServer",
+                        connectionStringNameVar: Infrastructure.SqlServer.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.SqlServer.Property.ConnectionStringSettingPath);
+                case Infrastructure.PostgreSql.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksNpgSql(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddNpgSql",
+                        connectionStringNameVar: Infrastructure.PostgreSql.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.PostgreSql.Property.ConnectionStringSettingPath);
+                case Infrastructure.MySql.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksMySql(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddMySql",
+                        connectionStringNameVar: Infrastructure.MySql.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.MySql.Property.ConnectionStringSettingPath);
+                case Infrastructure.CosmosDb.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksCosmosDb(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddCosmosDb",
+                        connectionStringNameVar: Infrastructure.CosmosDb.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.CosmosDb.Property.ConnectionStringSettingPath);
             }
 
-            configStmt.AddArgument(@"tags: new [] { ""ready"" }");
+            return null;
+        }
 
-            AddNugetDependency(registration.NugetPackage);
+        private static CSharpInvocationStatement GetDatabaseHealthCheckStatement(
+            InfrastructureRegisteredEvent @event,
+            string expression,
+            string connectionStringNameVar,
+            string connectionStringSettingPathVar)
+        {
+            var configStmt = new CSharpInvocationStatement(expression);
+
+            if (@event.Properties.TryGetValue(connectionStringNameVar, out var connectionStringName))
+            {
+                configStmt.AddArgument($@"configuration.GetConnectionString(""{connectionStringName}"")!");
+            }
+            else if (@event.Properties.TryGetValue(connectionStringSettingPathVar, out var connectionStringSettingPath))
+            {
+                configStmt.AddArgument($@"configuration[""{connectionStringSettingPath}""]!");
+            }
+            else
+            {
+                throw new Exception(
+                    $"Registered Infrastructure Event {@event.InfrastructureComponent} did not specify connection detail of {connectionStringNameVar} or {connectionStringSettingPathVar}");
+            }
+
+            configStmt.AddArgument($@"name: ""{@event.InfrastructureComponent}""");
+            configStmt.AddArgument($@"tags: new[] {{ ""database"" }}");
             return configStmt;
-        }
-        
-        private static string GetConnectionDetail(InfrastructureRegisteredEvent @event, string key)
-        {
-            if (@event.ConnectionDetails.TryGetValue(key, out var value))
-            {
-                return value;
-            }
-
-            throw new Exception($"Registered Infrastructure Event {@event.InfrastructureComponent} did not specify connection detail of {key}");
-        }
-
-        private enum InfrastructureType
-        {
-            Database
-        }
-
-        private record HealthCheckRegistration(string ExtensionMethod, INugetPackageInfo NugetPackage, InfrastructureType Type);
-
-        private HealthCheckRegistration GetHealthCheckRegistrationDetail(InfrastructureRegisteredEvent @event)
-        {
-            return @event.InfrastructureComponent switch
-            {
-                InfrastructureComponent.SqlServer => new HealthCheckRegistration("hcBuilder.AddSqlServer", NugetPackage.AspNetCoreHealthChecksSqlServer(OutputTarget),
-                    InfrastructureType.Database),
-                InfrastructureComponent.PostgreSql => new HealthCheckRegistration("hcBuilder.AddNpgSql", NugetPackage.AspNetCoreHealthChecksNpgSql(OutputTarget),
-                    InfrastructureType.Database),
-                InfrastructureComponent.MySql => new HealthCheckRegistration("hcBuilder.AddMySql", NugetPackage.AspNetCoreHealthChecksMySql(OutputTarget),
-                    InfrastructureType.Database),
-                InfrastructureComponent.CosmosDb => new HealthCheckRegistration("hcBuilder.AddCosmosDb", NugetPackage.AspNetCoreHealthChecksCosmosDb(OutputTarget),
-                    InfrastructureType.Database),
-                _ => null
-            };
         }
 
         public override void BeforeTemplateExecution()
