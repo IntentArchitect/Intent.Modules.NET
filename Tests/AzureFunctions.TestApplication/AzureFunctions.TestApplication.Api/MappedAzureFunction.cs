@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.TestApplication.Application.Common.Validation;
+using AzureFunctions.TestApplication.Application;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
@@ -50,7 +50,7 @@ namespace AzureFunctions.TestApplication.Api
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 var request = JsonConvert.DeserializeObject<SampleMappedRequest>(requestBody);
-                await _validator.Validate(request, default);
+                await _validator.Handle(request, default);
                 var result = await _appService.MappedAzureFunction(request);
                 await _unitOfWork.SaveChangesAsync();
                 return new CreatedResult(string.Empty, result);

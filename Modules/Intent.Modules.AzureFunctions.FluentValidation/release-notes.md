@@ -1,3 +1,8 @@
+### Version 4.1.2
+
+- Fix: There where some interplay issues between this module and  `Intent.Application.FluentValidation.Dtos` which have been addressed.
+
+
 ### Version 4.1.1
 
 - Fixed so that Validation Exception is now expected to be caught on a Function level when any Fluent Validation module is present.

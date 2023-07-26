@@ -331,22 +331,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4375edd1-df12-4255-aea8-c2fa07e483d8</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4375edd1-df12-4255-aea8-c2fa07e483d8</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

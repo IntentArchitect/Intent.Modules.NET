@@ -251,22 +251,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9d775cf5-fb6a-474f-916b-b7e241cab127</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.FluentValidation.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9d775cf5-fb6a-474f-916b-b7e241cab127</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.FluentValidation.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#defad67b-95af-4436-af24-514d8ae266ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -4,8 +4,6 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.AzureFunctions.FluentValidation.Templates;
-using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -14,6 +12,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -60,7 +59,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                             type: template.GetValidationServiceInterfaceName(),
                             name: "validator",
                             configure: param => param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
-                    dispatchStatement.InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+                    dispatchStatement.InsertAbove($"await _validator.Handle({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
                 }
 
                 runMethod.FindStatement<CSharpTryBlock>(x => true)

@@ -2,7 +2,6 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours;
-using GraphQL.AzureFunction.TestApplication.Application.Common.Validation;
 using GraphQL.AzureFunction.TestApplication.Application.Implementation;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -29,7 +28,6 @@ namespace GraphQL.AzureFunction.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomersService, CustomersService>();
             return services;
