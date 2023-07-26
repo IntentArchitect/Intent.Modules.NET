@@ -101,8 +101,8 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.37" />
-    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Common.CSharp" version="3.3.39-pre.6" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.2" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3" />

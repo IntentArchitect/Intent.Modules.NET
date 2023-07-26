@@ -4,9 +4,12 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -39,7 +42,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement("var hcBuilder = services.AddHealthChecks();", stmt => stmt.AddMetadata("add-health-checks", true));
+                        method.AddStatement("var hcBuilder = services.AddHealthChecks();", stmt => stmt.AddMetadata("health-checks-builder", true));
                         method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
                     @class.AddMethod("IEndpointRouteBuilder", "MapDefaultHealthChecks", method =>
@@ -56,6 +59,84 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         method.AddStatement("return endpoints;");
                     });
                 });
+            ExecutionContext.EventDispatcher.Subscribe<InfrastructureRegisteredEvent>(Handle);
+        }
+
+        private void Handle(InfrastructureRegisteredEvent @event)
+        {
+            CSharpFile.OnBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var method = priClass.FindMethod("ConfigureHealthChecks");
+                var hcBuilder = method.FindStatement(p => p.HasMetadata("health-checks-builder"));
+                hcBuilder.InsertBelow(GetKnownHealthConfigurationStatement(@event));
+            }, 10);
+        }
+
+        private CSharpStatement GetKnownHealthConfigurationStatement(InfrastructureRegisteredEvent @event)
+        {
+            var registration = GetHealthCheckRegistrationDetail(@event);
+            var configStmt = new CSharpInvocationStatement(registration.ExtensionMethod);
+
+            switch (registration.Type)
+            {
+                case InfrastructureType.Database:
+                    if (@event.ConnectionDetails.TryGetValue(InfrastructureComponent.ConnectionDetail.ConnectionStringName, out var connectionStringName))
+                    {
+                        configStmt.AddArgument($@"configuration.GetConnectionString(""{connectionStringName}"")");
+                    }
+                    else if (@event.ConnectionDetails.TryGetValue(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath, out var connectionStringSettingPath))
+                    {
+                        configStmt.AddArgument($@"configuration[""{connectionStringSettingPath}""]");
+                    }
+                    else
+                    {
+                        throw new Exception($"Registered Infrastructure Event {@event.InfrastructureComponent} did not specify connection detail of {nameof(InfrastructureComponent.ConnectionDetail.ConnectionStringName)} or {nameof(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath)}");
+                    }
+                    
+                    configStmt.AddArgument($@"name: ""{GetConnectionDetail(@event, InfrastructureComponent.ConnectionDetail.DatabaseName)}""");
+                    break;
+                default:
+                    break;
+            }
+
+            configStmt.AddArgument(@"tags: new [] { ""ready"" }");
+
+            AddNugetDependency(registration.NugetPackage);
+            return configStmt;
+        }
+        
+        private static string GetConnectionDetail(InfrastructureRegisteredEvent @event, string key)
+        {
+            if (@event.ConnectionDetails.TryGetValue(key, out var value))
+            {
+                return value;
+            }
+
+            throw new Exception($"Registered Infrastructure Event {@event.InfrastructureComponent} did not specify connection detail of {key}");
+        }
+
+        private enum InfrastructureType
+        {
+            Database
+        }
+
+        private record HealthCheckRegistration(string ExtensionMethod, INugetPackageInfo NugetPackage, InfrastructureType Type);
+
+        private HealthCheckRegistration GetHealthCheckRegistrationDetail(InfrastructureRegisteredEvent @event)
+        {
+            return @event.InfrastructureComponent switch
+            {
+                InfrastructureComponent.SqlServer => new HealthCheckRegistration("hcBuilder.AddSqlServer", NugetPackage.AspNetCoreHealthChecksSqlServer(OutputTarget),
+                    InfrastructureType.Database),
+                InfrastructureComponent.PostgreSql => new HealthCheckRegistration("hcBuilder.AddNpgSql", NugetPackage.AspNetCoreHealthChecksNpgSql(OutputTarget),
+                    InfrastructureType.Database),
+                InfrastructureComponent.MySql => new HealthCheckRegistration("hcBuilder.AddMySql", NugetPackage.AspNetCoreHealthChecksMySql(OutputTarget),
+                    InfrastructureType.Database),
+                InfrastructureComponent.CosmosDb => new HealthCheckRegistration("hcBuilder.AddCosmosDb", NugetPackage.AspNetCoreHealthChecksCosmosDb(OutputTarget),
+                    InfrastructureType.Database),
+                _ => null
+            };
         }
 
         public override void BeforeTemplateExecution()
@@ -74,8 +155,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             });
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

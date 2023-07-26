@@ -7,8 +7,10 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -213,6 +215,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                 DatabaseId = ExecutionContext.GetApplicationConfig().Name,
                 ContainerId = "Container"
             });
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(InfrastructureComponent.CosmosDb)
+                .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString")
+                .AddConnectionDetial(InfrastructureComponent.ConnectionDetail.DatabaseName, ExecutionContext.GetApplicationConfig().Name));
         }
 
         [IntentManaged(Mode.Fully)]
