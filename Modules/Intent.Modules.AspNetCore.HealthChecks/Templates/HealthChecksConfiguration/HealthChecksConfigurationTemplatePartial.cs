@@ -130,6 +130,13 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         expression: "hcBuilder.AddCosmosDb",
                         connectionStringNameVar: Infrastructure.CosmosDb.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.CosmosDb.Property.ConnectionStringSettingPath);
+                case Infrastructure.MongoDb.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksMongoDb(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddMongoDb",
+                        connectionStringNameVar: Infrastructure.MongoDb.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.MongoDb.Property.ConnectionStringSettingPath);
             }
 
             return null;

@@ -13,7 +13,20 @@ public static class NugetPackage
     public static INugetPackageInfo AspNetCoreHealthChecksNpgSql(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.NpgSql", GetHealthCheckNpgSqlVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksMySql(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.MySql", GetHealthCheckMySqlVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksCosmosDb(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.CosmosDb", GetHealthCheckCosmosDbVersion(outputTarget.GetProject()));
+    public static INugetPackageInfo AspNetCoreHealthChecksMongoDb(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.MongoDb", GetHealthCheckMongoDbVersion(outputTarget.GetProject()));
 
+    private static string GetHealthChecksVersion(ICSharpProject project)
+    {
+        return project switch
+        {
+            _ when project.IsNetApp(5) => "5.0.1",
+            _ when project.IsNetApp(6) => "6.0.5",
+            _ when project.IsNetApp(7) => "7.0.0-rc2.7",
+            _ when project.IsNetApp(8) => "7.0.0-rc2.7",
+            _ => throw new Exception("Not supported version of .NET Core") 
+        };
+    }
+    
     private static string GetHealthCheckSqlServerVersion(ICSharpProject project)
     {
         return project switch
@@ -62,14 +75,14 @@ public static class NugetPackage
         };
     }
     
-    private static string GetHealthChecksVersion(ICSharpProject project)
+    private static string GetHealthCheckMongoDbVersion(ICSharpProject project)
     {
         return project switch
         {
             _ when project.IsNetApp(5) => "5.0.1",
-            _ when project.IsNetApp(6) => "6.0.5",
-            _ when project.IsNetApp(7) => "7.0.0-rc2.7",
-            _ when project.IsNetApp(8) => "7.0.0-rc2.7",
+            _ when project.IsNetApp(6) => "6.0.2",
+            _ when project.IsNetApp(7) => "7.0.0-rc2.6",
+            _ when project.IsNetApp(8) => "7.0.0-rc2.6",
             _ => throw new Exception("Not supported version of .NET Core") 
         };
     }

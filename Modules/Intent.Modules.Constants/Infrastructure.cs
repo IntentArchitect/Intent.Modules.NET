@@ -47,6 +47,7 @@ public static class Infrastructure
         public const string Name = nameof(MongoDb);
         public static class Property
         {
+            public const string ConnectionStringName = nameof(ConnectionStringName);
             public const string ConnectionStringSettingPath = nameof(ConnectionStringSettingPath);
         }
     }
