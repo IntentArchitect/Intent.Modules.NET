@@ -28,6 +28,12 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
         public HealthChecksConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIClient(outputTarget));
+
+            if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+            {
+                AddNugetDependency(NugetPackage.AspNetcoreHealthChecksPublisherApplicationInsights(outputTarget));
+            }
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("HealthChecks.UI.Client")
                 .AddUsing("Microsoft.AspNetCore.Builder")

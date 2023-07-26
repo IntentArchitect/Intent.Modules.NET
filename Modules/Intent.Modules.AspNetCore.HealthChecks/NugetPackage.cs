@@ -11,6 +11,7 @@ public static class NugetPackage
     public static INugetPackageInfo AspNetCoreHealthChecksUIClient(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.UI.Client", GetHealthChecksVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksUIInMemoryStorage(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.UI.InMemory.Storage", GetHealthChecksVersion(outputTarget.GetProject()));
     
+    public static INugetPackageInfo AspNetcoreHealthChecksPublisherApplicationInsights(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetcore.HealthChecks.Publisher.ApplicationInsights", GetHealthChecksPublisherApplicationInsightsVersion(outputTarget.GetProject()));
     
     public static INugetPackageInfo AspNetCoreHealthChecksSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.SqlServer", GetHealthCheckSqlServerVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksNpgSql(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.NpgSql", GetHealthCheckNpgSqlVersion(outputTarget.GetProject()));
@@ -26,6 +27,18 @@ public static class NugetPackage
             _ when project.IsNetApp(6) => "6.0.5",
             _ when project.IsNetApp(7) => "7.0.0-rc2.7",
             _ when project.IsNetApp(8) => "7.0.0-rc2.7",
+            _ => throw new Exception("Not supported version of .NET Core") 
+        };
+    }
+    
+    private static string GetHealthChecksPublisherApplicationInsightsVersion(ICSharpProject project)
+    {
+        return project switch
+        {
+            _ when project.IsNetApp(5) => "5.0.1",
+            _ when project.IsNetApp(6) => "6.0.2",
+            _ when project.IsNetApp(7) => "7.0.0-rc2.5",
+            _ when project.IsNetApp(8) => "7.0.0-rc2.5",
             _ => throw new Exception("Not supported version of .NET Core") 
         };
     }
