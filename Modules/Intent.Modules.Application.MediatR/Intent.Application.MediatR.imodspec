@@ -116,6 +116,12 @@
         <package id="Intent.MediatR.DomainEvents" version="4.3.0-pre.0" />
       </install>
     </detect>
+    <detect id="Intent.Dapr.AspNetCore.StateManagement">
+      <install>
+        <package id="Intent.MediatR.DomainEvents" version="1.1.0-alpha.6" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />

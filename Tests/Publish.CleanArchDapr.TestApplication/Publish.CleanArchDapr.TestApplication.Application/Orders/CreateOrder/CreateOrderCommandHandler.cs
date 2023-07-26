@@ -10,7 +10,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Repositories;
 using Publish.CleanArchDapr.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Orders.CreateOrder
 {

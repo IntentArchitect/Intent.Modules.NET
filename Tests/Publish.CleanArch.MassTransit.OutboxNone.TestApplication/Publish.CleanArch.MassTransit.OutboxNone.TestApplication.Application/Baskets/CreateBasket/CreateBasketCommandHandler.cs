@@ -10,7 +10,7 @@ using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.CreateBasket
 {
