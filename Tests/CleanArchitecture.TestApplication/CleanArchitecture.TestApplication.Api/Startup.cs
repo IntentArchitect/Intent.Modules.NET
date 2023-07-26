@@ -41,6 +41,7 @@ namespace CleanArchitecture.TestApplication.Api
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureCors(Configuration);
+            services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
@@ -64,6 +65,8 @@ namespace CleanArchitecture.TestApplication.Api
             app.UseCors();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultHealthChecks();
+                endpoints.MapDefaultHealthChecksUI();
                 endpoints.MapControllers();
             });
             app.UseSwashbuckle();

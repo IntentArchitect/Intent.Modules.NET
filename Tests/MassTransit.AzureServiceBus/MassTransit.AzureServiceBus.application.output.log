@@ -20,6 +20,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0b4a4b77-e863-46d0-93cb-57f6efefb3ad</ProjectId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0b4a4b77-e863-46d0-93cb-57f6efefb3ad</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>

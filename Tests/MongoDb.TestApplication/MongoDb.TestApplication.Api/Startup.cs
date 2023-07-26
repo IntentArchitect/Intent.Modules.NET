@@ -39,6 +39,7 @@ namespace MongoDb.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddApplication();
+            services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -59,6 +60,7 @@ namespace MongoDb.TestApplication.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
             app.UseSwashbuckle();

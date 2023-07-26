@@ -40,6 +40,7 @@ namespace AzureKeyVault.Api
                 });
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
+            services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -61,6 +62,7 @@ namespace AzureKeyVault.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
             app.UseSwashbuckle();

@@ -36,6 +36,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3fe24296-8ff1-4c0e-ae9e-321effd265ab</ProjectId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureKeyVault.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3fe24296-8ff1-4c0e-ae9e-321effd265ab</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>

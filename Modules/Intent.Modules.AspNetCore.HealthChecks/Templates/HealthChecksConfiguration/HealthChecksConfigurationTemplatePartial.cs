@@ -29,9 +29,15 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
         {
             AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIClient(outputTarget));
 
-            if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+            if (ExecutionContext.Settings.GetHealthChecks().PublishEvents().IsAzureApplicationInsights())
             {
                 AddNugetDependency(NugetPackage.AspNetcoreHealthChecksPublisherApplicationInsights(outputTarget));
+            }
+
+            if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+            {
+                AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(outputTarget));
+                AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(outputTarget));
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

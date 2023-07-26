@@ -12,6 +12,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>80683c29-9dc1-49d2-88de-b584c6fb4ad5</ProjectId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>80683c29-9dc1-49d2-88de-b584c6fb4ad5</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
