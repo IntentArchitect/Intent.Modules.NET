@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MediatR.DomainEvents</id>
   <version>4.3.0-pre.0</version>
-  <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>
   <authors>Intent Architect</authors>
