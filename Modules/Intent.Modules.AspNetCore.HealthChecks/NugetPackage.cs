@@ -7,8 +7,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks;
 
 public static class NugetPackage
 {
+    public static INugetPackageInfo AspNetCoreHealthChecksUI(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.UI", GetHealthChecksVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksUIClient(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.UI.Client", GetHealthChecksVersion(outputTarget.GetProject()));
-
+    public static INugetPackageInfo AspNetCoreHealthChecksUIInMemoryStorage(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.UI.InMemory.Storage", GetHealthChecksVersion(outputTarget.GetProject()));
+    
+    
     public static INugetPackageInfo AspNetCoreHealthChecksSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.SqlServer", GetHealthCheckSqlServerVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksNpgSql(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.NpgSql", GetHealthCheckNpgSqlVersion(outputTarget.GetProject()));
     public static INugetPackageInfo AspNetCoreHealthChecksMySql(IOutputTarget outputTarget) => new NugetPackageInfo("AspNetCore.HealthChecks.MySql", GetHealthCheckMySqlVersion(outputTarget.GetProject()));

@@ -33,6 +33,10 @@
             <option value="azure-application-insights" description="Azure Application Insights" />
           </options>
         </setting>
+        <setting id="68cad1ef-8e6b-4a51-a9b7-ec6042224cc8" title="Health Checks UI" type="checkbox">
+          <isRequired>false</isRequired>
+          <hint>Health Checks UI is a minimal UI interface that monitors your app's health check state.</hint>
+        </setting>
       </settings>
     </group>
   </moduleSettings>

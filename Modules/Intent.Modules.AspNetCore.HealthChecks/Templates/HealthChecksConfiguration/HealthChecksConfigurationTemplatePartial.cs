@@ -43,13 +43,15 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement("var hcBuilder = services.AddHealthChecks();", 
+                        method.AddStatement("var hcBuilder = services.AddHealthChecks();",
                             stmt => stmt.AddMetadata("health-checks-builder", true));
-                        
+
                         AddEventPublishing(method);
-                        
+                        AddHealthCheckUi(method);
+
                         method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
+                    
                     @class.AddMethod("IEndpointRouteBuilder", "MapDefaultHealthChecks", method =>
                     {
                         method.Static();
@@ -63,6 +65,21 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         });
                         method.AddStatement("return endpoints;");
                     });
+
+                    if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+                    {
+                        @class.AddMethod("IEndpointRouteBuilder", "MapDefaultHealthChecksUI", method =>
+                        {
+                            method.Static();
+                            method.AddParameter("IEndpointRouteBuilder", "endpoints", param => param.WithThisModifier());
+                            method.AddInvocationStatement("endpoints.MapHealthChecksUI", mapHealthCheckUi =>
+                            {
+                                mapHealthCheckUi.AddArgument(new CSharpLambdaBlock("settings")
+                                    .WithExpressionBody(@"settings.UIPath = ""/hc-ui"""));
+                            });
+                            method.AddStatement("return endpoints;");
+                        });
+                    }
                 });
             ExecutionContext.EventDispatcher.Subscribe<InfrastructureRegisteredEvent>(Handle);
         }
@@ -81,6 +98,20 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+        
+        private void AddHealthCheckUi(CSharpClassMethod method)
+        {
+            if (!ExecutionContext.Settings.GetHealthChecks().HealthChecksUI()) { return; }
+            
+            AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(OutputTarget));
+            AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(OutputTarget));
+
+            method.AddInvocationStatement("services.AddHealthChecksUI", stmt=>stmt
+                .AddArgument(new CSharpLambdaBlock("settings")
+                    .AddStatement(@$"settings.AddHealthCheckEndpoint(""{ExecutionContext.GetApplicationConfig().Name}"", ""/hc"");"))
+                .WithoutSemicolon());
+            method.AddStatement(".AddInMemoryStorage();");
         }
 
         private void Handle(InfrastructureRegisteredEvent @event)
@@ -179,9 +210,16 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             startup?.CSharpFile.AfterBuild(file =>
             {
                 var priClass = file.Classes.First();
-                ((IHasCSharpStatements)priClass.FindMethod("Configure")
-                        ?.FindStatement(s => s.GetText("").Contains("UseEndpoints")))
-                    ?.InsertStatement(0, $"endpoints.MapDefaultHealthChecks();");
+
+                var useEndpointsBlock = (IHasCSharpStatements)priClass.FindMethod("Configure")
+                    ?.FindStatement(s => s.GetText("").Contains("UseEndpoints"));
+                
+                useEndpointsBlock?.InsertStatement(0, "endpoints.MapDefaultHealthChecks();");
+                
+                if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+                {
+                    useEndpointsBlock?.InsertStatement(1, @"endpoints.MapDefaultHealthChecksUI();");
+                }
             });
         }
 

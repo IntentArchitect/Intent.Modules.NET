@@ -75,5 +75,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Settings
             None,
             AzureApplicationInsights,
         }
+
+        public bool HealthChecksUI() => bool.TryParse(_groupSettings.GetSetting("68cad1ef-8e6b-4a51-a9b7-ec6042224cc8")?.Value.ToPascalCase(), out var result) && result;
     }
 }
