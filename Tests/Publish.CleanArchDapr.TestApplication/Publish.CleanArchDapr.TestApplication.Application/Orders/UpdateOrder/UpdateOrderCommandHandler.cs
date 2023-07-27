@@ -32,6 +32,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
+
             existingOrder.CustomerId = request.CustomerId;
 
         }

@@ -29,8 +29,9 @@ namespace CleanArchitecture.Dapr.Application.Clients.DeleteClient
 
             if (existingClient is null)
             {
-                throw new NotFoundException($"Could not find Client '{request.Id}' ");
+                throw new NotFoundException($"Could not find Client '{request.Id}'");
             }
+
             _clientRepository.Remove(existingClient);
 
         }

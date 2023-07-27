@@ -6,6 +6,7 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.Async;
+using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
@@ -14,6 +15,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
@@ -45,6 +47,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
         public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
         public DbSet<AsyncOperationsClass> AsyncOperationsClasses { get; set; }
+        public DbSet<IntegrationTriggering> IntegrationTriggerings { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
@@ -72,6 +75,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
+            modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());

@@ -37,6 +37,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             {
                 throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
             }
+
             var newBasketItem = new BasketItem
             {
                 BasketId = request.BasketId,

@@ -44,6 +44,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             {
                 throw new NotFoundException($"{nameof(BasketItem)} of Id '{request.Id}' could not be found associated with {nameof(Basket)} of Id '{request.BasketId}'");
             }
+
             aggregateRoot.BasketItems.Remove(existingBasketItem);
             _eventBus.Publish(existingBasketItem.MapToBasketItemDeletedEvent());
 

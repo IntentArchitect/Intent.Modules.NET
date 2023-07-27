@@ -29,8 +29,9 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
 
             if (existingTestClass is null)
             {
-                throw new NotFoundException($"Could not find TestClass '{request.Id}' ");
+                throw new NotFoundException($"Could not find TestClass '{request.Id}'");
             }
+
             _testClassRepository.Remove(existingTestClass);
 
         }

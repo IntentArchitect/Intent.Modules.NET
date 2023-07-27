@@ -37,12 +37,14 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             {
                 throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
             }
+
             var existingBasketItem = aggregateRoot.BasketItems.FirstOrDefault(p => p.Id == request.Id);
 
             if (existingBasketItem is null)
             {
                 throw new NotFoundException($"{nameof(BasketItem)} of Id '{request.Id}' could not be found associated with {nameof(Basket)} of Id '{request.BasketId}'");
             }
+
             existingBasketItem.BasketId = request.BasketId;
             existingBasketItem.Description = request.Description;
             existingBasketItem.Amount = request.Amount;

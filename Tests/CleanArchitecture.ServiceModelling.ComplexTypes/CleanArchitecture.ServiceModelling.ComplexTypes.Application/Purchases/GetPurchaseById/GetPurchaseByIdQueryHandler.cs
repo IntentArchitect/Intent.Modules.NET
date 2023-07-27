@@ -34,6 +34,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
             {
                 throw new NotFoundException($"Could not find Purchase '{request.Id}'");
             }
+
             return purchase.MapToPurchaseDto(_mapper);
         }
     }

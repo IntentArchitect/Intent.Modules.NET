@@ -30,13 +30,13 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(AccountTransfer request, CancellationToken cancellationToken)
         {
-            var entity = await _accountHolderRepository.FindByIdAsync(request.Id, cancellationToken);
-            if (entity is null)
+            var existingAccountHolder = await _accountHolderRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingAccountHolder is null)
             {
                 throw new NotFoundException($"Could not find AccountHolder '{request.Id}'");
             }
 
-            entity.Transfer(request.Description, _domainService, request.Amount, request.Currency);
+            existingAccountHolder.Transfer(request.Description, _domainService, request.Amount, request.Currency);
 
         }
     }

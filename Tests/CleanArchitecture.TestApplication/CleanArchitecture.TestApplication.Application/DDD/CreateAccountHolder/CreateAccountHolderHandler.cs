@@ -26,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateAccountHolder request, CancellationToken cancellationToken)
         {
-            var entity = new AccountHolder(request.Name);
+            var newAccountHolder = new AccountHolder(request.Name);
 
-            _accountHolderRepository.Add(entity);
+            _accountHolderRepository.Add(newAccountHolder);
             await _accountHolderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return entity.Id;
+            return newAccountHolder.Id;
         }
     }
 }

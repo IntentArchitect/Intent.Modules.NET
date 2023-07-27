@@ -34,6 +34,7 @@ namespace CosmosDB.Application.DerivedOfTS.GetDerivedOfTById
             {
                 throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");
             }
+
             return derivedOfT.MapToDerivedOfTDto(_mapper);
         }
     }

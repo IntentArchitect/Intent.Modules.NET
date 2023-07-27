@@ -34,6 +34,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
             {
                 throw new NotFoundException($"Could not find TestClass '{request.Id}'");
             }
+
             return testClass.MapToTestClassDto(_mapper);
         }
     }

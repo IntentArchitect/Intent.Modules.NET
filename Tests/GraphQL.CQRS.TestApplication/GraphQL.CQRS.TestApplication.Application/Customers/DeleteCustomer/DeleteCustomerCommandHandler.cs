@@ -32,8 +32,9 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.DeleteCustomer
 
             if (existingCustomer is null)
             {
-                throw new NotFoundException($"Could not find Customer '{request.Id}' ");
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
+
             _customerRepository.Remove(existingCustomer);
             return existingCustomer.MapToCustomerDto(_mapper);
         }

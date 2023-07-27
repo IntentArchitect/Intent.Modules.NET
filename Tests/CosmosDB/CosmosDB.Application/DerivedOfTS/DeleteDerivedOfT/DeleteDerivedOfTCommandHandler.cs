@@ -29,8 +29,9 @@ namespace CosmosDB.Application.DerivedOfTS.DeleteDerivedOfT
 
             if (existingDerivedOfT is null)
             {
-                throw new NotFoundException($"Could not find DerivedOfT '{request.Id}' ");
+                throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");
             }
+
             _derivedOfTRepository.Remove(existingDerivedOfT);
 
         }

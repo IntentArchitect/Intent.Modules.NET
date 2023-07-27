@@ -40,6 +40,7 @@ namespace CosmosDB.Application.Invoices.DeleteInvoiceLineItem
             {
                 throw new NotFoundException($"{nameof(LineItem)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");
             }
+
             aggregateRoot.LineItems.Remove(existingLineItem);
 
             _invoiceRepository.Update(aggregateRoot);

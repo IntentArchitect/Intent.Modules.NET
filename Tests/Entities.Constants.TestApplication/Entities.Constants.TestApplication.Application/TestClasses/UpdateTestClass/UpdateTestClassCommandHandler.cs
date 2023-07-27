@@ -32,6 +32,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
             {
                 throw new NotFoundException($"Could not find TestClass '{request.Id}'");
             }
+
             existingTestClass.Att100 = request.Att100;
             existingTestClass.VarChar200 = request.VarChar200;
             existingTestClass.NVarChar300 = request.NVarChar300;

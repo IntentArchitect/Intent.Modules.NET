@@ -29,8 +29,9 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
 
             if (existingCustomerAnemic is null)
             {
-                throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}' ");
+                throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");
             }
+
             _customerAnemicRepository.Remove(existingCustomerAnemic);
 
         }

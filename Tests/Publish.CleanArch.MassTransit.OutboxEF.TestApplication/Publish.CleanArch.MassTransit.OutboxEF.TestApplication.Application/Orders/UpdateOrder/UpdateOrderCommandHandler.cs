@@ -38,6 +38,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
+
             existingOrder.Number = request.Number;
             existingOrder.OrderItems = UpdateHelper.CreateOrUpdateCollection(existingOrder.OrderItems, request.OrderItems, (e, d) => e.Id == d.Id, CreateOrUpdateOrderItem);
             _eventBus.Publish(existingOrder.MapToOrderUpdatedEvent());

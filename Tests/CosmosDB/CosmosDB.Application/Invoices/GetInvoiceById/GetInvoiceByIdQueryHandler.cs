@@ -34,6 +34,7 @@ namespace CosmosDB.Application.Invoices.GetInvoiceById
             {
                 throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
+
             return invoice.MapToInvoiceDto(_mapper);
         }
     }

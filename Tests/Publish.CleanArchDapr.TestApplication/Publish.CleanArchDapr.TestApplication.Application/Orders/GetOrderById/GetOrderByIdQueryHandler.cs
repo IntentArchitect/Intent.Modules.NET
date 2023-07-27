@@ -34,6 +34,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrderById
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
+
             return order.MapToOrderDto(_mapper);
         }
     }

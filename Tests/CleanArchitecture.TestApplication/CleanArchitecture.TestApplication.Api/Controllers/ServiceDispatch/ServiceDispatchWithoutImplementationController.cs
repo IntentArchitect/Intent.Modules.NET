@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using CleanArchitecture.TestApplication.Application;
+using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -23,12 +24,15 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
     {
         private readonly IServiceDispatchWithoutImplementationService _appService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IEventBus _eventBus;
 
         public ServiceDispatchWithoutImplementationController(IServiceDispatchWithoutImplementationService appService,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
 
         /// <summary>
@@ -48,6 +52,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
         }
 
@@ -66,6 +71,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
         }
 
@@ -86,6 +92,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
         }
 
@@ -172,6 +179,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
         }
     }

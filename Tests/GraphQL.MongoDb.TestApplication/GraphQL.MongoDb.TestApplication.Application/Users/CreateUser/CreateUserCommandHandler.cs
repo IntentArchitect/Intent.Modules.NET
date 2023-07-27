@@ -26,8 +26,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            // IntentIgnore
-            var entity = new User(
+            var newUser = new User(
                 name: request.Name,
                 surname: request.Surname,
                 email: request.Email,
@@ -35,9 +34,9 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
                     .Select(x => new AssignedPrivilege() { PrivilegeId = x.PrivilegeId })
                     .ToList());
 
-            _userRepository.Add(entity);
+            _userRepository.Add(newUser);
             await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return entity.Id;
+            return newUser.Id;
         }
     }
 }

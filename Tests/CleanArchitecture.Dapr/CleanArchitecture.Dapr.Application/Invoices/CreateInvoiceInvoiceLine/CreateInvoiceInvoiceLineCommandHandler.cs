@@ -33,6 +33,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.CreateInvoiceInvoiceLine
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
+
             var newInvoiceLine = new InvoiceLine
             {
 #warning No matching field found for InvoiceId

@@ -29,8 +29,9 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.DeleteDerived
 
             if (existingDerived is null)
             {
-                throw new NotFoundException($"Could not find Derived '{request.Id}' ");
+                throw new NotFoundException($"Could not find Derived '{request.Id}'");
             }
+
             _derivedRepository.Remove(existingDerived);
 
         }

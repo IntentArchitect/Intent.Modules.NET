@@ -32,6 +32,7 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.UpdateDerivedOfT
             {
                 throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");
             }
+
             existingDerivedOfT.DerivedAttribute = request.DerivedAttribute;
             existingDerivedOfT.GenericTypeAttribute = request.GenericTypeAttribute;
 

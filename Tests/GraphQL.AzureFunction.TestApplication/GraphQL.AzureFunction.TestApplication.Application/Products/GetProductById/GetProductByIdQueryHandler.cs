@@ -34,6 +34,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.GetProductB
             {
                 throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
+
             return product.MapToProductDto(_mapper);
         }
     }

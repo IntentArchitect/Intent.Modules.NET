@@ -33,6 +33,7 @@ namespace CosmosDB.Application.Invoices.CreateInvoiceLineItem
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
+
             var newLineItem = new LineItem
             {
 #warning No matching field found for InvoiceId

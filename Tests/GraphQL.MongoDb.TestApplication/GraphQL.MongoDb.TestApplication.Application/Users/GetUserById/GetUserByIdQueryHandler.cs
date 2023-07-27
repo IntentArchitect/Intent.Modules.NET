@@ -34,6 +34,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUserById
             {
                 throw new NotFoundException($"Could not find User '{request.Id}'");
             }
+
             return user.MapToUserDto(_mapper);
         }
     }

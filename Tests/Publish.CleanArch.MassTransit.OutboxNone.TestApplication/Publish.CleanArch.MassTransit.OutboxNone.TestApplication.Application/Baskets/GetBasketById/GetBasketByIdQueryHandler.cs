@@ -34,6 +34,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             {
                 throw new NotFoundException($"Could not find Basket '{request.Id}'");
             }
+
             return basket.MapToBasketDto(_mapper);
         }
     }

@@ -36,6 +36,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             {
                 throw new NotFoundException($"Could not find Basket '{request.Id}'");
             }
+
             existingBasket.Number = request.Number;
             _eventBus.Publish(existingBasket.MapToBasketUpdatedEvent());
 

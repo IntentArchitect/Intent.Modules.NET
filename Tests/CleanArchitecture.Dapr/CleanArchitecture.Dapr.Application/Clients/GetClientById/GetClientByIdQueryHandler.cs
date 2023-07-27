@@ -34,6 +34,7 @@ namespace CleanArchitecture.Dapr.Application.Clients.GetClientById
             {
                 throw new NotFoundException($"Could not find Client '{request.Id}'");
             }
+
             return client.MapToClientDto(_mapper);
         }
     }

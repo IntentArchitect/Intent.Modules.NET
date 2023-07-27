@@ -1,10 +1,12 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application;
+using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Async;
+using CleanArchitecture.TestApplication.Domain.Repositories.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
@@ -12,9 +14,11 @@ using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
 using CleanArchitecture.TestApplication.Domain.Repositories.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Configuration;
+using CleanArchitecture.TestApplication.Infrastructure.Eventing;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Async;
+using CleanArchitecture.TestApplication.Infrastructure.Repositories.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.DefaultDiagram;
@@ -43,6 +47,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
+            services.AddTransient<IIntegrationTriggeringRepository, IntegrationTriggeringRepository>();
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
@@ -56,7 +61,10 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<INullabilityPeerRepository, NullabilityPeerRepository>();
             services.AddTransient<ITestNullablityRepository, TestNullablityRepository>();
             services.AddTransient<IOperationsClassRepository, OperationsClassRepository>();
+            services.AddScoped<MassTransitEventBus>();
+            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddMassTransitConfiguration(configuration);
             services.AddHttpClients(configuration);
             return services;
         }

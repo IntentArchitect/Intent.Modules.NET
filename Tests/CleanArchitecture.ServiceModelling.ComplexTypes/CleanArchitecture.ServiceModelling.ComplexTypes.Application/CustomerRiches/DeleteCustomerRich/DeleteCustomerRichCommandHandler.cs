@@ -29,8 +29,9 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
 
             if (existingCustomerRich is null)
             {
-                throw new NotFoundException($"Could not find CustomerRich '{request.Id}' ");
+                throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
             }
+
             _customerRichRepository.Remove(existingCustomerRich);
 
         }

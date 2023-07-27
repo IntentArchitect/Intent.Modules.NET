@@ -34,6 +34,7 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.GetDerivedOfTById
             {
                 throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");
             }
+
             return derivedOfT.MapToDerivedOfTDto(_mapper);
         }
     }

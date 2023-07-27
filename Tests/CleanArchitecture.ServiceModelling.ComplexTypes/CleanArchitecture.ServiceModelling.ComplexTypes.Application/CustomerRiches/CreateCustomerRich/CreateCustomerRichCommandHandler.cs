@@ -27,11 +27,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateCustomerRichCommand request, CancellationToken cancellationToken)
         {
-            var entity = new CustomerRich(CreateAddress(request.Address));
+            var newCustomerRich = new CustomerRich(CreateAddress(request.Address));
 
-            _customerRichRepository.Add(entity);
+            _customerRichRepository.Add(newCustomerRich);
             await _customerRichRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return entity.Id;
+            return newCustomerRich.Id;
         }
 
         [IntentManaged(Mode.Fully)]

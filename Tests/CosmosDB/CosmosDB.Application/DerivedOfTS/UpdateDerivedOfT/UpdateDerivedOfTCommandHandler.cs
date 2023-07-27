@@ -32,6 +32,7 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
             {
                 throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");
             }
+
             existingDerivedOfT.DerivedAttribute = request.DerivedAttribute;
             existingDerivedOfT.GenericAttribute = request.GenericAttribute;
 

@@ -36,6 +36,7 @@ namespace CosmosDB.Application.ClassContainers.GetClassContainerById
             {
                 throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");
             }
+
             return classContainer.MapToClassContainerDto(_mapper);
         }
     }

@@ -40,6 +40,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoiceInvoiceLine
             {
                 throw new NotFoundException($"{nameof(InvoiceLine)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");
             }
+
             aggregateRoot.InvoiceLines.Remove(existingInvoiceLine);
 
             _invoiceRepository.Update(aggregateRoot);

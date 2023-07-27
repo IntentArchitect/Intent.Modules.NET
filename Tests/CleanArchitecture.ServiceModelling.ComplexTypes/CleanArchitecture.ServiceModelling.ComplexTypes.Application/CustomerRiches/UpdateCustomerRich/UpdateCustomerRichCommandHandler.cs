@@ -33,6 +33,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
             {
                 throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
             }
+
             existingCustomerRich.Address = CreateAddress(request.Address);
 
         }

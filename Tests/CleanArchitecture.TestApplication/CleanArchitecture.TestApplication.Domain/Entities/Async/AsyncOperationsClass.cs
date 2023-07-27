@@ -38,5 +38,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Async
         {
             throw new NotImplementedException("Replace with your implementation...");
         }
+
+        public int Operation()
+        {
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

@@ -424,7 +424,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Users/CreateUser/CreateUserCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/CreateUser/CreateUserCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8d09ad06-b56c-4f15-ac61-758ec2f477c7</ProjectId>

@@ -29,8 +29,9 @@ namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoice
 
             if (existingInvoice is null)
             {
-                throw new NotFoundException($"Could not find Invoice '{request.Id}' ");
+                throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
+
             _invoiceRepository.Remove(existingInvoice);
 
         }

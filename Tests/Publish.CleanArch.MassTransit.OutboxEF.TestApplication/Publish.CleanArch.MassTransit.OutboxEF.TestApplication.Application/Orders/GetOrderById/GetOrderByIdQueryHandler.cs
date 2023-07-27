@@ -34,6 +34,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
+
             return order.MapToOrderDto(_mapper);
         }
     }

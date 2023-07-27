@@ -26,11 +26,11 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.CreateT
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateTestNullablityCommand request, CancellationToken cancellationToken)
         {
-            var entity = new TestNullablity(request.Id, request.MyEnum, request.Str, request.Date, request.DateTime, request.NullableGuid, request.NullableEnum, request.DefaultLiteralEnum);
+            var newTestNullablity = new TestNullablity(request.Id, request.MyEnum, request.Str, request.Date, request.DateTime, request.NullableGuid, request.NullableEnum, request.DefaultLiteralEnum);
 
-            _testNullablityRepository.Add(entity);
+            _testNullablityRepository.Add(newTestNullablity);
             await _testNullablityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return entity.Id;
+            return newTestNullablity.Id;
         }
     }
 }

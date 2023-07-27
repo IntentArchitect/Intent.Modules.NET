@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.ExplicitWithReturn
 {
@@ -26,14 +26,15 @@ namespace CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.E
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<object> Handle(ExplicitWithReturnCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _asyncOperationsClassRepository.FindByIdAsync(request.Id, cancellationToken);
-            if (entity is null)
+            var existingAsyncOperationsClass = await _asyncOperationsClassRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingAsyncOperationsClass is null)
             {
                 throw new NotFoundException($"Could not find AsyncOperationsClass '{request.Id}'");
             }
 
-            await entity.ExplicitWithReturn(cancellationToken);
-            return Unit.Value;
+            var result = await existingAsyncOperationsClass.ExplicitWithReturn(cancellationToken);
+            return result;
+
         }
     }
 }

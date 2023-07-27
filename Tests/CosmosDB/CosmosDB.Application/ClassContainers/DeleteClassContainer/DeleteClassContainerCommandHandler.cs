@@ -29,8 +29,9 @@ namespace CosmosDB.Application.ClassContainers.DeleteClassContainer
 
             if (existingClassContainer is null)
             {
-                throw new NotFoundException($"Could not find ClassContainer '{request.Id}' ");
+                throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");
             }
+
             _classContainerRepository.Remove(existingClassContainer);
 
         }

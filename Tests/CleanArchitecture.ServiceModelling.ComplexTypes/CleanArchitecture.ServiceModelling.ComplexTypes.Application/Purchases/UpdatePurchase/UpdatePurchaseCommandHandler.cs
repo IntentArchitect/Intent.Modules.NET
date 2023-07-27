@@ -33,6 +33,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
             {
                 throw new NotFoundException($"Could not find Purchase '{request.Id}'");
             }
+
             existingPurchase.Cost = CreateMoney(request.Cost);
 
         }

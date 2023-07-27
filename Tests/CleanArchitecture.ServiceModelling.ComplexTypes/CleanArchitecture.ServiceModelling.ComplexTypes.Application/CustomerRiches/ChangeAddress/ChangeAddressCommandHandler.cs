@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common.Exceptions;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Contracts;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -26,8 +27,13 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(ChangeAddressCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
-            entity.UpdateAddress(CreateAddressDC(request.Address));
+            var existingCustomerRich = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingCustomerRich is null)
+            {
+                throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
+            }
+
+            existingCustomerRich.UpdateAddress(CreateAddressDC(request.Address));
 
         }
 

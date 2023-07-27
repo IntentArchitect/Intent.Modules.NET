@@ -33,8 +33,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
 
             if (existingBasket is null)
             {
-                throw new NotFoundException($"Could not find Basket '{request.Id}' ");
+                throw new NotFoundException($"Could not find Basket '{request.Id}'");
             }
+
             _basketRepository.Remove(existingBasket);
             _eventBus.Publish(existingBasket.MapToBasketDeletedEvent());
 

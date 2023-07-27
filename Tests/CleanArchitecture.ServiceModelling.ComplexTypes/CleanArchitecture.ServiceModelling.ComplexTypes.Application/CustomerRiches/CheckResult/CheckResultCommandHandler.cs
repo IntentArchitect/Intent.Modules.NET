@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common.Exceptions;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,8 +29,13 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CheckAddressDCDto> Handle(CheckResultCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
-            var result = entity.GetAddress();
+            var existingCustomerRich = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingCustomerRich is null)
+            {
+                throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
+            }
+
+            var result = existingCustomerRich.GetAddress();
             return result.MapToCheckAddressDCDto(_mapper);
         }
     }

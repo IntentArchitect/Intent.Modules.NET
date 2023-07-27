@@ -35,6 +35,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
             {
                 throw new NotFoundException($"Could not find Invoice '{request.Id}'");
             }
+
             existingInvoice.No = request.No;
             existingInvoice.Created = request.Created;
             existingInvoice.CustomerId = request.CustomerId;

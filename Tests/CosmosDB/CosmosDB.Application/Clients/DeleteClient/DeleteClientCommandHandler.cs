@@ -29,8 +29,9 @@ namespace CosmosDB.Application.Clients.DeleteClient
 
             if (existingClient is null)
             {
-                throw new NotFoundException($"Could not find Client '{request.Identifier}' ");
+                throw new NotFoundException($"Could not find Client '{request.Identifier}'");
             }
+
             _clientRepository.Remove(existingClient);
 
         }

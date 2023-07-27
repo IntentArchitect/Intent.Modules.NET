@@ -32,6 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.UpdateDerived
             {
                 throw new NotFoundException($"Could not find Derived '{request.Id}'");
             }
+
             existingDerived.Attribute = request.Attribute;
             existingDerived.BaseAttribute = request.BaseAttribute;
 

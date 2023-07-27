@@ -33,6 +33,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
             {
                 throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");
             }
+
             existingCustomerAnemic.Name = request.Name;
             existingCustomerAnemic.Address = CreateAddress(request.Address);
 

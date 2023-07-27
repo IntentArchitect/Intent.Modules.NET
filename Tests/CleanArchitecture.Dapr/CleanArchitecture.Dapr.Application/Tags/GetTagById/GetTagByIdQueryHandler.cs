@@ -34,6 +34,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.GetTagById
             {
                 throw new NotFoundException($"Could not find Tag '{request.Id}'");
             }
+
             return tag.MapToTagDto(_mapper);
         }
     }

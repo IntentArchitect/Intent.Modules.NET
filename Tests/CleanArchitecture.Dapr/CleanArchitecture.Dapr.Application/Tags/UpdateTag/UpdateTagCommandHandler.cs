@@ -32,6 +32,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.UpdateTag
             {
                 throw new NotFoundException($"Could not find Tag '{request.Id}'");
             }
+
             existingTag.Name = request.Name;
 
             _tagRepository.Update(existingTag);

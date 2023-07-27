@@ -34,6 +34,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
             {
                 throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");
             }
+
             return customerRich.MapToCustomerRichDto(_mapper);
         }
     }

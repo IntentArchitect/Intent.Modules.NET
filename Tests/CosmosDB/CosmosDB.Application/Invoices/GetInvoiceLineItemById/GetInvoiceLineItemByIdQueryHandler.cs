@@ -45,6 +45,7 @@ namespace CosmosDB.Application.Invoices.GetInvoiceLineItemById
             {
                 throw new NotFoundException($"Could not find LineItem '{request.Id}'");
             }
+
             return element.MapToInvoiceLineItemDto(_mapper);
         }
     }

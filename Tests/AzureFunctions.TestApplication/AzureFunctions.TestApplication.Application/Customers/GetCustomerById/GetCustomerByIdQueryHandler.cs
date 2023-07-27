@@ -34,6 +34,7 @@ namespace AzureFunctions.TestApplication.Application.Customers.GetCustomerById
             {
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
+
             return customer.MapToCustomerDto(_mapper);
         }
     }
