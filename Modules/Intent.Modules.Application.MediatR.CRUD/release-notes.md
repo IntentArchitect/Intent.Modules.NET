@@ -1,6 +1,7 @@
-### Version 5.1.5
+### Version 5.2.0
 
 - Update: Asynchronous domain operation will now be `await`ed and have `CancellationToken`s passed in as a parameter.
+- Update: Variable names for new / existing entities in generated implementations for constructor and operator invocations now normalized so as to work properly with integration event publishing.
 
 ### Version 5.1.4
 

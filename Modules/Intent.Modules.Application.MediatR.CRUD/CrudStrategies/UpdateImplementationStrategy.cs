@@ -66,6 +66,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
             var idFields = _matchingElementDetails.Value.IdFields;
+            var entityVariableName = foundEntity.GetExistingVariableName();
 
             var codeLines = new List<CSharpStatement>();
             var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
@@ -85,13 +86,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
 
-                codeLines.Add($@"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
+                codeLines.Add($@"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                    variable: $"existing{foundEntity.Name}",
+                    variable: entityVariableName,
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"));
                 codeLines.Add(string.Empty);
 
-                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
+                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdField: true));
 
                 if (RepositoryRequiresExplicitUpdate())
                 {
@@ -101,24 +102,24 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines;
             }
 
-            codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+            codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
             codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                variable: $"existing{foundEntity.Name}",
+                variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
 
-            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
+            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
 
             if (RepositoryRequiresExplicitUpdate())
             {
-                codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(existing{foundEntity.Name});").SeparatedFromPrevious());
+                codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update({entityVariableName});").SeparatedFromPrevious());
             }
 
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
             if (dtoToReturn != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+                codeLines.Add($@"return {entityVariableName}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
             }
 
             return codeLines;

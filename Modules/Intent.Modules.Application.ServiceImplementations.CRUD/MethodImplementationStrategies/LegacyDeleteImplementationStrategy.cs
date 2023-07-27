@@ -67,14 +67,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
-            var existingVariableName = $"existing{domainModel.Name.ToPascalCase()}";
+            var entityVariableName = domainModel.GetExistingVariableName();
 
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
-                $@"var {existingVariableName} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
-            codeLines.Add(new CSharpIfStatement($"{existingVariableName} is null")
+                $@"var {entityVariableName} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"{entityVariableName} is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.Single().Name.ToCamelCase()}}}"");"));
-            codeLines.Add($"{repositoryFieldName}.Remove({existingVariableName});");
+            codeLines.Add($"{repositoryFieldName}.Remove({entityVariableName});");
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));

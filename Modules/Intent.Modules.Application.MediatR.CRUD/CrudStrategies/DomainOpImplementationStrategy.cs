@@ -53,7 +53,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
                 param => param.IntroduceReadonlyField());
 
-            if (_matchingElementDetails.Value.DtoToReturn != null)
+            if (_matchingElementDetails.Value.CommandReturnType.Element?.IsDTOModel() == true)
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
             }
@@ -74,21 +74,33 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = _matchingElementDetails.Value.Repository;
             var idFields = _matchingElementDetails.Value.IdFields;
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
+            var entityVariableName = foundEntity.GetExistingVariableName();
+            var commandReturnType = _matchingElementDetails.Value.CommandReturnType;
+            var operationReturnType = _matchingElementDetails.Value.OperationReturnType;
 
             var codeLines = new CSharpStatementAggregator();
 
-            codeLines.Add($"var entity = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+            codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
             codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                variable: "entity",
+                variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
 
-            var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
-            GenerateOperationInvocationCode("request", "entity", dtoToReturn != null);
+            GenerateOperationInvocationCode("request", entityVariableName, operationReturnType?.Element != null);
 
-            if (dtoToReturn != null)
+            if (commandReturnType?.Element.IsDTOModel() == true)
             {
-                codeLines.Add($@"return result.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+                codeLines.Add($"return result.MapTo{_template.GetDtoName(commandReturnType.Element.AsDTOModel())}(_mapper);");
+            }
+            else if (commandReturnType?.Element != null &&
+                     commandReturnType.Element.Id == operationReturnType?.Element?.Id)
+            {
+                codeLines.Add("return result;");
+            }
+            else if (commandReturnType?.Element != null)
+            {
+                codeLines.Add("#warning Return type does not match any known convention");
+                codeLines.Add("throw new NotImplementedException();");
             }
 
             return codeLines.ToList();
@@ -201,24 +213,46 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
 
-            return new StrategyData(true, foundEntity, idFields, repository, _template.Model.TypeReference.Element?.AsDTOModel(), _template.GetAdditionalServicesFromParameters(operationModel.Parameters));
+            return new StrategyData(
+                isMatch: true,
+                foundEntity: foundEntity,
+                idFields: idFields,
+                repository: repository,
+                additionalServices: _template.GetAdditionalServicesFromParameters(operationModel.Parameters),
+                commandReturnType: _template.Model.TypeReference,
+                operationReturnType: operationModel.TypeReference);
         }
         private static bool IsAsync(OperationModel operation)
         {
             return operation.HasStereotype("Asynchronous") || operation.Name.EndsWith("Async");
         }
 
-        private static readonly StrategyData NoMatch = new(false, null, null, null, null, null);
+        private static readonly StrategyData NoMatch = new(
+            isMatch: false,
+            foundEntity: null,
+            idFields: null,
+            repository: null,
+            commandReturnType: null,
+            operationReturnType: null,
+            additionalServices: null);
 
         internal class StrategyData
         {
-            public StrategyData(bool isMatch, ClassModel foundEntity, List<DTOFieldModel> idFields, RequiredService repository, DTOModel dtoToReturn, IReadOnlyCollection<RequiredService> additionalServices)
+            public StrategyData(
+                bool isMatch,
+                ClassModel foundEntity,
+                List<DTOFieldModel> idFields,
+                RequiredService repository,
+                ITypeReference commandReturnType,
+                ITypeReference operationReturnType,
+                IReadOnlyCollection<RequiredService> additionalServices)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
                 IdFields = idFields;
                 Repository = repository;
-                DtoToReturn = dtoToReturn;
+                CommandReturnType = commandReturnType;
+                OperationReturnType = operationReturnType;
                 AdditionalServices = additionalServices ?? Array.Empty<RequiredService>();
             }
 
@@ -226,9 +260,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             public ClassModel FoundEntity { get; }
             public List<DTOFieldModel> IdFields { get; }
             public RequiredService Repository { get; }
+            public ITypeReference CommandReturnType { get; }
+            public ITypeReference OperationReturnType { get; }
             public IReadOnlyCollection<RequiredService> AdditionalServices { get; }
-            public DTOModel DtoToReturn { get; }
-
         }
     }
 }

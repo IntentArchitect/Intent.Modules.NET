@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Updated to ensure variable name of entity to publish event for matches that in generated method implmentation by the CRUD module.
+
 ### Version 1.0.4
 
 - Fixed: Publishers weren't correctly added to Update and Delete operations.

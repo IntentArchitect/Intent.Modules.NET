@@ -64,25 +64,25 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
-            var existingEntityVariableName = $"existing{domainModel.Name.ToPascalCase()}";
+            var entityVariableName = domainModel.GetExistingVariableName();
 
             var codeLines = new List<CSharpStatement>();
             var idParam = operationModel.Parameters.FirstOrDefault(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase))?.Name
                 ?? $"{dtoParam.Name}.{dtoModel.Fields.GetEntityIdField(domainModel).Name}";
-            codeLines.Add($"var {existingEntityVariableName} = await {repositoryFieldName}.FindByIdAsync({idParam}, cancellationToken);");
-            codeLines.Add(new CSharpIfStatement($"{existingEntityVariableName} is null")
+            codeLines.Add($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idParam}, cancellationToken);");
+            codeLines.Add(new CSharpIfStatement($"{entityVariableName} is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{idParam}}}"");"));
-            codeLines.AddRange(GetDTOPropertyAssignments($"{existingEntityVariableName}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
+            codeLines.AddRange(GetDTOPropertyAssignments($"{entityVariableName}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
 
             if (RepositoryRequiresExplicitUpdate(domainModel))
             {
-                codeLines.Add($"{repositoryFieldName}.Update({existingEntityVariableName});");
+                codeLines.Add($"{repositoryFieldName}.Update({entityVariableName});");
             }
 
             if (operationModel.TypeReference.Element.IsDTOModel())
             {
                 codeLines.Add($"await {repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return {existingEntityVariableName}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
+                codeLines.Add($"return {entityVariableName}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
             }
 
             var @class = _template.CSharpFile.Classes.First();

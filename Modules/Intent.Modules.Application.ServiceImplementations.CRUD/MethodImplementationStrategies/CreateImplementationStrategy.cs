@@ -61,22 +61,22 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
-            var newEntityVariableName = $"new{domainModel.Name.ToPascalCase()}";
+            var entityVariableName = domainModel.GetNewVariableName();
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
 
             var codeLines = new CSharpStatementAggregator();
-            codeLines.Add($"var {newEntityVariableName} = new {domainTypeName}");
+            codeLines.Add($"var {entityVariableName} = new {domainTypeName}");
             codeLines.Add(new CSharpStatementBlock()
                 .AddStatements(GetDTOPropertyAssignments("", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields))
                 .WithSemicolon());
-            codeLines.Add($"{repositoryFieldName}.Add({newEntityVariableName});");
+            codeLines.Add($"{repositoryFieldName}.Add({entityVariableName});");
             if (operationModel.TypeReference.Element != null)
             {
                 codeLines.Add($@"await {repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 var dtoToReturn = operationModel.TypeReference.Element.AsDTOModel();
                 codeLines.Add(dtoToReturn != null
-                    ? $"return {newEntityVariableName}.MapTo{_template.GetTypeName(dtoToReturn.InternalElement)}(_mapper);"
-                    : $"return {newEntityVariableName}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                    ? $"return {entityVariableName}.MapTo{_template.GetTypeName(dtoToReturn.InternalElement)}(_mapper);"
+                    : $"return {entityVariableName}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
 
             var @class = _template.CSharpFile.Classes.First();

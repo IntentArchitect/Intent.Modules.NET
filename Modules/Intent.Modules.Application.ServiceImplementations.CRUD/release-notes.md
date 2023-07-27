@@ -1,3 +1,7 @@
+### Version 4.3.4
+
+- Normalized variable names used in generated methods for alignment with other modules.
+
 ### Version 4.3.2
 
 - Fixed: Type disambiguation rules were incorrectly being applied to variable names for some CRUD operation implementations.

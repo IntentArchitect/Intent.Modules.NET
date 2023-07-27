@@ -50,7 +50,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                     {
                         return null;
                     }
-                    
+
                     var @class = template.CSharpFile.Classes.First();
                     if (!@class.TryGetMetadata("model", out var model) || model == null)
                     {
@@ -100,52 +100,52 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
         }
 
         private void PerformConventionCodeInjection(
-            ICSharpFileBuilderTemplate template, 
-            string convention, 
-            MessageModel message, 
-            ClassModel entity, 
+            ICSharpFileBuilderTemplate template,
+            string convention,
+            MessageModel message,
+            ClassModel entity,
             IApplication application)
         {
             var messageTemplate = template.GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, message);
             var @class = template.CSharpFile.Classes.First();
-            
+
             switch (convention)
             {
                 case "create":
                     {
                         InjectEventBusCode(@class, template);
                         AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                        var method = @class.FindMethod("Handle");
-                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
-                        string publishStatement = $"_eventBus.Publish(new{entity.Name}.MapTo{messageTemplate.ClassName}());";
-                        AddPublishStatement(method, returnClause, publishStatement);
+                        AddPublishStatement(
+                            @class: @class,
+                            publishStatement: $"_eventBus.Publish({entity.GetNewVariableName()}.MapTo{messageTemplate.ClassName}());");
                     }
                     break;
                 case "update":
                     {
                         InjectEventBusCode(@class, template);
                         AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                        var method = @class.FindMethod("Handle");
-                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
-                        string publishStatement = $"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());";
-                        AddPublishStatement(method, returnClause, publishStatement);
+                        AddPublishStatement(
+                            @class: @class,
+                            publishStatement: $"_eventBus.Publish({entity.GetExistingVariableName()}.MapTo{messageTemplate.ClassName}());");
                     }
                     break;
                 case "delete":
                     {
                         InjectEventBusCode(@class, template);
                         AddMessageExtensionsUsings(application, template.CSharpFile, message);
-                        var method = @class.FindMethod("Handle");
-                        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Contains("return"));
-                        string publishStatement = $"_eventBus.Publish(existing{entity.Name}.MapTo{messageTemplate.ClassName}());";
-                        AddPublishStatement(method, returnClause, publishStatement);
+                        AddPublishStatement(
+                            @class: @class,
+                            publishStatement: $"_eventBus.Publish({entity.GetExistingVariableName()}.MapTo{messageTemplate.ClassName}());");
                     }
                     break;
             }
         }
 
-        private static void AddPublishStatement(CSharpClassMethod method, CSharpStatement returnClause, string publishStatement)
+        private static void AddPublishStatement(CSharpClass @class, string publishStatement)
         {
+            var method = @class.FindMethod("Handle");
+            var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
+
             if (returnClause != null)
             {
                 returnClause.InsertAbove(publishStatement);

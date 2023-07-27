@@ -72,14 +72,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
+            var entityVariableName = foundEntity.GetNewVariableName();
 
             var entityName = _template.GetDomainEntityName(foundEntity) ?? foundEntity.Name;
 
             var codeLines = new CSharpStatementAggregator();
 
-            codeLines.Add(GetConstructorStatement($"entity", entityName, "request", false));
+            codeLines.Add(GetConstructorStatement(entityVariableName, entityName, "request", false));
 
-            codeLines.Add($"{repository.FieldName}.Add(entity);", x => x.SeparatedFromPrevious());
+            codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
 
             if (_template.Model.TypeReference.Element != null)
             {
@@ -87,15 +88,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
                 codeLines.Add(dtoToReturn != null
-                    ? $"return entity.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
-                    : $"return entity.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                    ? $"return {entityVariableName}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                    : $"return {entityVariableName}.{foundEntity.Attributes.Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
 
             return codeLines.ToList();
 
             CSharpStatement GetConstructorStatement(string entityVarName, string entityName, string dtoVarName, bool hasInitStatements)
             {
-                var ctor = ClassConstructorModelExtensions.AsClassConstructorModel(_template.Model.Mapping.Element);
+                var ctor = _template.Model.Mapping.Element.AsClassConstructorModel();
                 var ctorParams = ctor?.Parameters; 
 
                 if (ctorParams?.Any() != true)

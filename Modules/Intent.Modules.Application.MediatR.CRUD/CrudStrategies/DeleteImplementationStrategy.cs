@@ -59,6 +59,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var idFields = _matchingElementDetails.Value.IdFields;
             var repository = _matchingElementDetails.Value.Repository;
+            var entityVariableName = foundEntity.GetExistingVariableName();
 
             var codeLines = new CSharpStatementAggregator();
 
@@ -81,13 +82,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
 
-                codeLines.Add($"var existing{foundEntity.Name} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
+                codeLines.Add($"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                    variable: $"existing{foundEntity.Name}",
+                    variable: $"{entityVariableName}",
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"));
                 codeLines.Add(string.Empty);
 
-                codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(existing{foundEntity.Name});");
+                codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove({entityVariableName});");
 
                 if (RepositoryRequiresExplicitUpdate())
                 {
@@ -97,17 +98,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines.ToList();
             }
 
-            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+            codeLines.Add($@"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
             codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                variable: $"existing{foundEntity.Name}",
+                variable: $"{entityVariableName}",
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
 
-            codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
+            codeLines.Add($"{repository.FieldName}.Remove({entityVariableName});");
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
             if (dtoToReturn != null)
             {
-                codeLines.Add($@"return existing{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
+                codeLines.Add($@"return {entityVariableName}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
             }
 
             return codeLines.ToList();

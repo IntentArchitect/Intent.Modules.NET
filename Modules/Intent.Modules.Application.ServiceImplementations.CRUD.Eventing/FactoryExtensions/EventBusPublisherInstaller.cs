@@ -45,8 +45,8 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
 
         var hasAtLeastOneMatch = false;
 
-        var priClass = file.Classes.First();
-        foreach (var method in priClass.Methods.Where(p => p.TryGetMetadata("model", out OperationModel _)))
+        var @class = file.Classes.First();
+        foreach (var method in @class.Methods.Where(p => p.TryGetMetadata("model", out OperationModel _)))
         {
             var operation = method.GetMetadata<OperationModel>("model");
             if (createStrategy.IsMatch(operation))
@@ -59,16 +59,9 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
-                var line = $"_eventBus.Publish(new{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());";
-                if (lastStatement != null)
-                {
-                    lastStatement.InsertAbove(line);
-                }
-                else
-                {
-                    method.AddStatement(line);
-                }
+                AddPublishStatement(
+                    method: method,
+                    publishStatement: $"_eventBus.Publish({domainModel.GetNewVariableName()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
 
                 hasAtLeastOneMatch = true;
             }
@@ -82,7 +75,10 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
+                AddPublishStatement(
+                    method: method,
+                    publishStatement: $"_eventBus.Publish({domainModel.GetExistingVariableName()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
+
                 hasAtLeastOneMatch = true;
             }
             else if (deleteStrategy.IsMatch(operation))
@@ -95,16 +91,9 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
-                var line = $"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());";
-                if (lastStatement != null)
-                {
-                    lastStatement.InsertAbove(line);
-                }
-                else
-                {
-                    method.AddStatement(line);
-                }
+                AddPublishStatement(
+                    method: method,
+                    publishStatement: $"_eventBus.Publish({domainModel.GetExistingVariableName()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
 
                 hasAtLeastOneMatch = true;
             }
@@ -118,7 +107,10 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
+                AddPublishStatement(
+                    method: method,
+                    publishStatement: $"_eventBus.Publish({domainModel.GetExistingVariableName()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
+
                 hasAtLeastOneMatch = true;
             }
         }
@@ -128,10 +120,24 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             return;
         }
 
-        var ctor = priClass.Constructors.First();
+        var ctor = @class.Constructors.First();
         if (ctor.Parameters.All(p => p.Name != "eventBus"))
         {
             ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", parm => parm.IntroduceReadonlyField());
+        }
+    }
+
+    private static void AddPublishStatement(CSharpClassMethod method, string publishStatement)
+    {
+        var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
+
+        if (returnClause != null)
+        {
+            returnClause.InsertAbove(publishStatement);
+        }
+        else
+        {
+            method.Statements.Add(publishStatement);
         }
     }
 
@@ -148,7 +154,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
             .FirstOrDefault(x => HasMappedDomainEntityPresent(app, x, domainModel) && GetConventionName(x.Name) == convention);
         return messageModel;
     }
-    
+
     private static string GetConventionName(string name)
     {
         return name.ToLower() switch

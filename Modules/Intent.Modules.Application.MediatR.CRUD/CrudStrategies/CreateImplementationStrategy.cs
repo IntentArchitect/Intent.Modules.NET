@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -15,8 +14,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
-using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -65,6 +62,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
+            var entityVariableName = foundEntity.GetNewVariableName();
 
             var entityName = _template.GetDomainEntityName(foundEntity) ?? foundEntity.Name;
 
@@ -89,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
                 dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
                 skipIdField: true);
-            codeLines.Add($"var new{foundEntity.Name} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
+            codeLines.Add($"var {entityVariableName} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
             if (assignmentStatements.Any())
             {
                 codeLines.Add(new CSharpStatementBlock()
@@ -100,7 +98,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             if (nestedCompOwner != null)
             {
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
-                codeLines.Add($"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
+                codeLines.Add($"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
 
                 if (RepositoryRequiresExplicitUpdate())
                 {
@@ -109,7 +107,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
             else
             {
-                codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
+                codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
             }
 
 
@@ -118,8 +116,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
                 codeLines.Add(dtoToReturn != null
-                    ? $"return new{foundEntity.Name}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
-                    : $"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                    ? $"return {entityVariableName}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
+                    : $"return {entityVariableName}.{foundEntity.Attributes.Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
 
             return codeLines.ToList();

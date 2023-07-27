@@ -1,3 +1,7 @@
+### Version 4.0.9
+
+- Updated to ensure variable name of entity to publish event for matches that in generated method implmentation by the CRUD module.
+
 ### Version 4.0.6
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
