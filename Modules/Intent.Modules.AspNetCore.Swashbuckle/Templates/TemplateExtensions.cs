@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -11,10 +10,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAuthorizeCheckOperationFilterName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId);
-        }
 
         public static string GetSwashbuckleConfigurationName(this IIntentTemplate template)
         {

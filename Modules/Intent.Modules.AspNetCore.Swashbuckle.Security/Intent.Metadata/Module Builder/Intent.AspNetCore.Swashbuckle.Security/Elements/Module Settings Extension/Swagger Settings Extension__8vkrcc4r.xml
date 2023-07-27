@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9be72780-a417-4b3a-a3ac-ed267cc96709" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Swagger Settings Extension</name>
+  <display>Swagger Settings Extension: Swagger Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="3187d3bf-2dca-44a5-92f2-d4daab0c9759">
+    <typeId>7182f792-547f-46f3-b178-a92ceefeb4f8</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AspNetCore.Swashbuckle</typePackageName>
+    <typePackageId>f7c0dfe8-5d94-4a79-9282-4665facdace5</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>6fcd0a39-d869-42ad-bb23-ef687f068a58</parentFolderId>
+  <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+  <packageName>Intent.AspNetCore.Swashbuckle.Security</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="64312cd3-8742-4fa9-b42f-8e27d66407b1" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <comment />
+      <name>Authentication</name>
+      <display>Authentication</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9be72780-a417-4b3a-a3ac-ed267cc96709</parentFolderId>
+      <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+      <packageName>Intent.AspNetCore.Swashbuckle.Security</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Swagger Security Scheme" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="Bearer" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8774f61d-7e4e-4d88-933e-7d3d433213fa" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Bearer</name>
+          <display>Bearer = Bearer</display>
+          <isAbstract>false</isAbstract>
+          <value>Bearer</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>64312cd3-8742-4fa9-b42f-8e27d66407b1</parentFolderId>
+          <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+          <packageName>Intent.AspNetCore.Swashbuckle.Security</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d388b178-03cd-4ec1-8254-75d6cdc26166" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>OAuth 2.0 - Implicit</name>
+          <display>OAuth 2.0 - Implicit = Implicit</display>
+          <isAbstract>false</isAbstract>
+          <value>Implicit</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>64312cd3-8742-4fa9-b42f-8e27d66407b1</parentFolderId>
+          <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+          <packageName>Intent.AspNetCore.Swashbuckle.Security</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

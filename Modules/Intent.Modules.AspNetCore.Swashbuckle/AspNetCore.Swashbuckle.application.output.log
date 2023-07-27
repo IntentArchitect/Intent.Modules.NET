@@ -49,35 +49,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <ProjectId>bf46f0d7-996e-4537-b227-bc4f9819e07b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#f7c0dfe8-5d94-4a79-9282-4665facdace5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

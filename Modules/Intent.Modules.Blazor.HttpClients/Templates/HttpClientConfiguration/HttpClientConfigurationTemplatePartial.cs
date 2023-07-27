@@ -30,6 +30,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                 AddNugetDependency("Microsoft.AspNetCore.Components.WebAssembly.Authentication", "6.0.20");
             }
 
+            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"HttpClientConfiguration", @class =>

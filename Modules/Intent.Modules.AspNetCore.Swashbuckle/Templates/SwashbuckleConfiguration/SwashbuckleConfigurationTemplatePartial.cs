@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -15,7 +14,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 
 [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
 {
     [IntentManaged(Mode.Fully)]
     public const string TemplateId = "Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration";
@@ -54,8 +53,6 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                                     .WithArgumentsOnNewLines()
                                 )
                                 .AddStatement(
-                                    $@"options.OperationFilter<{GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>();")
-                                .AddStatement(
                                     $@"options.CustomSchemaIds(x => x.FullName);")
                             )
                             .WithArgumentsOnNewLines()
@@ -68,6 +65,8 @@ partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICS
                 {
                     method.Static();
                     method.AddParameter("IApplicationBuilder", "app", conf => conf.WithThisModifier());
+                    method.AddParameter("IConfiguration", "configuration");
+
                     method.AddStatement(new CSharpInvocationStatement("app.UseSwagger")
                         .AddMetadata("UseSwagger", true));
 

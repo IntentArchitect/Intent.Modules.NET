@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>4.0.6</version>
+  <version>4.0.7-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
@@ -11,14 +11,6 @@
   <tags>csharp dotnet aspnetcore swagger swashbuckle openapi</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
-    <template id="Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter" externalReference="e4beda9d-c6c8-4c1f-9020-cd520aa2276d">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Startup</role>
-      <location>Filters</location>
-    </template>
     <template id="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" externalReference="f9817e5f-293b-47bb-895e-22d387b7c6f0">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -42,12 +34,17 @@
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.3" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.4-pre.2" />
       </install>
     </detect>
     <detect id="Intent.Security.MSAL">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.3" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.4-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.AspNetCore.Swashbuckle.Security">
+      <install>
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.4-pre.2" />
       </install>
     </detect>
   </interoperability>
@@ -56,6 +53,10 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata />
-  <moduleSettings />
+  <moduleSettings>
+    <group id="7182f792-547f-46f3-b178-a92ceefeb4f8" title="Swagger Settings" externalReference="7182f792-547f-46f3-b178-a92ceefeb4f8">
+      <settings />
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
 </package>

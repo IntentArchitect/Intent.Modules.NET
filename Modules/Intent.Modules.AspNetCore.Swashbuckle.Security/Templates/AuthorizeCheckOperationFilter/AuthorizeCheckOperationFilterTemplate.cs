@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter
+namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeCheckOperationFilter
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperatio
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle.Security\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AuthorizeCheckOperationFilterTemplate : CSharpTemplateBase<object>
     {
@@ -44,14 +44,14 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle.Security\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle.Security\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -73,7 +73,14 @@ namespace ");
                             Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = ""Bearer""
+                                Id = """);
+            
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Swashbuckle.Security\Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetAuthorizationSchemeName()));
+            
+            #line default
+            #line hidden
+            this.Write(@"""
                             }
                         }
                     ] = Array.Empty<string>()

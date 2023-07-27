@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Swashbuckle.Security.Events;
+using Intent.Modules.AspNetCore.Swashbuckle.Security.Settings;
+using Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeCheckOperationFilter;
+using Intent.Modules.AspNetCore.Swashbuckle.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -11,6 +15,8 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using static System.Formats.Asn1.AsnWriter;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -57,28 +63,106 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             {
                 return;
             }
-
-            template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
-            AddDefaultSecurityScheme(configureSwaggerOptionsBlock);
-
             var swaggerUiOptionsBlock = GetUseSwaggerUiOptionsBlock(@class);
             if (swaggerUiOptionsBlock == null)
             {
                 return;
             }
 
+            configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>();");
+
+            switch (application.Settings.GetSwaggerSettings().Authentication().AsEnum())
+            {
+                case SwaggerSettingsExtensions.AuthenticationOptionsEnum.Implicit:
+                    AddOAuth2ImplicitSecurityScheme(application.Settings.GetSwaggerSettings().Authentication().Value, template, configureSwaggerOptionsBlock, swaggerUiOptionsBlock);
+                    break;
+                case SwaggerSettingsExtensions.AuthenticationOptionsEnum.Bearer:
+                default:
+                    AddBearerSecurityScheme(application.Settings.GetSwaggerSettings().Authentication().Value, template, configureSwaggerOptionsBlock);
+                    break;
+            }
+
             AddAdditionSecurityScheme(configureSwaggerOptionsBlock, swaggerUiOptionsBlock, template, application);
         }
+
+        private void AddBearerSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock)
+        {
+            //Bearer
+            template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
+            configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                .AddInitStatement("Name", @"""Authorization""")
+                    .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
+                .AddInitStatement("In", "ParameterLocation.Header")
+                .AddInitStatement("Type", "SecuritySchemeType.Http")
+                .AddInitStatement("Scheme", @"""bearer""")
+                .AddInitStatement("BearerFormat", @"""JWT""")
+                .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                    .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
+                    .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
+                .WithSemicolon());
+            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                .AddArgument($"\"{schemeName}\"")
+                .AddArgument("securityScheme"));
+            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
+                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                    .AddKeyAndValue("securityScheme", "Array.Empty<string>()"))
+                .WithArgumentsOnNewLines());
+        }
+
+        private void AddOAuth2ImplicitSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock)
+        {
+            //"Implicit";
+            string configPrefix = $"Swashbuckle:Security:OAuth2:{schemeName}:";
+
+            var castTemplate = ((IntentTemplateBase)template);
+            castTemplate.ApplyAppSetting($@"{configPrefix}AuthorizationUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/authorize");
+            castTemplate.ApplyAppSetting($@"{configPrefix}TokenUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/token");
+            castTemplate.ApplyAppSetting($@"{configPrefix}Scope", new Dictionary<string, string>() { { "{Scope Description}", "api://{ClientId}/Scope" } });
+            castTemplate.ApplyAppSetting($@"{configPrefix}ClientId", "{ClientId}");
+
+            configureSwaggerOptionsBlock.AddStatement($"var authorizationUrl = configuration.GetValue<Uri>(\"{configPrefix}AuthorizationUrl\");");
+            configureSwaggerOptionsBlock.AddStatement($"var tokenUrl = configuration.GetValue<Uri>(\"{configPrefix}TokenUrl\");");
+            configureSwaggerOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
+            configureSwaggerOptionsBlock.AddStatement($"var scopes = configuration.GetSection(\"{configPrefix}Scope\").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x => x.Key);");
+            configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                    .AddInitStatement("Implicit ", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                        .AddInitStatement("Scopes", "scopes")
+                        .AddInitStatement("AuthorizationUrl", $"authorizationUrl")
+                        .AddInitStatement("TokenUrl", $"tokenUrl"))
+                    )
+                .WithSemicolon());
+            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                .AddArgument($"\"{schemeName}\"")
+                .AddArgument("securityScheme"));
+            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
+                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                    .AddKeyAndValue("securityScheme", "scopes.Select(s => s.Key).ToArray()"))
+                .WithArgumentsOnNewLines());
+
+            //SwaggerUI Block
+            swaggerUiOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
+            swaggerUiOptionsBlock.AddStatement($"var clientSecret = configuration.GetValue<string>(\"{configPrefix}ClientSecret\");");
+            swaggerUiOptionsBlock.AddStatement($"options.OAuthClientId(clientId);");
+            swaggerUiOptionsBlock.AddStatement($"if (!string.IsNullOrWhiteSpace(clientSecret))");
+            swaggerUiOptionsBlock.AddStatement($"{{");
+            swaggerUiOptionsBlock.AddStatement($"   options.OAuthClientSecret(clientSecret);");
+            swaggerUiOptionsBlock.AddStatement($"}}");
+        }
+
 
         private void AddAdditionSecurityScheme(CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock,
             ICSharpFileBuilderTemplate template, IApplication application)
         {
+
             swaggerUiOptionsBlock.AddStatement($@"options.OAuthScopeSeparator("" "");");
 
             DetectKnownSwaggerSchemes(application);
 
             if (_swaggerSchemes.Any())
             {
+
                 var flowsBlock = new CSharpObjectInitializerBlock("new OpenApiOAuthFlows()");
                 configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
                     .AddArgument(@"""OAuth2""")
@@ -134,28 +218,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                     refreshUrl: null,
                     scopes: new Dictionary<string, string>() { { "API Scope", "api" } }));
             }
-        }
-
-        private void AddDefaultSecurityScheme(CSharpLambdaBlock configureSwaggerOptionsBlock)
-        {
-            configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
-                .AddInitStatement("Name", @"""Authorization""")
-                    .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
-                .AddInitStatement("In", "ParameterLocation.Header")
-                .AddInitStatement("Type", "SecuritySchemeType.Http")
-                .AddInitStatement("Scheme", @"""bearer""")
-                .AddInitStatement("BearerFormat", @"""JWT""")
-                .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
-                    .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
-                    .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
-                .WithSemicolon());
-            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
-                .AddArgument(@"""Bearer""")
-                .AddArgument("securityScheme"));
-            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
-                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
-                    .AddKeyAndValue("securityScheme", "Array.Empty<string>()"))
-                .WithArgumentsOnNewLines());
         }
 
         private void Handle(SecureTokenServiceHostedEvent @event)

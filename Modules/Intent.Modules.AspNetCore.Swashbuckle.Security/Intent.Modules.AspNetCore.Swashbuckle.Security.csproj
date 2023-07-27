@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.32" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.3.22" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -19,6 +19,25 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AspNetCore.Swashbuckle\Intent.Modules.AspNetCore.Swashbuckle.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthorizeCheckOperationFilterTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\AuthorizeCheckOperationFilter\AuthorizeCheckOperationFilterTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthorizeCheckOperationFilterTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

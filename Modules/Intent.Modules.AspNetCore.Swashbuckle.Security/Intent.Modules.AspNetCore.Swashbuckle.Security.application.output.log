@@ -40,5 +40,53 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>baaa95a3-19cd-4c61-b51f-17deb2120cd9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#6fcd0a39-d869-42ad-bb23-ef687f068a58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

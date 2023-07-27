@@ -36,7 +36,7 @@ namespace <#= Namespace #>
                             Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
+                                Id = "<#= GetAuthorizationSchemeName() #>"
                             }
                         }
                     ] = Array.Empty<string>()
