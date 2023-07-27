@@ -64,7 +64,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

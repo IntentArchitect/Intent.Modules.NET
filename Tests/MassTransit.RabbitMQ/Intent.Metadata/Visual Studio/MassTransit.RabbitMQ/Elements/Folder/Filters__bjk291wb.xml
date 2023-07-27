@@ -23,10 +23,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="df3c337e-b1a8-4fb0-b1d3-de91f1fb7fdd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="cb9b6af2-80b4-47df-a82b-36d497ec82f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

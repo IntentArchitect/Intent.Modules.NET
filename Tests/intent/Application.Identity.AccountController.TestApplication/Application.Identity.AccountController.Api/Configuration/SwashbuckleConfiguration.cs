@@ -28,8 +28,8 @@ namespace Application.Identity.AccountController.Api.Configuration
                             Version = "v1",
                             Title = "Application.Identity.AccountController.TestApplication API"
                         });
-                    options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
+                    options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
@@ -56,7 +56,7 @@ namespace Application.Identity.AccountController.Api.Configuration
             return services;
         }
 
-        public static void UseSwashbuckle(this IApplicationBuilder app)
+        public static void UseSwashbuckle(this IApplicationBuilder app, IConfiguration configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(

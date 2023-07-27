@@ -68,14 +68,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>f584bdce-6664-403e-bbe5-35cc055b4d2b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f584bdce-6664-403e-bbe5-35cc055b4d2b</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>

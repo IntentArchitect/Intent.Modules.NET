@@ -65,7 +65,7 @@ namespace AzureKeyVault.Api
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

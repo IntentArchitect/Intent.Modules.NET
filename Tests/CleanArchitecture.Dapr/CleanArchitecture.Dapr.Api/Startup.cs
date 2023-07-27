@@ -64,7 +64,7 @@ namespace CleanArchitecture.Dapr.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

@@ -64,7 +64,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
 
             if (Configuration.GetValue<bool>("Cosmos:EnsureDbCreated"))
             {

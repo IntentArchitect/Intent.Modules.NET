@@ -27,13 +27,12 @@ namespace MongoDb.TestApplication.Api.Configuration
                             Version = "v1",
                             Title = "MongoDb.TestApplication API"
                         });
-                    options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }
 
-        public static void UseSwashbuckle(this IApplicationBuilder app)
+        public static void UseSwashbuckle(this IApplicationBuilder app, IConfiguration configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(

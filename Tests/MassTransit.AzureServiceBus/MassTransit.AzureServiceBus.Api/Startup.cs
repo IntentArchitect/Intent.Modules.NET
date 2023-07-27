@@ -65,7 +65,7 @@ namespace MassTransit.AzureServiceBus.Api
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

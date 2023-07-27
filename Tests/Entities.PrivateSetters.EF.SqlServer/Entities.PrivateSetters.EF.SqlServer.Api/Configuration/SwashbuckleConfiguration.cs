@@ -27,13 +27,12 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Configuration
                             Version = "v1",
                             Title = "Entities.PrivateSetters.EF.SqlServer API"
                         });
-                    options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
                 });
             return services;
         }
 
-        public static void UseSwashbuckle(this IApplicationBuilder app)
+        public static void UseSwashbuckle(this IApplicationBuilder app, IConfiguration configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(

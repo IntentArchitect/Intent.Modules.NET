@@ -67,7 +67,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
                 endpoints.MapSubscribeHandler();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

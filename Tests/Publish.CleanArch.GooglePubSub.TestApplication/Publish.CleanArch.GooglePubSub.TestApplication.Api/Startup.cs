@@ -64,7 +64,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

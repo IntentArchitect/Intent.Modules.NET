@@ -61,7 +61,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

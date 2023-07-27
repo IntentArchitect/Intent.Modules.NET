@@ -21,26 +21,24 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="3aa7e673-e742-4535-aba3-de908172da9b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="d6a57a86-af6d-4a6e-b9f0-bb6beb8f7560" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9158722-462b-442e-9d0a-5abcf4ff151a</parentFolderId>
-      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
-      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d6a57a86-af6d-4a6e-b9f0-bb6beb8f7560" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
-      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="1b9c9fa1-d815-44bd-933d-9ef64bb0db6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

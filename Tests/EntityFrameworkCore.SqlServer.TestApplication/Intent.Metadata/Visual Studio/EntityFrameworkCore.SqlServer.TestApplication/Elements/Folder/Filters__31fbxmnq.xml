@@ -37,16 +37,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="fffa1c57-71c4-4647-a7e1-9d1768313ca2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="33cd52f5-1e8d-4315-ac60-d993c8396403" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9241132c-9878-40de-9522-a97d00020f91</parentFolderId>
-      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

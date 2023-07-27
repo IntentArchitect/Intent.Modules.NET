@@ -69,7 +69,7 @@ namespace CleanArchitecture.TestApplication.Api
                 endpoints.MapDefaultHealthChecksUI();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

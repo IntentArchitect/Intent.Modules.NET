@@ -27,8 +27,8 @@ namespace Subscribe.MassTransit.OutboxMemory.Api.Configuration
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
+                    options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
@@ -55,7 +55,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Api.Configuration
             return services;
         }
 
-        public static void UseSwashbuckle(this IApplicationBuilder app)
+        public static void UseSwashbuckle(this IApplicationBuilder app, IConfiguration configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(

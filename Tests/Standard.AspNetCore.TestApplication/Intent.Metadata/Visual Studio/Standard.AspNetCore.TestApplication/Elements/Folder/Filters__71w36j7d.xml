@@ -21,26 +21,24 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="26c8247b-88c7-41ac-97b6-7e8daec4e317" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="0b35590f-d9c8-4743-b530-5f7d6d10be02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
-      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
-      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0b35590f-d9c8-4743-b530-5f7d6d10be02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
-      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="88185113-ec41-4523-af3c-dc2234ed0016" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

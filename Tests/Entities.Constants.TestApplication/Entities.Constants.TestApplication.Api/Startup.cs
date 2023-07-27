@@ -63,7 +63,7 @@ namespace Entities.Constants.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

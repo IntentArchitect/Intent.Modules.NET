@@ -61,7 +61,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

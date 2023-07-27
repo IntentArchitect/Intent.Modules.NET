@@ -63,7 +63,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

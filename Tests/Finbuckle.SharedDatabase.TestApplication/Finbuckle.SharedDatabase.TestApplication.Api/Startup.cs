@@ -63,7 +63,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

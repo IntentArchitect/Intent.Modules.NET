@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter", Version = "1.0")]
 
 namespace Standard.AspNetCore.TestApplication.Api.Filters
 {

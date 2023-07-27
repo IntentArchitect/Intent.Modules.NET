@@ -68,7 +68,7 @@ namespace GraphQL.CQRS.TestApplication.Api
                 endpoints.MapControllers();
                 endpoints.MapGraphQL();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

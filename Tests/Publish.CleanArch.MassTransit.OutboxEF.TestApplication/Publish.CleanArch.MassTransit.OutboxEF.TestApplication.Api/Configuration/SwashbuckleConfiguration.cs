@@ -28,8 +28,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
                             Version = "v1",
                             Title = "Publish.CleanArch.MassTransit.OutboxEF.TestApplication API"
                         });
-                    options.OperationFilter<AuthorizeCheckOperationFilter>();
                     options.CustomSchemaIds(x => x.FullName);
+                    options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
@@ -56,7 +56,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
             return services;
         }
 
-        public static void UseSwashbuckle(this IApplicationBuilder app)
+        public static void UseSwashbuckle(this IApplicationBuilder app, IConfiguration configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(

@@ -64,7 +64,7 @@ namespace Subscribe.MassTransit.OutboxEF.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

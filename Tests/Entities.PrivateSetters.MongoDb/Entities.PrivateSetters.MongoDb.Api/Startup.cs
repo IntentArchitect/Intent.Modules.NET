@@ -59,7 +59,7 @@ namespace Entities.PrivateSetters.MongoDb.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

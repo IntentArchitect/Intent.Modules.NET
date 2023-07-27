@@ -63,7 +63,7 @@ namespace MongoDb.TestApplication.Api
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

@@ -64,7 +64,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

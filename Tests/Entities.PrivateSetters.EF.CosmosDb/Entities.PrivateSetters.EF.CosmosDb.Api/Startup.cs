@@ -60,7 +60,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
 
             if (Configuration.GetValue<bool>("Cosmos:EnsureDbCreated"))
             {

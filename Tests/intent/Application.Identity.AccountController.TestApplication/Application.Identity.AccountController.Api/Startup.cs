@@ -66,7 +66,7 @@ namespace Application.Identity.AccountController.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

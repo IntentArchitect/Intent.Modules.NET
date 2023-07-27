@@ -66,7 +66,7 @@ namespace SignalR.Api
                 endpoints.MapControllers();
                 endpoints.MapHubs();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }

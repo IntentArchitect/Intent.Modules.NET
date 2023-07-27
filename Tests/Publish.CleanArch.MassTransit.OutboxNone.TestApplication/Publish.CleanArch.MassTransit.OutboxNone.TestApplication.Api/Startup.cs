@@ -63,7 +63,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api
             {
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle();
+            app.UseSwashbuckle(Configuration);
         }
     }
 }
