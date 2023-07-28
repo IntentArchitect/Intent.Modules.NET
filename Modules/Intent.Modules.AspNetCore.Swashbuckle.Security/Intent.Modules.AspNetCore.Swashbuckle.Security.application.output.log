@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bbdfe401-53cd-432d-9dad-455e685e712f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter", Version = "1.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Filters
 {
@@ -17,7 +17,9 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Filters
         private bool HasAuthorize(OperationFilterContext context)
         {
             if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
+            {
                 return true;
+            }
             return context.MethodInfo.DeclaringType != null
                 && context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
         }
@@ -27,19 +29,16 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Filters
             {
                 return;
             }
-
             operation.Security.Add(new OpenApiSecurityRequirement
             {
-                [
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        }
-                    ] = Array.Empty<string>()
+                [new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                }] = Array.Empty<string>()
             });
         }
     }
