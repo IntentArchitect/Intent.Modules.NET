@@ -109,8 +109,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
             }
-
-
+            
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");

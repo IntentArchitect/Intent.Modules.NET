@@ -80,11 +80,37 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var codeLines = new CSharpStatementAggregator();
 
-            codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
-            codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                variable: entityVariableName,
-                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
-            codeLines.Add(string.Empty);
+            var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
+            if (nestedCompOwner != null)
+            {
+                var aggregateRootIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner);
+                if (!aggregateRootIdFields.Any())
+                {
+                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
+                }
+
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: "aggregateRoot",
+                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                codeLines.Add(string.Empty);
+
+                var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
+
+                codeLines.Add($@"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: entityVariableName,
+                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"));
+                codeLines.Add(string.Empty);
+            }
+            else
+            {
+                codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: entityVariableName,
+                    message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
+                codeLines.Add(string.Empty);
+            }
 
             GenerateOperationInvocationCode("request", entityVariableName, operationReturnType?.Element != null);
 
@@ -101,6 +127,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 codeLines.Add("#warning Return type does not match any known convention");
                 codeLines.Add("throw new NotImplementedException();");
+            }
+
+            if (RepositoryRequiresExplicitUpdate())
+            {
+                codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
             }
 
             return codeLines.ToList();
@@ -184,6 +215,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return list;
         }
 
+        private bool RepositoryRequiresExplicitUpdate()
+        {
+            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       _matchingElementDetails.Value.RepositoryInterfaceModel,
+                       out var repositoryInterfaceTemplate) &&
+                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+                   requiresUpdate;
+        }
+
         private StrategyData GetMatchingElementDetails()
         {
             if (_template.Model.Mapping?.Element == null || !OperationModelExtensions.IsOperationModel(_template.Model.Mapping.Element))
@@ -204,7 +245,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return NoMatch;
             }
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+            var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
+            var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
+
+            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
             if (repositoryInterface == null)
             {
                 return NoMatch;
@@ -220,7 +264,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 repository: repository,
                 additionalServices: _template.GetAdditionalServicesFromParameters(operationModel.Parameters),
                 commandReturnType: _template.Model.TypeReference,
-                operationReturnType: operationModel.TypeReference);
+                operationReturnType: operationModel.TypeReference,
+                repositoryInterfaceModel: repositoryInterfaceModel);
         }
         private static bool IsAsync(OperationModel operation)
         {
@@ -234,7 +279,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             repository: null,
             commandReturnType: null,
             operationReturnType: null,
-            additionalServices: null);
+            additionalServices: null,
+            repositoryInterfaceModel: null);
 
         internal class StrategyData
         {
@@ -245,7 +291,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 RequiredService repository,
                 ITypeReference commandReturnType,
                 ITypeReference operationReturnType,
-                IReadOnlyCollection<RequiredService> additionalServices)
+                IReadOnlyCollection<RequiredService> additionalServices,
+                ClassModel repositoryInterfaceModel)
             {
                 IsMatch = isMatch;
                 FoundEntity = foundEntity;
@@ -254,6 +301,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 CommandReturnType = commandReturnType;
                 OperationReturnType = operationReturnType;
                 AdditionalServices = additionalServices ?? Array.Empty<RequiredService>();
+                RepositoryInterfaceModel = repositoryInterfaceModel;
             }
 
             public bool IsMatch { get; }
@@ -263,6 +311,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             public ITypeReference CommandReturnType { get; }
             public ITypeReference OperationReturnType { get; }
             public IReadOnlyCollection<RequiredService> AdditionalServices { get; }
+            public ClassModel RepositoryInterfaceModel { get; }
         }
     }
 }

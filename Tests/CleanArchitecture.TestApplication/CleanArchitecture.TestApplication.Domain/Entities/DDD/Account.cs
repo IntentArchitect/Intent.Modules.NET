@@ -16,5 +16,14 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
         public string AccNumber { get; set; }
 
         public Guid AccountHolderId { get; set; }
+
+        public string Note { get; set; }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public string UpdateNote(string note)
+        {
+            Note = note;
+            return note;
+        }
     }
 }

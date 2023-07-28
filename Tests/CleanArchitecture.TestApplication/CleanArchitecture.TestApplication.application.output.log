@@ -860,6 +860,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolder/UpdateNoteAccountHolderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#5cca01e1-1277-4a23-ac85-a4cf99c3bc52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDto.cs</ApplicationRelativeFilePath>

@@ -20,6 +20,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
 
             builder.Property(x => x.AccountHolderId)
                 .IsRequired();
+
+            builder.Property(x => x.Note)
+                .IsRequired();
         }
     }
 }
