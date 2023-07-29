@@ -1,8 +1,9 @@
 ﻿# Intent.Application.DependencyInjection.MediatR
 
-MediatR is an open-source library for .NET applications that implements the Mediator pattern. It enables components in an application to communicate indirectly by sending messages (requests and notifications) to a central mediator. The mediator then dispatches these messages to their corresponding handlers, promoting loose coupling and separation of concerns. MediatR simplifies the implementation of the Mediator pattern in C# projects, leading to better code organization, testability, and maintenance in complex applications. It is a valuable tool for managing communication flow between components in modern .NET development.
-
 This module handles dependency injection concerns around using MediatR.
+
+
+MediatR is an open-source library for .NET applications that implements the Mediator pattern. It enables components in an application to communicate indirectly by sending messages (requests and notifications) to a central mediator. The mediator then dispatches these messages to their corresponding handlers, promoting loose coupling and separation of concerns. MediatR simplifies the implementation of the Mediator pattern in C# projects, leading to better code organization, testability, and maintenance in complex applications. It is a valuable tool for managing communication flow between components in modern .NET development.
 
 This could be visualized in code as follows, which could be found in your dependency injection registrations:
 
