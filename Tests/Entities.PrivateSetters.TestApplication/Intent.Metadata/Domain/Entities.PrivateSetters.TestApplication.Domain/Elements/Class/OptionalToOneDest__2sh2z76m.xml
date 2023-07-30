@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="64145e28-870a-4027-ae73-594936baadd9" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>OptionalToOneDest</name>
+  <display>OptionalToOneDest</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b3673af-c6d5-4b4f-a7c6-a7ab897308aa</parentFolderId>
+  <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="119ea48d-78a6-446b-b3a9-fd32cbe9daa0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2676a410-bbfe-4d2e-8c51-72a794ae2b17">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>64145e28-870a-4027-ae73-594936baadd9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="49bc4d57-8e55-4d47-82b0-58d9a6546f3b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Attribute</name>
+      <display>Attribute: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="62a077e0-93a6-412c-a27f-1595a78d6bce">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>64145e28-870a-4027-ae73-594936baadd9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5a1ea14f-f09b-4bab-9690-10735e608bba" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>OptionalToOneDest(attribute: string)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>42d00329-8e79-446b-89ee-a7b986ed33a9</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="64145e28-870a-4027-ae73-594936baadd9" name="OptionalToOneDest" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>64145e28-870a-4027-ae73-594936baadd9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="70a23a3f-f6b3-4cb8-92a3-8ebc61c6bad6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>attribute</name>
+          <display>in : attribute: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b0d35f9e-4040-4b12-baa7-1a4f51b7690a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="49bc4d57-8e55-4d47-82b0-58d9a6546f3b" name="Attribute" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>5a1ea14f-f09b-4bab-9690-10735e608bba</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="52f87622-387a-49f6-827f-c57150e2faba" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>OperationAsync</name>
+      <display>OperationAsync(attribute: string, optionalToOneSource: OptionalToOneSource?): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="7058544b-bcb4-46f4-8bf6-c5e5bc4075ef">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>42d00329-8e79-446b-89ee-a7b986ed33a9</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="64145e28-870a-4027-ae73-594936baadd9" name="OptionalToOneDest" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>64145e28-870a-4027-ae73-594936baadd9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="106b3464-9673-421a-8594-12b77f2c4813" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>attribute</name>
+          <display>in : attribute: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2361db8b-d12d-4536-9ee6-441ebe3946ab">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="49bc4d57-8e55-4d47-82b0-58d9a6546f3b" name="Attribute" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>52f87622-387a-49f6-827f-c57150e2faba</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7ec17422-cdec-4805-b63d-253dc20588b9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>optionalToOneSource</name>
+          <display>in : optionalToOneSource: OptionalToOneSource?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f590974b-4502-445a-865d-4ef99282a88a">
+            <typeId>23db8695-d624-45bf-a91b-320cafec6ab1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+            <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="f625d440-d38a-491d-afe3-6bbd7086417c" name="OptionalToOneSource" type="association" specialization="Association Source End" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>52f87622-387a-49f6-827f-c57150e2faba</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

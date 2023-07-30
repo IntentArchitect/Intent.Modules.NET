@@ -83,7 +83,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var aggregateRootIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner);
+                var aggregateRootIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner, foundEntity);
                 if (!aggregateRootIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
@@ -161,9 +161,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var invocationStatement = new CSharpInvocationStatement(sb.ToString());
 
-                foreach (var param in GetInvocationParameters(operation.Parameters, _template.Model.Properties, dtoVarName))
+                foreach (var param in operation.Parameters)
                 {
-                    invocationStatement.AddArgument(param);
+                    var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
+                    if (invocationArgument == null)
+                    {
+                        codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
+                        invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
+                        continue;
+                    }
+
+                    invocationStatement.AddArgument(invocationArgument);
                 }
 
                 if (IsAsync(operation))
@@ -175,44 +183,36 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
         }
 
-        private IEnumerable<CSharpStatement> GetInvocationParameters(
-            IList<ParameterModel> parameters,
+        private CSharpStatement GetInvocationArgument(
+            ParameterModel parameter,
             IList<DTOFieldModel> fields,
             string dtoVarName)
         {
-            var list = new List<CSharpStatement>();
-            foreach (var parameter in parameters)
+            if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
             {
-                if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
-                {
-                    var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
+                var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
-                    var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
-                    var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
-                    list.Add(constructMethod);
-                    _template.AddValueObjectFactoryMethod(mappingMethodName, (IElement)parameter.TypeReference.Element, mappedField);
-                    continue;
-                }
-
-                var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
-                    .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
-                    .FirstOrDefault();
-                if (dtoFieldRef != null)
-                {
-                    list.Add(dtoFieldRef);
-                    continue;
-                }
-
-                var service = _template.FindRequiredService(parameter.Type.Element);
-                if (service != null)
-                {
-                    list.Add(service.FieldName);
-                    continue;
-                }
-
-                list.Add("UNKNOWN");
+                var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
+                var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                _template.AddValueObjectFactoryMethod(mappingMethodName, (IElement)parameter.TypeReference.Element, mappedField);
+                return constructMethod;
             }
-            return list;
+
+            var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
+                .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
+                .FirstOrDefault();
+            if (dtoFieldRef != null)
+            {
+                return dtoFieldRef;
+            }
+
+            var service = _template.FindRequiredService(parameter.Type.Element);
+            if (service != null)
+            {
+                return service.FieldName;
+            }
+
+            return null;
         }
 
         private bool RepositoryRequiresExplicitUpdate()

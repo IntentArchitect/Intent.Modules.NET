@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e3c0a13e-54f1-45a6-9fdd-5bba1f95fec6">
+  <sourceEnd id="d235b06f-7bf8-4e4a-89a4-e0a43a3942a6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OneToOptionalSource</name>
+    <display>OneToOptionalSource: OneToOptionalSource</display>
+    <order>4</order>
+    <typeReference id="6b33bc67-d189-4102-9b40-b08f297f1d06">
+      <typeId>0a0e102b-19bd-4812-ae93-3c0347a862bd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AggregateToManyTesting.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e3c0a13e-54f1-45a6-9fdd-5bba1f95fec6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OneToOptionalDest</name>
+    <display>OneToOptionalDest: OneToOptionalDest?   [1 --&gt; 0..1]</display>
+    <order>4</order>
+    <typeReference id="800e0675-eb21-4c7e-bc46-5b30f74236ca">
+      <typeId>8e151d0f-079f-4170-83f9-6c320e3ce186</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AggregateToManyTesting.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

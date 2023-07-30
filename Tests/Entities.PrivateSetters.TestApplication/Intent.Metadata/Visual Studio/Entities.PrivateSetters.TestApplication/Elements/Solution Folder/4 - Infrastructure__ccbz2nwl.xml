@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6dc175a4-6f00-43be-95dd-65857180d01f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>96de381b-111a-4371-9073-13eda9523421</parentFolderId>
+  <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

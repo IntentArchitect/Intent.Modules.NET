@@ -1,3 +1,7 @@
+### Version 4.3.5
+
+- Update: Automatically add `async` modifier to Async domain operations.
+
 ### Version 4.3.4
 
 - Update: Base classes not have `protected` setters, rather than `private` setters, to make them more accessible in the inheritance hierarchy.

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9bfab07c-c40e-4dad-a3cf-aaff2f0424cf" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9c6d5f39-9af8-4525-8729-f0fd950f230b</parentFolderId>
+  <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="9dfdd5e3-faff-4f82-a507-1e3aa0cda68b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9bfab07c-c40e-4dad-a3cf-aaff2f0424cf</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9b930933-3a85-42b2-bf47-10e0c13f6016" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9bfab07c-c40e-4dad-a3cf-aaff2f0424cf</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="30673113-75ed-4999-b67e-bdd6c5ab9cd9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9bfab07c-c40e-4dad-a3cf-aaff2f0424cf</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a25b0700-aafc-4683-a41d-0e401f5cf8e7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9bfab07c-c40e-4dad-a3cf-aaff2f0424cf</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="07738cdf-c643-4294-bcb5-66f6a6846d57" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9bfab07c-c40e-4dad-a3cf-aaff2f0424cf</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

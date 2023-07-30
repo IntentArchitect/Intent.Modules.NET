@@ -19,22 +19,22 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Async
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
-        public Task Explicit(CancellationToken cancellationToken = default)
+        public async Task Explicit(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Replace with your implementation...");
         }
 
-        public Task<object> ExplicitWithReturn(CancellationToken cancellationToken = default)
+        public async Task<object> ExplicitWithReturn(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Replace with your implementation...");
         }
 
-        public Task ImplicitAsync(CancellationToken cancellationToken = default)
+        public async Task ImplicitAsync(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Replace with your implementation...");
         }
 
-        public Task<object> ImplicitWithReturnAsync(CancellationToken cancellationToken = default)
+        public async Task<object> ImplicitWithReturnAsync(CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Replace with your implementation...");
         }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d9b97ed7-417e-4011-8092-837310e8114b" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Behaviours</name>
+  <display>Behaviours</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1a375474-8543-41f0-ad04-ce26439f5e61</parentFolderId>
+  <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="47f1bec1-4234-4ae6-85a4-0ceb0d60bcee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="88532803-fa41-4068-9e1d-06fc32fd232d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7896954d-0db9-498e-80df-afa6b8cea315" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.LoggingBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.LoggingBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1c8136bb-febe-40eb-b4eb-dac743afaf1f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9c33f949-6e14-4ae9-9bfa-bdbaa9fe72e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2a74345f-612d-48fd-a35a-8b65b869fc56" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="65e54883-6a2f-4675-a7a9-35980f2836f3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e5a3f51c-d157-4ef9-a15f-bc810245958c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</name>
+      <display>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b97ed7-417e-4011-8092-837310e8114b</parentFolderId>
+      <packageId>96de381b-111a-4371-9073-13eda9523421</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

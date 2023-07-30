@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,6 +12,9 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Tag
     {
+        public Guid Id { get; set; }
         public string Name { get; private set; }
+
+        protected virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:63524/",
+      "sslPort": 44362
+    }
+  },
+  "profiles": {
+    "Entities.PrivateSetters.TestApplication.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44362/",
+      "launchUrl": "https://localhost:44362/",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44362/",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

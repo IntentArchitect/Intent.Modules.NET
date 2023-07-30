@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c1d20c78-90fd-4db2-9cf2-05a0a112ec92" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateManyToOneSourceCommand</name>
+  <display>CreateManyToOneSourceCommand: guid</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="23a6b366-de88-4f8a-aea0-d38938139331">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>42d00329-8e79-446b-89ee-a7b986ed33a9</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
+    <autoSyncTypeReference>false</autoSyncTypeReference>
+    <mappedPath>
+      <target id="0089aa62-32d8-489d-9f97-fe159356584a" name="ManyToOneSource" type="element" specialization="Class" />
+      <target id="86863ffb-efbe-4b92-b1ef-c7fa043b4c02" name="Constructor" type="element" specialization="Class Constructor" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>11e494f6-5922-4735-8baf-505c031d59ce</parentFolderId>
+  <packageId>47efacb1-e2ca-4e89-aa37-86a4835efa53</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="ManyToOneSource" />
+  </metadata>
+  <childElements>
+    <childElement id="3de45d8a-87d7-47e2-869f-a268ad99f30e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Attribute</name>
+      <display>Attribute: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="08c54fd4-32dc-4375-b6ca-e279267b7331">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b6034276-febc-4f07-97ac-ab38615f6af9" name="attribute" type="element" specialization="Parameter" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>c1d20c78-90fd-4db2-9cf2-05a0a112ec92</parentFolderId>
+      <packageId>47efacb1-e2ca-4e89-aa37-86a4835efa53</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

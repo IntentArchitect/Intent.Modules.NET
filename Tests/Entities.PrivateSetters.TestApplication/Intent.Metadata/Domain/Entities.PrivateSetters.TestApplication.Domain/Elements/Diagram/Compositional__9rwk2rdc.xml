@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e04e5f8d-55b3-4211-a4d0-39aba5e96548" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Compositional</name>
+  <display>Compositional</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>20826114-0356-4301-ba1b-490e5035df43</parentFolderId>
+  <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>20826114-0356-4301-ba1b-490e5035df43</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="025885ca-599d-4420-8cbb-6f069e920670">
+  <sourceEnd id="9b05fbc8-3084-487b-9a1b-579450659e87" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Owner</name>
+    <display>Owner: OneToManySource</display>
+    <order>5</order>
+    <typeReference id="d81013fd-5789-4ee0-b5a9-bf709c2822c7">
+      <typeId>6a4ee2c7-f3d6-445e-b138-8dc362c093b4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="025885ca-599d-4420-8cbb-6f069e920670" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Owneds</name>
+    <display>Owneds: OneToManyDest[*]   [1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="ea77dfc6-3c55-4a6e-8b5a-28dc59e33dbd">
+      <typeId>94645af4-348f-4908-bf99-326b5bd63938</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

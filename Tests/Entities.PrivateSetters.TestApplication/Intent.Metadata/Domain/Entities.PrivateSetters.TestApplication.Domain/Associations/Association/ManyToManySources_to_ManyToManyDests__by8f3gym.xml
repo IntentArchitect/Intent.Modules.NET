@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="819a5a9e-b800-40cd-95e2-b06a7aa02052">
+  <sourceEnd id="1ba6d595-6d8c-44da-832b-acc5a1f22ab5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ManyToManySources</name>
+    <display>ManyToManySources: ManyToManySource[*]</display>
+    <order>4</order>
+    <typeReference id="26339a7c-1070-469c-93c1-99cc7315fd97">
+      <typeId>cded3a68-9d58-4762-9d67-85e0ba2abb7f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="819a5a9e-b800-40cd-95e2-b06a7aa02052" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ManyToManyDests</name>
+    <display>ManyToManyDests: ManyToManyDest[*]   [* --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="bcc0f4a8-4c6d-4b05-aad1-7f50644295ad">
+      <typeId>81a10ab6-65ec-4bf5-b50f-81aae303498d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

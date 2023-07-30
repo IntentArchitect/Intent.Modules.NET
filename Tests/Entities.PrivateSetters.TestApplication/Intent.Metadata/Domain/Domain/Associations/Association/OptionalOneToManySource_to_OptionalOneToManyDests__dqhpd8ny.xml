@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="206822b8-8d23-4130-be60-73081a52fbf8">
+  <sourceEnd id="9ab003ee-e71f-40c5-91f6-03f9bf842b88" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OptionalOneToManySource</name>
+    <display>OptionalOneToManySource: OptionalToManySource?</display>
+    <order>5</order>
+    <typeReference id="ab0d4c7e-4678-4863-b641-b6345fbbdab0">
+      <typeId>6ad9a22e-668a-433f-a29f-e28e42d2b868</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AggregateToManyTesting.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="206822b8-8d23-4130-be60-73081a52fbf8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OptionalOneToManyDests</name>
+    <display>OptionalOneToManyDests: OptionalToManyDest[*]   [0..1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="c445f247-8a91-4139-9a83-951978175c84">
+      <typeId>444974c4-23e1-4131-ac23-40bf77e88ebc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AggregateToManyTesting.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

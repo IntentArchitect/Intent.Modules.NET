@@ -51,7 +51,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
                 param => param.IntroduceReadonlyField());
-            
+
             foreach (var requiredService in _matchingElementDetails.Value.AdditionalServices)
             {
                 ctor.AddParameter(requiredService.Type, requiredService.Name, c => c.IntroduceReadonlyField());
@@ -81,7 +81,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var nestedCompOwnerIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(owner: nestedCompOwner);
+                var nestedCompOwnerIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner, foundEntity);
                 if (!nestedCompOwnerIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
@@ -130,65 +130,65 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             CSharpStatement GetConstructorStatement(string entityVarName, string entityName, string dtoVarName, bool hasInitStatements)
             {
                 var ctor = _template.Model.Mapping.Element.AsClassConstructorModel();
-                var ctorParams = ctor?.Parameters; 
+                var ctorParams = ctor?.Parameters;
 
                 if (ctorParams?.Any() != true)
                 {
                     return $"var {entityVarName} = new {entityName}{(hasInitStatements ? "" : "();")}";
                 }
 
-                var paramList = GetInvocationParameters(ctorParams, _template.Model.Properties, dtoVarName);
-                var statement = new CSharpInvocationStatement($@"var {entityVarName} = new {entityName}");
+                var invocationStatement = new CSharpInvocationStatement($@"var {entityVarName} = new {entityName}");
                 if (hasInitStatements)
                 {
-                    statement.WithoutSemicolon();
-                }
-                foreach (var param in paramList)
-                {
-                    statement.AddArgument(param);
+                    invocationStatement.WithoutSemicolon();
                 }
 
-                return statement;
+                foreach (var param in ctorParams)
+                {
+                    var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
+                    if (invocationArgument == null)
+                    {
+                        codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
+                        invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
+                        continue;
+                    }
+
+                    invocationStatement.AddArgument(invocationArgument);
+                }
+
+                return invocationStatement;
             }
         }
-        
-        private IEnumerable<CSharpStatement> GetInvocationParameters(
-            IList<ParameterModel> operParameters, 
-            IList<DTOFieldModel> fields, 
+
+        private CSharpStatement GetInvocationArgument(
+            ParameterModel parameter,
+            IList<DTOFieldModel> fields,
             string dtoVarName)
         {
-            var list = new List<CSharpStatement>();
-            foreach (var parameter in operParameters)
+            if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
             {
-                if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
-                {
-                    string mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
+                string mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
-                    var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
-                    var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
-                    list.Add(constructMethod);
-                    AddMappingMethod(mappingMethodName, mappedField, (IElement)parameter.TypeReference.Element );
-                    continue;
-                }
-                var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
-                    .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
-                    .FirstOrDefault();
-                if (dtoFieldRef != null)
-                {
-                    list.Add(dtoFieldRef);
-                    continue;
-                }
-
-                var service = _template.FindRequiredService(parameter.Type.Element);
-                if (service != null)
-                {
-                    list.Add(service.FieldName);
-                    continue;
-                }
-                
-                list.Add("UNKNOWN");
+                var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
+                var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                AddMappingMethod(mappingMethodName, mappedField, (IElement)parameter.TypeReference.Element);
+                return constructMethod;
             }
-            return list;
+            var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
+                .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
+                .FirstOrDefault();
+            if (dtoFieldRef != null)
+            {
+                return dtoFieldRef;
+            }
+
+            var service = _template.FindRequiredService(parameter.Type.Element);
+            if (service != null)
+            {
+                return service.FieldName;
+            }
+
+            return null;
         }
 
         private void AddMappingMethod(string mappingMethodName, DTOFieldModel field, IElement element)
@@ -198,7 +198,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             if (!MethodExists(mappingMethodName, @class, targetDto))
             {
                 var domainType = _template.GetTypeName(element);
-                @class.AddMethod(domainType, mappingMethodName, method => 
+                @class.AddMethod(domainType, mappingMethodName, method =>
                 {
                     method.Static()
                         .AddAttribute(CSharpIntentManagedAttribute.Fully())

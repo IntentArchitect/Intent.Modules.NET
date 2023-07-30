@@ -219,7 +219,7 @@ public static class ImplementationStrategyTemplatesExtensions
         }
         return new List<DTOFieldModel>();
 
-        List<DTOFieldModel> GetExplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
+        static List<DTOFieldModel> GetExplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
         {
             var idField = properties
                 .Where(field =>
@@ -247,13 +247,58 @@ public static class ImplementationStrategyTemplatesExtensions
             return idField.ToList();
         }
 
-        DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
+        static DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
         {
             var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
             return idField;
         }
     }
 
+    public static IList<DTOFieldModel> GetNestedCompositionalOwnerIdFields(this IList<DTOFieldModel> properties, ClassModel owner, ClassModel comp)
+    {
+        var explicitKeyFields = GetExplicitForeignKeyNestedCompOwnerField();
+        if (explicitKeyFields.Any()) return explicitKeyFields;
+
+        var implicitKeyField = GetImplicitForeignKeyNestedCompOwnerField();
+        if (implicitKeyField != null)
+        {
+            return new List<DTOFieldModel> { implicitKeyField };
+        }
+
+        return new List<DTOFieldModel>();
+
+        List<DTOFieldModel> GetExplicitForeignKeyNestedCompOwnerField()
+        {
+            var idFields = properties
+                .Where(field =>
+                {
+                    var attr = field.Mapping?.Element.AsAttributeModel()
+                                    ?? comp.Attributes.SingleOrDefault(a => a.Name.Equals(field.Name, StringComparison.OrdinalIgnoreCase));
+                    
+                    if (!attr.IsForeignKey())
+                    {
+                        return false;
+                    }
+
+                    var fkAssociation = attr.GetForeignKeyAssociation();
+                    // Backward compatible lookup method
+                    if (fkAssociation == null)
+                    {
+                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                    }
+
+                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
+                });
+
+            return idFields.ToList();
+        }
+
+        DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField()
+        {
+            var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
+            return idField;
+        }
+    }
 
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {

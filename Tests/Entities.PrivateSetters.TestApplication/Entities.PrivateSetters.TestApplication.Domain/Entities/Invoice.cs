@@ -23,6 +23,16 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
             _tags = new List<Tag>(tags);
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected Invoice()
+        {
+        }
+
+        public Guid Id { get; set; }
+
         public DateTime Date { get; private set; }
 
         public virtual IReadOnlyCollection<Line> Lines

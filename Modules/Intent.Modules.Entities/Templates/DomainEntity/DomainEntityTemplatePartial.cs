@@ -190,6 +190,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                             if (operation.IsAsync())
                             {
+                                method.Async();
                                 method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
                         });
