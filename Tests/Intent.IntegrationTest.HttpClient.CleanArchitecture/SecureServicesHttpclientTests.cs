@@ -3,6 +3,7 @@ using CleanArchitecture.TestApplication.Api.Configuration;
 using CleanArchitecture.TestApplication.Api.Controllers;
 using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
+using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Application.IntegrationServices.SecureServicesService;
 using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
@@ -45,8 +46,10 @@ public class SecureServicesHttpclientTests
     private static Action<IServiceCollection> GetDiServices()
     {
         var mockUnitOfWork = new MockUnitOfWork();
+        var mockEventBus = new MockEventBus();
         return x => x.AddApplication()
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
+            .AddTransient<IEventBus>(_ => mockEventBus)
             .AddTransient<ICurrentUserService, CurrentUserService>()
             .AddHttpContextAccessor()
             .ConfigureApiVersioning();
@@ -58,5 +61,12 @@ public class SecureServicesHttpclientTests
         {
             return Task.FromResult(0);
         }
+    }
+
+    public class MockEventBus : IEventBus
+    {
+        public void Publish<T>(T message) where T : class { }
+
+        public Task FlushAllAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
     }
 }
