@@ -74,6 +74,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
+            DispatchEventsAsync().GetAwaiter().GetResult();
             this.EnforceMultiTenant();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }

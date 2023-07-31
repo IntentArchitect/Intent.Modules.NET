@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- Added : Synchronous DBContext SaveChanges support for domain event dispatching.
+
 ### Version 4.0.4
 
 - Update: Changed from overriding `int SaveChangesAsync(CancellationToken)` to instead override `int SaveChangesAsync(bool, CancellationToken)` on the DbContext as the latter is called by the former in the base type.

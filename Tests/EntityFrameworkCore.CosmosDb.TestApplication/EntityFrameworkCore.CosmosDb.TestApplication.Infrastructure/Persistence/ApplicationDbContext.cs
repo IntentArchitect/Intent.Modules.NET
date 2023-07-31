@@ -112,6 +112,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         {
             SetSoftDeleteProperties();
             SetAuditableFields();
+            DispatchEventsAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 

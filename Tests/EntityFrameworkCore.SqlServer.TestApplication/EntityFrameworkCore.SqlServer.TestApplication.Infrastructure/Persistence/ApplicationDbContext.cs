@@ -202,6 +202,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         {
             SetSoftDeleteProperties();
             SetAuditableFields();
+            DispatchEventsAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 

@@ -32,8 +32,12 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 {
                     param.IntroduceReadonlyField();
                 });
-                var saveMethod = template.GetSaveChangesAsyncMethod();
-                saveMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
+
+                var saveMethod = template.GetSaveChangesMethod();
+                saveMethod.InsertStatement(0, "DispatchEventsAsync().GetAwaiter().GetResult();");
+
+                var saveAsyncMethod = template.GetSaveChangesAsyncMethod();
+                saveAsyncMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
 
                 @class.AddMethod("Task", "DispatchEventsAsync", method =>
                 {
