@@ -1,7 +1,6 @@
 ### Version 4.1.2
 
-- Fix: There where some interplay issues between this module and  `Intent.Application.FluentValidation.Dtos` which have been addressed.
-
+- Fix: There where some interplay issues between this module and  `Intent.Application.FluentValidation.Dtos` which have been addressed. There may be some left over using clauses which you simply remove, they will be of the format `using {application name}.Application.Common.Validation`.
 
 ### Version 4.1.1
 
