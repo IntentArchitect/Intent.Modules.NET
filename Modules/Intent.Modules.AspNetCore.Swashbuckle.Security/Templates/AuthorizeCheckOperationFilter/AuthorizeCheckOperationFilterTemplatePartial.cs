@@ -24,6 +24,10 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
         public AuthorizeCheckOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
                 .AddUsing("Microsoft.AspNetCore.Authorization")
                 .AddClass($"AuthorizeCheckOperationFilter", @class =>
                 {
