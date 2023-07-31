@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="90c796ce-acfa-41d9-95c9-a426928a4691" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>55856e5d-8217-4c17-8fbb-082ac75baaf5</parentFolderId>
+  <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
+  <packageName>Intent.Application.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

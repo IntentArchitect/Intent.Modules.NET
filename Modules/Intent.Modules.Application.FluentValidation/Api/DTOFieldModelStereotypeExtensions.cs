@@ -99,6 +99,16 @@ namespace Intent.Application.FluentValidation.Api
                 return _stereotype.GetProperty<bool>("Has Custom Validation");
             }
 
+            public bool Custom()
+            {
+                return _stereotype.GetProperty<bool>("Custom");
+            }
+
+            public bool Must()
+            {
+                return _stereotype.GetProperty<bool>("Must");
+            }
+
         }
 
     }

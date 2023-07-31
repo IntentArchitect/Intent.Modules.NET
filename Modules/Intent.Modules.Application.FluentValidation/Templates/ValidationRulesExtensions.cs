@@ -17,26 +17,12 @@ namespace Intent.Modules.Application.FluentValidation.Templates
 {
     public static class ValidationRulesExtensions
     {
-        public static IEnumerable<string> GetValidationRules(IEnumerable<DTOFieldModel> fields)
+        public static bool HasValidationRules(IEnumerable<DTOFieldModel> fields)
         {
-            return GetValidationRules<object>(null, fields);
+            return GetValidationRulesStatements<object>(default, fields).Any();
         }
 
-        public static IEnumerable<string> GetValidationRules<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
-        {
-            var statements = GetValidationRulesStatements(template, fields);
-            foreach (var statement in statements)
-            {
-                yield return statement.ToString();
-            }
-        }
-
-        public static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements(IEnumerable<DTOFieldModel> fields)
-        {
-            return GetValidationRulesStatements<object>(null, fields);
-        }
-
-        public static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
+        private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
         {
             // If no template is present we still need a way to determine what
             // type is primitive.
@@ -111,9 +97,16 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                         var message = !string.IsNullOrWhiteSpace(property.GetValidations().PredicateMessage()) ? $".WithMessage(\"{property.GetValidations().PredicateMessage()}\")" : string.Empty;
                         validations.AddChainStatement($"Must({property.GetValidations().Predicate()}){message}");
                     }
-                    if (property.GetValidations().HasCustomValidation())
+
+                    if (property.GetValidations().Custom())
                     {
-                        validations.AddChainStatement($"MustAsync(Validate{property.Name}Async)");
+                        validations.AddChainStatement($"CustomAsync(Validate{property.Name.ToPascalCase()}Async)");
+                    }
+
+                    if (property.GetValidations().HasCustomValidation() ||
+                        property.GetValidations().Must())
+                    {
+                        validations.AddChainStatement($"MustAsync(Validate{property.Name.ToPascalCase()}Async)");
                     }
                 }
 
@@ -141,6 +134,73 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                 }
 
                 yield return validations;
+            }
+        }
+
+        public static void ConfigureForValidation<TModel>(
+            this CSharpTemplateBase<TModel> template,
+            CSharpClass @class,
+            IList<DTOFieldModel> properties,
+            string modelTypeName,
+            string modelParameterName)
+        {
+            @class.WithBaseType($"AbstractValidator <{modelTypeName}>");
+            @class.AddConstructor(ctor =>
+            {
+                ctor.AddStatement("ConfigureValidationRules();");
+                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored().WithSignatureMerge());
+
+            });
+
+            @class.AddMethod("void", "ConfigureValidationRules", method =>
+            {
+                method.Private();
+                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+
+                foreach (var propertyStatement in template.GetValidationRulesStatements(properties))
+                {
+                    method.AddStatement(propertyStatement);
+                }
+            });
+
+            foreach (var property in properties)
+            {
+                var validations = property.GetValidations();
+                if (validations == null)
+                {
+                    continue;
+                }
+
+                if (validations.Custom())
+                {
+                    @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{property.Name.ToPascalCase()}Async", method =>
+                    {
+                        method
+                            .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                            .Private()
+                            .Async();
+                        method.AddParameter(template.GetTypeName(property), "value");
+                        method.AddParameter($"ValidationContext<{modelTypeName}>", "validationContext");
+                        method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                        method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
+                    });
+                }
+
+                if (validations.HasCustomValidation() ||
+                    validations.Must())
+                {
+                    @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{property.Name.ToPascalCase()}Async", method =>
+                    {
+                        method
+                            .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                            .Private()
+                            .Async();
+                        method.AddParameter(modelTypeName, modelParameterName);
+                        method.AddParameter(template.GetTypeName(property), "value");
+                        method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                        method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
+                    });
+                }
             }
         }
 

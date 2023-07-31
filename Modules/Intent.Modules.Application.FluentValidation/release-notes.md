@@ -1,3 +1,7 @@
+### Version 3.7.2
+
+- Updated: All common logic for generating validations has been centralized from other `FluentValidation` modules in this one to ensure consistency and parity between all of them.
+
 ### Version 3.7.1
 
 - Updated interop dependencies for installing Fluent validation modules based on the presence of App Services or MediatR dispatch.

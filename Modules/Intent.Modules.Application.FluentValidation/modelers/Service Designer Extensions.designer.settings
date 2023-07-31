@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>74d0e632-c092-427b-bea3-c8e2cbef069e</id>
+  <name>Service Designer Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-loaded">
+          <script>const stereotype = element.getStereotype("Validations");
+if (stereotype == null ||
+    !stereotype.getProperty("Has Custom Validation").getValue()) {
+    return;
+}
+
+stereotype.getProperty("Has Custom Validation").setValue(false);
+stereotype.getProperty("Must").setValue(true);
+</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

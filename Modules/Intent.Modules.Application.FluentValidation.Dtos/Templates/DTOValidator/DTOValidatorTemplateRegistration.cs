@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application).GetDTOModels()
-                .Where(x => ValidationRulesExtensions.GetValidationRules(x.Fields).Any())
+                .Where(x => ValidationRulesExtensions.HasValidationRules(x.Fields))
                 .ToArray();
         }
     }

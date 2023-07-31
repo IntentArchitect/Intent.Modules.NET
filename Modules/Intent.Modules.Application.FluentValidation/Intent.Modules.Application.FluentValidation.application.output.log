@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e49fda5-2fcc-4809-87ad-43197760a0a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#aa0a465b-3231-44d1-a7bc-05e26d84d9e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DTOFieldExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DTOFieldExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e49fda5-2fcc-4809-87ad-43197760a0a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7baed1fd-469b-4980-8fd9-4cefb8331eb2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/DTOFieldModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -35,9 +43,17 @@
     <FileLog>
       <ProjectId>39362e67-e432-45bf-8901-84ae3a4dbf08</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#39362e67-e432-45bf-8901-84ae3a4dbf08</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.FluentValidation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.FluentValidation.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>25a7ad40-7afe-4cc1-9498-ec2b78957bc3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#74d0e632-c092-427b-bea3-c8e2cbef069e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Service Designer Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Service Designer Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,7 +1,9 @@
 ### Version 4.3.0
 
 - Update : Upgraded MediatR Package v12.
-
+- Updated: All common logic for generating validations has been centralized into the `Intent.Application.FluentValidation` module version `3.7.2` to ensure consistency and parity between all `FluentValidation` modules.
+- Updated: `Has Custom Validation` stereotype property has been replaced with, and its value will be automatically migrated to, a new `Must` property named in alignment with the `MustAsync(…)` method call being created.
+- Updated: `Custom` stereotype property has been added which creates a `CustomAsync(…)` method call and corresponding method.
 
 ### Version 4.2.1
 

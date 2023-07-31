@@ -25,52 +25,22 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+
+            CSharpFile = new CSharpFile(
+                    this.GetNamespace(),
+                    this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("FluentValidation")
                 .AddClass($"{Model.Name}Validator", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                    @class.WithBaseType($"AbstractValidator<{GetDtoModel()}>");
-                    @class.AddConstructor(ctor =>
-                    {
-                        ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored().WithSignatureMerge());
-                        ctor.AddStatement("ConfigureValidationRules();");
-                    });
-                    @class.AddMethod("void", "ConfigureValidationRules", method =>
-                    {
-                        method.Private();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                        method.AddStatements(this.GetValidationRulesStatements(Model.Fields));
-                    });
-                    AddCustomValidationMethods(@class);
+
+                    this.ConfigureForValidation(
+                        @class: @class,
+                        properties: Model.Fields,
+                        modelTypeName: GetTypeName(DtoModelTemplate.TemplateId, Model),
+                        modelParameterName: "model");
                 });
-        }
-
-        private void AddCustomValidationMethods(CSharpClass @class)
-        {
-            foreach (var property in Model.Fields)
-            {
-                if (property.HasValidations() && property.GetValidations().HasCustomValidation())
-                {
-                    CSharpFile.AddUsing("System.Threading");
-                    CSharpFile.AddUsing("System.Threading.Tasks");
-                    @class.AddMethod("Task<bool>", $"Validate{property.Name.ToPascalCase()}Async", method =>
-                    {
-                        method.Private().Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                        method.AddParameter(GetDtoModel(), "model");
-                        method.AddParameter(GetTypeName(property), "value");
-                        method.AddParameter("CancellationToken", "cancellationToken");
-                        method.AddStatement($@"throw new NotImplementedException(""Your custom validation rules here..."");");
-                    });
-                }
-            }
-        }
-
-        private string GetDtoModel()
-        {
-            return GetTypeName(DtoModelTemplate.TemplateId, Model);
         }
 
         [IntentManaged(Mode.Fully)]
