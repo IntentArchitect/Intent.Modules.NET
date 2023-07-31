@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj" />
     <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
   </ItemGroup>
 

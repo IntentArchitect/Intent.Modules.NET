@@ -40,19 +40,15 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.7.2-pre.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.9" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!--<ProjectReference Include="..\Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj" />-->
   </ItemGroup>
 
   <ItemGroup>
