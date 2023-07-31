@@ -7,12 +7,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
+namespace CleanArchitecture.TestApplication.Application.Validation.Validated
 {
-    public class TestCommandValidator : AbstractValidator<TestCommand>
+    public class ValidatedCommandValidator : AbstractValidator<ValidatedCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public TestCommandValidator()
+        public ValidatedCommandValidator()
         {
             ConfigureValidationRules();
         }
@@ -20,14 +20,18 @@ namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
-            RuleFor(v => v.Value)
+            RuleFor(v => v.Field)
                 .NotNull()
-                .MustAsync(ValidateValueAsync);
+                .CustomAsync(ValidateFieldAsync);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private async Task<bool> ValidateValueAsync(TestCommand command, string value, CancellationToken cancellationToken)
+        private async Task ValidateFieldAsync(
+            string value,
+            ValidationContext<ValidatedCommand> validationContext,
+            CancellationToken cancellationToken)
         {
+            validationContext.AddFailure("Custom failure message");
         }
     }
 }
