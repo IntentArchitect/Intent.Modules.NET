@@ -220,14 +220,14 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                         IsNullable: associationEnd.IsNullable))
                     .ToArray();
             }
-            
+
             // compositional one-to-ones:
-            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+            return associationEnd.Class.GetExplicitPrimaryKey()
                 .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
                     Name: $"{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
-                    IsNullable: associationEnd.OtherEnd().IsNullable))
+                    IsNullable: associationEnd.IsNullable))
                 .ToArray();
         }
         else // implicit Id

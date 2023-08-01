@@ -2,7 +2,8 @@
 
 - New: EF Patterns implement support for Schema stereotype.
 - New: EF Patterns implement support for Sort Direction on `Index`s.
-- Update: All EF Core nuget packages are now updated to use the latest versions to date.
+- Update: All EF Core NuGet packages are now updated to use the latest versions to date.
+- Fixed: Mapping issue 1-1 relationships with varying PK names didn't configure as the child PK being a FK to the parent.
 
 ### Version 4.4.5
 
