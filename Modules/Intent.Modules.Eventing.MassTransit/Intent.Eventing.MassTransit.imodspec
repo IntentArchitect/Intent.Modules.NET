@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>5.1.0-pre.0</version>
+  <version>5.1.0</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -56,12 +56,12 @@
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.8" />
+        <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.9" />
       </install>
     </detect>
     <detect id="Intent.Modelers.Services.CRUD.ServiceDispatch">
       <install>
-        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.5" />
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.6" />
       </install>
     </detect>
   </interoperability>

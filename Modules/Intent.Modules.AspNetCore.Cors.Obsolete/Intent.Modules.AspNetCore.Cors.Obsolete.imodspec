@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Cors</id>
-  <version>3.3.11-pre.0</version>
+  <version>3.3.11</version>
   <supportedClientVersions>[3.4.0,5.0.0-a)</supportedClientVersions>
   <summary>Obsolete. This module can be uninstalled as its functionality has been moved to a new "Intent.AspNetCore.Cors" module which should already be installed in this Intent Architect application.</summary>
   <description>Obsolete. This module can be uninstalled as its functionality has been moved to a new "Intent.AspNetCore.Cors" module which should already be installed in this Intent Architect application.</description>
@@ -12,7 +12,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Cors" version="3.3.11-pre.0" />
+    <dependency id="Intent.AspNetCore.Cors" version="3.3.11" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

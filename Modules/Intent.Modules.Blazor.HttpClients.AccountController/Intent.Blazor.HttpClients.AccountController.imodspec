@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients.AccountController</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Create blazor http proxy for interacting with the AccountController</summary>
   <description>Create blazor http proxies for interacting with the AccountController</description>
@@ -36,7 +36,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.25" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Blazor.HttpClients" version="1.0.1-pre.1" />
+    <dependency id="Intent.Blazor.HttpClients" version="1.0.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

@@ -88,7 +88,7 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.1.0-pre.0" />
+        <package id="Intent.Application.MediatR" version="4.1.0" />
       </install>
     </detect>
   </interoperability>
