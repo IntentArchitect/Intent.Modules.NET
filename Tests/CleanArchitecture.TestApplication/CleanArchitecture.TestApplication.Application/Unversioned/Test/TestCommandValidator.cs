@@ -28,6 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private async Task<bool> ValidateValueAsync(TestCommand command, string value, CancellationToken cancellationToken)
         {
+            return true;
         }
     }
 }
