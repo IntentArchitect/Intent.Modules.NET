@@ -12,6 +12,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
+using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
@@ -21,6 +22,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +60,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
         public DbSet<NullabilityPeer> NullabilityPeers { get; set; }
         public DbSet<TestNullablity> TestNullablities { get; set; }
+        public DbSet<OpAndCtorMapping2> OpAndCtorMapping2s { get; set; }
+        public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
@@ -99,6 +103,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
             modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
+            modelBuilder.ApplyConfiguration(new OpAndCtorMapping2Configuration());
+            modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
         }
 

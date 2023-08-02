@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ff15dbb3-3bc2-4c72-b38f-e9b755d4a9f7">
+  <sourceEnd id="dffe5ff8-0378-4898-bcdf-b99209260e60" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OpAndCtorMapping1s</name>
+    <display>OpAndCtorMapping1s: OpAndCtorMapping1[*]</display>
+    <order>0</order>
+    <typeReference id="71c88113-693f-4f9e-8769-7025acf9d0b5">
+      <typeId>201b4869-b344-474e-b507-f1ccd638e16c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ff15dbb3-3bc2-4c72-b38f-e9b755d4a9f7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OpAndCtorMapping3</name>
+    <display>OpAndCtorMapping3: OpAndCtorMapping3   [* --&gt; 1]</display>
+    <order>4</order>
+    <typeReference id="2a5a3fcf-5351-4255-90a9-fed5d8e7c366">
+      <typeId>2562baa7-f014-4afe-937b-e6d338c0c3be</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
