@@ -883,6 +883,62 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#d1dd1b87-024a-4c82-8376-67ef87804120</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#d1dd1b87-024a-4c82-8376-67ef87804120</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#bdbeb164-b5df-4985-ac20-022d35906bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#c2b4ddbb-49b7-4a42-9262-f530e0cd80e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#14c37878-e427-46cc-8346-cea1ac7eaf77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#14c37878-e427-46cc-8346-cea1ac7eaf77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/WithCompositeKeyAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/WithCompositeKeyAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3579,6 +3635,150 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d1dd1b87-024a-4c82-8376-67ef87804120</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d1dd1b87-024a-4c82-8376-67ef87804120</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d1dd1b87-024a-4c82-8376-67ef87804120</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKey/CreateWithCompositeKeyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bdbeb164-b5df-4985-ac20-022d35906bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bdbeb164-b5df-4985-ac20-022d35906bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bdbeb164-b5df-4985-ac20-022d35906bf2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKey/DeleteWithCompositeKeyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c2b4ddbb-49b7-4a42-9262-f530e0cd80e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c2b4ddbb-49b7-4a42-9262-f530e0cd80e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c2b4ddbb-49b7-4a42-9262-f530e0cd80e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyById/GetWithCompositeKeyByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ff8fa181-d3e7-4c7b-9d27-835bf2aae863</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ff8fa181-d3e7-4c7b-9d27-835bf2aae863</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ff8fa181-d3e7-4c7b-9d27-835bf2aae863</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeys/GetWithCompositeKeysQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#14c37878-e427-46cc-8346-cea1ac7eaf77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#14c37878-e427-46cc-8346-cea1ac7eaf77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#14c37878-e427-46cc-8346-cea1ac7eaf77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKey/UpdateWithCompositeKeyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f8d71765-f689-4881-9880-97a976daec48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/WithCompositeKeyDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/WithCompositeKeyDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#f8d71765-f689-4881-9880-97a976daec48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/WithCompositeKeyDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/WithCompositeKeyDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f8d71765-f689-4881-9880-97a976daec48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/WithCompositeKeys/WithCompositeKeyDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/WithCompositeKeyDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1520fd7a-9f62-40de-ab02-3b2934053ac4</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1520fd7a-9f62-40de-ab02-3b2934053ac4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4187,6 +4387,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/WithCompositeKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4360,6 +4568,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IWithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWithCompositeKeyRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4731,6 +4947,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/WithCompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeyConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4888,6 +5112,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/WithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeyRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -194,7 +194,7 @@ public static class ImplementationStrategyTemplatesExtensions
     {
         if (idFields.Count == 1)
             return $"request.{idFields.First().Name.ToPascalCase()}";
-        return $"new ({string.Join(", ", idFields.Select(idField => $"request.{idField.Name.ToPascalCase()}"))})";
+        return $"({string.Join(", ", idFields.Select(idField => $"request.{idField.Name.ToPascalCase()}"))})";
     }
 
     public static string GetEntityIdFromRequestDescription(this IList<DTOFieldModel> idFields)

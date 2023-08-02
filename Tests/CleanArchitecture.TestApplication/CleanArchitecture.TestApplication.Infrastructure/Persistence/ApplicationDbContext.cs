@@ -41,6 +41,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<WithCompositeKey> WithCompositeKeys { get; set; }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountHolder> AccountHolders { get; set; }
 
@@ -84,6 +86,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
