@@ -153,5 +153,19 @@
       <isActiveFunction>return false;</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
+    <property id="6d676ad8-e325-4db4-869d-90178fcda9d6">
+      <name>Message Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>POCO</defaultValue>
+      <valueOptions>
+        <option>POCO</option>
+        <option>QueueMessage</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction>return Trigger === "Queue Trigger";</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

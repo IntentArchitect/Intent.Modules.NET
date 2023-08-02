@@ -63,6 +63,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             _currentUserService = currentUserService;
         }
 
+        public DbSet<ChildNonStdId> ChildNonStdIds { get; set; }
+        public DbSet<ParentNonStdId> ParentNonStdIds { get; set; }
+
         public DbSet<Table> Tables { get; set; }
         public DbSet<TableExplicitSchema> TableExplicitSchemas { get; set; }
         public DbSet<TableOverride> TableOverrides { get; set; }
@@ -211,6 +214,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
+            modelBuilder.ApplyConfiguration(new ParentNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new TableConfiguration());
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());

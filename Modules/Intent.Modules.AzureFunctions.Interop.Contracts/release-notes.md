@@ -1,3 +1,8 @@
+### Version 4.1.3
+
+- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage`.
+
+
 ### Version 4.1.1
 
 - Fix: Azure Route info for `Http Tigger` on `ServiceOperations`.

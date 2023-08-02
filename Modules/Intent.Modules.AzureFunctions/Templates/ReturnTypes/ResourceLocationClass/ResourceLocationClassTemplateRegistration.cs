@@ -18,6 +18,7 @@ namespace Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationCl
     {
         public override string TemplateId => ResourceLocationClassTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ResourceLocationClassTemplate(outputTarget);

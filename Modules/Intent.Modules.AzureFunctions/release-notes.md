@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage` and output binding support for `Azure Functions`.
+
 ### Version 4.0.5
 
 - Updated Interop dependencies for App Services and MediatR dispatch.

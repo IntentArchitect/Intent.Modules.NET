@@ -30,6 +30,7 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
                 .ToList<IAzureFunctionParameterModel>()
             : new List<IAzureFunctionParameterModel>() { CqrsAzureFunctionParameterModel.ForEventTrigger(command) };
         QueueName = command.GetAzureFunction().QueueName();
+        MessageType = command.GetAzureFunction().MessageType().Value;
         Connection = command.GetAzureFunction().Connection();
         ScheduleExpression = command.GetAzureFunction().ScheduleExpression();
         EventHubName = command.GetAzureFunction().EventHubName();
@@ -55,6 +56,7 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
                 .ToList<IAzureFunctionParameterModel>()
             : new List<IAzureFunctionParameterModel>() { CqrsAzureFunctionParameterModel.ForEventTrigger(query) };
         QueueName = query.GetAzureFunction().QueueName();
+        MessageType = query.GetAzureFunction().MessageType().Value;
         Connection = query.GetAzureFunction().Connection();
         ScheduleExpression = query.GetAzureFunction().ScheduleExpression();
         EventHubName = query.GetAzureFunction().EventHubName();
@@ -79,6 +81,7 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
     public IList<IAzureFunctionParameterModel> Parameters { get; }
 
     public string QueueName { get; }
+    public string MessageType { get; }
 
     public string Connection { get; }
     public string ScheduleExpression { get; }

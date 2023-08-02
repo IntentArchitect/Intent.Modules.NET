@@ -155,6 +155,70 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#e498f98c-c4bd-41f1-b683-2c45d800b23d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/AsyncCollectorBinding.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/AsyncCollectorBinding.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#9c3e1939-3968-4f4f-85fa-b9bd68c85c91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/CollectorBinding.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/CollectorBinding.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#04c34160-09a0-41f6-a2b4-3d791ddf0ae0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/MessageBinding.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/MessageBinding.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#0cc52610-4c2f-45e9-9283-922882c3ad18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/QueueClientBinding.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/QueueClientBinding.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/CreateCustomerMessage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerMessage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#b80cb670-6c7f-4c71-8c06-b59dda0b65f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/CreateCustomerOp.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerOp.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#d19638fd-7803-47b8-9259-6fbeb7da3852</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/CreateCustomerOpWrapped.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerOpWrapped.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/CreateCustomerWrappedMessage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerWrappedMessage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e4830dc4-4a5d-4d28-91a3-837ec04c6337</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -476,6 +540,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#01a19ccd-9aa4-41e6-878e-358892303f67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Queues/QueueService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/QueueService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#4385c794-36f4-478f-a96f-17c1244c650b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/SampleDomainsService.cs</ApplicationRelativeFilePath>
@@ -499,11 +571,51 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#01a19ccd-9aa4-41e6-878e-358892303f67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/Queues/IQueueService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/IQueueService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerMessage/CreateCustomerMessage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerMessage/CreateCustomerMessage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerMessage/CreateCustomerMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerMessage/CreateCustomerMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -624,6 +736,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Queues/CreateCustomerMessage/CreateCustomerMessageValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerMessage/CreateCustomerMessageValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

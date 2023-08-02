@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e498f98c-c4bd-41f1-b683-2c45d800b23d" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
+  <name>AsyncCollectorBinding</name>
+  <display>AsyncCollectorBinding(message: CustomerDto): void</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="b184b46e-7f03-4123-b4d5-b041615977aa">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>0f748630-2b14-44e9-aaa1-c3e318aca3fe</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+      <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+      <properties>
+        <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Queue Trigger" isActive="true" />
+        <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="false" />
+        <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" value="queue1" isActive="true" />
+        <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+        <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+        <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="true" />
+        <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+        <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+        <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+        <property name="6d676ad8-e325-4db4-869d-90178fcda9d6" display="Message Type" value="POCO" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="ec293aa6-7120-4870-800f-7db01391376f" name="Queue Output Binding">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+      <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+      <properties>
+        <property name="67c24011-d0f3-4887-a69c-327d657cd2c8" display="Parameter Name" value="output" isActive="true" />
+        <property name="22ab0ef0-c802-4242-8b56-b5df5c2c693c" display="Queue Name" value="out-queue" isActive="true" />
+        <property name="efc0c009-482d-4402-912b-69f9c1953a8f" display="Type" value="IAsyncCollector&lt;T&gt;" isActive="true" />
+        <property name="944b559f-ecd4-4078-b919-7595639c4f32" display="Message Type" value="729da320-1a7e-4314-98df-01c7562afe9a" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="02a41fc3-8ffb-40b1-9f1a-ffddc3ce3cac" type="Azure Function Parameter" typeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16">
+      <name>message</name>
+      <display>message: CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="262bbcee-cdea-4ba4-9820-0ec35bc0bab8">
+        <typeId>729da320-1a7e-4314-98df-01c7562afe9a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e498f98c-c4bd-41f1-b683-2c45d800b23d</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

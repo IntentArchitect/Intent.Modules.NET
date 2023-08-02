@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3fb102a6-ebeb-4569-a670-7c16a974a8a1">
+  <sourceEnd id="5a586055-c665-4ef6-ab3c-5d424fc86d01" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ParentNonStdId</name>
+    <display>ParentNonStdId: ParentNonStdId</display>
+    <order>0</order>
+    <typeReference id="3a9aec88-ec1a-4a27-a3f7-18f12e474723">
+      <typeId>0e4cbc3e-2949-493e-9a9f-ddb990bf75ae</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3fb102a6-ebeb-4569-a670-7c16a974a8a1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ChildNonStdId</name>
+    <display>ChildNonStdId: ChildNonStdId   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="5e7f60db-3c09-4045-81a2-e9b4beffe4bf">
+      <typeId>5baa9bd4-77bb-4c90-b037-8f8d60168326</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

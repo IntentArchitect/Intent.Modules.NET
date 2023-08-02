@@ -1,3 +1,8 @@
+### Version 1.0.8
+
+
+- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage` .
+
 ### Version 1.0.6
 
 - Fix: Query parameters were not being dispatched correctly to CommnadHandlers for `Query`'s.

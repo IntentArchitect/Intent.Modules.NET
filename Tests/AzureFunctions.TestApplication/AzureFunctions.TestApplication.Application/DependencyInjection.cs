@@ -2,7 +2,9 @@ using System.Reflection;
 using AutoMapper;
 using AzureFunctions.TestApplication.Application.Common.Behaviours;
 using AzureFunctions.TestApplication.Application.Implementation;
+using AzureFunctions.TestApplication.Application.Implementation.Queues;
 using AzureFunctions.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.Interfaces.Queues;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -31,6 +33,7 @@ namespace AzureFunctions.TestApplication.Application
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();
+            services.AddTransient<IQueueService, QueueService>();
             return services;
         }
     }

@@ -28,6 +28,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         public override string TemplateId => AzureFunctionClassTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, AzureFunctionModel model)
         {
             return new AzureFunctionClassTemplate(outputTarget, model);

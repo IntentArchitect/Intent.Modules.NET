@@ -67,6 +67,9 @@ namespace Intent.AzureFunctions.Api
         public string QueueName => this.GetAzureFunction().QueueName();
 
         [IntentManaged(Mode.Ignore)]
+        public string MessageType => this.GetAzureFunction().MessageType().Value;
+
+        [IntentManaged(Mode.Ignore)]
         public string EventHubName => this.GetAzureFunction().EventHubName();
 
         [IntentManaged(Mode.Ignore)]

@@ -18,6 +18,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
     {
         public override string TemplateId => StartupTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new StartupTemplate(outputTarget);
