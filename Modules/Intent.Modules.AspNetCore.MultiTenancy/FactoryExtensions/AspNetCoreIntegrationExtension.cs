@@ -92,9 +92,9 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         applyConfiguration =
             application.Settings.GetMultitenancySettings().DataIsolation().AsEnum() switch
             {
-                MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase => 
+                MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase =>
                     hasMultiConnStr => GetSeparateDatabaseDataIsolationConfiguration(hasMultiConnStr, application, connectionStringNameInternal),
-                MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase => 
+                MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase =>
                     _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext),
                 _ => throw new ArgumentOutOfRangeException()
             };
@@ -103,14 +103,14 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
     }
 
     private static void GetSharedDatabaseDataIsolationConfiguration(
-        IApplication application, 
+        IApplication application,
         ICSharpFileBuilderTemplate dbContextTemplate)
     {
         if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSharedDatabase())
         {
             return;
         }
-        
+
         var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
         if (template == null)
         {
@@ -126,10 +126,10 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             file.AddUsing("System.Threading.Tasks");
             file.AddUsing("Finbuckle.MultiTenant");
             file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
-            
+
             var priClass = file.Classes.First();
             priClass.ImplementsInterface("IMultiTenantDbContext");
-            
+
             var ctor = priClass.Constructors.First();
             ctor.AddParameter("ITenantInfo", "tenantInfo");
             ctor.AddStatement("TenantInfo = tenantInfo;");
@@ -154,7 +154,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             entityTypeTemplate.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
-                
+
                 var priClass = file.Classes.First();
                 priClass.FindMethod("Configure").AddStatement("builder.IsMultiTenant();");
             });

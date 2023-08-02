@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
             AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
             AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(OutputTarget.GetProject()));
             AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("Finbuckle.MultiTenant.Stores")
