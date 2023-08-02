@@ -18,26 +18,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#ae95e070-1305-4206-a8ea-e607ffe5f301</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#9612bb90-998c-4dda-b8af-98f201160728</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture/metadata.iatspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#28e0c27a-8dbb-4a31-9090-7a1ce7f30770</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer/metadata.iatspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer/metadata.iatspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
