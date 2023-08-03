@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositional;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOptionalSourc
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateOneToOptionalSourceCommandHandler : IRequestHandler<CreateOneToOptionalSourceCommand, Guid>
     {
+        private readonly IOneToOptionalSourceRepository _oneToOptionalSourceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateOneToOptionalSourceCommandHandler()
+        public CreateOneToOptionalSourceCommandHandler(IOneToOptionalSourceRepository oneToOptionalSourceRepository)
         {
+            _oneToOptionalSourceRepository = oneToOptionalSourceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

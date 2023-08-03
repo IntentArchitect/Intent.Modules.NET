@@ -36,6 +36,9 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
 
             builder.Property(x => x.Quantity)
                 .IsRequired();
+
+            builder.Property(x => x.InvoiceId)
+                .IsRequired();
         }
     }
 }

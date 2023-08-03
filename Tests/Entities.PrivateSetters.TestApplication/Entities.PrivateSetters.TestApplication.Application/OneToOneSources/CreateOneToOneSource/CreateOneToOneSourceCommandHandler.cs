@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositional;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.Cr
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateOneToOneSourceCommandHandler : IRequestHandler<CreateOneToOneSourceCommand, Guid>
     {
+        private readonly IOneToOneSourceRepository _oneToOneSourceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateOneToOneSourceCommandHandler()
+        public CreateOneToOneSourceCommandHandler(IOneToOneSourceRepository oneToOneSourceRepository)
         {
+            _oneToOneSourceRepository = oneToOneSourceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

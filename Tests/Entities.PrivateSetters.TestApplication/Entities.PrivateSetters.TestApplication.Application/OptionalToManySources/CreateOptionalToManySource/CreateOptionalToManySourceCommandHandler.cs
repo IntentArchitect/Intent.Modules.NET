@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManySour
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateOptionalToManySourceCommandHandler : IRequestHandler<CreateOptionalToManySourceCommand, Guid>
     {
+        private readonly IOptionalToManySourceRepository _optionalToManySourceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateOptionalToManySourceCommandHandler()
+        public CreateOptionalToManySourceCommandHandler(IOptionalToManySourceRepository optionalToManySourceRepository)
         {
+            _optionalToManySourceRepository = optionalToManySourceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
