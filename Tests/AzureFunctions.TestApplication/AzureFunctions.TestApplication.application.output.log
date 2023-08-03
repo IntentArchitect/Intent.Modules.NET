@@ -156,26 +156,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#e498f98c-c4bd-41f1-b683-2c45d800b23d</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/AsyncCollectorBinding.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Queues/Bindings/AsyncCollectorBinding.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/Bind.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/Bind.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#9c3e1939-3968-4f4f-85fa-b9bd68c85c91</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#d4b60d9a-6eab-4a31-b96e-ae49a456e9ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/CollectorBinding.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Queues/Bindings/CollectorBinding.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#04c34160-09a0-41f6-a2b4-3d791ddf0ae0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/MessageBinding.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Queues/Bindings/MessageBinding.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/BindingTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/BindingTest.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -540,6 +532,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#398493fa-60d5-4242-a895-4e20eb24562a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Queues/Bindings/BindingService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/BindingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#01a19ccd-9aa4-41e6-878e-358892303f67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Queues/QueueService.cs</ApplicationRelativeFilePath>
@@ -572,6 +572,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#398493fa-60d5-4242-a895-4e20eb24562a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/Queues/Bindings/IBindingService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/IBindingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#01a19ccd-9aa4-41e6-878e-358892303f67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/Queues/IQueueService.cs</ApplicationRelativeFilePath>
@@ -584,6 +592,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/Bindings/Bind/BindCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/Bind/BindCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/Bindings/Bind/BindCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/Bind/BindCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -736,6 +760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Queues/Bindings/Bind/BindCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Queues/Bindings/Bind/BindCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -28,14 +28,12 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("CreateCustomerOpWrapped")]
-        public async Task<CustomerDto> Run(
-            [QueueTrigger("customers")] QueueMessage message,
-            CancellationToken cancellationToken)
+        public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
-            var dto = JsonConvert.DeserializeObject<CustomerDto>(message.Body.ToString());
-            var result = await _appService.CreateCustomerOpWrapped(dto);
+            var dto = JsonConvert.DeserializeObject<CustomerDto>(message.Body.ToString())!;
+            await _appService.CreateCustomerOpWrapped(dto);
             await _unitOfWork.SaveChangesAsync();
-            return result;
+            return;
         }
     }
 }

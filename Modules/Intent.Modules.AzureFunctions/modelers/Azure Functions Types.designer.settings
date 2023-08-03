@@ -158,7 +158,7 @@ if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).
     return;
 }
 
-if (element.typeReference == null){
+if (element.typeReference == null || element.typeReference.getType() == null ){
     element.removeStereotype(queueOutputBindingId);
 } else if (element.getStereotype(queueOutputBindingId) == null) {
     element.addStereotype(queueOutputBindingId);

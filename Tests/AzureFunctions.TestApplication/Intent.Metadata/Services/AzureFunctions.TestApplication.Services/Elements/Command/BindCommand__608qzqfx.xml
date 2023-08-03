@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="0cc52610-4c2f-45e9-9283-922882c3ad18" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
-  <name>QueueClientBinding</name>
-  <display>QueueClientBinding(message: CreateCustomerMessage): CustomerDto</display>
+<class id="f44cf256-0f08-4c3b-924b-4fb554233080" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>BindCommand</name>
+  <display>BindCommand: CustomerDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="a5be6d5e-c403-4f04-a323-a4b0b7ce0020">
+  <typeReference id="2cd92ae5-3839-404c-a5e0-f63615f6dad9">
     <typeId>729da320-1a7e-4314-98df-01c7562afe9a</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -28,7 +28,7 @@
       <properties>
         <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Queue Trigger" isActive="true" />
         <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="false" />
-        <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" value="queue1" isActive="true" />
+        <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" value="in-queue" isActive="true" />
         <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
         <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
         <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="true" />
@@ -49,27 +49,47 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="86666521-f188-4ec5-afdd-1cec8b4efbf7" type="Azure Function Parameter" typeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16">
-      <name>message</name>
-      <display>message: CreateCustomerMessage</display>
+    <childElement id="96412758-ac0c-49ca-ae58-4f8a3bade7c0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="f85b2464-7b10-43ea-8bbf-7eb8a6d9924f">
-        <typeId>c218d795-3171-4cd1-8e35-2ea13b1087bc</typeId>
+      <typeReference id="3a3ad526-0b8a-4b0f-acb3-8d07b7d40830">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
-        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>0cc52610-4c2f-45e9-9283-922882c3ad18</parentFolderId>
+      <parentFolderId>f44cf256-0f08-4c3b-924b-4fb554233080</parentFolderId>
       <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
       <packageName>AzureFunctions.TestApplication.Services</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

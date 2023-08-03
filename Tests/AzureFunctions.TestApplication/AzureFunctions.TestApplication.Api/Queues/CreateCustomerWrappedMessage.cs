@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
         [FunctionName("CreateCustomerWrappedMessage")]
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
-            var createCustomerWrappedMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(message.Body.ToString());
+            var createCustomerWrappedMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(message.Body.ToString())!;
             await _mediator.Send(createCustomerWrappedMessage, cancellationToken);
         }
     }

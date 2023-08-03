@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Azure.Storage.Queues.Models;
 using AzureFunctions.TestApplication.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Azure.WebJobs;
+using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
@@ -26,10 +28,9 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("CreateCustomerMessage")]
-        public async Task Run(
-            [QueueTrigger("customers")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage createCustomerMessage,
-            CancellationToken cancellationToken)
+        public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
+            var createCustomerMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerMessage.CreateCustomerMessage>(message.Body.ToString())!;
             await _mediator.Send(createCustomerMessage, cancellationToken);
         }
     }

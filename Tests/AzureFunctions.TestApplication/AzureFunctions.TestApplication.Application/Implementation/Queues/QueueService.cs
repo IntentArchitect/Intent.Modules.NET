@@ -19,13 +19,11 @@ namespace AzureFunctions.TestApplication.Application.Implementation.Queues
     public class QueueService : IQueueService
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public QueueService(ICustomerRepository customerRepository, IMapper mapper)
+        public QueueService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -39,17 +37,13 @@ namespace AzureFunctions.TestApplication.Application.Implementation.Queues
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<CustomerDto> CreateCustomerOpWrapped(
-            CustomerDto dto,
-            CancellationToken cancellationToken = default)
+        public async Task CreateCustomerOpWrapped(CustomerDto dto, CancellationToken cancellationToken = default)
         {
             var newCustomer = new Customer
             {
                 Name = dto.Name,
             };
             _customerRepository.Add(newCustomer);
-            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newCustomer.MapToCustomerDto(_mapper);
         }
 
         public void Dispose()

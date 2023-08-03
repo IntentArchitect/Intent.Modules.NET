@@ -4,31 +4,37 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Azure.Storage.Queues;
-using AzureFunctions.TestApplication.Application.Queues.CreateCustomerMessage;
+using AzureFunctions.TestApplication.Application.Queues.Bindings.Bind;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using MediatR;
 using Microsoft.Azure.WebJobs;
+using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class QueueClientBinding
+    public class Bind
     {
+        private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public QueueClientBinding(IUnitOfWork unitOfWork)
+        public Bind(IMediator mediator, IUnitOfWork unitOfWork)
         {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("QueueClientBinding")]
+        [FunctionName("Bind")]
         public async Task Run(
-            [QueueTrigger("queue1")] CreateCustomerMessage message,
+            [QueueTrigger("in-queue")] BindCommand bindCommand,
             [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {
+            var result = await _mediator.Send(bindCommand, cancellationToken);
+            await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
         }
     }
 }
