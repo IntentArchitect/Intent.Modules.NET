@@ -43,7 +43,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), GetRelativeLocation())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.IO")
@@ -62,6 +62,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                         _triggerStrategyHandler.ApplyMethodStatements(method);
                     });
                 });
+        }
+
+        private string GetRelativeLocation()
+        {
+            return ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath();
         }
 
         [IntentManaged(Mode.Fully)]

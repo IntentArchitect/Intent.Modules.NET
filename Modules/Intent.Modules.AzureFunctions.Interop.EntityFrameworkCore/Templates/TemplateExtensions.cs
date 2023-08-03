@@ -11,7 +11,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDbInitializationServiceName<T>(this IntentTemplateBase<T> template)
+        public static string GetDbInitializationServiceName(this IIntentTemplate template)
         {
             return template.GetTypeName(DbInitializationServiceTemplate.TemplateId);
         }

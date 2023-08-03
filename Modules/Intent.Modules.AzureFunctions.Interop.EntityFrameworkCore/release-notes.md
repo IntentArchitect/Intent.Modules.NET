@@ -1,3 +1,8 @@
+### Version 4.2.0
+
+- Update: Passes through cancellation tokens where appropriate.
+- Update: Internal updates.
+
 ### Version 4.1.1
 
 - Fixed Unit Of Work Save changes being added to Azure Functions.

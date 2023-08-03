@@ -41,7 +41,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonConvert.DeserializeObject<SampleDomainDto>(requestBody);
+                var request = JsonConvert.DeserializeObject<SampleDomainDto>(requestBody)!;
                 //IntentIgnore
                 return new NoContentResult();
             }

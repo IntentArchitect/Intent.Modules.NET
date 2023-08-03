@@ -5,8 +5,8 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Interfaces;
-using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
+using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,27 +20,31 @@ using Microsoft.OpenApi.Models;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class FindSampleDomains
+    public class DeleteSampleDomain
     {
         private readonly ISampleDomainsService _appService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FindSampleDomains(ISampleDomainsService appService)
+        public DeleteSampleDomain(ISampleDomainsService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("FindSampleDomains")]
-        [OpenApiOperation("FindSampleDomains", tags: new[] { "SampleDomains" }, Description = "Find sample domains")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<SampleDomainDto>))]
+        [FunctionName("DeleteSampleDomain")]
+        [OpenApiOperation("DeleteSampleDomain", tags: new[] { "SampleDomains" }, Description = "Delete sample domain")]
+        [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "sample-domains/{id}")] HttpRequest req,
+            Guid id,
             CancellationToken cancellationToken)
         {
             try
             {
-                var result = await _appService.FindSampleDomains();
-                return new OkObjectResult(result);
+                await _appService.DeleteSampleDomain(id, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                return new OkResult();
             }
             catch (NotFoundException exception)
             {

@@ -23,7 +23,7 @@ namespace SignalR.Application
 
         public async Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default)
         {
-            var validators = _serviceProvider.GetService<IEnumerable<IValidator<TRequest>>>();
+            var validators = _serviceProvider.GetService<IEnumerable<IValidator<TRequest>>>()!;
             if (validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

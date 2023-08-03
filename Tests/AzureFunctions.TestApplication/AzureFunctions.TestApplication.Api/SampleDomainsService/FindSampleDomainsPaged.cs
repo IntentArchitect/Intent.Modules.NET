@@ -44,7 +44,7 @@ namespace AzureFunctions.TestApplication.Api
             {
                 int pageNo = AzureFunctionHelper.GetQueryParam("pageNo", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
                 int pageSize = AzureFunctionHelper.GetQueryParam("pageSize", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
-                var result = await _appService.FindSampleDomainsPaged(pageNo, pageSize);
+                var result = await _appService.FindSampleDomainsPaged(pageNo, pageSize, cancellationToken);
                 return new OkObjectResult(result);
             }
             catch (NotFoundException exception)

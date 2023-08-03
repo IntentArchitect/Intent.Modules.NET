@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="32283d3d-8021-4136-ab4a-e45de7922a1f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>FluentValidationExtension</name>
+  <display>FluentValidationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f11bcf8c-0844-4ba4-bdae-79934c94a588</parentFolderId>
+  <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+  <packageName>Intent.AzureFunctions.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -32,7 +32,7 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
         ReturnType = operationModel.TypeReference.Element != null ? operationModel.TypeReference : null;
         IsMapped = operationModel.InternalElement.IsMapped;
         Mapping = operationModel.InternalElement.MappedElement;
-        Folder = operationModel.ParentService.Folder;
+        Folder = operationModel.ParentService.ToFolder();
     }
 
     public string Id { get; }

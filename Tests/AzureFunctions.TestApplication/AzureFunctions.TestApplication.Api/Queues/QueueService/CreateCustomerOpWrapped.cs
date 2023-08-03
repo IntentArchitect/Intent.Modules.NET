@@ -16,23 +16,23 @@ using Newtonsoft.Json;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class CreateCustomerOp
+    public class CreateCustomerOpWrapped
     {
         private readonly IQueueService _appService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomerOp(IQueueService appService, IUnitOfWork unitOfWork)
+        public CreateCustomerOpWrapped(IQueueService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CreateCustomerOp")]
+        [FunctionName("CreateCustomerOpWrapped")]
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
             var dto = JsonConvert.DeserializeObject<CustomerDto>(message.Body.ToString())!;
-            await _appService.CreateCustomerOp(dto);
-            await _unitOfWork.SaveChangesAsync();
+            await _appService.CreateCustomerOpWrapped(dto, cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return;
         }
     }

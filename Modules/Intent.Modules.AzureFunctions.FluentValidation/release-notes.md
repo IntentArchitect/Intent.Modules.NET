@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Update: Adds cancellation tokens where appropriate.
+
 ### Version 4.1.2
 
 - Fix: There where some interplay issues between this module and  `Intent.Application.FluentValidation.Dtos` which have been addressed. There may be some left over using clauses which you simply remove, they will be of the format `using {application name}.Application.Common.Validation`.

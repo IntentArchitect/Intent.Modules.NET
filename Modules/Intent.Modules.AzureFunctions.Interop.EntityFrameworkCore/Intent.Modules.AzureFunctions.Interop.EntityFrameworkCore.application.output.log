@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>225df398-98bb-4286-8a03-be23c372f4b5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1911d841-3803-4258-b7da-d365d4f4bb9c</CorrelationId>
+      <ProjectId>8a85d5be-c6d3-42f3-b9a7-eaa57590f085</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#2ac9f629-04b0-4095-bdcd-7f13fef1d468</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveFunctionDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveFunctionDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>225df398-98bb-4286-8a03-be23c372f4b5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1911d841-3803-4258-b7da-d365d4f4bb9c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveFunctionDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveFunctionDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/AzureFunctionExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -35,10 +27,10 @@
     <FileLog>
       <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>

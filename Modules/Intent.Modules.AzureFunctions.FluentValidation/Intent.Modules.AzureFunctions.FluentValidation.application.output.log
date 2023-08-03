@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5d0ef871-a0b8-42f0-9433-e4d8284803f9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#30123694-59a3-488a-8f48-0cb1d2483649</CorrelationId>
+      <ProjectId>b9150acb-2f41-4ecd-b59a-4f4a1b3f21ac</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#32283d3d-8021-4136-ab4a-e45de7922a1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/AzureFunctionFluentValidationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctionFluentValidationDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5d0ef871-a0b8-42f0-9433-e4d8284803f9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#30123694-59a3-488a-8f48-0cb1d2483649</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/AzureFunctionFluentValidationDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctionFluentValidationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -35,7 +27,7 @@
     <FileLog>
       <ProjectId>a61facd5-0e8e-48ee-9260-d14e229de430</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a61facd5-0e8e-48ee-9260-d14e229de430</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

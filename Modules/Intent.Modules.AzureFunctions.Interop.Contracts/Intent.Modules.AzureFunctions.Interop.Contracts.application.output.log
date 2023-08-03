@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5018db47-435e-4d68-b795-9a1320d0dbd3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa00fdd-5ac2-4e62-9caf-4280fd6ca766</CorrelationId>
+      <ProjectId>db35eca2-849c-4653-aa25-ee698ec8338d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#dbb1b9f1-ca60-48ec-a690-1dad563df45d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ContractDispatchDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5018db47-435e-4d68-b795-9a1320d0dbd3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2fa00fdd-5ac2-4e62-9caf-4280fd6ca766</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ContractDispatchDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ContractDispatchExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractDispatchExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -35,7 +27,7 @@
     <FileLog>
       <ProjectId>c37e7bea-8424-4574-9755-e47d2980e0fc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#c37e7bea-8424-4574-9755-e47d2980e0fc</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.Interop.Contracts.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Interop.Contracts.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

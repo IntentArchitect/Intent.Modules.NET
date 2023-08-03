@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.Interop.EntityFrameworkCore</id>
-  <version>4.1.1</version>
+  <version>4.2.0-pre.0</version>
   <supportedClientVersions>[4.0.0-beta.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Supplies Azure Functions with start-up configuration to perform Database start-up routines and to apply the Unit Of Work pattern</summary>
@@ -19,17 +19,20 @@
       <location>StartupJobs</location>
     </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.AzureFunctions.Interop.EntityFrameworkCore.DbContextSaveFunctionDecorator" externalReference="1911d841-3803-4258-b7da-d365d4f4bb9c" />
-  </decorators>
-  <factoryExtensions></factoryExtensions>
+  <decorators />
+  <factoryExtensions>
+    <factoryExtension id="Intent.AzureFunctions.Interop.EntityFrameworkCore.AzureFunctionExtension" externalReference="2ac9f629-04b0-4095-bdcd-7f13fef1d468" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AzureFunctions" version="4.0.2" />
+    <dependency id="Intent.Application.Dtos" version="4.0.6" />
+    <dependency id="Intent.AzureFunctions" version="4.0.6" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.3.40-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.EntityFrameworkCore" version="4.4.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.2.5" />
+    <dependency id="Intent.Modelers.Services" version="3.4.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

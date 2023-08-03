@@ -4,9 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.TestApplication.Application;
 using AzureFunctions.TestApplication.Application.Interfaces;
-using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using FluentValidation;
@@ -16,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
@@ -24,40 +23,31 @@ using Newtonsoft.Json;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class CreateSampleDomain
+    public class ListedServiceFunc
     {
-        private readonly ISampleDomainsService _appService;
-        private readonly IValidationService _validator;
+        private readonly IListedUnlistedServicesService _appService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSampleDomain(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
+        public ListedServiceFunc(IListedUnlistedServicesService appService, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CreateSampleDomain")]
-        [OpenApiOperation("CreateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Create sample domain")]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainCreateDto))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
+        [FunctionName("ListedServiceFunc")]
+        [OpenApiOperation("ListedServiceFunc", tags: new[] { "ListedUnlistedServices" }, Description = "Listed service func")]
+        [OpenApiParameter(name: "param", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "sample-domains")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listed-unlisted-services/listed-service-func")] HttpRequest req,
             CancellationToken cancellationToken)
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody);
-                await _validator.Handle(dto, default);
-                var result = await _appService.CreateSampleDomain(dto);
-                await _unitOfWork.SaveChangesAsync();
-                return new CreatedResult(string.Empty, result);
-            }
-            catch (ValidationException exception)
-            {
-                return new BadRequestObjectResult(exception.Errors);
+                string param = req.Query["param"];
+                await _appService.ListedServiceFunc(param, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                return new CreatedResult(string.Empty, null);
             }
             catch (NotFoundException exception)
             {

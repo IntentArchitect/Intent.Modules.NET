@@ -24,37 +24,36 @@ using Newtonsoft.Json;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class UpdateSampleDomain
+    public class CreateSampleDomain
     {
         private readonly ISampleDomainsService _appService;
         private readonly IValidationService _validator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateSampleDomain(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
+        public CreateSampleDomain(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("UpdateSampleDomain")]
-        [OpenApiOperation("UpdateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Update sample domain")]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainUpdateDto))]
-        [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
+        [FunctionName("CreateSampleDomain")]
+        [OpenApiOperation("CreateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Create sample domain")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainCreateDto))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "put", Route = "sample-domains/{id}")] HttpRequest req,
-            Guid id,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "sample-domains")] HttpRequest req,
             CancellationToken cancellationToken)
         {
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<SampleDomainUpdateDto>(requestBody);
-                await _validator.Handle(dto, default);
-                await _appService.UpdateSampleDomain(id, dto);
-                await _unitOfWork.SaveChangesAsync();
-                return new NoContentResult();
+                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody)!;
+                await _validator.Handle(dto, cancellationToken);
+                var result = await _appService.CreateSampleDomain(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                return new CreatedResult(string.Empty, result);
             }
             catch (ValidationException exception)
             {

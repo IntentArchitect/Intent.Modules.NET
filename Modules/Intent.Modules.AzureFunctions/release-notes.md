@@ -1,6 +1,8 @@
 ### Version 4.0.7
 
-- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage` and output binding support for `Azure Functions`.
+- Update: Improved Queue Trigger support, including receiving messages as `QueueMessage` and output binding support for `Azure Functions`.
+- Update: Removed compiler warning.
+- Update: Services that produce Azure Functions will no longer dump its own functions in the root folder of the API project but in their own folders.
 
 ### Version 4.0.5
 
