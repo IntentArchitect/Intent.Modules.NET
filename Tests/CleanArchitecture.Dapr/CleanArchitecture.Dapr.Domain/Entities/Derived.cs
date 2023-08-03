@@ -11,6 +11,11 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Derived : BaseType
     {
+        [IntentManaged(Mode.Fully)]
+        public Derived()
+        {
+            Attribute = null!;
+        }
         public string Attribute { get; set; }
     }
 }

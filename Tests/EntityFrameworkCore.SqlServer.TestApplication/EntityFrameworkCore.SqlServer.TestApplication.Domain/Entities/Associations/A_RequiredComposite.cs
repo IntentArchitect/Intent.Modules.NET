@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_RequiredComposite : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public A_RequiredComposite()
+        {
+            RequiredCompAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredCompAttr { get; set; }

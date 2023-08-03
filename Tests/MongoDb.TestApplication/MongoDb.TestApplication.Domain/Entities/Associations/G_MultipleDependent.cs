@@ -13,6 +13,14 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     {
         private string? _id;
 
+        [IntentManaged(Mode.Fully)]
+        public G_MultipleDependent()
+        {
+            Id = null!;
+            Attribute = null!;
+            G_RequiredCompositeNav = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

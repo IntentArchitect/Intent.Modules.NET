@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_DerivedClassForAbstract : TPC_AbstractBaseClass
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_DerivedClassForAbstract()
+        {
+            DerivedAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string DerivedAttribute { get; set; }

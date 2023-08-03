@@ -14,6 +14,13 @@ namespace CosmosDB.Domain.Entities
     public class IdTesting : IHasDomainEvent
     {
         private string? _identifier;
+
+        [IntentManaged(Mode.Fully)]
+        public IdTesting()
+        {
+            Identifier = null!;
+            Id = null!;
+        }
         public string Identifier
         {
             get => _identifier ??= Guid.NewGuid().ToString();

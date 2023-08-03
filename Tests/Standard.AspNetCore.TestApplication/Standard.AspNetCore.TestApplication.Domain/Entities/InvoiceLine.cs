@@ -11,6 +11,11 @@ namespace Standard.AspNetCore.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class InvoiceLine
     {
+        [IntentManaged(Mode.Fully)]
+        public InvoiceLine()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

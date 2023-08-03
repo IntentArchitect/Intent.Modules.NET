@@ -14,6 +14,13 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObje
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class PersonWithAddressNormal : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public PersonWithAddressNormal()
+        {
+            PartitionKey = null!;
+            Name = null!;
+            AddressNormal = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

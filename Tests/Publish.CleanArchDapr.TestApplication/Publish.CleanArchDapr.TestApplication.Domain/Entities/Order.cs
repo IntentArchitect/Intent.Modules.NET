@@ -13,6 +13,11 @@ namespace Publish.CleanArchDapr.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Order : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public Order()
+        {
+            Customer = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid CustomerId { get; set; }

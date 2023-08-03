@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Leaf
     {
+        [IntentManaged(Mode.Fully)]
+        public Leaf()
+        {
+            LeafAttribute = null!;
+            Sun = null!;
+        }
         public Guid Id { get; set; }
 
         public string LeafAttribute { get; set; }

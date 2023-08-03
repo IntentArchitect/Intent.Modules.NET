@@ -13,6 +13,12 @@ namespace CosmosDB.Domain.Entities
     {
         private int? _id;
 
+        [IntentManaged(Mode.Fully)]
+        public Country()
+        {
+            Name = null!;
+        }
+
         public int Id
         {
             get => _id ?? throw new NullReferenceException("_id has not been set");

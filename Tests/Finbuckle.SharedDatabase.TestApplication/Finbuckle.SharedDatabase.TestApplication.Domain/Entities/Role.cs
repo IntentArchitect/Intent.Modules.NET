@@ -11,6 +11,11 @@ namespace Finbuckle.SharedDatabase.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Role
     {
+        [IntentManaged(Mode.Fully)]
+        public Role()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

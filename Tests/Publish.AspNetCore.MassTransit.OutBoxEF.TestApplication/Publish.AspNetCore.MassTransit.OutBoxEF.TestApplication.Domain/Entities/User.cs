@@ -12,6 +12,12 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class User
     {
+        [IntentManaged(Mode.Fully)]
+        public User()
+        {
+            Email = null!;
+            UserName = null!;
+        }
         public Guid Id { get; set; }
 
         public string Email { get; set; }

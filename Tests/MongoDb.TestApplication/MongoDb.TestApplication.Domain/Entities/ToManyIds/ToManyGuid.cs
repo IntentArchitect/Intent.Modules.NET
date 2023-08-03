@@ -13,6 +13,11 @@ namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
     {
         private Guid? _id;
 
+        [IntentManaged(Mode.Fully)]
+        public ToManyGuid()
+        {
+        }
+
         public Guid Id
         {
             get => _id ??= Guid.NewGuid();

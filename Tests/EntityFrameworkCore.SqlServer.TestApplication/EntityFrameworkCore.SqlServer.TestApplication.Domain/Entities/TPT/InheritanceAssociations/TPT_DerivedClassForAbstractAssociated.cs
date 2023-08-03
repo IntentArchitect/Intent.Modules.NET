@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPT_DerivedClassForAbstractAssociated : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPT_DerivedClassForAbstractAssociated()
+        {
+            AssociatedField = null!;
+            DerivedClassForAbstract = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

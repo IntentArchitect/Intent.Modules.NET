@@ -12,6 +12,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class TPC_AbstractBaseClass : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public string BaseAttribute { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

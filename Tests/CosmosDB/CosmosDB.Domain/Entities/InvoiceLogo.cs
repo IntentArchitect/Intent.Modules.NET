@@ -11,6 +11,11 @@ namespace CosmosDB.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class InvoiceLogo
     {
+        [IntentManaged(Mode.Fully)]
+        public InvoiceLogo()
+        {
+            Url = null!;
+        }
         public string Url { get; set; }
     }
 }

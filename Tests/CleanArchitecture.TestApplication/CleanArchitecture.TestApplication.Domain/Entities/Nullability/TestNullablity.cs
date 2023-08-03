@@ -41,6 +41,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
         protected TestNullablity()
         {
             Str = null!;
+            NullabilityPeer = null!;
         }
 
         public Guid Id { get; set; }

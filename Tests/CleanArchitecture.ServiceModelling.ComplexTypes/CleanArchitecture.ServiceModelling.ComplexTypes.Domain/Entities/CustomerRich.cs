@@ -26,6 +26,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
         [IntentManaged(Mode.Fully)]
         protected CustomerRich()
         {
+            Address = null!;
         }
 
         public Guid Id { get; set; }

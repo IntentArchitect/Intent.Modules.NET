@@ -27,6 +27,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
         protected ManyToOneSource()
         {
             Attribute = null!;
+            ManyToOneDest = null!;
         }
 
         public Guid Id { get; private set; }

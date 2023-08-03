@@ -13,6 +13,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstruc
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class OpAndCtorMapping3 : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public OpAndCtorMapping3()
+        {
+        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

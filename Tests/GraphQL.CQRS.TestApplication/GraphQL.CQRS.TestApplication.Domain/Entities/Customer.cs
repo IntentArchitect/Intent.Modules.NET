@@ -11,6 +11,13 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Customer
     {
+        [IntentManaged(Mode.Fully)]
+        public Customer()
+        {
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

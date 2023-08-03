@@ -12,6 +12,14 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Branch
     {
+        [IntentManaged(Mode.Fully)]
+        public Branch()
+        {
+            BranchAttribute = null!;
+            Texture = null!;
+            Internode = null!;
+            Tree = null!;
+        }
         public Guid Id { get; set; }
 
         public string BranchAttribute { get; set; }

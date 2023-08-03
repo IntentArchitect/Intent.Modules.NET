@@ -1,3 +1,7 @@
+### Version 4.0.3
+
+- Update: Removes nullability compiler warning in mapping profiles.
+
 ### Version 4.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

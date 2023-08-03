@@ -28,7 +28,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Co
                 var instance = Activator.CreateInstance(type);
 
                 var methodInfo = type.GetMethod("Mapping")
-                    ?? type.GetInterface("IMapFrom`1").GetMethod("Mapping");
+                    ?? type.GetInterface("IMapFrom`1")?.GetMethod("Mapping");
 
                 methodInfo?.Invoke(instance, new object[] { this });
             }

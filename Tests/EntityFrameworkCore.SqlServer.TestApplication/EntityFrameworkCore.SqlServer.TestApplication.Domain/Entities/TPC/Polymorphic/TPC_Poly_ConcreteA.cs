@@ -10,6 +10,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_Poly_ConcreteA : TPC_Poly_BaseClassNonAbstract
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_Poly_ConcreteA()
+        {
+            ConcreteField = null!;
+        }
         public string ConcreteField { get; set; }
     }
 }

@@ -13,6 +13,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entiti
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Basket : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public Basket()
+        {
+            Number = null!;
+        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

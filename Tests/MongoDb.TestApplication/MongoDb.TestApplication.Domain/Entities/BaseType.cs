@@ -11,6 +11,12 @@ namespace MongoDb.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class BaseType
     {
+        [IntentManaged(Mode.Fully)]
+        public BaseType()
+        {
+            Id = null!;
+            BaseAttribute = null!;
+        }
         public string Id { get; set; }
 
         public string BaseAttribute { get; set; }

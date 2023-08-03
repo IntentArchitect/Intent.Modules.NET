@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Tree : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public Tree()
+        {
+            TreeAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string TreeAttribute { get; set; }

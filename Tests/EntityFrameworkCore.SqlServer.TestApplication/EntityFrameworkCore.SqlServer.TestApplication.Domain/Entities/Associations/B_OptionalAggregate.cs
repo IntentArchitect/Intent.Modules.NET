@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class B_OptionalAggregate : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public B_OptionalAggregate()
+        {
+            OptionalAggrAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalAggrAttr { get; set; }

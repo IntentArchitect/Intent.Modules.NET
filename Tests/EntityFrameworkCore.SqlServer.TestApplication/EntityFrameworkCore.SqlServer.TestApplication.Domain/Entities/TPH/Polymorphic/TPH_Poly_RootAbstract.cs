@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class TPH_Poly_RootAbstract : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPH_Poly_RootAbstract()
+        {
+            AbstractField = null!;
+        }
         public Guid Id { get; set; }
 
         public string AbstractField { get; set; }

@@ -13,6 +13,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Operations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class OperationsClass : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public OperationsClass()
+        {
+        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class StandaloneAbstract : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public StandaloneAbstract()
+        {
+            PartitionKey = null!;
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

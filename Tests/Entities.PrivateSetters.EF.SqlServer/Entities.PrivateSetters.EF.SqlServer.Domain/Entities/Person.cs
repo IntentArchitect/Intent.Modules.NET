@@ -11,6 +11,11 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Person
     {
+        [IntentManaged(Mode.Fully)]
+        public Person()
+        {
+            Name = null!;
+        }
         public Guid Id { get; protected set; }
 
         public string Name { get; protected set; }

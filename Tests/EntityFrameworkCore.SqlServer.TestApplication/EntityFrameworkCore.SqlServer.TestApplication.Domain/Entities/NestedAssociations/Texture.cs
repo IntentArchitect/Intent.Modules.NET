@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Texture : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public Texture()
+        {
+            TextureAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string TextureAttribute { get; set; }

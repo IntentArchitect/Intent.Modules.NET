@@ -13,6 +13,11 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateSingleC : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public AggregateSingleC()
+        {
+            AggregationAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggregationAttr { get; set; }

@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class SortDirectionStereotype : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public SortDirectionStereotype()
+        {
+            FieldA = null!;
+            FieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string FieldA { get; set; }

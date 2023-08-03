@@ -1,4 +1,8 @@
-﻿### Version 4.4.6
+﻿### Version 4.4.7
+
+- Update: nullability warning on EF protected constructor improved to include association properties.
+
+### Version 4.4.6
 
 - New: EF Patterns implement support for Schema stereotype.
 - New: EF Patterns implement support for Sort Direction on `Index`s.

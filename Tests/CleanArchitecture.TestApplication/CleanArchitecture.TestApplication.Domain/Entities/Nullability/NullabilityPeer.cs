@@ -13,6 +13,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class NullabilityPeer : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public NullabilityPeer()
+        {
+        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

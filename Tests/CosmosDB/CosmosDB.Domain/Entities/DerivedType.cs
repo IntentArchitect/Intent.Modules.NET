@@ -11,5 +11,9 @@ namespace CosmosDB.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DerivedType : BaseType
     {
+        [IntentManaged(Mode.Fully)]
+        public DerivedType()
+        {
+        }
     }
 }

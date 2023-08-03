@@ -14,6 +14,10 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Enums
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassWithEnums : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public ClassWithEnums()
+        {
+        }
         public Guid Id { get; set; }
 
         public EnumWithDefaultLiteral EnumWithDefaultLiteral { get; set; }

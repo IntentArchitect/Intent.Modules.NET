@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Inhabitant : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public Inhabitant()
+        {
+            InhabitantAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string InhabitantAttribute { get; set; }

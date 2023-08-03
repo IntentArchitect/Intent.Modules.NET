@@ -11,6 +11,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot5EntityWithRepo
     {
+        [IntentManaged(Mode.Fully)]
+        public AggregateRoot5EntityWithRepo()
+        {
+        }
         public Guid Id { get; set; }
     }
 }

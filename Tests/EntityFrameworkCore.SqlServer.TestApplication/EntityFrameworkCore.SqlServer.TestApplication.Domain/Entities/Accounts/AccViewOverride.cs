@@ -13,6 +13,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Accounts
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AccViewOverride : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public AccViewOverride()
+        {
+        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

@@ -12,6 +12,13 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class K_MultipleDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public K_MultipleDependent()
+        {
+            Id = null!;
+            Attribute = null!;
+            JMultipleaggregatesIds = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

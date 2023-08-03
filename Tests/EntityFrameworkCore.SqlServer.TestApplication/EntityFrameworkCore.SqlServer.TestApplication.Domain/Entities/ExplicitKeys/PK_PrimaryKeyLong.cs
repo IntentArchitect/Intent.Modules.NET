@@ -12,6 +12,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Explicit
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class PK_PrimaryKeyLong : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public PK_PrimaryKeyLong()
+        {
+        }
         public long PrimaryKeyLong { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

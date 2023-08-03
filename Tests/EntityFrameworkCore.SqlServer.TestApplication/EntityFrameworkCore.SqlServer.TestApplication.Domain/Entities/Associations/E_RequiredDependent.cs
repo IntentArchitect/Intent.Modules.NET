@@ -11,6 +11,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class E_RequiredDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public E_RequiredDependent()
+        {
+            RequiredDepAttr = null!;
+            E_RequiredCompositeNav = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredDepAttr { get; set; }

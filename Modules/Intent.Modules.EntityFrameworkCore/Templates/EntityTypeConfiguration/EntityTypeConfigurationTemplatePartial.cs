@@ -618,6 +618,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                     }
                                 }
                             }
+                            foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                            {
+                                if (!associationEnd.IsCollection && !associationEnd.IsNullable)
+                                {
+                                    ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
+                                }
+                            }
                         });
                     }
                 });

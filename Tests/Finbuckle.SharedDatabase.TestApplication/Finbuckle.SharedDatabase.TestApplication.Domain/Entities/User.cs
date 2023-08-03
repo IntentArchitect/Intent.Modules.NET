@@ -13,6 +13,12 @@ namespace Finbuckle.SharedDatabase.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class User : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public User()
+        {
+            Email = null!;
+            Username = null!;
+        }
         public Guid Id { get; set; }
 
         public string Email { get; set; }

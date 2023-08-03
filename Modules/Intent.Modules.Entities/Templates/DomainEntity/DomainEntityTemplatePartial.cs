@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
@@ -18,6 +19,7 @@ using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common.Types.Api;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -101,6 +103,32 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
                         AddProperties(@class);
+                        if (!Model.Constructors.Any()) 
+                        {
+                            @class.AddConstructor(ctor =>
+                            {
+                                foreach (var attribute in model.Attributes)
+                                {
+                                    if (string.IsNullOrWhiteSpace(attribute.Value))
+                                    {
+                                        var typeInfo = GetTypeInfo(attribute.TypeReference);
+                                        if (NeedsNullabilityAssignment(typeInfo))
+                                        {
+                                            ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
+                                        }
+                                    }
+                                }
+                                foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                                {
+                                    if (!associationEnd.IsCollection && !associationEnd.IsNullable)
+                                    {
+                                        ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
+                                    }
+                                }
+
+                                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                            });
+                        }
                     }
 
                     foreach (var ctorModel in Model.Constructors)
@@ -221,6 +249,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             {
                 AddUsing("System.Threading.Tasks");
             }
+        }
+        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive
+                || typeInfo.IsNullable == true
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

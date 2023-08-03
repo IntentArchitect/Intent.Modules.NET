@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class K_SelfReference : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public K_SelfReference()
+        {
+            SelfRefAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string SelfRefAttr { get; set; }

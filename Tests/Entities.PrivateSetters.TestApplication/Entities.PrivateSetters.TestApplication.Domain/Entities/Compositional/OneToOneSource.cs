@@ -25,6 +25,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional
         protected OneToOneSource()
         {
             Attribute = null!;
+            OneToOneDest = null!;
         }
 
         public Guid Id { get; private set; }

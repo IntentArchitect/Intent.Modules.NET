@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_Poly_RootAbstract_Comp
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_Poly_RootAbstract_Comp()
+        {
+            CompField = null!;
+        }
         public Guid Id { get; set; }
 
         public string CompField { get; set; }

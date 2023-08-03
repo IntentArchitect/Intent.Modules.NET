@@ -14,6 +14,13 @@ namespace CosmosDB.Domain.Entities
     public class Client : IHasDomainEvent
     {
         private string? _identifier;
+
+        [IntentManaged(Mode.Fully)]
+        public Client()
+        {
+            Identifier = null!;
+            Name = null!;
+        }
         public string Identifier
         {
             get => _identifier ??= Guid.NewGuid().ToString();

@@ -11,6 +11,12 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class I_RequiredDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public I_RequiredDependent()
+        {
+            Id = null!;
+            Attribute = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

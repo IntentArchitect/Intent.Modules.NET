@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class N_CompositeOne
     {
+        [IntentManaged(Mode.Fully)]
+        public N_CompositeOne()
+        {
+            CompositeOneAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string CompositeOneAttr { get; set; }

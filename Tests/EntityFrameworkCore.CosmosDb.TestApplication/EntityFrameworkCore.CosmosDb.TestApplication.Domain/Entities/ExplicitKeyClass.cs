@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ExplicitKeyClass : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public ExplicitKeyClass()
+        {
+            Attribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string Attribute { get; set; }

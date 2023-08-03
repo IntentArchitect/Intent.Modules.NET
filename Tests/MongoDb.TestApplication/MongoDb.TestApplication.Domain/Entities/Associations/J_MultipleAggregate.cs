@@ -12,6 +12,13 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class J_MultipleAggregate
     {
+        [IntentManaged(Mode.Fully)]
+        public J_MultipleAggregate()
+        {
+            Id = null!;
+            Attribute = null!;
+            JMultipledependentsIds = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

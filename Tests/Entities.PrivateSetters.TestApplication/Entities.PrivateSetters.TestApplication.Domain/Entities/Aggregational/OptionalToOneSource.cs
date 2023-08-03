@@ -27,6 +27,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
         protected OptionalToOneSource()
         {
             Attribute = null!;
+            OptionalToOneDest = null!;
         }
 
         public Guid Id { get; private set; }

@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_OptionalDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public A_OptionalDependent()
+        {
+            OptionalDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalDepAttr { get; set; }

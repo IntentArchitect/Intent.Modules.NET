@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class TPH_AbstractBaseClass : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPH_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

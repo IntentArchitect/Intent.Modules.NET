@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot2Composition : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public AggregateRoot2Composition()
+        {
+            AggregateRoot2Single = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual AggregateRoot2Single AggregateRoot2Single { get; set; }

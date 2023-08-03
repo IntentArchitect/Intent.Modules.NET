@@ -12,6 +12,12 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class C_RequireComposite
     {
+        [IntentManaged(Mode.Fully)]
+        public C_RequireComposite()
+        {
+            Id = null!;
+            Attribute = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

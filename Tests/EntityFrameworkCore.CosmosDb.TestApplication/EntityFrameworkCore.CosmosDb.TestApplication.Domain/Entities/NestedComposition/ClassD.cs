@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassD
     {
+        [IntentManaged(Mode.Fully)]
+        public ClassD()
+        {
+            ClassE = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual ClassE ClassE { get; set; }

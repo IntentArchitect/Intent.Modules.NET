@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot5 : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public AggregateRoot5()
+        {
+            AggregateRoot5EntityWithRepo = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual AggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo { get; set; }

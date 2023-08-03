@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassA : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public ClassA()
+        {
+            PartitionKey = null!;
+            ClassAAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

@@ -11,6 +11,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class E_RequiredDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public E_RequiredDependent()
+        {
+            RequiredDependentAttr = null!;
+            E_RequiredCompositeNav = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredDependentAttr { get; set; }

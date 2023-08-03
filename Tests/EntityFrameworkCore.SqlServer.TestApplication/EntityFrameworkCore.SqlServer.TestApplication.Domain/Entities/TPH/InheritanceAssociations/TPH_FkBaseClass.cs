@@ -13,6 +13,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPH_FkBaseClass : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPH_FkBaseClass()
+        {
+        }
         public Guid CompositeKeyA { get; set; }
 
         public Guid CompositeKeyB { get; set; }

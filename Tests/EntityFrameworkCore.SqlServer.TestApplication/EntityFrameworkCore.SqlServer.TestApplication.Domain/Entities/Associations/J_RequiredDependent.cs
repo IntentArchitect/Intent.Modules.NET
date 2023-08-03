@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class J_RequiredDependent : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public J_RequiredDependent()
+        {
+            ReqDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string ReqDepAttr { get; set; }

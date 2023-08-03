@@ -13,6 +13,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_Poly_RootAbstract_Aggr : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_Poly_RootAbstract_Aggr()
+        {
+            AggrField = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggrField { get; set; }

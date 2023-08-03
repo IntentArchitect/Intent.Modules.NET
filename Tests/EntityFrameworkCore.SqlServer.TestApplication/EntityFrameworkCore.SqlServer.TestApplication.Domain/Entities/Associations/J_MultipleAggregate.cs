@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class J_MultipleAggregate : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public J_MultipleAggregate()
+        {
+            MultipleAggrAttr = null!;
+            J_RequiredDependent = null!;
+        }
         public Guid Id { get; set; }
 
         public string MultipleAggrAttr { get; set; }

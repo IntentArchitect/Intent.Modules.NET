@@ -11,6 +11,11 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_Poly_BaseClassNonAbstract : TPC_Poly_RootAbstract
     {
+        [IntentManaged(Mode.Fully)]
+        public TPC_Poly_BaseClassNonAbstract()
+        {
+            BaseField = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseField { get; set; }

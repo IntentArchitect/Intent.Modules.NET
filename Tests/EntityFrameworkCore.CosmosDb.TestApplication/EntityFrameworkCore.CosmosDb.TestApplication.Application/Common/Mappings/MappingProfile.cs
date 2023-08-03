@@ -28,7 +28,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Mappin
                 var instance = Activator.CreateInstance(type);
 
                 var methodInfo = type.GetMethod("Mapping")
-                    ?? type.GetInterface("IMapFrom`1").GetMethod("Mapping");
+                    ?? type.GetInterface("IMapFrom`1")?.GetMethod("Mapping");
 
                 methodInfo?.Invoke(instance, new object[] { this });
             }

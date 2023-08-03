@@ -11,6 +11,12 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class E_RequiredDependent
     {
+        [IntentManaged(Mode.Fully)]
+        public E_RequiredDependent()
+        {
+            Attribute = null!;
+            E_RequiredCompositeNav = null!;
+        }
         public string Attribute { get; set; }
 
         public virtual E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }

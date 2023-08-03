@@ -11,6 +11,12 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MapAggPeerAggMore
     {
+        [IntentManaged(Mode.Fully)]
+        public MapAggPeerAggMore()
+        {
+            Id = null!;
+            MapAggPeerAggMoreAtt = null!;
+        }
         public string Id { get; set; }
 
         public string MapAggPeerAggMoreAtt { get; set; }

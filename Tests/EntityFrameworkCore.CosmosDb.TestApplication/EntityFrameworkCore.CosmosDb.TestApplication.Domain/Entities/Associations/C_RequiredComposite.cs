@@ -13,6 +13,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class C_RequiredComposite : IHasDomainEvent
     {
+        [IntentManaged(Mode.Fully)]
+        public C_RequiredComposite()
+        {
+            PartitionKey = null!;
+            RequiredCompositeAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }
