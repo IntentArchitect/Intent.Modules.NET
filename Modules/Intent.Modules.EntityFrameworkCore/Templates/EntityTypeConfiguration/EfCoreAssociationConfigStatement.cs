@@ -51,21 +51,19 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         {
             statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
             statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
-        }
-        else
-        {
-            statement.RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
-            if (!associationEnd.OtherEnd().IsNullable)
-            {
-                statement.AdditionalStatements.Add($".IsRequired()");
-                statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Cascade)");
-            }
-            else
-            {
-                statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
-            }
+            return statement;
         }
 
+        statement.RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+
+        if (!associationEnd.OtherEnd().IsNullable)
+        {
+            statement.AdditionalStatements.Add($".IsRequired()");
+            statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Cascade)");
+            return statement;
+        }
+
+        statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
         return statement;
     }
 
@@ -124,16 +122,18 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         {
             return this;
         }
+
         switch (_associationEnd.Association.GetRelationshipType())
         {
-            case RelationshipType.OneToMany:
-                return AddForeignKey(GetForeignColumns(_associationEnd, _associationEnd.Id));
             case RelationshipType.OneToOne:
                 if (_associationEnd.OtherEnd().IsNullable)
                 {
                     return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd()));
                 }
+
                 return AddForeignKey(GetForeignColumns(_associationEnd));
+            case RelationshipType.OneToMany:
+                return AddForeignKey(GetForeignColumns(_associationEnd, _associationEnd.Id));
             case RelationshipType.ManyToOne:
                 return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd(), _associationEnd.Id));
             case RelationshipType.ManyToMany:
@@ -161,91 +161,94 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
     {
         RequiredProperties = columns;
 
-        string genericType = null;
+        string genericTypeArgument = null;
         if (!RelationshipStatements.First().GetText(string.Empty).StartsWith("builder.WithOwner") &&
             _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
         {
-            if (_associationEnd.IsNullable)
+            genericTypeArgument = _associationEnd.IsNullable switch
             {
-                if (_associationEnd.OtherEnd().IsNullable)
-                {
-                    genericType = _associationEnd.OtherEnd().Class.Name;
-                }
-                else
-                {
-                    genericType = _associationEnd.Class.Name;
-                }
-            }
-            else
-            {
-                genericType = _associationEnd.Class.Name;
-            }
+                true when _associationEnd.OtherEnd().IsNullable => _associationEnd.OtherEnd().Class.Name,
+                true => _associationEnd.Class.Name,
+                false => _associationEnd.Class.Name
+            };
         }
 
-        if (columns?.Length == 1)
+        if (genericTypeArgument != null)
         {
-            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single().Name.ToPascalCase()})");
-            return this;
+            genericTypeArgument = $"<{genericTypeArgument}>";
         }
 
-        RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name.ToPascalCase()))}}})");
+        var keyExpression = columns.Length == 1
+            ? $"x.{columns.Single().Name.ToPascalCase()}"
+            : $"new {{ {string.Join(", ", columns.Select(x => "x." + x.Name.ToPascalCase()))}}}";
+
+        RelationshipStatements.Add($".HasForeignKey{genericTypeArgument}(x => {keyExpression})");
         return this;
     }
 
     private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd, string foreignKeyAssociationId = null)
     {
+        // Explicit keys
         if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
         {
-            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
+            if (associationEnd.Association.IsOneToOne() && !associationEnd.OtherEnd().IsNullable)
             {
-                var fkAttributeWithAssociations = associationEnd.Class.Attributes
-                    .Where(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId)
-                    .ToArray();
-                if (foreignKeyAssociationId != null && fkAttributeWithAssociations.Any())
-                {
-                    return fkAttributeWithAssociations
-                        .Select(x => new RequiredEntityProperty(
-                            Class: associationEnd.Element,
-                            Name: x.Name,
-                            Type: x.Type.Element,
-                            IsNullable: associationEnd.IsNullable))
-                        .ToArray();
-                }
-                
-                return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+                // compositional one-to-ones:
+                return associationEnd.Class.GetExplicitPrimaryKey()
                     .Select(x => new RequiredEntityProperty(
                         Class: associationEnd.Element,
-                        Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
+                        Name: $"{x.Name.ToPascalCase()}",
                         Type: x.Type.Element,
                         IsNullable: associationEnd.IsNullable))
                     .ToArray();
             }
 
-            // compositional one-to-ones:
-            return associationEnd.Class.GetExplicitPrimaryKey()
+            var fkAttributeWithAssociations = associationEnd.Class.Attributes
+                .Where(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId)
+                .ToArray();
+            if (foreignKeyAssociationId != null && fkAttributeWithAssociations.Any())
+            {
+                return fkAttributeWithAssociations
+                    .Select(x => new RequiredEntityProperty(
+                        Class: associationEnd.Element,
+                        Name: x.Name,
+                        Type: x.Type.Element,
+                        IsNullable: associationEnd.IsNullable))
+                    .ToArray();
+            }
+
+            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
-                    Name: $"{x.Name.ToPascalCase()}",
+                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
                     IsNullable: associationEnd.IsNullable))
                 .ToArray();
         }
-        else // implicit Id
+
+        // Implicit keys
         {
-            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
+            // compositional one-to-ones:
+            if (associationEnd.Association.IsOneToOne() && !associationEnd.OtherEnd().IsNullable)
             {
-                return new[] { new RequiredEntityProperty(
+                return new[]
+                {
+                    new RequiredEntityProperty(
+                        Class: associationEnd.Element,
+                        Name: "Id",
+                        Type: null,
+                        IsNullable: false)
+                };
+            }
+
+            return new[]
+            {
+                new RequiredEntityProperty(
                     Class: associationEnd.Element,
                     Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
                     Type: null,
-                    IsNullable: associationEnd.OtherEnd().IsNullable) };
-            }
-            // compositional one-to-ones:
-            return new[] { new RequiredEntityProperty(
-                Class: associationEnd.Element,
-                Name: "Id",
-                Type: null,
-                IsNullable: false) };
+                    IsNullable: associationEnd.OtherEnd().IsNullable)
+            };
         }
     }
 

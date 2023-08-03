@@ -1,6 +1,7 @@
 ﻿### Version 4.4.7
 
 - Update: nullability warning on EF protected constructor improved to include association properties.
+- Fixed: Incorrect EF type configurations would be generated for `0..1 --> 1` and `0..1 --> 0..1` (aggregational) associations.
 
 ### Version 4.4.6
 
