@@ -97,7 +97,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
 
-                codeLines.Add($@"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
+                codeLines.Add($"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: entityVariableName,
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"));
@@ -185,7 +185,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private CSharpStatement GetInvocationArgument(
             ParameterModel parameter,
-            IList<DTOFieldModel> fields,
+            IEnumerable<DTOFieldModel> fields,
             string dtoVarName)
         {
             if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
@@ -193,7 +193,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
                 var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
-                var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                var constructMethod = parameter.TypeReference.IsCollection
+                    ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
+                    : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
                 _template.AddValueObjectFactoryMethod(mappingMethodName, (IElement)parameter.TypeReference.Element, mappedField);
                 return constructMethod;
             }

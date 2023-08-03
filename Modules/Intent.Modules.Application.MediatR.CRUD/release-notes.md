@@ -1,6 +1,7 @@
 ### Version 5.2.1
 
 - Fixed: Implementations were not being generated for commands mapped to constructors.
+- Fixed: Mappings to `Is Collection` parameters of type `Data Contract` or `Value Object` would generate uncompilable code.
 
 ### Version 5.2.0
 

@@ -166,10 +166,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
                 var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
-                var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                var constructMethod = parameter.TypeReference.IsCollection
+                    ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
+                    : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
                 AddMappingMethod(mappingMethodName, mappedField, (IElement)parameter.TypeReference.Element);
                 return constructMethod;
             }
+
             var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
                 .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
                 .FirstOrDefault();
