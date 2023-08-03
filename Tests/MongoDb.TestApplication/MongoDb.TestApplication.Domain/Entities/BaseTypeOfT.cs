@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities
         public BaseTypeOfT()
         {
             Id = null!;
-            BaseAttribute = null!;
         }
         public string Id { get; set; }
 

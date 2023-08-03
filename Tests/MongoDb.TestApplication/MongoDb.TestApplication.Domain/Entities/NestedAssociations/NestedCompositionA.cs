@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
         {
             Attribute = null!;
             AggregateBId = null!;
-            AggregateB = null!;
         }
         public string Attribute { get; set; }
 

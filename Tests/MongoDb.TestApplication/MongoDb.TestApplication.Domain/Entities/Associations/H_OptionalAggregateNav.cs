@@ -17,7 +17,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
         {
             Id = null!;
             Attribute = null!;
-            HMultipledependentsIds = null!;
         }
         public string Id { get; set; }
 

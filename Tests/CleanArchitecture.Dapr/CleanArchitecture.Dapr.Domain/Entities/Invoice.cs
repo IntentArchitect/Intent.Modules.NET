@@ -20,7 +20,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
         {
             Id = null!;
             ClientId = null!;
-            Client = null!;
         }
         public string Id
         {

@@ -21,7 +21,6 @@ namespace CosmosDB.Domain.Entities
             Id = null!;
             ClientIdentifier = null!;
             Number = null!;
-            Client = null!;
             InvoiceLogo = null!;
         }
         public string Id

@@ -19,7 +19,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
         public BaseOfT()
         {
             Id = null!;
-            GenericTypeAttribute = null!;
         }
         public string Id
         {

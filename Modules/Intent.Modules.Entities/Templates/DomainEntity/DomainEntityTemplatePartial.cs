@@ -103,32 +103,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
                         AddProperties(@class);
-                        if (!Model.Constructors.Any()) 
-                        {
-                            @class.AddConstructor(ctor =>
-                            {
-                                foreach (var attribute in model.Attributes)
-                                {
-                                    if (string.IsNullOrWhiteSpace(attribute.Value))
-                                    {
-                                        var typeInfo = GetTypeInfo(attribute.TypeReference);
-                                        if (NeedsNullabilityAssignment(typeInfo))
-                                        {
-                                            ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
-                                        }
-                                    }
-                                }
-                                foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
-                                {
-                                    if (!associationEnd.IsCollection && !associationEnd.IsNullable)
-                                    {
-                                        ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
-                                    }
-                                }
-
-                                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            });
-                        }
                     }
 
                     foreach (var ctorModel in Model.Constructors)
@@ -231,7 +205,42 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             AddInterfaceQualifiedMethod(@class, operation);
                         }
                     }
-                }).AfterBuild(file =>
+                }).OnBuild(file => 
+                {
+                    var @class = file.Classes.First();
+                    if (!Model.Constructors.Any())
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            foreach (var attribute in model.Attributes)
+                            {
+                                if (string.IsNullOrWhiteSpace(attribute.Value))
+                                {
+                                    var typeInfo = GetTypeInfo(attribute.TypeReference);
+                                    if (NeedsNullabilityAssignment(typeInfo))
+                                    {
+                                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
+                                    }
+                                }
+                            }
+                            foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                            {
+                                if (!associationEnd.IsCollection && !associationEnd.IsNullable)
+                                {
+                                    var property = @class.GetAllProperties().FirstOrDefault(x => x.HasMetadata("model") && x.GetMetadata<IMetadataModel>("model").Id == associationEnd.Id);
+                                    if (property != null)
+                                    {
+                                        ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
+                                    }
+                                }
+                            }
+
+                            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                        });
+                    }
+
+                }
+                , 1000).AfterBuild(file =>
                 {
                     foreach (var method in file.Classes.First().Methods)
                     {
@@ -254,7 +263,9 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             return !(typeInfo.IsPrimitive
                 || typeInfo.IsNullable == true
-                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+                || typeInfo.IsCollection
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.SpecializationType == "Generic Type"));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

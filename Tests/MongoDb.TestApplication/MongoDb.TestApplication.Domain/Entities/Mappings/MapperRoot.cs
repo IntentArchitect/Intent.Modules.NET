@@ -17,10 +17,8 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
         {
             Id = null!;
             No = null!;
-            MapAggChildrenIds = null!;
             MapAggPeerId = null!;
             MapCompChild = null!;
-            MapAggPeer = null!;
         }
         public string Id { get; set; }
 

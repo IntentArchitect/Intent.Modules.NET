@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
         {
             PeerCompChildAtt = null!;
             MapPeerCompChildAggId = null!;
-            MapPeerCompChildAgg = null!;
         }
 
         public string PeerCompChildAtt { get; set; }

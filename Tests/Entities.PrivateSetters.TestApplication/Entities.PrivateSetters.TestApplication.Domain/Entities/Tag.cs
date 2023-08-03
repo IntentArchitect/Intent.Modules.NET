@@ -17,7 +17,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
         {
             Name = null!;
         }
-        public Guid Id { get; private set; }}
+        public Guid Id { get; private set; }
+
         public string Name { get; private set; }
 
         protected virtual ICollection<Invoice> Invoices { get; set; }

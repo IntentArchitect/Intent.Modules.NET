@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
         public MultikeyIndexEntity()
         {
             Id = null!;
-            MultiKey = null!;
             SomeField = null!;
         }
         public string Id { get; set; }

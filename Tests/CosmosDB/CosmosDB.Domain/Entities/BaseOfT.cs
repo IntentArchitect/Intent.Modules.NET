@@ -19,7 +19,6 @@ namespace CosmosDB.Domain.Entities
         public BaseOfT()
         {
             Id = null!;
-            GenericAttribute = null!;
         }
 
         public string Id

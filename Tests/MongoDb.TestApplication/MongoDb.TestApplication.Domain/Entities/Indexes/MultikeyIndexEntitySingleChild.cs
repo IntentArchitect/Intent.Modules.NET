@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
         [IntentManaged(Mode.Fully)]
         public MultikeyIndexEntitySingleChild()
         {
-            MultiKey = null!;
         }
         private string? _id;
 

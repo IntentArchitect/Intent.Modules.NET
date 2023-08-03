@@ -17,7 +17,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
             Id = null!;
             MapAggPeerAggAtt = null!;
             MapAggPeerAggMoreId = null!;
-            MapAggPeerAggMore = null!;
         }
         public string Id { get; set; }
 

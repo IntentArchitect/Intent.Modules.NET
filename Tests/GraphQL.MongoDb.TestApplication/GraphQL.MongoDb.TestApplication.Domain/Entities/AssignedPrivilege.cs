@@ -18,7 +18,6 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
         {
             Id = null!;
             PrivilegeId = null!;
-            Privilege = null!;
         }
 
         public string Id

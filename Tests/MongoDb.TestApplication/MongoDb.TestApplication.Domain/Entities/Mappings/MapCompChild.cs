@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
         {
             CompChildAtt = null!;
             MapCompChildAggId = null!;
-            MapCompChildAgg = null!;
         }
 
         public string CompChildAtt { get; set; }
