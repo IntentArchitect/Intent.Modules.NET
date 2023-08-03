@@ -165,12 +165,9 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         if (!RelationshipStatements.First().GetText(string.Empty).StartsWith("builder.WithOwner") &&
             _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
         {
-            genericTypeArgument = _associationEnd.IsNullable switch
-            {
-                true when _associationEnd.OtherEnd().IsNullable => _associationEnd.OtherEnd().Class.Name,
-                true => _associationEnd.Class.Name,
-                false => _associationEnd.Class.Name
-            };
+            genericTypeArgument = _associationEnd.OtherEnd().IsNullable
+                ? _associationEnd.OtherEnd().Class.Name
+                : _associationEnd.Class.Name;
         }
 
         if (genericTypeArgument != null)
@@ -188,21 +185,65 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
     private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd, string foreignKeyAssociationId = null)
     {
+        // aggregational one-to-ones:
+        if (associationEnd.Association.IsOneToOne() &&
+            associationEnd.Association.AssociationType == AssociationType.Aggregation)
+        {
+            var keys = associationEnd.OtherEnd().Class.Attributes
+                .Where(p => p.GetForeignKey()?.Association()?.Id == associationEnd.Id)
+                .Select(x => new RequiredEntityProperty(
+                    Class: associationEnd.Element,
+                    Name: x.Name,
+                    Type: x.Type.Element,
+                    IsNullable: associationEnd.OtherEnd().IsNullable))
+                .ToArray();
+
+            // implicit keys
+            if (!keys.Any())
+            {
+                keys = new[]
+                {
+                    new RequiredEntityProperty(
+                        Class: associationEnd.Element,
+                        Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
+                        Type: null,
+                        IsNullable: associationEnd.OtherEnd().IsNullable)
+                };
+            }
+
+            return keys;
+        }
+
+        // compositional one-to-ones:
+        if (associationEnd.Association.IsOneToOne() && !associationEnd.OtherEnd().IsNullable)
+        {
+            var keys = associationEnd.Class.GetExplicitPrimaryKey()
+                .Select(x => new RequiredEntityProperty(
+                    Class: associationEnd.Element,
+                    Name: $"{x.Name.ToPascalCase()}",
+                    Type: x.Type.Element,
+                    IsNullable: associationEnd.IsNullable))
+                .ToArray();
+
+            // implicit keys
+            if (!keys.Any())
+            {
+                keys = new[]
+                {
+                    new RequiredEntityProperty(
+                        Class: associationEnd.Element,
+                        Name: "Id",
+                        Type: null,
+                        IsNullable: false)
+                };
+            }
+
+            return keys;
+        }
+
         // Explicit keys
         if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
         {
-            if (associationEnd.Association.IsOneToOne() && !associationEnd.OtherEnd().IsNullable)
-            {
-                // compositional one-to-ones:
-                return associationEnd.Class.GetExplicitPrimaryKey()
-                    .Select(x => new RequiredEntityProperty(
-                        Class: associationEnd.Element,
-                        Name: $"{x.Name.ToPascalCase()}",
-                        Type: x.Type.Element,
-                        IsNullable: associationEnd.IsNullable))
-                    .ToArray();
-            }
-
             var fkAttributeWithAssociations = associationEnd.Class.Attributes
                 .Where(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId)
                 .ToArray();
@@ -226,21 +267,8 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                 .ToArray();
         }
 
-        // Implicit keys
+        // Implicit key
         {
-            // compositional one-to-ones:
-            if (associationEnd.Association.IsOneToOne() && !associationEnd.OtherEnd().IsNullable)
-            {
-                return new[]
-                {
-                    new RequiredEntityProperty(
-                        Class: associationEnd.Element,
-                        Name: "Id",
-                        Type: null,
-                        IsNullable: false)
-                };
-            }
-
             return new[]
             {
                 new RequiredEntityProperty(
