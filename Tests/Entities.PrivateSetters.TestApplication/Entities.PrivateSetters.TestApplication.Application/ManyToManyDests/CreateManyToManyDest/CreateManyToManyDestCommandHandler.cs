@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Cr
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateManyToManyDestCommandHandler : IRequestHandler<CreateManyToManyDestCommand, Guid>
     {
+        private readonly IManyToManyDestRepository _manyToManyDestRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateManyToManyDestCommandHandler()
+        public CreateManyToManyDestCommandHandler(IManyToManyDestRepository manyToManyDestRepository)
         {
+            _manyToManyDestRepository = manyToManyDestRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

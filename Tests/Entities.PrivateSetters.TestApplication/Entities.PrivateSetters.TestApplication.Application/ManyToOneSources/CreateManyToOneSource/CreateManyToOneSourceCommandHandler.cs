@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneSources.C
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateManyToOneSourceCommandHandler : IRequestHandler<CreateManyToOneSourceCommand, Guid>
     {
+        private readonly IManyToOneSourceRepository _manyToOneSourceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateManyToOneSourceCommandHandler()
+        public CreateManyToOneSourceCommandHandler(IManyToOneSourceRepository manyToOneSourceRepository)
         {
+            _manyToOneSourceRepository = manyToOneSourceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

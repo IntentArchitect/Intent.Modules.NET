@@ -12,11 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
-using Intent.Modules.Entities.Settings;
-using Intent.Modules.Modelers.Domain.Settings;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
-using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -94,7 +90,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add(string.Empty);
             }
 
-            codeLines.Add(GetConstructorStatement(entityVariableName, entityName, "request", false));
+            codeLines.Add(GetConstructorStatement(entityVariableName, "request", false));
 
             if (nestedCompOwner != null)
             {
@@ -127,7 +123,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             return codeLines.ToList();
 
-            CSharpStatement GetConstructorStatement(string entityVarName, string entityName, string dtoVarName, bool hasInitStatements)
+            CSharpStatement GetConstructorStatement(string entityVarName, string dtoVarName, bool hasInitStatements)
             {
                 var ctor = _template.Model.Mapping.Element.AsClassConstructorModel();
                 var ctorParams = ctor?.Parameters;
@@ -137,7 +133,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     return $"var {entityVarName} = new {entityName}{(hasInitStatements ? "" : "();")}";
                 }
 
-                var invocationStatement = new CSharpInvocationStatement($@"var {entityVarName} = new {entityName}");
+                var invocationStatement = new CSharpInvocationStatement($"var {entityVarName} = new {entityName}");
                 if (hasInitStatements)
                 {
                     invocationStatement.WithoutSemicolon();
@@ -162,18 +158,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private CSharpStatement GetInvocationArgument(
             ParameterModel parameter,
-            IList<DTOFieldModel> fields,
+            IEnumerable<DTOFieldModel> fields,
             string dtoVarName)
         {
             if (parameter.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract")
             {
-                string mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
+                var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
-                var mappedField = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id).First();
-                var constructMethod = $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
+                var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
+                var constructMethod = parameter.TypeReference.IsCollection
+                    ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
+                    : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
                 AddMappingMethod(mappingMethodName, mappedField, (IElement)parameter.TypeReference.Element);
                 return constructMethod;
             }
+
             var dtoFieldRef = fields.Where(field => field.Mapping?.Element?.Id == parameter.Id)
                 .Select(field => $"{dtoVarName}.{field.Name.ToPascalCase()}")
                 .FirstOrDefault();
@@ -206,10 +205,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                     var attributeModels = GetDomainAttributeModels(element);
 
-                    var attributeMap = attributeModels.Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)));
+                    var attributeMap = attributeModels
+                        .Select(a => (Domain: a, Dto: targetDto.Fields.FirstOrDefault(f => f.Mapping?.Element.Id == a.Id)))
+                        .ToArray();
                     if (attributeMap.Any(x => x.Dto == null))
                     {
-                        method.AddStatement($@"#warning Not all fields specified for ValueObject.");
+                        method.AddStatement("#warning Not all fields specified for ValueObject.");
                     }
                     var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
                     method.AddStatement($"return new {domainType}({ctorParameters});");
@@ -225,7 +226,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                         && method.Parameters[0].Type == _template.GetTypeName(targetDto.InternalElement)) != null;
         }
 
-        private IList<AttributeModel> GetDomainAttributeModels(IElement element)
+        private static IList<AttributeModel> GetDomainAttributeModels(IElement element)
         {
             return element.ChildElements.Where(x => x.IsAttributeModel()).Select(x => x.AsAttributeModel()).ToList();
         }
@@ -242,9 +243,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
-            if (_template.Model.Mapping?.Element == null ||
-                !_template.Model.Mapping.Element.IsClassConstructorModel() ||
-                _template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            if (_template.Model.Mapping?.Element?.IsClassConstructorModel() != true)
             {
                 return NoMatch;
             }
@@ -273,7 +272,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return new StrategyData(true, foundEntity, repository, dtoToReturn, _template.GetAdditionalServicesFromParameters(ctorModel.Parameters), repositoryInterfaceModel);
         }
 
-        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null, null, null);
+        private static readonly StrategyData NoMatch = new(false, null, null, null, null, null);
 
         internal class StrategyData
         {

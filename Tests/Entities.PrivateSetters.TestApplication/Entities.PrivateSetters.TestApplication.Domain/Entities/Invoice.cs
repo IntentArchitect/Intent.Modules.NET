@@ -31,7 +31,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
         {
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public DateTime Date { get; private set; }
 

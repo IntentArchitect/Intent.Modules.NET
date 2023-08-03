@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,9 +15,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToOneDests
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateOptionalToOneDestCommandHandler : IRequestHandler<CreateOptionalToOneDestCommand, Guid>
     {
+        private readonly IOptionalToOneDestRepository _optionalToOneDestRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateOptionalToOneDestCommandHandler()
+        public CreateOptionalToOneDestCommandHandler(IOptionalToOneDestRepository optionalToOneDestRepository)
         {
+            _optionalToOneDestRepository = optionalToOneDestRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
