@@ -42,7 +42,7 @@ namespace AzureFunctions.TestApplication.Api
         {
             try
             {
-                await _appService.DeleteSampleDomain(id, cancellationToken);
+                await _appService.DeleteSampleDomain(id);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 return new OkResult();
             }

@@ -36,7 +36,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             }
             var connectionString = configuration.GetConnectionString(connStringName);
             optionsBuilder.UseSqlServer(connectionString);
-            return new ApplicationDbContext(optionsBuilder.Options, null);
+            return new ApplicationDbContext(optionsBuilder.Options, null, null);
         }
     }
 }

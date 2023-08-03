@@ -1,3 +1,7 @@
+### Version 4.1.5
+
+- Update: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.
+
 ### Version 4.1.3
 
 - Update: All EF Core nuget packages are now updated to use the latest versions to date.

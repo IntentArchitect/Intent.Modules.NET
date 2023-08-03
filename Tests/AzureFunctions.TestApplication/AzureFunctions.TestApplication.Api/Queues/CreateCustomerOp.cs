@@ -31,7 +31,7 @@ namespace AzureFunctions.TestApplication.Api
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
             var dto = JsonConvert.DeserializeObject<CustomerDto>(message.Body.ToString())!;
-            await _appService.CreateCustomerOp(dto, cancellationToken);
+            await _appService.CreateCustomerOp(dto);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return;
         }

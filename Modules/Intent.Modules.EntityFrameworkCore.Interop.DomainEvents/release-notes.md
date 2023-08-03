@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Update: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.
+
 ### Version 4.0.5
 
 - Added : Synchronous DBContext SaveChanges support for domain event dispatching.

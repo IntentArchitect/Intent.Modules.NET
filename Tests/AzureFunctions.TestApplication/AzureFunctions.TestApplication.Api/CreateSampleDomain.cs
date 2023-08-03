@@ -49,9 +49,9 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody)!;
+                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody);
                 await _validator.Handle(dto, cancellationToken);
-                var result = await _appService.CreateSampleDomain(dto, cancellationToken);
+                var result = await _appService.CreateSampleDomain(dto);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }

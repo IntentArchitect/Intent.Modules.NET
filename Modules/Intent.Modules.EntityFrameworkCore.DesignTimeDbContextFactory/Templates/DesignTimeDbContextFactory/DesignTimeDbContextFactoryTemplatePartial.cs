@@ -86,7 +86,11 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
                                 break;
                         }
 
-                        method.AddStatement($"return new {GetDbContextName()}(optionsBuilder.Options);", stmt => stmt.AddMetadata("return-statement", true));
+                        method.AddInvocationStatement($"return new {GetDbContextName()}", stmt =>
+                        {
+                            stmt.AddMetadata("return-statement", true);
+                            stmt.AddArgument("optionsBuilder.Options", arg => arg.AddMetadata("options", true));
+                        });
                     });
                 });
         }

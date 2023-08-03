@@ -34,7 +34,7 @@ namespace AzureFunctions.TestApplication.Api
             CancellationToken cancellationToken)
         {
             var result = await _appService.BindingTest(dto);
-            await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
         }
     }

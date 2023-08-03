@@ -49,9 +49,9 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonConvert.DeserializeObject<SampleMappedRequest>(requestBody)!;
+                var request = JsonConvert.DeserializeObject<SampleMappedRequest>(requestBody);
                 await _validator.Handle(request, cancellationToken);
-                var result = await _appService.MappedAzureFunction(request, cancellationToken);
+                var result = await _appService.MappedAzureFunction(request);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }

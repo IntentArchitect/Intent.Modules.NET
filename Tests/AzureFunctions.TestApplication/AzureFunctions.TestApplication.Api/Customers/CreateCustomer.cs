@@ -46,7 +46,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody)!;
+                var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody);
                 var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }

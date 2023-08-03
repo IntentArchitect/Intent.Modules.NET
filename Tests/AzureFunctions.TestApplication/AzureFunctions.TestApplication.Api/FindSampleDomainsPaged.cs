@@ -4,50 +4,48 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Application.Common.Pagination;
 using AzureFunctions.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
-using AzureFunctions.TestApplication.Domain.Common.Interfaces;
-using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class ListedServiceFunc
+    public class FindSampleDomainsPaged
     {
-        private readonly IListedUnlistedServicesService _appService;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ISampleDomainsService _appService;
 
-        public ListedServiceFunc(IListedUnlistedServicesService appService, IUnitOfWork unitOfWork)
+        public FindSampleDomainsPaged(ISampleDomainsService appService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("ListedServiceFunc")]
-        [OpenApiOperation("ListedServiceFunc", tags: new[] { "ListedUnlistedServices" }, Description = "Listed service func")]
-        [OpenApiParameter(name: "param", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
+        [FunctionName("FindSampleDomainsPaged")]
+        [OpenApiOperation("FindSampleDomainsPaged", tags: new[] { "SampleDomainsPaged" }, Description = "Find sample domains paged")]
+        [OpenApiParameter(name: "pageNo", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
+        [OpenApiParameter(name: "pageSize", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(PagedResult<SampleDomainDto>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listed-unlisted-services/listed-service-func")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains-paged")] HttpRequest req,
             CancellationToken cancellationToken)
         {
             try
             {
-                string param = req.Query["param"];
-                await _appService.ListedServiceFunc(param, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                return new CreatedResult(string.Empty, null);
+                int pageNo = AzureFunctionHelper.GetQueryParam("pageNo", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
+                int pageSize = AzureFunctionHelper.GetQueryParam("pageSize", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
+                var result = await _appService.FindSampleDomainsPaged(pageNo, pageSize);
+                return new OkObjectResult(result);
             }
             catch (NotFoundException exception)
             {

@@ -20,26 +20,28 @@ using Microsoft.OpenApi.Models;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class FindSampleDomains
+    public class FindSampleDomainById
     {
         private readonly ISampleDomainsService _appService;
 
-        public FindSampleDomains(ISampleDomainsService appService)
+        public FindSampleDomainById(ISampleDomainsService appService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
-        [FunctionName("FindSampleDomains")]
-        [OpenApiOperation("FindSampleDomains", tags: new[] { "SampleDomains" }, Description = "Find sample domains")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<SampleDomainDto>))]
+        [FunctionName("FindSampleDomainById")]
+        [OpenApiOperation("FindSampleDomainById", tags: new[] { "SampleDomains" }, Description = "Find sample domain by id")]
+        [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(SampleDomainDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains/{id}")] HttpRequest req,
+            Guid id,
             CancellationToken cancellationToken)
         {
             try
             {
-                var result = await _appService.FindSampleDomains(cancellationToken);
+                var result = await _appService.FindSampleDomainById(id);
                 return new OkObjectResult(result);
             }
             catch (NotFoundException exception)

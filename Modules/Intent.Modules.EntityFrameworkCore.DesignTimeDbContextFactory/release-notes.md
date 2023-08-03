@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Fixed up how the DbContext can be created dynamically.
+
 ### Version 4.0.3
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
