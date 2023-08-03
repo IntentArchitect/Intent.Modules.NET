@@ -12,7 +12,7 @@ public interface IAzureFunctionModel : IMetadataModel, IHasName, IHasTypeReferen
     TriggerType TriggerType { get; }
     string AuthorizationLevel { get;}
     IList<IAzureFunctionParameterModel> Parameters { get;}
-    [CanBeNull] public string MessageType { get; }
+    [CanBeNull] public bool IncludeMessageEnvelope { get; }
     [CanBeNull] public string QueueName { get; }
     [CanBeNull] public string Connection { get; }
     [CanBeNull] string ScheduleExpression { get; }

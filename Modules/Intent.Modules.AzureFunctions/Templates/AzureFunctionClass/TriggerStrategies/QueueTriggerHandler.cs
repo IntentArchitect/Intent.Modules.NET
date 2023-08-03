@@ -39,7 +39,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
         string messageType = _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference);
         string parameterName = _azureFunctionModel.Parameters.Single().Name.ToParameterName();
-        if (!string.IsNullOrEmpty(_azureFunctionModel.MessageType) && _azureFunctionModel.MessageType == "QueueMessage")
+        if (_azureFunctionModel.IncludeMessageEnvelope)
         {
             messageType = _template.UseType("Azure.Storage.Queues.Models.QueueMessage");
             parameterName = "message";
@@ -61,62 +61,45 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
                 });
             });
 
-        if (_azureFunctionModel.InternalElement.HasStereotype("Queue Output Binding"))
+        if (_azureFunctionModel.ReturnType != null)
         {
-            _template.AddTypeSource("Intent.Application.MediatR.CommandModels");
-            foreach (var outputBinding in _azureFunctionModel.InternalElement.GetStereotypes("Queue Output Binding"))
+            if (((IElement)_azureFunctionModel.ReturnType.Element).SpecializationType == "Command")
             {
-                string bindingType = outputBinding.GetProperty<string>("Type");
-                switch (bindingType)
+                _template.AddTypeSource("Intent.Application.MediatR.CommandModels");
+            }
+            method.AddParameter(
+                type: _template.UseType("Azure.Storage.Queues.QueueClient"),
+                name: "queueClient",
+                configure: param =>
                 {
-                    case "ICollector<T>":
-                    case "Message":
-                        method.Sync();
-                        break;
-                    default:
-                            break;
-                }
-
-                method.AddParameter(
-                    type: GetOutputBindingParameterType(outputBinding),
-                    name: outputBinding.GetProperty<string>("Parameter Name").ToParameterName(),
-                    configure: param =>
+                    if (_azureFunctionModel.InternalElement.HasStereotype("Queue Output Binding"))
                     {
-                        if (bindingType == "Message")
-                        {
-                            param.WithOutParameterModifier();
-                        }
+                        var outputBinding = _azureFunctionModel.InternalElement.GetStereotype("Queue Output Binding");
                         param.AddAttribute("Queue", attr =>
                         {
                             attr.AddArgument($@"""{outputBinding.GetProperty<string>("Queue Name")}""");
                         });
-                    });
+                    }
+                });
+
+            //Doing this for operations and commands , not AzureFunctionModels as they don't have implementations
+            if (_template.Model.InternalElement.AsAzureFunctionModel() == null)
+            {
+                _template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.FirstOrDefault();
+                    var method = @class.FindMethod("Run");
+                    var returnStatement = method.Statements.FirstOrDefault(s => s.GetText(string.Empty).StartsWith("return "));
+                    if (returnStatement != null)
+                    {
+                        returnStatement.Remove();
+                    }
+                    method.AddStatement($"await queueClient.SendMessageAsync({_template.UseType("Newtonsoft.Json.JsonConvert")}.SerializeObject(result), cancellationToken);");
+                }, 100);
             }
         }
 
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-    }
-
-    private string GetOutputBindingParameterType(IStereotype outputBinding)
-    {
-        string bindingType = outputBinding.GetProperty<string>("Type");
-        switch (bindingType)
-        {
-            case "ICollector<T>":
-                return $"ICollector<{GetMessageType(outputBinding)}>";
-            case "IAsyncCollector<T>":
-                return $"IAsyncCollector<{GetMessageType(outputBinding)}>";
-            case "QueueClient":
-                return _template.UseType("Azure.Storage.Queues.QueueClient");
-            case "Message":
-            default:
-                return GetMessageType(outputBinding);
-        }
-    }
-
-    private string GetMessageType(IStereotype outputBinding)
-    {
-        return _template.GetTypeName(outputBinding.GetProperty<IElement>("Message Type"));
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)
@@ -124,15 +107,9 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
         string messageType = _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference);
         string parameterName = _azureFunctionModel.Parameters.Single().Name.ToParameterName();
 
-        if (!string.IsNullOrEmpty(_azureFunctionModel.MessageType) && _azureFunctionModel.MessageType == "QueueMessage")
+        if (_azureFunctionModel.IncludeMessageEnvelope)
         {
-            method.AddStatement($"var {parameterName} = {_template.UseType("Newtonsoft.Json.JsonConvert")}.DeserializeObject<{messageType}>(message.Body.ToString());");
-        }
-
-        if (_azureFunctionModel.InternalElement.HasStereotype("Queue Output Binding"))
-        {
-            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-            method.AddStatement("throw new NotImplementedException(\"Your custom logic here...\");");
+            method.AddStatement($"var {parameterName} = {_template.UseType("Newtonsoft.Json.JsonConvert")}.DeserializeObject<{messageType}>(message.Body.ToString())!;");
         }
     }
 

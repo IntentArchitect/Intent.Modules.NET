@@ -37,6 +37,40 @@ namespace Intent.AzureFunctions.Api
             return true;
         }
 
+        public static QueueOutputBinding GetQueueOutputBinding(this OperationModel model)
+        {
+            var stereotype = model.GetStereotype("Queue Output Binding");
+            return stereotype != null ? new QueueOutputBinding(stereotype) : null;
+        }
+
+        public static IReadOnlyCollection<QueueOutputBinding> GetQueueOutputBindings(this OperationModel model)
+        {
+            var stereotypes = model
+                .GetStereotypes("Queue Output Binding")
+                .Select(stereotype => new QueueOutputBinding(stereotype))
+                .ToArray();
+
+            return stereotypes;
+        }
+
+
+        public static bool HasQueueOutputBinding(this OperationModel model)
+        {
+            return model.HasStereotype("Queue Output Binding");
+        }
+
+        public static bool TryGetQueueOutputBinding(this OperationModel model, out QueueOutputBinding stereotype)
+        {
+            if (!HasQueueOutputBinding(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new QueueOutputBinding(model.GetStereotype("Queue Output Binding"));
+            return true;
+        }
+
         public class AzureFunction
         {
             private IStereotype _stereotype;
@@ -63,9 +97,9 @@ namespace Intent.AzureFunctions.Api
                 return new MethodOptions(_stereotype.GetProperty<string>("Method"));
             }
 
-            public MessageTypeOptions MessageType()
+            public bool IncludeMessageEnvelope()
             {
-                return new MessageTypeOptions(_stereotype.GetProperty<string>("Message Type"));
+                return _stereotype.GetProperty<bool>("Include Message Envelope");
             }
 
             public string Route()
@@ -279,43 +313,6 @@ namespace Intent.AzureFunctions.Api
                 PATCH,
                 DELETE
             }
-            public class MessageTypeOptions
-            {
-                public readonly string Value;
-
-                public MessageTypeOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public MessageTypeOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "POCO":
-                            return MessageTypeOptionsEnum.POCO;
-                        case "QueueMessage":
-                            return MessageTypeOptionsEnum.QueueMessage;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsPOCO()
-                {
-                    return Value == "POCO";
-                }
-                public bool IsQueueMessage()
-                {
-                    return Value == "QueueMessage";
-                }
-            }
-
-            public enum MessageTypeOptionsEnum
-            {
-                POCO,
-                QueueMessage
-            }
             public class ReturnTypeMediatypeOptions
             {
                 public readonly string Value;
@@ -353,6 +350,24 @@ namespace Intent.AzureFunctions.Api
                 Default,
                 ApplicationJson
             }
+        }
+
+        public class QueueOutputBinding
+        {
+            private IStereotype _stereotype;
+
+            public QueueOutputBinding(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string QueueName()
+            {
+                return _stereotype.GetProperty<string>("Queue Name");
+            }
+
         }
 
     }

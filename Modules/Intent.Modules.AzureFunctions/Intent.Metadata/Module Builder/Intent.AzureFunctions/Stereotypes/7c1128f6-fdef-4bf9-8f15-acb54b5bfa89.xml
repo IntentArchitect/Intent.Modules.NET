@@ -153,17 +153,14 @@
       <isActiveFunction>return false;</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
-    <property id="6d676ad8-e325-4db4-869d-90178fcda9d6">
-      <name>Message Type</name>
+    <property id="38ed3faa-6770-484e-8bb9-84ae9db0153b">
+      <name>Include Message Envelope</name>
       <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
       <placeholder />
-      <defaultValue>POCO</defaultValue>
-      <valueOptions>
-        <option>POCO</option>
-        <option>QueueMessage</option>
-      </valueOptions>
+      <defaultValue>false</defaultValue>
+      <valueOptions />
       <lookupTypes />
       <isActiveFunction>return Trigger === "Queue Trigger";</isActiveFunction>
     </property>

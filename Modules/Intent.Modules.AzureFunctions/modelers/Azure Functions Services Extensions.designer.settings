@@ -74,6 +74,23 @@ function applyHttpSettingsToOperations(operation, baseRoute) {
     });
 }</script>
         </macro>
+        <macro trigger="on-changed">
+          <script>let azureFunctionId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"; // from AzureFunctions (this) module
+let azureFunctionTriggerId = "a6411e1f-8199-4b18-b1a1-fd2aa73b1da6";
+let queueOutputBindingId = "ec293aa6-7120-4870-800f-7db01391376f";//from AzureFunctions (this) module
+
+if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== "Queue Trigger") {
+    element.removeStereotype(queueOutputBindingId);
+    return;
+}
+
+if (element.typeReference == null){
+    element.removeStereotype(queueOutputBindingId);
+} else if (element.getStereotype(queueOutputBindingId) == null) {
+    element.addStereotype(queueOutputBindingId);
+}
+</script>
+        </macro>
       </macros>
     </elementExtension>
   </elementExtensions>

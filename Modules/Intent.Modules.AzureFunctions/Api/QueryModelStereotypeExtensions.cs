@@ -63,9 +63,9 @@ namespace Intent.AzureFunctions.Api
                 return new MethodOptions(_stereotype.GetProperty<string>("Method"));
             }
 
-            public MessageTypeOptions MessageType()
+            public bool IncludeMessageEnvelope()
             {
-                return new MessageTypeOptions(_stereotype.GetProperty<string>("Message Type"));
+                return _stereotype.GetProperty<bool>("Include Message Envelope");
             }
 
             public string Route()
@@ -278,43 +278,6 @@ namespace Intent.AzureFunctions.Api
                 PUT,
                 PATCH,
                 DELETE
-            }
-            public class MessageTypeOptions
-            {
-                public readonly string Value;
-
-                public MessageTypeOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public MessageTypeOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "POCO":
-                            return MessageTypeOptionsEnum.POCO;
-                        case "QueueMessage":
-                            return MessageTypeOptionsEnum.QueueMessage;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsPOCO()
-                {
-                    return Value == "POCO";
-                }
-                public bool IsQueueMessage()
-                {
-                    return Value == "QueueMessage";
-                }
-            }
-
-            public enum MessageTypeOptionsEnum
-            {
-                POCO,
-                QueueMessage
             }
             public class ReturnTypeMediatypeOptions
             {

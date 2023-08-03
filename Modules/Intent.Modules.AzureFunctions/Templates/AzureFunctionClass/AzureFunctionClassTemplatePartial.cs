@@ -88,6 +88,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             {
                 return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
+            else if (Model.TriggerType == TriggerType.QueueTrigger)
+            {
+                return $"Task";
+            }
+
 
             return Model.TypeReference.Element != null
                 ? $"Task<{GetTypeName(Model.TypeReference)}>"

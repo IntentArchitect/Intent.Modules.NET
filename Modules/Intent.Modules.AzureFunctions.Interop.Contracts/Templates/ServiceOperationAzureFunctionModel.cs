@@ -25,7 +25,7 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
             .Select(x => new AzureFunctionParameterModel(x.InternalElement, x.InternalElement.SpecializationType))
             .ToList<IAzureFunctionParameterModel>();
         QueueName = operationModel.GetAzureFunction().QueueName();
-        MessageType = operationModel.GetAzureFunction().MessageType().Value;
+        IncludeMessageEnvelope = operationModel.GetAzureFunction().IncludeMessageEnvelope();
         Connection = operationModel.GetAzureFunction().Connection();
         ScheduleExpression = operationModel.GetAzureFunction().ScheduleExpression();
         EventHubName = operationModel.GetAzureFunction().EventHubName();
@@ -50,7 +50,7 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
     public IList<IAzureFunctionParameterModel> Parameters { get; }
 
     public string QueueName { get; }
-    public string MessageType { get; }
+    public bool IncludeMessageEnvelope { get; }
     public string Connection { get; }
     public string ScheduleExpression { get; }
     public string EventHubName { get; }

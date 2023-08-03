@@ -4,6 +4,8 @@
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="702f57ca-3b5a-413b-a084-9f2d154154e7">Azure Function</type>
+    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
+    <type id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
@@ -20,16 +22,6 @@
   <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
   <packageName>Intent.AzureFunctions</packageName>
   <properties>
-    <property id="67c24011-d0f3-4887-a69c-327d657cd2c8">
-      <name>Parameter Name</name>
-      <type>string</type>
-      <controlType>text</controlType>
-      <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <defaultValue>output</defaultValue>
-      <valueOptions />
-      <lookupTypes />
-    </property>
     <property id="22ab0ef0-c802-4242-8b56-b5df5c2c693c">
       <name>Queue Name</name>
       <type>string</type>
@@ -38,33 +30,7 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
-    </property>
-    <property id="efc0c009-482d-4402-912b-69f9c1953a8f">
-      <name>Type</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder />
-      <valueOptions>
-        <option>Message</option>
-        <option>ICollector&lt;T&gt;</option>
-        <option>IAsyncCollector&lt;T&gt;</option>
-        <option>QueueClient</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="944b559f-ecd4-4078-b919-7595639c4f32">
-      <name>Message Type</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>lookup-element</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes>
-        <type>fee0edca-4aa0-4f77-a524-6bbd84e78734</type>
-        <type>ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</type>
-      </lookupTypes>
-      <isActiveFunction>return Type === "Message" || Type === "ICollector&lt;T&gt;"  || Type === "IAsyncCollector&lt;T&gt;" ;</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>
