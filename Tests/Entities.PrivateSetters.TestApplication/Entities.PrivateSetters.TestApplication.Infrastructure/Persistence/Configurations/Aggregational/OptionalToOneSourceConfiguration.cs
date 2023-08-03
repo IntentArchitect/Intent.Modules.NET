@@ -17,9 +17,12 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
             builder.Property(x => x.Attribute)
                 .IsRequired();
 
+            builder.Property(x => x.OptionalToOneDestId)
+                .IsRequired();
+
             builder.HasOne(x => x.OptionalToOneDest)
                 .WithOne(x => x.OptionalToOneSource)
-                .HasForeignKey<OptionalToOneDest>(x => x.Id)
+                .HasForeignKey<OptionalToOneSource>(x => x.OptionalToOneDestId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

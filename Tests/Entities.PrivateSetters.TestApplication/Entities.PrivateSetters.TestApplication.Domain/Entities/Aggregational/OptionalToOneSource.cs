@@ -34,6 +34,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
 
         public string Attribute { get; private set; }
 
+        public Guid OptionalToOneDestId { get; private set; }
+
         public virtual OptionalToOneDest OptionalToOneDest { get; private set; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]

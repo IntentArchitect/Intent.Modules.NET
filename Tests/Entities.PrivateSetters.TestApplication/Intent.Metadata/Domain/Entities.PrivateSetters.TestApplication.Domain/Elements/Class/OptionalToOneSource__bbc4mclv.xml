@@ -82,6 +82,43 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="a357e7e1-42d0-46c9-ab3e-219be962d461" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OptionalToOneDestId</name>
+      <display>OptionalToOneDestId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c603d96b-9a20-45b8-8d2a-5964b0515591">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>23db8695-d624-45bf-a91b-320cafec6ab1</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="4a9d9ae1-39b1-460d-bd0d-8c5c38a4a20f" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="OptionalToOneDestId" />
+        <entry key="association" value="4a9d9ae1-39b1-460d-bd0d-8c5c38a4a20f" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="86745f35-4a89-4d50-a758-addf5d2f12c1" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
       <name>Constructor</name>
       <display>OptionalToOneSource(attribute: string, optionalToOneDest: OptionalToOneDest)</display>
