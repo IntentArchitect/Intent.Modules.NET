@@ -242,9 +242,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
-            if (_template.Model.Mapping?.Element == null ||
-                !_template.Model.Mapping.Element.IsClassConstructorModel() ||
-                _template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            if (_template.Model.Mapping?.Element?.IsClassConstructorModel() != true)
             {
                 return NoMatch;
             }
