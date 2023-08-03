@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using Azure.Storage.Queues.Models;
 using AzureFunctions.TestApplication.Application.Queues.CreateCustomerWrappedMessage;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -32,6 +33,7 @@ namespace AzureFunctions.TestApplication.Api
         {
             var createCustomerWrappedMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(message.Body.ToString())!;
             await _mediator.Send(createCustomerWrappedMessage, cancellationToken);
+
         }
     }
 }

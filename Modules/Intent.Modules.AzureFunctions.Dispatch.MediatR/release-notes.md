@@ -1,7 +1,7 @@
 ### Version 1.0.8
 
-
-- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage` .
+- Update: Improved Queue Trigger support, including receiving messages as `QueueMessage`.
+- Update: Proper return statement handling for when code gets wrapped.
 
 ### Version 1.0.6
 

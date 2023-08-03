@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using AzureFunctions.TestApplication.Application.Customers.UpdateCustomer;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -47,7 +48,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonConvert.DeserializeObject<UpdateCustomerCommand>(requestBody);
+                var command = JsonConvert.DeserializeObject<UpdateCustomerCommand>(requestBody)!;
                 if (id != command.Id)
                 {
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });

@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using AzureFunctions.TestApplication.Application;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
@@ -49,11 +50,17 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody);
+                var dto = JsonConvert.DeserializeObject<SampleDomainCreateDto>(requestBody)!;
                 await _validator.Handle(dto, cancellationToken);
-                var result = await _appService.CreateSampleDomain(dto);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                return new CreatedResult(string.Empty, result);
+
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    var result = await _appService.CreateSampleDomain(dto, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                    return new CreatedResult(string.Empty, result);
+                }
             }
             catch (ValidationException exception)
             {

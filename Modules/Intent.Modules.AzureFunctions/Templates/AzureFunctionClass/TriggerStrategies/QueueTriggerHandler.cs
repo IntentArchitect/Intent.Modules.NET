@@ -87,14 +87,13 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
             {
                 _template.CSharpFile.OnBuild(file =>
                 {
-                    var @class = file.Classes.FirstOrDefault();
-                    var method = @class.FindMethod("Run");
-                    var returnStatement = method.Statements.FirstOrDefault(s => s.GetText(string.Empty).StartsWith("return "));
-                    if (returnStatement != null)
-                    {
-                        returnStatement.Remove();
-                    }
-                    method.AddStatement($"await queueClient.SendMessageAsync({_template.UseType("Newtonsoft.Json.JsonConvert")}.SerializeObject(result), cancellationToken);");
+                    var @class = file.Classes.First();
+                    var runMethod = @class.FindMethod("Run");
+                    
+                    var returnStatement = runMethod?.FindStatement(x => x.HasMetadata("return"));
+                    returnStatement?.Remove();
+                    runMethod?.AddStatement($"await queueClient.SendMessageAsync({_template.UseType("Newtonsoft.Json.JsonConvert")}.SerializeObject(result), cancellationToken);",
+                        stmt => stmt.AddMetadata("return", true));
                 }, 100);
             }
         }

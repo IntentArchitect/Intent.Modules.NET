@@ -5,12 +5,13 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using AzureFunctions.TestApplication.Application.Customers.CreateCustomer;
+using AzureFunctions.TestApplication.Application;
+using AzureFunctions.TestApplication.Application.Interfaces;
+using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -24,32 +25,43 @@ using Newtonsoft.Json;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class CreateCustomer
+    public class UpdateSampleDomain
     {
-        private readonly IMediator _mediator;
+        private readonly ISampleDomainsService _appService;
+        private readonly IValidationService _validator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomer(IMediator mediator, IUnitOfWork unitOfWork)
+        public UpdateSampleDomain(ISampleDomainsService appService, IValidationService validator, IUnitOfWork unitOfWork)
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CreateCustomer")]
-        [OpenApiOperation("CreateCustomerCommand", tags: new[] { "Customers" }, Description = "Create customer command")]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateCustomerCommand))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
+        [FunctionName("UpdateSampleDomain")]
+        [OpenApiOperation("UpdateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Update sample domain")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainUpdateDto))]
+        [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "customers")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "put", Route = "sample-domains/{id}")] HttpRequest req,
+            Guid id,
             CancellationToken cancellationToken)
         {
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonConvert.DeserializeObject<CreateCustomerCommand>(requestBody)!;
-                var result = await _mediator.Send(command, cancellationToken);
-                return new CreatedResult(string.Empty, result);
+                var dto = JsonConvert.DeserializeObject<SampleDomainUpdateDto>(requestBody)!;
+                await _validator.Handle(dto, cancellationToken);
+
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.UpdateSampleDomain(id, dto, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                    return new NoContentResult();
+                }
             }
             catch (ValidationException exception)
             {

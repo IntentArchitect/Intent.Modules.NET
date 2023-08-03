@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using Azure.Storage.Queues;
 using AzureFunctions.TestApplication.Application.Customers;
 using AzureFunctions.TestApplication.Application.Interfaces.Queues.Bindings;
@@ -33,9 +34,14 @@ namespace AzureFunctions.TestApplication.Api
             [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {
-            var result = await _appService.BindingTest(dto);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
-            await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            {
+                var result = await _appService.BindingTest(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+                await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
+            }
         }
     }
 }

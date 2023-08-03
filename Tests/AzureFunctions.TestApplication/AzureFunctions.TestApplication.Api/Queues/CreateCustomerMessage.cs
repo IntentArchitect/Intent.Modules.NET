@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using Azure.Storage.Queues.Models;
 using AzureFunctions.TestApplication.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -32,6 +33,7 @@ namespace AzureFunctions.TestApplication.Api
         {
             var createCustomerMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerMessage.CreateCustomerMessage>(message.Body.ToString())!;
             await _mediator.Send(createCustomerMessage, cancellationToken);
+
         }
     }
 }

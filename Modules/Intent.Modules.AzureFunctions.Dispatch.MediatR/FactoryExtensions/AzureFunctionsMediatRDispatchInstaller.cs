@@ -61,13 +61,12 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                             {
                                 p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                             });
-
-
+                        
                         var runMethod = @class.FindMethod("Run");
                         ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod)?
                             .AddStatements(GetValidations(template.Model))
                             .AddStatement(GetDispatchViaMediatorStatement(template, template.Model))
-                            .AddStatements(GetReturnStatement(template, template.Model));
+                            .AddStatement(GetReturnStatement(template.Model));
                     });
                 }
             }
@@ -105,26 +104,28 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 : new CSharpStatement($@"await _mediator.Send({payload}, cancellationToken);");
         }
 
-        private IEnumerable<CSharpStatement> GetReturnStatement(ICSharpFileBuilderTemplate template, IAzureFunctionModel operationModel)
+        private static CSharpStatement GetReturnStatement(string statement)
         {
-            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, "");
+            return new CSharpStatement(statement).AddMetadata("return", true);
+        } 
+
+        private static CSharpStatement GetReturnStatement(IAzureFunctionModel operationModel)
+        {
+            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, string.Empty);
             switch (endpoint?.Verb)
             {
                 case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
-                        yield return "return new NoContentResult();";
-                        break;
+                        return GetReturnStatement("return new NoContentResult();");
                     }
 
                     if (operationModel.ReturnType.IsCollection)
                     {
-                        yield return "return new OkObjectResult(result);";
-                        break;
+                        return GetReturnStatement("return new OkObjectResult(result);");
                     }
 
-                    yield return @"return result != null ? new OkObjectResult(result) : new NotFoundResult();";
-                    break;
+                    return GetReturnStatement(@"return result != null ? new OkObjectResult(result) : new NotFoundResult();");
                 case HttpVerb.Post:
                     var getByIdFunction = (operationModel.InternalElement.ParentElement?.ChildElements ?? operationModel.InternalElement.Package.ChildElements)
                             .Where(x => x.IsAzureFunctionModel())
@@ -136,27 +137,25 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                                 x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdFunction != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        yield return $@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});";
-                        break;
+                        return GetReturnStatement($@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});");
                     }
-                    yield return operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);";
-                    break;
+                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);");
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    yield return operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);";
-                    break;
+                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);");
                 case HttpVerb.Delete:
-                    yield return operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);";
-                    break;
+                    return GetReturnStatement( operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);");
                 case null:
                     if (operationModel.ReturnType != null)
                     {
-                        yield return $"return result;";
+                        return GetReturnStatement( $"return result;");
                     }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            return string.Empty;
         }
 
         private static IAzureFunctionParameterModel GetPayloadParameter(IAzureFunctionModel operation)

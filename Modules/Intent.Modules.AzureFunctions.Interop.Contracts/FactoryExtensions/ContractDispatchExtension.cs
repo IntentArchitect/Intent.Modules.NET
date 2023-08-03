@@ -88,7 +88,8 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                 _ => throw new ArgumentOutOfRangeException()
             };
 
-            return result;
+            return new CSharpStatement(result)
+                .AddMetadata("return", true);
         }
 
         private static string GetResultExpression(AzureFunctionClassTemplate template)

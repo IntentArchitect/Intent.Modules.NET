@@ -1,7 +1,8 @@
 ### Version 4.1.3
 
-- Update : Improved Queue Trigger support, including receiving messages as `QueueMessage`.
+- Update: Improved Queue Trigger support, including receiving messages as `QueueMessage`.
 - Update: Passes through cancellation tokens where appropriate.
+- Update: Proper return statement handling for when code gets wrapped.
 
 ### Version 4.1.1
 

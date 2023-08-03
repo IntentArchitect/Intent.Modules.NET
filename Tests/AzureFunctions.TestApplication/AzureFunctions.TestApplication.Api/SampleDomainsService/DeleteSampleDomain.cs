@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -42,9 +43,14 @@ namespace AzureFunctions.TestApplication.Api
         {
             try
             {
-                await _appService.DeleteSampleDomain(id);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                return new OkResult();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.DeleteSampleDomain(id, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                    return new OkResult();
+                }
             }
             catch (NotFoundException exception)
             {

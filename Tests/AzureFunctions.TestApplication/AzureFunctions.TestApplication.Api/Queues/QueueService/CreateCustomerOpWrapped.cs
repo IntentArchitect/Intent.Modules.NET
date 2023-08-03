@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using Azure.Storage.Queues.Models;
 using AzureFunctions.TestApplication.Application.Customers;
 using AzureFunctions.TestApplication.Application.Interfaces.Queues;
@@ -31,9 +32,15 @@ namespace AzureFunctions.TestApplication.Api
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
             var dto = JsonConvert.DeserializeObject<CustomerDto>(message.Body.ToString())!;
-            await _appService.CreateCustomerOpWrapped(dto);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
-            return;
+
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            {
+                await _appService.CreateCustomerOpWrapped(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+                return;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ### Version 4.2.0
 
 - Update: Passes through cancellation tokens where appropriate.
+- Update: Adds relational db transaction scope.
 - Update: Internal updates.
 
 ### Version 4.1.1

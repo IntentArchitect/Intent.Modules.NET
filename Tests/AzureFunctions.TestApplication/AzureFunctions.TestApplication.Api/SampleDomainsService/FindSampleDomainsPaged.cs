@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Application.Common.Pagination;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Exceptions;
@@ -20,26 +21,30 @@ using Microsoft.OpenApi.Models;
 
 namespace AzureFunctions.TestApplication.Api
 {
-    public class FindSampleDomains
+    public class FindSampleDomainsPaged
     {
         private readonly ISampleDomainsService _appService;
 
-        public FindSampleDomains(ISampleDomainsService appService)
+        public FindSampleDomainsPaged(ISampleDomainsService appService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
-        [FunctionName("FindSampleDomains")]
-        [OpenApiOperation("FindSampleDomains", tags: new[] { "SampleDomains" }, Description = "Find sample domains")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<SampleDomainDto>))]
+        [FunctionName("FindSampleDomainsPaged")]
+        [OpenApiOperation("FindSampleDomainsPaged", tags: new[] { "SampleDomainsPaged" }, Description = "Find sample domains paged")]
+        [OpenApiParameter(name: "pageNo", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
+        [OpenApiParameter(name: "pageSize", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(PagedResult<SampleDomainDto>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains-paged")] HttpRequest req,
             CancellationToken cancellationToken)
         {
             try
             {
-                var result = await _appService.FindSampleDomains();
+                int pageNo = AzureFunctionHelper.GetQueryParam("pageNo", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
+                int pageSize = AzureFunctionHelper.GetQueryParam("pageSize", req.Query, (string val, out int parsed) => int.TryParse(val, out parsed));
+                var result = await _appService.FindSampleDomainsPaged(pageNo, pageSize, cancellationToken);
                 return new OkObjectResult(result);
             }
             catch (NotFoundException exception)

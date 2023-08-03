@@ -21,8 +21,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.FactoryExten
     {
         public override string Id => "Intent.AzureFunctions.Interop.EntityFrameworkCore.AzureFunctionExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -49,20 +48,35 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.FactoryExten
 
                 template.CSharpFile.OnBuild(file =>
                 {
+                    file.AddUsing("System.Transactions");
                     var @class = file.Classes.First();
-                    @class.Constructors.First().AddParameter(GetUnitOfWork(template), "unitOfWork", param =>
-                    {
-                        param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
+                    @class.Constructors.First().AddParameter(GetUnitOfWork(template), "unitOfWork",
+                        param => { param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     var runMethod = @class.FindMethod("Run");
+                    var dispatchStatement = runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"));
 
-                    runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
-                        ?.InsertBelow($"await _unitOfWork.SaveChangesAsync(cancellationToken);");
-                }, 10);
+                    if (dispatchStatement is null) return;
+                    var returnStatement = runMethod.FindStatement(x => x.HasMetadata("return"));
+
+                    var transactionScope = new CSharpUsingBlock($@"var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled)")
+                        .AddStatement($"await _unitOfWork.SaveChangesAsync(cancellationToken);")
+                        .AddStatement("transaction.Complete();");
+                    transactionScope.AddMetadata("transaction-scope", true);
+                    dispatchStatement.InsertAbove(transactionScope);
+                    dispatchStatement.Remove();
+                    
+                    transactionScope.InsertStatement(0, dispatchStatement);
+                    if (returnStatement is not null)
+                    {
+                        returnStatement.Remove();
+                        transactionScope.InsertStatement(transactionScope.Statements.Count, returnStatement);
+                    }
+                }, 150);
             }
         }
-        
+
         private static string GetUnitOfWork(AzureFunctionClassTemplate template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||

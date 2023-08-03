@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using Azure.Storage.Queues;
 using AzureFunctions.TestApplication.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
