@@ -1,3 +1,7 @@
+### Version 4.4.0
+
+- Update: Constructors will now be "Merge" by default. This will make user based injections and code-gen injections feasible.
+
 ### Version 4.3.1
 
 - New: Support for XmlDocComments on Operation Parameters.

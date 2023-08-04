@@ -13,7 +13,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class ListedUnlistedServicesService : IListedUnlistedServicesService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public ListedUnlistedServicesService()
         {
         }

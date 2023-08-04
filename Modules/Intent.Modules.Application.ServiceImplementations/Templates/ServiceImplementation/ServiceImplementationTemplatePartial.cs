@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     priClass.ImplementsInterface(GetServiceInterfaceName());
                     priClass.AddConstructor(ctor =>
                     {
-                        ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
                     foreach (var operation in Model.Operations)
                     {

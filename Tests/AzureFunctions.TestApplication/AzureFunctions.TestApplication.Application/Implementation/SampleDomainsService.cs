@@ -23,7 +23,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
         private readonly ISampleDomainRepository _sampleDomainRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public SampleDomainsService(ISampleDomainRepository sampleDomainRepository, IMapper mapper)
         {
             _sampleDomainRepository = sampleDomainRepository;
