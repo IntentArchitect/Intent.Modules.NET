@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +20,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BlobStorageInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\BlobStorageExtensions\BlobStorageExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BlobStorageExtensionsTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +39,10 @@
     <None Update="Templates\BlobStorageInterface\BlobStorageInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BlobStorageInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\BlobStorageExtensions\BlobStorageExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BlobStorageExtensionsTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

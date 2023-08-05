@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Azure.BlobStorage</id>
-  <version>3.3.2</version>
+  <version>3.4.0-pre.0</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Blob storage client that can link with Azure's Blob Storage.</summary>
   <description>Introduces a Blob storage client that can link with Azure's Blob Storage.</description>
@@ -17,6 +17,14 @@
       </config>
       <role>Infrastructure.Storage.AzureBlobStorage</role>
       <location>BlobStorage</location>
+    </template>
+    <template id="Intent.Azure.BlobStorage.BlobStorageExtensions" externalReference="3d635267-c9c2-442a-b74a-74ae676250e4">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Storage.BlobStorageExtensions</role>
+      <location>Common/Storage</location>
     </template>
     <template id="Intent.Azure.BlobStorage.BlobStorageInterface" externalReference="5c95b2ae-4289-47be-92c3-41dd2ab00e86">
       <config>

@@ -33,6 +33,7 @@ namespace AzureFunctions.TestApplication.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IAzureBlobStorageService, AzureBlobStorageService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();
             services.AddTransient<IQueueService, QueueService>();

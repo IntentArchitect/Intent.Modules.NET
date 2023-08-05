@@ -1,8 +1,10 @@
 using System.Reflection;
 using AutoMapper;
 using AzureFunctions.TestApplication.Application;
+using AzureFunctions.TestApplication.Application.Common.Storage;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using AzureFunctions.TestApplication.Domain.Repositories;
+using AzureFunctions.TestApplication.Infrastructure.BlobStorage;
 using AzureFunctions.TestApplication.Infrastructure.Persistence;
 using AzureFunctions.TestApplication.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -25,6 +27,7 @@ namespace AzureFunctions.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IBlobStorage, AzureBlobStorage>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<ISampleDomainRepository, SampleDomainRepository>();
             return services;

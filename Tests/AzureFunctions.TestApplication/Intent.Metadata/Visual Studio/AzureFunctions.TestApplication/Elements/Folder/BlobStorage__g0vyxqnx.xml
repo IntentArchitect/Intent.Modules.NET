@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f259f9ca-03d1-4c69-b8c3-7b4e79541e45" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>BlobStorage</name>
+  <display>BlobStorage</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>af96acde-b300-436c-a446-7e38fce728f3</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="77a56fd8-194b-47f0-bf38-36f08207e9b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</name>
+      <display>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</display>
+      <externalReference>Intent.Azure.BlobStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f259f9ca-03d1-4c69-b8c3-7b4e79541e45</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

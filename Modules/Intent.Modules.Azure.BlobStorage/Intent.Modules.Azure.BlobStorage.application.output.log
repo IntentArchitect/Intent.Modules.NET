@@ -66,6 +66,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3d635267-c9c2-442a-b74a-74ae676250e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BlobStorageExtensions/BlobStorageExtensionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlobStorageExtensions/BlobStorageExtensionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3d635267-c9c2-442a-b74a-74ae676250e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BlobStorageExtensions/BlobStorageExtensionsTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlobStorageExtensions/BlobStorageExtensionsTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d635267-c9c2-442a-b74a-74ae676250e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BlobStorageExtensions/BlobStorageExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlobStorageExtensions/BlobStorageExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3d635267-c9c2-442a-b74a-74ae676250e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BlobStorageExtensions/BlobStorageExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlobStorageExtensions/BlobStorageExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#5c95b2ae-4289-47be-92c3-41dd2ab00e86</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/BlobStorageInterface/BlobStorageInterfaceTemplate.cs</ApplicationRelativeFilePath>

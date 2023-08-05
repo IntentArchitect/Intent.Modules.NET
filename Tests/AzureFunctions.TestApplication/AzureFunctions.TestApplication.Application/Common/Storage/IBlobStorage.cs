@@ -1,31 +1,23 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="Intent.Modules.Common" #>
-<#@ import namespace="Intent.Modules.Common.Templates" #>
-<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
-<#@ import namespace="Intent.Templates" #>
-<#@ import namespace="Intent.Metadata.Models" #>
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Azure.BlobStorage.BlobStorageInterface", Version = "1.0")]
 
-namespace <#= Namespace #>
+namespace AzureFunctions.TestApplication.Application.Common.Storage
 {
     /// <summary>
     /// Represents a single item used for bulk uploads to blob storage.
     /// </summary>
     public record BulkBlobItem(string Name, Stream DataStream);
-
     /// <summary>
     /// A simplified service interface to access Blob Storage.
     /// </summary>
-    public interface <#= ClassName #>
+    public interface IBlobStorage
     {
         /// <summary>
         /// Retrieves the URI of a specific blob from a given container.

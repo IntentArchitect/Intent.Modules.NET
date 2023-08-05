@@ -1,13 +1,3 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
-<#@ output extension=".cs"#>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="Intent.Modules.Common" #>
-<#@ import namespace="Intent.Modules.Common.Templates" #>
-<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
-<#@ import namespace="Intent.Templates" #>
-<#@ import namespace="Intent.Metadata.Models" #>
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,18 +6,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using AzureFunctions.TestApplication.Application.Common.Storage;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Azure.BlobStorage.AzureBlobStorageImplementation", Version = "1.0")]
 
-namespace <#= Namespace #>
+namespace AzureFunctions.TestApplication.Infrastructure.BlobStorage
 {
-    public class <#= ClassName #> : <#= this.GetBlobStorageInterfaceName() #>
+    public class AzureBlobStorage : IBlobStorage
     {
         private const PublicAccessType ContainerPublicAccessType = PublicAccessType.None;
         private readonly BlobServiceClient _client;
 
-        public <#= ClassName #>(IConfiguration configuration)
+        public AzureBlobStorage(IConfiguration configuration)
         {
             _client = new BlobServiceClient(configuration.GetValue<string>("AzureBlobStorage"));
         }
@@ -37,8 +30,8 @@ namespace <#= Namespace #>
             var blobClient = await GetBlobClient(containerName, blobName, cancellationToken).ConfigureAwait(false);
             return blobClient.Uri;
         }
-        
-        public async IAsyncEnumerable<Uri> ListAsync(string containerName, 
+
+        public async IAsyncEnumerable<Uri> ListAsync(string containerName,
             [EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             var containerClient = await GetContainerClientAsync(containerName, cancellationToken).ConfigureAwait(false);
@@ -47,21 +40,21 @@ namespace <#= Namespace #>
                 yield return await GetAsync(containerName, blobItem.Name, cancellationToken);
             }
         }
-        
+
         public Task<Uri> UploadAsync(Uri cloudStorageLocation, Stream dataStream, CancellationToken cancellationToken = default)
         {
             var blobUriBuilder = new BlobUriBuilder(cloudStorageLocation);
             return UploadAsync(blobUriBuilder.BlobContainerName, blobUriBuilder.BlobName, dataStream, cancellationToken);
         }
 
-        public async Task<Uri> UploadAsync(string containerName, string blobName, Stream dataStream, 
+        public async Task<Uri> UploadAsync(string containerName, string blobName, Stream dataStream,
             CancellationToken cancellationToken = default)
         {
             var blobClient = await GetBlobClient(containerName, blobName, cancellationToken).ConfigureAwait(false);
             await blobClient.UploadAsync(dataStream, overwrite: true, cancellationToken).ConfigureAwait(false);
             return blobClient.Uri;
         }
-        
+
         public async IAsyncEnumerable<Uri> BulkUploadAsync(
             string containerName,
             IEnumerable<BulkBlobItem> blobs,
@@ -98,10 +91,14 @@ namespace <#= Namespace #>
             await blobClient.DeleteAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
+
+
+
+
         private async Task<BlobContainerClient> GetContainerClientAsync(string containerName, CancellationToken cancellationToken)
         {
             var containerClient = _client.GetBlobContainerClient(containerName);
-            await containerClient.CreateIfNotExistsAsync(ContainerPublicAccessType, cancellationToken: cancellationToken); 
+            await containerClient.CreateIfNotExistsAsync(ContainerPublicAccessType, cancellationToken: cancellationToken);
             return containerClient;
         }
 
