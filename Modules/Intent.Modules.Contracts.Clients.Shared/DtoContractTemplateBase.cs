@@ -8,7 +8,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Integration.HttpClients.Shared;
 
 namespace Intent.Modules.Contracts.Clients.Shared
 {

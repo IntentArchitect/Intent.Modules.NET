@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -24,24 +23,23 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         string jsonResponseTemplateId,
         string serviceContractTemplateId,
         string dtoContractTemplateId,
-        string enumContractTemplateId,
-        IEnumerable<string> additionalFolderParts = null)
+        string enumContractTemplateId)
         : base(templateId, outputTarget, model)
     {
         var endpoints = Model.GetMappedEndpoints().ToArray();
-        var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
 
         AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
+        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
         AddTypeSource(serviceContractTemplateId);
-        AddTypeSource(dtoContractTemplateId).WithCollectionFormat("List<{0}>");
-        AddTypeSource(enumContractTemplateId).WithCollectionFormat("List<{0}>");
-        SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
+        AddTypeSource(dtoContractTemplateId);
+        AddTypeSource(enumContractTemplateId);
 
-        CSharpFile = new CSharpFile(this.GetNamespace(additionalFolderPartsAsArray), this.GetFolderPath(additionalFolderPartsAsArray))
+        CSharpFile = new CSharpFile(
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath())
             .AddUsing("System")
-            .AddUsing("System.Collections.Generic")
             .AddUsing("System.IO")
             .AddUsing("System.Linq")
             .AddUsing("System.Net")

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Common;
@@ -22,7 +23,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Contracts.Clients.DtoContract";
 
-        public DtoContractTemplate(IOutputTarget outputTarget, ServiceProxyDTOModel model)
+        public DtoContractTemplate(IOutputTarget outputTarget, DTOModel model)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,

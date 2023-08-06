@@ -13,5 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceContractTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ToFullyManagedUsingsMigration.cs" />
   </ItemGroup>
 </Project>

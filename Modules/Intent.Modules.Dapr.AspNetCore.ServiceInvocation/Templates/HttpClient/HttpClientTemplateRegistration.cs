@@ -37,7 +37,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Where(p => p.GetMappedEndpoints().Any());
+                .Where(p => p.HasMappedEndpoints());
         }
     }
 }

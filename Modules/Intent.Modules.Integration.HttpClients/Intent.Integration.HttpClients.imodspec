@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
   <version>4.1.1-pre.0</version>
@@ -64,7 +64,5 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata>
-    <install src="modelers/Service Proxies Extension.designer.settings" externalReference="0369aeff-6e47-4619-9170-2a802bd9ef82" target="Service Proxies" />
-  </metadata>
+  <metadata />
 </package>

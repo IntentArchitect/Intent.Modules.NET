@@ -35,8 +35,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
                 jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
                 serviceContractTemplateId: ServiceContractTemplate.TemplateId,
                 dtoContractTemplateId: DtoContractTemplate.TemplateId,
-                enumContractTemplateId: EnumContractTemplate.TemplateId,
-                additionalFolderParts: new[] { "Implementations" })
+                enumContractTemplateId: EnumContractTemplate.TemplateId)
         {
         }
     }

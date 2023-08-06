@@ -34,17 +34,17 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         public override string TransformText()
         {
             this.Write("using System;\r\nusing Microsoft.Extensions.Configuration;\r\nusing Microsoft.Extensi" +
-                    "ons.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nname" +
-                    "space ");
+                    "ons.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n[assem" +
+                    "bly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -60,7 +60,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
 
 ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
 
     foreach (var proxy in Model)
     {
@@ -70,14 +70,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             #line hidden
             this.Write("            services.AddHttpClient<");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetServiceContractName(proxy)));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetHttpClientName(proxy)));
             
             #line default
@@ -85,28 +85,28 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             this.Write(">(http =>\r\n            {\r\n                http.BaseAddress = configuration.GetVal" +
                     "ue<Uri>(\"");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Uri")));
             
             #line default
             #line hidden
             this.Write("\");\r\n                http.Timeout = configuration.GetValue<TimeSpan?>(\"");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Timeout")));
             
             #line default
             #line hidden
             this.Write("\") ?? TimeSpan.FromSeconds(100);\r\n            })");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageHandlers(proxy)));
             
             #line default
             #line hidden
             this.Write(";\r\n");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt"
         
     }
 

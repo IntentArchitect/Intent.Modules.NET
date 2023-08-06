@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -8,7 +6,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Contracts.Clients.Shared
@@ -19,26 +16,22 @@ namespace Intent.Modules.Contracts.Clients.Shared
             string templateId,
             IOutputTarget outputTarget,
             ServiceProxyModel model,
-            string enumContractTemplateId,
             string dtoContractTemplateId,
-            IEnumerable<string> additionalFolderParts = null,
-            string typeNameSuffix = "Client")
+            string enumContractTemplateId)
             : base(templateId, outputTarget, model)
         {
-            var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
-            
-            AddTypeSource(enumContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(dtoContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(enumContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
 
             CSharpFile = new CSharpFile(
-                    @namespace: $"{this.GetNamespace(additionalFolderPartsAsArray)}",
-                    relativeLocation: $"{this.GetFolderPath(additionalFolderPartsAsArray)}")
+                    @namespace: $"{this.GetNamespace()}",
+                    relativeLocation: $"{this.GetFolderPath()}")
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
-                .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client")}{typeNameSuffix}",
+                .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client", "Proxy")}Service",
                     @interface =>
                     {
                         @interface.ImplementsInterfaces("IDisposable");

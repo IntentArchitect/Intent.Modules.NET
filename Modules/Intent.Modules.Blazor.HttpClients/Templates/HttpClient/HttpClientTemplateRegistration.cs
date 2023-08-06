@@ -37,7 +37,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.WebClient(application).GetServiceProxyModels()
-                .Where(p => p.GetMappedEndpoints().Any());
+                .Where(p => p.HasMappedEndpoints());
         }
     }
 }

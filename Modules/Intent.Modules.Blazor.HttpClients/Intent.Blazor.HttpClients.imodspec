@@ -32,7 +32,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.HttpClient</role>
-      <location></location>
+      <location>HttpClients</location>
     </template>
     <template id="Intent.Blazor.HttpClients.HttpClientConfiguration" externalReference="dc09e8b0-3fa3-48f5-9c9a-12378dce269e">
       <config>
@@ -63,7 +63,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.HttpClient.Contracts.ServiceContract</role>
+      <role>Blazor.HttpClient.ServiceContract</role>
       <location></location>
     </template>
   </templates>

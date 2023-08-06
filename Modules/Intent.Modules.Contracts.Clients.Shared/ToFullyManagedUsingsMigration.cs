@@ -1,9 +1,9 @@
 using System;
 using Intent.Modules.Common.Templates;
 
-namespace Intent.Modules.Integration.HttpClients.Shared;
+namespace Intent.Modules.Contracts.Clients.Shared;
 
-internal class ToFullyManagedUsingsMigration : ITemplateMigration
+public class ToFullyManagedUsingsMigration : ITemplateMigration
 {
     private readonly int _version;
 

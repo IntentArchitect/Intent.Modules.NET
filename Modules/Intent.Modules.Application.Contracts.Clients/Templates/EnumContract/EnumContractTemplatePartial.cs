@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -15,12 +16,12 @@ using Intent.Templates;
 namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class EnumContractTemplate : CSharpTemplateBase<ServiceProxyEnumModel>
+    partial class EnumContractTemplate : CSharpTemplateBase<EnumModel>
     {
         public const string TemplateId = "Intent.Application.Contracts.Clients.EnumContract";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EnumContractTemplate(IOutputTarget outputTarget, ServiceProxyEnumModel model) : base(TemplateId, outputTarget, model)
+        public EnumContractTemplate(IOutputTarget outputTarget, EnumModel model) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -29,8 +30,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
-                relativeLocation: $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}");
+                @namespace: this.GetPackageBasedNamespace(),
+                relativeLocation: this.GetPackageBasedRelativeLocation());
         }
     }
 }

@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -35,7 +36,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
                 httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
                 jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
                 serviceContractTemplateId: ServiceContractTemplate.TemplateId,
-                dtoContractTemplateId: DtoContractTemplate.TemplateId)
+                dtoContractTemplateId: DtoContractTemplate.TemplateId,
+                enumContractTemplateId: EnumContractTemplate.TemplateId)
         {
         }
 

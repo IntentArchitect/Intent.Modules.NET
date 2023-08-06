@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using ServiceProxyHelpers = Intent.Modules.Application.Contracts.Clients.ServiceProxyHelpers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -39,6 +40,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
+   
         public override void BeforeTemplateExecution()
         {
             foreach (var proxy in Model.Distinct(new ServiceModelComparer()))
@@ -67,7 +70,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         private string GetMessageHandlers(ServiceProxyModel proxy)
         {
             var parentSecured = default(bool?);
-            if (proxy.GetMappedEndpoints()
+            if (ServiceProxyHelpers.GetMappedEndpoints(proxy)
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true))
             {
                 return string.Empty;
