@@ -9,8 +9,8 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1" />
-    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="4.1.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="4.1.0" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="4.1.1-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="4.1.1-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

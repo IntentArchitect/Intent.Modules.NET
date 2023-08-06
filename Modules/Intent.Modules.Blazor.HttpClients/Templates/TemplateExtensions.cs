@@ -17,22 +17,22 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel
+        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.Api.DTOModel
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDtoContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel model)
+        public static string GetDtoContractName(this IIntentTemplate template, Intent.Modelers.Services.Api.DTOModel model)
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, model);
         }
 
-        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyEnumModel
+        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEnumContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyEnumModel model)
+        public static string GetEnumContractName(this IIntentTemplate template, Intent.Modules.Common.Types.Api.EnumModel model)
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, model);
         }

@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Contracts.Clients.Shared
@@ -36,6 +37,7 @@ namespace Intent.Modules.Contracts.Clients.Shared
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
+                .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client")}{typeNameSuffix}",
                     @interface =>
                     {
@@ -86,5 +88,7 @@ namespace Intent.Modules.Contracts.Clients.Shared
         {
             return CSharpFile.ToString();
         }
+
+        public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
     }
 }

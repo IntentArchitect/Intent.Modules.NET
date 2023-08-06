@@ -24,18 +24,19 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         string jsonResponseTemplateId,
         string serviceContractTemplateId,
         string dtoContractTemplateId,
+        string enumContractTemplateId,
         IEnumerable<string> additionalFolderParts = null)
         : base(templateId, outputTarget, model)
     {
-        var serviceContractTemplateId1 = serviceContractTemplateId;
         var endpoints = Model.GetMappedEndpoints().ToArray();
         var additionalFolderPartsAsArray = additionalFolderParts?.ToArray() ?? Array.Empty<string>();
 
         AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
-        AddTypeSource(serviceContractTemplateId1);
+        AddTypeSource(serviceContractTemplateId);
         AddTypeSource(dtoContractTemplateId).WithCollectionFormat("List<{0}>");
+        AddTypeSource(enumContractTemplateId).WithCollectionFormat("List<{0}>");
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
 
         CSharpFile = new CSharpFile(this.GetNamespace(additionalFolderPartsAsArray), this.GetFolderPath(additionalFolderPartsAsArray))
@@ -50,11 +51,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             .AddUsing("System.Text.Json")
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
+            .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
             {
                 @class
-                    .ImplementsInterface(GetTypeName(serviceContractTemplateId1, Model))
+                    .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
                     .AddConstructor(constructor => constructor
                         .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
@@ -202,6 +204,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
     {
         return CSharpFile.ToString();
     }
+
+    public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
 
     private string GetReturnType(IHttpEndpointModel endpoint)
     {

@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DtoContractTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceContractTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
   </ItemGroup>

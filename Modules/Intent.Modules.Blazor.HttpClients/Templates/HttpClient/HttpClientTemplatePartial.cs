@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
+using Intent.Modules.Blazor.HttpClients.Templates.EnumContract;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Blazor.HttpClients.Templates.JsonResponse;
 using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
@@ -34,7 +35,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
                 jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
                 serviceContractTemplateId: ServiceContractTemplate.TemplateId,
                 dtoContractTemplateId: DtoContractTemplate.TemplateId,
-                additionalFolderParts: new[] { model.Name.ToPascalCase() })
+                enumContractTemplateId: EnumContractTemplate.TemplateId,
+                additionalFolderParts: new[] { "Implementations" })
         {
         }
     }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -30,10 +32,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                 AddNugetDependency("Microsoft.AspNetCore.Components.WebAssembly.Authentication", "6.0.20");
             }
 
-            
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"HttpClientConfiguration", @class =>
                 {
                     @class.Static();
@@ -105,17 +106,19 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
             return CSharpFile.ToString();
         }
 
+        public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
+
         private static bool RequiresAuthorization(ServiceProxyModel model)
         {
             return model.GetMappedEndpoints().Any(x => x.RequiresAuthorization);
         }
 
-        private string GetApplicationName(ServiceProxyModel model)
+        private static string GetApplicationName(ServiceProxyModel model)
         {
-            var applicationId = model.InternalElement.MappedElement.ApplicationId;
-            var applicationConfig = ExecutionContext.GetApplicationConfig(applicationId);
-
-            return applicationConfig.Name.ToCSharpIdentifier();
+            return string.Concat(((IElement)model.InternalElement.MappedElement.Element).Package.Name
+                .RemoveSuffix(".Services")
+                .Split('.')
+                .Select(x => x.ToCSharpIdentifier()));
         }
     }
 }

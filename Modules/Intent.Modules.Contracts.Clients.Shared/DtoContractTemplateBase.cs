@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Integration.HttpClients.Shared;
 
 namespace Intent.Modules.Contracts.Clients.Shared
 {
-    public abstract class DtoContractTemplateBase : CSharpTemplateBase<ServiceProxyDTOModel>, ICSharpFileBuilderTemplate
+    public abstract class DtoContractTemplateBase : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
     {
         protected DtoContractTemplateBase(
             string templateId,
             IOutputTarget outputTarget,
-            ServiceProxyDTOModel model,
-            string enumContractTemplateId,
-            string @namespace = null,
-            string relativeLocation = null)
+            DTOModel model,
+            string enumContractTemplateId)
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
@@ -28,8 +26,9 @@ namespace Intent.Modules.Contracts.Clients.Shared
             AddTypeSource(enumContractTemplateId, "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(
-                    @namespace: @namespace ?? $"{((IntentTemplateBase)this).GetNamespace(Model.ServiceProxy.Name.ToPascalCase())}",
-                    relativeLocation: relativeLocation ?? $"{((IntentTemplateBase)this).GetFolderPath(Model.ServiceProxy.Name.ToPascalCase())}")
+                    @namespace: this.GetPackageBasedNamespace(),
+                    relativeLocation: this.GetPackageBasedRelativeLocation())
+                .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"{Model.Name}", @class =>
                 {
                     foreach (var genericType in Model.GenericTypes)
@@ -133,5 +132,7 @@ namespace Intent.Modules.Contracts.Clients.Shared
         {
             return CSharpFile.ToString();
         }
+
+        public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
     }
 }
