@@ -1,8 +1,9 @@
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AggregateRootsService;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.CleanArchitecture.TestApplication.Services.AggregateRoots;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Blazor.HttpClients.ServiceContract", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.Blazor.HttpClients.ServiceContract", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
 {

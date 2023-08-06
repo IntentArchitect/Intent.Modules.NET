@@ -91,7 +91,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromQuery, out var queryParams))
                         {
-                            method.AddStatement("var queryParams = new Dictionary<string, string>();", s => s.SeparatedFromPrevious());
+                            method.AddStatement($"var queryParams = new {UseType("System.Collections.Generic.Dictionary")}<string, string>();", s => s.SeparatedFromPrevious());
 
                             foreach (var queryParameter in queryParams)
                             {

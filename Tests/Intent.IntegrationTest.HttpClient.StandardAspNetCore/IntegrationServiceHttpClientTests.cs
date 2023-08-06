@@ -7,12 +7,11 @@ using Standard.AspNetCore.TestApplication.Api.Controllers;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Common.Exceptions;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.IntegrationServiceProxy;
-using Standard.AspNetCore.TestApplication.Application.Interfaces;
+using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standard.AspNetCore.TestApplication.Services.Integration;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Xunit;
 using Xunit.Abstractions;
-
+using IIntegrationService = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IIntegrationService;
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
 [Collection("IntegrationTests")]
@@ -35,7 +34,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         await integrationService.QueryParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
     }
 
@@ -46,7 +45,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         await integrationService.BodyParamOpAsync(CustomDTO.Create(IntegrationService.ReferenceNumber));
     }
 
@@ -57,7 +56,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         await integrationService.FormParamOpAsync(IntegrationService.DefaultString, IntegrationService.DefaultInt);
     }
 
@@ -68,7 +67,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         await integrationService.HeaderParamOpAsync(IntegrationService.DefaultString);
     }
 
@@ -79,7 +78,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         await integrationService.RouteParamOpAsync(IntegrationService.DefaultString);
     }
 
@@ -90,7 +89,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await integrationService.ThrowsExceptionAsync(); });
         Assert.NotEmpty(exception.Message);
         Assert.Contains(IntegrationService.ExceptionMessage, exception.ResponseContent);
@@ -103,7 +102,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var result = await integrationService.GetWrappedPrimitiveGuidAsync();
         Assert.Equal(IntegrationService.DefaultGuid, result);
         result = await integrationService.GetPrimitiveGuidAsync();
@@ -117,7 +116,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var result = await integrationService.GetWrappedPrimitiveStringAsync();
         Assert.Equal(IntegrationService.DefaultString, result);
         result = await integrationService.GetPrimitiveStringAsync();
@@ -131,7 +130,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var result = await integrationService.GetWrappedPrimitiveIntAsync();
         Assert.Equal(IntegrationService.DefaultInt, result);
         result = await integrationService.GetPrimitiveIntAsync();
@@ -145,7 +144,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var result = await integrationService.GetPrimitiveStringListAsync();
         Assert.Equal(new List<string> { IntegrationService.DefaultString }, result);
     }
@@ -157,7 +156,7 @@ public class IntegrationServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var integrationService = sp.GetService<IIntegrationServiceProxyClient>()!;
+        var integrationService = sp.GetService<IIntegrationService>()!;
         var result = await integrationService.GetInvoiceOpWithReturnTypeWrappedAsync();
         Assert.Equal(IntegrationService.ReferenceNumber, result.ReferenceNumber);
     }
@@ -166,7 +165,7 @@ public class IntegrationServiceHttpClientTests
     {
         var serviceMock = new IntegrationService();
         var mockUnitOfWork = new MockUnitOfWork();
-        return x => x.AddTransient<IIntegrationService>(_ => serviceMock)
+        return x => x.AddTransient<Standard.AspNetCore.TestApplication.Application.Interfaces.IIntegrationService>(_ => serviceMock)
                 .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
                 .AddTransient<IValidationService, ValidationService>()
                 .ConfigureApiVersioning();

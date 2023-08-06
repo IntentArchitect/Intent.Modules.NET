@@ -10,16 +10,18 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Application.Common.Exceptions;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
+using CleanArchitecture.TestApplication.Application.IntegrationServices;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Unversioned;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClient", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClient", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
 {
-    public class TestUnversionedProxyHttpClient : ITestUnversionedProxyClient
+    public class TestUnversionedProxyHttpClient : ITestUnversionedService
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -10,16 +9,17 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.WebUtilities;
 using Subscribe.CleanArchDapr.TestApplication.Application.Common.Exceptions;
-using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.MyProxy;
+using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices;
+using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Publish.CleanArchDapr.TestApplication.Services.Orders;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient", Version = "2.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
 {
-    public class MyProxyHttpClient : IMyProxyClient
+    public class MyProxyHttpClient : IMyService
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

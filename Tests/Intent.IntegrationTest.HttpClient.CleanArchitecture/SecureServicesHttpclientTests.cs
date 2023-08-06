@@ -1,20 +1,17 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using CleanArchitecture.TestApplication.Api.Configuration;
+﻿using CleanArchitecture.TestApplication.Api.Configuration;
 using CleanArchitecture.TestApplication.Api.Controllers;
 using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.SecureServicesService;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
-using CleanArchitecture.TestApplication.Application.Unversioned.Test;
+using CleanArchitecture.TestApplication.Application.IntegrationServices;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.SecureServices;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
 using Intent.IntegrationTest.HttpClient.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestCommand;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
@@ -30,7 +27,7 @@ public class SecureServicesHttpclientTests
 
     private const int IdPortNumber = 5007;
     private const int ApiPortNumber = 5008;
-    
+
     [Fact]
     public async Task Test_SecureCommand()
     {
@@ -39,10 +36,10 @@ public class SecureServicesHttpclientTests
             typeof(SecureServicesController).Assembly, ApiPortNumber, IdPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ISecureServicesClient>()!;
+        var service = sp.GetService<ISecureServicesService>()!;
         await service.SecureAsync(new SecureCommand() { Message = "123" });
     }
-    
+
     private static Action<IServiceCollection> GetDiServices()
     {
         var mockUnitOfWork = new MockUnitOfWork();
@@ -54,7 +51,7 @@ public class SecureServicesHttpclientTests
             .AddHttpContextAccessor()
             .ConfigureApiVersioning();
     }
-    
+
     public class MockUnitOfWork : IUnitOfWork
     {
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))

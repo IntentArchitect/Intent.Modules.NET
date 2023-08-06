@@ -350,16 +350,16 @@
       <ProjectId>ad044cc8-e785-4749-86f5-0daa57f7daa7</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#f46e4eb0-4f3b-437c-9696-c6369e467621</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/MyProxy/IMyProxyClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MyProxy/IMyProxyClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/IMyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMyService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ad044cc8-e785-4749-86f5-0daa57f7daa7</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#92f79f57-e9f8-4c08-ba70-ec4cb7c440d7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/MyProxy/OrderConfirmed.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MyProxy/OrderConfirmed.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/Publish/CleanArchDapr/TestApplication/Services/Orders/OrderConfirmed.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Publish/CleanArchDapr/TestApplication/Services/Orders/OrderConfirmed.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

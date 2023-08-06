@@ -1,11 +1,10 @@
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService;
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AggregateRootsService;
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.SecuredService;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Blazor.HttpClients.HttpClientConfiguration", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.Blazor.HttpClients.HttpClientConfiguration", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
 {

@@ -5,14 +5,11 @@ using Standard.AspNetCore.TestApplication.Api.Configuration;
 using Standard.AspNetCore.TestApplication.Api.Controllers;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.IntegrationServiceProxy;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.MultiVersionServiceProxy;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.VersionOneServiceProxy;
-using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Xunit;
 using Xunit.Abstractions;
-
+using IVersionOneService = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IVersionOneService;
+using IMultiVersionService = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IMultiVersionService;
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
 [Collection("VersionedTests")]
@@ -33,17 +30,17 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetVersionOneDiServices(), typeof(VersionOneController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IVersionOneServiceProxyClient>()!;
+        var service = sp.GetService<IVersionOneService>()!;
         await service.OperationForVersionOneAsync(VersionOneService.ReferenceNumber);
     }
-    
+
     [Fact]
     public async Task Test_Multi_OperationForVersionOne()
     {
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IMultiVersionServiceProxyClient>()!;
+        var service = sp.GetService<IMultiVersionService>()!;
         await service.OperationForVersionOneAsync();
     }
     
@@ -53,7 +50,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IMultiVersionServiceProxyClient>()!;
+        var service = sp.GetService<IMultiVersionService>()!;
         await service.OperationForVersionTwoAsync();
     }
     
@@ -61,7 +58,7 @@ public class VersionedServicesHttpClientTests
     {
         var serviceMock = new VersionOneService();
         var mockUnitOfWork = new MockUnitOfWork();
-        return x => x.AddTransient<IVersionOneService>(_ => serviceMock)
+        return x => x.AddTransient<Standard.AspNetCore.TestApplication.Application.Interfaces.IVersionOneService>(_ => serviceMock)
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
             .AddTransient<IValidationService, ValidationService>()
             .ConfigureApiVersioning();
@@ -71,7 +68,7 @@ public class VersionedServicesHttpClientTests
     {
         var serviceMock = new MultiVersionService();
         var mockUnitOfWork = new MockUnitOfWork();
-        return x => x.AddTransient<IMultiVersionService>(_ => serviceMock)
+        return x => x.AddTransient<Standard.AspNetCore.TestApplication.Application.Interfaces.IMultiVersionService>(_ => serviceMock)
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
             .AddTransient<IValidationService, ValidationService>()
             .ConfigureApiVersioning();

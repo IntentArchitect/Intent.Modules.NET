@@ -284,66 +284,66 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IntegrationServiceProxy/CustomDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationServiceProxy/CustomDTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#c3ae1723-54f0-4bcc-b0d1-a4507f314f8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IntegrationServiceProxy/IIntegrationServiceProxyClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationServiceProxy/IIntegrationServiceProxyClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IIntegrationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIntegrationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#71b90e5e-74b1-4f4f-bd81-82b4a986b444</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/InvoiceServiceProxy/IInvoiceServiceProxyClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceServiceProxy/IInvoiceServiceProxyClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ebb59190-d2f8-420d-a929-7a8a736c7f47</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/InvoiceServiceProxy/InvoiceCreateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceServiceProxy/InvoiceCreateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/InvoiceServiceProxy/InvoiceDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceServiceProxy/InvoiceDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/InvoiceServiceProxy/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceServiceProxy/InvoiceUpdateDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IInvoiceService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#0fde0689-99c0-47ef-a10f-763a160007f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/MultiVersionServiceProxy/IMultiVersionServiceProxyClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiVersionServiceProxy/IMultiVersionServiceProxyClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IMultiVersionService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMultiVersionService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#29a855bf-d3a8-4126-a2dd-da41b021b309</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/VersionOneServiceProxy/IVersionOneServiceProxyClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>VersionOneServiceProxy/IVersionOneServiceProxyClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IVersionOneService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IVersionOneService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/Standard/AspNetCore/TestApplication/Services/Integration/CustomDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Standard/AspNetCore/TestApplication/Services/Integration/CustomDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ebb59190-d2f8-420d-a929-7a8a736c7f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Standard/AspNetCore/TestApplication/Services/Invoices/InvoiceUpdateDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -5,7 +5,7 @@ using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy;
+using CleanArchitecture.TestApplication.Application.IntegrationServices;
 using CleanArchitecture.TestApplication.Application.Unversioned.Test;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.TestUnversionedProxy.TestCommand;
+using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Unversioned.TestCommand;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
@@ -38,7 +38,7 @@ public class UnversionedServicesHttpClientTests
             typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestUnversionedProxyClient>()!;
+        var service = sp.GetService<ITestUnversionedService>()!;
         await service.TestAsync(new TestCommand { Value = TestCommandHandler.ExpectedInput });
     }
 
@@ -49,7 +49,7 @@ public class UnversionedServicesHttpClientTests
             typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestUnversionedProxyClient>()!;
+        var service = sp.GetService<ITestUnversionedService>()!;
         var result = await service.TestAsync("789");
         Assert.Equal(789, result);
     }
