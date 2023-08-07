@@ -122,9 +122,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 }
 
                 var classModel = element.AsClassModel();
-                var @class = entityTemplate.CSharpFile.Classes.First();
 
-                foreach (var property in @class.GetAllProperties())
+                foreach (var property in GetAllBuilderProperties(classModel))
                 {
                     if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent &&
                         (isOwned || !IsInheriting(classModel) || !ParentConfigurationExists(classModel)))
@@ -135,6 +134,30 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 method.Statements.SeparateAll();
             });
+        }
+
+        private IEnumerable<CSharpProperty> GetAllBuilderProperties(ClassModel targetClass)
+        {
+            if (targetClass is null)
+            {
+                return Enumerable.Empty<CSharpProperty>();
+            }
+            
+            CSharpClass @class = null;
+            if (TryGetTemplate("Domain.Entity.State", targetClass, out ICSharpFileBuilderTemplate entityTemplate))
+            {
+                @class = entityTemplate.CSharpFile.Classes.First();
+            }
+            else if (TryGetTemplate("Domain.Entity", targetClass, out entityTemplate))
+            {
+                @class = entityTemplate.CSharpFile.Classes.First();
+            }
+            else
+            {
+                return Enumerable.Empty<CSharpProperty>();
+            }
+
+            return @class.Properties.Concat(GetAllBuilderProperties(targetClass.ParentClass)).ToArray();
         }
 
         public CSharpFile CSharpFile { get; }
