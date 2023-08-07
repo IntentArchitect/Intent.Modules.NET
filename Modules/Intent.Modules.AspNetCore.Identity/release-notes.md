@@ -1,3 +1,11 @@
+### Version 4.0.7
+
+- Various improvements when using the `Identity User` stereotype:
+  - When applying the `Identity User` stereotype to a `Class`, the designer will automatically update the class to ensure it has a primary key which matches the default primary key of ASP.NET Identity's User entity.
+  - The software factory will output errors for common misconfigurations of the `Identity User` stereotype.
+  - For the entity on which `Identity User` stereotype is applied, the `Id` property will no longer generated as it was hiding the same named property on the base type.
+  - If the `Identity User` stereotype is applied to a class called "User" or "Users", there will no longer be a `Users` property generated on the `DbContext` as it was hiding the same named property on the base type.
+
 ### Version 4.0.6
 
 - Updated `IdentityServer4.EntityFramework` nuget package to 7.0.9.

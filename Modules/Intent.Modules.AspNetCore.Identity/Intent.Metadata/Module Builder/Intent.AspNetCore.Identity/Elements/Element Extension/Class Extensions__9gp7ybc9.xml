@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ea91389-93fb-4f23-b0f6-a2cda8a97bb7" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Class Extensions</name>
+  <display>Class Extensions: Class</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="a354be5e-4f54-4675-8ada-83160bfa149d">
+    <typeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>d06187ef-95a6-4243-b299-2e2d028478ef</parentFolderId>
+  <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+  <packageName>Intent.AspNetCore.Identity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="function execute() {&#xD;&#xA;    const identityUserStereotypeId = &quot;efde089e-21e6-4da1-b086-72d7f6caf389&quot;;&#xD;&#xA;    const stereotype = getStereotype(identityUserStereotypeId)&#xD;&#xA;&#xD;&#xA;    if (stereotype == null) {&#xD;&#xA;        return null;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    const inheritedTypes = getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .filter(generalization =&gt; generalization.isTargetEnd());&#xD;&#xA;&#xD;&#xA;    if (inheritedTypes.length &gt; 0) {&#xD;&#xA;        return &quot;Not allowed to derive from another class when the \&quot;Identity User\&quot; stereotype is applied&quot;;&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;    return null;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return execute();&#xD;&#xA;" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b19141d9-e45a-4437-a1aa-78d5ec10a839" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1ea91389-93fb-4f23-b0f6-a2cda8a97bb7</parentFolderId>
+      <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+      <packageName>Intent.AspNetCore.Identity</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="dc764369-3fe1-4730-8ad0-a7155c5f7766" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f4b6095d-f05f-4b93-b386-8cc48c33e71c">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b19141d9-e45a-4437-a1aa-78d5ec10a839</parentFolderId>
+          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+          <packageName>Intent.AspNetCore.Identity</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="/// &lt;reference path=&quot;../../../typings/elementmacro.context.api.d.ts&quot; /&gt;&#xD;&#xA;const identityUserStereotypeId = &quot;efde089e-21e6-4da1-b086-72d7f6caf389&quot;;&#xD;&#xA;const pkStereotypeId = &quot;b99aac21-9ca4-467f-a3a6-046255a9eed6&quot;;&#xD;&#xA;const stringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;const textConstraintsStereotypeId = &quot;6347286E-A637-44D6-A5D7-D9BE5789CA7A&quot;;&#xD;&#xA;async function execute() {&#xD;&#xA;    var _a, _b, _c, _d;&#xD;&#xA;    const identityUserStereotype = element.getStereotype(identityUserStereotypeId);&#xD;&#xA;    if (identityUserStereotype == null) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;    let pkAttribute = (_a = element.getChildren(&quot;Attribute&quot;).find(x =&gt; x.hasStereotype(pkStereotypeId))) !== null &amp;&amp; _a !== void 0 ? _a : element.getChildren(&quot;Attribute&quot;).find(x =&gt; x.getName().toLowerCase() === &quot;id&quot;);&#xD;&#xA;    let textConstraintsStereotype = pkAttribute === null || pkAttribute === void 0 ? void 0 : pkAttribute.getStereotype(textConstraintsStereotypeId);&#xD;&#xA;    if (pkAttribute != null &amp;&amp;&#xD;&#xA;        pkAttribute.getName().toLowerCase() === &quot;id&quot; &amp;&amp;&#xD;&#xA;        pkAttribute.hasStereotype(pkStereotypeId) &amp;&amp;&#xD;&#xA;        ((_b = pkAttribute.typeReference) === null || _b === void 0 ? void 0 : _b.typeId) === stringTypeId &amp;&amp;&#xD;&#xA;        ((_c = textConstraintsStereotype === null || textConstraintsStereotype === void 0 ? void 0 : textConstraintsStereotype.getProperty(&quot;SQL Data Type&quot;)) === null || _c === void 0 ? void 0 : _c.getValue()) === &quot;DEFAULT&quot; &amp;&amp;&#xD;&#xA;        ((_d = textConstraintsStereotype.getProperty(&quot;MaxLength&quot;)) === null || _d === void 0 ? void 0 : _d.getValue()) === 450) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;    if ((dialogService === null || dialogService === void 0 ? void 0 : dialogService.info) != null) {&#xD;&#xA;        await dialogService.info(&quot;When the \&quot;Identity User\&quot; stereotype is applied to a class, it must have an attribute with all the following characteristics:\n&quot; +&#xD;&#xA;            &quot;- A \&quot;Primary Key\&quot; stereotype applied\n&quot; +&#xD;&#xA;            &quot;- A name of \&quot;id\&quot;\n&quot; +&#xD;&#xA;            &quot;- Its type set to \&quot;string\&quot;\n&quot; +&#xD;&#xA;            &quot;- The \&quot;Text Constraints\&quot; stereotype applied to it\n&quot; +&#xD;&#xA;            &quot;- Its \&quot;Text Constraints\&quot; stereotype's \&quot;SQL Data Type\&quot; property must be set to \&quot;DEFAULT\&quot;\n&quot; +&#xD;&#xA;            &quot;- Its \&quot;Text Constraints\&quot; stereotype's \&quot;MaxLength\&quot; property must be set to \&quot;450\&quot;\n&quot; +&#xD;&#xA;            &quot;\n&quot; +&#xD;&#xA;            &quot;This class will now be updated to meet these requirements.&quot;);&#xD;&#xA;    }&#xD;&#xA;    if (pkAttribute == null) {&#xD;&#xA;        pkAttribute = createElement(&quot;Attribute&quot;, &quot;id&quot;, element.id);&#xD;&#xA;        pkAttribute.setOrder(0);&#xD;&#xA;    }&#xD;&#xA;    if (pkAttribute.getName().toLowerCase() !== &quot;id&quot;) {&#xD;&#xA;        pkAttribute.setName(&quot;id&quot;);&#xD;&#xA;    }&#xD;&#xA;    if (!pkAttribute.hasStereotype(pkStereotypeId)) {&#xD;&#xA;        pkAttribute.addStereotype(pkStereotypeId);&#xD;&#xA;    }&#xD;&#xA;    pkAttribute.typeReference.setType(stringTypeId);&#xD;&#xA;    textConstraintsStereotype = pkAttribute === null || pkAttribute === void 0 ? void 0 : pkAttribute.getStereotype(textConstraintsStereotypeId);&#xD;&#xA;    if (textConstraintsStereotype == null) {&#xD;&#xA;        pkAttribute.addStereotype(textConstraintsStereotypeId);&#xD;&#xA;        textConstraintsStereotype = pkAttribute.getStereotype(textConstraintsStereotypeId);&#xD;&#xA;    }&#xD;&#xA;    textConstraintsStereotype.getProperty(&quot;SQL Data Type&quot;).setValue(&quot;DEFAULT&quot;);&#xD;&#xA;    textConstraintsStereotype.getProperty(&quot;MaxLength&quot;).setValue(450);&#xD;&#xA;}&#xD;&#xA;/**&#xD;&#xA; * Used by Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity&#xD;&#xA; *&#xD;&#xA; * Source code here:&#xD;&#xA; * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/aspnetcore-identity/class-on-changed/class-on-changed.ts&#xD;&#xA; */&#xD;&#xA;await execute();&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>d06187ef-95a6-4243-b299-2e2d028478ef</id>
+  <name>Domain Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <validateFunctionOverride>function execute() {
+    const identityUserStereotypeId = "efde089e-21e6-4da1-b086-72d7f6caf389";
+    const stereotype = getStereotype(identityUserStereotypeId)
+
+    if (stereotype == null) {
+        return null;
+    }
+
+    const inheritedTypes = getAssociations("Generalization")
+        .filter(generalization =&gt; generalization.isTargetEnd());
+
+    if (inheritedTypes.length &gt; 0) {
+        return "Not allowed to derive from another class when the \"Identity User\" stereotype is applied";
+    }
+    
+    return null;
+}
+
+return execute();
+</validateFunctionOverride>
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+const identityUserStereotypeId = "efde089e-21e6-4da1-b086-72d7f6caf389";
+const pkStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const textConstraintsStereotypeId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A";
+async function execute() {
+    var _a, _b, _c, _d;
+    const identityUserStereotype = element.getStereotype(identityUserStereotypeId);
+    if (identityUserStereotype == null) {
+        return;
+    }
+    let pkAttribute = (_a = element.getChildren("Attribute").find(x =&gt; x.hasStereotype(pkStereotypeId))) !== null &amp;&amp; _a !== void 0 ? _a : element.getChildren("Attribute").find(x =&gt; x.getName().toLowerCase() === "id");
+    let textConstraintsStereotype = pkAttribute === null || pkAttribute === void 0 ? void 0 : pkAttribute.getStereotype(textConstraintsStereotypeId);
+    if (pkAttribute != null &amp;&amp;
+        pkAttribute.getName().toLowerCase() === "id" &amp;&amp;
+        pkAttribute.hasStereotype(pkStereotypeId) &amp;&amp;
+        ((_b = pkAttribute.typeReference) === null || _b === void 0 ? void 0 : _b.typeId) === stringTypeId &amp;&amp;
+        ((_c = textConstraintsStereotype === null || textConstraintsStereotype === void 0 ? void 0 : textConstraintsStereotype.getProperty("SQL Data Type")) === null || _c === void 0 ? void 0 : _c.getValue()) === "DEFAULT" &amp;&amp;
+        ((_d = textConstraintsStereotype.getProperty("MaxLength")) === null || _d === void 0 ? void 0 : _d.getValue()) === 450) {
+        return;
+    }
+    if ((dialogService === null || dialogService === void 0 ? void 0 : dialogService.info) != null) {
+        await dialogService.info("When the \"Identity User\" stereotype is applied to a class, it must have an attribute with all the following characteristics:\n" +
+            "- A \"Primary Key\" stereotype applied\n" +
+            "- A name of \"id\"\n" +
+            "- Its type set to \"string\"\n" +
+            "- The \"Text Constraints\" stereotype applied to it\n" +
+            "- Its \"Text Constraints\" stereotype's \"SQL Data Type\" property must be set to \"DEFAULT\"\n" +
+            "- Its \"Text Constraints\" stereotype's \"MaxLength\" property must be set to \"450\"\n" +
+            "\n" +
+            "This class will now be updated to meet these requirements.");
+    }
+    if (pkAttribute == null) {
+        pkAttribute = createElement("Attribute", "id", element.id);
+        pkAttribute.setOrder(0);
+    }
+    if (pkAttribute.getName().toLowerCase() !== "id") {
+        pkAttribute.setName("id");
+    }
+    if (!pkAttribute.hasStereotype(pkStereotypeId)) {
+        pkAttribute.addStereotype(pkStereotypeId);
+    }
+    pkAttribute.typeReference.setType(stringTypeId);
+    textConstraintsStereotype = pkAttribute === null || pkAttribute === void 0 ? void 0 : pkAttribute.getStereotype(textConstraintsStereotypeId);
+    if (textConstraintsStereotype == null) {
+        pkAttribute.addStereotype(textConstraintsStereotypeId);
+        textConstraintsStereotype = pkAttribute.getStereotype(textConstraintsStereotypeId);
+    }
+    textConstraintsStereotype.getProperty("SQL Data Type").setValue("DEFAULT");
+    textConstraintsStereotype.getProperty("MaxLength").setValue(450);
+}
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/aspnetcore-identity/class-on-changed/class-on-changed.ts
+ */
+await execute();
+</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

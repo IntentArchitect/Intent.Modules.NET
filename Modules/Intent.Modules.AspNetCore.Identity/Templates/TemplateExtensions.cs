@@ -12,15 +12,26 @@ namespace Intent.Modules.AspNetCore.Identity.Templates
 {
     public static class TemplateExtensions
     {
+        [IntentManaged(Mode.Ignore)]
         public static string GetAspNetCoreIdentityConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(AspNetCoreIdentityConfigurationTemplate.TemplateId);
         }
 
+        [IntentManaged(Mode.Ignore)]
         public static string GetIdentityServiceCollectionExtensionsName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(IdentityServiceCollectionExtensionsTemplate.TemplateId);
         }
 
+        public static string GetAspNetCoreIdentityConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AspNetCoreIdentityConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetIdentityServiceCollectionExtensionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IdentityServiceCollectionExtensionsTemplate.TemplateId);
+        }
     }
 }

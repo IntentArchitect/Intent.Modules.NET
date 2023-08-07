@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.IdentityServiceCollection
     {
         public override string TemplateId => IdentityServiceCollectionExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new IdentityServiceCollectionExtensionsTemplate(outputTarget);

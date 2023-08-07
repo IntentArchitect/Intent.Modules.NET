@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
     {
         public override string TemplateId => AspNetCoreIdentityConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AspNetCoreIdentityConfigurationTemplate(outputTarget);
