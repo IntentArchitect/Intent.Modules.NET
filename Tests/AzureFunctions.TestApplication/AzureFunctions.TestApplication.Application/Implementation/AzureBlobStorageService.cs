@@ -40,7 +40,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
                 listOfUris.Add(currentUri);
             }
 
-            var concatListUris = string.Join(", ",listOfUris);
+            var concatListUris = string.Join(", ", listOfUris);
             _logger.LogInformation("files: {ConcatListUris}", concatListUris);
         }
 
