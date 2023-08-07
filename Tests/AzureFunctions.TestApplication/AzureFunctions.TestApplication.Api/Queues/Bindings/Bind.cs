@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -10,7 +11,6 @@ using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Azure.WebJobs;
-using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
@@ -35,7 +35,7 @@ namespace AzureFunctions.TestApplication.Api
             CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(bindCommand, cancellationToken);
-            await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
+            await queueClient.SendMessageAsync(JsonSerializer.Serialize(result), cancellationToken);
         }
     }
 }

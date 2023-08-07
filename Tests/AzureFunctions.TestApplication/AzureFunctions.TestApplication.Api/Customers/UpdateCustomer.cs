@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -17,7 +18,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
@@ -48,7 +48,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonConvert.DeserializeObject<UpdateCustomerCommand>(requestBody)!;
+                var command = JsonSerializer.Deserialize<UpdateCustomerCommand>(requestBody)!;
                 if (id != command.Id)
                 {
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });

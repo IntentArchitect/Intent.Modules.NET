@@ -92,7 +92,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
                     
                     var returnStatement = runMethod?.FindStatement(x => x.HasMetadata("return"));
                     returnStatement?.Remove();
-                    runMethod?.AddStatement($"await queueClient.SendMessageAsync({_template.UseType("Newtonsoft.Json.JsonConvert")}.SerializeObject(result), cancellationToken);",
+                    runMethod?.AddStatement($"await queueClient.SendMessageAsync({_template.UseType("System.Text.Json.JsonSerializer")}.Serialize(result), cancellationToken);",
                         stmt => stmt.AddMetadata("return", true));
                 }, 100);
             }
@@ -108,7 +108,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
         if (_azureFunctionModel.IncludeMessageEnvelope)
         {
-            method.AddStatement($"var {parameterName} = {_template.UseType("Newtonsoft.Json.JsonConvert")}.DeserializeObject<{messageType}>(message.Body.ToString())!;");
+            method.AddStatement($"var {parameterName} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{messageType}>(message.Body.ToString())!;");
         }
     }
 

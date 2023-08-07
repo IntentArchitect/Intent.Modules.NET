@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -10,7 +11,6 @@ using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Azure.WebJobs;
-using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace AzureFunctions.TestApplication.Api
         [FunctionName("CreateCustomerWrappedMessage")]
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
-            var createCustomerWrappedMessage = JsonConvert.DeserializeObject<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(message.Body.ToString())!;
+            var createCustomerWrappedMessage = JsonSerializer.Deserialize<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(message.Body.ToString())!;
             await _mediator.Send(createCustomerWrappedMessage, cancellationToken);
 
         }

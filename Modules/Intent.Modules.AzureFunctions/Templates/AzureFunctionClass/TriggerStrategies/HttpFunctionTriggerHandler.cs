@@ -75,7 +75,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("Newtonsoft.Json.JsonConvert")}.DeserializeObject<{GetRequestDtoType()}>(requestBody)!;");
+                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody)!;");
             }
         }).AddCatchBlock("FormatException", "exception", catchBlock =>
         {
