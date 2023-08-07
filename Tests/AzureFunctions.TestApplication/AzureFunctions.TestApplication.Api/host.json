@@ -1,4 +1,4 @@
-{
+ {
   "version": "2.0",
   "logging": {
     "applicationInsights": {
@@ -6,6 +6,9 @@
         "isEnabled": true,
         "excludedTypes": "Request"
       }
+    },
+    "logLevel": {
+      "default": "Information"
     }
   }
 }
