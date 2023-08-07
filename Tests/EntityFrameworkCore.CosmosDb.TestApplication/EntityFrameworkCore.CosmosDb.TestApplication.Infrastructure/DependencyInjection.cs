@@ -78,6 +78,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IDerivedClassForAbstractAssociatedRepository, DerivedClassForAbstractAssociatedRepository>();
             services.AddTransient<IDerivedClassForConcreteRepository, DerivedClassForConcreteRepository>();
             services.AddTransient<IDerivedClassForConcreteAssociatedRepository, DerivedClassForConcreteAssociatedRepository>();
+            services.AddTransient<IMiddleAbstract_LeafRepository, MiddleAbstract_LeafRepository>();
+            services.AddTransient<IMiddleAbstract_RootRepository, MiddleAbstract_RootRepository>();
             services.AddTransient<IStandaloneDerivedRepository, StandaloneDerivedRepository>();
             services.AddTransient<IClassARepository, ClassARepository>();
             services.AddTransient<IPoly_ConcreteARepository, Poly_ConcreteARepository>();

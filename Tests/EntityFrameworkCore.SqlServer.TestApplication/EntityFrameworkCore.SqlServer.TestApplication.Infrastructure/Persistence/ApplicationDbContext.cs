@@ -140,6 +140,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<TPT_FkDerivedClass> TPT_FkDerivedClasses { get; set; }
         public DbSet<TPC_FkDerivedClass> TPC_FkDerivedClasses { get; set; }
         public DbSet<TPH_FkDerivedClass> TPH_FkDerivedClasses { get; set; }
+        public DbSet<TPH_MiddleAbstract_Leaf> TPH_MiddleAbstract_Leaves { get; set; }
+        public DbSet<TPH_MiddleAbstract_Root> TPH_MiddleAbstract_Roots { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
@@ -301,6 +303,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new TPH_FkBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new TPH_FkBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new TPH_FkDerivedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new TPH_MiddleAbstract_LeafConfiguration());
+            modelBuilder.ApplyConfiguration(new TPH_MiddleAbstract_RootConfiguration());
             modelBuilder.ApplyConfiguration(new TPH_Poly_BaseClassNonAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new TPH_Poly_ConcreteAConfiguration());
             modelBuilder.ApplyConfiguration(new TPH_Poly_ConcreteBConfiguration());

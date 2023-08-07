@@ -34,8 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     {
         private IIntentTemplate _entityTemplate;
 
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
@@ -53,6 +52,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         _entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
                     }
+
                     @class.ImplementsInterface($"IEntityTypeConfiguration<{GetTypeName(_entityTemplate)}>")
                         .AddMethod("void", "Configure", method =>
                         {
@@ -62,6 +62,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             {
                                 method.AddStatements(GetCosmosContainerMapping(Model));
                             }
+
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
                             method.AddStatements(GetCheckConstraints(Model));
                             method.AddStatements(GetIndexes(Model));
@@ -126,7 +127,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 foreach (var property in GetAllBuilderProperties(classModel))
                 {
                     if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent &&
-                        (isOwned || !IsInheriting(classModel) || !ParentConfigurationExists(classModel)))
+                        !isOwned && !HasInheritanceTypeAbleToConfigureProperty(classModel))
                     {
                         method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                     }
@@ -136,13 +137,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             });
         }
 
+        private bool HasInheritanceTypeAbleToConfigureProperty(ClassModel currentModel)
+        {
+            if (currentModel.ParentClass is null)
+            {
+                return false;
+            }
+
+            if (ConfigurationExists(currentModel.ParentClass))
+            {
+                return true;
+            }
+
+            return HasInheritanceTypeAbleToConfigureProperty(currentModel.ParentClass);
+        }
+
         private IEnumerable<CSharpProperty> GetAllBuilderProperties(ClassModel targetClass)
         {
             if (targetClass is null)
             {
                 return Enumerable.Empty<CSharpProperty>();
             }
-            
+
             CSharpClass @class = null;
             if (TryGetTemplate("Domain.Entity.State", targetClass, out ICSharpFileBuilderTemplate entityTemplate))
             {
@@ -249,7 +265,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (model.HasView())
             {
-                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.FindSchema()) ? @$", ""{model.FindSchema()}""" : "")});";
+                yield return
+                    $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.FindSchema()) ? @$", ""{model.FindSchema()}""" : "")});";
             }
             else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.FindSchema())))
             {
@@ -268,7 +285,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
-            else if (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)) 
+            else if (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name))
             {
                 yield return ToTableStatement(model);
             }
@@ -281,7 +298,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     !string.IsNullOrWhiteSpace(schema) ||
                     model.Triggers.Count == 0)
                 {
-                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? GetTableNameByConvention( model.Name)}\"");
+                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? GetTableNameByConvention(model.Name)}\"");
                 }
 
                 if (!string.IsNullOrWhiteSpace(schema))
@@ -353,6 +370,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 yield return $@"builder.ToContainer(""{containerName}"");";
             }
+
             if (IsInheriting(model) && ParentConfigurationExists(model))
             {
                 yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
@@ -378,7 +396,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
             {
                 method.AddMetadata("model", attribute.TypeReference.Element);
-                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
+                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                    "builder");
                 method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
                 method.Statements.SeparateAll();
 
@@ -395,7 +414,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
             {
-                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+                Logging.Log.Warning(
+                    $"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
             }
 
             switch (associationEnd.Association.GetRelationshipType())
@@ -427,25 +447,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         .WithForeignKey();
 
                 case RelationshipType.OneToMany:
+                {
+                    if (IsOwned(associationEnd.Element))
                     {
-                        if (IsOwned(associationEnd.Element))
+                        var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
+                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
-                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
-                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
-                            {
-                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                                method.AddMetadata("model", (IElement)associationEnd.Element);
-                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
-                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                                method.Statements.SeparateAll();
+                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                            method.AddMetadata("model", (IElement)associationEnd.Element);
+                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                            method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.Statements.SeparateAll();
 
-                                AddIgnoreForNonPersistent(method, isOwned: true);
-                            });
+                            AddIgnoreForNonPersistent(method, isOwned: true);
+                        });
 
-                            return field;
-                        }
+                        return field;
                     }
+                }
                     return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention)
                         .WithForeignKey();
 
@@ -460,7 +480,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             return !attribute.InternalElement.ParentElement.IsClassModel() ||
                    (attribute.Class.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) &&
-                   !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase));
+                    !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase));
         }
 
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
@@ -574,7 +594,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model)
         {
-            if (IsInheriting(model) && ParentConfigurationExists(model))
+            //if (IsInheriting(model) && ParentConfigurationExists(model))
+            if (HasInheritanceTypeAbleToConfigureProperty(model))
             {
                 yield break;
             }
@@ -641,6 +662,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                     }
                                 }
                             }
+
                             foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
                             {
                                 if (!associationEnd.IsCollection && !associationEnd.IsNullable)
@@ -657,8 +679,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
-                || typeInfo.IsNullable == true
-                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+                     || typeInfo.IsNullable == true
+                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 
         public void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
@@ -730,6 +752,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
+        private bool ConfigurationExists(ClassModel model) => TryGetTemplate<EntityTypeConfigurationTemplate>(Id, model?.Id, out _);
         private bool ParentConfigurationExists(ClassModel model) => TryGetTemplate<EntityTypeConfigurationTemplate>(Id, model.ParentClass?.Id, out _);
 
         private static bool IsInheriting(ClassModel model) => model?.ParentClass != null;

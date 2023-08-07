@@ -73,6 +73,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
         public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
         public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
+        public DbSet<MiddleAbstract_Leaf> MiddleAbstract_Leaves { get; set; }
+        public DbSet<MiddleAbstract_Root> MiddleAbstract_Roots { get; set; }
         public DbSet<DictionaryWithKvPNormal> DictionaryWithKvPNormals { get; set; }
         public DbSet<DictionaryWithKvPSerialized> DictionaryWithKvPSerializeds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
@@ -155,6 +157,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteAssociatedConfiguration());
+            modelBuilder.ApplyConfiguration(new MiddleAbstract_LeafConfiguration());
+            modelBuilder.ApplyConfiguration(new MiddleAbstract_RootConfiguration());
             modelBuilder.ApplyConfiguration(new StandaloneDerivedConfiguration());
             modelBuilder.ApplyConfiguration(new ClassAConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
