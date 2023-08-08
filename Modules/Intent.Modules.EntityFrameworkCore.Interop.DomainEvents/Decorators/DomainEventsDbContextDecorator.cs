@@ -19,7 +19,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDbContextDecorator";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainEventsDbContextDecorator(ICSharpFileBuilderTemplate template, IApplication application)
         {
             template.CSharpFile.OnBuild(file =>

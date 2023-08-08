@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Update: Necessary internal update for DbContext save changes hook-in points.
+
 ### Version 4.0.5
 
 - Added : Synchronous DBContext SaveChanges support for domain event dispatching.

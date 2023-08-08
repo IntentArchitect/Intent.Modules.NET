@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6e77c54e-0aac-41d0-a908-211243b81c07" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>SoftDeleteInstallerFactoryExtension</name>
-  <display>SoftDeleteInstallerFactoryExtension</display>
+  <name>EfCoreExtension</name>
+  <display>EfCoreExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

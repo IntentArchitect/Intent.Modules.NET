@@ -26,7 +26,7 @@ public static class DbContextHelpers
                 method.Override().Async()
                     .AddParameter("bool", "acceptAllChangesOnSuccess")
                     .AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"))
-                    .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);");
+                    .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);", stmt => stmt.AddMetadata("save-changes", true));
             });
         }
 
@@ -52,7 +52,7 @@ public static class DbContextHelpers
                 saveMethod = method;
                 method.Override()
                     .AddParameter("bool", "acceptAllChangesOnSuccess")
-                    .AddStatement("return base.SaveChanges(acceptAllChangesOnSuccess);");
+                    .AddStatement("return base.SaveChanges(acceptAllChangesOnSuccess);", stmt => stmt.AddMetadata("save-changes", true));
             });
         }
 
