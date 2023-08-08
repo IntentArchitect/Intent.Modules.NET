@@ -60,6 +60,7 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
             {
                 return new List<TOriginal>();
             }
+
             baseCollection ??= new List<TOriginal>()!;
 
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);
