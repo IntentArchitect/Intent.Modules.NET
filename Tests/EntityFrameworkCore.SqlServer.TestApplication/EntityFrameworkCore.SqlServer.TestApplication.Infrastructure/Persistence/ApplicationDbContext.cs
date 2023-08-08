@@ -197,17 +197,17 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)
         {
-            SetSoftDeleteProperties();
-            SetAuditableFields();
             await DispatchEventsAsync(cancellationToken);
+            SetAuditableFields();
+            SetSoftDeleteProperties();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
-            SetSoftDeleteProperties();
-            SetAuditableFields();
             DispatchEventsAsync().GetAwaiter().GetResult();
+            SetAuditableFields();
+            SetSoftDeleteProperties();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 

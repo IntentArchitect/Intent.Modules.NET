@@ -1,6 +1,11 @@
-### Version 4.0.6
+### Version 4.0.7
 
 - Update: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.
+
+
+### Version 4.0.6
+
+- Update: Necessary internal update for DbContext save changes hook-in points.
 
 ### Version 4.0.5
 

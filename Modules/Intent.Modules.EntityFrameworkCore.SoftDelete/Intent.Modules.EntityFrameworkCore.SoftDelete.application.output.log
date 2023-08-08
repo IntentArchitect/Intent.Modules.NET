@@ -36,8 +36,8 @@
       <ProjectId>3cafc84f-47f2-4a8c-97ee-6916c639946d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#6e77c54e-0aac-41d0-a908-211243b81c07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/SoftDeleteInstallerFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SoftDeleteInstallerFactoryExtension.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/EfCoreExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EfCoreExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

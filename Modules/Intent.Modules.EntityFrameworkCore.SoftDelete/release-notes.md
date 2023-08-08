@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Fixed: Integrating with DbContext's SaveChanges now will execute after the possible DomainEvents dispatching.
+
 ### Version 1.0.1
 
 - Update: Removed `ChangeTracker.DetectChanges();` as this is only necessary when `AutoDetectChangesEnabled` is disabled.

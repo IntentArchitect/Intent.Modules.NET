@@ -57,8 +57,11 @@ namespace Intent.Modules.EntityFrameworkCore.BasicAuditing.FactoryExtensions
                 var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
                 var normalSaveChanges = dbContext.GetSaveChangesMethod();
 
-                asyncSaveChanges.Statements.Insert(0, "SetAuditableFields();");
-                normalSaveChanges.Statements.Insert(0, "SetAuditableFields();");
+                asyncSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
+                    ?.InsertAbove("SetAuditableFields();");
+
+                normalSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
+                    ?.InsertAbove("SetAuditableFields();");
             }, 100);
         }
 

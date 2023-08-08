@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.SoftDelete</id>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Implements the Soft Delete pattern introduced by Justin James.</summary>
   <description>Implements the Soft Delete pattern introduced by Justin James.</description>
@@ -21,7 +21,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInstallerFactoryExtension" externalReference="6e77c54e-0aac-41d0-a908-211243b81c07" />
+    <factoryExtension id="Intent.EntityFrameworkCore.SoftDelete.EfCoreExtension" externalReference="6e77c54e-0aac-41d0-a908-211243b81c07" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

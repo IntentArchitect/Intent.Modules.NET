@@ -18,9 +18,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.SoftDelete.FactoryExtensions;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
+public class EfCoreExtension : FactoryExtensionBase
 {
-    public override string Id => "Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInstallerFactoryExtension";
+    public override string Id => "Intent.EntityFrameworkCore.SoftDelete.EfCoreExtension";
 
     [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
@@ -54,12 +54,8 @@ public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
     {
         var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnTemplate(TemplateFulfillingRoles.Infrastructure.Data.DbContext));
-        if (dbContext == null)
-        {
-            return;
-        }
 
-        dbContext.CSharpFile.AfterBuild(file =>
+        dbContext?.CSharpFile.AfterBuild(file =>
         {
             var priClass = file.Classes.First();
 
@@ -69,9 +65,11 @@ public class SoftDeleteInstallerFactoryExtension : FactoryExtensionBase
                 priClass.Methods.Where(p => p.Name == "SaveChangesAsync").MaxBy(o => o.Parameters.Count);
             var normalSaveChanges = priClass.Methods.Where(p => p.Name == "SaveChanges").MaxBy(o => o.Parameters.Count);
 
-            asyncSaveChanges?.Statements.Insert(0, "SetSoftDeleteProperties();");
+            asyncSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
+                ?.InsertAbove("SetSoftDeleteProperties();");
 
-            normalSaveChanges?.Statements.Insert(0, "SetSoftDeleteProperties();");
+            normalSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
+                ?.InsertAbove("SetSoftDeleteProperties();");
         }, 100);
     }
 
