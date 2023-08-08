@@ -34,7 +34,7 @@ Write-Host "Starting test projects:"
 Write-Host ""
 
 # Start the jobs. Max 4 jobs running simultaneously.
-foreach ($application in $testSln.solution.applications.application) {
+foreach ($application in $testSln.solution.applications.application | Sort-Object -Property name) {
 	While ($(Get-Job -state running).count -ge $MaxThreads) {
 		Start-Sleep -Milliseconds 3
 	}
