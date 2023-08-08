@@ -33,14 +33,12 @@ namespace CleanArchitecture.Dapr.Application.Invoices.GetInvoiceInvoiceLineById
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
 
             var element = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
-
             if (element is null)
             {
                 throw new NotFoundException($"Could not find InvoiceLine '{request.Id}'");

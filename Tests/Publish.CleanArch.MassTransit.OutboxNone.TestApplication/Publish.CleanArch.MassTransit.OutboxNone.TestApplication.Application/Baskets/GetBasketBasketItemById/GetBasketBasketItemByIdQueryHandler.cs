@@ -33,14 +33,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             CancellationToken cancellationToken)
         {
             var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
             }
 
             var element = aggregateRoot.BasketItems.FirstOrDefault(p => p.Id == request.Id);
-
             if (element is null)
             {
                 throw new NotFoundException($"Could not find BasketItem '{request.Id}'");

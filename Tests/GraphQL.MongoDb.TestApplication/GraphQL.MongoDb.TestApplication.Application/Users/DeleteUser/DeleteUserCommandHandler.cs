@@ -29,7 +29,6 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.DeleteUser
         public async Task<UserDto> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var existingUser = await _userRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingUser is null)
             {
                 throw new NotFoundException($"Could not find User '{request.Id}'");

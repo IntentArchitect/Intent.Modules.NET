@@ -32,7 +32,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         public async Task<Guid> Handle(CreateBasketBasketItemCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");

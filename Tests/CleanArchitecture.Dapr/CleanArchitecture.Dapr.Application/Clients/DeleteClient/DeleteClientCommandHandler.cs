@@ -26,7 +26,6 @@ namespace CleanArchitecture.Dapr.Application.Clients.DeleteClient
         public async Task Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             var existingClient = await _clientRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingClient is null)
             {
                 throw new NotFoundException($"Could not find Client '{request.Id}'");

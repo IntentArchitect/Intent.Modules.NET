@@ -26,7 +26,6 @@ namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
         public async Task Handle(DeleteTagCommand request, CancellationToken cancellationToken)
         {
             var existingTag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingTag is null)
             {
                 throw new NotFoundException($"Could not find Tag '{request.Id}'");

@@ -19,7 +19,6 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
-
             RuleFor(v => v.Name)
                 .NotNull();
 

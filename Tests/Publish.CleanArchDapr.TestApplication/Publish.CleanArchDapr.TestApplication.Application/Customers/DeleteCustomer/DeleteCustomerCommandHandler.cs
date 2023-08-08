@@ -26,7 +26,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
         public async Task Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingCustomer is null)
             {
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");

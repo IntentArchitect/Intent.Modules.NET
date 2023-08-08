@@ -27,7 +27,6 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.UpdateDerived
         public async Task Handle(UpdateDerivedCommand request, CancellationToken cancellationToken)
         {
             var existingDerived = await _derivedRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingDerived is null)
             {
                 throw new NotFoundException($"Could not find Derived '{request.Id}'");

@@ -29,7 +29,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustome
         public async Task<CustomerDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
             var customer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (customer is null)
             {
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");

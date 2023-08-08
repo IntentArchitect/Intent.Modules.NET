@@ -30,7 +30,6 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.UpdateProdu
         public async Task<ProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
             var existingProduct = await _productRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingProduct is null)
             {
                 throw new NotFoundException($"Could not find Product '{request.Id}'");

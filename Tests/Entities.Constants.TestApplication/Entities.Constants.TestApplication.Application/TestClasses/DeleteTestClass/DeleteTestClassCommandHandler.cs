@@ -26,7 +26,6 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
         public async Task Handle(DeleteTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingTestClass is null)
             {
                 throw new NotFoundException($"Could not find TestClass '{request.Id}'");

@@ -26,7 +26,6 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.DeleteDerived
         public async Task Handle(DeleteDerivedCommand request, CancellationToken cancellationToken)
         {
             var existingDerived = await _derivedRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingDerived is null)
             {
                 throw new NotFoundException($"Could not find Derived '{request.Id}'");

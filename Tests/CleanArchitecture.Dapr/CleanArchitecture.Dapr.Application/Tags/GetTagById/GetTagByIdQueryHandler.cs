@@ -29,7 +29,6 @@ namespace CleanArchitecture.Dapr.Application.Tags.GetTagById
         public async Task<TagDto> Handle(GetTagByIdQuery request, CancellationToken cancellationToken)
         {
             var tag = await _tagRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (tag is null)
             {
                 throw new NotFoundException($"Could not find Tag '{request.Id}'");

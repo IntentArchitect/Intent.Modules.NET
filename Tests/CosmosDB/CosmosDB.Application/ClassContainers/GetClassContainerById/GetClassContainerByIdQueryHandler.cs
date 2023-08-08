@@ -31,7 +31,6 @@ namespace CosmosDB.Application.ClassContainers.GetClassContainerById
             CancellationToken cancellationToken)
         {
             var classContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (classContainer is null)
             {
                 throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");

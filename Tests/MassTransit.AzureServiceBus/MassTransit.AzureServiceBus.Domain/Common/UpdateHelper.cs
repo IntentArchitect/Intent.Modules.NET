@@ -20,6 +20,7 @@ namespace MassTransit.AzureServiceBus.Domain.Common
             {
                 return new List<TOriginal>();
             }
+
             baseCollection ??= new List<TOriginal>()!;
 
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);

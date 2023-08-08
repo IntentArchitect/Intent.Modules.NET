@@ -29,7 +29,6 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivilegeByI
         public async Task<PrivilegeDto> Handle(GetPrivilegeByIdQuery request, CancellationToken cancellationToken)
         {
             var privilege = await _privilegeRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (privilege is null)
             {
                 throw new NotFoundException($"Could not find Privilege '{request.Id}'");

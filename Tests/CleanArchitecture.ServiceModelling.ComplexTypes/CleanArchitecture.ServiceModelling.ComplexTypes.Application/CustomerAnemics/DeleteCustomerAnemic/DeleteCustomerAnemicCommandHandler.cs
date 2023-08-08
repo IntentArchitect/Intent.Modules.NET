@@ -26,7 +26,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
         public async Task Handle(DeleteCustomerAnemicCommand request, CancellationToken cancellationToken)
         {
             var existingCustomerAnemic = await _customerAnemicRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingCustomerAnemic is null)
             {
                 throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");

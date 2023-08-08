@@ -29,7 +29,6 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.GetDerivedById
         public async Task<DerivedDto> Handle(GetDerivedByIdQuery request, CancellationToken cancellationToken)
         {
             var derived = await _derivedRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (derived is null)
             {
                 throw new NotFoundException($"Could not find Derived '{request.Id}'");

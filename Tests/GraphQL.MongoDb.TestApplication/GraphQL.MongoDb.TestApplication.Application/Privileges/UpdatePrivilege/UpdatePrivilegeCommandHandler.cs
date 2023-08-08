@@ -30,7 +30,6 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.UpdatePrivilege
         public async Task<PrivilegeDto> Handle(UpdatePrivilegeCommand request, CancellationToken cancellationToken)
         {
             var existingPrivilege = await _privilegeRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingPrivilege is null)
             {
                 throw new NotFoundException($"Could not find Privilege '{request.Id}'");

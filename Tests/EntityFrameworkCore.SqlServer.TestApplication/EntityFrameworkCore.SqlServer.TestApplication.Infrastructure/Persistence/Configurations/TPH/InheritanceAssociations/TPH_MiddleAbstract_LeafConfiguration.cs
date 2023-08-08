@@ -12,7 +12,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
     {
         public void Configure(EntityTypeBuilder<TPH_MiddleAbstract_Leaf> builder)
         {
-
             builder.Property(x => x.MiddleAttribute)
                 .IsRequired();
 

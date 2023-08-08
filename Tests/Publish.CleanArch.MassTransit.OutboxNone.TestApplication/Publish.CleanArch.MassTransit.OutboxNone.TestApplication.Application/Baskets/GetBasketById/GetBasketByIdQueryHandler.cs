@@ -29,7 +29,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         public async Task<BasketDto> Handle(GetBasketByIdQuery request, CancellationToken cancellationToken)
         {
             var basket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (basket is null)
             {
                 throw new NotFoundException($"Could not find Basket '{request.Id}'");

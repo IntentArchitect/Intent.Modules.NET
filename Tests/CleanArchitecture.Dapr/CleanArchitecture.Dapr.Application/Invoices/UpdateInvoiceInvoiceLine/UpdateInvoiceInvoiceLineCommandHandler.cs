@@ -28,14 +28,12 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoiceInvoiceLine
         public async Task Handle(UpdateInvoiceInvoiceLineCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
 
             var existingInvoiceLine = aggregateRoot.InvoiceLines.FirstOrDefault(p => p.Id == request.Id);
-
             if (existingInvoiceLine is null)
             {
                 throw new NotFoundException($"{nameof(InvoiceLine)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");

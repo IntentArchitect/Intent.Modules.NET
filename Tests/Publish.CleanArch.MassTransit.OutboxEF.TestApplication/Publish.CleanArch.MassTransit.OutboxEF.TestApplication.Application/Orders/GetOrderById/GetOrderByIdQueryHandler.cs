@@ -29,7 +29,6 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         public async Task<OrderDto> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
         {
             var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (order is null)
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");

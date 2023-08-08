@@ -26,7 +26,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
         public async Task Handle(DeletePurchaseCommand request, CancellationToken cancellationToken)
         {
             var existingPurchase = await _purchaseRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingPurchase is null)
             {
                 throw new NotFoundException($"Could not find Purchase '{request.Id}'");

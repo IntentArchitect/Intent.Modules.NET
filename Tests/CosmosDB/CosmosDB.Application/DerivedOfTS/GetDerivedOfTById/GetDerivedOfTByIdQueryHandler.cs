@@ -29,7 +29,6 @@ namespace CosmosDB.Application.DerivedOfTS.GetDerivedOfTById
         public async Task<DerivedOfTDto> Handle(GetDerivedOfTByIdQuery request, CancellationToken cancellationToken)
         {
             var derivedOfT = await _derivedOfTRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (derivedOfT is null)
             {
                 throw new NotFoundException($"Could not find DerivedOfT '{request.Id}'");

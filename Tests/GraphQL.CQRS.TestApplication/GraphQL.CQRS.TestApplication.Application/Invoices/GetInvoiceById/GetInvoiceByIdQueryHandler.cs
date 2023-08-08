@@ -29,7 +29,6 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoiceById
         public async Task<InvoiceDto> Handle(GetInvoiceByIdQuery request, CancellationToken cancellationToken)
         {
             var invoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (invoice is null)
             {
                 throw new NotFoundException($"Could not find Invoice '{request.Id}'");

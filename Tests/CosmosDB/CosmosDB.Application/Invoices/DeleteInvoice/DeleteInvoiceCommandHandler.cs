@@ -26,7 +26,6 @@ namespace CosmosDB.Application.Invoices.DeleteInvoice
         public async Task Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
             var existingInvoice = await _invoiceRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingInvoice is null)
             {
                 throw new NotFoundException($"Could not find Invoice '{request.Id}'");

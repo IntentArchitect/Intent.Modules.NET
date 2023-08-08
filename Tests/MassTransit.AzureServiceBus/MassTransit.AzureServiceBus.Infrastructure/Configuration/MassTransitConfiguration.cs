@@ -21,9 +21,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
-
                 x.AddConsumers();
-
                 x.UsingAzureServiceBus((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(

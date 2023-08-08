@@ -28,14 +28,12 @@ namespace CosmosDB.Application.Invoices.DeleteInvoiceLineItem
         public async Task Handle(DeleteInvoiceLineItemCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");
             }
 
             var existingLineItem = aggregateRoot.LineItems.FirstOrDefault(p => p.Id == request.Id);
-
             if (existingLineItem is null)
             {
                 throw new NotFoundException($"{nameof(LineItem)} of Id '{request.Id}' could not be found associated with {nameof(Invoice)} of Id '{request.InvoiceId}'");

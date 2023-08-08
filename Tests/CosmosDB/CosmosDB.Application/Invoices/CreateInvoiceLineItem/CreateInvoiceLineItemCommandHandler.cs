@@ -28,7 +28,6 @@ namespace CosmosDB.Application.Invoices.CreateInvoiceLineItem
         public async Task<string> Handle(CreateInvoiceLineItemCommand request, CancellationToken cancellationToken)
         {
             var aggregateRoot = await _invoiceRepository.FindByIdAsync(request.InvoiceId, cancellationToken);
-
             if (aggregateRoot is null)
             {
                 throw new NotFoundException($"{nameof(Invoice)} of Id '{request.InvoiceId}' could not be found");

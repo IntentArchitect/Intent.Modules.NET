@@ -27,7 +27,6 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
         public async Task Handle(UpdateClassContainerCommand request, CancellationToken cancellationToken)
         {
             var existingClassContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingClassContainer is null)
             {
                 throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");

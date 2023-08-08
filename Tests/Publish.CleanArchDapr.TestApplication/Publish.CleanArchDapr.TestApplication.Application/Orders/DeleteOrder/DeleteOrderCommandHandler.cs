@@ -26,7 +26,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
         public async Task Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingOrder is null)
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");

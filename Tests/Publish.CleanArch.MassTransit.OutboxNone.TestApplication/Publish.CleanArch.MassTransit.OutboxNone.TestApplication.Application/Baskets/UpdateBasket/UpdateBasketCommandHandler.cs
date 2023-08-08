@@ -31,7 +31,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         public async Task Handle(UpdateBasketCommand request, CancellationToken cancellationToken)
         {
             var existingBasket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingBasket is null)
             {
                 throw new NotFoundException($"Could not find Basket '{request.Id}'");

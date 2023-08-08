@@ -28,7 +28,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         public async Task Handle(UpdateCustomerRichCommand request, CancellationToken cancellationToken)
         {
             var existingCustomerRich = await _customerRichRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingCustomerRich is null)
             {
                 throw new NotFoundException($"Could not find CustomerRich '{request.Id}'");

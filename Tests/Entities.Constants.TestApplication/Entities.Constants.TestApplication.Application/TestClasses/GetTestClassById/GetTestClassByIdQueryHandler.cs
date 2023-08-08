@@ -29,7 +29,6 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
         public async Task<TestClassDto> Handle(GetTestClassByIdQuery request, CancellationToken cancellationToken)
         {
             var testClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (testClass is null)
             {
                 throw new NotFoundException($"Could not find TestClass '{request.Id}'");

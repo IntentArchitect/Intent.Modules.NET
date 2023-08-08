@@ -31,7 +31,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
             CancellationToken cancellationToken)
         {
             var customerAnemic = await _customerAnemicRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (customerAnemic is null)
             {
                 throw new NotFoundException($"Could not find CustomerAnemic '{request.Id}'");

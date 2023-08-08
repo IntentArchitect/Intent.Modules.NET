@@ -27,7 +27,6 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
         public async Task Handle(UpdateTestClassCommand request, CancellationToken cancellationToken)
         {
             var existingTestClass = await _testClassRepository.FindByIdAsync(request.Id, cancellationToken);
-
             if (existingTestClass is null)
             {
                 throw new NotFoundException($"Could not find TestClass '{request.Id}'");
