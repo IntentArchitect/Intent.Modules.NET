@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\IBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPerson.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\BaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\PersonState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedFromAbstractClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedFromAbstractClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedFromAbstractClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedFromAbstractClass.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>

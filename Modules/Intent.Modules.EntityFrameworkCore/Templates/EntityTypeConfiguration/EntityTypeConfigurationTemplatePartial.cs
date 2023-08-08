@@ -693,7 +693,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     var primaryKeyProperties = new List<CSharpProperty>();
                     foreach (var column in columns)
                     {
-                        var existingPk = entityClass.GetAllProperties().FirstOrDefault(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase));
+                        entityClass.TryGetMetadata<ClassModel>("model", out var model);
+                        var existingPk = model is not null 
+                            ? GetAllBuilderProperties(model).FirstOrDefault(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase))
+                            : null;
                         if (existingPk == null)
                         {
                             var typeName = column.Type != null

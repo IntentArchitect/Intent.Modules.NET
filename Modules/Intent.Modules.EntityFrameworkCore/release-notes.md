@@ -1,9 +1,10 @@
-﻿### Version 4.4.7
+﻿### Version 4.4.8
 
 - Update: nullability warning on EF protected constructor improved to include association properties.
 - Fixed: Incorrect EF type configurations would be generated for `0..1 --> 1` and `0..1 --> 0..1` (aggregational) associations.
 - Fixed: In some cases the `DomainEntities` property wasn't getting `Ignore()`. Fixed a check to ensure it gets applied correctly.
 - Fixed: There are some inheritance configurations which would have wrongfully added Keys and such on leaf-dependencies causing EF startup validation errors.
+- Fixed: In some cases an `Id` was added to Entities when it should not have been. Fixed a check to ensure it gets applied correctly.
 
 ### Version 4.4.6
 
