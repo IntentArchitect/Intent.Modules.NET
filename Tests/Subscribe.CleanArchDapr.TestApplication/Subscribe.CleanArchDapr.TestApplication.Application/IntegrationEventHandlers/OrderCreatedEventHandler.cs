@@ -15,10 +15,10 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHa
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OrderCreatedEventHandler : IRequestHandler<OrderCreatedEvent>
     {
-        private readonly IMyService _myProxy;
+        private readonly IMyProxy _myProxy;
 
         [IntentManaged(Mode.Ignore)]
-        public OrderCreatedEventHandler(IMyService myProxy)
+        public OrderCreatedEventHandler(IMyProxy myProxy)
         {
             _myProxy = myProxy;
         }

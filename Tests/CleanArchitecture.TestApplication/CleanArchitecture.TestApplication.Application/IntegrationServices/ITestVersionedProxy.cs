@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.IntegrationServices
 {
-    public interface ITestVersionedService : IDisposable
+    public interface ITestVersionedProxy : IDisposable
     {
         Task TestCommandV1Async(TestCommandV1 command, CancellationToken cancellationToken = default);
         Task TestCommandV2Async(TestCommandV2 command, CancellationToken cancellationToken = default);

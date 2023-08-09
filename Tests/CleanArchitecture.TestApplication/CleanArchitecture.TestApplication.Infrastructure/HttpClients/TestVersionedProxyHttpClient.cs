@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
 {
-    public class TestVersionedProxyHttpClient : ITestVersionedService
+    public class TestVersionedProxyHttpClient : ITestVersionedProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

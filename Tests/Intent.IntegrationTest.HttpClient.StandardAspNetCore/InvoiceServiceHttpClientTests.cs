@@ -41,7 +41,7 @@ public class InvoiceServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IInvoiceService>()!;
+        var invoiceService = sp.GetService<IInvoiceServiceProxy>()!;
         var result = await invoiceService.CreateInvoiceAsync(InvoiceCreateDto.Create("123"));
         Assert.Equal(entity!.Id, result);
     }
@@ -57,7 +57,7 @@ public class InvoiceServiceHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(invoiceRepository), typeof(IntegrationController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<IInvoiceService>()!;
+        var invoiceService = sp.GetService<IInvoiceServiceProxy>()!;
         var result = await invoiceService.FindInvoiceByIdAsync(id);
         Assert.Equal(id, result.Id);
         Assert.Equal(number, result.Number);

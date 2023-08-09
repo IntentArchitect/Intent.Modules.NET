@@ -350,8 +350,8 @@
       <ProjectId>ad044cc8-e785-4749-86f5-0daa57f7daa7</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#f46e4eb0-4f3b-437c-9696-c6369e467621</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/IMyService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMyService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/IMyProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMyProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

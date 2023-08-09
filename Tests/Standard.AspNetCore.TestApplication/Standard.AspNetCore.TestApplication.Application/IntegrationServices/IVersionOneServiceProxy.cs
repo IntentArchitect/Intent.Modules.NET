@@ -9,9 +9,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices
 {
-    public interface IMultiVersionService : IDisposable
+    public interface IVersionOneServiceProxy : IDisposable
     {
-        Task OperationForVersionOneAsync(CancellationToken cancellationToken = default);
-        Task OperationForVersionTwoAsync(CancellationToken cancellationToken = default);
+        Task OperationForVersionOneAsync(string param, CancellationToken cancellationToken = default);
     }
 }

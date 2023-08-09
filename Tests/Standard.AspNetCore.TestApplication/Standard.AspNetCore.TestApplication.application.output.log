@@ -286,32 +286,32 @@
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#c3ae1723-54f0-4bcc-b0d1-a4507f314f8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IIntegrationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IIntegrationService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IIntegrationServiceProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIntegrationServiceProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#71b90e5e-74b1-4f4f-bd81-82b4a986b444</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IInvoiceService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IInvoiceService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IInvoiceServiceProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceServiceProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#0fde0689-99c0-47ef-a10f-763a160007f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IMultiVersionService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMultiVersionService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IMultiVersionServiceProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMultiVersionServiceProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#29a855bf-d3a8-4126-a2dd-da41b021b309</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IVersionOneService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IVersionOneService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IVersionOneServiceProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IVersionOneServiceProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

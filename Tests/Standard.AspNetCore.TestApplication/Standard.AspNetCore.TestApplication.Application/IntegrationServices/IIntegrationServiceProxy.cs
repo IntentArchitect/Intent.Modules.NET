@@ -11,7 +11,7 @@ using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standa
 
 namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices
 {
-    public interface IIntegrationService : IDisposable
+    public interface IIntegrationServiceProxy : IDisposable
     {
         Task<CustomDTO?> QueryParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default);
         Task HeaderParamOpAsync(string param1, CancellationToken cancellationToken = default);

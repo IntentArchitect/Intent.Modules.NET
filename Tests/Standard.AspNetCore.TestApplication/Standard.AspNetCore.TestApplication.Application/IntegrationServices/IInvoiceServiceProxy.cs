@@ -11,7 +11,7 @@ using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standa
 
 namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices
 {
-    public interface IInvoiceService : IDisposable
+    public interface IInvoiceServiceProxy : IDisposable
     {
         Task<Guid> CreateInvoiceAsync(InvoiceCreateDto dto, CancellationToken cancellationToken = default);
         Task<InvoiceDto?> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default);

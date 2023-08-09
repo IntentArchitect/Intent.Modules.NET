@@ -10,7 +10,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Pu
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices
 {
-    public interface IMyService : IDisposable
+    public interface IMyProxy : IDisposable
     {
         Task OrderConfirmedAsync(Guid id, OrderConfirmed command, CancellationToken cancellationToken = default);
     }

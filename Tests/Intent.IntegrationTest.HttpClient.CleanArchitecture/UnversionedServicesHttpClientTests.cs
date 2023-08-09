@@ -38,7 +38,7 @@ public class UnversionedServicesHttpClientTests
             typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestUnversionedService>()!;
+        var service = sp.GetService<ITestUnversionedProxy>()!;
         await service.TestAsync(new TestCommand { Value = TestCommandHandler.ExpectedInput });
     }
 
@@ -49,7 +49,7 @@ public class UnversionedServicesHttpClientTests
             typeof(UnversionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestUnversionedService>()!;
+        var service = sp.GetService<ITestUnversionedProxy>()!;
         var result = await service.TestAsync("789");
         Assert.Equal(789, result);
     }

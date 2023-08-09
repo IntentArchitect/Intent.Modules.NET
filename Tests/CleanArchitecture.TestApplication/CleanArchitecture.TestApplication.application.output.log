@@ -2910,16 +2910,16 @@
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d609d381-84ee-434f-9a26-b74091101d9c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestUnversionedService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ITestUnversionedService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestUnversionedProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestUnversionedProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestVersionedService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ITestVersionedService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestVersionedProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestVersionedProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

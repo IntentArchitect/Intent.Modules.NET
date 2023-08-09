@@ -19,7 +19,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Pu
 
 namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
 {
-    public class MyProxyHttpClient : IMyService
+    public class MyProxyHttpClient : IMyProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

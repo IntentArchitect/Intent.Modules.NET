@@ -8,8 +8,8 @@ using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Xunit;
 using Xunit.Abstractions;
-using IVersionOneService = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IVersionOneService;
-using IMultiVersionService = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IMultiVersionService;
+using IVersionOneServiceProxy = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IVersionOneServiceProxy;
+using IMultiVersionServiceProxy = Standard.AspNetCore.TestApplication.Application.IntegrationServices.IMultiVersionServiceProxy;
 namespace Intent.IntegrationTest.HttpClient.StandardAspNetCore;
 
 [Collection("VersionedTests")]
@@ -30,7 +30,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetVersionOneDiServices(), typeof(VersionOneController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IVersionOneService>()!;
+        var service = sp.GetService<IVersionOneServiceProxy>()!;
         await service.OperationForVersionOneAsync(VersionOneService.ReferenceNumber);
     }
 
@@ -40,7 +40,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IMultiVersionService>()!;
+        var service = sp.GetService<IMultiVersionServiceProxy>()!;
         await service.OperationForVersionOneAsync();
     }
     
@@ -50,7 +50,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetMultiDiServices(), typeof(MultiVersionController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<IMultiVersionService>()!;
+        var service = sp.GetService<IMultiVersionServiceProxy>()!;
         await service.OperationForVersionTwoAsync();
     }
     

@@ -21,7 +21,7 @@ using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standa
 
 namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
-    public class IntegrationServiceProxyHttpClient : IIntegrationService
+    public class IntegrationServiceProxyHttpClient : IIntegrationServiceProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
