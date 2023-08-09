@@ -1,3 +1,11 @@
+﻿### Version 5.0.0
+
+> ⚠️ NOTE
+>
+> This module depends on a new major version of `Intent.Application.Contracts.Clients` which may cause breaking changes to your codebase. Refer to [its release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.Contracts.Clients/release-notes.md#version-500) for more information.
+
+- Updated to use latest Service Proxy modules.
+
 ### Version 4.1.0
 
 - Service references will allow operation selection for generating HTTP clients.

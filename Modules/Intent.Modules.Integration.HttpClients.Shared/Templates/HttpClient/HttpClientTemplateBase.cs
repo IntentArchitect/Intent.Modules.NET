@@ -51,7 +51,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             .AddUsing("System.Threading.Tasks")
             .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
             .IntentManagedFully()
-            .AddClass($"{Model.Name.RemoveSuffix("Client")}HttpClient", @class =>
+            .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
@@ -91,7 +91,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromQuery, out var queryParams))
                         {
-                            method.AddStatement($"var queryParams = new {UseType("System.Collections.Generic.Dictionary")}<string, string>();", s => s.SeparatedFromPrevious());
+                            method.AddStatement($"var queryParams = new {UseType("System.Collections.Generic.Dictionary")}<string, string?>();", s => s.SeparatedFromPrevious());
 
                             foreach (var queryParameter in queryParams)
                             {

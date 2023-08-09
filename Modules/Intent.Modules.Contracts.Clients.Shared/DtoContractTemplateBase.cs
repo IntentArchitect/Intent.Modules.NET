@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 
@@ -21,8 +22,10 @@ namespace Intent.Modules.Contracts.Clients.Shared
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
-            AddTypeSource(templateId, "System.Collections.Generic.List<{0}>");
-            AddTypeSource(enumContractTemplateId, "System.Collections.Generic.List<{0}>");
+
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(templateId);
+            AddTypeSource(enumContractTemplateId);
 
             CSharpFile = new CSharpFile(
                     @namespace: this.GetPackageBasedNamespace(),

@@ -20,9 +20,9 @@ namespace Intent.Modules.Contracts.Clients.Shared
             string enumContractTemplateId)
             : base(templateId, outputTarget, model)
         {
-            AddTypeSource(dtoContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource(enumContractTemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(dtoContractTemplateId);
+            AddTypeSource(enumContractTemplateId);
 
             CSharpFile = new CSharpFile(
                     @namespace: $"{this.GetNamespace()}",
@@ -31,7 +31,7 @@ namespace Intent.Modules.Contracts.Clients.Shared
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
-                .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service", "Client", "Proxy")}Service",
+                .AddInterface($"I{Model.Name}",
                     @interface =>
                     {
                         @interface.ImplementsInterfaces("IDisposable");
