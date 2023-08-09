@@ -8,7 +8,7 @@ using Standard.AspNetCore.TestApplication.Api.Controllers;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standard.AspNetCore.TestApplication.Services.Invoices;
+using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Services.Invoices;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Entities;

@@ -13,8 +13,8 @@ using Intent.IntegrationTest.HttpClient.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Versioned.TestCommandV1;
-using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Versioned.TestCommandV2;
+using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV1;
+using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV2;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 

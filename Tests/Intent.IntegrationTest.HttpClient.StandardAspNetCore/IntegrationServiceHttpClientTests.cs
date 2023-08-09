@@ -7,7 +7,7 @@ using Standard.AspNetCore.TestApplication.Api.Controllers;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Common.Exceptions;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standard.AspNetCore.TestApplication.Services.Integration;
+using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Services.Integration;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Xunit;
 using Xunit.Abstractions;

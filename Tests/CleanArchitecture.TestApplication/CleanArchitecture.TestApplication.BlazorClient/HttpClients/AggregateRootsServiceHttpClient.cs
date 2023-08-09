@@ -2,8 +2,8 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.CleanArchitecture.TestApplication.Services.AggregateRoots;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.AggregateRoots;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

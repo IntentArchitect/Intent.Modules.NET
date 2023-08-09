@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Unversioned.TestCommand;
+using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Unversioned.TestCommand;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 

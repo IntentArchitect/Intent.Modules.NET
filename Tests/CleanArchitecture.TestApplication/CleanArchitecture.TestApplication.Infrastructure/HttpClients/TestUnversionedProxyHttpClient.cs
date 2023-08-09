@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.IntegrationServices;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Unversioned;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Unversioned;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 

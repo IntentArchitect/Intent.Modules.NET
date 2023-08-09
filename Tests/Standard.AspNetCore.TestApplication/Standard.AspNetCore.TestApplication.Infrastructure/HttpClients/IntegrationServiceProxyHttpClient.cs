@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 using Standard.AspNetCore.TestApplication.Application.Common.Exceptions;
 using Standard.AspNetCore.TestApplication.Application.IntegrationServices;
-using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Standard.AspNetCore.TestApplication.Services.Integration;
+using Standard.AspNetCore.TestApplication.Application.IntegrationServices.Services.Integration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
