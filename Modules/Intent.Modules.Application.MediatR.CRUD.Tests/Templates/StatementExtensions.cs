@@ -10,14 +10,14 @@ public static class StatementExtensions
     {
         RegisterDomainEventBaseFixture(template, method, null);
     }
-    
+
     public static void RegisterDomainEventBaseFixture(this ICSharpFileBuilderTemplate template, CSharpClassMethod method, ClassModel domainModel)
     {
         if (!template.TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
         {
             return;
         }
-        
+
         template.AddTypeSource("Intent.DomainEvents.DomainEventBase");
         method.AddStatement($@"fixture.Register<{domainEventBaseName}>(() => null);");
 

@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedC
 
         public override string TemplateId => NestedCreateCommandHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
             return new NestedCreateCommandHandlerTestsTemplate(outputTarget, model);

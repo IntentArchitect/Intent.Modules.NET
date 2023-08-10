@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCo
 
         public override string TemplateId => UpdateCommandHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
             return new UpdateCommandHandlerTestsTemplate(outputTarget, model);

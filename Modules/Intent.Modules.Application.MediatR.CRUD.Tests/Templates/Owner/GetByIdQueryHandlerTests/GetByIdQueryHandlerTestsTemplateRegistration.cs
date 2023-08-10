@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
 
         public override string TemplateId => GetByIdQueryHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new GetByIdQueryHandlerTestsTemplate(outputTarget, model);

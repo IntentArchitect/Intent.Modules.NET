@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.Rep
     {
         public override string TemplateId => RepositoryExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new RepositoryExtensionsTemplate(outputTarget);

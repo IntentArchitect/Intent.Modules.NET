@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.Ass
 
         public override string TemplateId => AssertionClassTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new AssertionClassTemplate(outputTarget, model);

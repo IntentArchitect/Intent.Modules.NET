@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
 
         public override string TemplateId => NestedGetByIdQueryHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new NestedGetByIdQueryHandlerTestsTemplate(outputTarget, model);
@@ -39,7 +40,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
             return _metadataManager.Services(application)
                 .GetQueryModels()
                 .Where(p => p.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false)
+                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false
+                            && !p.TypeReference.IsCollection)
                 .ToList();
         }
     }
