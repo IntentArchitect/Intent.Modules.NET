@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -14,6 +16,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -84,16 +87,36 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add(string.Empty);
             }
 
-            var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
-                dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
-                skipIdField: true);
-            codeLines.Add($"var {entityVariableName} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
-            if (assignmentStatements.Any())
+            var model = (_template as ITemplateWithModel)?.Model as CommandModel;
+            var mapping = model.CqrsMappedTo().FirstOrDefault()?.InternalAssociation.Mapping;
+            if (mapping != null && mapping.ToElement.IsClassModel())
             {
-                codeLines.Add(new CSharpStatementBlock()
-                    .AddStatements(assignmentStatements)
-                    .WithSemicolon());
+                var classModel = mapping.ToElement.AsClassModel();
+
+                var assignmentStatements = CreateMappingAssignments(mapping);
+                codeLines.Add(new CSharpObjectInitStatement($"var {entityVariableName}", CreateMappingAssignments(mapping)));
+                //codeLines.AddRange(assignmentStatements);
+                //if (assignmentStatements.Any())
+                //{
+                //    codeLines.Add(new CSharpStatementBlock()
+                //        .AddStatements(assignmentStatements)
+                //        .WithSemicolon());
+                //}
             }
+            else
+            {
+                var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
+                    dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
+                    skipIdField: true);
+                codeLines.Add($"var {entityVariableName} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
+                if (assignmentStatements.Any())
+                {
+                    codeLines.Add(new CSharpStatementBlock()
+                        .AddStatements(assignmentStatements)
+                        .WithSemicolon());
+                }
+            }
+
 
             if (nestedCompOwner != null)
             {
@@ -109,7 +132,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
             }
-            
+
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
@@ -126,6 +149,133 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return field.Mapping?.Element == null ||
                        field.Mapping.Element.IsAttributeModel() ||
                        field.Mapping.Element.IsAssociationEndModel();
+            }
+        }
+
+        private static CSharpStatement CreateMappingAssignments(IElementToElementMapping mapping)
+        {
+            var groupedMappings = mapping.Connections.GroupBy(x => x.ToPath.First(), x => x)
+                .Select(x => new ClassMapping(x.Key.Element, x.ToList()))
+                .ToList().First();
+
+            var assignmentStatements = new List<CSharpStatement>();
+            assignmentStatements.Add(groupedMappings.GetCreationAssignments(new Dictionary<ICanBeReferencedType, string>() {
+            {
+                mapping.FromElement, "request"
+            }}));
+
+            return assignmentStatements.First();
+        }
+
+        private class ValueObjectMapping : ClassMapping
+        {
+            public ValueObjectMapping(ICanBeReferencedType model, List<IElementToElementMappingConnection> mappings, int level) : base(model, mappings, level)
+            {
+            }
+
+            public override CSharpStatement GetCreationAssignments(IDictionary<ICanBeReferencedType, string> fromReplacements)
+            {
+                if (Mapping == null)
+                {
+                    var init = new CSharpInvocationStatement($"{Model.Name.ToPascalCase()} = new {Model.TypeReference.Element.Name.ToPascalCase()}").WithoutSemicolon();
+
+                    foreach (var child in Children)
+                    {
+                        init.AddArgument(GetFromPath(child.Mapping.FromPath, fromReplacements));
+                    }
+
+                    return init;
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
+            }
+        }
+
+        private class ClassMapping
+        {
+            public ICanBeReferencedType Model { get; }
+            public IList<ClassMapping> Children { get; }
+            public IElementToElementMappingConnection Mapping { get; set; }
+
+            public ClassMapping(ICanBeReferencedType model, List<IElementToElementMappingConnection> mappings, int level = 1)
+            {
+                Model = model;
+                Children = mappings.Where(x => x.ToPath.Count > level).GroupBy(x => x.ToPath.Skip(level).First(), x => x)
+                    .Select(x =>
+                    {
+                        if (x.Key.Element.TypeReference?.Element.SpecializationType == "Value Object")
+                        {
+                            return new ValueObjectMapping(x.Key.Element, x.ToList(), level + 1);
+                        }
+                        return new ClassMapping(x.Key.Element, x.ToList(), level + 1);
+                    })
+                    .ToList();
+                Mapping = mappings.SingleOrDefault(x => x.ToPath.Last().Element == model);
+            }
+
+
+            public virtual CSharpStatement GetCreationAssignments(IDictionary<ICanBeReferencedType, string> fromReplacements)
+            {
+                if (Mapping == null)
+                {
+                    var init = (Model.TypeReference != null)
+                        ? new CSharpObjectInitializerBlock($"{Model.Name.ToPascalCase()} = new {Model.TypeReference.Element.Name.ToPascalCase()}")
+                        : new CSharpObjectInitializerBlock($"new {Model.Name.ToPascalCase()}").WithSemicolon();
+
+                    init.AddStatements(Children.Select(x => x.GetCreationAssignments(fromReplacements)));
+
+                    return init;
+                }
+                else
+                {
+                    if (Children.Count == 0)
+                    {
+                        return $"{Model.Name.ToPascalCase()} = {GetFromPath(Mapping.FromPath, fromReplacements)}";
+                    }
+                    if (Model.TypeReference.IsCollection)
+                    {
+                        var chain = new CSharpMethodChainStatement($"{GetFromPath(Mapping.FromPath, fromReplacements)}{(Mapping.FromPath.Last().Element.TypeReference.IsNullable ? "?" : "")}").WithoutSemicolon();
+                        var select = new CSharpInvocationStatement($"Select").WithoutSemicolon();
+
+                        var variableName = string.Join("", Model.Name.Where(char.IsUpper).Select(char.ToLower));
+                        fromReplacements = fromReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, variableName) }).ToDictionary(x => x.Key, x => x.Value);
+                        select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
+                            .AddStatements(Children.Select(x => x.GetCreationAssignments(fromReplacements)))));
+
+                        var init = new CSharpObjectInitStatement($"{Model.Name.ToPascalCase()}", chain
+                            .AddChainStatement(select)
+                            .AddChainStatement("ToList()"));
+                        return init;
+                    }
+                    else
+                    {
+                        return $"{Model.Name.ToPascalCase()} = {GetFromPath(Mapping.FromPath, fromReplacements)}";
+                    }
+
+                }
+            }
+
+            protected string GetFromPath(IList<IElementMappingPathTarget> mappingFromPath, IDictionary<ICanBeReferencedType, string> fromReplacements)
+            {
+                var result = "";
+                foreach (var mappingPathTarget in mappingFromPath)
+                {
+                    if (fromReplacements.ContainsKey(mappingPathTarget.Element))
+                    {
+                        result = fromReplacements[mappingPathTarget.Element];
+                    }
+                    else
+                    {
+                        result += $".{mappingPathTarget.Element.Name.ToPascalCase()}";
+                        if (mappingPathTarget.Element.TypeReference.IsNullable && mappingFromPath.Last() != mappingPathTarget)
+                        {
+                            result += "?";
+                        }
+                    }
+                }
+                return result;
             }
         }
 

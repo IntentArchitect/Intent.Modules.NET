@@ -118,33 +118,48 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 var connection = mapping.Connections.SingleOrDefault(x => x.ToPath.Last().Element.Id == property.Id);
                 if (connection == null)
                 {
-                    continue;
-                }
-                if (connection.FromPath.Count == 1)
-                {
-                    invocation.AddArgument("this");
+                    invocation.AddArgument("null");
                     continue;
                 }
 
-                if (connection.FromPath.Count == 2)
-                {
-                    if (connection.FromPath[1].Specialization == OperationModel.SpecializationType)
-                    {
-                        invocation.AddArgument(connection.FromPath[1].Element.Name.ToPascalCase() + "()");
-                        continue;
-                    }
-                    invocation.AddArgument(connection.FromPath[1].Element.Name.ToPascalCase());
-                    continue;
-                }
 
-                if (connection.FromPath.Count == 3)
-                {
-                    invocation.AddArgument(connection.FromPath[2].Element.Name.ToCamelCase());
-                    continue;
-                }
+
+                invocation.AddArgument(GetPath(connection.FromPath, classModel, mapping.FromElement.AsClassConstructorModel()));
             }
 
             return $"new {invocation}";
+        }
+
+        private static string GetPath(IList<IElementMappingPathTarget> path, params IMetadataModel[] rootModels)
+        {
+            if (path.Count == 1 && rootModels.Any(x => x.Id == path[0].Id))
+            {
+                return "this";
+            }
+
+            var mappedPath = new List<string>();
+            foreach (var pathItem in path)
+            {
+                if (rootModels.Any(x => x.Id == pathItem.Id))
+                {
+                    continue;
+                }
+                
+                switch (pathItem.Specialization)
+                {
+                    case OperationModel.SpecializationType:
+                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}()");
+                        continue;
+                    case ParameterModel.SpecializationType:
+                        mappedPath.Add($"{pathItem.Element.Name.ToParameterName()}");
+                        continue;
+                    default:
+                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}");
+                        continue;
+                }
+            }
+
+            return string.Join(".", mappedPath);
         }
 
         private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
