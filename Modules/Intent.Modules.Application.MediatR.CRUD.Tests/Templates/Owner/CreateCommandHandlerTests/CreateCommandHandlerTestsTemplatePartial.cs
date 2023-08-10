@@ -49,13 +49,12 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             .AfterBuild(file =>
             {
                 AddUsingDirectives(file);
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
                 AddSuccessfulResultTestData(priClass);
                 AddSuccessfulHandlerTest(priClass);
-            })
-            .AfterBuild(file =>
-            {
+                
                 this.AddCommandAssertionMethods(Model);
             }, 1);
     }
@@ -82,7 +81,6 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             method.AddParameter(Facade.CommandTypeName, "testCommand");
             
             method.AddStatement("// Arrange");
-            Facade.AddHandlerConstructorMockUsings();
             method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
             method.AddStatements(Facade.GetDomainRepositoryUnitOfWorkMockingStatements());
             method.AddStatement(string.Empty);
@@ -94,8 +92,8 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             
             method.AddStatement(string.Empty);
             method.AddStatement("// Assert");
-            method.AddStatements(Facade.GetRepositorySaveChangesAssertionStatement());
-            method.AddStatements(Facade.GetDomainAssertionStatement("testCommand"));
+            method.AddStatements(Facade.GetDomainRepositorySaveChangesAssertionStatement());
+            method.AddStatements(Facade.GetCommandCompareToDomainAssertionStatement("testCommand"));
         });
     }
 

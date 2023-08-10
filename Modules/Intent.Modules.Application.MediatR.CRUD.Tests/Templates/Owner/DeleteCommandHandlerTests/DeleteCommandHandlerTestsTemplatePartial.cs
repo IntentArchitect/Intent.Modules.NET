@@ -36,20 +36,17 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
+        AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
         
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
-            .OnBuild(file =>
+            .AfterBuild(file =>
             {
                 AddUsingDirectives(file);
-
-                // var domainElement = Model.Mapping.Element.AsClassModel();
-                // var domainElementName = domainElement.Name.ToPascalCase();
-                // var domainElementIdName = domainElement.GetEntityIdAttribute(ExecutionContext).IdName;
-                // var commandIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
 
@@ -57,14 +54,6 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     method.Static();
                     method.AddStatements(Facade.GetInitialCommandAndDomainEntityAutoFixtureTestData());
-        //             method.AddStatements($@"
-        // var fixture = new Fixture();");
-                    //this.RegisterDomainEventBaseFixture(method, domainElement);
-        //             method.AddStatements($@"
-        // var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
-        // fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{commandIdFieldName}, existingEntity.{domainElementIdName}));
-        // var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        // yield return new object[] {{ testCommand, existingEntity }};");
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.DomainClassTypeName}FromRepository", method =>
@@ -76,9 +65,8 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
 
                     method.AddStatement("// Arrange");
-                    Facade.AddHandlerConstructorMockUsings();
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity"));
+                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
                     
                     method.AddStatement(string.Empty);
@@ -87,41 +75,27 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    
-                    method.AddStatements($@"
-        // Arrange
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{commandIdFieldName}).Returns(Task.FromResult(existingEntity));
-
-        var sut = new {this.GetCommandHandlerName(Model)}(repository);
-
-        // Act
-        await sut.Handle(testCommand, CancellationToken.None);
-
-        // Assert
-        repository.Received(1).Remove(Arg.Is<{GetTypeName(domainElement.InternalElement)}>(p => p.{domainElementIdName} == testCommand.{commandIdFieldName}));");
+                    method.AddStatements(Facade.GetRepositoryRemovedAssertionStatement("testCommand"));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
-                    method.AddStatements($@"
-        // Arrange
-        var fixture = new Fixture();
-        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{commandIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
-        repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
-
-        var sut = new {this.GetCommandHandlerName(Model)}(repository);
-
-        // Act
-        var act = async () => await sut.Handle(testCommand, CancellationToken.None);
-
-        // Assert
-        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
+                    method.AddStatement("// Arrange");
+                    method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
+                    method.AddStatements(Facade.GetNewCommandAutoFixtureInlineStatements("testCommand"));
+                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
+                    method.AddStatement(string.Empty);
+                    method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
+                    
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Act");
+                    method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
+                    
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Assert");
+                    method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
             });
     }

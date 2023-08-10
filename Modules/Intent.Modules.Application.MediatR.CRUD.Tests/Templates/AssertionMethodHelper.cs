@@ -7,10 +7,12 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
@@ -28,7 +30,7 @@ internal static class AssertionMethodHelper
         var templateInstance = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
 
-        templateInstance?.AddAssertionMethods(template.CSharpFile.Classes.First(), commandModel, domainModel);
+        templateInstance?.AddAssertionMethods(templateInstance.CSharpFile.Classes.First(), commandModel, domainModel);
     }
     
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
@@ -36,8 +38,8 @@ internal static class AssertionMethodHelper
         builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
             method.Static();
-            method.AddParameter(template.GetTypeName(commandModel.InternalElement), "expectedDto");
-            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "actualEntity");
+            method.AddParameter(template.GetTypeName(CommandModelsTemplate.TemplateId, commandModel), "expectedDto");
+            method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel), "actualEntity");
             method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
         });
 
@@ -51,8 +53,8 @@ internal static class AssertionMethodHelper
 
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel, bool hasCollection)
     {
-        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(dtoModel.InternalElement)}>" : template.GetTypeName(dtoModel.InternalElement);
-        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(domainModel.InternalElement)}>" : template.GetTypeName(domainModel.InternalElement);
+        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel);
+        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
         if (builderClass.FindMethod(stmt => stmt.Parameters.First().Type == dtoModelTypeName && stmt.Parameters.Last().Type == domainModelTypeName) != null)
         {
             return;
