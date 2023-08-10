@@ -1,4 +1,5 @@
-﻿using Intent.Modelers.Domain.Api;
+﻿using System;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 
@@ -6,11 +7,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
 public static class StatementExtensions
 {
+    [Obsolete("TODO REMOVE")]
     public static void RegisterDomainEventBaseFixture(this ICSharpFileBuilderTemplate template, CSharpClassMethod method)
     {
         RegisterDomainEventBaseFixture(template, method, null);
     }
 
+    [Obsolete("TODO REMOVE")]
     public static void RegisterDomainEventBaseFixture(this ICSharpFileBuilderTemplate template, CSharpClassMethod method, ClassModel domainModel)
     {
         if (!template.TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))

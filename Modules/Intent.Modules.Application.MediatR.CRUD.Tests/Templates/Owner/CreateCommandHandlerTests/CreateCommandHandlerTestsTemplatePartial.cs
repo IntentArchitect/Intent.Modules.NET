@@ -39,11 +39,11 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.NSubstitute);
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
-
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(CommandModelsTemplate.TemplateId);
+        
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
+        Facade = new CommandHandlerFacade(this, model);
+        
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -56,56 +56,46 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             })
             .AfterBuild(file =>
             {
-                AddAssertionMethods();
+                this.AddCommandAssertionMethods(Model);
             }, 1);
     }
+
+    private CommandHandlerFacade Facade { get; }
 
     private void AddSuccessfulResultTestData(CSharpClass priClass)
     {
         priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
         {
             method.Static();
-            method.AddStatements($@"var fixture = new Fixture();
-        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-
-            foreach (var property in Model.Properties
-                         .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
-            {
-                method.AddStatement("");
-                method.AddStatements($@"
-        fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
-        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-            }
+            method.AddStatements(Facade.GetInitialCreateCommandAutoFixtureTestData());
+            method.AddStatements(Facade.GetCreateCommandWithNullableCompositePropertiesTestData());
         });
     }
     
     private void AddSuccessfulHandlerTest(CSharpClass priClass)
     {
-        var facade = new CommandHandlerFacade(this, Model);
-        
-        priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{facade.DomainClassName}ToRepository", method =>
+        priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.DomainClassTypeName}ToRepository", method =>
         {
             method.Async();
             method.AddAttribute("Theory");
             method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-            method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+            method.AddParameter(Facade.CommandTypeName, "testCommand");
             
             method.AddStatement("// Arrange");
-            facade.AddHandlerConstructorMockUsings();
-            method.AddStatements(facade.GetCommandHandlerConstructorParameterMockStatements());
-            method.AddStatements(facade.GetRepositoryUnitOfWorkMockingStatements());
+            Facade.AddHandlerConstructorMockUsings();
+            method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
+            method.AddStatements(Facade.GetDomainRepositoryUnitOfWorkMockingStatements());
             method.AddStatement(string.Empty);
-            method.AddStatements(facade.GetCommandHandlerConstructorSutStatement());
+            method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
             
             method.AddStatement(string.Empty);
             method.AddStatement("// Act");
-            method.AddStatements(facade.GetSutHandleInvocationStatement("testCommand"));
+            method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
             
             method.AddStatement(string.Empty);
             method.AddStatement("// Assert");
-            method.AddStatements(facade.GetRepositorySaveChangesAssertionStatement());
-            method.AddStatements(facade.GetDomainAssertionStatement("testCommand"));
+            method.AddStatements(Facade.GetRepositorySaveChangesAssertionStatement());
+            method.AddStatements(Facade.GetDomainAssertionStatement("testCommand"));
         });
     }
 
@@ -126,20 +116,6 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         {
             file.AddUsing(repoExtTemplate.Namespace);
         }
-    }
-
-    private void AddAssertionMethods()
-    {
-        if (Model?.Mapping?.Element?.IsClassModel() != true)
-        {
-            return;
-        }
-
-        var domainModel = Model.Mapping.Element.AsClassModel();
-        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
-
-        template?.AddAssertionMethods(template.CSharpFile.Classes.First(), Model, domainModel);
     }
 
     [IntentManaged(Mode.Fully)]

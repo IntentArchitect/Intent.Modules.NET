@@ -6,6 +6,8 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -13,8 +15,22 @@ using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtens
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
-public static class AssertionMethodHelper
+internal static class AssertionMethodHelper
 {
+    public static void AddCommandAssertionMethods(this ICSharpFileBuilderTemplate template, CommandModel commandModel)
+    {
+        if (commandModel?.Mapping?.Element?.IsClassModel() != true)
+        {
+            return;
+        }
+
+        var domainModel = commandModel.Mapping.Element.AsClassModel();
+        var templateInstance = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
+
+        templateInstance?.AddAssertionMethods(template.CSharpFile.Classes.First(), commandModel, domainModel);
+    }
+    
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
     {
         builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
