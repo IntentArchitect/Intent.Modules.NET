@@ -1,3 +1,9 @@
+### Version 5.2.2
+
+- Commands will always be made for `Class` `Operation`s regardless of whether or not private setters is enabled.
+- Possible `Async` suffix of `Class` `Operation`s is not included in the name of generated commands.
+- `Operation` `Parameter`s of type `Domain Service` are no longer automatically mapped.
+
 ### Version 5.2.1
 
 - Fixed: Implementations were not being generated for commands mapped to constructors.
