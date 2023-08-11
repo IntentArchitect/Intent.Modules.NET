@@ -37,6 +37,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Va
         public string? StringOption { get; set; }
         [Required(ErrorMessage = "String option non empty is required.")]
         public string? StringOptionNonEmpty { get; set; }
+        [Required(ErrorMessage = "My enum is required.")]
+        public EnumDescriptions MyEnum { get; set; }
 
         public static ValidatedResultDto Create(
             string rangeStr,
@@ -51,7 +53,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Va
             decimal decimalMin,
             decimal decimalMax,
             string? stringOption,
-            string? stringOptionNonEmpty)
+            string? stringOptionNonEmpty,
+            EnumDescriptions myEnum)
         {
             return new ValidatedResultDto
             {
@@ -67,7 +70,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Va
                 DecimalMin = decimalMin,
                 DecimalMax = decimalMax,
                 StringOption = stringOption,
-                StringOptionNonEmpty = stringOptionNonEmpty
+                StringOptionNonEmpty = stringOptionNonEmpty,
+                MyEnum = myEnum
             };
         }
     }

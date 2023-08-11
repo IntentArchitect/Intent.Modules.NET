@@ -3508,6 +3508,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#0ac4b164-338a-4323-9d97-9bdcd0192647</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQuery.cs</ApplicationRelativeFilePath>
@@ -4136,6 +4144,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#0ac4b164-338a-4323-9d97-9bdcd0192647</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

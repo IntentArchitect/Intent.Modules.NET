@@ -58,6 +58,10 @@ namespace CleanArchitecture.TestApplication.Application.Validation
 
             RuleFor(v => v.StringOptionNonEmpty)
                 .NotEmpty();
+
+            RuleFor(v => v.MyEnum)
+                .NotNull()
+                .IsInEnum();
         }
     }
 }

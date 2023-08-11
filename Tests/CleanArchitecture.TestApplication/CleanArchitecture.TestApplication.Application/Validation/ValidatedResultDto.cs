@@ -29,6 +29,7 @@ namespace CleanArchitecture.TestApplication.Application.Validation
         public decimal DecimalMax { get; set; }
         public string? StringOption { get; set; }
         public string? StringOptionNonEmpty { get; set; }
+        public EnumDescriptions MyEnum { get; set; }
 
         public static ValidatedResultDto Create(
             string rangeStr,
@@ -43,7 +44,8 @@ namespace CleanArchitecture.TestApplication.Application.Validation
             decimal decimalMin,
             decimal decimalMax,
             string? stringOption,
-            string? stringOptionNonEmpty)
+            string? stringOptionNonEmpty,
+            EnumDescriptions myEnum)
         {
             return new ValidatedResultDto
             {
@@ -59,7 +61,8 @@ namespace CleanArchitecture.TestApplication.Application.Validation
                 DecimalMin = decimalMin,
                 DecimalMax = decimalMax,
                 StringOption = stringOption,
-                StringOptionNonEmpty = stringOptionNonEmpty
+                StringOptionNonEmpty = stringOptionNonEmpty,
+                MyEnum = myEnum
             };
         }
     }
