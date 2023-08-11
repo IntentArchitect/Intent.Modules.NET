@@ -66,7 +66,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnVariable));
+                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
                     
                     method.AddStatement(string.Empty);

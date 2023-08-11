@@ -188,12 +188,9 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetCommandCompareToDomainAssertionStatement(string commandVarName)
+    public IReadOnlyCollection<CSharpStatement> GetCommandCompareToNewAddedDomainAssertionStatement(string commandVarName)
     {
-        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(DomainClassModel)}.AssertEquivalent")
-            .AddArgument(commandVarName)
-            .AddArgument($"added{DomainClassTypeName}");
-        return new[] { inv };
+        return GetCommandCompareToExistingDomainAssertionStatement(commandVarName, $"added{DomainClassTypeName}");
     }
 
     public IReadOnlyCollection<CSharpStatement> GetInitialCreateCommandAutoFixtureTestData()
@@ -254,6 +251,45 @@ internal class CommandHandlerFacade
         return statements;
     }
 
+    public IReadOnlyCollection<CSharpStatement> GetCreateCommandAndDomainWithNullableCompositePropertiesTestData()
+    {
+        var statements = new List<CSharpStatement>();
+        foreach (var property in _model.Properties
+                     .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+        {
+            statements.Add(string.Empty);
+            statements.Add("fixture = new Fixture();");
+            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
+            statements.Add($"existingEntity = fixture.Create<{DomainClassTypeName}>();");
+
+            if (CommandIdFields.Count == 1)
+            {
+                statements.Add(
+                    $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, existingEntity.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+            }
+            else
+            {
+                var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+                statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
+                    .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+                fluent.AddChainStatement($"Without(x => x.{property.Name})");
+
+                for (var i = 0; i < CommandIdFields.Count; i++)
+                {
+                    var commandIdField = CommandIdFields[i];
+                    var domainIdAttribute = DomainIdAttributes[i];
+                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                }
+            }
+
+            statements.Add($"testCommand = fixture.Create<{CommandTypeName}>();");
+            statements.Add($"yield return new object[] {{ testCommand, existingEntity }};");
+        }
+
+        return statements;
+    }
+
     public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements()
     {
         if (!HasDomainEventBaseName())
@@ -271,17 +307,26 @@ internal class CommandHandlerFacade
         return statements;
     }
 
+    public IReadOnlyCollection<CSharpStatement> GetCommandCompareToExistingDomainAssertionStatement(string commandVarName, string entityVarName)
+    {
+        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(DomainClassModel)}.AssertEquivalent")
+            .AddArgument(commandVarName)
+            .AddArgument(entityVarName);
+        return new[] { inv };
+    }
+
     public enum MockRepositoryResponse
     {
-        ReturnVariable,
+        ReturnDomainVariable,
         ReturnDefault
     }
+
     public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response)
     {
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
-            MockRepositoryResponse.ReturnVariable => $".Returns(Task.FromResult({entityVarName}))",
+            MockRepositoryResponse.ReturnDomainVariable => $".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
             MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{DomainClassTypeName}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
@@ -292,7 +337,8 @@ internal class CommandHandlerFacade
     public IReadOnlyCollection<CSharpStatement> GetRepositoryRemovedAssertionStatement(string commandVarName)
     {
         var statements = new List<CSharpStatement>();
-        statements.Add($"{DomainRepositoryVarName}.Received(1).Remove(Arg.Is<{DomainClassTypeName}>(p => {GetDomainIdKeyExpression("p")} == {GetCommandIdKeyExpression(commandVarName)}));");
+        statements.Add(
+            $"{DomainRepositoryVarName}.Received(1).Remove(Arg.Is<{DomainClassTypeName}>(p => {GetDomainIdKeyExpression("p")} == {GetCommandIdKeyExpression(commandVarName)}));");
         return statements;
     }
 
@@ -320,7 +366,7 @@ internal class CommandHandlerFacade
 
         return $"({string.Join(", ", CommandIdFields.Select(idField => $"{commandVarName}.{idField.Name.ToCSharpIdentifier()}"))})";
     }
-    
+
     private string GetDomainIdKeyExpression(string entityVarName)
     {
         if (DomainIdAttributes.Count == 1)

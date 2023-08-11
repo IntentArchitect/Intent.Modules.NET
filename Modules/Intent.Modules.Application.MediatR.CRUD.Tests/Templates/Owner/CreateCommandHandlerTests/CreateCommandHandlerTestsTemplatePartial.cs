@@ -93,7 +93,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             method.AddStatement(string.Empty);
             method.AddStatement("// Assert");
             method.AddStatements(Facade.GetDomainRepositorySaveChangesAssertionStatement());
-            method.AddStatements(Facade.GetCommandCompareToDomainAssertionStatement("testCommand"));
+            method.AddStatements(Facade.GetCommandCompareToNewAddedDomainAssertionStatement("testCommand"));
         });
     }
 
