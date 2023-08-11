@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
-public class MappingFactory
+public abstract class MappingFactoryBase
 {
-    public MappingFactory(IDictionary<string, Func<ICanBeReferencedType, IElementToElementMappingConnection, IList<ICSharpMapping>, ICSharpMapping>> factoryRegistry)
+    protected MappingFactoryBase(IDictionary<string, Func<ICanBeReferencedType, IElementToElementMappingConnection, IList<ICSharpMapping>, ICSharpMapping>> factoryRegistry)
     {
 
     }
@@ -18,7 +19,23 @@ public class MappingFactory
             .GroupBy(x => x.ToPath.Skip(level).First(), x => x)
             .Select(x => Create(x.Key.Element, x.ToList(), level + 1))
             .ToList();
+        return CreateMappingType(model, mapping, children);
+    }
 
+    public abstract ICSharpMapping CreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children);
+}
+
+public class CreateClassMappingFactory : MappingFactoryBase
+{
+    private readonly ICSharpFileBuilderTemplate _template;
+
+    public CreateClassMappingFactory(IDictionary<string, Func<ICanBeReferencedType, IElementToElementMappingConnection, IList<ICSharpMapping>, ICSharpMapping>> factoryRegistry, ICSharpFileBuilderTemplate template) : base(factoryRegistry)
+    {
+        _template = template;
+    }
+
+    public override ICSharpMapping CreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children)
+    {
         if (model.TypeReference?.Element.SpecializationType == "Value Object")
         {
             return new ImplicitConstructorMapping(model, mapping, children);

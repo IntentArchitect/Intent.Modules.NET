@@ -94,8 +94,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 var classModel = mapping.ToElement.AsClassModel();
 
-                var assignmentStatements = CreateMappingAssignments(mapping);
-                codeLines.Add(new CSharpObjectInitStatement($"var {entityVariableName}", CreateMappingAssignments(mapping)));
+                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", CreateMappingAssignments(mapping)));
                 //codeLines.AddRange(assignmentStatements);
                 //if (assignmentStatements.Any())
                 //{
@@ -153,19 +152,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
         }
 
-        private static CSharpStatement CreateMappingAssignments(IElementToElementMapping mapping)
+        private CSharpStatement CreateMappingAssignments(IElementToElementMapping mapping)
         {
-            //var groupedMappings = mapping.Connections.GroupBy(x => x.ToPath.First(), x => x)
-            //    .Select(x => new ObjectInitializationMapping(x.Key.Element, x.ToList()))
-            //    .ToList().First();
-
-            var groupedMappings = new MappingFactory(null).Create(mapping.ToElement, mapping.Connections);
+            var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
             var assignmentStatements = new List<CSharpStatement>();
-            assignmentStatements.Add(groupedMappings.GetFromMappingStatement(new Dictionary<ICanBeReferencedType, string>() {
+            assignmentStatements.AddRange(groupedMappings.GetMappingStatement(new Dictionary<ICanBeReferencedType, string>() {
             {
                 mapping.FromElement, "request"
-            }}));
+            }}, TODO));
 
             return assignmentStatements.First();
         }

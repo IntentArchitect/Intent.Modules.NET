@@ -7,7 +7,9 @@ using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
+using Intent.Modules.Application.MediatR.CRUD.Mapping;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
@@ -17,6 +19,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Templates;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
@@ -107,8 +110,29 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
+            var model = (_template as ITemplateWithModel)?.Model as CommandModel;
+            var mapping = model.CqrsMappedTo().FirstOrDefault()?.InternalAssociation.Mapping;
+            if (mapping != null && mapping.ToElement.IsClassModel())
+            {
+                var groupedMappings = new UpdateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
-            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
+                codeLines.AddRange(groupedMappings.GetMappingStatement(new Dictionary<ICanBeReferencedType, string>()
+                {
+                    { mapping.FromElement, "request" },
+                    { mapping.ToElement, entityVariableName }, 
+                }, TODO));
+                //codeLines.AddRange(assignmentStatements);
+                //if (assignmentStatements.Any())
+                //{
+                //    codeLines.Add(new CSharpStatementBlock()
+                //        .AddStatements(assignmentStatements)
+                //        .WithSemicolon());
+                //}
+            }
+            else
+            {
+                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
+            }
 
             if (RepositoryRequiresExplicitUpdate())
             {

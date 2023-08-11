@@ -1,33 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
-public class ImplicitConstructorMapping : ObjectInitializationMapping
+public class ImplicitConstructorMapping : CSharpMappingBase
 {
     public ImplicitConstructorMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children) : base(model, mapping, children)
     {
     }
 
-    public override CSharpStatement GetFromMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements)
+    public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
     {
-        if (Mapping == null)
-        {
-            var init = new CSharpInvocationStatement($"new {Model.TypeReference.Element.Name.ToPascalCase()}").WithoutSemicolon();
+        // implicit / traversal into value object:
 
-            foreach (var child in Children)
-            {
-                init.AddArgument(GetFromPath(child.Mapping.FromPath, fromReplacements));
-            }
+        var init = new CSharpInvocationStatement($"new {Model.TypeReference.Element.Name.ToPascalCase()}").WithoutSemicolon();
 
-            return init;
-        }
-        else
+        foreach (var child in Children)
         {
-            throw new NotImplementedException();
+            init.AddArgument(GetPath(child.Mapping.FromPath, fromReplacements));
         }
+
+        yield return new CSharpAssignmentStatement(GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath, fromReplacements), init);
     }
 }

@@ -9,5 +9,7 @@ public interface ICSharpMapping
     public ICanBeReferencedType Model { get; }
     public IList<ICSharpMapping> Children { get; }
     public IElementToElementMappingConnection Mapping { get; set; }
-    CSharpStatement GetFromMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements);
+    IEnumerable<CSharpStatement> GetMappingStatement(
+        IDictionary<ICanBeReferencedType, string> fromReplacements,
+        IDictionary<ICanBeReferencedType, string> toReplacements);
 }
