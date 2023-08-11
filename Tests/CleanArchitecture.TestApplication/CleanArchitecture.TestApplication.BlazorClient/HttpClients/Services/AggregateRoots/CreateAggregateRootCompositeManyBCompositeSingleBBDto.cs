@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,6 +9,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class CreateAggregateRootCompositeManyBCompositeSingleBBDto
     {
+        [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
 
         public static CreateAggregateRootCompositeManyBCompositeSingleBBDto Create(string compositeAttr)

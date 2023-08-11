@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,15 +9,17 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class CreateAggregateRootCompositeManyBDto
     {
+        [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
         public DateTime? SomeDate { get; set; }
-        public CreateAggregateRootCompositeManyBCompositeSingleBBDto Composite { get; set; }
+        public CreateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
+        [Required(ErrorMessage = "Composites is required.")]
         public List<CreateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
         public static CreateAggregateRootCompositeManyBDto Create(
             string compositeAttr,
             DateTime? someDate,
-            CreateAggregateRootCompositeManyBCompositeSingleBBDto composite,
+            CreateAggregateRootCompositeManyBCompositeSingleBBDto? composite,
             List<CreateAggregateRootCompositeManyBCompositeManyBBDto> composites)
         {
             return new CreateAggregateRootCompositeManyBDto

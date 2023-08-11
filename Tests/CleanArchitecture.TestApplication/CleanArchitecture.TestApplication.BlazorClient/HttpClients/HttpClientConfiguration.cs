@@ -31,6 +31,12 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 });
 
             services
+                .AddHttpClient<IValidationService, ValidationServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");
+                });
+
+            services
                 .AddHttpClient<IAccountService, AccountServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "STSApplication");

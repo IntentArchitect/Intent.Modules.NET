@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,15 +9,17 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class AggregateRootCompositeSingleADto
     {
+        [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
         public Guid Id { get; set; }
-        public AggregateRootCompositeSingleACompositeSingleAADto Composite { get; set; }
+        public AggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
+        [Required(ErrorMessage = "Composites is required.")]
         public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
 
         public static AggregateRootCompositeSingleADto Create(
             string compositeAttr,
             Guid id,
-            AggregateRootCompositeSingleACompositeSingleAADto composite,
+            AggregateRootCompositeSingleACompositeSingleAADto? composite,
             List<AggregateRootCompositeSingleACompositeManyAADto> composites)
         {
             return new AggregateRootCompositeSingleADto

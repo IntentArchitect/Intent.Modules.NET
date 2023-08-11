@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,6 +9,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class CreateAggregateRootAggregateSingleCDto
     {
+        [Required(ErrorMessage = "Aggregation attr is required.")]
         public string AggregationAttr { get; set; }
 
         public static CreateAggregateRootAggregateSingleCDto Create(string aggregationAttr)

@@ -3508,6 +3508,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/Validated/ValidatedCommand.cs</ApplicationRelativeFilePath>
@@ -3528,6 +3552,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/Validated/ValidatedCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Validation/Validated/ValidatedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidatedResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ValidatedResultDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidatedResultDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3876,6 +3916,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#8e572cd3-82cd-4207-b9bb-bec6e82f536f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClient#96a967fc-4cac-444e-8409-36fe946ef90d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/SecuredServiceHttpClient.cs</ApplicationRelativeFilePath>
@@ -4088,6 +4136,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#8e572cd3-82cd-4207-b9bb-bec6e82f536f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/ValidationServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

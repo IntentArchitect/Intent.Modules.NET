@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,11 +9,13 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class AggregateRootCompositeManyBDto
     {
+        [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
         public DateTime? SomeDate { get; set; }
         public Guid AggregateRootId { get; set; }
         public Guid Id { get; set; }
-        public AggregateRootCompositeManyBCompositeSingleBBDto Composite { get; set; }
+        public AggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
+        [Required(ErrorMessage = "Composites is required.")]
         public List<AggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
 
         public static AggregateRootCompositeManyBDto Create(
@@ -20,7 +23,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
             DateTime? someDate,
             Guid aggregateRootId,
             Guid id,
-            AggregateRootCompositeManyBCompositeSingleBBDto composite,
+            AggregateRootCompositeManyBCompositeSingleBBDto? composite,
             List<AggregateRootCompositeManyBCompositeManyBBDto> composites)
         {
             return new AggregateRootCompositeManyBDto

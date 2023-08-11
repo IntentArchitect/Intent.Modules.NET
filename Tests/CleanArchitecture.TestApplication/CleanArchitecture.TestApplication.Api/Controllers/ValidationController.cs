@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Application.Validation;
+using CleanArchitecture.TestApplication.Application.Validation.ResultValidations;
 using CleanArchitecture.TestApplication.Application.Validation.Validated;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -40,6 +42,20 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         {
             await _mediator.Send(command, cancellationToken);
             return NoContent();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified ValidatedResultDto.</response>
+        /// <response code="404">Can't find an ValidatedResultDto with the parameters provided.</response>
+        [HttpGet("api/validation/result-validations")]
+        [ProducesResponseType(typeof(ValidatedResultDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ValidatedResultDto>> ResultValidations(CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new ResultValidationsQuery(), cancellationToken);
+            return result != null ? Ok(result) : NotFound();
         }
     }
 }
