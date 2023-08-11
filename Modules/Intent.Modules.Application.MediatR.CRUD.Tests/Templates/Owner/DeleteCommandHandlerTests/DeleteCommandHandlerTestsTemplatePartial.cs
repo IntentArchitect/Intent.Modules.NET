@@ -56,7 +56,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.GetInitialCommandAndDomainEntityAutoFixtureTestData());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.DomainClassTypeName}FromRepository", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.SimpleDomainClassName}FromRepository", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");

@@ -1,6 +1,9 @@
 ### Version 1.2.0
 
-
+- Update: Refactored module completely for better internal maintainability.
+- Update: Future-proofing Command / Query Handler constructor parameters that receive new parameters (from Intent Architect) will now automatically get stubbed/mocked in unit tests.
+- Update: Now catering for composite keys in Command / Query handlers.
+- Fixed: Get query handler tests would cause a crash in some cases when trying to generate.
 
 ### Version 1.1.1
 

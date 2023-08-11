@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQu
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
+                .Where(p => p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
                 .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
