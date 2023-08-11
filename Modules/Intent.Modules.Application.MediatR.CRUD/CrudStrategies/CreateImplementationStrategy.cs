@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
+using Intent.Modules.Application.MediatR.CRUD.Mapping;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
@@ -154,129 +155,19 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private static CSharpStatement CreateMappingAssignments(IElementToElementMapping mapping)
         {
-            var groupedMappings = mapping.Connections.GroupBy(x => x.ToPath.First(), x => x)
-                .Select(x => new ClassMapping(x.Key.Element, x.ToList()))
-                .ToList().First();
+            //var groupedMappings = mapping.Connections.GroupBy(x => x.ToPath.First(), x => x)
+            //    .Select(x => new ObjectInitializationMapping(x.Key.Element, x.ToList()))
+            //    .ToList().First();
+
+            var groupedMappings = new MappingFactory(null).Create(mapping.ToElement, mapping.Connections);
 
             var assignmentStatements = new List<CSharpStatement>();
-            assignmentStatements.Add(groupedMappings.GetCreationAssignments(new Dictionary<ICanBeReferencedType, string>() {
+            assignmentStatements.Add(groupedMappings.GetFromMappingStatement(new Dictionary<ICanBeReferencedType, string>() {
             {
                 mapping.FromElement, "request"
             }}));
 
             return assignmentStatements.First();
-        }
-
-        private class ValueObjectMapping : ClassMapping
-        {
-            public ValueObjectMapping(ICanBeReferencedType model, List<IElementToElementMappingConnection> mappings, int level) : base(model, mappings, level)
-            {
-            }
-
-            public override CSharpStatement GetCreationAssignments(IDictionary<ICanBeReferencedType, string> fromReplacements)
-            {
-                if (Mapping == null)
-                {
-                    var init = new CSharpInvocationStatement($"{Model.Name.ToPascalCase()} = new {Model.TypeReference.Element.Name.ToPascalCase()}").WithoutSemicolon();
-
-                    foreach (var child in Children)
-                    {
-                        init.AddArgument(GetFromPath(child.Mapping.FromPath, fromReplacements));
-                    }
-
-                    return init;
-                }
-                else
-                {
-                    throw new NotImplementedException();
-                }
-            }
-        }
-
-        private class ClassMapping
-        {
-            public ICanBeReferencedType Model { get; }
-            public IList<ClassMapping> Children { get; }
-            public IElementToElementMappingConnection Mapping { get; set; }
-
-            public ClassMapping(ICanBeReferencedType model, List<IElementToElementMappingConnection> mappings, int level = 1)
-            {
-                Model = model;
-                Children = mappings.Where(x => x.ToPath.Count > level).GroupBy(x => x.ToPath.Skip(level).First(), x => x)
-                    .Select(x =>
-                    {
-                        if (x.Key.Element.TypeReference?.Element.SpecializationType == "Value Object")
-                        {
-                            return new ValueObjectMapping(x.Key.Element, x.ToList(), level + 1);
-                        }
-                        return new ClassMapping(x.Key.Element, x.ToList(), level + 1);
-                    })
-                    .ToList();
-                Mapping = mappings.SingleOrDefault(x => x.ToPath.Last().Element == model);
-            }
-
-
-            public virtual CSharpStatement GetCreationAssignments(IDictionary<ICanBeReferencedType, string> fromReplacements)
-            {
-                if (Mapping == null)
-                {
-                    var init = (Model.TypeReference != null)
-                        ? new CSharpObjectInitializerBlock($"{Model.Name.ToPascalCase()} = new {Model.TypeReference.Element.Name.ToPascalCase()}")
-                        : new CSharpObjectInitializerBlock($"new {Model.Name.ToPascalCase()}").WithSemicolon();
-
-                    init.AddStatements(Children.Select(x => x.GetCreationAssignments(fromReplacements)));
-
-                    return init;
-                }
-                else
-                {
-                    if (Children.Count == 0)
-                    {
-                        return $"{Model.Name.ToPascalCase()} = {GetFromPath(Mapping.FromPath, fromReplacements)}";
-                    }
-                    if (Model.TypeReference.IsCollection)
-                    {
-                        var chain = new CSharpMethodChainStatement($"{GetFromPath(Mapping.FromPath, fromReplacements)}{(Mapping.FromPath.Last().Element.TypeReference.IsNullable ? "?" : "")}").WithoutSemicolon();
-                        var select = new CSharpInvocationStatement($"Select").WithoutSemicolon();
-
-                        var variableName = string.Join("", Model.Name.Where(char.IsUpper).Select(char.ToLower));
-                        fromReplacements = fromReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, variableName) }).ToDictionary(x => x.Key, x => x.Value);
-                        select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
-                            .AddStatements(Children.Select(x => x.GetCreationAssignments(fromReplacements)))));
-
-                        var init = new CSharpObjectInitStatement($"{Model.Name.ToPascalCase()}", chain
-                            .AddChainStatement(select)
-                            .AddChainStatement("ToList()"));
-                        return init;
-                    }
-                    else
-                    {
-                        return $"{Model.Name.ToPascalCase()} = {GetFromPath(Mapping.FromPath, fromReplacements)}";
-                    }
-
-                }
-            }
-
-            protected string GetFromPath(IList<IElementMappingPathTarget> mappingFromPath, IDictionary<ICanBeReferencedType, string> fromReplacements)
-            {
-                var result = "";
-                foreach (var mappingPathTarget in mappingFromPath)
-                {
-                    if (fromReplacements.ContainsKey(mappingPathTarget.Element))
-                    {
-                        result = fromReplacements[mappingPathTarget.Element];
-                    }
-                    else
-                    {
-                        result += $".{mappingPathTarget.Element.Name.ToPascalCase()}";
-                        if (mappingPathTarget.Element.TypeReference.IsNullable && mappingFromPath.Last() != mappingPathTarget)
-                        {
-                            result += "?";
-                        }
-                    }
-                }
-                return result;
-            }
         }
 
         private bool RepositoryRequiresExplicitUpdate()

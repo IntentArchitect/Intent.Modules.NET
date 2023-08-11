@@ -1,0 +1,13 @@
+﻿using System.Collections.Generic;
+using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Builder;
+
+namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
+
+public interface ICSharpMapping
+{
+    public ICanBeReferencedType Model { get; }
+    public IList<ICSharpMapping> Children { get; }
+    public IElementToElementMappingConnection Mapping { get; set; }
+    CSharpStatement GetFromMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements);
+}
