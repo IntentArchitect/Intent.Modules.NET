@@ -13,17 +13,25 @@ public class ImplicitConstructorMapping : CSharpMappingBase
     {
     }
 
-    public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
+    public override CSharpStatement GetFromStatement()
     {
-        // implicit / traversal into value object:
-
         var init = new CSharpInvocationStatement($"new {Model.TypeReference.Element.Name.ToPascalCase()}").WithoutSemicolon();
 
         foreach (var child in Children)
         {
-            init.AddArgument(GetPath(child.Mapping.FromPath, fromReplacements));
+            init.AddArgument(GetPath(child.Mapping.FromPath, _fromReplacements));
         }
 
-        yield return new CSharpAssignmentStatement(GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath.SkipLast(1).ToList(), toReplacements), init);
+        return init;
+    }
+
+    public override CSharpStatement GetToStatement()
+    {
+        return GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath.SkipLast(1).ToList(), _toReplacements);
+    }
+
+    public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
+    {
+        yield return new CSharpAssignmentStatement(GetToStatement(), GetFromStatement());
     }
 }

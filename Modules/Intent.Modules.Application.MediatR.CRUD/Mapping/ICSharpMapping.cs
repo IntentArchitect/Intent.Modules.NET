@@ -13,6 +13,9 @@ public interface ICSharpMapping
         IDictionary<ICanBeReferencedType, string> fromReplacements,
         IDictionary<ICanBeReferencedType, string> toReplacements);
 
-    void AddFromReplacement(ICanBeReferencedType type, string replacement);
-    void AddToReplacement(ICanBeReferencedType type, string replacement);
+    CSharpStatement GetFromStatement();
+    CSharpStatement GetToStatement();
+
+    void SetFromReplacement(ICanBeReferencedType type, string replacement);
+    void SetToReplacement(ICanBeReferencedType type, string replacement);
 }

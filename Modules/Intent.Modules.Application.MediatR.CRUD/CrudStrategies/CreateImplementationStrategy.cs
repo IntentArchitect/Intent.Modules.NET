@@ -157,9 +157,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
             var assignmentStatements = new List<CSharpStatement>();
-            assignmentStatements.AddRange(groupedMappings.GetMappingStatement(
-                new Dictionary<ICanBeReferencedType, string>() { { mapping.FromElement, "request" }}, 
-                new Dictionary<ICanBeReferencedType, string>() { }));
+            groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+            assignmentStatements.Add(groupedMappings.GetFromStatement());
 
             return assignmentStatements.First();
         }

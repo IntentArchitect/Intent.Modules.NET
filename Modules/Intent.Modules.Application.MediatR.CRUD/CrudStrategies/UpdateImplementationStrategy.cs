@@ -116,9 +116,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 var groupedMappings = new UpdateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
-                codeLines.AddRange(groupedMappings.GetMappingStatement(
-                    fromReplacements: new Dictionary<ICanBeReferencedType, string>() { { mapping.FromElement, "request" } }, 
-                    toReplacements: new Dictionary<ICanBeReferencedType, string>() { { mapping.ToElement, entityVariableName } }));
+                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+                groupedMappings.SetToReplacement(mapping.ToElement, entityVariableName);
+                codeLines.AddRange(groupedMappings.GetMappingStatement(null, null));
                 //codeLines.AddRange(assignmentStatements);
                 //if (assignmentStatements.Any())
                 //{

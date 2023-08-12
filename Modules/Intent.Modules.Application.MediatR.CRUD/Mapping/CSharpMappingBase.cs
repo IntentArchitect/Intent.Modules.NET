@@ -23,34 +23,80 @@ public abstract class CSharpMappingBase : ICSharpMapping
         Children = children;
     }
 
-    public abstract IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements);
-
-    public virtual IEnumerable<CSharpStatement> GetFromStatement(IDictionary<ICanBeReferencedType, string> fromReplacements)
+    public virtual IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
     {
         throw new NotImplementedException();
     }
 
-    public virtual IEnumerable<CSharpStatement> GetToMappingStatement(IDictionary<ICanBeReferencedType, string> toReplacements)
+    public virtual CSharpStatement GetFromStatement()
     {
         throw new NotImplementedException();
-
     }
 
-    public void AddFromReplacement(ICanBeReferencedType type, string replacement)
+    public virtual CSharpStatement GetToStatement()
     {
+        if (Mapping != null)
+        {
+            return GetToPath(_toReplacements);
+        }
+
+        var mapping = Children.First(x => x.Mapping != null).Mapping;
+        var toPath = mapping.ToPath.Take(mapping.ToPath.IndexOf(mapping.ToPath.Single(x => x.Element == Model)) + 1).ToList();
+        return GetPath(GetToPath(), _toReplacements);
+    }
+
+    protected IList<IElementMappingPathTarget> GetFromPath()
+    {
+        if (Mapping != null)
+        {
+            return Mapping.FromPath;
+        }
+
+        var mapping = Children.First(x => x.Mapping != null).Mapping;
+        if (Children.Count(x => x.Mapping != null) == 1)
+        {
+            return mapping.FromPath.Take(mapping.FromPath.Count - 1).ToList();
+        }
+        var toPath = mapping.FromPath.Take(mapping.FromPath.IndexOf(mapping.FromPath
+            .Last(x => Children.Where(c => c.Mapping != null).All(c => c.Mapping.FromPath.Contains(x)))) + 1)
+            .ToList();
+        return toPath;
+    }
+
+    protected IList<IElementMappingPathTarget> GetToPath()
+    {
+        if (Mapping != null)
+        {
+            return Mapping.ToPath;
+        }
+        var mapping = Children.First(x => x.Mapping != null).Mapping;
+        var toPath = mapping.ToPath.Take(mapping.ToPath.IndexOf(mapping.ToPath.Single(x => x.Element == Model)) + 1).ToList();
+        return toPath;
+    }
+
+    public void SetFromReplacement(ICanBeReferencedType type, string replacement)
+    {
+        if (_fromReplacements.ContainsKey(type))
+        {
+            return;
+        }
         _fromReplacements.Add(type, replacement);
         foreach (var child in Children)
         {
-            child.AddFromReplacement(type, replacement);
+            child.SetFromReplacement(type, replacement);
         }
     }
 
-    public void AddToReplacement(ICanBeReferencedType type, string replacement)
+    public void SetToReplacement(ICanBeReferencedType type, string replacement)
     {
+        if (_toReplacements.ContainsKey(type))
+        {
+            return;
+        }
         _toReplacements.Add(type, replacement);
         foreach (var child in Children)
         {
-            child.AddToReplacement(type, replacement);
+            child.SetToReplacement(type, replacement);
         }
     }
 
