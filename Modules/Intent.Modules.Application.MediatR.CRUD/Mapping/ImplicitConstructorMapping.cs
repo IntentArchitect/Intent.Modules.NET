@@ -24,6 +24,6 @@ public class ImplicitConstructorMapping : CSharpMappingBase
             init.AddArgument(GetPath(child.Mapping.FromPath, fromReplacements));
         }
 
-        yield return new CSharpAssignmentStatement(GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath, fromReplacements), init);
+        yield return new CSharpAssignmentStatement(GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath.SkipLast(1).ToList(), toReplacements), init);
     }
 }

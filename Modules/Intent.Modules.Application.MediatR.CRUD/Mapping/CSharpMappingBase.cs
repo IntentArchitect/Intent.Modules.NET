@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
@@ -8,6 +9,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
 public abstract class CSharpMappingBase : ICSharpMapping
 {
+    protected Dictionary<ICanBeReferencedType, string> _fromReplacements = new();
+    protected Dictionary<ICanBeReferencedType, string> _toReplacements = new();
+
     public ICanBeReferencedType Model { get; }
     public IList<ICSharpMapping> Children { get; }
     public IElementToElementMappingConnection Mapping { get; set; }
@@ -20,6 +24,35 @@ public abstract class CSharpMappingBase : ICSharpMapping
     }
 
     public abstract IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements);
+
+    public virtual IEnumerable<CSharpStatement> GetFromStatement(IDictionary<ICanBeReferencedType, string> fromReplacements)
+    {
+        throw new NotImplementedException();
+    }
+
+    public virtual IEnumerable<CSharpStatement> GetToMappingStatement(IDictionary<ICanBeReferencedType, string> toReplacements)
+    {
+        throw new NotImplementedException();
+
+    }
+
+    public void AddFromReplacement(ICanBeReferencedType type, string replacement)
+    {
+        _fromReplacements.Add(type, replacement);
+        foreach (var child in Children)
+        {
+            child.AddFromReplacement(type, replacement);
+        }
+    }
+
+    public void AddToReplacement(ICanBeReferencedType type, string replacement)
+    {
+        _toReplacements.Add(type, replacement);
+        foreach (var child in Children)
+        {
+            child.AddToReplacement(type, replacement);
+        }
+    }
 
     protected string GetFromPath(IDictionary<ICanBeReferencedType, string> replacements)
     {

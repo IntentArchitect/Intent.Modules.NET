@@ -12,4 +12,7 @@ public interface ICSharpMapping
     IEnumerable<CSharpStatement> GetMappingStatement(
         IDictionary<ICanBeReferencedType, string> fromReplacements,
         IDictionary<ICanBeReferencedType, string> toReplacements);
+
+    void AddFromReplacement(ICanBeReferencedType type, string replacement);
+    void AddToReplacement(ICanBeReferencedType type, string replacement);
 }

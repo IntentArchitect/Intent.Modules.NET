@@ -15,6 +15,55 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
         {
         }
 
+        //public override IEnumerable<CSharpStatement> GetFromStatement(IDictionary<ICanBeReferencedType, string> fromReplacements)
+        //{
+        //    if (Mapping == null)
+        //    {
+        //        var init = (Model.TypeReference != null)
+        //            ? new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
+        //            : new CSharpObjectInitializerBlock($"new {Model.Name.ToPascalCase()}").WithSemicolon();
+
+        //        init.AddStatements(Children.SelectMany(x => x.GetMappingStatement(fromReplacements, toReplacements
+        //            .Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Model, null) }).ToDictionary(x => x.Key, x => x.Value))));
+
+        //        if (Model.TypeReference != null)
+        //        {
+        //            yield return new CSharpAssignmentStatement(Model.Name.ToPascalCase(), init);
+        //            yield break;
+        //        }
+        //        yield return init;
+        //    }
+        //    else
+        //    {
+        //        if (Children.Count == 0)
+        //        {
+        //            yield return new CSharpObjectInitStatement(Model.Name.ToPascalCase(), $"{GetFromPath(fromReplacements)}");
+        //            yield break;
+        //        }
+        //        if (Model.TypeReference.IsCollection)
+        //        {
+        //            var chain = new CSharpMethodChainStatement($"{GetFromPath(fromReplacements)}{(Mapping.FromPath.Last().Element.TypeReference.IsNullable ? "?" : "")}").WithoutSemicolon();
+        //            var select = new CSharpInvocationStatement($"Select").WithoutSemicolon();
+
+        //            var variableName = string.Join("", Model.Name.Where(char.IsUpper).Select(char.ToLower));
+        //            fromReplacements = fromReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, variableName) }).ToDictionary(x => x.Key, x => x.Value);
+        //            toReplacements = toReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.ToPath.Skip(toReplacements.Count).First().Element, null) }).ToDictionary(x => x.Key, x => x.Value);
+        //            select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
+        //                .AddStatements(Children.SelectMany(x => x.GetMappingStatement(fromReplacements, toReplacements)))));
+
+        //            var init = chain
+        //                .AddChainStatement(select)
+        //                .AddChainStatement("ToList()");
+        //            yield return new CSharpObjectInitStatement(Model.Name.ToPascalCase(), init);
+        //        }
+        //        else
+        //        {
+        //            yield return new CSharpObjectInitStatement(Model.Name.ToPascalCase(), $"{GetFromPath(fromReplacements)}");
+        //        }
+
+        //    }
+        //}
+
         public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
         {
             if (Mapping == null)
@@ -23,7 +72,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                     ? new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
                     : new CSharpObjectInitializerBlock($"new {Model.Name.ToPascalCase()}").WithSemicolon();
 
-                init.AddStatements(Children.SelectMany(x => x.GetMappingStatement(fromReplacements, toReplacements)));
+                AddToReplacement(Model, null);
+                init.AddStatements(Children.SelectMany(x => x.GetMappingStatement(fromReplacements, toReplacements
+                    .Concat(new []{ new KeyValuePair<ICanBeReferencedType, string>(Model, null)}).ToDictionary(x => x.Key, x => x.Value))));
 
                 if (Model.TypeReference != null)
                 {
@@ -37,6 +88,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                 if (Children.Count == 0)
                 {
                     yield return new CSharpObjectInitStatement(Model.Name.ToPascalCase(), $"{GetFromPath(fromReplacements)}");
+                    yield break;
                 }
                 if (Model.TypeReference.IsCollection)
                 {
@@ -45,6 +97,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
 
                     var variableName = string.Join("", Model.Name.Where(char.IsUpper).Select(char.ToLower));
                     fromReplacements = fromReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, variableName) }).ToDictionary(x => x.Key, x => x.Value);
+                    toReplacements = toReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.ToPath.Skip(toReplacements.Count).First().Element, null) }).ToDictionary(x => x.Key, x => x.Value);
                     select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
                         .AddStatements(Children.SelectMany(x => x.GetMappingStatement(fromReplacements, toReplacements)))));
 
