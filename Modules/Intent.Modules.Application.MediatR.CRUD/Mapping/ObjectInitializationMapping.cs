@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                 }
 
                 var init = new CSharpObjectInitializerBlock(ctor.GetFromStatement().GetText(""));
-                init.AddStatements(children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
+                init.AddStatements(children.OrderBy(x => ((IElement)x.Model).Order).Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
                 return init;
             }
             else
@@ -84,7 +84,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                 var init = (Model.TypeReference != null)
                     ? new CSharpObjectInitializerBlock($"new {_template.GetTypeName((IElement)Model.TypeReference.Element)}")
                     : new CSharpObjectInitializerBlock($"new {_template.GetTypeName((IElement)Model)}");
-                init.AddStatements(Children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
+                init.AddStatements(Children.OrderBy(x => ((IElement)x.Model).Order).Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
                 return init;
             }
         }

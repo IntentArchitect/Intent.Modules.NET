@@ -23,7 +23,7 @@ public class ImplicitConstructorMapping : CSharpMappingBase
             ? new CSharpInvocationStatement($"new {_template.GetTypeName((IElement)Model.TypeReference.Element)}").WithoutSemicolon()
             : new CSharpInvocationStatement($"new {_template.GetTypeName(((IElement)Model))}").WithoutSemicolon();
 
-        foreach (var child in Children)
+        foreach (var child in Children.OrderBy(x => ((IElement)x.Model).Order))
         {
             init.AddArgument(child.GetFromStatement());
         }
