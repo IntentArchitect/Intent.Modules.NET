@@ -18,7 +18,7 @@
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
     <PackageReference Include="Azure.Identity" Version="1.9.0" />
     <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.5.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.0-pre.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>

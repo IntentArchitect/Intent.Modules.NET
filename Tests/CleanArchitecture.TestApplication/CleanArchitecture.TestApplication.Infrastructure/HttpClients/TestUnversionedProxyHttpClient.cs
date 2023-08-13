@@ -57,7 +57,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/unversioned/test";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);

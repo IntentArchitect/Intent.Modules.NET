@@ -42,7 +42,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/queryparamop";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("param1", param1);
             queryParams.Add("param2", param2.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);

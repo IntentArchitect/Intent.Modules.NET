@@ -75,7 +75,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v1/versioned/test-query";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -105,7 +105,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v2/versioned/test-query";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
