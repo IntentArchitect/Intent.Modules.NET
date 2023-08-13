@@ -110,15 +110,36 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
+
+            var newVariables = new List<(ICanBeReferencedType Type, string Replacement)>();
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
-            var mapping = model.CqrsMappedTo().FirstOrDefault()?.InternalAssociation.Mapping;
+            foreach (var createAction in model.CreatedEntities())
+            {
+                var map = createAction.InternalAssociation.Mapping;
+                if (map == null)
+                {
+                    continue;
+                }
+                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(map.ToElement, map.Connections);
+
+                groupedMappings.SetFromReplacement(map.FromElement, "request");
+
+                var variableName = "newEntity";
+                newVariables.Add(new(createAction.InternalAssociationEnd, variableName));
+                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", groupedMappings.GetFromStatement()).WithSemicolon());
+            }
+            var mapping = model.UpdatedEntities().FirstOrDefault()?.InternalAssociation.Mapping;
             if (mapping != null && mapping.ToElement.IsClassModel())
             {
                 var groupedMappings = new UpdateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
                 groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+                foreach (var newVariable in newVariables)
+                {
+                    groupedMappings.SetFromReplacement(newVariable.Type, newVariable.Replacement);
+                }
                 groupedMappings.SetToReplacement(mapping.ToElement, entityVariableName);
-                codeLines.AddRange(groupedMappings.GetMappingStatement(null, null));
+                codeLines.AddRange(groupedMappings.GetMappingStatement());
                 //codeLines.AddRange(assignmentStatements);
                 //if (assignmentStatements.Any())
                 //{

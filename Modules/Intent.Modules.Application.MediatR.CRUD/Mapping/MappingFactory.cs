@@ -19,7 +19,7 @@ public abstract class MappingFactoryBase
             .GroupBy(x => x.ToPath.Skip(level).First(), x => x)
             .Select(x => Create(x.Key.Element, x.ToList(), level + 1))
             .ToList();
-        return CreateMappingType(model, mapping, children);
+        return CreateMappingType(model, mapping, children.OrderBy(x => ((IElement)x.Model).Order).ToList());
     }
 
     public abstract ICSharpMapping CreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children);
@@ -43,6 +43,10 @@ public class CreateClassMappingFactory : MappingFactoryBase
         if (model.SpecializationType == "Class Constructor")
         {
             return new ImplicitConstructorMapping(((IElement)model).ParentElement, mapping, children, _template);
+        }
+        if (model.SpecializationType == "Operation")
+        {
+            return new MethodInvocationMapping(((IElement)model).ParentElement, mapping, children, _template);
         }
         return new ObjectInitializationMapping(model, mapping, children, _template);
     }

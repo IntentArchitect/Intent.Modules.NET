@@ -23,7 +23,7 @@ public abstract class CSharpMappingBase : ICSharpMapping
         Children = children;
     }
 
-    public virtual IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
+    public virtual IEnumerable<CSharpStatement> GetMappingStatement()
     {
         throw new NotImplementedException();
     }
@@ -52,13 +52,13 @@ public abstract class CSharpMappingBase : ICSharpMapping
             return Mapping.FromPath;
         }
 
-        var mapping = Children.First(x => x.Mapping != null).Mapping;
-        if (Children.Count(x => x.Mapping != null) == 1)
+        var mapping = GetAllChildren().First(x => x.Mapping != null).Mapping;
+        if (GetAllChildren().Count(x => x.Mapping != null) == 1)
         {
             return mapping.FromPath.Take(mapping.FromPath.Count - 1).ToList();
         }
         var toPath = mapping.FromPath.Take(mapping.FromPath.IndexOf(mapping.FromPath
-            .Last(x => Children.Where(c => c.Mapping != null).All(c => c.Mapping.FromPath.Contains(x)))) + 1)
+            .Last(x => GetAllChildren().Where(c => c.Mapping != null).All(c => c.Mapping.FromPath.Contains(x)))) + 1)
             .ToList();
         return toPath;
     }
@@ -69,9 +69,14 @@ public abstract class CSharpMappingBase : ICSharpMapping
         {
             return Mapping.ToPath;
         }
-        var mapping = Children.First(x => x.Mapping != null).Mapping;
+        var mapping = GetAllChildren().First(x => x.Mapping != null).Mapping;
         var toPath = mapping.ToPath.Take(mapping.ToPath.IndexOf(mapping.ToPath.Single(x => x.Element == Model)) + 1).ToList();
         return toPath;
+    }
+
+    private IEnumerable<ICSharpMapping> GetAllChildren()
+    {
+        return Children.Concat(Children.SelectMany(x => ((CSharpMappingBase)x).GetAllChildren()).ToList());
     }
 
     public void SetFromReplacement(ICanBeReferencedType type, string replacement)
@@ -102,12 +107,12 @@ public abstract class CSharpMappingBase : ICSharpMapping
 
     protected string GetFromPath(IDictionary<ICanBeReferencedType, string> replacements)
     {
-        return GetPath(Mapping.FromPath, replacements);
+        return GetPath(GetFromPath(), _fromReplacements);
     }
 
     protected string GetToPath(IDictionary<ICanBeReferencedType, string> replacements)
     {
-        return GetPath(Mapping.ToPath, replacements);
+        return GetPath(GetToPath(), _toReplacements);
     }
 
     protected string GetPath(IList<IElementMappingPathTarget> mappingPath, IDictionary<ICanBeReferencedType, string> replacements)

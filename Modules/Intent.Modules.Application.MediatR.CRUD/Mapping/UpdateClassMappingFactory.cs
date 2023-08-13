@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -20,11 +21,16 @@ public class UpdateClassMappingFactory : MappingFactoryBase
 
     public override ICSharpMapping CreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children)
     {
+        if (model.SpecializationType == "Operation")
+        {
+            return new MethodInvocationMapping(model, mapping, children, _template);
+        }
+
         if (model.TypeReference?.Element.SpecializationType == "Value Object")
         {
             return new ImplicitConstructorMapping(model, mapping, children, _template);
         }
-        return new ObjectUpdateMapping(model, mapping, children, _template);
+        return new ObjectUpdateMapping(model, mapping, children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _template);
     }
 }
 
@@ -79,16 +85,14 @@ public class ObjectUpdateMapping : CSharpMappingBase
         return null;
     }
 
-    public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
+    public override IEnumerable<CSharpStatement> GetMappingStatement()
     {
-        fromReplacements ??= _fromReplacements;
-        toReplacements ??= _toReplacements;
         if (Mapping == null) // is traversal
         {
           
             if (Model.TypeReference == null)
             {
-                foreach (var statement in Children.Select(x => new CSharpAssignmentStatement(x.GetToStatement(), x.GetFromStatement())))
+                foreach (var statement in Children.SelectMany(x => x.GetMappingStatement()))
                 {
                     yield return statement.WithSemicolon();
                 }
@@ -165,7 +169,7 @@ public class ObjectUpdateMapping : CSharpMappingBase
 
                 SetFromReplacement(GetFromPath().Last().Element, "dto");
                 SetToReplacement(GetToPath().Last().Element, "entity");
-                method.AddStatements(Children.SelectMany(x => x.GetMappingStatement(null, null)).Select(x => x.WithSemicolon()));
+                method.AddStatements(Children.SelectMany(x => x.GetMappingStatement()).Select(x => x.WithSemicolon()));
 
                 method.AddStatement("return entity;");
             });

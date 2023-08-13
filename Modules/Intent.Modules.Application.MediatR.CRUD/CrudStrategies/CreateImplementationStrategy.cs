@@ -89,7 +89,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
-            var mapping = model.CqrsMappedTo().FirstOrDefault()?.InternalAssociation.Mapping;
+            var mapping = model.CreatedEntities().FirstOrDefault()?.InternalAssociation.Mapping;
             if (mapping != null && mapping.ToElement.IsClassModel())
             {
                 var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);

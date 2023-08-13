@@ -36,7 +36,7 @@ public class ImplicitConstructorMapping : CSharpMappingBase
         return GetPath(Children.First(x => x.Mapping != null).Mapping.ToPath.SkipLast(1).ToList(), _toReplacements);
     }
 
-    public override IEnumerable<CSharpStatement> GetMappingStatement(IDictionary<ICanBeReferencedType, string> fromReplacements, IDictionary<ICanBeReferencedType, string> toReplacements)
+    public override IEnumerable<CSharpStatement> GetMappingStatement()
     {
         yield return new CSharpAssignmentStatement(GetToStatement(), GetFromStatement());
     }
