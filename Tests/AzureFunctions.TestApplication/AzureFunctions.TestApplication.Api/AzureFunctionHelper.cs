@@ -38,6 +38,35 @@ namespace AzureFunctions.TestApplication.Api
             return parsed;
         }
 
+        public static T GetHeaderParam<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var strVal = headers[paramName];
+            if (string.IsNullOrEmpty(strVal) || !parse(strVal, out T parsed))
+            {
+                throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+            }
+
+            return parsed;
+        }
+
+        public static T? GetHeaderParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var strVal = headers[paramName];
+            if (string.IsNullOrEmpty(strVal))
+            {
+                return null;
+            }
+
+            if (!parse(strVal, out T parsed))
+            {
+                throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+            }
+
+            return parsed;
+        }
+
         public delegate bool ParseDelegate<T>(string strVal, out T parsed);
     }
 }
