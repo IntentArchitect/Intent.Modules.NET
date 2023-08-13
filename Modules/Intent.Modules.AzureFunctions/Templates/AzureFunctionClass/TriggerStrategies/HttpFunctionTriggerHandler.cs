@@ -65,12 +65,32 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             {
                 if (param.TypeReference.HasStringType())
                 {
-                    tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+                    if (param.TypeReference.IsCollection)
+                    {
+                        _template.AddUsing("System.Linq");
+                        tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = ((string)req.Query[""{param.Name.ToCamelCase()}""]).Split(',').ToList();");
+                    }
+                    else
+                    {
+                        tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+                    }
                     continue;
                 }
 
                 tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
             }
+
+            foreach (var param in GetHeaderParams())
+            {
+                if (param.TypeReference.HasStringType())
+                {
+                    tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Headers[""{param.Name.ToCamelCase()}""];");
+                    continue;
+                }
+
+                tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetHeaderParamNullable" : "GetHeaderParam")}(""{param.Name.ToParameterName()}"", req.Headers, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+            }
+
 
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
@@ -104,5 +124,9 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     private IEnumerable<IHttpEndpointInputModel> GetQueryParams()
     {
         return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromQuery);
+    }
+    private IEnumerable<IHttpEndpointInputModel> GetHeaderParams()
+    {
+        return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromHeader);
     }
 }

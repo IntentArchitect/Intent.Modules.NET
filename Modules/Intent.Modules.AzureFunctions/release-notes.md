@@ -1,5 +1,6 @@
 ### Version 4.0.7
 
+- Update: Improved Http Trigger support for Header parameters.
 - Update: Improved Queue Trigger support, including receiving messages as `QueueMessage` and output binding support for `Azure Functions`.
 - Update: Removed compiler warning.
 - Update: Services that produce Azure Functions will no longer dump its own functions in the root folder of the API project but in their own folders.

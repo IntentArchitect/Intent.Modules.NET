@@ -47,40 +47,33 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper
             
             #line default
             #line hidden
-            this.Write(@"
-    {
-        public static T GetQueryParam<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
-            where T : struct
-        {
-            var strVal = query[paramName];
-            if (string.IsNullOrEmpty(strVal) || !parse(strVal, out T parsed))
-            {
-                throw new FormatException($""Parameter '{paramName}' could not be parsed as a {typeof(T).Name}."");
-            }
-
-            return parsed;
-        }
-        
-        public static T? GetQueryParamNullable<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
-            where T : struct
-        {
-            var strVal = query[paramName];
-            if (string.IsNullOrEmpty(strVal))
-            {
-                return null;
-            }
-
-            if (!parse(strVal, out T parsed))
-            {
-                throw new FormatException($""Parameter '{paramName}' could not be parsed as a {typeof(T).Name}."");
-            }
-
-            return parsed;
-        }
-        
-        public delegate bool ParseDelegate<T>(string strVal, out T parsed);
-    }
-}");
+            this.Write("\r\n    {\r\n        public static T GetQueryParam<T>(string paramName, IQueryCollect" +
+                    "ion query, ParseDelegate<T> parse)\r\n            where T : struct\r\n        {\r\n   " +
+                    "         var strVal = query[paramName];\r\n            if (string.IsNullOrEmpty(st" +
+                    "rVal) || !parse(strVal, out T parsed))\r\n            {\r\n                throw new" +
+                    " FormatException($\"Parameter \'{paramName}\' could not be parsed as a {typeof(T).N" +
+                    "ame}.\");\r\n            }\r\n\r\n            return parsed;\r\n        }\r\n        \r\n    " +
+                    "    public static T? GetQueryParamNullable<T>(string paramName, IQueryCollection" +
+                    " query, ParseDelegate<T> parse)\r\n            where T : struct\r\n        {\r\n      " +
+                    "      var strVal = query[paramName];\r\n            if (string.IsNullOrEmpty(strVa" +
+                    "l))\r\n            {\r\n                return null;\r\n            }\r\n\r\n            i" +
+                    "f (!parse(strVal, out T parsed))\r\n            {\r\n                throw new Forma" +
+                    "tException($\"Parameter \'{paramName}\' could not be parsed as a {typeof(T).Name}.\"" +
+                    ");\r\n            }\r\n\r\n            return parsed;\r\n        }\r\n\r\n        public sta" +
+                    "tic T GetHeaderParam<T>(string paramName, IHeaderDictionary headers, ParseDelega" +
+                    "te<T> parse)\r\n            where T : struct\r\n        {\r\n            var strVal = " +
+                    "headers[paramName];\r\n            if (string.IsNullOrEmpty(strVal) || !parse(strV" +
+                    "al, out T parsed))\r\n            {\r\n                throw new FormatException($\"P" +
+                    "arameter \'{paramName}\' could not be parsed as a {typeof(T).Name}.\");\r\n          " +
+                    "  }\r\n\r\n            return parsed;\r\n        }\r\n\r\n        public static T? GetHead" +
+                    "erParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T>" +
+                    " parse)\r\n            where T : struct\r\n        {\r\n            var strVal = heade" +
+                    "rs[paramName];\r\n            if (string.IsNullOrEmpty(strVal))\r\n            {\r\n  " +
+                    "              return null;\r\n            }\r\n\r\n            if (!parse(strVal, out " +
+                    "T parsed))\r\n            {\r\n                throw new FormatException($\"Parameter" +
+                    " \'{paramName}\' could not be parsed as a {typeof(T).Name}.\");\r\n            }\r\n\r\n " +
+                    "           return parsed;\r\n        }\r\n        \r\n        public delegate bool Par" +
+                    "seDelegate<T>(string strVal, out T parsed);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
