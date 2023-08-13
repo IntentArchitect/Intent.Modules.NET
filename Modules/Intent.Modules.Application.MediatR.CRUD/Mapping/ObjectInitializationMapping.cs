@@ -9,24 +9,31 @@ using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping
 {
+    public class ClassConstructionMapping : CSharpMappingBase
+    {
+        private readonly ICSharpFileBuilderTemplate _template;
+
+        public ClassConstructionMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+        {
+            _template = template;
+        }
+    }
+
     public class ObjectInitializationMapping : CSharpMappingBase
     {
-        public ObjectInitializationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children) : base(model, mapping, children)
+        private readonly ICSharpFileBuilderTemplate _template;
+
+        public ObjectInitializationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
         {
+            _template = template;
         }
 
         public override CSharpStatement GetFromStatement()
         {
             if (Mapping == null)
             {
-                var init = (Model.TypeReference != null)
-                    ? new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
-                    : new CSharpObjectInitializerBlock($"new {Model.Name.ToPascalCase()}").WithSemicolon();
-
                 SetToReplacement(Model, null);
-                init.AddStatements(Children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
-
-                return init;
+                return GetConstructorStatement();
             }
             else
             {
@@ -43,8 +50,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                     SetFromReplacement(Mapping.FromPath.Skip(_fromReplacements.Count).First().Element, variableName);
                     SetToReplacement(Mapping.ToPath.Skip(_toReplacements.Count).First().Element, null);
 
-                    select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
-                        .AddStatements(Children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())))));
+                    select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(GetConstructorStatement()));
 
                     var init = chain
                         .AddChainStatement(select)
@@ -55,6 +61,31 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
                 {
                     return GetFromPath(_fromReplacements);
                 }
+            }
+        }
+
+        private CSharpStatement GetConstructorStatement()
+        {
+            var ctor = Children.SingleOrDefault(x => x is ImplicitConstructorMapping && x.Model.TypeReference == null);
+            if (ctor != null)
+            {
+                var children = Children.Where(x => x is not ImplicitConstructorMapping || x.Model.TypeReference != null).ToList();
+                if (!children.Any())
+                {
+                    return ctor.GetFromStatement();
+                }
+
+                var init = new CSharpObjectInitializerBlock(ctor.GetFromStatement().GetText(""));
+                init.AddStatements(children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
+                return init;
+            }
+            else
+            {
+                var init = (Model.TypeReference != null)
+                    ? new CSharpObjectInitializerBlock($"new {_template.GetTypeName((IElement)Model.TypeReference.Element)}")
+                    : new CSharpObjectInitializerBlock($"new {_template.GetTypeName((IElement)Model)}");
+                init.AddStatements(Children.Select(x => new CSharpObjectInitStatement(x.GetToStatement().GetText(""), x.GetFromStatement())));
+                return init;
             }
         }
 
@@ -98,7 +129,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
         //            var variableName = string.Join("", Model.Name.Where(char.IsUpper).Select(char.ToLower));
         //            AddFromReplacement(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, variableName);
         //            AddToReplacement(Mapping.ToPath.Skip(toReplacements.Count).First().Element, null);
-                    
+
         //            select.AddArgument(new CSharpLambdaBlock(variableName).WithExpressionBody(new CSharpObjectInitializerBlock($"new {Model.TypeReference.Element.Name.ToPascalCase()}")
         //                .AddStatements(Children.SelectMany(x => x.GetMappingStatement(_fromReplacements, _toReplacements)))));
 

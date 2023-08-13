@@ -122,7 +122,7 @@ public abstract class CSharpMappingBase : ICSharpMapping
             else
             {
                 result += $"{(result.Length > 0 ? "." : "")}{mappingPathTarget.Element.Name.ToPascalCase()}";
-                if (mappingPathTarget.Element.TypeReference.IsNullable && mappingPath.Last() != mappingPathTarget)
+                if (mappingPathTarget.Element.TypeReference?.IsNullable == true && mappingPath.Last() != mappingPathTarget)
                 {
                     result += "?";
                 }

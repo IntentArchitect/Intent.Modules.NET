@@ -38,8 +38,12 @@ public class CreateClassMappingFactory : MappingFactoryBase
     {
         if (model.TypeReference?.Element.SpecializationType == "Value Object")
         {
-            return new ImplicitConstructorMapping(model, mapping, children);
+            return new ImplicitConstructorMapping(model, mapping, children, _template);
         }
-        return new ObjectInitializationMapping(model, mapping, children);
+        if (model.SpecializationType == "Class Constructor")
+        {
+            return new ImplicitConstructorMapping(((IElement)model).ParentElement, mapping, children, _template);
+        }
+        return new ObjectInitializationMapping(model, mapping, children, _template);
     }
 }

@@ -92,16 +92,19 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var mapping = model.CqrsMappedTo().FirstOrDefault()?.InternalAssociation.Mapping;
             if (mapping != null && mapping.ToElement.IsClassModel())
             {
-                var classModel = mapping.ToElement.AsClassModel();
+                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
-                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", CreateMappingAssignments(mapping)));
-                //codeLines.AddRange(assignmentStatements);
-                //if (assignmentStatements.Any())
-                //{
-                //    codeLines.Add(new CSharpStatementBlock()
-                //        .AddStatements(assignmentStatements)
-                //        .WithSemicolon());
-                //}
+                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+
+                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", groupedMappings.GetFromStatement()).WithSemicolon());
+            }
+            else if (mapping != null && mapping.ToElement.IsClassConstructorModel())
+            {
+                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
+
+                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+
+                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", groupedMappings.GetFromStatement()).WithSemicolon());
             }
             else
             {
@@ -150,17 +153,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                        field.Mapping.Element.IsAttributeModel() ||
                        field.Mapping.Element.IsAssociationEndModel();
             }
-        }
-
-        private CSharpStatement CreateMappingAssignments(IElementToElementMapping mapping)
-        {
-            var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
-
-            var assignmentStatements = new List<CSharpStatement>();
-            groupedMappings.SetFromReplacement(mapping.FromElement, "request");
-            assignmentStatements.Add(groupedMappings.GetFromStatement());
-
-            return assignmentStatements.First();
         }
 
         private bool RepositoryRequiresExplicitUpdate()

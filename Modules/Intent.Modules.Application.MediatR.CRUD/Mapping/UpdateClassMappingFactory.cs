@@ -22,7 +22,7 @@ public class UpdateClassMappingFactory : MappingFactoryBase
     {
         if (model.TypeReference?.Element.SpecializationType == "Value Object")
         {
-            return new ImplicitConstructorMapping(model, mapping, children);
+            return new ImplicitConstructorMapping(model, mapping, children, _template);
         }
         return new ObjectUpdateMapping(model, mapping, children, _template);
     }
