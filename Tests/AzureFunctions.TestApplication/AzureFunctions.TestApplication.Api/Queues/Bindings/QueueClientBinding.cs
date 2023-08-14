@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
 namespace AzureFunctions.TestApplication.Api
 {

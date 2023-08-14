@@ -81,6 +81,24 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 relativeLocation: CSharpFile.RelativeLocation);
         }
 
+        public override RoslynMergeConfig ConfigureRoslynMerger()
+        {
+            return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new NewtonSoftRemovalMigration()); 
+        }
+
+        private class NewtonSoftRemovalMigration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText.Replace(@"using Newtonsoft.Json;\r\n", "")
+                    .Replace(@"using Newtonsoft.Json;\n", "")
+                    .Replace(@"using Newtonsoft.Json;\r", "")
+                    .Replace(@"using Newtonsoft.Json;", "");
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
+        }
+
         [IntentManaged(Mode.Fully)]
         public override string TransformText()
         {
