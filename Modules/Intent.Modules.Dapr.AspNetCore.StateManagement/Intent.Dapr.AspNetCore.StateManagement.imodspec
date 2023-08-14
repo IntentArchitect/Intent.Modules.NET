@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.StateManagement</id>
-  <version>1.1.0-alpha.6</version>
+  <version>1.1.0-alpha.7</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Create long running, stateless and stateful services.</summary>
   <description>Create long running, stateless and stateful services.</description>

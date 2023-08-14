@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts.Clients</id>
-  <version>5.0.0-pre.1</version>
+  <version>5.0.0-pre.2</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Creates generic client application service contracts.</summary>
   <description>Creates generic client application service contracts.</description>
