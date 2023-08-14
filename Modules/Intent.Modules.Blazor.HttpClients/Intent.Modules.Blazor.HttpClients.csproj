@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,8 +10,8 @@
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.6" />
-    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.0.0-pre.1" />
-    <PackageReference Include="Intent.Modules.Modelers.WebClient" Version="4.0.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.0.0" />
+    <PackageReference Include="Intent.Modules.Modelers.WebClient" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.7.2" /> 
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
