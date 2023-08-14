@@ -39,7 +39,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        Facade = new CommandHandlerFacade(this, model);
+        Facade = new CommandHandlerFacade(this, model, false);
         
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
