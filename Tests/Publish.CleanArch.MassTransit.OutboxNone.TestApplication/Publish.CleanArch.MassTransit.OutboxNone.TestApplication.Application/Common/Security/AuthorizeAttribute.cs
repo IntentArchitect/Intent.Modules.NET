@@ -15,7 +15,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class. 
         /// </summary>
-        public AuthorizeAttribute() { }
+        public AuthorizeAttribute()
+        {
+            Roles = null!;
+            Policy = null!;
+        }
 
         /// <summary>
         /// Gets or sets a comma delimited list of roles that are allowed to access the resource.

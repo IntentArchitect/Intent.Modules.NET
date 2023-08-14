@@ -74,7 +74,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             
             #line default
             #line hidden
-            this.Write("> FindByIdAsync(");
+            this.Write("?> FindByIdAsync(");
             
             #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetSurrogateKey()));

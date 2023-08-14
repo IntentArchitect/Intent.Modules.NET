@@ -158,7 +158,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddAttribute("[IntentManaged(Mode.Fully)]");
                         method.WithoutAccessModifier();
                         method.WithComments("// In the event that SaveChanges is invoked explicitly, it should still operate as intended. ");
-                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement("return base.SaveChangesAsync(cancellationToken);");
                     });
                 });
@@ -216,7 +216,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
                     if (HasSinglePrimaryKey(template))
                     {
-                        @class.AddMethod($"Task<{GetEntityInterfaceName(template)}>", "FindByIdAsync", method =>
+                        @class.AddMethod($"Task<{GetEntityInterfaceName(template)}?>", "FindByIdAsync", method =>
                         {
                             method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method.Async();
