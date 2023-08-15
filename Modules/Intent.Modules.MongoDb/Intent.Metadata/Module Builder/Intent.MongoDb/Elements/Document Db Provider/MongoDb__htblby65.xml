@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b85dde4-47fc-467d-81f7-cd5eb1aa906e" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
+  <name>MongoDb</name>
+  <display>MongoDb</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c46b6a2-2e3b-4a18-aa6f-d1628eac41d7</parentFolderId>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

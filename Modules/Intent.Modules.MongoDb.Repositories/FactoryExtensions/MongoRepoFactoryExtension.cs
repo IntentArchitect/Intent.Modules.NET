@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.MongoDb.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -41,7 +42,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                     var inter = file.Interfaces.First();
                     var model = inter.GetMetadata<ClassModel>("model");
 
-                    if (model.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() != true)
+                    if (MongoDbProvider.FilterDBProvider( model) == false)
                     {
                         return;
                     }

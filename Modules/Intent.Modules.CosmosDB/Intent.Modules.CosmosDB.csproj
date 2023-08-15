@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,7 +9,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.39" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.1.0" />
     <PackageReference Include="Intent.Modules.Metadata.DocumentDB" Version="1.0.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.5" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

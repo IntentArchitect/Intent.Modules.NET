@@ -36,7 +36,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
             return _metadataManager.Domain(application).GetClassModels()
                 .Where(p =>
-                    p.InternalElement.Package.AsDomainPackageModel()?.HasDocumentDatabase() == true &&
+                    MongoDbProvider.FilterDBProvider(p) &&
                     p.IsAggregateRoot())
                 .ToArray();
         }

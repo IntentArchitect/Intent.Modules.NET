@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.DocumentDB.Api.Extensions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -52,8 +53,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 method.AddInvocationStatement("services.AddCosmosRepository", invocation =>
                 {
                     var classes = application.MetadataManager.Domain(application).GetClassModels()
-                        .Where(x => x.InternalElement.Package.HasStereotype("Document Database") &&
-                                    x.IsAggregateRoot() && !x.IsAbstract)
+                        .Where(x => CosmosDBProvider.FilterDBProvider(x) &&
+                                    x.IsAggregateRoot() && 
+                                    !x.IsAbstract)
                         .ToArray();
 
                     if (!classes.Any(x => x.TryGetContainerSettings(out _, out _)))
