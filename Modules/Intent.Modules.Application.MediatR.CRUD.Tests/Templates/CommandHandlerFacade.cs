@@ -20,12 +20,11 @@ internal class CommandHandlerFacade
     private readonly ICSharpFileBuilderTemplate _activeTemplate;
     private readonly CommandModel _model;
 
-    public CommandHandlerFacade(ICSharpFileBuilderTemplate activeTemplate, CommandModel model, bool hasAggregateOwner)
+    public CommandHandlerFacade(ICSharpFileBuilderTemplate activeTemplate, CommandModel model)
     {
         _activeTemplate = activeTemplate;
         _model = model;
         
-        HasAggregateOwner = hasAggregateOwner;
         DomainClassModel = model.Mapping.Element.AsClassModel();
         CommandIdFields = model.Properties.GetEntityIdFields(DomainClassModel);
         DomainIdAttributes = DomainClassModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
@@ -55,15 +54,16 @@ internal class CommandHandlerFacade
         }
     }
 
-    public bool HasAggregateOwner { get; }
     public ClassModel DomainClassModel { get; }
     public string SimpleCommandName { get; }
     public string SimpleDomainClassName { get; }
     public IReadOnlyList<DTOFieldModel> CommandIdFields { get; }
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityIdAttribute> DomainIdAttributes { get; }
 
-    public string DomainClassRepositoryName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, HasAggregateOwner ? DomainClassCompositionalOwner : DomainClassModel);
-    public string DomainRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassRepositoryName).Name;
+    public string DomainClassAggregateRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, DomainClassModel);
+    public string DomainClassAggregateOwnerRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, DomainClassCompositionalOwner);
+    public string DomainAggregateRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassAggregateRepositoryTypeName).Name;
+    public string DomainAggregateOwnerRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassAggregateOwnerRepositoryTypeName).Name;
     public string DomainEventBaseName => _activeTemplate.TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName) ? domainEventBaseName : null;
     public string CommandTypeName => _activeTemplate.GetTypeName(CommandModelsTemplate.TemplateId, _model);
     public string DomainClassTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel);
@@ -76,7 +76,7 @@ internal class CommandHandlerFacade
     {
         return _model.TypeReference.Element is not null;
     }
-
+    
     public bool HasDomainEventBaseName()
     {
         return DomainEventBaseName is not null;
@@ -103,7 +103,9 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttribute => $"expected{SimpleDomainClassName}{idAttribute.IdName.ToPascalCase()}", 
             DomainIdAttributes,
-            GetDoExpressionForAggregate());
+            GetDoExpressionForAggregate(),
+            DomainAggregateRepositoryVarName,
+            true);
         
         CSharpStatement GetDoExpressionForAggregate()
         {
@@ -130,7 +132,9 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttr => $"expected{idAttr.IdName.ToPascalCase()}", 
             DomainClassOwnerIdAttributes,
-            GetDoExpressionForAggregateOwner());
+            GetDoExpressionForAggregateOwner(),
+            DomainAggregateOwnerRepositoryVarName,
+            false);
         
         CSharpStatement GetDoExpressionForAggregateOwner()
         {
@@ -159,7 +163,9 @@ internal class CommandHandlerFacade
     private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements(
         Func<ImplementationStrategyTemplatesExtensions.IEntityId, string> expectedDomainVarName,
         IReadOnlyList<ImplementationStrategyTemplatesExtensions.IEntityId> entityIdList,
-        CSharpStatement doExpression)
+        CSharpStatement doExpression,
+        string repositoryVarName,
+        bool includeOnAddAssignment)
     {
         var statements = new List<CSharpStatement>();
         if (HasIdReturnTypeOnCommand())
@@ -171,14 +177,14 @@ internal class CommandHandlerFacade
         }
 
         statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel)} added{SimpleDomainClassName} = null;");
-        if (!HasAggregateOwner)
+        if (includeOnAddAssignment)
         {
-            statements.Add($"{DomainRepositoryVarName}.OnAdd(ent => added{SimpleDomainClassName} = ent);");
+            statements.Add($"{repositoryVarName}.OnAdd(ent => added{SimpleDomainClassName} = ent);");
         }
 
         if (HasIdReturnTypeOnCommand())
         {
-            statements.Add(new CSharpMethodChainStatement($"{DomainRepositoryVarName}.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
+            statements.Add(new CSharpMethodChainStatement($"{repositoryVarName}.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
                 .WithoutSemicolon()
                 .AddChainStatement(new CSharpInvocationStatement("When")
                     .WithoutSemicolon()
@@ -228,7 +234,7 @@ internal class CommandHandlerFacade
         if (HasIdReturnTypeOnCommand())
         {
             statements.Add($"result.Should().Be(expected{SimpleDomainClassName}{DomainIdAttributes.First().IdName.ToPascalCase()});");
-            statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
+            statements.Add($"await {DomainAggregateRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
         }
         
         return statements;
@@ -247,7 +253,7 @@ internal class CommandHandlerFacade
             statements.Add($"added{SimpleDomainClassName} = {entityOwnerVarName}.{associationPropertyName}.Single(p => {GetDomainIdKeyComparisonExpression("p", "default")});");
         }
 
-        statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
+        statements.Add($"await {DomainAggregateOwnerRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
         return statements;
     }
 
@@ -261,7 +267,7 @@ internal class CommandHandlerFacade
         return GetCommandCompareToExistingDomainAssertionStatement(DomainClassCompositionalOwner, commandVarName, $"added{SimpleDomainClassName}");
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetInitialCreateCommandAutoFixtureTestData()
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommand_TestDataStatements()
     {
         var statements = new List<CSharpStatement>();
 
@@ -271,7 +277,7 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetCreateCommandWithNullableCompositePropertiesTestData()
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_TestDataStatements()
     {
         var statements = new List<CSharpStatement>();
         foreach (var property in _model.Properties
@@ -286,17 +292,27 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetInitialCommandAndDomainEntityAutoFixtureTestData()
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndAggregateEntity_TestDataStatements()
+    {
+        return Get_ProduceSingleCommandAndEntity_TestDataStatements(false);
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements()
+    {
+        return Get_ProduceSingleCommandAndEntity_TestDataStatements(true);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(bool hasAggregateOwner)
     {
         var statements = new List<CSharpStatement>();
-        var entityVarName = HasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
-        var targetDomainClassType = HasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
+        var entityVarName = hasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
+        var targetDomainClassType = hasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
 
         statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(hasAggregateOwner ? DomainClassCompositionalOwner : DomainClassModel));
         statements.Add($"var {entityVarName} = fixture.Create<{targetDomainClassType}>();");
 
-        if (CommandIdFields.Count == 1 && !HasAggregateOwner)
+        if (CommandIdFields.Count == 1 && !hasAggregateOwner)
         {
             statements.Add(
                 $"fixture.Customize<{CommandTypeName}>(comp => comp.With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
@@ -307,7 +323,7 @@ internal class CommandHandlerFacade
             statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
                 .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
-            if (HasAggregateOwner)
+            if (hasAggregateOwner)
             {
                 for (var index = 0; index < DomainIdAttributes.Count; index++)
                 {
@@ -331,21 +347,31 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetCreateCommandAndDomainWithNullableCompositePropertiesTestData()
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleAggregateEntity_TestDataStatements()
+    {
+        return Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(false);
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements()
+    {
+        return Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(true);
+    }
+
+    private IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(bool hasAggregateOwner)
     {
         var statements = new List<CSharpStatement>();
-        var entityVarName = HasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
-        var targetDomainClassType = HasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
+        var entityVarName = hasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
+        var targetDomainClassType = hasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
         
         foreach (var property in _model.Properties
                      .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
         {
             statements.Add(string.Empty);
             statements.Add("fixture = new Fixture();");
-            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
+            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(hasAggregateOwner ? DomainClassCompositionalOwner : DomainClassModel));
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
 
-            if (CommandIdFields.Count == 1 && !HasAggregateOwner)
+            if (CommandIdFields.Count == 1 && !hasAggregateOwner)
             {
                 statements.Add(
                     $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
@@ -358,7 +384,7 @@ internal class CommandHandlerFacade
 
                 fluent.AddChainStatement($"Without(x => x.{property.Name})");
 
-                if (HasAggregateOwner)
+                if (hasAggregateOwner)
                 {
                     for (var index = 0; index < DomainIdAttributes.Count; index++)
                     {
@@ -383,7 +409,7 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements()
+    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements(ClassModel targetDomainModel)
     {
         if (!HasDomainEventBaseName())
         {
@@ -391,8 +417,6 @@ internal class CommandHandlerFacade
         }
 
         var statements = new List<CSharpStatement>();
-
-        var targetDomainModel = HasAggregateOwner ? DomainClassCompositionalOwner : DomainClassModel;
         
         statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null);");
         
@@ -421,24 +445,46 @@ internal class CommandHandlerFacade
         ReturnDefault
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response)
+    public IReadOnlyCollection<CSharpStatement> GetAggregateDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response)
+    {
+        return GetDomainRepositoryFindByIdMockingStatements(commandVarName, entityVarName, response, DomainClassTypeName, DomainAggregateRepositoryVarName, CommandIdFields);
+    }
+
+    public IReadOnlyCollection<CSharpStatement> GetAggregateOwnerDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response)
+    {
+        return GetDomainRepositoryFindByIdMockingStatements(commandVarName, entityVarName, response, DomainClassCompositionalOwnerTypeName, DomainAggregateOwnerRepositoryVarName, CommandOwnerIdFields);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response,
+        string targetType, string repositoryVarName, IReadOnlyList<DTOFieldModel> commandIdFields)
     {
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
             MockRepositoryResponse.ReturnDomainVariable => $".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
-            MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{(HasAggregateOwner ? DomainClassCompositionalOwnerTypeName : DomainClassTypeName)}>(default))",
+            MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{targetType}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
-        statements.Add($"{DomainRepositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, HasAggregateOwner)}){returns};");
+        statements.Add($"{repositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, commandIdFields)}){returns};");
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetRepositoryRemovedAssertionStatement(string commandVarName)
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggegrateRepositoryRemovedAssertionStatement(string commandVarName)
+    {
+        return GetDomainRepositoryRemovedAssertionStatement(commandVarName, DomainAggregateRepositoryVarName);
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryRemovedAssertionStatement(string commandVarName)
+    {
+        return GetDomainRepositoryRemovedAssertionStatement(commandVarName, DomainAggregateOwnerRepositoryVarName);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryRemovedAssertionStatement(string commandVarName, string repoVarName)
     {
         var statements = new List<CSharpStatement>();
         
-        statements.Add($"{DomainRepositoryVarName}.Received(1).Remove(Arg.Is<{DomainClassTypeName}>(p => {GetCommandAndDomainIdKeyComparisonExpression(commandVarName, "p")}));");
+        statements.Add($"{repoVarName}.Received(1).Remove(Arg.Is<{DomainClassTypeName}>(p => {GetCommandAndDomainIdKeyComparisonExpression(commandVarName, "p")}));");
+        
         return statements;
     }
 
@@ -465,13 +511,12 @@ internal class CommandHandlerFacade
             .ToArray();
     }
 
-    private string GetCommandIdKeysList(string commandVarName, bool useAggregateOwnerId)
+    private string GetCommandIdKeysList(string commandVarName, IReadOnlyList<DTOFieldModel> commandIdFields)
     {
-        var fields = useAggregateOwnerId ? CommandOwnerIdFields : CommandIdFields;
-        var left = fields.Count > 1 ? "(" : string.Empty;
-        var right = fields.Count > 1 ? ")" : string.Empty;
+        var left = commandIdFields.Count > 1 ? "(" : string.Empty;
+        var right = commandIdFields.Count > 1 ? ")" : string.Empty;
         
-        return $"{left}{string.Join(", ", fields.Select(idField => $"{commandVarName}.{idField.Name.ToCSharpIdentifier()}"))}{right}";
+        return $"{left}{string.Join(", ", commandIdFields.Select(idField => $"{commandVarName}.{idField.Name.ToCSharpIdentifier()}"))}{right}";
     }
 
     private string GetCommandAndDomainIdKeyComparisonExpression(string commandVarName, string entityVarName)

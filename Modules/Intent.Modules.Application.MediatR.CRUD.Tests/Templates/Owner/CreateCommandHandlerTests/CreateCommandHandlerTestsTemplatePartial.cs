@@ -42,7 +42,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        Facade = new CommandHandlerFacade(this, model, false);
+        Facade = new CommandHandlerFacade(this, model);
         
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
@@ -66,8 +66,8 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
         {
             method.Static();
-            method.AddStatements(Facade.GetInitialCreateCommandAutoFixtureTestData());
-            method.AddStatements(Facade.GetCreateCommandWithNullableCompositePropertiesTestData());
+            method.AddStatements(Facade.Get_ProduceSingleCommand_TestDataStatements());
+            method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_TestDataStatements());
         });
     }
     

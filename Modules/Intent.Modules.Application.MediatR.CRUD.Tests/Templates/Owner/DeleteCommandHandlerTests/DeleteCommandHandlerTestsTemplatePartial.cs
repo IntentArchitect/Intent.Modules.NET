@@ -39,7 +39,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        Facade = new CommandHandlerFacade(this, model, false);
+        Facade = new CommandHandlerFacade(this, model);
         
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
@@ -53,7 +53,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.GetInitialCommandAndDomainEntityAutoFixtureTestData());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateEntity_TestDataStatements());
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.SimpleDomainClassName}FromRepository", method =>
@@ -66,7 +66,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
                     
                     method.AddStatement(string.Empty);
@@ -75,7 +75,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetRepositoryRemovedAssertionStatement("testCommand"));
+                    method.AddStatements(Facade.GetDomainAggegrateRepositoryRemovedAssertionStatement("testCommand"));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
@@ -85,7 +85,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetNewCommandAutoFixtureInlineStatements("testCommand"));
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
+                    method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
                     

@@ -40,7 +40,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
 
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        Facade = new CommandHandlerFacade(this, model, true);
+        Facade = new CommandHandlerFacade(this, model);
         
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
@@ -53,8 +53,8 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.GetInitialCommandAndDomainEntityAutoFixtureTestData());
-                    method.AddStatements(Facade.GetCreateCommandAndDomainWithNullableCompositePropertiesTestData());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements());
+                    method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements());
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SimpleDomainClassName}ToRepository", method =>
@@ -67,7 +67,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryUnitOfWorkMockingStatements("existingOwnerEntity", "testCommand"));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
 
