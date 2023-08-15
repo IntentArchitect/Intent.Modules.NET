@@ -49,6 +49,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9a4ddf6c-e4b0-4992-9139-3262fd4a84b1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EnsureParameterlessConstructorsExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnsureParameterlessConstructorsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -86,7 +94,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>fed3139b-f756-4f55-a155-e374d2965abf</ProjectId>

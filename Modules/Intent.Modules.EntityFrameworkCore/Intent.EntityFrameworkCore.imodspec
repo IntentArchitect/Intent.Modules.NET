@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.8</version>
+  <version>4.4.9-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -103,5 +103,6 @@
   </moduleSettingsExtensions>
   <factoryExtensions>
     <factoryExtension id="Intent.EntityFrameworkCore.DependencyInjectionExtension" externalReference="9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9" />
+    <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
   </factoryExtensions>
 </package>
