@@ -1,8 +1,8 @@
 ### Version 1.2.0
 
-- Update: Refactored module completely for better internal maintainability.
-- Update: Future-proofing Command / Query Handler constructor parameters that receive new parameters (from Intent Architect) will now automatically get stubbed/mocked in unit tests.
-- Update: Now catering for composite keys in Command / Query handlers.
+- Improvement: Refactored module completely for better internal maintainability.
+- Improvement: Future-proofing Command / Query Handler constructor parameters that receive new parameters (from Intent Architect) will now automatically get stubbed/mocked in unit tests.
+- Improvement: Now catering for composite keys in Command / Query handlers.
 - Fixed: Get query handler tests would cause a crash in some cases when trying to generate.
 
 ### Version 1.1.1
@@ -11,16 +11,16 @@
 
 ### Version 1.1.0
 
-- Update: Introduces NotFoundException when an entity is not found in the tests.
+- Improvement: Introduces NotFoundException when an entity is not found in the tests.
 
 ### Version 1.0.3
 
-- Fixed Unit Tests for negative test cases where Enums are in collections.
+- Improvement: Fixed Unit Tests for negative test cases where Enums are in collections.
 
 ### Version 1.0.1
 
-- Fixed and improved test scenarios for Enums where Enums that doesn't have a default literal value of `0` will be tested and then also literal values that doesn't exist in an Enum. It will also handle Enums that doesn't have literal values at all. 
+- Improvement: Fixed and improved test scenarios for Enums where Enums that doesn't have a default literal value of `0` will be tested and then also literal values that doesn't exist in an Enum. It will also handle Enums that doesn't have literal values at all. 
 
 ### Version 1.0.0
 
-- New: Module to generate Unit Tests for Command and Query handlers as well as Fluent Validation Validators.
+- New Feature: Module to generate Unit Tests for Command and Query handlers as well as Fluent Validation Validators.
