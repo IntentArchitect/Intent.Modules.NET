@@ -52,8 +52,7 @@ namespace Intent.Modules.Entities.Repositories.Api.FactoryExtensions
             if (!x.InternalElement.Package.HasStereotype("Document Database"))
                 return false;
             var setting = x.InternalElement.Package.GetStereotypeProperty<IElement>("Document Database", "Provider");
-            return setting == null ||
-                setting.Id == CustomDbProviderId;
+            return setting?.Id == CustomDbProviderId;
         }
     }
 }

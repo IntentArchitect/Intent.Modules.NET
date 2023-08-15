@@ -33,7 +33,12 @@ namespace MultipleDocumentStores.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddDapr();
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                })
+            .AddDapr();
             services.AddDaprSidekick(Configuration);
             services.AddApplication();
             services.ConfigureApplicationSecurity(Configuration);
