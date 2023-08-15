@@ -465,7 +465,7 @@ internal class CommandHandlerFacade
             MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{targetType}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
-        statements.Add($"{repositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, commandIdFields)})!{returns};");
+        statements.Add($"{repositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, commandIdFields)}, CancellationToken.None)!{returns};");
         return statements;
     }
 

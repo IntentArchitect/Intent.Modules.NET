@@ -192,6 +192,51 @@ internal class QueryHandlerFacade
         return statements;
     }
     
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements()
+    {
+        var statements = new List<CSharpStatement>();
+        var targetDomainClassType = DomainClassCompositionalOwner.Name.ToPascalCase();
+
+        statements.Add($"var existingOwnerEntity = fixture.Create<{targetDomainClassType}>();");
+        statements.Add($"var expectedEntity = existingOwnerEntity.{AggregateOwnerAssociationCompositeName}.First();");
+
+        var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+        statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
+            .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+        for (var index = 0; index < DomainIdAttributes.Count; index++)
+        {
+            var idAttribute = DomainIdAttributes[index];
+            var idField = QueryOwnerIdFields[index];
+            fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+        }
+            
+        for (var i = 0; i < QueryIdFields.Count; i++)
+        {
+            var commandIdField = QueryIdFields[i];
+            var domainIdAttribute = DomainIdAttributes[i];
+            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, expectedEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+        }
+
+        statements.Add($"var testQuery = fixture.Create<{QueryTypeName}>();");
+        statements.Add($"yield return new object[] {{ testQuery, existingOwnerEntity, expectedEntity }};");
+
+        return statements;
+    }
+
+    public IReadOnlyCollection<CSharpStatement> GetNewAggregateOwnerWithoutCompositesStatements()
+    {
+        var statements = new List<CSharpStatement>();
+
+        statements.Add("var fixture = new Fixture();");
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(DomainClassCompositionalOwner));
+        statements.Add($"fixture.Customize<{DomainClassCompositionalOwnerTypeName}>(comp => comp.With(p => p.{AggregateOwnerAssociationCompositeName}, new List<{DomainClassTypeName}>()));");
+        statements.Add($"var existingOwnerEntity = fixture.Create<{DomainClassCompositionalOwnerTypeName}>();");
+        statements.Add($"var testQuery = fixture.Create<{QueryTypeName}>();");
+        
+        return statements;
+    }
+    
     public IReadOnlyCollection<CSharpStatement> Get_ManyAggregateDomainEntities_TestDataStatements(int? numberOfItems = null)
     {
         var statements = new List<CSharpStatement>();
@@ -329,7 +374,7 @@ internal class QueryHandlerFacade
             MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{DomainClassTypeName}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
-        statements.Add($"{repositoryVarName}.FindByIdAsync({GetQueryIdKeysList(queryVarName, queryIdFields)})!{returns};");
+        statements.Add($"{repositoryVarName}.FindByIdAsync({GetQueryIdKeysList(queryVarName, queryIdFields)}, CancellationToken.None)!{returns};");
         return statements;
     }
     

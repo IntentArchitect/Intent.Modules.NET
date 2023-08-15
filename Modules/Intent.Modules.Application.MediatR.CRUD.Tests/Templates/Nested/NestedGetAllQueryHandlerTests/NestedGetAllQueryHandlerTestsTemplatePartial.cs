@@ -49,26 +49,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     AddUsingDirectives(file);
                     Facade.AddHandlerConstructorMockUsings();
 
-                    // var dtoModel = Model.TypeReference.Element.AsDTOModel();
-                    // var nestedDomainElement = dtoModel.Mapping.Element.AsClassModel();
-                    // var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
-                    // var nestedDomainElementPluralName = nestedDomainElementName.Pluralize();
-                    // var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
-                    // var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
-                    // var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
-                    // var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
-                    // var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
-
                     var priClass = file.Classes.First();
-                    //priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
+                    
                     priClass.AddConstructor(ctor =>
                     {
                         ctor.AddStatements(Facade.GetAutoMapperProfilesAndAddBackendField(priClass));
-                        // ctor.AddStatement(new CSharpInvocationStatement("var mapperConfiguration = new MapperConfiguration")
-                        //     .AddArgument(new CSharpLambdaBlock("config")
-                        //         .AddStatement($"config.AddMaps(typeof({this.GetQueryHandlerName(Model)}));"))
-                        //     .WithArgumentsOnNewLines());
-                        // ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                     });
 
                     priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
@@ -78,14 +63,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatements(Facade.Get_SingleAggregateOwnerDomainEntity_TestDataStatements(false, true, false));
                         method.AddStatements(Facade.Get_InitialAutoFixture_AggregateOwner_TestDataStatements(false));
                         method.AddStatements(Facade.Get_SingleAggregateOwnerDomainEntity_TestDataStatements(true, false, false));
-                        // method.AddStatements($@"var fixture = new Fixture();");
-                        // this.RegisterDomainEventBaseFixture(method);
-                        // method.AddStatement($"yield return new object[] {{ fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>() }};");
-                        // method.AddStatement("");
-                        // method.AddStatement("fixture = new Fixture();");
-                        // this.RegisterDomainEventBaseFixture(method);
-                        // method.AddStatement($"fixture.Customize<{GetTypeName(ownerDomainElement.InternalElement)}>(comp => comp.With(p => p.{nestedAssociationName}, new List<{GetTypeName(nestedDomainElement.InternalElement)}>()));");
-                        // method.AddStatement($"yield return new object[] {{ fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>() }};");
                     });
 
                     priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralDomainClassName}", method =>
@@ -109,21 +86,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Assert");
                         method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingOwnerEntity.{Facade.AggregateOwnerAssociationCompositeName}"));
-                        
-//                         method.AddStatements($@"
-//         // Arrange
-//         var testQuery = new {GetTypeName(Model.InternalElement)}(existingOwnerEntity.{ownerDomainElementIdName});
-//         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-//         repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
-//
-//         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
-//
-//         // Act
-//         var result = await sut.Handle(testQuery, CancellationToken.None);
-//
-//         // Assert
-//         {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(result, existingOwnerEntity.{nestedAssociationName});
-//         ");
                     });
                     
                     AddAssertionMethods();
