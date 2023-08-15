@@ -14,7 +14,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.*" />
     <PackageReference Include="Finbuckle.MultiTenant" Version="6.5.1" />
     <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.5.1" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.0-pre.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.1" />
