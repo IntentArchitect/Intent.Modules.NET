@@ -205,40 +205,58 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             AddInterfaceQualifiedMethod(@class, operation);
                         }
                     }
-                }).OnBuild(file => 
+                })
+                .OnBuild(file =>
                 {
+                    // This is actually all pointless since by default we have the following above the class:
+                    // [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
+                    //                            ^^^^^                                      ^^^^^^^^^^^^
+                    return;
+
+                    if (Model.Constructors.Any())
+                    {
+                        return;
+                    }
+
                     var @class = file.Classes.First();
-                    if (!Model.Constructors.Any())
+                    var nullabilityStatements = new List<string>();
+
+                    foreach (var attribute in model.Attributes)
+                    {
+                        if (!string.IsNullOrWhiteSpace(attribute.Value))
+                        {
+                            continue;
+                        }
+
+                        var typeInfo = GetTypeInfo(attribute.TypeReference);
+                        if (NeedsNullabilityAssignment(typeInfo))
+                        {
+                            nullabilityStatements.Add($"{attribute.Name.ToPascalCase()} = null!;");
+                        }
+                    }
+
+                    foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                    {
+                        if (associationEnd.IsCollection || associationEnd.IsNullable)
+                        {
+                            continue;
+                        }
+
+                        var property = @class.GetAllProperties().FirstOrDefault(x => x.HasMetadata("model") && x.GetMetadata<IMetadataModel>("model").Id == associationEnd.Id);
+                        if (property != null)
+                        {
+                            nullabilityStatements.Add($"{associationEnd.Name.ToPascalCase()} = null!;");
+                        }
+                    }
+
+                    if (nullabilityStatements.Any())
                     {
                         @class.AddConstructor(ctor =>
                         {
-                            foreach (var attribute in model.Attributes)
-                            {
-                                if (string.IsNullOrWhiteSpace(attribute.Value))
-                                {
-                                    var typeInfo = GetTypeInfo(attribute.TypeReference);
-                                    if (NeedsNullabilityAssignment(typeInfo))
-                                    {
-                                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
-                                    }
-                                }
-                            }
-                            foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
-                            {
-                                if (!associationEnd.IsCollection && !associationEnd.IsNullable)
-                                {
-                                    var property = @class.GetAllProperties().FirstOrDefault(x => x.HasMetadata("model") && x.GetMetadata<IMetadataModel>("model").Id == associationEnd.Id);
-                                    if (property != null)
-                                    {
-                                        ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
-                                    }
-                                }
-                            }
-
-                            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                            ctor.AddAttribute("[IntentInitialGen]");
+                            ctor.AddStatements(nullabilityStatements);
                         });
                     }
-
                 }
                 , 1000).AfterBuild(file =>
                 {
@@ -259,10 +277,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 AddUsing("System.Threading.Tasks");
             }
         }
-        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
-                || typeInfo.IsNullable == true
+                || typeInfo.IsNullable
                 || typeInfo.IsCollection
                 || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
                 || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.SpecializationType == "Generic Type"));

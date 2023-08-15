@@ -1,3 +1,7 @@
+### Version 4.3.7
+
+- Fixed: Parameterless constructor with `<Property> = null!` statements would always be generated with `[IntentManaged(Mode.Fully)]` is now generated with `[IntentInitialGen]` to avoid impacting already existing files with unmanaged constructors.
+
 ### Version 4.3.6
 
 - Update: Adding explicit parameterless constructors, when there are no constructors to remove nullabilty warning's on `Properties` which should be dealt with through constructor usage.

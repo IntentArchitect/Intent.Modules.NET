@@ -195,8 +195,10 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                         parm => parm.WithDefaultValue(parameter.Value));
                 }
 
+                var join = string.Join(", ", operation.Parameters.Select(x => $"{CastArgumentIfNecessary(x.TypeReference, x.Name)}"));
+
                 method.AddStatement(
-                    $"{(operation.ReturnType != null ? "return " : string.Empty)}{operation.Name}({string.Join(", ", operation.Parameters.Select(x => $"{CastArgumentIfNecessary(x.TypeReference, x.Name)}"))});");
+                    $"{(operation.ReturnType != null ? "return " : string.Empty)}{operation.Name}({join});");
             });
     }
 
@@ -225,18 +227,19 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         return methodName;
     }
 
-    private string CastArgumentIfNecessary(ITypeReference typeReference, string argument)
+    private string CastArgumentIfNecessary(ITypeReference typeReference, string argumentName)
     {
         var interfaceType = InterfaceTemplate.GetTypeInfo(typeReference);
-        if (!interfaceType.Equals(GetTypeInfo(typeReference)))
+        if (!string.Equals(interfaceType.ToString(), GetTypeInfo(typeReference).ToString()))
         {
             if (interfaceType.IsCollection)
             {
-                return $"{argument}.{UseType("System.Linq.Cast")}<{GetTypeName((IElement)typeReference.Element)}>().ToList()";
+                return $"{argumentName}.{UseType("System.Linq.Cast")}<{GetTypeName(typeReference, collectionFormat: "{0}")}>().ToList()";
             }
-            return $"({GetTypeName((IElement)typeReference.Element)}) {argument}";
+
+            return $"({GetTypeName(typeReference)}) {argumentName}";
         }
 
-        return string.Empty;
+        return argumentName;
     }
 }
