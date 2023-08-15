@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ParentNonStdId : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public ParentNonStdId()
-        {
-            Desc = null!;
-            ChildNonStdId = null!;
-        }
         public Guid MyId { get; set; }
 
         public string Desc { get; set; }

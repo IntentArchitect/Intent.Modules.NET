@@ -13,10 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Explicit
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class PK_A_CompositeKey : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public PK_A_CompositeKey()
-        {
-        }
         public Guid CompositeKeyA { get; set; }
 
         public Guid CompositeKeyB { get; set; }

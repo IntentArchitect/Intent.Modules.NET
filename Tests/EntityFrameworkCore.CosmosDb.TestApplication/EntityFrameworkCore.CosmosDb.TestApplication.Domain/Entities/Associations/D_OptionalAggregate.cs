@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class D_OptionalAggregate : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public D_OptionalAggregate()
-        {
-            PartitionKey = null!;
-            OptionalAggregateAttr = null!;
-        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

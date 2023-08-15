@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot4AggNullable : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public AggregateRoot4AggNullable()
-        {
-            AggregateRoot4Single = null!;
-        }
         public Guid Id { get; set; }
 
         public Guid AggregateRoot4SingleId { get; set; }

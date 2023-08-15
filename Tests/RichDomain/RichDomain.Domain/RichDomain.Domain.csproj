@@ -56,6 +56,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DerivedFromAbstractClass.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\IDepartment.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DepartmentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

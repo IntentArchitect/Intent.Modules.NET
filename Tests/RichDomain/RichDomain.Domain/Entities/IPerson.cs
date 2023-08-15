@@ -13,6 +13,12 @@ namespace RichDomain.Domain.Entities
 
         string FirstName { get; }
 
+        Guid DepartmentId { get; }
+
+        IDepartment Department { get; }
+
         void UpdatePerson(string firstName);
+
+        void UpdatePerson(string firstName, IDepartment department);
     }
 }

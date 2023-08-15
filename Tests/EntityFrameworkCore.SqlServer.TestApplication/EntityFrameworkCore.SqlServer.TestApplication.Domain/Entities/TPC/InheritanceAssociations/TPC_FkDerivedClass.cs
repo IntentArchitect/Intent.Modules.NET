@@ -10,11 +10,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_FkDerivedClass : TPC_FkBaseClass
     {
-        [IntentManaged(Mode.Fully)]
-        public TPC_FkDerivedClass()
-        {
-            DerivedField = null!;
-        }
         public string DerivedField { get; set; }
     }
 }

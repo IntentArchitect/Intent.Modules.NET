@@ -340,6 +340,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Entities/Department.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Department.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Entities/DepartmentState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DepartmentState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#76ef7be5-167f-4675-9882-42831eaa0fd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Entities/DerivedClass.cs</ApplicationRelativeFilePath>
@@ -388,6 +404,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Entities/IDepartment.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDepartment.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#76ef7be5-167f-4675-9882-42831eaa0fd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Entities/IDerivedClass.cs</ApplicationRelativeFilePath>
@@ -432,6 +456,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Repositories/IBaseClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBaseClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0e3e7a2b-d532-4b83-8c37-45b03236274e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Repositories/IDepartmentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDepartmentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -516,6 +548,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e9239218-0c70-4caa-bcdc-dce7b2c0f835</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Infrastructure/Persistence/Configurations/DepartmentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DepartmentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9239218-0c70-4caa-bcdc-dce7b2c0f835</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#76ef7be5-167f-4675-9882-42831eaa0fd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Infrastructure/Persistence/Configurations/DerivedClassConfiguration.cs</ApplicationRelativeFilePath>
@@ -552,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Infrastructure/Repositories/BaseClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BaseClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f30639e5-aa79-4ec6-a303-acc1a00351b1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#93d39159-a451-4130-b6d2-60fd2236ea41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Infrastructure/Repositories/DepartmentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DepartmentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

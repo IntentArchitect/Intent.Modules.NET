@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MiddleAbstract_Root : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public MiddleAbstract_Root()
-        {
-            PartitionKey = null!;
-            RootAttribute = null!;
-        }
 
         public Guid Id { get; set; }
 

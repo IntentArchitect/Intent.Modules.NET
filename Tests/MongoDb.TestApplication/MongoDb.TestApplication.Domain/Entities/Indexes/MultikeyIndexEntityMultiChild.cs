@@ -14,12 +14,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public MultikeyIndexEntityMultiChild()
-        {
-            Id = null!;
-        }
-
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

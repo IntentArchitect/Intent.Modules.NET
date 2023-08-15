@@ -11,12 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateB
     {
-        [IntentManaged(Mode.Fully)]
-        public AggregateB()
-        {
-            Id = null!;
-            Attribute = null!;
-        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

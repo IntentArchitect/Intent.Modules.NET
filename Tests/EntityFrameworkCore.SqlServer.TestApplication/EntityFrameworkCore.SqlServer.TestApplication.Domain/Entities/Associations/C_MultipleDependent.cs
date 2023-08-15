@@ -11,11 +11,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class C_MultipleDependent
     {
-        [IntentManaged(Mode.Fully)]
-        public C_MultipleDependent()
-        {
-            MultipleDepAttr = null!;
-        }
         public Guid Id { get; set; }
 
         public string MultipleDepAttr { get; set; }

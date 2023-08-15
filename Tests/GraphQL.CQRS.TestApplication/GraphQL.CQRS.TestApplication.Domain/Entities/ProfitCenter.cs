@@ -11,11 +11,6 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ProfitCenter
     {
-        [IntentManaged(Mode.Fully)]
-        public ProfitCenter()
-        {
-            Name = null!;
-        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

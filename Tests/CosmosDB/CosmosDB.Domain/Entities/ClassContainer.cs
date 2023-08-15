@@ -14,13 +14,6 @@ namespace CosmosDB.Domain.Entities
     public class ClassContainer : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public ClassContainer()
-        {
-            Id = null!;
-            ClassPartitionKey = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

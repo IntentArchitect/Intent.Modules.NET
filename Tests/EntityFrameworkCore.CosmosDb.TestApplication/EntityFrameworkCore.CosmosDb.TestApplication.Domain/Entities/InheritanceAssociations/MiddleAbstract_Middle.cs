@@ -10,11 +10,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class MiddleAbstract_Middle : MiddleAbstract_Root
     {
-        [IntentManaged(Mode.Fully)]
-        public MiddleAbstract_Middle()
-        {
-            MiddleAttribute = null!;
-        }
 
         public string MiddleAttribute { get; set; }
     }

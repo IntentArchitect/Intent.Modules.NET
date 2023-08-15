@@ -11,11 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DerivedOfT : BaseTypeOfT<int>
     {
-        [IntentManaged(Mode.Fully)]
-        public DerivedOfT()
-        {
-            DerivedAttribute = null!;
-        }
         public string DerivedAttribute { get; set; }
     }
 }

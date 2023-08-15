@@ -11,11 +11,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPH_Poly_RootAbstract_Comp
     {
-        [IntentManaged(Mode.Fully)]
-        public TPH_Poly_RootAbstract_Comp()
-        {
-            CompField = null!;
-        }
         public Guid Id { get; set; }
 
         public string CompField { get; set; }

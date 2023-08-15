@@ -21,5 +21,12 @@ namespace RichDomain.Domain.Entities
         {
             FirstName = firstName;
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public void UpdatePerson(string firstName, Department department)
+        {
+            FirstName = firstName;
+            Department = department;
+        }
     }
 }

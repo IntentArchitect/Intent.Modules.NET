@@ -25,6 +25,7 @@ namespace RichDomain.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IBaseClassRepository, BaseClassRepository>();
+            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             services.AddTransient<IDerivedClassRepository, DerivedClassRepository>();
             services.AddTransient<IDerivedFromAbstractClassRepository, DerivedFromAbstractClassRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();

@@ -14,13 +14,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObje
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class PersonWithAddressSerialized : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public PersonWithAddressSerialized()
-        {
-            PartitionKey = null!;
-            Name = null!;
-            AddressSerialized = null!;
-        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

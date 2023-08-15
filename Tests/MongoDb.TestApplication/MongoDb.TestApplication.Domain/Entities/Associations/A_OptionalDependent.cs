@@ -11,11 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_OptionalDependent
     {
-        [IntentManaged(Mode.Fully)]
-        public A_OptionalDependent()
-        {
-            OptDepAttribute = null!;
-        }
         public string OptDepAttribute { get; set; }
     }
 }

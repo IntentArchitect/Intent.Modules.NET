@@ -14,13 +14,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Client : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public Client()
-        {
-            Id = null!;
-            Name = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

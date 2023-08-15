@@ -11,11 +11,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPH_Poly_BaseClassNonAbstract : TPH_Poly_RootAbstract
     {
-        [IntentManaged(Mode.Fully)]
-        public TPH_Poly_BaseClassNonAbstract()
-        {
-            BaseField = null!;
-        }
         public string BaseField { get; set; }
 
         public Guid? Poly_SecondLevelId { get; set; }

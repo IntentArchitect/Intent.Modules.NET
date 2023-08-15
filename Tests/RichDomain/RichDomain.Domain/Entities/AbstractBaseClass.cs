@@ -10,11 +10,6 @@ namespace RichDomain.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract partial class AbstractBaseClass : IAbstractBaseClass
     {
-        [IntentManaged(Mode.Fully)]
-        public AbstractBaseClass()
-        {
-            AbstractBaseAttribute = null!;
-        }
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void BaseOperation(string abstractBaseAttribute)
         {

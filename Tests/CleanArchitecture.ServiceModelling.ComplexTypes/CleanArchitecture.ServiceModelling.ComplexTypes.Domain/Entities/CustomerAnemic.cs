@@ -13,12 +13,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CustomerAnemic : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public CustomerAnemic()
-        {
-            Name = null!;
-            Address = null!;
-        }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }

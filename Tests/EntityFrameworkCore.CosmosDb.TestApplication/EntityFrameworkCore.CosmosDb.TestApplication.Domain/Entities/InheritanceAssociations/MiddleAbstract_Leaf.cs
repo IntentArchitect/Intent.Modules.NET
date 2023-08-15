@@ -10,11 +10,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MiddleAbstract_Leaf : MiddleAbstract_Middle
     {
-        [IntentManaged(Mode.Fully)]
-        public MiddleAbstract_Leaf()
-        {
-            LeafAttribute = null!;
-        }
 
         public string LeafAttribute { get; set; }
     }

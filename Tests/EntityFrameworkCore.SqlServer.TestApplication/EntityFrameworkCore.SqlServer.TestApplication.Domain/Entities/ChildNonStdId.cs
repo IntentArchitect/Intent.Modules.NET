@@ -11,11 +11,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ChildNonStdId
     {
-        [IntentManaged(Mode.Fully)]
-        public ChildNonStdId()
-        {
-            Name = null!;
-        }
         public Guid DiffId { get; set; }
 
         public string Name { get; set; }

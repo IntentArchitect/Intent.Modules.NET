@@ -14,13 +14,6 @@ namespace CosmosDB.Domain.Entities
     public class Region : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public Region()
-        {
-            Id = null!;
-            Name = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

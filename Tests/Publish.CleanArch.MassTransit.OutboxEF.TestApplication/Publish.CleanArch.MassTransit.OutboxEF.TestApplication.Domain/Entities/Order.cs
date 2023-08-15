@@ -13,11 +13,6 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Order : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public Order()
-        {
-            Number = null!;
-        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

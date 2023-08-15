@@ -13,11 +13,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstruc
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class OpAndCtorMapping2 : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public OpAndCtorMapping2()
-        {
-            OpAndCtorMapping1 = null!;
-        }
         public Guid Id { get; set; }
 
         public virtual OpAndCtorMapping1 OpAndCtorMapping1 { get; set; }

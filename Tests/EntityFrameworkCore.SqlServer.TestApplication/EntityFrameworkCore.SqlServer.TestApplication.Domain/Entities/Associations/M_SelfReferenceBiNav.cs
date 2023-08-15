@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class M_SelfReferenceBiNav : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public M_SelfReferenceBiNav()
-        {
-            SelfRefBiNavAttr = null!;
-        }
         public Guid Id { get; set; }
 
         public string SelfRefBiNavAttr { get; set; }

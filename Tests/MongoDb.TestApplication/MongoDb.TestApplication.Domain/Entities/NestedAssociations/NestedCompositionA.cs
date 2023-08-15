@@ -11,12 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class NestedCompositionA
     {
-        [IntentManaged(Mode.Fully)]
-        public NestedCompositionA()
-        {
-            Attribute = null!;
-            AggregateBId = null!;
-        }
         public string Attribute { get; set; }
 
         public string AggregateBId { get; set; }

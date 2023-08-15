@@ -13,11 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
     {
         private int? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public ToManyInt()
-        {
-        }
-
         public int Id
         {
             get => _id ?? throw new NullReferenceException("_id has not been set");

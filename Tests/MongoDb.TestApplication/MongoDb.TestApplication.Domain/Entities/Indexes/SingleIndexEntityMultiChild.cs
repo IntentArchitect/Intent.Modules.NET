@@ -13,13 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public SingleIndexEntityMultiChild()
-        {
-            Id = null!;
-            SingleIndex = null!;
-        }
-
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

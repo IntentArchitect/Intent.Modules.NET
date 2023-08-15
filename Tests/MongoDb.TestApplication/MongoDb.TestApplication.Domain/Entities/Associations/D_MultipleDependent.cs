@@ -12,12 +12,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class D_MultipleDependent
     {
-        [IntentManaged(Mode.Fully)]
-        public D_MultipleDependent()
-        {
-            Id = null!;
-            Attribute = null!;
-        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

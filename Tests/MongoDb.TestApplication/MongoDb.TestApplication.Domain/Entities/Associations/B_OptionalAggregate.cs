@@ -11,12 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class B_OptionalAggregate
     {
-        [IntentManaged(Mode.Fully)]
-        public B_OptionalAggregate()
-        {
-            Id = null!;
-            Attribute = null!;
-        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

@@ -14,13 +14,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Tag : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public Tag()
-        {
-            Id = null!;
-            Name = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

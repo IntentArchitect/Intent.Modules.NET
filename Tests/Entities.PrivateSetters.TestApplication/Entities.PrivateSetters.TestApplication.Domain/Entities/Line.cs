@@ -11,11 +11,6 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Line
     {
-        [IntentManaged(Mode.Fully)]
-        public Line()
-        {
-            Description = null!;
-        }
         public Guid Id { get; private set; }
         public string Description { get; private set; }
 

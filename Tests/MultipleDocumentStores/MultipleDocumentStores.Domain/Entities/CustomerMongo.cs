@@ -13,12 +13,6 @@ namespace MultipleDocumentStores.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CustomerMongo : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public CustomerMongo()
-        {
-            Id = null!;
-            Name = null!;
-        }
 
         public string Id { get; set; }
 

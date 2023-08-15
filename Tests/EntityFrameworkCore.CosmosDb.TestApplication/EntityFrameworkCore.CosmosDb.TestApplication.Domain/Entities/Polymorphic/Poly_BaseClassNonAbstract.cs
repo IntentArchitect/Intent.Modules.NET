@@ -11,12 +11,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Polymorph
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Poly_BaseClassNonAbstract
     {
-        [IntentManaged(Mode.Fully)]
-        public Poly_BaseClassNonAbstract()
-        {
-            BaseField = null!;
-            PartitionKey = null!;
-        }
         public Guid Id { get; set; }
 
         public string BaseField { get; set; }

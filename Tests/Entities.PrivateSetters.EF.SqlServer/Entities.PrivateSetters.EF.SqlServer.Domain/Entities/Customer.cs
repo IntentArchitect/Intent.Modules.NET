@@ -10,11 +10,6 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Customer : Person
     {
-        [IntentManaged(Mode.Fully)]
-        public Customer()
-        {
-            Status = null!;
-        }
         public string Status { get; private set; }
     }
 }

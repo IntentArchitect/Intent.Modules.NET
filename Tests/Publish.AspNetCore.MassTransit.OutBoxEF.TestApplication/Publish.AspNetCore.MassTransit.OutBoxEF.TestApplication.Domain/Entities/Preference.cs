@@ -11,12 +11,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Preference
     {
-        [IntentManaged(Mode.Fully)]
-        public Preference()
-        {
-            Key = null!;
-            Value = null!;
-        }
         public Guid Id { get; set; }
 
         public string Key { get; set; }

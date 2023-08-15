@@ -13,11 +13,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class WithCompositeKey : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public WithCompositeKey()
-        {
-            Name = null!;
-        }
         public Guid Key1Id { get; set; }
 
         public Guid Key2Id { get; set; }

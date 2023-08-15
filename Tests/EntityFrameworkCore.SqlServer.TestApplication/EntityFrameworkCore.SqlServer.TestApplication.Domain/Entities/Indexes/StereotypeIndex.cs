@@ -13,10 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class StereotypeIndex : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public StereotypeIndex()
-        {
-        }
         public Guid Id { get; set; }
 
         public Guid DefaultIndexField { get; set; }

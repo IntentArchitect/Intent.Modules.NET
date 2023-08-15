@@ -14,6 +14,17 @@ namespace RichDomain.Domain.Entities
 
         public string FirstName { get; private set; }
 
+        public Guid DepartmentId { get; private set; }
+
+        public virtual Department Department { get; private set; }
+
+        IDepartment IPerson.Department => Department;
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
+        void IPerson.UpdatePerson(string firstName, IDepartment department)
+        {
+            UpdatePerson(firstName, (Department)department);
+        }
     }
 }

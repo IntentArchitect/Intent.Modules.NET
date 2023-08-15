@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPH_MiddleAbstract_Root : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPH_MiddleAbstract_Root()
-        {
-            RootAttribute = null!;
-        }
 
         public Guid Id { get; set; }
 

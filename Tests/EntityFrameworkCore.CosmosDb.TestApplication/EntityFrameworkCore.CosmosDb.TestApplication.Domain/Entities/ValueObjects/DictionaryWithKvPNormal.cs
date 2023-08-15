@@ -14,12 +14,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObje
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DictionaryWithKvPNormal : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public DictionaryWithKvPNormal()
-        {
-            PartitionKey = null!;
-            Title = null!;
-        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

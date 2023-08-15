@@ -15,13 +15,6 @@ namespace MultipleDocumentStores.Domain.Entities
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public CustomerCosmos()
-        {
-            Id = null!;
-            Name = null!;
-        }
-
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

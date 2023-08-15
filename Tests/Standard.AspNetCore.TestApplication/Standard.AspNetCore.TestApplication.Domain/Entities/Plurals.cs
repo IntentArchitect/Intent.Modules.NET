@@ -11,10 +11,6 @@ namespace Standard.AspNetCore.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Plurals
     {
-        [IntentManaged(Mode.Fully)]
-        public Plurals()
-        {
-        }
         public Guid Id { get; set; }
     }
 }

@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class L_SelfReferenceMultiple : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public L_SelfReferenceMultiple()
-        {
-            SelfRefMultipleAttr = null!;
-        }
         public Guid Id { get; set; }
 
         public string SelfRefMultipleAttr { get; set; }

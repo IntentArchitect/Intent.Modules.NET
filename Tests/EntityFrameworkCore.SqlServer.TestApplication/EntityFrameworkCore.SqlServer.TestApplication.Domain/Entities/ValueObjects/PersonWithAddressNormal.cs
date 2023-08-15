@@ -14,12 +14,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObj
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class PersonWithAddressNormal : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public PersonWithAddressNormal()
-        {
-            Name = null!;
-            AddressNormal = null!;
-        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

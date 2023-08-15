@@ -12,11 +12,6 @@ namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ToManySource
     {
-        [IntentManaged(Mode.Fully)]
-        public ToManySource()
-        {
-            Id = null!;
-        }
         public string Id { get; set; }
 
         public virtual ICollection<ToManyGuid> ToManyGuids { get; set; } = new List<ToManyGuid>();
