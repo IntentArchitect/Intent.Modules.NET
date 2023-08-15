@@ -1,6 +1,14 @@
 ﻿# Intent.MongoDb
 
-This module provides patterns for working with MongoDB. MongoDB is a popular open-source, document-oriented NoSQL database management system that provides a flexible and scalable approach to storing and managing data. Unlike traditional relational databases, MongoDB stores data in a JSON-like format called BSON, which allows for the representation of complex and dynamic structures. It enables developers to work with data in a more natural and intuitive manner, making it suitable for a wide range of applications, from web and mobile applications to data analytics and content management systems. MongoDB's key features include horizontal scalability, support for sharding and replication, dynamic schema design, and powerful querying capabilities. It has gained popularity for its ability to handle large volumes of unstructured or semi-structured data while offering high performance and ease of development.
+This module provides patterns for working with MongoDB. 
+
+## What's is MongoDB?
+
+MongoDB is a popular open-source, document-oriented NoSQL database management system that provides a flexible and scalable approach to storing and managing data. Unlike traditional relational databases, MongoDB stores data in a JSON-like format called BSON, which allows for the representation of complex and dynamic structures. It enables developers to work with data in a more natural and intuitive manner, making it suitable for a wide range of applications, from web and mobile applications to data analytics and content management systems. MongoDB's key features include horizontal scalability, support for sharding and replication, dynamic schema design, and powerful querying capabilities. It has gained popularity for its ability to handle large volumes of unstructured or semi-structured data while offering high performance and ease of development.
+
+For more information on MongoDB, check out their [official site](https://www.mongodb.com/).
+
+## What's in this module?
 
 This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding MongoDB implementation:-
 
@@ -8,8 +16,6 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 * Unit of Work.
 * `app.settings` configuration.
 * Dependency Injection wiring.
-
-For more information on MongoDB, check out their [official site](https://www.mongodb.com/).
 
 These MongoDB patterns are realized using [MongoFramework](https://github.com/TurnerSoftware/MongoFramework).
 

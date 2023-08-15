@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e1ba2cf8-f258-42bb-b5e4-3302edac3747" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CustomDbProviderFactoryExtension</name>
+  <display>CustomDbProviderFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a059d995-a36f-4647-9c98-18ce340297eb</parentFolderId>
+  <packageId>a059d995-a36f-4647-9c98-18ce340297eb</packageId>
+  <packageName>Intent.Entities.Repositories.Api</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

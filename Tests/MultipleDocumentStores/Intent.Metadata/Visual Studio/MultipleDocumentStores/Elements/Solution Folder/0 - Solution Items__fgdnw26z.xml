@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="85fbd2c2-b030-4932-933e-95ff7f85782d" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</parentFolderId>
+  <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+  <packageName>MultipleDocumentStores</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

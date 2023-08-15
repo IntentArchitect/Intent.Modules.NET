@@ -1,6 +1,14 @@
 ﻿# Intent.CosmosDB
 
-This module provides patterns for working with CosmosDB. Azure Cosmos DB is a globally distributed, multi-model database service provided by Microsoft's Azure cloud platform. It offers a highly scalable, low-latency, and globally distributed data storage solution for modern applications that require seamless scalability and high availability. Cosmos DB supports multiple data models, including document, key-value, graph, column-family, and time-series, allowing developers to choose the best model for their specific application needs. It offers automatic and configurable data replication across Azure regions, ensuring data durability and availability even in the face of regional outages. Cosmos DB also provides comprehensive SLAs for performance, availability, and latency, making it well-suited for applications with demanding requirements. Its multi-model and globally distributed capabilities make Cosmos DB a versatile and robust choice for building responsive and resilient applications on the cloud..
+This module provides patterns for working with CosmosDB.
+
+## What is CosmosDB?
+
+Azure Cosmos DB is a globally distributed, multi-model database service provided by Microsoft's Azure cloud platform. It offers a highly scalable, low-latency, and globally distributed data storage solution for modern applications that require seamless scalability and high availability. Cosmos DB supports multiple data models, including document, key-value, graph, column-family, and time-series, allowing developers to choose the best model for their specific application needs. It offers automatic and configurable data replication across Azure regions, ensuring data durability and availability even in the face of regional outages. Cosmos DB also provides comprehensive SLAs for performance, availability, and latency, making it well-suited for applications with demanding requirements. Its multi-model and globally distributed capabilities make Cosmos DB a versatile and robust choice for building responsive and resilient applications on the cloud.
+
+For more information on CosmosDB, check out their [official docs](https://learn.microsoft.com/en-us/azure/cosmos-db/).
+
+## What's in this module?
 
 This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding CosmosDB implementation:-
 
@@ -9,8 +17,6 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 * Repositories and associated artifacts.
 * `app.settings` configuration.
 * Dependency Injection wiring.
-
-For more information on CosmosDB, check out their [official docs](https://learn.microsoft.com/en-us/azure/cosmos-db/).
 
 These CosmosDB patterns are realized using [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository).
 

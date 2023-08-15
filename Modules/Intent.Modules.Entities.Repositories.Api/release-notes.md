@@ -1,32 +1,36 @@
+### Version 4.1.2
+
+- Improvement: Added Document DB Provider support, allowing this module to be used in conjunction with other Document DB technologies within the same application.
+
 ### Version 4.1.0
 
-- New: Added NotFoundException for queries when they can't find Entities by a search criteria.
+- Improvement: Added NotFoundException for queries when they can't find Entities by a search criteria.
 
 ### Version 4.0.6
 
-- FindByIdAsync indicates that return type could be null.
+- Improvement: FindByIdAsync indicates that return type could be null.
 
 ### Version 4.0.5
 
-- Update: Removed various compiler warnings.
-- Removed methods containing expressions and/or IQueryable to reduce coupling and allow to be used for persistence technoglogies which don't support these.
+- Improvement: Removed various compiler warnings.
+- Improvement: Removed methods containing expressions and/or IQueryable to reduce coupling and allow to be used for persistence technoglogies which don't support these.
 
 ### Version 4.0.4
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 4.0.2
 
-- Decoupled this module from the Intent.Metadata.RDBMS module.
+- Improvement: Decoupled this module from the Intent.Metadata.RDBMS module.
 
 ### Version 4.0.1
 
-- Update: Repository Interface also updated to use new Builder Pattern paradigm.
+- Improvement: Repository Interface also updated to use new Builder Pattern paradigm.
 
 ### Version 4.0.0
 
-- New: Upgraded Templates to use new Builder Pattern paradigm.
+- Improvement: Upgraded Templates to use new Builder Pattern paradigm.
 
 ### Version 3.3.8
 
-- Update: Added `IQueryable` option for `FindAsync` operation.
+- Improvement: Added `IQueryable` option for `FindAsync` operation.

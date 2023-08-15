@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="535fefb3-c5ff-4dc9-812d-dbe2d3b584e4" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eda195d5-a700-4d50-b795-0d316b42a822</parentFolderId>
+  <packageId>eda195d5-a700-4d50-b795-0d316b42a822</packageId>
+  <packageName>DaprDomain</packageName>
+  <diagram>
+    <targetPackageId>eda195d5-a700-4d50-b795-0d316b42a822</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
