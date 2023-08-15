@@ -18,6 +18,15 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
             Quantity = quantity;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected Line()
+        {
+            Description = null!;
+        }
+
         public Guid Id { get; set; }
 
         public Guid InvoiceId { get; private set; }

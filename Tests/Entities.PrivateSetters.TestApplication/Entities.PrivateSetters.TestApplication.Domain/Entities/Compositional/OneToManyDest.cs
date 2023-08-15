@@ -11,6 +11,16 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class OneToManyDest
     {
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected OneToManyDest()
+        {
+            Attribute = null!;
+            Owner = null!;
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public OneToManyDest(string attribute)
         {
