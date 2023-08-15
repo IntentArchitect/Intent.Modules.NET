@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Added Document DB Provider support, allowing this module to be used in conjunction with other Document DB technologies within the same application.
+
 ### Version 1.0.1
 
 - Fixed: Uncompilable code such as the following would be generated for Document DB entities when the primary key attribute was an `int` or a `long`:
@@ -19,5 +23,5 @@
 
 ### Version 1.0.0
 
-- New: MongoDB database provider added using the MongoFramework library.
-- New: Index modeling for MongoDB.
+- New Feature: MongoDB database provider added using the MongoFramework library.
+- New Feature: Index modeling for MongoDB.
