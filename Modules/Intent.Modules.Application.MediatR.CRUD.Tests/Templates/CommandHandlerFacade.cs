@@ -98,45 +98,11 @@ internal class CommandHandlerFacade
             .ToArray();
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements()
+    public IReadOnlyCollection<CSharpStatement> GetAggregateDomainRepositoryUnitOfWorkMockingStatements()
     {
-        var statements = new List<CSharpStatement>();
-        if (HasIdReturnTypeOnCommand())
-        {
-            foreach (var idAttribute in DomainIdAttributes)
-            {
-                statements.Add($@"var expected{SimpleDomainClassName}{idAttribute.IdName.ToPascalCase()} = new Fixture().Create<{idAttribute.Type}>();");
-            }
-        }
-
-        statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel)} added{SimpleDomainClassName} = null;
-        {DomainRepositoryVarName}.OnAdd(ent => added{SimpleDomainClassName} = ent);");
-
-        if (HasIdReturnTypeOnCommand())
-        {
-            statements.Add(new CSharpMethodChainStatement($"{DomainRepositoryVarName}.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
-                .WithoutSemicolon()
-                .AddChainStatement(new CSharpInvocationStatement("When")
-                    .WithoutSemicolon()
-                    .AddArgument("async x => await x.SaveChangesAsync(CancellationToken.None)")
-                )
-                .AddChainStatement(new CSharpInvocationStatement("Do")
-                    .AddArgument(HasAggregateOwner ? GetDoExpressionForAggregateOwner() : GetDoExpressionForAggregate())
-                )
-            );
-        }
-
-        return statements;
-
-        CSharpStatement GetDoExpressionForAggregateOwner()
-        {
-            var block = new CSharpLambdaBlock("_");
-            var associationPropertyName = DomainClassCompositionalOwner.GetNestedCompositeAssociation(DomainClassModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
-            block.AddStatement($@"added{SimpleDomainClassName} = existingOwnerEntity.{associationPropertyName}.Single(p => p.{nestedEntityIdName} == default);");
-            block.AddStatement($@"added{SimpleDomainClassName}.{nestedEntityIdName} = expected{nestedDomainElementIdAttr.IdName};");
-            block.AddStatement($@"added{SimpleDomainClassName}.{nestedDomainElementIdAttr.IdName} = testCommand.{nestedOwnerIdFieldName};");
-            return block;
-        }
+        return GetDomainRepositoryUnitOfWorkMockingStatements(
+            idAttribute => $"expected{SimpleDomainClassName}{idAttribute.IdName.ToPascalCase()}", 
+            GetDoExpressionForAggregate());
         
         CSharpStatement GetDoExpressionForAggregate()
         {
@@ -154,6 +120,62 @@ internal class CommandHandlerFacade
 
             return block;
         }
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetAggregateOwnerDomainRepositoryUnitOfWorkMockingStatements(string aggregateOwnerEntityVarName, string commandVarName)
+    {
+        return GetDomainRepositoryUnitOfWorkMockingStatements(
+            _ => $"expected{DomainClassOwnerIdAttribute.IdName.ToPascalCase()}", 
+            GetDoExpressionForAggregateOwner());
+        
+        CSharpStatement GetDoExpressionForAggregateOwner()
+        {
+            var block = new CSharpLambdaBlock("_");
+            var associationPropertyName = DomainClassCompositionalOwner.GetNestedCompositeAssociation(DomainClassModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
+            block.AddStatement($@"added{SimpleDomainClassName} = {aggregateOwnerEntityVarName}.{associationPropertyName}.Single(p => {GetDomainIdKeyComparisonExpression("p", "default")});");
+            foreach (var domainIdAttribute in DomainIdAttributes)
+            {
+                block.AddStatement($@"added{SimpleDomainClassName}.{domainIdAttribute.IdName.ToPascalCase()} = expected{DomainClassOwnerIdAttribute.IdName.ToPascalCase()};");   
+            }
+            block.AddStatement($@"added{SimpleDomainClassName}.{DomainClassOwnerIdAttribute.IdName} = {commandVarName}.{CommandOwnerIdField.Name.ToPascalCase()};");
+            return block;
+        }
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements(
+        Func<ImplementationStrategyTemplatesExtensions.EntityIdAttribute, string> expectedDomainVarName, 
+        CSharpStatement doExpression)
+    {
+        var statements = new List<CSharpStatement>();
+        if (HasIdReturnTypeOnCommand())
+        {
+            foreach (var idAttribute in DomainIdAttributes)
+            {
+                statements.Add($@"var {expectedDomainVarName(idAttribute)} = new Fixture().Create<{idAttribute.Type}>();");
+            }
+        }
+
+        statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel)} added{SimpleDomainClassName} = null;");
+        if (!HasAggregateOwner)
+        {
+            statements.Add($"{DomainRepositoryVarName}.OnAdd(ent => added{SimpleDomainClassName} = ent);");
+        }
+
+        if (HasIdReturnTypeOnCommand())
+        {
+            statements.Add(new CSharpMethodChainStatement($"{DomainRepositoryVarName}.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
+                .WithoutSemicolon()
+                .AddChainStatement(new CSharpInvocationStatement("When")
+                    .WithoutSemicolon()
+                    .AddArgument("async x => await x.SaveChangesAsync(CancellationToken.None)")
+                )
+                .AddChainStatement(new CSharpInvocationStatement("Do")
+                    .AddArgument(doExpression)
+                )
+            );
+        }
+
+        return statements;
     }
 
     public IReadOnlyCollection<CSharpStatement> GetCommandHandlerConstructorSutStatement()
@@ -185,7 +207,7 @@ internal class CommandHandlerFacade
         return new[] { inv };
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainRepositorySaveChangesAssertionStatement()
+    public IReadOnlyCollection<CSharpStatement> GetAggregateDomainRepositorySaveChangesAssertionStatement()
     {
         var statements = new List<CSharpStatement>();
         if (HasIdReturnTypeOnCommand())
@@ -194,13 +216,34 @@ internal class CommandHandlerFacade
         }
 
         statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetAggregateOwnerDomainRepositorySaveChangesAssertionStatement(string entityOwnerVarName)
+    {
+        var statements = new List<CSharpStatement>();
+        if (HasIdReturnTypeOnCommand())
+        {
+            statements.Add($"result.Should().Be(expected{DomainClassOwnerIdAttribute.IdName.ToPascalCase()});");
+        }
+        else
+        {
+            var associationPropertyName = DomainClassCompositionalOwner.GetNestedCompositeAssociation(DomainClassModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
+            statements.Add($"added{SimpleDomainClassName} = {entityOwnerVarName}.{associationPropertyName}.Single(p => {GetDomainIdKeyComparisonExpression("p", "default")});");
+        }
 
+        statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
         return statements;
     }
 
     public IReadOnlyCollection<CSharpStatement> GetCommandCompareToNewAddedDomainAssertionStatement(string commandVarName)
     {
-        return GetCommandCompareToExistingDomainAssertionStatement(commandVarName, $"added{SimpleDomainClassName}");
+        return GetCommandCompareToExistingDomainAssertionStatement(DomainClassModel, commandVarName, $"added{SimpleDomainClassName}");
+    }
+
+    public IReadOnlyCollection<CSharpStatement> GetCommandCompareToNewAddedDomainFromOwnerAssertionStatement(string commandVarName)
+    {
+        return GetCommandCompareToExistingDomainAssertionStatement(DomainClassCompositionalOwner, commandVarName, $"added{SimpleDomainClassName}");
     }
 
     public IReadOnlyCollection<CSharpStatement> GetInitialCreateCommandAutoFixtureTestData()
@@ -332,7 +375,12 @@ internal class CommandHandlerFacade
 
     public IReadOnlyCollection<CSharpStatement> GetCommandCompareToExistingDomainAssertionStatement(string commandVarName, string entityVarName)
     {
-        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(DomainClassModel)}.AssertEquivalent")
+        return GetCommandCompareToExistingDomainAssertionStatement(DomainClassModel, commandVarName, entityVarName);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetCommandCompareToExistingDomainAssertionStatement(ClassModel model, string commandVarName, string entityVarName)
+    {
+        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(model)}.AssertEquivalent")
             .AddArgument(commandVarName)
             .AddArgument(entityVarName);
         return new[] { inv };
@@ -353,7 +401,7 @@ internal class CommandHandlerFacade
             MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{(HasAggregateOwner ? DomainClassCompositionalOwnerTypeName : DomainClassTypeName)}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
-        statements.Add($"{DomainRepositoryVarName}.FindByIdAsync({GetCommandIdKeyExpression(commandVarName, HasAggregateOwner)}){returns};");
+        statements.Add($"{DomainRepositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, HasAggregateOwner)}){returns};");
         return statements;
     }
 
@@ -388,7 +436,7 @@ internal class CommandHandlerFacade
             .ToArray();
     }
 
-    private string GetCommandIdKeyExpression(string commandVarName, bool useAggregateOwnerId)
+    private string GetCommandIdKeysList(string commandVarName, bool useAggregateOwnerId)
     {
         if (useAggregateOwnerId)
         {
@@ -400,17 +448,7 @@ internal class CommandHandlerFacade
             return $"{commandVarName}.{CommandIdFields[0].Name.ToCSharpIdentifier()}";
         }
 
-        return $"({string.Join(", ", CommandIdFields.Select(idField => $"{commandVarName}.{idField.Name.ToCSharpIdentifier()}"))})";
-    }
-
-    private string GetDomainIdKeyExpression(string entityVarName)
-    {
-        if (DomainIdAttributes.Count == 1)
-        {
-            return $"{entityVarName}.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}";
-        }
-
-        return $"({string.Join(", ", DomainIdAttributes.Select(idField => $"{entityVarName}.{idField.IdName.ToCSharpIdentifier()}"))})";
+        return $"{string.Join(", ", CommandIdFields.Select(idField => $"{commandVarName}.{idField.Name.ToCSharpIdentifier()}"))}";
     }
 
     private string GetCommandAndDomainIdKeyComparisonExpression(string commandVarName, string entityVarName)
@@ -421,6 +459,16 @@ internal class CommandHandlerFacade
                 var commandIdField = CommandIdFields[index];
                 var domainIdField = DomainIdAttributes[index];
                 return $"{commandVarName}.{commandIdField.Name.ToCSharpIdentifier()} == {entityVarName}.{domainIdField.IdName.ToCSharpIdentifier()}";
+            }));
+    }
+
+    private string GetDomainIdKeyComparisonExpression(string entityVarName, string expressionToCompareTo)
+    {
+        return string.Join(" && ", Enumerable.Range(0, DomainIdAttributes.Count)
+            .Select(index =>
+            {
+                var domainIdField = DomainIdAttributes[index];
+                return $"{entityVarName}.{domainIdField.IdName.ToCSharpIdentifier()} == {expressionToCompareTo}";
             }));
     }
 }

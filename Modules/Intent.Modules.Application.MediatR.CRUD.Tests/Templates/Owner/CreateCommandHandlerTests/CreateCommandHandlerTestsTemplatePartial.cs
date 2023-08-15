@@ -82,7 +82,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             
             method.AddStatement("// Arrange");
             method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-            method.AddStatements(Facade.GetDomainRepositoryUnitOfWorkMockingStatements());
+            method.AddStatements(Facade.GetAggregateDomainRepositoryUnitOfWorkMockingStatements());
             method.AddStatement(string.Empty);
             method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
             
@@ -92,7 +92,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             
             method.AddStatement(string.Empty);
             method.AddStatement("// Assert");
-            method.AddStatements(Facade.GetDomainRepositorySaveChangesAssertionStatement());
+            method.AddStatements(Facade.GetAggregateDomainRepositorySaveChangesAssertionStatement());
             method.AddStatements(Facade.GetCommandCompareToNewAddedDomainAssertionStatement("testCommand"));
         });
     }
