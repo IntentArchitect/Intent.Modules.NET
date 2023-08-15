@@ -228,9 +228,9 @@ internal class CommandHandlerFacade
         if (HasIdReturnTypeOnCommand())
         {
             statements.Add($"result.Should().Be(expected{SimpleDomainClassName}{DomainIdAttributes.First().IdName.ToPascalCase()});");
+            statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
         }
-
-        statements.Add($"await {DomainRepositoryVarName}.UnitOfWork.Received(1).SaveChangesAsync();");
+        
         return statements;
     }
     
