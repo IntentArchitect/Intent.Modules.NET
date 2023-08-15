@@ -60,8 +60,8 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.GetInitialAutoFixtureStatements());
-                    method.AddStatements(Facade.GetSingleDomainEntityTestData());
+                    method.AddStatements(Facade.Get_InitialAutoFixture_Aggregate_TestDataStatements(true));
+                    method.AddStatements(Facade.Get_SingleAggregateDomainEntity_TestDataStatements(true, true));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.SimpleDomainClassName}", method =>
@@ -74,7 +74,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("testQuery", "existingEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(Facade.GetDomainAggregateRepositoryFindByIdMockingStatements("testQuery", "existingEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
                     
@@ -84,7 +84,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetAssertionComparingHandlerResultsWithExpectedResults("existingEntity"));
+                    method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("existingEntity"));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
@@ -95,7 +95,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements("// Arrange");
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("query"));
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
+                    method.AddStatements(Facade.GetDomainAggregateRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 

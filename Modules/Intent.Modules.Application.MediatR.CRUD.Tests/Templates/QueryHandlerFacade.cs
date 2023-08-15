@@ -64,12 +64,19 @@ internal class QueryHandlerFacade
     public IReadOnlyList<DTOFieldModel> QueryIdFields { get; }
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityIdAttribute> DomainIdAttributes { get; }
 
-    public string DomainClassRepositoryName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, DomainClassModel);
-    public string DomainRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassRepositoryName).Name;
+    public string QueryHandlerTypeName => _activeTemplate.GetQueryHandlerName(_model);
+    public string DomainClassAggregateRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, DomainClassModel);
+    public string DomainClassAggregateOwnerRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, DomainClassCompositionalOwner);
+    public string DomainAggregateRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassAggregateRepositoryTypeName).Name;
+    public string DomainAggregateOwnerRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainClassAggregateOwnerRepositoryTypeName).Name;
     public string DomainEventBaseName => _activeTemplate.TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName) ? domainEventBaseName : null;
     public string QueryTypeName => _activeTemplate.GetTypeName(QueryModelsTemplate.TemplateId, _model);
     public string DomainClassTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel);
-    public string QueryHandlerTypeName => _activeTemplate.GetQueryHandlerName(_model);
+    public ClassModel DomainClassCompositionalOwner => DomainClassModel.GetNestedCompositionalOwner();
+    public string DomainClassCompositionalOwnerTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassCompositionalOwner);
+    public IReadOnlyList<DTOFieldModel> QueryOwnerIdFields => _model.Properties.GetNestedCompositionalOwnerIdFields(DomainClassCompositionalOwner).ToList();
+    public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityNestedCompositionalIdAttribute> DomainClassOwnerIdAttributes => DomainClassModel.GetNestedCompositionalOwnerIdAttributes(DomainClassCompositionalOwner, _activeTemplate.ExecutionContext).ToList();
+    public string AggregateOwnerAssociationCompositeName => DomainClassCompositionalOwner.GetNestedCompositeAssociation(DomainClassModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
     
     public bool HasDomainEventBaseName()
     {
@@ -83,43 +90,7 @@ internal class QueryHandlerFacade
             _activeTemplate.AddUsing(declareUsing);
         }
     }
-
-    public IReadOnlyCollection<CSharpStatement> GetInitialAutoFixtureStatements()
-    {
-        var statements = new List<CSharpStatement>();
-
-        statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
-
-        return statements;
-    }
     
-    public IReadOnlyCollection<CSharpStatement> GetManyDomainEntityTestData(int? numberOfItems = null)
-    {
-        var statements = new List<CSharpStatement>();
-
-        statements.Add($"yield return new object[] {{ fixture.CreateMany<{DomainClassTypeName}>({(numberOfItems.HasValue ? numberOfItems.Value : string.Empty)}).ToList() }};");
-
-        return statements;
-    }
-    
-    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements()
-    {
-        if (!HasDomainEventBaseName())
-        {
-            return ArraySegment<CSharpStatement>.Empty;
-        }
-
-        var statements = new List<CSharpStatement>();
-
-        statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null);");
-
-        statements.Add(
-            $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel)}>(comp => comp.Without(x => x.DomainEvents));");
-
-        return statements;
-    }
-
     public IReadOnlyCollection<CSharpStatement> GetAutoMapperProfilesAndAddBackendField(CSharpClass @class)
     {
         @class.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
@@ -132,6 +103,118 @@ internal class QueryHandlerFacade
             .WithArgumentsOnNewLines());
         statements.Add("_mapper = mapperConfiguration.CreateMapper();");
         
+        return statements;
+    }
+
+    public IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_Aggregate_TestDataStatements(bool includeVar)
+    {
+        return Get_InitialAutoFixture_TestDataStatements(DomainClassModel, includeVar);
+    }
+
+    public IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_AggregateOwner_TestDataStatements(bool includeVar)
+    {
+        return Get_InitialAutoFixture_TestDataStatements(DomainClassCompositionalOwner, includeVar);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_TestDataStatements(ClassModel targetDomainModel, bool includeVar)
+    {
+        var statements = new List<CSharpStatement>();
+
+        statements.Add($"{(includeVar ? "var " : string.Empty)}fixture = new Fixture();");
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(targetDomainModel));
+
+        return statements;
+    }
+
+    public IReadOnlyCollection<CSharpStatement> Get_SingleAggregateOwnerDomainEntity_TestDataStatements(bool emptyNestedCompositeItems, bool includeVar, bool includeTestQuery)
+    {
+        return Get_SingleDomainEntity_TestDataStatements(true, includeVar, includeTestQuery, emptyNestedCompositeItems);
+    }
+
+    public IReadOnlyCollection<CSharpStatement> Get_SingleAggregateDomainEntity_TestDataStatements(bool includeVar, bool includeTestQuery)
+    {
+        return Get_SingleDomainEntity_TestDataStatements(false, includeVar, includeTestQuery);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> Get_SingleDomainEntity_TestDataStatements(bool hasAggregateOwner, bool includeVar, bool includeTestQuery, bool? emptyNestedCompositeItems = null)
+    {
+        var statements = new List<CSharpStatement>();
+        var entityVarName = hasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
+        var targetDomainClassType = hasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
+
+        statements.Add(string.Empty);
+        statements.Add($"{(includeVar ? "var " : string.Empty)}{entityVarName} = fixture.Create<{targetDomainClassType}>();");
+        
+        if (QueryIdFields.Count == 1 && !hasAggregateOwner)
+        {
+            statements.Add(
+                $"fixture.Customize<{QueryTypeName}>(comp => comp.With(x => x.{QueryIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+        }
+        else
+        {
+            var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+            statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
+                .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+            if (hasAggregateOwner)
+            {
+                for (var index = 0; index < DomainIdAttributes.Count; index++)
+                {
+                    var idAttribute = DomainIdAttributes[index];
+                    var idField = QueryOwnerIdFields[index];
+                    fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
+                }
+
+                if (emptyNestedCompositeItems.HasValue && emptyNestedCompositeItems.Value)
+                {
+                    statements.Add($"fixture.Customize<{DomainClassCompositionalOwnerTypeName}>(comp => comp.With(p => p.{AggregateOwnerAssociationCompositeName}, new List<{DomainClassTypeName}>()));");
+                }
+            }
+            
+            for (var i = 0; i < QueryIdFields.Count; i++)
+            {
+                var queryIdField = QueryIdFields[i];
+                var domainIdAttribute = DomainIdAttributes[i];
+                fluent.AddChainStatement($"With(x => x.{queryIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+            }
+        }
+
+        if (includeTestQuery)
+        {
+            statements.Add($"{(includeVar ? "var " : string.Empty)}testQuery = fixture.Create<{QueryTypeName}>();");
+            statements.Add($"yield return new object[] {{ testQuery, {entityVarName} }};");
+        }
+        else
+        {
+            statements.Add($"yield return new object[] {{ {entityVarName} }};");
+        }
+
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> Get_ManyAggregateDomainEntities_TestDataStatements(int? numberOfItems = null)
+    {
+        var statements = new List<CSharpStatement>();
+
+        statements.Add($"yield return new object[] {{ fixture.CreateMany<{DomainClassTypeName}>({(numberOfItems.HasValue ? numberOfItems.Value : string.Empty)}).ToList() }};");
+
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements(ClassModel targetDomainModel)
+    {
+        if (!HasDomainEventBaseName())
+        {
+            return ArraySegment<CSharpStatement>.Empty;
+        }
+
+        var statements = new List<CSharpStatement>();
+        
+        statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null!);");
+        
+        statements.Add(
+            $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
+
         return statements;
     }
     
@@ -151,11 +234,21 @@ internal class QueryHandlerFacade
         statements.Add($"var {queryVarName} = fixture.Create<{QueryTypeName}>();");
         return statements;
     }
+
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateRepositoryFindAllMockingStatements(string entitiesVarName)
+    {
+        return GetDomainRepositoryFindAllMockingStatements(entitiesVarName, DomainAggregateRepositoryVarName);
+    }
     
-    public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindAllMockingStatements(string entitiesVarName)
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryFindAllMockingStatements(string entitiesVarName)
+    {
+        return GetDomainRepositoryFindAllMockingStatements(entitiesVarName, DomainAggregateOwnerRepositoryVarName);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindAllMockingStatements(string entitiesVarName, string repositoryVarName)
     {
         var statements = new List<CSharpStatement>();
-        statements.Add($"{DomainRepositoryVarName}.FindAllAsync(CancellationToken.None).Returns(Task.FromResult({entitiesVarName}));");
+        statements.Add($"{repositoryVarName}.FindAllAsync(CancellationToken.None).Returns(Task.FromResult({entitiesVarName}));");
         return statements;
     }
     
@@ -192,42 +285,23 @@ internal class QueryHandlerFacade
             .AddArgument("CancellationToken.None");
         return new[] { inv };
     }
-    
-    public IReadOnlyCollection<CSharpStatement> GetAssertionComparingHandlerResultsWithExpectedResults(string entitiesVarName)
+
+    public IReadOnlyCollection<CSharpStatement> Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults(string entitiesVarName)
     {
-        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(DomainClassModel)}.AssertEquivalent")
+        return GetAssertionComparingHandlerResultsWithExpectedResults(entitiesVarName, DomainClassModel);
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults(string entitiesVarName)
+    {
+        return GetAssertionComparingHandlerResultsWithExpectedResults(entitiesVarName, DomainClassCompositionalOwner);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetAssertionComparingHandlerResultsWithExpectedResults(string entitiesVarName, ClassModel classModel)
+    {
+        var inv = new CSharpInvocationStatement($"{_activeTemplate.GetAssertionClassName(classModel)}.AssertEquivalent")
             .AddArgument("results")
             .AddArgument(entitiesVarName);
         return new[] { inv };
-    }
-
-    public IReadOnlyCollection<CSharpStatement> GetSingleDomainEntityTestData()
-    {
-        var statements = new List<CSharpStatement>();
-
-        statements.Add($"var existingEntity = fixture.Create<{DomainClassTypeName}>();");
-        statements.Add($"var testQuery = fixture.Create<{QueryTypeName}>();");
-        if (QueryIdFields.Count == 1)
-        {
-            statements.Add(
-                $"fixture.Customize<{QueryTypeName}>(comp => comp.With(x => x.{QueryIdFields[0].Name.ToCSharpIdentifier()}, existingEntity.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
-        }
-        else
-        {
-            var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
-            statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
-                .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
-
-            for (var i = 0; i < QueryIdFields.Count; i++)
-            {
-                var commandIdField = QueryIdFields[i];
-                var domainIdAttribute = DomainIdAttributes[i];
-                fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
-            }
-        }
-        statements.Add($"yield return new object[] {{ testQuery, existingEntity }};");
-        
-        return statements;
     }
     
     public enum MockRepositoryResponse
@@ -236,7 +310,17 @@ internal class QueryHandlerFacade
         ReturnDefault
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response)
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response)
+    {
+        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateRepositoryVarName, QueryIdFields);
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response)
+    {
+        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateOwnerRepositoryVarName, QueryOwnerIdFields);
+    }
+    
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response, string repositoryVarName, IReadOnlyList<DTOFieldModel> queryIdFields)
     {
         var statements = new List<CSharpStatement>();
         var returns = response switch
@@ -245,7 +329,7 @@ internal class QueryHandlerFacade
             MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{DomainClassTypeName}>(default))",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
-        statements.Add($"{DomainRepositoryVarName}.FindByIdAsync({GetQueryIdKeyExpression(queryVarName)}){returns};");
+        statements.Add($"{repositoryVarName}.FindByIdAsync({GetQueryIdKeysList(queryVarName, queryIdFields)})!{returns};");
         return statements;
     }
     
@@ -264,13 +348,11 @@ internal class QueryHandlerFacade
             .ToArray();
     }
     
-    private string GetQueryIdKeyExpression(string queryVarName)
+    private string GetQueryIdKeysList(string queryVarName, IReadOnlyList<DTOFieldModel> queryIdFields)
     {
-        if (QueryIdFields.Count == 1)
-        {
-            return $"{queryVarName}.{QueryIdFields[0].Name.ToCSharpIdentifier()}";
-        }
-
-        return $"({string.Join(", ", QueryIdFields.Select(idField => $"{queryVarName}.{idField.Name.ToCSharpIdentifier()}"))})";
+        var left = queryIdFields.Count > 1 ? "(" : string.Empty;
+        var right = queryIdFields.Count > 1 ? ")" : string.Empty;
+        
+        return $"{left}{string.Join(", ", queryIdFields.Select(idField => $"{queryVarName}.{idField.Name.ToCSharpIdentifier()}"))}{right}";
     }
 }

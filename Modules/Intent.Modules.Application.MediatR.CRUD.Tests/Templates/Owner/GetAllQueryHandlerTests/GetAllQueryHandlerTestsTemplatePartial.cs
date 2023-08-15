@@ -58,9 +58,9 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.GetInitialAutoFixtureStatements());
-                    method.AddStatements(Facade.GetManyDomainEntityTestData());
-                    method.AddStatements(Facade.GetManyDomainEntityTestData(0));
+                    method.AddStatements(Facade.Get_InitialAutoFixture_Aggregate_TestDataStatements(true));
+                    method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements());
+                    method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralDomainClassName}", method =>
@@ -73,7 +73,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainRepositoryFindAllMockingStatements("testEntities"));
+                    method.AddStatements(Facade.GetDomainAggregateRepositoryFindAllMockingStatements("testEntities"));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
                     
@@ -83,7 +83,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetAssertionComparingHandlerResultsWithExpectedResults("testEntities"));
+                    method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("testEntities"));
                 });
                 
                 AddAssertionMethods();
