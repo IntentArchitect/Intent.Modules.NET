@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4c62ed27-d239-4fd1-adcb-8cfbb2d4302e" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
+  <name>Dapr</name>
+  <display>Dapr</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a831867e-60bd-458f-8242-3f3ad664df47</parentFolderId>
+  <packageId>73923254-9ff4-4af0-b5a8-aba37165e9bc</packageId>
+  <packageName>Intent.Dapr.AspNetCore.StateManagement</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
