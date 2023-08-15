@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.HealthChecks</id>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Monitor various aspects of your application to determine if is responding to requests normally.</summary>
   <description>Monitor various aspects of your application to determine if is responding to requests normally.</description>
