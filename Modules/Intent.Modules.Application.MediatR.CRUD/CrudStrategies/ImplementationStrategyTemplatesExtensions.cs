@@ -92,7 +92,13 @@ public static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
-    public record EntityIdAttribute(string IdName, string Type);
+    public interface IEntityId
+    {
+        string IdName { get; }
+        string Type { get; }
+    }
+    
+    public record EntityIdAttribute(string IdName, string Type) : IEntityId;
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
@@ -111,7 +117,7 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
-    public record EntityNestedCompositionalIdAttribute(string IdName, string Type);
+    public record EntityNestedCompositionalIdAttribute(string IdName, string Type) : IEntityId;
 
     public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner,
         ISoftwareFactoryExecutionContext executionContext)
