@@ -33,6 +33,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
         {
             EntityFactoryExtensionHelper.Execute(
                 application: application,
+                dbProviderApplies: CosmosDbProvider.FilterDbProvider,
                 initializePrimaryKeyOnAggregateRoots: true);
             RegisterServices(application);
         }
@@ -53,7 +54,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 method.AddInvocationStatement("services.AddCosmosRepository", invocation =>
                 {
                     var classes = application.MetadataManager.Domain(application).GetClassModels()
-                        .Where(x => CosmosDBProvider.FilterDBProvider(x) &&
+                        .Where(x => CosmosDbProvider.FilterDbProvider(x) &&
                                     x.IsAggregateRoot() && 
                                     !x.IsAbstract)
                         .ToArray();

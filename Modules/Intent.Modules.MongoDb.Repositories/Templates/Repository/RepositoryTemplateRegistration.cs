@@ -36,7 +36,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => MongoDbProvider.FilterDBProvider(x) &&
+                .Where(x => MongoDbProvider.FilterDbProvider(x) &&
                             x.IsAggregateRoot() && !x.IsAbstract)
                 .ToArray();
         }

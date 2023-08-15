@@ -35,7 +35,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => CosmosDBProvider.FilterDBProvider(x) &&
+                .Where(x => CosmosDbProvider.FilterDbProvider(x) &&
                             x.IsAggregateRoot() && !x.IsAbstract)
                 .ToArray();
         }

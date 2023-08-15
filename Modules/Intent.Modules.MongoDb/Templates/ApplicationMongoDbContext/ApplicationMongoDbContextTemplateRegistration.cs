@@ -36,7 +36,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
             return _metadataManager.Domain(application).GetClassModels()
                 .Where(p =>
-                    MongoDbProvider.FilterDBProvider(p) &&
+                    MongoDbProvider.FilterDbProvider(p) &&
                     p.IsAggregateRoot())
                 .ToArray();
         }

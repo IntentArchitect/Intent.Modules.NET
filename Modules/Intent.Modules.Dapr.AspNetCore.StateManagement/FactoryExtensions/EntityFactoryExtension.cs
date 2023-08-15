@@ -1,5 +1,6 @@
 using Intent.Engine;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates;
 using Intent.Modules.DocumentDB.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -21,6 +22,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.FactoryExtensions
         {
             EntityFactoryExtensionHelper.Execute(
                 application: application,
+                dbProviderApplies: DaprDbProvider.FilterDbProvider,
                 initializePrimaryKeyOnAggregateRoots: true);
         }
     }

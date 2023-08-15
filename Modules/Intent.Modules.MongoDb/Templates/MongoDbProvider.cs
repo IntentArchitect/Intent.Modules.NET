@@ -13,7 +13,7 @@ namespace Intent.Modules.MongoDb.Templates
     {
         public const string Id  = "5b85dde4-47fc-467d-81f7-cd5eb1aa906e";
 
-        public static bool FilterDBProvider(ClassModel x)
+        public static bool FilterDbProvider(ClassModel x)
         {
             if (!x.InternalElement.Package.HasStereotype("Document Database"))
                 return false;

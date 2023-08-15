@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
-    internal class CosmosDBProvider
+    internal class CosmosDbProvider
     {
         public const string Id = "3e1a00f7-c6f1-4785-a544-bbcb17602b31";
 
-        internal static bool FilterDBProvider(ClassModel x)
+        internal static bool FilterDbProvider(ClassModel x)
         {
             if (!x.InternalElement.Package.HasStereotype("Document Database"))
                 return false;
