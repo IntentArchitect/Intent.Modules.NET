@@ -1,4 +1,3 @@
-using CleanArchitecture.ServiceModelling.ComplexTypes.Domain;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -9,26 +8,21 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persistence.Configurations
 {
-    public class PurchaseConfiguration : IEntityTypeConfiguration<Purchase>
+    public class TestDecimalsConfiguration : IEntityTypeConfiguration<TestDecimals>
     {
-        public void Configure(EntityTypeBuilder<Purchase> builder)
+        public void Configure(EntityTypeBuilder<TestDecimals> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.OwnsOne(x => x.Cost, ConfigureCost)
-                .Navigation(x => x.Cost).IsRequired();
-
-            builder.Ignore(e => e.DomainEvents);
-        }
-
-        public void ConfigureCost(OwnedNavigationBuilder<Purchase, Money> builder)
-        {
-            builder.Property(x => x.Amount)
+            builder.Property(x => x.Price1)
                 .IsRequired()
                 .HasColumnType("decimal(18,4)");
 
-            builder.Property(x => x.Currency)
-                .IsRequired();
+            builder.Property(x => x.Price2)
+                .IsRequired()
+                .HasColumnType("decimal(16, 4)");
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

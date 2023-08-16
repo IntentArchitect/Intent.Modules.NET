@@ -27,6 +27,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure
             services.AddTransient<ICustomerAnemicRepository, CustomerAnemicRepository>();
             services.AddTransient<ICustomerRichRepository, CustomerRichRepository>();
             services.AddTransient<IPurchaseRepository, PurchaseRepository>();
+            services.AddTransient<ITestDecimalsRepository, TestDecimalsRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

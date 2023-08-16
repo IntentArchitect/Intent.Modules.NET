@@ -1099,6 +1099,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>18e2f55a-2431-48c2-9bcb-aa1b08df7d6d</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a6be9be2-0a38-4ef0-b613-7258166d2680</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/TestDecimals.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestDecimals.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>de96d7b3-ea0a-431c-810c-f3a85fb4789b</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#9f833e20-ec36-4c9c-b623-b4564171df34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1152,6 +1160,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a430ef02-831b-46f6-84e5-16ad96fe600b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a6be9be2-0a38-4ef0-b613-7258166d2680</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ITestDecimalsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestDecimalsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1211,6 +1227,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d6688447-15c7-47f7-a124-83cf134cf289</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6be9be2-0a38-4ef0-b613-7258166d2680</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/TestDecimalsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestDecimalsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f851018d-402b-4d9a-b7d3-d271db5dd184</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1256,6 +1280,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>601d6988-072c-454a-8dd7-137998698a30</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6be9be2-0a38-4ef0-b613-7258166d2680</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/TestDecimalsRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestDecimalsRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
