@@ -73,7 +73,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
     
     private void AddSuccessfulHandlerTest(CSharpClass priClass)
     {
-        priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SimpleDomainClassName}ToRepository", method =>
+        priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SingularTargetDomainName}ToRepository", method =>
         {
             method.Async();
             method.AddAttribute("Theory");

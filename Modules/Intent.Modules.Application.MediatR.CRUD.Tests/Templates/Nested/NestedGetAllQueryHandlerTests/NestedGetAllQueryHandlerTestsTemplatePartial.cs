@@ -65,12 +65,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatements(Facade.Get_SingleAggregateOwnerDomainEntity_TestDataStatements(true, false, false));
                     });
 
-                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralDomainClassName}", method =>
+                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>
                     {
                         method.Async();
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                        method.AddParameter(Facade.DomainClassCompositionalOwnerTypeName, "existingOwnerEntity");
+                        method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
 
                         method.AddStatement("// Arrange");
                         method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
@@ -84,7 +84,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Assert");
-                        method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingOwnerEntity.{Facade.AggregateOwnerAssociationCompositeName}"));
+                        method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingOwnerEntity.{Facade.OwnerToCompositeNavigationPropertyName}"));
                     });
                     
                     AddAssertionMethods();

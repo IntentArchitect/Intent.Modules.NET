@@ -63,14 +63,14 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.AddStatements(Facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.DomainClassTypeName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.TargetDomainTypeName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.QueryTypeName, "testQuery");
-                    method.AddParameter(Facade.DomainClassCompositionalOwnerTypeName, "existingOwnerEntity");
-                    method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
+                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());

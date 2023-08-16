@@ -56,13 +56,13 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateEntity_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.SimpleDomainClassName}FromRepository", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.SingularTargetDomainName}FromRepository", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
@@ -78,7 +78,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.GetDomainAggegrateRepositoryRemovedAssertionStatement("testCommand"));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassName}Id_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularTargetDomainName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");

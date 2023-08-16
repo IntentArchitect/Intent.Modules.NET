@@ -50,14 +50,14 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerAndCompositeEntity_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Updates{Facade.DomainClassTypeName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Updates{Facade.TargetDomainTypeName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.DomainClassCompositionalOwnerTypeName, "existingOwnerEntity");
-                    method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
+                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
 
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
@@ -73,7 +73,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetCommandCompareToExistingDomainFromOwnerAssertionStatement("testCommand", "existingEntity"));
 
-                    priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassCompositionalOwnerName}Id_ReturnsNotFound", method =>
+                    priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularAggregateOwnerDomainName}Id_ReturnsNotFound", method =>
                     {
                         method.Async();
                         method.AddAttribute("Fact");
@@ -94,7 +94,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                         method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                     });
 
-                    priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassName}Id_ReturnsNotFound", method =>
+                    priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularTargetDomainName}Id_ReturnsNotFound", method =>
                     {
                         method.Async();
                         method.AddAttribute("Fact");

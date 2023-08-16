@@ -64,13 +64,13 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements(Facade.Get_SingleAggregateDomainEntity_TestDataStatements(true, true));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.SimpleDomainClassName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.SingularTargetDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.QueryTypeName, "testQuery");
-                    method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());

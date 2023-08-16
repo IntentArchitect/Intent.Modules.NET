@@ -63,7 +63,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.DomainClassTypeName, "existingEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
                     
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());

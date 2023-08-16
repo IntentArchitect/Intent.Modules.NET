@@ -58,13 +58,13 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SimpleDomainClassName}To{Facade.SimpleDomainClassCompositionalOwnerName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SingularTargetDomainName}To{Facade.SingularAggregateOwnerDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.DomainClassCompositionalOwnerTypeName, "existingOwnerEntity");
+                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
                     
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());

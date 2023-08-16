@@ -55,13 +55,13 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.DomainClassTypeName}From{Facade.SimpleDomainClassCompositionalOwnerName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.TargetDomainTypeName}From{Facade.SingularAggregateOwnerDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.DomainClassCompositionalOwnerTypeName, "existingOwnerEntity");
+                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
                     
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
@@ -77,7 +77,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.GetNestedEntityRemovedFromOwningAggregateAssertionStatements("existingOwnerEntity", "testCommand"));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassCompositionalOwnerName}Id_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularAggregateOwnerDomainName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
@@ -97,7 +97,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassName}Id_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularTargetDomainName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");

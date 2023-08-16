@@ -63,12 +63,12 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralDomainClassName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter($"List<{Facade.DomainClassTypeName}>", "testEntities");
+                    method.AddParameter($"List<{Facade.TargetDomainTypeName}>", "testEntities");
 
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
