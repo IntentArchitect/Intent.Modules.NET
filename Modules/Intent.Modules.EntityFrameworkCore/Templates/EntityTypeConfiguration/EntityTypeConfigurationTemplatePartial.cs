@@ -388,7 +388,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
-                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings());
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>

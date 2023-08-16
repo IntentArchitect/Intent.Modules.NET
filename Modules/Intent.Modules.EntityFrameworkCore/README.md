@@ -34,6 +34,15 @@ This setting allows you to configure a convention for your SQL table name. The a
 * Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
 * None, SQL table name will be the same as domain model `Class`'s name.
 
+### Database Settings - `Decimal precision and scale`
+
+This setting allows you to configure a a default Precision and Scale for your SQL decimal types.
+The value of this setting is a string as follows : {Precision},{Scale}
+
+For example 18,4 would be 18 precision, 4 scale.
+
+For more info on decimal types check out [SQL Server decimal](https://learn.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql).
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
