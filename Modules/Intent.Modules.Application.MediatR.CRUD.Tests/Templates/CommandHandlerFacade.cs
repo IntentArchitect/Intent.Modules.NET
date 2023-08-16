@@ -69,8 +69,10 @@ internal class CommandHandlerFacade
     public string DomainClassTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassModel);
     public ClassModel DomainClassCompositionalOwner => DomainClassModel.GetNestedCompositionalOwner();
     public string DomainClassCompositionalOwnerTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, DomainClassCompositionalOwner);
+    public string SimpleDomainClassCompositionalOwnerName => DomainClassCompositionalOwner.Name.ToPascalCase();
     public IReadOnlyList<DTOFieldModel> CommandOwnerIdFields => _model.Properties.GetNestedCompositionalOwnerIdFields(DomainClassCompositionalOwner).ToList();
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityNestedCompositionalIdAttribute> DomainClassOwnerIdAttributes => DomainClassModel.GetNestedCompositionalOwnerIdAttributes(DomainClassCompositionalOwner, _activeTemplate.ExecutionContext).ToList();
+    public string AggregateOwnerAssociationCompositeName => DomainClassCompositionalOwner.GetNestedCompositeAssociation(DomainClassModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
     
     public bool HasIdReturnTypeOnCommand()
     {
@@ -97,6 +99,31 @@ internal class CommandHandlerFacade
         statements.Add("var fixture = new Fixture();");
         statements.Add($@"yield return new object[] {{ fixture.Create<{CommandTypeName}>() }};");
 
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetNewAggregateOwnerWithoutCompositesStatements()
+    {
+        var statements = new List<CSharpStatement>();
+
+        statements.Add("var fixture = new Fixture();");
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(DomainClassCompositionalOwner));
+        statements.Add($"fixture.Customize<{DomainClassCompositionalOwnerTypeName}>(comp => comp.With(p => p.{AggregateOwnerAssociationCompositeName}, new List<{DomainClassTypeName}>()));");
+        statements.Add($"var existingOwnerEntity = fixture.Create<{DomainClassCompositionalOwnerTypeName}>();");
+        
+        var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+        statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
+            .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+        for (var index = 0; index < DomainIdAttributes.Count; index++)
+        {
+            var idAttribute = DomainIdAttributes[index];
+            var idField = CommandOwnerIdFields[index];
+            fluent.AddChainStatement($"With(p => p.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+        }
+        
+        statements.Add($"var testQuery = fixture.Create<{CommandTypeName}>();");
+        
         return statements;
     }
 
@@ -155,12 +182,24 @@ internal class CommandHandlerFacade
                     fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
                 }
             }
-            
-            for (var i = 0; i < CommandIdFields.Count; i++)
+
+            if (hasAggregateOwner)
             {
-                var commandIdField = CommandIdFields[i];
-                var domainIdAttribute = DomainIdAttributes[i];
-                fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                for (var i = 0; i < CommandIdFields.Count; i++)
+                {
+                    var commandIdField = CommandIdFields[i];
+                    var domainIdAttribute = DomainIdAttributes[i];
+                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{AggregateOwnerAssociationCompositeName}.First().{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                }
+            }
+            else
+            {
+                for (var i = 0; i < CommandIdFields.Count; i++)
+                {
+                    var commandIdField = CommandIdFields[i];
+                    var domainIdAttribute = DomainIdAttributes[i];
+                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                }
             }
         }
 
@@ -349,7 +388,7 @@ internal class CommandHandlerFacade
                 inv.AddArgument(param.Name.ToLocalVariableName());
             }
     
-            return new[] { inv };
+            return new[] { new CSharpStatement(string.Empty), inv };
         }
     
         public IReadOnlyCollection<CSharpStatement> GetSutHandleInvocationStatement(string commandVarName)
@@ -420,8 +459,8 @@ internal class CommandHandlerFacade
         
         statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null!);");
         
-        statements.Add(
-            $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
+        //statements.Add(
+        //    $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
 
         return statements;
     }
@@ -500,6 +539,13 @@ internal class CommandHandlerFacade
     {
         var statements = new List<CSharpStatement>();
         statements.Add($"await act.Should().ThrowAsync<{exceptionTypeName}>();");
+        return statements;
+    }
+
+    public IReadOnlyCollection<CSharpStatement> GetNestedEntityRemovedFromOwningAggregateAssertionStatements(string ownerEntityVarName, string commandVarName)
+    {
+        var statements = new List<CSharpStatement>();
+        statements.Add($"{ownerEntityVarName}.{AggregateOwnerAssociationCompositeName}.Should().NotContain(p => {GetCommandAndDomainIdKeyComparisonExpression(commandVarName, "p")});");
         return statements;
     }
     

@@ -47,6 +47,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
             .AfterBuild(file =>
             {
                 AddUsingDirectives(file);
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
 
@@ -57,7 +58,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SimpleDomainClassName}ToRepository", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SimpleDomainClassName}To{Facade.SimpleDomainClassCompositionalOwnerName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");

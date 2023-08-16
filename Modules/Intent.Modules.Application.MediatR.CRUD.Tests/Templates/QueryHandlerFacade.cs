@@ -232,6 +232,18 @@ internal class QueryHandlerFacade
         statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(DomainClassCompositionalOwner));
         statements.Add($"fixture.Customize<{DomainClassCompositionalOwnerTypeName}>(comp => comp.With(p => p.{AggregateOwnerAssociationCompositeName}, new List<{DomainClassTypeName}>()));");
         statements.Add($"var existingOwnerEntity = fixture.Create<{DomainClassCompositionalOwnerTypeName}>();");
+        
+        var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+        statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
+            .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+        for (var index = 0; index < DomainIdAttributes.Count; index++)
+        {
+            var idAttribute = DomainIdAttributes[index];
+            var idField = QueryOwnerIdFields[index];
+            fluent.AddChainStatement($"With(p => p.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+        }
+        
         statements.Add($"var testQuery = fixture.Create<{QueryTypeName}>();");
         
         return statements;
@@ -257,8 +269,8 @@ internal class QueryHandlerFacade
         
         statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null!);");
         
-        statements.Add(
-            $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
+        //statements.Add(
+        //    $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
 
         return statements;
     }
@@ -312,7 +324,7 @@ internal class QueryHandlerFacade
             }
         }
 
-        return new[] { inv };
+        return new[] { new CSharpStatement(string.Empty), inv };
     }
     
     public IReadOnlyCollection<CSharpStatement> GetSutHandleInvocationStatement(string queryVarName)
