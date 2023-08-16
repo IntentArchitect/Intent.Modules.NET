@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -39,9 +38,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCo
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == true)
+                .Where(command => command.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase) &&
+                                  HasValidMappedElement(command))
                 .ToList();
+        }
+
+        private static bool HasValidMappedElement(CommandModel command)
+        {
+            return command.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == true
+                   || ClassConstructorModelExtensions.AsClassConstructorModel(command.Mapping?.Element)?.ParentClass?.IsAggregateRoot() == true
+                   || OperationModelExtensions.AsOperationModel(command.Mapping?.Element)?.ParentClass?.IsAggregateRoot() == true;
         }
     }
 }

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -37,7 +38,9 @@ internal class CommandHandlerFacade
         _activeTemplate = activeTemplate;
         _model = model;
 
-        TargetDomainModel = model.Mapping.Element.AsClassModel();
+        TargetDomainModel = model.Mapping.Element.AsClassModel()
+                            ?? ClassConstructorModelExtensions.AsClassConstructorModel(model.Mapping.Element)?.ParentClass
+                            ?? OperationModelExtensions.AsOperationModel(model.Mapping.Element)?.ParentClass;
         CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
         TargetDomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
