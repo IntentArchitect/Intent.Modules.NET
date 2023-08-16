@@ -23,8 +23,5 @@
     <ProjectReference Include="..\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="WithCompositeKeys\" />
-  </ItemGroup>
 
 </Project>

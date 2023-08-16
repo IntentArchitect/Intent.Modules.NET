@@ -24,6 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
 
             actualEntity.Should().NotBeNull();
         }
+
         public static void AssertEquivalent(
             IEnumerable<TestNullablityDto> actualDtos,
             IEnumerable<TestNullablity> expectedEntities)
@@ -56,6 +57,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
                 dto.NullabilityPeerId.Should().Be(entity.NullabilityPeerId);
             }
         }
+
         public static void AssertEquivalent(TestNullablityDto actualDto, TestNullablity expectedEntity)
         {
             if (expectedEntity == null)

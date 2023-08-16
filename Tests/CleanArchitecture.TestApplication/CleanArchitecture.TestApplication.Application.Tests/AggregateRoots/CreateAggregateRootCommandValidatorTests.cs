@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
-using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
@@ -90,8 +89,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             testCommand = fixture.Create<CreateAggregateRootCommand>();
             yield return new object[] { testCommand, "LimitedService", "must be 20 characters or fewer" };
         }
-
-
 
         [Theory]
         [MemberData(nameof(GetFailedResultTestData))]

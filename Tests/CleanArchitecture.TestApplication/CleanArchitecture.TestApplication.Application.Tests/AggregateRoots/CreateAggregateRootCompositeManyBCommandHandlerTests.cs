@@ -7,7 +7,6 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
-using CleanArchitecture.TestApplication.Application.Tests.Extensions;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;

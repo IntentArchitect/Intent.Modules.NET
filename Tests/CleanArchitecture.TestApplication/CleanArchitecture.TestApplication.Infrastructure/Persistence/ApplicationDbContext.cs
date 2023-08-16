@@ -6,6 +6,7 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.Async;
+using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
@@ -14,8 +15,10 @@ using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
+using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CompositeKeys;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
@@ -24,6 +27,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -65,6 +69,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<OpAndCtorMapping2> OpAndCtorMapping2s { get; set; }
         public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
+        public DbSet<LogEntry> LogEntries { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -86,8 +91,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
+            modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
@@ -109,6 +114,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping2Configuration());
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
+            modelBuilder.ApplyConfiguration(new LogEntryConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

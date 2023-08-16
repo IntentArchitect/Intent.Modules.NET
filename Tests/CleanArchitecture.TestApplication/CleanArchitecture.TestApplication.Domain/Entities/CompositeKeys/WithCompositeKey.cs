@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Domain.Entities
+namespace CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]

@@ -24,6 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD.AccountHolders
             actualEntity.Should().NotBeNull();
             actualEntity.AccountHolderId.Should().Be(expectedDto.AccountHolderId);
         }
+
         public static void AssertEquivalent(CreateAccountHolder expectedDto, AccountHolder actualEntity)
         {
             if (expectedDto == null)

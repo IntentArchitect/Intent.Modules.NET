@@ -3,14 +3,14 @@ using System.Linq;
 using CleanArchitecture.TestApplication.Application.WithCompositeKeys;
 using CleanArchitecture.TestApplication.Application.WithCompositeKeys.CreateWithCompositeKey;
 using CleanArchitecture.TestApplication.Application.WithCompositeKeys.UpdateWithCompositeKey;
-using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
+namespace CleanArchitecture.TestApplication.Application.Tests.CompositeKeys.WithCompositeKeys
 {
     public static class WithCompositeKeyAssertions
     {

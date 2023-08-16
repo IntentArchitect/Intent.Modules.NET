@@ -3,7 +3,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Repositories.CompositeKeys;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
