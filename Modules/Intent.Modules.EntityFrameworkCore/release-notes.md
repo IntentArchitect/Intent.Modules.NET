@@ -1,5 +1,6 @@
 ﻿### Version 4.4.9
 
+- New Feature: Setting for decimal default Precision and Scale.
 - Fixed: Parameterless `protected` constructors were not being generated as required for EF for owned entities.
 
 ### Version 4.4.8
