@@ -184,7 +184,7 @@ internal static class AssertionMethodHelper
             actualEntities.Should().BeNullOrEmpty();
             return;"))
                                 .AddStatement(string.Empty)
-                                .AddStatement("actualEntities.Should().HaveSameCount(actualEntities);")
+                                .AddStatement("actualEntities.Should().HaveSameCount(expectedDtos);")
                                 .AddStatementBlock("for (int i = 0; i < expectedDtos.Count(); i++)", block => block
                                     .AddStatements($@"
             var dto = expectedDtos.ElementAt(i);
@@ -291,7 +291,7 @@ internal static class AssertionMethodHelper
             actualDtos.Should().BeNullOrEmpty();
             return;"))
                                 .AddStatement(string.Empty)
-                                .AddStatement("actualDtos.Should().HaveSameCount(actualDtos);")
+                                .AddStatement("actualDtos.Should().HaveSameCount(expectedEntities);")
                                 .AddStatementBlock("for (int i = 0; i < expectedEntities.Count(); i++)", block => block
                                     .AddStatements($@"
             var entity = expectedEntities.ElementAt(i);
