@@ -47,7 +47,9 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerAndCompositeEntity_TestDataStatements());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
+                        TargetDomain.NestedEntity, 
+                        TestDataReturn.CommandAndAggregateWithNestedEntityDomain));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Updates{Facade.TargetDomainTypeName}", method =>

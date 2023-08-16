@@ -52,7 +52,9 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
+                        TargetDomain.NestedEntity,
+                        TestDataReturn.CommandAndAggregateDomain));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.TargetDomainTypeName}From{Facade.SingularAggregateOwnerDomainName}", method =>

@@ -54,7 +54,9 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
+                        TargetDomain.NestedEntity, 
+                        TestDataReturn.CommandAndAggregateDomain));
                     method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements());
                 });
 

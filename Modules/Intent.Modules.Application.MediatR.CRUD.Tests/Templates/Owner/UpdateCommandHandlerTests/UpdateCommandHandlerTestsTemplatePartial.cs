@@ -53,7 +53,9 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_ProduceSingleCommandAndAggregateEntity_TestDataStatements());
+                    method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
+                        TargetDomain.Aggregate,
+                        TestDataReturn.CommandAndAggregateDomain));
                     method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateEntity_TestDataStatements());
                 });
 
