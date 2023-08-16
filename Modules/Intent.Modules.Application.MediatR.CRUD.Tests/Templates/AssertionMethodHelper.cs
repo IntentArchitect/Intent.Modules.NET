@@ -13,7 +13,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -21,16 +20,12 @@ internal static class AssertionMethodHelper
 {
     public static void AddCommandAssertionMethods(this ICSharpFileBuilderTemplate template, CommandModel commandModel)
     {
-        if (commandModel?.Mapping?.Element?.IsClassModel() != true &&
-            ClassConstructorModelExtensions.IsClassConstructorModel(commandModel?.Mapping?.Element) != true &&
-            OperationModelExtensions.IsOperationModel(commandModel?.Mapping?.Element) != true)
+        if (!commandModel.IsValidCommandMapping())
         {
             return;
         }
 
-        var domainModel = commandModel.Mapping.Element.AsClassModel()
-                          ?? ClassConstructorModelExtensions.AsClassConstructorModel(commandModel.Mapping.Element)?.ParentClass
-                          ?? OperationModelExtensions.AsOperationModel(commandModel.Mapping.Element)?.ParentClass;
+        var domainModel = commandModel.GetClassModel();
         var templateInstance = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
 

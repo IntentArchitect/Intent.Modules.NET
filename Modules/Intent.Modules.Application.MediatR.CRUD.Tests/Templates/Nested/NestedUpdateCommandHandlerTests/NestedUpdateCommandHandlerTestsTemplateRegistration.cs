@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -39,8 +40,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false)
+                .Where(command => command.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
+                            && command.GetClassModel()?.IsAggregateRoot() == false)
                 .ToList();
         }
     }

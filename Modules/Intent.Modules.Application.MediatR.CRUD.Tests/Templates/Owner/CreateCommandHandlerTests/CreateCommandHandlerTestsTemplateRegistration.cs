@@ -38,16 +38,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCo
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(command => command.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase) &&
-                                  HasValidMappedElement(command))
+                .Where(command => command.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase)
+                                  && command.GetClassModel()?.IsAggregateRoot() == true)
                 .ToList();
-        }
-
-        private static bool HasValidMappedElement(CommandModel command)
-        {
-            return command.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == true
-                   || ClassConstructorModelExtensions.AsClassConstructorModel(command.Mapping?.Element)?.ParentClass?.IsAggregateRoot() == true
-                   || OperationModelExtensions.AsOperationModel(command.Mapping?.Element)?.ParentClass?.IsAggregateRoot() == true;
         }
     }
 }

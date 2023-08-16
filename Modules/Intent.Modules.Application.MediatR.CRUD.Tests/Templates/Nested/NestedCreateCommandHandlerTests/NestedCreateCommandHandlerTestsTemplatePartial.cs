@@ -106,12 +106,12 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
 
     private void AddAssertionMethods()
     {
-        if (Model?.Mapping?.Element?.IsClassModel() != true)
+        if (!Model.IsValidCommandMapping())
         {
             return;
         }
 
-        var nestedDomainElement = Model.Mapping.Element.AsClassModel();
+        var nestedDomainElement = Model.GetClassModel();
         var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
         var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, ownerDomainElement));
