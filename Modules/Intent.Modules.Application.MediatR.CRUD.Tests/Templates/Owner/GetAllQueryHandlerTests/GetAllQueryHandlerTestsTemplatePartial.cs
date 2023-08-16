@@ -58,7 +58,9 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_InitialAutoFixture_Aggregate_TestDataStatements(true));
+                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        targetDomainModel: Facade.TargetDomainModel, 
+                        includeVarKeyword: true));
                     method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements());
                     method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                 });

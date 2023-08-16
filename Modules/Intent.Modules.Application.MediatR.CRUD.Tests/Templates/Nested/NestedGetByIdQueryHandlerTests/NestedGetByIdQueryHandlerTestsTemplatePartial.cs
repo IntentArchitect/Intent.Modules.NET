@@ -59,7 +59,9 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                 {
                     method.Static();
 
-                    method.AddStatements(Facade.Get_InitialAutoFixture_AggregateOwner_TestDataStatements(true));
+                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        targetDomainModel: Facade.AggregateOwnerDomainModel, 
+                        includeVarKeyword: true));
                     method.AddStatements(Facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
                 });
 

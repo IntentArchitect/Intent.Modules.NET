@@ -55,9 +55,10 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        TargetDomain.NestedEntity, 
-                        TestDataReturn.CommandAndAggregateDomain));
-                    method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements());
+                        CommandTargetDomain.NestedEntity, 
+                        CommandTestDataReturn.CommandAndAggregateDomain));
+                    method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
+                        CommandTargetDomain.NestedEntity));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SingularTargetDomainName}To{Facade.SingularAggregateOwnerDomainName}", method =>

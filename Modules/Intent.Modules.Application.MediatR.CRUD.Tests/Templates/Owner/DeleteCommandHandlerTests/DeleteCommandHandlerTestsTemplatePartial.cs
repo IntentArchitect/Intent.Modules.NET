@@ -54,8 +54,8 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        TargetDomain.Aggregate,
-                        TestDataReturn.CommandAndAggregateDomain));
+                        CommandTargetDomain.Aggregate,
+                        CommandTestDataReturn.CommandAndAggregateDomain));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.SingularTargetDomainName}FromRepository", method =>

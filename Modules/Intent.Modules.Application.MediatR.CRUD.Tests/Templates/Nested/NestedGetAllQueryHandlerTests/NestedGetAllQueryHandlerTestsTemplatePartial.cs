@@ -59,10 +59,22 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                     {
                         method.Static();
-                        method.AddStatements(Facade.Get_InitialAutoFixture_AggregateOwner_TestDataStatements(true));
-                        method.AddStatements(Facade.Get_SingleAggregateOwnerDomainEntity_TestDataStatements(false, true, false));
-                        method.AddStatements(Facade.Get_InitialAutoFixture_AggregateOwner_TestDataStatements(false));
-                        method.AddStatements(Facade.Get_SingleAggregateOwnerDomainEntity_TestDataStatements(true, false, false));
+                        method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                            targetDomainModel: Facade.AggregateOwnerDomainModel, 
+                            includeVarKeyword: true));
+                        method.AddStatements(Facade.Get_SingleDomainEntity_TestDataStatements(
+                            queryTargetDomain: QueryTargetDomain.NestedEntity,
+                            dataReturn: QueryTestDataReturn.AggregateDomain,
+                            includeVarKeyword: true,
+                            nestedEntitiesAreEmpty: false));
+                        method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                            targetDomainModel: Facade.AggregateOwnerDomainModel, 
+                            includeVarKeyword: false));
+                        method.AddStatements(Facade.Get_SingleDomainEntity_TestDataStatements(
+                            queryTargetDomain: QueryTargetDomain.NestedEntity,
+                            dataReturn: QueryTestDataReturn.AggregateDomain,
+                            includeVarKeyword: false,
+                            nestedEntitiesAreEmpty: true));
                     });
 
                     priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>

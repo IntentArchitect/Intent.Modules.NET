@@ -48,8 +48,8 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        TargetDomain.NestedEntity, 
-                        TestDataReturn.CommandAndAggregateWithNestedEntityDomain));
+                        CommandTargetDomain.NestedEntity, 
+                        CommandTestDataReturn.CommandAndAggregateWithNestedEntityDomain));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Updates{Facade.TargetDomainTypeName}", method =>

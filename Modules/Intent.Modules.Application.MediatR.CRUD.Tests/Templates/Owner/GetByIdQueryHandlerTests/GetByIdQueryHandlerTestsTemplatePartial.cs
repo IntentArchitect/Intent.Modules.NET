@@ -60,8 +60,14 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_InitialAutoFixture_Aggregate_TestDataStatements(true));
-                    method.AddStatements(Facade.Get_SingleAggregateDomainEntity_TestDataStatements(true, true));
+                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        targetDomainModel: Facade.TargetDomainModel, 
+                        includeVarKeyword: true));
+                    method.AddStatements(Facade.Get_SingleDomainEntity_TestDataStatements(
+                        queryTargetDomain: QueryTargetDomain.Aggregate,
+                        dataReturn: QueryTestDataReturn.QueryAndAggregateWithNestedEntityDomain, 
+                        includeVarKeyword: true, 
+                        nestedEntitiesAreEmpty: false));
                 });
 
                 priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.SingularTargetDomainName}", method =>

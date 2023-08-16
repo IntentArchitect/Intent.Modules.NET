@@ -54,9 +54,10 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        TargetDomain.Aggregate,
-                        TestDataReturn.CommandAndAggregateDomain));
-                    method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleAggregateEntity_TestDataStatements());
+                        CommandTargetDomain.Aggregate,
+                        CommandTestDataReturn.CommandAndAggregateDomain));
+                    method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
+                        CommandTargetDomain.Aggregate));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>

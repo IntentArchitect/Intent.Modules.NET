@@ -15,13 +15,13 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
-internal enum TargetDomain
+internal enum CommandTargetDomain
 {
     Aggregate,
     NestedEntity
 }
 
-internal enum TestDataReturn
+internal enum CommandTestDataReturn
 {
     CommandAndAggregateDomain,
     CommandAndAggregateWithNestedEntityDomain
@@ -159,22 +159,24 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(TargetDomain targetDomain, TestDataReturn dataReturn)
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(
+        CommandTargetDomain commandTargetDomain, 
+        CommandTestDataReturn dataReturn)
     {
         var statements = new List<CSharpStatement>();
 
-        var targetDomainClassType = targetDomain switch
+        var targetDomainClassType = commandTargetDomain switch
             {
-                TargetDomain.Aggregate => TargetDomainTypeName,
-                TargetDomain.NestedEntity => AggregateOwnerDomainTypeName,
-                _ => throw new ArgumentOutOfRangeException(nameof(targetDomain), targetDomain, null)
+                CommandTargetDomain.Aggregate => TargetDomainTypeName,
+                CommandTargetDomain.NestedEntity => AggregateOwnerDomainTypeName,
+                _ => throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null)
             };
 
         statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(targetDomain switch
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(commandTargetDomain switch
         {
-            TargetDomain.Aggregate => TargetDomainModel,
-            TargetDomain.NestedEntity => AggregateOwnerDomain
+            CommandTargetDomain.Aggregate => TargetDomainModel,
+            CommandTargetDomain.NestedEntity => AggregateOwnerDomain
         }));
         
         AddAggregateDomainTestData();
@@ -182,11 +184,16 @@ internal class CommandHandlerFacade
 
         switch (dataReturn)
         {
-            case TestDataReturn.CommandAndAggregateDomain:
+            case CommandTestDataReturn.CommandAndAggregateDomain:
+                var varName = commandTargetDomain switch
+                {
+                    CommandTargetDomain.Aggregate => "existingEntity", 
+                    CommandTargetDomain.NestedEntity => "existingOwnerEntity"
+                };
                 statements.Add(
-                    $"yield return new object[] {{ testCommand, {targetDomain switch { TargetDomain.Aggregate => "existingEntity", TargetDomain.NestedEntity => "existingOwnerEntity" }} }};");
+                    $"yield return new object[] {{ testCommand, {varName} }};");
                 break;
-            case TestDataReturn.CommandAndAggregateWithNestedEntityDomain:
+            case CommandTestDataReturn.CommandAndAggregateWithNestedEntityDomain:
                 statements.Add($"yield return new object[] {{ testCommand, existingOwnerEntity, existingEntity }};");    
                 break;
             default:
@@ -197,11 +204,11 @@ internal class CommandHandlerFacade
 
         void AddAggregateDomainTestData()
         {
-            var variableName = targetDomain switch { TargetDomain.Aggregate => "existingEntity", TargetDomain.NestedEntity => "existingOwnerEntity" };
+            var variableName = commandTargetDomain switch { CommandTargetDomain.Aggregate => "existingEntity", CommandTargetDomain.NestedEntity => "existingOwnerEntity" };
             
             statements.Add($"var {variableName} = fixture.Create<{targetDomainClassType}>();");
 
-            if (targetDomain is not TargetDomain.NestedEntity)
+            if (commandTargetDomain is not CommandTargetDomain.NestedEntity)
             {
                 return;
             }
@@ -217,9 +224,9 @@ internal class CommandHandlerFacade
         
         void AddCommandWithIdentityTestData()
         {
-            switch (targetDomain)
+            switch (commandTargetDomain)
             {
-                case TargetDomain.Aggregate:
+                case CommandTargetDomain.Aggregate:
                     if (CommandIdFields.Count == 1)
                     {
                         statements.Add(
@@ -239,7 +246,7 @@ internal class CommandHandlerFacade
                         }
                     }
                     break;
-                case TargetDomain.NestedEntity:
+                case CommandTargetDomain.NestedEntity:
                 {
                     var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
                     statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
@@ -262,73 +269,107 @@ internal class CommandHandlerFacade
                 }
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(targetDomain), targetDomain, null);
+                    throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null);
             }
             
             statements.Add($"var testCommand = fixture.Create<{CommandTypeName}>();");
         }
     }
 
-    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleAggregateEntity_TestDataStatements()
-    {
-        return Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(false);
-    }
-
-    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleAggregateOwnerEntity_TestDataStatements()
-    {
-        return Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(true);
-    }
-
-    private IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(bool hasAggregateOwner)
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
+        CommandTargetDomain commandTargetDomain)
     {
         var statements = new List<CSharpStatement>();
-        var entityVarName = hasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
-        var targetDomainClassType = hasAggregateOwner ? AggregateOwnerDomain.Name.ToPascalCase() : TargetDomainTypeName;
+        var entityVarName = commandTargetDomain switch
+        {
+            CommandTargetDomain.Aggregate => "existingEntity",
+            CommandTargetDomain.NestedEntity => "existingOwnerEntity"
+        };
+        var targetDomainClassType = commandTargetDomain switch
+        {
+            CommandTargetDomain.Aggregate => TargetDomainTypeName,
+            CommandTargetDomain.NestedEntity => AggregateOwnerDomainTypeName
+        };
 
-        foreach (var property in _model.Properties
-                     .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+        foreach (var property in GetNullableAttributes())
         {
             statements.Add(string.Empty);
             statements.Add("fixture = new Fixture();");
-            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(hasAggregateOwner ? AggregateOwnerDomain : TargetDomainModel));
+            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(commandTargetDomain switch
+            {
+                CommandTargetDomain.Aggregate => TargetDomainModel,
+                CommandTargetDomain.NestedEntity => AggregateOwnerDomain
+            }));
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
+            
+            AddCommandWithIdentityTestData(property);
+            
+            statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
+        }
 
-            if (CommandIdFields.Count == 1 && !hasAggregateOwner)
+        return statements;
+
+        IEnumerable<DTOFieldModel> GetNullableAttributes()
+        {
+            return _model.Properties
+                .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
+        }
+
+        void AddCommandWithIdentityTestData(DTOFieldModel property)
+        {
+            switch (commandTargetDomain)
             {
-                statements.Add(
-                    $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
-            }
-            else
-            {
-                var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
-                statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
-                    .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+                case CommandTargetDomain.Aggregate:
+                    if (CommandIdFields.Count == 1)
+                    {
+                        statements.Add(
+                            $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                    }
+                    else
+                    {
+                        var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+                        statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
+                            .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
-                fluent.AddChainStatement($"Without(x => x.{property.Name})");
-
-                if (hasAggregateOwner)
+                        fluent.AddChainStatement($"Without(x => x.{property.Name})");
+                        
+                        for (var i = 0; i < CommandIdFields.Count; i++)
+                        {
+                            var commandIdField = CommandIdFields[i];
+                            var domainIdAttribute = TargetDomainIdAttributes[i];
+                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        }
+                    }
+                    break;
+                case CommandTargetDomain.NestedEntity:
                 {
+                    var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+                    statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
+                        .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
+
+                    fluent.AddChainStatement($"Without(x => x.{property.Name})");
+                    
                     for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
                     {
                         var idAttribute = TargetDomainIdAttributes[index];
                         var idField = CommandFieldsForOwnerId[index];
                         fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
                     }
+                    
+                    for (var i = 0; i < CommandIdFields.Count; i++)
+                    {
+                        var commandIdField = CommandIdFields[i];
+                        var domainIdAttribute = TargetDomainIdAttributes[i];
+                        fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                    }
                 }
-
-                for (var i = 0; i < CommandIdFields.Count; i++)
-                {
-                    var commandIdField = CommandIdFields[i];
-                    var domainIdAttribute = TargetDomainIdAttributes[i];
-                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
-                }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null);
             }
 
             statements.Add($"testCommand = fixture.Create<{CommandTypeName}>();");
-            statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
         }
-
-        return statements;
     }
 
     public IReadOnlyCollection<CSharpStatement> GetCommandHandlerConstructorParameterMockStatements()
