@@ -3,7 +3,12 @@
 - Improvement: Refactored module completely for better internal maintainability.
 - Improvement: Future-proofing Command / Query Handler constructor parameters that receive new parameters (from Intent Architect) will now automatically get stubbed/mocked in unit tests.
 - Improvement: Now catering for composite keys in Command / Query handlers.
+- Improvement: Now generating tests for Commands projecting to Constructors and Operations.
+- Improvement: Assertion classes will now only generate if being used by Unit Tests.
 - Fixed: Get query handler tests would cause a crash in some cases when trying to generate.
+- Fixed: Inaccurately named unit tests.
+- Fixed: Assertions classes had a wrong comparison input on `HaveSameCount()` calls.
+- Fixed: Mistake in nested delete handler tests where testing missing nested entity didn't return aggregate root item.
 
 ### Version 1.1.1
 
