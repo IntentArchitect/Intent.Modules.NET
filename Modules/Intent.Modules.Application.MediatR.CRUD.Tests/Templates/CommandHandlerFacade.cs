@@ -149,28 +149,43 @@ internal class CommandHandlerFacade
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndAggregateEntity_TestDataStatements()
     {
-        return Get_ProduceSingleCommandAndEntity_TestDataStatements(false);
+        return Get_ProduceSingleCommandAndEntity_TestDataStatements(false, false);
     }
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndAggregateOwnerEntity_TestDataStatements()
     {
-        return Get_ProduceSingleCommandAndEntity_TestDataStatements(true);
+        return Get_ProduceSingleCommandAndEntity_TestDataStatements(true, false);
     }
 
-    private IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(bool hasAggregateOwner)
+    public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndAggregateOwnerAndCompositeEntity_TestDataStatements()
+    {
+        return Get_ProduceSingleCommandAndEntity_TestDataStatements(true, true);
+    }
+
+    private IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(bool hasAggregateOwner, bool includeCompositeEntityInTestData)
     {
         var statements = new List<CSharpStatement>();
-        var entityVarName = hasAggregateOwner ? "existingOwnerEntity" : "existingEntity";
         var targetDomainClassType = hasAggregateOwner ? DomainClassCompositionalOwner.Name.ToPascalCase() : DomainClassTypeName;
 
         statements.Add("var fixture = new Fixture();");
         statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(hasAggregateOwner ? DomainClassCompositionalOwner : DomainClassModel));
-        statements.Add($"var {entityVarName} = fixture.Create<{targetDomainClassType}>();");
+        statements.Add($"var {(hasAggregateOwner ? "existingOwnerEntity" : "existingEntity")} = fixture.Create<{targetDomainClassType}>();");
+
+        if (hasAggregateOwner)
+        {
+            statements.Add($"var existingEntity = existingOwnerEntity.{AggregateOwnerAssociationCompositeName}.First();");
+            for (var index = 0; index < DomainClassOwnerIdAttributes.Count; index++)
+            {
+                var ownerIdAttribute = DomainClassOwnerIdAttributes[index];
+                var nestedIdAttribute = DomainIdAttributes[index];
+                statements.Add($"existingEntity.{ownerIdAttribute.IdName.ToCSharpIdentifier()} = existingOwnerEntity.{nestedIdAttribute.IdName.ToCSharpIdentifier()};");
+            }
+        }
 
         if (CommandIdFields.Count == 1 && !hasAggregateOwner)
         {
             statements.Add(
-                $"fixture.Customize<{CommandTypeName}>(comp => comp.With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                $"fixture.Customize<{CommandTypeName}>(comp => comp.With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, existingEntity.{DomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
         }
         else
         {
@@ -184,7 +199,7 @@ internal class CommandHandlerFacade
                 {
                     var idAttribute = DomainIdAttributes[index];
                     var idField = CommandOwnerIdFields[index];
-                    fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
+                    fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
                 }
             }
 
@@ -195,7 +210,7 @@ internal class CommandHandlerFacade
                     var commandIdField = CommandIdFields[i];
                     var domainIdAttribute = DomainIdAttributes[i];
                     fluent.AddChainStatement(
-                        $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{AggregateOwnerAssociationCompositeName}.First().{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                 }
             }
             else
@@ -204,13 +219,25 @@ internal class CommandHandlerFacade
                 {
                     var commandIdField = CommandIdFields[i];
                     var domainIdAttribute = DomainIdAttributes[i];
-                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                    fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                 }
             }
         }
 
         statements.Add($"var testCommand = fixture.Create<{CommandTypeName}>();");
-        statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
+        
+        if (hasAggregateOwner && includeCompositeEntityInTestData)
+        {
+            statements.Add($"yield return new object[] {{ testCommand, existingOwnerEntity, existingEntity }};");
+        }
+        else if (hasAggregateOwner)
+        {
+            statements.Add($"yield return new object[] {{ testCommand, existingOwnerEntity }};");
+        }
+        else
+        {
+            statements.Add($"yield return new object[] {{ testCommand, existingEntity }};");
+        }
 
         return statements;
     }
