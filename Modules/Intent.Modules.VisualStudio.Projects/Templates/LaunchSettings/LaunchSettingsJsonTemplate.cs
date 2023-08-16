@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
@@ -22,19 +21,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private int _randomSslPort;
         private string _defaultLaunchUrlPath = string.Empty;
 
-        private ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables =
-            new List<EnvironmentVariableRegistrationRequest>();
+        private readonly ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables = new List<EnvironmentVariableRegistrationRequest>();
 
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
-        public LaunchSettingsJsonTemplate(IProject project, IApplicationEventDispatcher applicationEventDispatcher)
-            : base(Identifier, project, null)
+        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher)
+            : base(Identifier, outputTarget, null)
         {
-            ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(
-                HandleEnvironmentVariable);
-            ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(
-                HandleLaunchProfileRegistration);
+            ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
+            ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(HandleLaunchProfileRegistration);
+#pragma warning disable CS0618 // Type or member is obsolete
             applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
+#pragma warning restore CS0618 // Type or member is obsolete
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
         }
 
@@ -49,6 +47,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         /// Will be retired in favour of <see cref="HandleLaunchProfileRegistration"/>.
         /// </summary>
         [FixFor_Version4(WillBeRemovedIn.Version4)]
+        [Obsolete($"As per {nameof(LaunchProfileRegistrationEvent)}")]
         private void Handle(ApplicationEvent @event)
         {
             // TODO: Align this file with the schema: http://json.schemastore.org/launchsettings.json
@@ -61,8 +60,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 applicationUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.ApplicationUrl),
                 publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts),
                     out var publishAllPorts) && publishAllPorts,
-                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSSL) &&
-                         useSSL,
+                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSsl) &&
+                         useSsl,
             });
         }
 
@@ -81,7 +80,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 launchUrl = request.LaunchUrl,
                 publishAllPorts = request.PublishAllPorts,
                 //Schema for json says default value is true
-                useSSL = request.UseSsl == true ? null : false,
+                useSSL = request.UseSsl ? null : false,
             });
 
             if (request.EnvironmentVariables?.Count > 0)
@@ -132,51 +131,48 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            if (!File.Exists(GetMetadata().GetFilePath()))
+
+            if (!TryGetExistingFileContent(out var content))
             {
                 _randomPort = new Random().Next(56600, 65535);
                 _randomSslPort = new Random().Next(44300, 44399);
-                ExecutionContext.EventDispatcher.Publish(
-                    new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
+                ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
+                return;
             }
-            else
+
+            var appSettings = JsonConvert.DeserializeObject<JObject>(content);
+            if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(), out _randomSslPort) &&
+                appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString()
+                    .Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Any(x => int.TryParse(x, out _randomPort)) == true)
             {
-                var appSettings = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(GetMetadata().GetFilePath()));
-                if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(),
-                        out _randomSslPort) &&
-                    appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString()
-                        .Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries)
-                        .Any(x => int.TryParse(x, out _randomPort)) == true)
-                {
-                    ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
-                        applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(),
-                        port: _randomPort,
-                        sslPort: _randomSslPort));
-                }
+                ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
+                    applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(),
+                    port: _randomPort,
+                    sslPort: _randomSslPort));
             }
         }
 
         public override string TransformText()
         {
-            dynamic config;
-            if (!File.Exists(GetMetadata().GetFilePath()))
+            if (!TryGetExistingFileContent(out var content))
             {
-                config = JsonConvert.DeserializeObject(JsonConvert.SerializeObject(new LaunchSettingsJson()
+                content = JsonConvert.SerializeObject(new LaunchSettingsJson
                 {
-                    iisSettings = new IISSettings()
+                    iisSettings = new IISSettings
                     {
                         windowsAuthentication = false,
                         anonymousAuthentication = true,
-                        iisExpress = new IISExpress()
+                        iisExpress = new IISExpress
                         {
                             applicationUrl = $"http://localhost:{_randomPort}/",
                             sslPort = _randomSslPort
                         }
                     },
-                    profiles = new Dictionary<string, Profile>()
+                    profiles = new Dictionary<string, Profile>
                     {
                         {
-                            Project.Name, new Profile()
+                            Project.Name, new Profile
                             {
                                 commandName = "Project",
                                 launchBrowser = true,
@@ -187,7 +183,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                             }
                         },
                         {
-                            "IIS Express", new Profile()
+                            "IIS Express", new Profile
                             {
                                 commandName = "IISExpress",
                                 launchBrowser = true,
@@ -197,17 +193,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                             }
                         }
                     }
-                }, new JsonSerializerSettings()
+                }, new JsonSerializerSettings
                 {
                     Formatting = Formatting.Indented,
                     NullValueHandling = NullValueHandling.Ignore
-                }));
+                });
             }
-            else
-            {
-                var existingFileContent = File.ReadAllText(GetMetadata().GetFilePath());
-                config = JsonConvert.DeserializeObject(existingFileContent, new JsonSerializerSettings());
-            }
+
+            dynamic config = JsonConvert.DeserializeObject(content, new JsonSerializerSettings())!;
 
             if (config.profiles == null)
             {
@@ -219,7 +212,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 if (config.profiles[profile.Key] == null)
                 {
                     config.profiles[profile.Key] = JObject.FromObject(profile.Value, JsonSerializer.Create(
-                        new JsonSerializerSettings()
+                        new JsonSerializerSettings
                         {
                             Formatting = Formatting.Indented,
                             NullValueHandling = NullValueHandling.Ignore
@@ -233,7 +226,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             foreach (var environmentVariable in _environmentVariables)
             {
-                foreach (var profile in (config.profiles as IEnumerable<dynamic>)
+                foreach (var profile in ((IEnumerable<dynamic>)config.profiles)
                          .Where(x => environmentVariable.TargetProfiles == null ||
                                      environmentVariable.TargetProfiles.Any(p => p == ((JProperty)x).Name))
                          .Select(x => x.Value))
@@ -243,7 +236,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 }
             }
 
-            return JsonConvert.SerializeObject(config, new JsonSerializerSettings()
+            return JsonConvert.SerializeObject(config, new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
                 NullValueHandling = NullValueHandling.Ignore
@@ -262,6 +255,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         }
     }
 
+        // ReSharper disable InconsistentNaming
     public class LaunchSettingsJson
     {
         public IISSettings iisSettings { get; set; }
@@ -291,6 +285,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         public bool publishAllPorts { get; set; }
         public bool? useSSL { get; set; }
     }
+    // ReSharper restore InconsistentNaming
 
     public class EnvironmentVariables
     {
