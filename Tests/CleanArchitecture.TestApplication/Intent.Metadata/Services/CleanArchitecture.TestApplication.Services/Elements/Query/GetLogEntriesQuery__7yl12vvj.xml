@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="97591773-a1a0-4c4a-a8d7-3110de28c3cc" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
-  <name>GetLogEntries</name>
-  <display>GetLogEntries: PagedResult&lt;LogEntryDto&gt;</display>
+  <name>GetLogEntriesQuery</name>
+  <display>GetLogEntriesQuery: PagedResult&lt;LogEntryDto&gt;</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

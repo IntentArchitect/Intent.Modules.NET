@@ -557,34 +557,5 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 entity.CompositeSingleAId.Should().Be(dto.CompositeSingleAId);
             }
         }
-
-        [IntentIgnore]
-        public static void AssertEquivalent(PagedResult<LogEntryDto> actualDtos, IPagedResult<LogEntry> expectedEntities)
-        {
-            if (expectedEntities == null)
-            {
-                actualDtos.Should().Match<PagedResult<LogEntryDto>>(p => p == null || !p.Data.Any());
-                return;
-            }
-
-            actualDtos.Data.Should().HaveSameCount(expectedEntities);
-            actualDtos.PageSize.Should().Be(expectedEntities.PageSize);
-            actualDtos.PageCount.Should().Be(expectedEntities.PageCount);
-            actualDtos.PageNumber.Should().Be(expectedEntities.PageNo);
-            actualDtos.TotalCount.Should().Be(expectedEntities.TotalCount);
-            for (int i = 0; i < expectedEntities.Count(); i++)
-            {
-                var dto = actualDtos.Data.ElementAt(i);
-                var entity = expectedEntities.ElementAt(i);
-                if (entity == null)
-                {
-                    dto.Should().BeNull();
-                    continue;
-                }
-                
-                dto.Should().NotBeNull();
-                //AssertEquivalent(dto, entity);
-            }
-        }
     }
 }

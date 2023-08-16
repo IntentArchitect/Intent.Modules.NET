@@ -39,7 +39,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -64,16 +64,16 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
                     method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
-                    
+
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetNestedEntityRemovedFromOwningAggregateAssertionStatements("existingOwnerEntity", "testCommand"));
@@ -93,7 +93,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
@@ -107,18 +107,18 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
             });
     }
-    
+
     private CommandHandlerFacade Facade { get; }
 
     private static void AddUsingDirectives(CSharpFile file)

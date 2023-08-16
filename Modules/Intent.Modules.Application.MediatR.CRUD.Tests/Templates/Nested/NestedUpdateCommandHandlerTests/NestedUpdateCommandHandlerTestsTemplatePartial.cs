@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -10,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -48,7 +51,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        CommandTargetDomain.NestedEntity, 
+                        CommandTargetDomain.NestedEntity,
                         CommandTestDataReturn.CommandAndAggregateWithNestedEntityDomain));
                 });
 
@@ -100,16 +103,16 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                     {
                         method.Async();
                         method.AddAttribute("Fact");
-                        
+
                         method.AddStatements(Facade.GetNewAggregateOwnerWithoutCompositesStatements());
                         method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                         method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                         method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Act");
                         method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
-                    
+
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Assert");
                         method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
@@ -119,7 +122,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 });
             });
     }
-    
+
     private CommandHandlerFacade Facade { get; }
 
     private static void AddUsingDirectives(CSharpFile file)

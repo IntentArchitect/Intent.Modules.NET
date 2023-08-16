@@ -9,6 +9,7 @@ using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetBy
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedUpdateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPaginationQueryHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQueryHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQueryHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCommandHandlerTests;
@@ -116,6 +117,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates
         public static string GetDeleteCommandHandlerTestsName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
         {
             return template.GetTypeName(DeleteCommandHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetGetAllPaginationQueryHandlerTestsName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
+        {
+            return template.GetTypeName(GetAllPaginationQueryHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetGetAllPaginationQueryHandlerTestsName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
+        {
+            return template.GetTypeName(GetAllPaginationQueryHandlerTestsTemplate.TemplateId, model);
         }
 
         public static string GetGetAllQueryHandlerTestsName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel

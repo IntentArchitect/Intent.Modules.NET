@@ -40,7 +40,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -67,16 +67,16 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
                     method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
-                    
+
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetCommandCompareToExistingDomainAssertionStatement("testCommand", "existingEntity"));
@@ -96,12 +96,12 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-                
+
                 this.AddCommandAssertionMethods(Model);
             });
     }

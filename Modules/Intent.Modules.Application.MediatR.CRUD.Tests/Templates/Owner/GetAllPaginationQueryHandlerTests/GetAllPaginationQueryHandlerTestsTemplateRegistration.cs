@@ -14,24 +14,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetByIdQueryHandlerTests
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPaginationQueryHandlerTests
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class NestedGetByIdQueryHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<QueryModel>
+    public class GetAllPaginationQueryHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<QueryModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public NestedGetByIdQueryHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
+        public GetAllPaginationQueryHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => NestedGetByIdQueryHandlerTestsTemplate.TemplateId;
+        public override string TemplateId => GetAllPaginationQueryHandlerTestsTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
-            return new NestedGetByIdQueryHandlerTestsTemplate(outputTarget, model);
+            return new GetAllPaginationQueryHandlerTestsTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -39,9 +39,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(query => query.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase) &&
-                            query.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false &&
-                            !query.TypeReference.IsCollection)
+                .Where(query => query.IsPaginationQueryMapping())
                 .ToList();
         }
     }

@@ -194,6 +194,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#050abaa6-8de8-4cd4-a09b-8f71c23fee36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Owner/GetAllPaginationQueryHandlerTests/GetAllPaginationQueryHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Owner/GetAllPaginationQueryHandlerTests/GetAllPaginationQueryHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#050abaa6-8de8-4cd4-a09b-8f71c23fee36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Owner/GetAllPaginationQueryHandlerTests/GetAllPaginationQueryHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Owner/GetAllPaginationQueryHandlerTests/GetAllPaginationQueryHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#04cae865-6888-485f-9e61-057f75b58913</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Owner/GetAllQueryHandlerTests/GetAllQueryHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>

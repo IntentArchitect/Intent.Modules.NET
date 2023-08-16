@@ -39,11 +39,11 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.NSubstitute);
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
-        
+
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -54,7 +54,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 var priClass = file.Classes.First();
                 AddSuccessfulResultTestData(priClass);
                 AddSuccessfulHandlerTest(priClass);
-                
+
                 this.AddCommandAssertionMethods(Model);
             }, 1);
     }
@@ -70,7 +70,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_TestDataStatements());
         });
     }
-    
+
     private void AddSuccessfulHandlerTest(CSharpClass priClass)
     {
         priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SingularTargetDomainName}ToRepository", method =>
@@ -79,16 +79,16 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             method.AddAttribute("Theory");
             method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
             method.AddParameter(Facade.CommandTypeName, "testCommand");
-            
+
             method.AddStatement("// Arrange");
             method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
             method.AddStatements(Facade.GetAggregateDomainRepositoryUnitOfWorkMockingStatements());
             method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-            
+
             method.AddStatement(string.Empty);
             method.AddStatement("// Act");
             method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
-            
+
             method.AddStatement(string.Empty);
             method.AddStatement("// Assert");
             method.AddStatements(Facade.GetAggregateDomainRepositorySaveChangesAssertionStatement());

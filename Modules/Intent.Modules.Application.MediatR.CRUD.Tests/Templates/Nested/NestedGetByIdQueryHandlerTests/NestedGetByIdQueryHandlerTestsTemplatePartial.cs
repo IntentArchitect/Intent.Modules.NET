@@ -41,7 +41,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new QueryHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -60,7 +60,6 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.Static();
 
                     method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
-                        targetDomainModel: Facade.AggregateOwnerDomainModel, 
                         includeVarKeyword: true));
                     method.AddStatements(Facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
                 });
@@ -82,7 +81,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingEntity"));
@@ -92,27 +91,27 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                 {
                     method.Async();
                     method.AddAttribute("Fact");
-                    
+
                     method.AddStatements("// Arrange");
                     method.AddStatements(Facade.GetNewAggregateOwnerWithoutCompositesStatements());
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatements("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-                
+
                 AddAssertionMethods();
             });
     }
-    
+
     private QueryHandlerFacade Facade { get; }
 
     private static void AddUsingDirectives(CSharpFile file)

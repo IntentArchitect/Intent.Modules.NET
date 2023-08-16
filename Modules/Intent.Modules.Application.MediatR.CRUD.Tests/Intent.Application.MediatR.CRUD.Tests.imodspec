@@ -90,6 +90,14 @@
       <role>Application.Test.DeleteCommandHandler</role>
       <location></location>
     </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests" externalReference="050abaa6-8de8-4cd4-a09b-8f71c23fee36">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.GetAllPaginationQueryHandler</role>
+      <location></location>
+    </template>
     <template id="Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests" externalReference="04cae865-6888-485f-9e61-057f75b58913">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

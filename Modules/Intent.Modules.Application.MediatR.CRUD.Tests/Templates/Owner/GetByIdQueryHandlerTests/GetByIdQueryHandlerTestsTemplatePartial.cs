@@ -43,7 +43,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new QueryHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -61,12 +61,11 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
-                        targetDomainModel: Facade.TargetDomainModel, 
                         includeVarKeyword: true));
                     method.AddStatements(Facade.Get_SingleDomainEntity_TestDataStatements(
                         queryTargetDomain: QueryTargetDomain.Aggregate,
-                        dataReturn: QueryTestDataReturn.QueryAndAggregateWithNestedEntityDomain, 
-                        includeVarKeyword: true, 
+                        dataReturn: QueryTestDataReturn.QueryAndAggregateWithNestedEntityDomain,
+                        includeVarKeyword: true,
                         nestedEntitiesAreEmpty: false));
                 });
 
@@ -83,11 +82,11 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements(Facade.GetDomainAggregateRepositoryFindByIdMockingStatements("testQuery", "existingEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("existingEntity"));
@@ -112,7 +111,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-                
+
                 AddAssertionMethods();
             });
     }

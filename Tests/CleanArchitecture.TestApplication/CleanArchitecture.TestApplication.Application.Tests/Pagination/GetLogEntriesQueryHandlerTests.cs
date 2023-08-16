@@ -5,20 +5,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRoots;
 using CleanArchitecture.TestApplication.Application.Common.Pagination;
+using CleanArchitecture.TestApplication.Application.Pagination;
 using CleanArchitecture.TestApplication.Application.Pagination.GetLogEntries;
-using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
+using CleanArchitecture.TestApplication.Application.Tests.Pagination.LogEntries;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Pagination;
+using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
 using Xunit;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests", Version = "1.0")]
 
 namespace CleanArchitecture.TestApplication.Application.Tests.Pagination
 {
@@ -31,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Pagination
             var mapperConfiguration = new MapperConfiguration(
                 config =>
                 {
-                    config.AddMaps(typeof(GetLogEntriesHandler));
+                    config.AddMaps(typeof(GetLogEntriesQueryHandler));
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
@@ -50,7 +51,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Pagination
         {
             // Arrange
             var fixture = new Fixture();
-            var testQuery = fixture.Create<GetLogEntries>();
+            var testQuery = fixture.Create<GetLogEntriesQuery>();
             testQuery.PageNo = 1;
             testQuery.PageSize = 5;
             var logEntryRepository = Substitute.For<ILogEntryRepository>();
@@ -58,13 +59,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Pagination
             fetchedResults.GetEnumerator().Returns(c => testEntities.GetEnumerator());
             logEntryRepository.FindAllAsync(1, 5, CancellationToken.None).Returns(Task.FromResult(fetchedResults));
 
-            var sut = new GetLogEntriesHandler(logEntryRepository, _mapper);
+            var sut = new GetLogEntriesQueryHandler(logEntryRepository, _mapper);
 
             // Act
             var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(results, fetchedResults);
+            LogEntryAssertions.AssertEquivalent(results, fetchedResults);
+
         }
     }
 }

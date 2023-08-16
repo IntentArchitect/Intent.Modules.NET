@@ -31,6 +31,42 @@ internal static class AssertionMethodHelper
 
         templateInstance?.AddAssertionMethods(templateInstance.CSharpFile.Classes.First(), commandModel, domainModel);
     }
+
+    public static void AddPaginationAssertionMethod(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, QueryModel queryModel, ClassModel domainModel)
+    {
+        builderClass.AddMethod("void", "AssertEquivalent", method =>
+        {
+            method.Static();
+
+            var paginatedDtoModel = queryModel.TypeReference.GenericTypeParameters.First().Element.AsDTOModel();
+            var concretePaginatedResult = template.GetTypeName("Application.Contract.Dto.Pagination.Result");
+            var paginatedResultInterface = template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.PagedResult);
+            var domainEntityTypeName = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
+            var queryReturnDtoTypeName = template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, paginatedDtoModel);
+            
+            method.AddParameter($"{concretePaginatedResult}<{queryReturnDtoTypeName}>", "actualDtos");
+            method.AddParameter($"{paginatedResultInterface}<{domainEntityTypeName}>", "expectedEntities");
+
+            method.AddIfStatement("expectedEntities == null", ifStmt =>
+            {
+                ifStmt.AddStatement($"actualDtos.Should().Match<{concretePaginatedResult}<{queryReturnDtoTypeName}>>(p => p == null || !p.Data.Any());");
+                ifStmt.AddStatement("return;");
+            });
+            
+            method.AddStatement("actualDtos.Data.Should().HaveSameCount(expectedEntities);");
+            method.AddStatement("actualDtos.PageSize.Should().Be(expectedEntities.PageSize);");
+            method.AddStatement("actualDtos.PageCount.Should().Be(expectedEntities.PageCount);");
+            method.AddStatement("actualDtos.PageNumber.Should().Be(expectedEntities.PageNo);");
+            method.AddStatement("actualDtos.TotalCount.Should().Be(expectedEntities.TotalCount);");
+
+            method.AddStatementBlock("for (int i = 0; i < expectedEntities.Count(); i++)", block =>
+            {
+                block.AddStatement("var dto = actualDtos.Data.ElementAt(i);");
+                block.AddStatement("var entity = expectedEntities.ElementAt(i);");
+                block.AddStatements(GetDomainToDtoPropertyAssignments(template, "dto", "entity", paginatedDtoModel, domainModel, true));
+            });
+        });
+    }
     
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
     {

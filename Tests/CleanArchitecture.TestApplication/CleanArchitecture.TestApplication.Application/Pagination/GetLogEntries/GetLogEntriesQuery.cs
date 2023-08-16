@@ -8,9 +8,9 @@ using MediatR;
 
 namespace CleanArchitecture.TestApplication.Application.Pagination.GetLogEntries
 {
-    public class GetLogEntries : IRequest<PagedResult<LogEntryDto>>, IQuery
+    public class GetLogEntriesQuery : IRequest<PagedResult<LogEntryDto>>, IQuery
     {
-        public GetLogEntries(int pageNo, int pageSize)
+        public GetLogEntriesQuery(int pageNo, int pageSize)
         {
             PageNo = pageNo;
             PageSize = pageSize;

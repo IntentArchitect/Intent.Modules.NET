@@ -43,7 +43,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromQuery] int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetLogEntries(pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            var result = await _mediator.Send(new GetLogEntriesQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
             return result != null ? Ok(result) : NotFound();
         }
     }

@@ -13,20 +13,20 @@ using MediatR;
 namespace CleanArchitecture.TestApplication.Application.Pagination.GetLogEntries
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetLogEntriesHandler : IRequestHandler<GetLogEntries, PagedResult<LogEntryDto>>
+    public class GetLogEntriesQueryHandler : IRequestHandler<GetLogEntriesQuery, PagedResult<LogEntryDto>>
     {
         private readonly ILogEntryRepository _logEntryRepository;
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
-        public GetLogEntriesHandler(ILogEntryRepository logEntryRepository, IMapper mapper)
+        public GetLogEntriesQueryHandler(ILogEntryRepository logEntryRepository, IMapper mapper)
         {
             _logEntryRepository = logEntryRepository;
             _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<PagedResult<LogEntryDto>> Handle(GetLogEntries request, CancellationToken cancellationToken)
+        public async Task<PagedResult<LogEntryDto>> Handle(GetLogEntriesQuery request, CancellationToken cancellationToken)
         {
             var results = await _logEntryRepository.FindAllAsync(
                 pageNo: request.PageNo,

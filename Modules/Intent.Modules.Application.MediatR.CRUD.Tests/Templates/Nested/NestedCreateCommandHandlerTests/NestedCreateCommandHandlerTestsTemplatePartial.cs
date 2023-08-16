@@ -41,7 +41,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -55,7 +55,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
-                        CommandTargetDomain.NestedEntity, 
+                        CommandTargetDomain.NestedEntity,
                         CommandTestDataReturn.CommandAndAggregateDomain));
                     method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
                         CommandTargetDomain.NestedEntity));
@@ -68,7 +68,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(Facade.CommandTypeName, "testCommand");
                     method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
-                    
+
                     method.AddStatement($@"// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
@@ -84,7 +84,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements(Facade.GetAggregateOwnerDomainRepositorySaveChangesAssertionStatement("existingOwnerEntity"));
                     method.AddStatements(Facade.GetCommandCompareToNewAddedDomainFromOwnerAssertionStatement("testCommand"));
                 });
-                
+
                 AddAssertionMethods();
             });
     }

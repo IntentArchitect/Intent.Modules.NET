@@ -126,7 +126,7 @@ internal class CommandHandlerFacade
         var statements = new List<CSharpStatement>();
 
         statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(AggregateOwnerDomain));
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
         statements.Add(
             $"fixture.Customize<{AggregateOwnerDomainTypeName}>(comp => comp.With(p => p.{OwnerToCompositeNavigationPropertyName}, new List<{TargetDomainTypeName}>()));");
         statements.Add($"var existingOwnerEntity = fixture.Create<{AggregateOwnerDomainTypeName}>();");
@@ -176,11 +176,7 @@ internal class CommandHandlerFacade
             };
 
         statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(commandTargetDomain switch
-        {
-            CommandTargetDomain.Aggregate => TargetDomainModel,
-            CommandTargetDomain.NestedEntity => AggregateOwnerDomain
-        }));
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
         
         AddAggregateDomainTestData();
         AddCommandWithIdentityTestData();
@@ -298,11 +294,7 @@ internal class CommandHandlerFacade
         {
             statements.Add(string.Empty);
             statements.Add("fixture = new Fixture();");
-            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(commandTargetDomain switch
-            {
-                CommandTargetDomain.Aggregate => TargetDomainModel,
-                CommandTargetDomain.NestedEntity => AggregateOwnerDomain
-            }));
+            statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
             
             AddCommandWithIdentityTestData(property);
@@ -570,7 +562,7 @@ internal class CommandHandlerFacade
         return new[] { inv };
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements(ClassModel targetDomainModel)
+    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements()
     {
         if (!HasDomainEventBaseName())
         {
@@ -580,9 +572,6 @@ internal class CommandHandlerFacade
         var statements = new List<CSharpStatement>();
 
         statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null!);");
-
-        //statements.Add(
-        //    $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
 
         return statements;
     }

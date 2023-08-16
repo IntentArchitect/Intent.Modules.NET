@@ -40,7 +40,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
         Facade = new CommandHandlerFacade(this, model);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
@@ -70,11 +70,11 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetDomainAggegrateRepositoryRemovedAssertionStatement("testCommand"));
@@ -90,18 +90,18 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
                     method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
             });
     }
-    
+
     private CommandHandlerFacade Facade { get; }
 
     private static void AddUsingDirectives(CSharpFile file)

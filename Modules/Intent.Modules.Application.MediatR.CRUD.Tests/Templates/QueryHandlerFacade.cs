@@ -38,7 +38,8 @@ internal class QueryHandlerFacade
         _model = model;
 
         TargetDomainModel = model.Mapping?.Element?.AsClassModel()
-                            ?? model.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()
+                            ?? model.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.AsClassModel()
+                            ?? model.GetPaginatedClassModel()
                             ?? throw new Exception($"No Domain Class mapping found for Query Model Id = {model.Id} / Name = {model.Name}");
 
         QueryIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
@@ -95,6 +96,8 @@ internal class QueryHandlerFacade
     public string OwnerToCompositeNavigationPropertyName =>
         AggregateOwnerDomainModel.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
 
+    public string PagedResultInterfaceName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.PagedResult);
+    
     public bool HasDomainEventBaseName()
     {
         return DomainEventBaseName is not null;
@@ -123,12 +126,12 @@ internal class QueryHandlerFacade
         return statements;
     }
     
-    public IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_TestDataStatements(ClassModel targetDomainModel, bool includeVarKeyword)
+    public IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_TestDataStatements(bool includeVarKeyword)
     {
         var statements = new List<CSharpStatement>();
 
         statements.Add($"{(includeVarKeyword ? "var " : string.Empty)}fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(targetDomainModel));
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
 
         return statements;
     }
@@ -268,7 +271,7 @@ internal class QueryHandlerFacade
         var statements = new List<CSharpStatement>();
 
         statements.Add("var fixture = new Fixture();");
-        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements(AggregateOwnerDomainModel));
+        statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
         statements.Add(
             $"fixture.Customize<{AggregateOwnerDomainTypeName}>(comp => comp.With(p => p.{OwnerToCompositeNavigationPropertyName}, new List<{TargetDomainTypeName}>()));");
         statements.Add($"var existingOwnerEntity = fixture.Create<{AggregateOwnerDomainTypeName}>();");
@@ -298,7 +301,7 @@ internal class QueryHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements(ClassModel targetDomainModel)
+    public IReadOnlyCollection<CSharpStatement> GetDomainEventBaseAutoFixtureRegistrationStatements()
     {
         if (!HasDomainEventBaseName())
         {
@@ -308,9 +311,6 @@ internal class QueryHandlerFacade
         var statements = new List<CSharpStatement>();
 
         statements.Add($@"fixture.Register<{DomainEventBaseName}>(() => null!);");
-
-        //statements.Add(
-        //    $@"fixture.Customize<{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, targetDomainModel)}>(comp => comp.Without(x => x.DomainEvents));");
 
         return statements;
     }
@@ -332,20 +332,15 @@ internal class QueryHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateRepositoryFindAllMockingStatements(string entitiesVarName)
-    {
-        return GetDomainRepositoryFindAllMockingStatements(entitiesVarName, DomainAggregateRepositoryVarName);
-    }
-
-    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryFindAllMockingStatements(string entitiesVarName)
-    {
-        return GetDomainRepositoryFindAllMockingStatements(entitiesVarName, DomainAggregateOwnerRepositoryVarName);
-    }
-
-    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindAllMockingStatements(string entitiesVarName, string repositoryVarName)
+    public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindAllMockingStatements(
+        string entitiesVarName, 
+        string repositoryVarName,
+        int? pageNo = null,
+        int? pageSize = null)
     {
         var statements = new List<CSharpStatement>();
-        statements.Add($"{repositoryVarName}.FindAllAsync(CancellationToken.None).Returns(Task.FromResult({entitiesVarName}));");
+        var pagination = pageNo.HasValue && pageSize.HasValue ? $"{pageNo}, {pageSize}, " : string.Empty;
+        statements.Add($"{repositoryVarName}.FindAllAsync({pagination}CancellationToken.None).Returns(Task.FromResult({entitiesVarName}));");
         return statements;
     }
 
@@ -436,6 +431,22 @@ internal class QueryHandlerFacade
     {
         var statements = new List<CSharpStatement>();
         statements.Add($"await act.Should().ThrowAsync<{exceptionTypeName}>();");
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetPaginationQuerySetup(string queryVarName, int pageNo, int pageSize)
+    {
+        var statements = new List<CSharpStatement>();
+        statements.Add($"{queryVarName}.PageNo = {pageNo};");
+        statements.Add($"{queryVarName}.PageSize = {pageSize};");
+        return statements;
+    }
+    
+    public IReadOnlyCollection<CSharpStatement> GetMockedPaginatedResults(string outputVarName, string inputVarName)
+    {
+        var statements = new List<CSharpStatement>();
+        statements.Add($"var {outputVarName} = Substitute.For<{PagedResultInterfaceName}<{TargetDomainTypeName}>>();");
+        statements.Add($"{outputVarName}.GetEnumerator().Returns(c => {inputVarName}.GetEnumerator());");
         return statements;
     }
 

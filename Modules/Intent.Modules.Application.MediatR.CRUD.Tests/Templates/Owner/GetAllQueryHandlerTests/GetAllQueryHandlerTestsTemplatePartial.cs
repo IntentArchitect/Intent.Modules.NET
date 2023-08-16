@@ -59,7 +59,6 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 {
                     method.Static();
                     method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
-                        targetDomainModel: Facade.TargetDomainModel, 
                         includeVarKeyword: true));
                     method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements());
                     method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
@@ -75,18 +74,18 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainAggregateRepositoryFindAllMockingStatements("testEntities"));
+                    method.AddStatements(Facade.GetDomainRepositoryFindAllMockingStatements(entitiesVarName: "testEntities", repositoryVarName: Facade.DomainAggregateRepositoryVarName));
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
                     method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
-                    
+
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
                     method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("testEntities"));
                 });
-                
+
                 AddAssertionMethods();
             });
     }

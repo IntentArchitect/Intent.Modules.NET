@@ -7,10 +7,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Pagination.GetLogEntries
 {
-    public class GetLogEntriesValidator : AbstractValidator<GetLogEntries>
+    public class GetLogEntriesQueryValidator : AbstractValidator<GetLogEntriesQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public GetLogEntriesValidator()
+        public GetLogEntriesQueryValidator()
         {
             ConfigureValidationRules();
         }

@@ -332,6 +332,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests#b6c38348-e150-4d08-a171-7e7392655ee8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#1ce12daa-edbb-417d-aa8c-53ff8f9aee13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/UpdateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -848,6 +856,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Operations/OperationsClasses/OperationsClassAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Operations/OperationsClasses/OperationsClassAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Pagination/GetLogEntriesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntriesQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Pagination/LogEntries/LogEntryAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntries/LogEntryAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3142,24 +3166,24 @@
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntries.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntries.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
