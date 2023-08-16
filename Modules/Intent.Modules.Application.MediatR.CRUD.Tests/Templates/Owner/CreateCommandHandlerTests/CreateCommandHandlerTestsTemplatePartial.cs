@@ -83,7 +83,6 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             method.AddStatement("// Arrange");
             method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
             method.AddStatements(Facade.GetAggregateDomainRepositoryUnitOfWorkMockingStatements());
-            method.AddStatement(string.Empty);
             method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
             
             method.AddStatement(string.Empty);

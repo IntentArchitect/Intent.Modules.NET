@@ -76,7 +76,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
                         method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                         method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                        method.AddStatement(string.Empty);
                         method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
                         
                         method.AddStatement(string.Empty);

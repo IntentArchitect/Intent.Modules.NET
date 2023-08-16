@@ -96,7 +96,6 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("query"));
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetDomainAggregateRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
-                    method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);

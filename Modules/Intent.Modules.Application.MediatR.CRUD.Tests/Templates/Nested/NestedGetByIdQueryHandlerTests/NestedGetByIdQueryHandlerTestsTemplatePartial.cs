@@ -75,7 +75,6 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);

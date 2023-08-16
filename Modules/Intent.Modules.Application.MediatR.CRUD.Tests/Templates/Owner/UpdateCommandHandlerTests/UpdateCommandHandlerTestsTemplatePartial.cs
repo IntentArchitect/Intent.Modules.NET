@@ -68,7 +68,6 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatement("// Arrange");
                     method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetAggregateDomainRepositoryFindByIdMockingStatements("testCommand", "existingEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
                     
                     method.AddStatement(string.Empty);

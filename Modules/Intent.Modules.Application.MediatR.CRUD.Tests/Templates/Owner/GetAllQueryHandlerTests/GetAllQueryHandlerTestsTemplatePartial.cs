@@ -74,7 +74,6 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
                     method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                     method.AddStatements(Facade.GetDomainAggregateRepositoryFindAllMockingStatements("testEntities"));
-                    method.AddStatement(string.Empty);
                     method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
                     
                     method.AddStatement(string.Empty);

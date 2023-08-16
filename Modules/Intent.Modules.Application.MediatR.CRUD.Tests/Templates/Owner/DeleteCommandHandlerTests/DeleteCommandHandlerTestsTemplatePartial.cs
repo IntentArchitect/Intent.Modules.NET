@@ -78,7 +78,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements(Facade.GetDomainAggegrateRepositoryRemovedAssertionStatement("testCommand"));
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SimpleDomainClassName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
