@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRoots;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -37,8 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             yield return new object[] { fixture.CreateMany<AggregateRoot>().ToList() };
             yield return new object[] { fixture.CreateMany<AggregateRoot>(0).ToList() };
         }
@@ -48,17 +48,18 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidQuery_RetrievesAggregateRoots(List<AggregateRoot> testEntities)
         {
             // Arrange
-            var testQuery = new GetAggregateRootsQuery();
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
+            var fixture = new Fixture();
+            var testQuery = fixture.Create<GetAggregateRootsQuery>();
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
-            var sut = new GetAggregateRootsQueryHandler(repository, _mapper);
+            var sut = new GetAggregateRootsQueryHandler(aggregateRootRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(result, testEntities);
+            AggregateRootAssertions.AssertEquivalent(results, testEntities);
         }
     }
 }

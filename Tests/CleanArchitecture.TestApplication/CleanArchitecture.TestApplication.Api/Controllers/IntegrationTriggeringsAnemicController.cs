@@ -4,9 +4,9 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Controllers.ResponseTypes;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.CreateIntegrationTriggering;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.DeleteIntegrationTriggering;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.UpdateIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.CreateAnemicIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.DeleteAnemicIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.UpdateAnemicIntegrationTriggering;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -39,8 +39,8 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateIntegrationTriggering(
-            [FromBody] CreateIntegrationTriggeringCommand command,
+        public async Task<ActionResult<Guid>> CreateAnemicIntegrationTriggering(
+            [FromBody] CreateAnemicIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
@@ -55,11 +55,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteIntegrationTriggering(
+        public async Task<ActionResult> DeleteAnemicIntegrationTriggering(
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteIntegrationTriggeringCommand(id: id), cancellationToken);
+            await _mediator.Send(new DeleteAnemicIntegrationTriggeringCommand(id: id), cancellationToken);
             return Ok();
         }
 
@@ -71,9 +71,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> UpdateIntegrationTriggering(
+        public async Task<ActionResult> UpdateAnemicIntegrationTriggering(
             [FromRoute] Guid id,
-            [FromBody] UpdateIntegrationTriggeringCommand command,
+            [FromBody] UpdateAnemicIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
             if (id != command.Id)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
@@ -36,21 +37,22 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(CreateAggregateRootCommand testCommand)
         {
             // Arrange
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
             var expectedAggregateRootId = new Fixture().Create<System.Guid>();
             AggregateRoot addedAggregateRoot = null;
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.OnAdd(ent => addedAggregateRoot = ent);
-            repository.UnitOfWork
+            aggregateRootRepository.OnAdd(ent => addedAggregateRoot = ent);
+            aggregateRootRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ => addedAggregateRoot.Id = expectedAggregateRootId);
-            var sut = new CreateAggregateRootCommandHandler(repository);
+
+            var sut = new CreateAggregateRootCommandHandler(aggregateRootRepository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
             result.Should().Be(expectedAggregateRootId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            await aggregateRootRepository.UnitOfWork.Received(1).SaveChangesAsync();
             AggregateRootAssertions.AssertEquivalent(testCommand, addedAggregateRoot);
         }
     }

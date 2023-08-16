@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.GetImplicitKeyAggrRootImplicitKeyNestedCompositions;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -37,13 +38,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            yield return new object[] { fixture.Create<ImplicitKeyAggrRoot>() };
+            fixture.Register<DomainEvent>(() => null!);
 
+            var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            yield return new object[] { existingOwnerEntity };
             fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.With(p => p.ImplicitKeyNestedCompositions, new List<ImplicitKeyNestedComposition>()));
-            yield return new object[] { fixture.Create<ImplicitKeyAggrRoot>() };
+            fixture.Register<DomainEvent>(() => null!);
+
+            existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            yield return new object[] { existingOwnerEntity };
         }
 
         [Theory]
@@ -51,17 +54,18 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public async Task Handle_WithValidQuery_RetrievesImplicitKeyNestedCompositions(ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
-            var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery(existingOwnerEntity.Id);
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testQuery.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+            var fixture = new Fixture();
+            var testQuery = fixture.Create<GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery>();
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testQuery.ImplicitKeyAggrRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
 
-            var sut = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQueryHandler(repository, _mapper);
+            var sut = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQueryHandler(implicitKeyAggrRootRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            ImplicitKeyAggrRootAssertions.AssertEquivalent(result, existingOwnerEntity.ImplicitKeyNestedCompositions);
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(results, existingOwnerEntity.ImplicitKeyNestedCompositions);
         }
     }
 }

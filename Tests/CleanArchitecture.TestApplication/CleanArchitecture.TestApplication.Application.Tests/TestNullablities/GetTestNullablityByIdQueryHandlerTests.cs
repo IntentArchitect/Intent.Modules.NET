@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.TestNullablities;
 using CleanArchitecture.TestApplication.Application.TestNullablities.GetTestNullablityById;
 using CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNullablities;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -38,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<TestNullablity>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
+
             var existingEntity = fixture.Create<TestNullablity>();
-            fixture.Customize<GetTestNullablityByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            fixture.Customize<GetTestNullablityByIdQuery>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testQuery = fixture.Create<GetTestNullablityByIdQuery>();
             yield return new object[] { testQuery, existingEntity };
         }
@@ -53,16 +54,17 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             TestNullablity existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
+            testNullablityRepository.FindByIdAsync(testQuery.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new GetTestNullablityByIdQueryHandler(repository, _mapper);
+
+            var sut = new GetTestNullablityByIdQueryHandler(testNullablityRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            TestNullablityAssertions.AssertEquivalent(result, existingEntity);
+            TestNullablityAssertions.AssertEquivalent(results, existingEntity);
         }
 
         [Fact]
@@ -71,11 +73,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             // Arrange
             var fixture = new Fixture();
             var query = fixture.Create<GetTestNullablityByIdQuery>();
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
+            testNullablityRepository.FindByIdAsync(query.Id, CancellationToken.None)!.Returns(Task.FromResult<TestNullablity>(default));
 
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<TestNullablity>(default));
-
-            var sut = new GetTestNullablityByIdQueryHandler(repository, _mapper);
+            var sut = new GetTestNullablityByIdQueryHandler(testNullablityRepository, _mapper);
 
             // Act
             var act = async () => await sut.Handle(query, CancellationToken.None);

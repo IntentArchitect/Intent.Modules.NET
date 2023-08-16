@@ -24,8 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<ImplicitKeyAggrRoot>();
             fixture.Customize<DeleteImplicitKeyAggrRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteImplicitKeyAggrRootCommand>();
@@ -39,30 +38,29 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyAggrRoot existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new DeleteImplicitKeyAggrRootCommandHandler(repository);
+            var sut = new DeleteImplicitKeyAggrRootCommandHandler(implicitKeyAggrRootRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            repository.Received(1).Remove(Arg.Is<ImplicitKeyAggrRoot>(p => p.Id == testCommand.Id));
+            implicitKeyAggrRootRepository.Received(1).Remove(Arg.Is<ImplicitKeyAggrRoot>(p => testCommand.Id == p.Id));
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidImplicitKeyAggrRootId_ReturnsNotFound()
         {
             // Arrange
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteImplicitKeyAggrRootCommand>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<ImplicitKeyAggrRoot>(default));
 
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<ImplicitKeyAggrRoot>(default));
-            repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
-            var sut = new DeleteImplicitKeyAggrRootCommandHandler(repository);
+            var sut = new DeleteImplicitKeyAggrRootCommandHandler(implicitKeyAggrRootRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

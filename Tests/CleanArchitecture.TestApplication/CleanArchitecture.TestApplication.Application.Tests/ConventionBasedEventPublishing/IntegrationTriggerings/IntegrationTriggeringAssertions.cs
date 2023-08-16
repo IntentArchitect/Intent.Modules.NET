@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.CreateIntegrationTriggering;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.UpdateIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.CreateAnemicIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.UpdateAnemicIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.CreateDddIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.UpdateDddIntegrationTriggering;
 using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPublishing;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
@@ -14,7 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ConventionBasedEve
     public static class IntegrationTriggeringAssertions
     {
         public static void AssertEquivalent(
-            CreateIntegrationTriggeringCommand expectedDto,
+            CreateAnemicIntegrationTriggeringCommand expectedDto,
             IntegrationTriggering actualEntity)
         {
             if (expectedDto == null)
@@ -28,7 +30,20 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ConventionBasedEve
         }
 
         public static void AssertEquivalent(
-            UpdateIntegrationTriggeringCommand expectedDto,
+            CreateDddIntegrationTriggeringCommand expectedDto,
+            IntegrationTriggering actualEntity)
+        {
+            if (expectedDto == null)
+            {
+                actualEntity.Should().BeNull();
+                return;
+            }
+
+            actualEntity.Should().NotBeNull();
+        }
+
+        public static void AssertEquivalent(
+            UpdateAnemicIntegrationTriggeringCommand expectedDto,
             IntegrationTriggering actualEntity)
         {
             if (expectedDto == null)
@@ -39,6 +54,19 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ConventionBasedEve
 
             actualEntity.Should().NotBeNull();
             actualEntity.Value.Should().Be(expectedDto.Value);
+        }
+
+        public static void AssertEquivalent(
+            UpdateDddIntegrationTriggeringCommand expectedDto,
+            IntegrationTriggering actualEntity)
+        {
+            if (expectedDto == null)
+            {
+                actualEntity.Should().BeNull();
+                return;
+            }
+
+            actualEntity.Should().NotBeNull();
         }
     }
 }

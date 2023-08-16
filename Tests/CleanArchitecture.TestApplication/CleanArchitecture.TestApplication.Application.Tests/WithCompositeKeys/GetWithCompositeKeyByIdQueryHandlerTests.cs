@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.WithCompositeKeys;
 using CleanArchitecture.TestApplication.Application.WithCompositeKeys.GetWithCompositeKeyById;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
@@ -37,31 +38,34 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<WithCompositeKey>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
+
             var existingEntity = fixture.Create<WithCompositeKey>();
-            //fixture.Customize<GetWithCompositeKeyByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            fixture.Customize<GetWithCompositeKeyByIdQuery>(comp => comp
+                .With(x => x.Key1Id, existingEntity.Key1Id)
+                .With(x => x.Key2Id, existingEntity.Key2Id));
             var testQuery = fixture.Create<GetWithCompositeKeyByIdQuery>();
             yield return new object[] { testQuery, existingEntity };
         }
 
-        [Theory(Skip = "Not working")]
+        [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidQuery_RetrievesWithCompositeKey(
             GetWithCompositeKeyByIdQuery testQuery,
             WithCompositeKey existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            //repository.FindByIdAsync(testQuery.Key1Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            withCompositeKeyRepository.FindByIdAsync((testQuery.Key1Id, testQuery.Key2Id), CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new GetWithCompositeKeyByIdQueryHandler(repository, _mapper);
+
+            var sut = new GetWithCompositeKeyByIdQueryHandler(withCompositeKeyRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            WithCompositeKeyAssertions.AssertEquivalent(result, existingEntity);
+            WithCompositeKeyAssertions.AssertEquivalent(results, existingEntity);
         }
 
         [Fact]
@@ -70,11 +74,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             // Arrange
             var fixture = new Fixture();
             var query = fixture.Create<GetWithCompositeKeyByIdQuery>();
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            withCompositeKeyRepository.FindByIdAsync((query.Key1Id, query.Key2Id), CancellationToken.None)!.Returns(Task.FromResult<WithCompositeKey>(default));
 
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            //repository.FindByIdAsync(query.Key1Id, CancellationToken.None).Returns(Task.FromResult<WithCompositeKey>(default));
-
-            var sut = new GetWithCompositeKeyByIdQueryHandler(repository, _mapper);
+            var sut = new GetWithCompositeKeyByIdQueryHandler(withCompositeKeyRepository, _mapper);
 
             // Act
             var act = async () => await sut.Handle(query, CancellationToken.None);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
@@ -36,21 +37,22 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         public async Task Handle_WithValidCommand_AddsAggregateRootLongToRepository(CreateAggregateRootLongCommand testCommand)
         {
             // Arrange
+            var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
             var expectedAggregateRootLongId = new Fixture().Create<long>();
             AggregateRootLong addedAggregateRootLong = null;
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.OnAdd(ent => addedAggregateRootLong = ent);
-            repository.UnitOfWork
+            aggregateRootLongRepository.OnAdd(ent => addedAggregateRootLong = ent);
+            aggregateRootLongRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ => addedAggregateRootLong.Id = expectedAggregateRootLongId);
-            var sut = new CreateAggregateRootLongCommandHandler(repository);
+
+            var sut = new CreateAggregateRootLongCommandHandler(aggregateRootLongRepository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
             result.Should().Be(expectedAggregateRootLongId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            await aggregateRootLongRepository.UnitOfWork.Received(1).SaveChangesAsync();
             AggregateRootLongAssertions.AssertEquivalent(testCommand, addedAggregateRootLong);
         }
     }

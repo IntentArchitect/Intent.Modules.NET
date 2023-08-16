@@ -26,26 +26,32 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             yield return new object[] { fixture.Create<CreateWithCompositeKeyCommand>() };
         }
 
-        [Theory(Skip = "Not working")]
+        [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsWithCompositeKeyToRepository(CreateWithCompositeKeyCommand testCommand)
         {
             // Arrange
-            var expectedWithCompositeKeyId = new Fixture().Create<System.Guid>();
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            var expectedWithCompositeKeyKey1Id = new Fixture().Create<System.Guid>();
+            var expectedWithCompositeKeyKey2Id = new Fixture().Create<System.Guid>();
             WithCompositeKey addedWithCompositeKey = null;
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            repository.OnAdd(ent => addedWithCompositeKey = ent);
-            repository.UnitOfWork
+            withCompositeKeyRepository.OnAdd(ent => addedWithCompositeKey = ent);
+            withCompositeKeyRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
-                .Do(_ => addedWithCompositeKey.Key1Id = expectedWithCompositeKeyId);
-            var sut = new CreateWithCompositeKeyCommandHandler(repository);
+                .Do(_ =>
+                {
+                    addedWithCompositeKey.Key1Id = expectedWithCompositeKeyKey1Id;
+                    addedWithCompositeKey.Key2Id = expectedWithCompositeKeyKey2Id;
+                });
+
+            var sut = new CreateWithCompositeKeyCommandHandler(withCompositeKeyRepository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            result.Should().Be(expectedWithCompositeKeyId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            result.Should().Be(expectedWithCompositeKeyKey1Id);
+            await withCompositeKeyRepository.UnitOfWork.Received(1).SaveChangesAsync();
             WithCompositeKeyAssertions.AssertEquivalent(testCommand, addedWithCompositeKey);
         }
     }

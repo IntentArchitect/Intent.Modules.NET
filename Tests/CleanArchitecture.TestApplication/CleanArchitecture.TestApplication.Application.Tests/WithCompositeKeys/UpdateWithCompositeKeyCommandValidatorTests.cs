@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             yield return new object[] { testCommand };
         }
 
-        [Theory(Skip = "Not working")]
+        [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Validate_WithValidCommand_PassesValidation(UpdateWithCompositeKeyCommand testCommand)
         {

@@ -26,6 +26,34 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             actualEntity.Name.Should().Be(expectedDto.Name);
         }
 
+        public static void AssertEquivalent(
+            IEnumerable<WithCompositeKeyDto> actualDtos,
+            IEnumerable<WithCompositeKey> expectedEntities)
+        {
+            if (expectedEntities == null)
+            {
+                actualDtos.Should().BeNullOrEmpty();
+                return;
+            }
+
+            actualDtos.Should().HaveSameCount(actualDtos);
+            for (int i = 0; i < expectedEntities.Count(); i++)
+            {
+                var entity = expectedEntities.ElementAt(i);
+                var dto = actualDtos.ElementAt(i);
+                if (entity == null)
+                {
+                    dto.Should().BeNull();
+                    continue;
+                }
+
+                dto.Should().NotBeNull();
+                dto.Key1Id.Should().Be(entity.Key1Id);
+                dto.Key2Id.Should().Be(entity.Key2Id);
+                dto.Name.Should().Be(entity.Name);
+            }
+        }
+
         public static void AssertEquivalent(WithCompositeKeyDto actualDto, WithCompositeKey expectedEntity)
         {
             if (expectedEntity == null)

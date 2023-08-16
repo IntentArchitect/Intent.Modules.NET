@@ -284,6 +284,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#cc7186ab-1267-40a7-94f1-d3612d5abc90</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/CreateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -540,6 +548,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#cbff8e99-069f-41ff-b604-b1899cb7605c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/GetClassWithEnumsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/UpdateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -616,6 +632,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/AccountHolders/AccountHolderAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolders/AccountHolderAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#7bd45b8d-4efd-4c7b-8b66-838e686febd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/CreateAccountHolderHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/CreateAccountHolderHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -774,40 +798,56 @@
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/DeleteIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -852,10 +892,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#c9605cb3-6d77-40fc-8dea-9c8044163d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/GetTestNullablitiesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablitiesQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -888,7 +944,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -896,7 +952,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -904,7 +960,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -912,7 +968,15 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#ff8fa181-d3e7-4c7b-9d27-835bf2aae863</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/GetWithCompositeKeysQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeysQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -920,7 +984,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -928,7 +992,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -2926,120 +2990,120 @@
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

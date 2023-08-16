@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.ClassWithEnums;
 using CleanArchitecture.TestApplication.Application.ClassWithEnums.GetClassWithEnumsById;
 using CleanArchitecture.TestApplication.Application.Tests.Enums.ClassWithEnums;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -38,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<Domain.Entities.Enums.ClassWithEnums>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
+
             var existingEntity = fixture.Create<Domain.Entities.Enums.ClassWithEnums>();
-            fixture.Customize<GetClassWithEnumsByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            fixture.Customize<GetClassWithEnumsByIdQuery>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testQuery = fixture.Create<GetClassWithEnumsByIdQuery>();
             yield return new object[] { testQuery, existingEntity };
         }
@@ -53,16 +54,17 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             Domain.Entities.Enums.ClassWithEnums existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
+            classWithEnumsRepository.FindByIdAsync(testQuery.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new GetClassWithEnumsByIdQueryHandler(repository, _mapper);
+
+            var sut = new GetClassWithEnumsByIdQueryHandler(classWithEnumsRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            ClassWithEnumsAssertions.AssertEquivalent(result, existingEntity);
+            ClassWithEnumsAssertions.AssertEquivalent(results, existingEntity);
         }
 
         [Fact]
@@ -71,11 +73,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             // Arrange
             var fixture = new Fixture();
             var query = fixture.Create<GetClassWithEnumsByIdQuery>();
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
+            classWithEnumsRepository.FindByIdAsync(query.Id, CancellationToken.None)!.Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(default));
 
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(default));
-
-            var sut = new GetClassWithEnumsByIdQueryHandler(repository, _mapper);
+            var sut = new GetClassWithEnumsByIdQueryHandler(classWithEnumsRepository, _mapper);
 
             // Act
             var act = async () => await sut.Handle(query, CancellationToken.None);

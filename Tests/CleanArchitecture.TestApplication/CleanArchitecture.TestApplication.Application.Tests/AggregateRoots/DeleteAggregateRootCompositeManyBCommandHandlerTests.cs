@@ -24,46 +24,46 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
+            var existingEntity = existingOwnerEntity.Composites.First();
+            existingEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<DeleteAggregateRootCompositeManyBCommand>(comp => comp
-            .With(x => x.Id, existingOwnerEntity.Composites.First().Id)
-            .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
+                .With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, existingOwnerEntity };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_DeletesCompositeManyBFromRepository(
+        public async Task Handle_WithValidCommand_DeletesCompositeManyBFromAggregateRoot(
             DeleteAggregateRootCompositeManyBCommand testCommand,
             AggregateRoot existingOwnerEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testCommand.AggregateRootId).Returns(Task.FromResult(existingOwnerEntity));
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
 
-            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(repository);
+            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(aggregateRootRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            existingOwnerEntity.Composites.Should().NotContain(p => p.Id == testCommand.Id);
+            existingOwnerEntity.Composites.Should().NotContain(p => testCommand.Id == p.Id);
         }
 
         [Fact]
-        public async Task Handle_WithInvalidOwnerIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidAggregateRootId_ReturnsNotFound()
         {
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteAggregateRootCompositeManyBCommand>();
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult<AggregateRoot>(default));
 
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(default));
-
-            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(repository);
+            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(aggregateRootRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
@@ -73,19 +73,19 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidCompositeManyBId_ReturnsNotFound()
         {
-            // Arrange
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
+            fixture.Register<DomainEvent>(() => null!);
+            fixture.Customize<AggregateRoot>(comp => comp.With(p => p.Composites, new List<CompositeManyB>()));
+            var existingOwnerEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<DeleteAggregateRootCompositeManyBCommand>(comp => comp
+                .With(p => p.AggregateRootId, existingOwnerEntity.Id));
             var testCommand = fixture.Create<DeleteAggregateRootCompositeManyBCommand>();
-            var owner = fixture.Create<AggregateRoot>();
-            testCommand.AggregateRootId = owner.Id;
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
 
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(default));
-
-            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(repository);
+            var sut = new DeleteAggregateRootCompositeManyBCommandHandler(aggregateRootRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

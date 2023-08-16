@@ -8,6 +8,7 @@ using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.CreateI
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
 using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using FluentAssertions;
@@ -25,25 +26,28 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
+            fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
-            var command = fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
-            command.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
-            yield return new object[] { command, existingOwnerEntity };
+            var existingEntity = existingOwnerEntity.ImplicitKeyNestedCompositions.First();
+            existingEntity.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
+            fixture.Customize<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
+                .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(
+        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToImplicitKeyAggrRoot(
             CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand,
             ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
             var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
-            repository.UnitOfWork
+            implicitKeyAggrRootRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ =>
                 {
@@ -51,14 +55,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                     addedImplicitKeyNestedComposition.Id = expectedImplicitKeyAggrRootId;
                     addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = testCommand.ImplicitKeyAggrRootId;
                 });
-            var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
+
+            var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(implicitKeyAggrRootRepository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
             result.Should().Be(expectedImplicitKeyAggrRootId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            await implicitKeyAggrRootRepository.UnitOfWork.Received(1).SaveChangesAsync();
             ImplicitKeyAggrRootAssertions.AssertEquivalent(testCommand, addedImplicitKeyNestedComposition);
         }
     }

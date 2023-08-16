@@ -24,25 +24,26 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<WithCompositeKey>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<WithCompositeKey>();
-            fixture.Customize<UpdateWithCompositeKeyCommand>(comp => comp.With(x => x.Key1Id, existingEntity.Key1Id));
+            fixture.Customize<UpdateWithCompositeKeyCommand>(comp => comp
+                .With(x => x.Key1Id, existingEntity.Key1Id)
+                .With(x => x.Key2Id, existingEntity.Key2Id));
             var testCommand = fixture.Create<UpdateWithCompositeKeyCommand>();
             yield return new object[] { testCommand, existingEntity };
         }
 
-        [Theory(Skip = "Not working")]
+        [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(
             UpdateWithCompositeKeyCommand testCommand,
             WithCompositeKey existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            //repository.FindByIdAsync(testCommand.Key1Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            withCompositeKeyRepository.FindByIdAsync((testCommand.Key1Id, testCommand.Key2Id), CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateWithCompositeKeyCommandHandler(repository);
+            var sut = new UpdateWithCompositeKeyCommandHandler(withCompositeKeyRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -57,11 +58,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateWithCompositeKeyCommand>();
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            withCompositeKeyRepository.FindByIdAsync((testCommand.Key1Id, testCommand.Key2Id), CancellationToken.None)!.Returns(Task.FromResult<WithCompositeKey>(default));
 
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            //repository.FindByIdAsync(testCommand.Key1Id, CancellationToken.None).Returns(Task.FromResult<WithCompositeKey>(null));
 
-            var sut = new UpdateWithCompositeKeyCommandHandler(repository);
+            var sut = new UpdateWithCompositeKeyCommandHandler(withCompositeKeyRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

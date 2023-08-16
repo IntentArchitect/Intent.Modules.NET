@@ -25,8 +25,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateTestNoIdReturn>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateTestNoIdReturn>();
             fixture.Customize<UpdateAggregateTestNoIdReturnCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateTestNoIdReturnCommand>();
@@ -40,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             AggregateTestNoIdReturn existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
+            aggregateTestNoIdReturnRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateAggregateTestNoIdReturnCommandHandler(repository);
+            var sut = new UpdateAggregateTestNoIdReturnCommandHandler(aggregateTestNoIdReturnRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -58,11 +57,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateAggregateTestNoIdReturnCommand>();
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
+            aggregateTestNoIdReturnRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<AggregateTestNoIdReturn>(default));
 
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<AggregateTestNoIdReturn>(null));
 
-            var sut = new UpdateAggregateTestNoIdReturnCommandHandler(repository);
+            var sut = new UpdateAggregateTestNoIdReturnCommandHandler(aggregateTestNoIdReturnRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
