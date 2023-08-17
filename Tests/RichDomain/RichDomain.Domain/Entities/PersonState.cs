@@ -10,6 +10,15 @@ namespace RichDomain.Domain.Entities
 {
     public partial class Person : IPerson, IHasDomainEvent
     {
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected Person()
+        {
+            FirstName = null!;
+            Department = null!;
+        }
         public Guid Id { get; private set; }
 
         public string FirstName { get; private set; }

@@ -25,6 +25,7 @@ namespace Intent.Modules.Constants
             {
                 public const string Primary = "Domain.Entity";
                 public const string Interface = "Domain.Entity.Interface";
+                public const string EntityImplementation = "Domain.Entity.Primary";
                 public const string State = "Domain.Entity.State";
             }
 
