@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
@@ -10,8 +9,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 {
@@ -50,18 +47,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         [Obsolete($"As per {nameof(LaunchProfileRegistrationEvent)}")]
         private void Handle(ApplicationEvent @event)
         {
-            // TODO: Align this file with the schema: http://json.schemastore.org/launchsettings.json
             Profiles.Add(@event.GetValue(LaunchProfileRegistrationEvent.ProfileNameKey), new Profile
             {
-                commandName = @event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey),
-                launchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey),
+                CommandName = Enum.Parse<CommandName>(@event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey)),
+                LaunchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey),
                     out var launchBrowser) && launchBrowser,
-                launchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
-                applicationUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.ApplicationUrl),
-                publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts),
-                    out var publishAllPorts) && publishAllPorts,
-                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSsl) &&
-                         useSsl,
+                LaunchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
+                ApplicationUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.ApplicationUrl),
+                PublishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts),
+                    out var publishAllPorts) && publishAllPorts ? null : true,
+                UseSsl = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSsl) && useSsl ? null : false,
             });
         }
 
@@ -74,13 +69,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             Profiles.Add(request.Name, new Profile
             {
-                commandName = request.CommandName,
-                launchBrowser = request.LaunchBrowser,
-                applicationUrl = request.ApplicationUrl,
-                launchUrl = request.LaunchUrl,
-                publishAllPorts = request.PublishAllPorts,
-                //Schema for json says default value is true
-                useSSL = request.UseSsl ? null : false,
+                CommandName = Enum.Parse<CommandName>(request.CommandName),
+                LaunchBrowser = request.LaunchBrowser,
+                ApplicationUrl = request.ApplicationUrl,
+                LaunchUrl = request.LaunchUrl,
+                PublishAllPorts = request.PublishAllPorts ? null : false, // default value is true
+                UseSsl = request.UseSsl ? null : false, // default value is true
             });
 
             if (request.EnvironmentVariables?.Count > 0)
@@ -140,107 +134,98 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 return;
             }
 
-            var appSettings = JsonConvert.DeserializeObject<JObject>(content);
-            if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(), out _randomSslPort) &&
-                appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString()
-                    .Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Any(x => int.TryParse(x, out _randomPort)) == true)
+            var iisExpress = LaunchSettings.FromJson(content).IisSettings?.IisExpress;
+            if (iisExpress?.ApplicationUrl == null ||
+                !iisExpress.SslPort.HasValue)
             {
-                ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
-                    applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(),
-                    port: _randomPort,
-                    sslPort: _randomSslPort));
+                return;
             }
+
+            _randomPort = iisExpress.ApplicationUrl.Port;
+            _randomSslPort = iisExpress.SslPort.Value;
+
+            ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
+                applicationUrl: iisExpress.ApplicationUrl.ToString(),
+                port: _randomPort,
+                sslPort: _randomSslPort));
         }
 
         public override string TransformText()
         {
-            if (!TryGetExistingFileContent(out var content))
-            {
-                content = JsonConvert.SerializeObject(new LaunchSettingsJson
+            var launchSettings = TryGetExistingFileContent(out var content)
+                ? LaunchSettings.FromJson(content)
+                : new LaunchSettings
                 {
-                    iisSettings = new IISSettings
+                    IisSettings = new IisSetting
                     {
-                        windowsAuthentication = false,
-                        anonymousAuthentication = true,
-                        iisExpress = new IISExpress
+                        WindowsAuthentication = false,
+                        AnonymousAuthentication = true,
+                        IisExpress = new IisExpressClass
                         {
-                            applicationUrl = $"http://localhost:{_randomPort}/",
-                            sslPort = _randomSslPort
+                            ApplicationUrl = new Uri($"http://localhost:{_randomPort}/"),
+                            SslPort = _randomSslPort
                         }
                     },
-                    profiles = new Dictionary<string, Profile>
+                    Profiles = new Dictionary<string, Profile>
                     {
+
+                        [Project.Name] = new()
                         {
-                            Project.Name, new Profile
-                            {
-                                commandName = "Project",
-                                launchBrowser = true,
-                                applicationUrl = $"https://localhost:{_randomSslPort}/",
-                                launchUrl = _defaultLaunchUrlPath == null
-                                    ? null
-                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}" 
-                            }
+                            CommandName = CommandName.Project,
+                            LaunchBrowser = true,
+                            ApplicationUrl = $"https://localhost:{_randomSslPort}/",
+                            LaunchUrl = _defaultLaunchUrlPath == null
+                                ? null
+                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
                         },
+                        ["IIS Express"] = new()
                         {
-                            "IIS Express", new Profile
-                            {
-                                commandName = "IISExpress",
-                                launchBrowser = true,
-                                launchUrl = _defaultLaunchUrlPath == null
-                                    ? null
-                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
-                            }
+                            CommandName = CommandName.IisExpress,
+                            LaunchBrowser = true,
+                            LaunchUrl = _defaultLaunchUrlPath == null
+                                ? null
+                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
                         }
+
                     }
-                }, new JsonSerializerSettings
-                {
-                    Formatting = Formatting.Indented,
-                    NullValueHandling = NullValueHandling.Ignore
-                });
-            }
+                };
 
-            dynamic config = JsonConvert.DeserializeObject(content, new JsonSerializerSettings())!;
-
-            if (config.profiles == null)
+            foreach (var (key, profile) in Profiles)
             {
-                config.profiles = JObject.FromObject(new Dictionary<string, string>());
-            }
-
-            foreach (var profile in Profiles)
-            {
-                if (config.profiles[profile.Key] == null)
+                launchSettings.Profiles ??= new Dictionary<string, Profile>();
+                if (launchSettings.Profiles.ContainsKey(key))
                 {
-                    config.profiles[profile.Key] = JObject.FromObject(profile.Value, JsonSerializer.Create(
-                        new JsonSerializerSettings
-                        {
-                            Formatting = Formatting.Indented,
-                            NullValueHandling = NullValueHandling.Ignore
-                        }));
+                    continue;
                 }
+
+                launchSettings.Profiles[key] = profile;
             }
 
             // In case has not been set through an event, sets this be default.
-            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT",
-                "Development", new[] { "IIS Express", Project.Name }));
+            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest(
+                "ASPNETCORE_ENVIRONMENT", "Development",
+                new[]
+                {
+                    "IIS Express",
+                    Project.Name
+                }));
 
             foreach (var environmentVariable in _environmentVariables)
             {
-                foreach (var profile in ((IEnumerable<dynamic>)config.profiles)
-                         .Where(x => environmentVariable.TargetProfiles == null ||
-                                     environmentVariable.TargetProfiles.Any(p => p == ((JProperty)x).Name))
-                         .Select(x => x.Value))
+                var keys = environmentVariable.TargetProfiles ??= launchSettings.Profiles.Keys;
+                foreach (var key in keys)
                 {
-                    profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
-                    profile.environmentVariables[environmentVariable.Key] ??= environmentVariable.Value;
+                    if (!launchSettings.Profiles.TryGetValue(key, out var profile))
+                    {
+                        continue;
+                    }
+
+                    profile.EnvironmentVariables ??= new Dictionary<string, string>();
+                    profile.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value as string;
                 }
             }
 
-            return JsonConvert.SerializeObject(config, new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore
-            });
+            return launchSettings.ToJson();
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()
@@ -253,41 +238,5 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 relativeLocation: "Properties"
             );
         }
-    }
-
-        // ReSharper disable InconsistentNaming
-    public class LaunchSettingsJson
-    {
-        public IISSettings iisSettings { get; set; }
-        public Dictionary<string, Profile> profiles { get; set; }
-    }
-
-    public class IISSettings
-    {
-        public bool windowsAuthentication { get; set; }
-        public bool anonymousAuthentication { get; set; }
-        public IISExpress iisExpress { get; set; }
-    }
-
-    public class IISExpress
-    {
-        public string applicationUrl { get; set; }
-        public int sslPort { get; set; }
-    }
-
-    public class Profile
-    {
-        public string commandName { get; set; }
-        public bool launchBrowser { get; set; }
-        public object environmentVariables { get; set; }
-        public string applicationUrl { get; set; }
-        public string launchUrl { get; set; }
-        public bool publishAllPorts { get; set; }
-        public bool? useSSL { get; set; }
-    }
-    // ReSharper restore InconsistentNaming
-
-    public class EnvironmentVariables
-    {
     }
 }
