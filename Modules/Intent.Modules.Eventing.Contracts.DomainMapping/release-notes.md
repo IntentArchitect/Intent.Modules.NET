@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Fixed: DomainEvent to IntegrationEvent mapping are now being populated in the mappings.
+
 ### Version 4.1.1
 
 - Fixed: Messages and DTOs will now prefer the generated Integration Enum above the Domain Enum for type referencing and will perform Enum casting where necessary.

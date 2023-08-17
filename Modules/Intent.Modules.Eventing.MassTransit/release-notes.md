@@ -1,6 +1,10 @@
+### Version 5.2.0
+
+- New Feature: Finbuckle tenancy support for MassTransit messaging.
+
 ### Version 5.1.0
 
-Update : upgraded to MediatR 12.
+- Improvement: upgraded to MediatR 12.
 
 ### Version 5.0.0
 

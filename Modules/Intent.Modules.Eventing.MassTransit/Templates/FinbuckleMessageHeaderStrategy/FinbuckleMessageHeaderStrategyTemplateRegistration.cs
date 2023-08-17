@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
+namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MassTransitEventBusTemplateRegistration : SingleFileTemplateRegistration
+    public class FinbuckleMessageHeaderStrategyTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => MassTransitEventBusTemplate.TemplateId;
+        public override string TemplateId => FinbuckleMessageHeaderStrategyTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MassTransitEventBusTemplate(outputTarget);
+            return new FinbuckleMessageHeaderStrategyTemplate(outputTarget);
         }
     }
 }
