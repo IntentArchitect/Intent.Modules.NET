@@ -49,5 +49,6 @@
     <application id="97676be7-09a6-4122-b522-2462fb5b011b" name="SignalR" relativePath="SignalR/SignalR.application.config" />
     <application id="38950864-1930-4a7f-9a21-57f1b4043ad1" name="RichDomain" relativePath="RichDomain/RichDomain.application.config" />
     <application id="34dbc504-75a2-418a-825a-85c6bb5d234e" name="MultipleDocumentStores" relativePath="MultipleDocumentStores/MultipleDocumentStores.application.config" />
+    <application id="99d9853b-ec11-46cc-aa5c-f9341252f75f" name="MassTransitFinbuckle.Test" relativePath="MassTransitFinbuckle.Test/MassTransitFinbuckle.Test.application.config" />
   </applications>
 </solution>

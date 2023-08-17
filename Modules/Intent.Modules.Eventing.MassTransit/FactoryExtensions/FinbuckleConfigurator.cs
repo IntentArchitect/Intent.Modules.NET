@@ -25,8 +25,12 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration"));
+            bool finbuckleInstalled = template != null;
+            if (!finbuckleInstalled) return;
+             
             WireupMassTransitFilters(application);
-            WireupFinbuckleTenancyStrategy(application);            
+            WireupFinbuckleTenancyStrategy(application);                           
         }
 
         private void WireupMassTransitFilters(IApplication application)
