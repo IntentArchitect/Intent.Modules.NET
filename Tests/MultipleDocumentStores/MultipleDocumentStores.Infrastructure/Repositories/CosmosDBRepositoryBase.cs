@@ -114,11 +114,11 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
         /// </summary>
         public static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
         {
-            if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format("{0} is not assignable from {1}.", typeof(TPersistence), typeof(TDocument)));
+            if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.");
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
-            return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body), afterParameter);
+            return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor
@@ -132,7 +132,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
                 _after = after;
             }
 
-            public override Expression Visit(Expression node)
+            public override Expression? Visit(Expression? node)
             {
                 return node == _before ? _after : base.Visit(node);
             }

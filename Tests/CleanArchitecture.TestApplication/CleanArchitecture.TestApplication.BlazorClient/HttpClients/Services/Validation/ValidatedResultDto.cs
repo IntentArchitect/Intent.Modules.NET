@@ -9,6 +9,14 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Va
 {
     public class ValidatedResultDto
     {
+        public ValidatedResultDto()
+        {
+            RangeStr = null!;
+            MinStr = null!;
+            MaxStr = null!;
+            IsRequired = null!;
+            IsRequiredEmpty = null!;
+        }
         [Required(ErrorMessage = "Range str is required.")]
         [StringLength(5, MinimumLength = 3, ErrorMessage = "Range str must be between 3 and 5 characters.")]
         public string RangeStr { get; set; }

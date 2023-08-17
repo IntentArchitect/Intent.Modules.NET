@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -35,7 +33,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             };
         }
 
-        public async Task<CustomDTO?> QueryParamOpAsync(
+        public async Task<CustomDTO> QueryParamOpAsync(
             string param1,
             int param2,
             CancellationToken cancellationToken = default)
@@ -55,14 +53,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<CustomDTO>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<CustomDTO>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
@@ -164,20 +158,16 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                     return wrappedObj!.Value;
                 }
             }
         }
 
-        public async Task<string?> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
+        public async Task<string> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getwrappedprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -189,14 +179,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                     return wrappedObj!.Value;
                 }
             }
@@ -214,14 +200,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<int>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<int>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                     return wrappedObj!.Value;
                 }
             }
@@ -239,21 +221,17 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return Guid.Parse(str);
                 }
             }
         }
 
-        public async Task<string?> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
+        public async Task<string> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -265,14 +243,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
                     return str;
                 }
@@ -291,21 +265,17 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return int.Parse(str);
                 }
             }
         }
 
-        public async Task<List<string>?> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
+        public async Task<List<string>> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getprimitivestringlist";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -317,19 +287,15 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<List<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<List<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<CustomDTO?> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default)
+        public async Task<CustomDTO> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/integration/getinvoiceopwithreturntypewrapped";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -341,14 +307,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<CustomDTO>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<CustomDTO>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

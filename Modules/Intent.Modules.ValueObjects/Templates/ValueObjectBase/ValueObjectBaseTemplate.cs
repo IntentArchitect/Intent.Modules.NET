@@ -25,7 +25,7 @@ namespace {Namespace}
     /// Value Object implementation based on Microsoft's documentation:
     /// <see href=""https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects#value-object-implementation-in-c""/>
     /// </summary>
-    public abstract class {ClassName}
+    public abstract class ValueObject
     {{
         protected static bool EqualOperator(ValueObject left, ValueObject right)
         {{
@@ -33,17 +33,18 @@ namespace {Namespace}
             {{
                 return false;
             }}
-            return ReferenceEquals(left, right) || left.Equals(right);
+
+            return ReferenceEquals(left, right) || left!.Equals(right);
         }}
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
         {{
-            return !(EqualOperator(left, right));
+            return !EqualOperator(left, right);
         }}
 
-        protected abstract IEnumerable<object> GetEqualityComponents();
+        protected abstract IEnumerable<object?> GetEqualityComponents();
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {{
             if (obj == null || obj.GetType() != GetType())
             {{
@@ -52,7 +53,7 @@ namespace {Namespace}
 
             var other = (ValueObject)obj;
 
-            return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+            return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }}
 
         public override int GetHashCode()
@@ -73,18 +74,6 @@ namespace {Namespace}
         }}
     }}
 }}";
-        }
-
-        private IEnumerable<string> GetMembers()
-        {
-            var members = new List<string>();
-
-            // example: adding a constructor
-            members.Add($@"
-        public {ClassName}()
-        {{
-        }}");
-            return members;
         }
     }
 }

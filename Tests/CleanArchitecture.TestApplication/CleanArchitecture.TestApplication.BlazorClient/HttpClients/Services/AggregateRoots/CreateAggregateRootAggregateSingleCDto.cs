@@ -9,6 +9,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class CreateAggregateRootAggregateSingleCDto
     {
+        public CreateAggregateRootAggregateSingleCDto()
+        {
+            AggregationAttr = null!;
+        }
         [Required(ErrorMessage = "Aggregation attr is required.")]
         public string AggregationAttr { get; set; }
 

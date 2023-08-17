@@ -9,6 +9,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class AggregateRootCompositeSingleACompositeSingleAADto
     {
+        public AggregateRootCompositeSingleACompositeSingleAADto()
+        {
+            CompositeAttr = null!;
+        }
         [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
         public Guid Id { get; set; }

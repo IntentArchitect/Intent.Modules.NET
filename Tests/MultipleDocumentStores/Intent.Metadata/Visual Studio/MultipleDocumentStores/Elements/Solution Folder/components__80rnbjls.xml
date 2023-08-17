@@ -28,5 +28,17 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="03a12ed7-b86a-45c0-8765-a24e96827a10" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr.Components</name>
+      <display>Dapr.Components</display>
+      <externalReference>224e47c9-c2e5-484e-b95c-e1e090478167</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4ffd1b74-c3f8-425c-92f5-5d4b3c60eb59</parentFolderId>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -14,8 +14,8 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices
     public interface IInvoiceServiceProxy : IDisposable
     {
         Task<Guid> CreateInvoiceAsync(InvoiceCreateDto dto, CancellationToken cancellationToken = default);
-        Task<InvoiceDto?> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<List<InvoiceDto>?> FindInvoicesAsync(CancellationToken cancellationToken = default);
+        Task<InvoiceDto> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<List<InvoiceDto>> FindInvoicesAsync(CancellationToken cancellationToken = default);
         Task UpdateInvoiceAsync(Guid id, InvoiceUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteInvoiceAsync(Guid id, CancellationToken cancellationToken = default);
     }

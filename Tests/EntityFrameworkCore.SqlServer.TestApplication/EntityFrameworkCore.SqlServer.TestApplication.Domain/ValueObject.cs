@@ -19,17 +19,18 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain
             {
                 return false;
             }
-            return ReferenceEquals(left, right) || left.Equals(right);
+
+            return ReferenceEquals(left, right) || left!.Equals(right);
         }
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
         {
-            return !(EqualOperator(left, right));
+            return !EqualOperator(left, right);
         }
 
-        protected abstract IEnumerable<object> GetEqualityComponents();
+        protected abstract IEnumerable<object?> GetEqualityComponents();
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null || obj.GetType() != GetType())
             {
@@ -38,7 +39,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain
 
             var other = (ValueObject)obj;
 
-            return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+            return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
         public override int GetHashCode()

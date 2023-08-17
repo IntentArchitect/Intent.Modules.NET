@@ -1,4 +1,3 @@
-using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -43,14 +42,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                     return wrappedObj!.Value;
                 }
             }
@@ -74,14 +69,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                     return wrappedObj!.Value;
                 }
             }
@@ -163,7 +154,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
             }
         }
 
-        public async Task<AggregateRootDto?> GetAggregateRootByIdAsync(
+        public async Task<AggregateRootDto> GetAggregateRootByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {
@@ -177,19 +168,15 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<AggregateRootDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<AggregateRootDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<AggregateRootCompositeManyBDto?> GetAggregateRootCompositeManyBByIdAsync(
+        public async Task<AggregateRootCompositeManyBDto> GetAggregateRootCompositeManyBByIdAsync(
             Guid aggregateRootId,
             Guid id,
             CancellationToken cancellationToken = default)
@@ -204,19 +191,15 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<AggregateRootCompositeManyBDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<AggregateRootCompositeManyBDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<List<AggregateRootCompositeManyBDto>?> GetAggregateRootCompositeManyBSAsync(
+        public async Task<List<AggregateRootCompositeManyBDto>> GetAggregateRootCompositeManyBSAsync(
             Guid aggregateRootId,
             CancellationToken cancellationToken = default)
         {
@@ -230,19 +213,15 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<List<AggregateRootCompositeManyBDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<List<AggregateRootCompositeManyBDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<List<AggregateRootDto>?> GetAggregateRootsAsync(CancellationToken cancellationToken = default)
+        public async Task<List<AggregateRootDto>> GetAggregateRootsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -254,14 +233,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<List<AggregateRootDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<List<AggregateRootDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

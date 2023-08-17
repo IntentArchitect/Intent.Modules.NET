@@ -1,4 +1,9 @@
-﻿### Version 5.0.0
+﻿### Version 5.0.1
+
+- Fixed: Nullability related compiler warnings.
+- Fixed: Dependency on `Intent.Application.Contracts.Clients` was not for version `.5.0.0`.
+
+### Version 5.0.0
 
 > ⚠️ **NOTE**
 >

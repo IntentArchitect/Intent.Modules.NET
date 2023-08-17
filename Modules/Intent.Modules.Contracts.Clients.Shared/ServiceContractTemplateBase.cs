@@ -53,16 +53,9 @@ namespace Intent.Modules.Contracts.Clients.Shared
 
         private string GetOperationReturnType(IHttpEndpointModel endpoint)
         {
-            var typeInfo = GetTypeInfo(endpoint.ReturnType);
-            var typeName = UseType(typeInfo);
-            if (!typeInfo.IsPrimitive)
-            {
-                typeName = $"{typeName}?";
-            }
-
             return endpoint.ReturnType?.Element == null
                 ? "Task"
-                : $"Task<{typeName}>";
+                : $"Task<{GetTypeName(endpoint.ReturnType)}>";
         }
 
         private static string GetOperationName(IHttpEndpointModel endpoint)

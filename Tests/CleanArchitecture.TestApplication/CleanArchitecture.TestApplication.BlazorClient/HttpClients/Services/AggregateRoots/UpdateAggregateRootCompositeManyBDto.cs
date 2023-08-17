@@ -9,6 +9,11 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class UpdateAggregateRootCompositeManyBDto
     {
+        public UpdateAggregateRootCompositeManyBDto()
+        {
+            CompositeAttr = null!;
+            Composites = null!;
+        }
         [Required(ErrorMessage = "Composite attr is required.")]
         public string CompositeAttr { get; set; }
         public DateTime? SomeDate { get; set; }

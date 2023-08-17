@@ -1,4 +1,8 @@
-﻿### Version 2.0.0
+﻿### Version 2.0.1
+
+- Fixed: Nullability related compiler warnings.
+
+### Version 2.0.0
 
 > ⚠️ **NOTE**
 >

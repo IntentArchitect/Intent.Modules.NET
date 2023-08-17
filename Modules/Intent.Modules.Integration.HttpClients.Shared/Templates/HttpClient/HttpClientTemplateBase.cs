@@ -39,10 +39,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         CSharpFile = new CSharpFile(
                 @namespace: this.GetNamespace(),
                 relativeLocation: this.GetFolderPath())
-            .AddUsing("System")
-            .AddUsing("System.IO")
-            .AddUsing("System.Linq")
-            .AddUsing("System.Net")
             .AddUsing("System.Net.Http")
             .AddUsing("System.Net.Http.Headers")
             .AddUsing("System.Text")
@@ -144,9 +140,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 return;
                             }
 
-                            usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
-                                .AddStatement("return default;")
-                            );
+                            if (endpoint.ReturnType.IsNullable)
+                            {
+                                usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
+                                    .AddStatement("return default;")
+                                );
+                            }
 
                             usingResponseBlock.AddStatementBlock("using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))", usingContentStreamBlock =>
                             {
@@ -156,28 +155,30 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
                                                        !returnsCollection;
 
+                                string SuppressNullable(string expression) => endpoint.ReturnType.IsNullable ? expression : $"({expression})!";
+
                                 usingContentStreamBlock.SeparatedFromPrevious();
 
                                 if (isWrappedReturnType && (returnsPrimitive || returnsString))
                                 {
-                                    usingContentStreamBlock.AddStatement($"var wrappedObj = await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
                                     usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
                                 }
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                 {
-                                    usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
                                     usingContentStreamBlock.AddStatement("return str;");
                                 }
                                 else if (!isWrappedReturnType && returnsPrimitive)
                                 {
-                                    usingContentStreamBlock.AddStatement("var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
                                     usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                 }
                                 else
                                 {
-                                    usingContentStreamBlock.AddStatement($"return await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
                                 }
                             });
                         });
@@ -207,16 +208,9 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
     private string GetReturnType(IHttpEndpointModel endpoint)
     {
-        var typeInfo = GetTypeInfo(endpoint.ReturnType);
-        var typeName = UseType(typeInfo);
-        if (!typeInfo.IsPrimitive)
-        {
-            typeName = $"{typeName}?";
-        }
-
         return endpoint.ReturnType?.Element == null
             ? "Task"
-            : $"Task<{typeName}>";
+            : $"Task<{GetTypeName(endpoint.ReturnType)}>";
     }
 
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)

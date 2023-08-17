@@ -1,4 +1,3 @@
-using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -26,7 +25,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
             };
         }
 
-        public async Task<ValidatedResultDto?> ResultValidationsAsync(CancellationToken cancellationToken = default)
+        public async Task<ValidatedResultDto> ResultValidationsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/validation/result-validations";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -38,14 +37,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<ValidatedResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<ValidatedResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

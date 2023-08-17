@@ -174,11 +174,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                                 "/// </summary>"
                             });
 
-                        method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception(string.Format(\"{0} is not assignable from {1}.\", typeof(TPersistence), typeof(TDocument)));");
+                        method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($\"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.\");");
                         method.AddStatement("var beforeParameter = expression.Parameters.Single();");
                         method.AddStatement("var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);");
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
-                        method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body), afterParameter);");
+                        method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
 
                     });
 
@@ -194,11 +194,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                                 .AddParameter("Expression", "after", p => p.IntroduceReadonlyField());
                         });
 
-                        nestClass.AddMethod("Expression", "Visit", method =>
+                        nestClass.AddMethod("Expression?", "Visit", method =>
                         {
                             method
                                 .Override()
-                                .AddParameter("Expression", "node");
+                                .AddParameter("Expression?", "node");
 
                             method.AddStatement("return node == _before ? _after : base.Visit(node);");
                         });

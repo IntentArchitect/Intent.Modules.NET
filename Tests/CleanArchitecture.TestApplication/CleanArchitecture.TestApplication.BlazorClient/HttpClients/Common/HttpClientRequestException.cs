@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
         public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,
-            string reasonPhrase,
+            string? reasonPhrase,
             string responseContent) : base(GetMessage(requestUri, statusCode, reasonPhrase, responseContent))
         {
             RequestUri = requestUri;
@@ -24,7 +24,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
         public Uri RequestUri { get; private set; }
         public HttpStatusCode StatusCode { get; private set; }
         public IReadOnlyDictionary<string, IEnumerable<string>> ResponseHeaders { get; private set; }
-        public string ReasonPhrase { get; private set; }
+        public string? ReasonPhrase { get; private set; }
         public string ResponseContent { get; private set; }
 
         public static async Task<HttpClientRequestException> Create(
@@ -42,7 +42,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
         private static string GetMessage(
             Uri requestUri,
             HttpStatusCode statusCode,
-            string reasonPhrase,
+            string? reasonPhrase,
             string responseContent)
         {
             var message = $"Request to {requestUri} failed with status code {(int)statusCode} {reasonPhrase}.";

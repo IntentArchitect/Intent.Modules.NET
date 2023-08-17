@@ -8,6 +8,10 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Serv
 {
     public class SecureCommand
     {
+        public SecureCommand()
+        {
+            Message = null!;
+        }
         public string Message { get; set; }
 
         public static SecureCommand Create(string message)

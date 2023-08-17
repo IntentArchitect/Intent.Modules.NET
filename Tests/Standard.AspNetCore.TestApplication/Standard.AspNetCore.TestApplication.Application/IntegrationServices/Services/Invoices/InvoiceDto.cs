@@ -9,6 +9,10 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices.Se
 {
     public class InvoiceDto
     {
+        public InvoiceDto()
+        {
+            Number = null!;
+        }
         public static InvoiceDto Create(Guid id, string number)
         {
             return new InvoiceDto

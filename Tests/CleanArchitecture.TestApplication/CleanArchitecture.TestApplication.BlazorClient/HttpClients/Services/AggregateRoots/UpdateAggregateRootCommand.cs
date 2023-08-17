@@ -9,6 +9,13 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Ag
 {
     public class UpdateAggregateRootCommand
     {
+        public UpdateAggregateRootCommand()
+        {
+            AggregateAttr = null!;
+            Composites = null!;
+            LimitedDomain = null!;
+            LimitedService = null!;
+        }
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Aggregate attr is required.")]
         public string AggregateAttr { get; set; }

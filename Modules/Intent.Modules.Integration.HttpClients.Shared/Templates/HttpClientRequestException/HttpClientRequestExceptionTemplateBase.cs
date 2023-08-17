@@ -21,6 +21,16 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                 .IntentManagedFully()
                 .AddClass("HttpClientRequestException", @class => @class
                     .WithBaseType("Exception")
+                    .AddConstructor(c => c
+                        .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("IReadOnlyDictionary<string, IEnumerable<string>>", "responseHeaders", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("string?", "reasonPhrase", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("string", "responseContent", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .CallsBase(b => b
+                            .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
+                        )
+                    )
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
                         .Static()
                         .Async()
@@ -36,22 +46,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                             $"return new {@class.Name}(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);",
                         })
                     )
-                    .AddConstructor(c => c
-                        .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("IReadOnlyDictionary<string, IEnumerable<string>>", "responseHeaders", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("string", "reasonPhrase", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("string", "responseContent", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .CallsBase(b => b
-                            .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
-                        )
-                    )
                     .AddMethod("string", "GetMessage", m => m
                         .Private()
                         .Static()
                         .AddParameter("Uri", "requestUri")
                         .AddParameter("HttpStatusCode", "statusCode")
-                        .AddParameter("string", "reasonPhrase")
+                        .AddParameter("string?", "reasonPhrase")
                         .AddParameter("string", "responseContent")
                         .AddStatement("var message = $\"Request to {requestUri} failed with status code {(int)statusCode} {reasonPhrase}.\";")
                         .AddStatementBlock("if (!string.IsNullOrWhiteSpace(responseContent))", sb => sb

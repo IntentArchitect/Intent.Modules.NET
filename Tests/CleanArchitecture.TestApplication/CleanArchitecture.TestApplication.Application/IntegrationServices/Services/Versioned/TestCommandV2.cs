@@ -8,6 +8,10 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationServices.Serv
 {
     public class TestCommandV2
     {
+        public TestCommandV2()
+        {
+            Value = null!;
+        }
         public string Value { get; set; }
 
         public static TestCommandV2 Create(string value)

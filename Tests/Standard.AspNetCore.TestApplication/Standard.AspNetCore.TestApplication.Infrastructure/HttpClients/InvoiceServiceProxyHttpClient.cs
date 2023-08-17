@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -49,21 +47,17 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return Guid.Parse(str);
                 }
             }
         }
 
-        public async Task<InvoiceDto?> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<InvoiceDto> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices/{id}";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -75,19 +69,15 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<InvoiceDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<InvoiceDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<List<InvoiceDto>?> FindInvoicesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<InvoiceDto>> FindInvoicesAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -99,14 +89,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<List<InvoiceDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<List<InvoiceDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

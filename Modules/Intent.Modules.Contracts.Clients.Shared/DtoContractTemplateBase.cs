@@ -8,6 +8,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.Contracts.Clients.Shared
@@ -36,6 +38,22 @@ namespace Intent.Modules.Contracts.Clients.Shared
                     foreach (var genericType in Model.GenericTypes)
                     {
                         @class.AddGenericParameter(genericType);
+                    }
+
+                    // See this article on how to handle NRTs for DTOs
+                    // https://github.com/dotnet/docs/issues/18099
+                    var nullableMembers = Model.Fields
+                        .Where(x => string.IsNullOrWhiteSpace(x.Value) &&
+                                    NeedsNullabilityAssignment(GetTypeInfo(x.TypeReference)))
+                        .Select(x => $"{x.Name.ToPascalCase()} = null!;")
+                        .ToArray();
+
+                    if (nullableMembers.Any())
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.AddStatements(nullableMembers);
+                        });
                     }
 
                     @class.AddMethod($"{ClassName}{GenericTypes}", "Create", method =>
@@ -70,6 +88,12 @@ namespace Intent.Modules.Contracts.Clients.Shared
                         });
                     }
                 });
+        }
+        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive
+                     || typeInfo.IsNullable
+                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{string.Join(", ", Model.GenericTypes)}>" : "";

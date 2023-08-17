@@ -9,6 +9,10 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationService
 {
     public class OrderConfirmed
     {
+        public OrderConfirmed()
+        {
+            RefNo = null!;
+        }
         public Guid Id { get; set; }
         public string RefNo { get; set; }
 

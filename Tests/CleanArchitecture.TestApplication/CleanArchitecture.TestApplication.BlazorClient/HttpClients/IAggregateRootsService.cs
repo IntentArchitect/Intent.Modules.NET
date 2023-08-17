@@ -15,9 +15,9 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
         Task DeleteAggregateRootCompositeManyBAsync(Guid aggregateRootId, Guid id, CancellationToken cancellationToken = default);
         Task UpdateAggregateRootAsync(Guid id, UpdateAggregateRootCommand command, CancellationToken cancellationToken = default);
         Task UpdateAggregateRootCompositeManyBAsync(Guid aggregateRootId, Guid id, UpdateAggregateRootCompositeManyBCommand command, CancellationToken cancellationToken = default);
-        Task<AggregateRootDto?> GetAggregateRootByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<AggregateRootCompositeManyBDto?> GetAggregateRootCompositeManyBByIdAsync(Guid aggregateRootId, Guid id, CancellationToken cancellationToken = default);
-        Task<List<AggregateRootCompositeManyBDto>?> GetAggregateRootCompositeManyBSAsync(Guid aggregateRootId, CancellationToken cancellationToken = default);
-        Task<List<AggregateRootDto>?> GetAggregateRootsAsync(CancellationToken cancellationToken = default);
+        Task<AggregateRootDto> GetAggregateRootByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AggregateRootCompositeManyBDto> GetAggregateRootCompositeManyBByIdAsync(Guid aggregateRootId, Guid id, CancellationToken cancellationToken = default);
+        Task<List<AggregateRootCompositeManyBDto>> GetAggregateRootCompositeManyBSAsync(Guid aggregateRootId, CancellationToken cancellationToken = default);
+        Task<List<AggregateRootDto>> GetAggregateRootsAsync(CancellationToken cancellationToken = default);
     }
 }

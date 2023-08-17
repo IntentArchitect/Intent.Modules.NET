@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Will now automatically create appropriate `Role`s in the `Visual Studio` designer upon initial installation.
+
 ### Version 1.1.0
 
 - Fixed: Doesn't overwrite `AddControllers()` statement anymore but apply only the `AddDapr()` where needed.
