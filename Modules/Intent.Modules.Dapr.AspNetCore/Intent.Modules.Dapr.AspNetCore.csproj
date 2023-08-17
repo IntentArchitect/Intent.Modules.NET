@@ -15,4 +15,8 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+  </ItemGroup>
+
 </Project>

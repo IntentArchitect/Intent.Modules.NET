@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,6 +23,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
+            application.EventDispatcher.Publish(LaunchProfileHttpPortRequired.EventId);
             application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DaprSidekick", new
             {
                 Sidecar = new

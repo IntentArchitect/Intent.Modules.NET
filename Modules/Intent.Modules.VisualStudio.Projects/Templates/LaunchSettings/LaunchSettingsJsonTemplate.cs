@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
@@ -17,6 +18,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private int _randomPort;
         private int _randomSslPort;
         private string _defaultLaunchUrlPath = string.Empty;
+        private bool _launchProfileHttpPortRequired;
 
         private readonly ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables = new List<EnvironmentVariableRegistrationRequest>();
 
@@ -28,9 +30,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
             ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(HandleLaunchProfileRegistration);
 #pragma warning disable CS0618 // Type or member is obsolete
-            applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
+            ExecutionContext.EventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
 #pragma warning restore CS0618 // Type or member is obsolete
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
+            ExecutionContext.EventDispatcher.Subscribe(LaunchProfileHttpPortRequired.EventId, _ => _launchProfileHttpPortRequired = true);
         }
 
         public override string GetCorrelationId()
@@ -199,6 +202,21 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 }
 
                 launchSettings.Profiles[key] = profile;
+            }
+
+            if (_launchProfileHttpPortRequired)
+            {
+                foreach (var profile in launchSettings.Profiles.Values)
+                {
+                    var split = profile.ApplicationUrl?.Split(';');
+                    if (split?.Length != 1 ||
+                        !split[0].StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    profile.ApplicationUrl = string.Join(";", split.Append($"http://localhost:{_randomPort}"));
+                }
             }
 
             // In case has not been set through an event, sets this be default.
