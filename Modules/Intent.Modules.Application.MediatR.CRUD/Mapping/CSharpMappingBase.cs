@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
@@ -15,9 +16,11 @@ public abstract class CSharpMappingBase : ICSharpMapping
     public ICanBeReferencedType Model { get; }
     public IList<ICSharpMapping> Children { get; }
     public IElementToElementMappingConnection Mapping { get; set; }
+    protected readonly ICSharpFileBuilderTemplate Template;
 
-    protected CSharpMappingBase(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children)
+    protected CSharpMappingBase(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template)
     {
+        Template = template;
         Model = model;
         Mapping = mapping;
         Children = children;
@@ -83,7 +86,7 @@ public abstract class CSharpMappingBase : ICSharpMapping
     {
         if (_fromReplacements.ContainsKey(type))
         {
-            return;
+            _fromReplacements.Remove(type);
         }
         _fromReplacements.Add(type, replacement);
         foreach (var child in Children)
@@ -96,7 +99,7 @@ public abstract class CSharpMappingBase : ICSharpMapping
     {
         if (_toReplacements.ContainsKey(type))
         {
-            return;
+            _toReplacements.Remove(type);
         }
         _toReplacements.Add(type, replacement);
         foreach (var child in Children)
@@ -126,7 +129,8 @@ public abstract class CSharpMappingBase : ICSharpMapping
             }
             else
             {
-                result += $"{(result.Length > 0 ? "." : "")}{mappingPathTarget.Element.Name.ToPascalCase()}";
+                var referenceName = Template.CSharpFile.GetReferenceForModel(mappingPathTarget.Id)?.Name ?? mappingPathTarget.Element.Name;
+                result += $"{(result.Length > 0 ? "." : "")}{referenceName}";
                 if (mappingPathTarget.Element.TypeReference?.IsNullable == true && mappingPath.Last() != mappingPathTarget)
                 {
                     result += "?";

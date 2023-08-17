@@ -10,7 +10,7 @@ public class MethodInvocationMapping : CSharpMappingBase
 {
     private readonly ICSharpFileBuilderTemplate _template;
 
-    public MethodInvocationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+    public MethodInvocationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
     {
         _template = template;
     }

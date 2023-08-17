@@ -50,7 +50,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
                 .AddClass(Model.Name, @class =>
                 {
                     foreach (var genericType in Model.GenericTypes)
@@ -59,6 +59,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
 
                     @class.AddMetadata("model", Model);
+                    @class.RepresentsModel(Model);
                     @class.AddMetadata(IsMerged, true);
                     @class.WithPropertiesSeparated();
                     @class.TryAddXmlDocComments(Model.InternalElement);
@@ -110,10 +111,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         @class.AddConstructor(ctor =>
                         {
                             ctor.AddMetadata("model", ctorModel);
+                            ctor.RepresentsModel(ctorModel);
                             ctor.TryAddXmlDocComments(ctorModel.InternalElement);
                             foreach (var parameter in ctorModel.Parameters)
                             {
-                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
+                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                {
+                                    param.RepresentsModel(parameter);
+                                    param.WithDefaultValue(parameter.Value);
+                                });
                                 if (!parameter.InternalElement.IsMapped)
                                 {
                                     continue;
@@ -147,7 +153,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
                     foreach (var operation in Model.Operations)
                     {
-                        @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
+                        @class.AddMethod(GetOperationReturnType(operation), operation, method =>
                         {
                             method.AddMetadata("model", operation);
                             method.TryAddXmlDocComments(operation.InternalElement);
@@ -158,7 +164,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             {
                                 var parameterName = parameter.Name.ToCamelCase();
                                 method.AddParameter(GetOperationTypeName(parameter), parameterName,
-                                    parm => parm.WithDefaultValue(parameter.Value));
+                                    param => param.WithDefaultValue(parameter.Value));
                                 if (!parameter.InternalElement.IsMapped)
                                 {
                                     continue;

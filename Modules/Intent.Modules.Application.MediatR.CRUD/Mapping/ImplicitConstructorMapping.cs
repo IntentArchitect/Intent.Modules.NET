@@ -12,7 +12,7 @@ public class ImplicitConstructorMapping : CSharpMappingBase
 {
     private readonly ICSharpFileBuilderTemplate _template;
 
-    public ImplicitConstructorMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+    public ImplicitConstructorMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
     {
         _template = template;
     }

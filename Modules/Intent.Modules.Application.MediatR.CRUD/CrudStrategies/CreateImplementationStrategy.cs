@@ -89,22 +89,34 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
-            var mapping = model.CreatedEntities().FirstOrDefault()?.InternalAssociation.Mapping;
-            if (mapping != null && mapping.ToElement.IsClassModel())
+            var csharpMapping = new CSharpClassMappingManager(_template);
+            csharpMapping.SetFromReplacement(model.InternalElement, "request");
+            if (model.CreatedEntities().Any())
             {
-                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
+                foreach (var createAction in model.CreatedEntities())
+                {
+                    var mapping = createAction.InternalAssociation.Mapping;
+                    if (mapping == null)
+                    {
+                        continue;
+                    }
 
-                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
+                    if (mapping.ToElement.IsClassModel())
+                    {
+                        codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GetCreationStatement(mapping)).WithSemicolon());
+                        csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
+                    }
+                    else if (mapping.ToElement.IsClassConstructorModel())
+                    {
+                        codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GetCreationStatement(mapping)).WithSemicolon());
+                        csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
+                    }
 
-                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", groupedMappings.GetFromStatement()).WithSemicolon());
-            }
-            else if (mapping != null && mapping.ToElement.IsClassConstructorModel())
-            {
-                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
-
-                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
-
-                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", groupedMappings.GetFromStatement()).WithSemicolon());
+                    else if (mapping.ToElement.SpecializationType == "Message")
+                    {
+                        codeLines.Add(new CSharpAssignmentStatement($"var message", csharpMapping.GetCreationStatement(mapping)).WithSemicolon());
+                    }
+                }
             }
             else
             {

@@ -10,35 +10,11 @@ using Intent.Modules.Common.TypeResolution;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
-public class UpdateClassMappingFactory : MappingFactoryBase
-{
-    private readonly ICSharpFileBuilderTemplate _template;
-
-    public UpdateClassMappingFactory(IDictionary<string, Func<ICanBeReferencedType, IElementToElementMappingConnection, IList<ICSharpMapping>, ICSharpMapping>> factoryRegistry, ICSharpFileBuilderTemplate template) : base(factoryRegistry)
-    {
-        _template = template;
-    }
-
-    public override ICSharpMapping CreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children)
-    {
-        if (model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(model, mapping, children, _template);
-        }
-
-        if (model.TypeReference?.Element.SpecializationType == "Value Object")
-        {
-            return new ImplicitConstructorMapping(model, mapping, children, _template);
-        }
-        return new ObjectUpdateMapping(model, mapping, children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _template);
-    }
-}
-
 public class ObjectUpdateMapping : CSharpMappingBase
 {
     private readonly ICSharpFileBuilderTemplate _template;
 
-    public ObjectUpdateMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+    public ObjectUpdateMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
     {
         _template = template;
     }

@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modules.Application.MediatR.CRUD.Mapping;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -61,11 +62,11 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                     var mapping = publishedDomainEvent.InternalAssociation.Mapping;
                                     if (mapping != null)
                                     {
-                                        ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())});");
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())));
                                     }
                                     else
                                     {
-                                        ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())});");
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
                                     }
                                 }
                             }
@@ -102,32 +103,15 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             }
         }
 
-        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
+        private CSharpStatement ConstructDomainEvent(ICSharpFileBuilderTemplate template,
             IElementToElementMapping mapping,
             DomainEventModel model)
         {
-            var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;
-            var invocation = new CSharpInvocationStatement(template.GetTypeName(DomainEventTemplate.TemplateId, model)).WithoutSemicolon();
-            if (classModel == null)
-            {
-                throw new Exception("Constructing a domain event cannot be done from a template that doesn't have a ClassModel");
-            }
+            var manager = new CSharpClassMappingManager(template);
+            manager.SetFromReplacement(mapping.Connections.First().FromPath.First().Element, "this");
+            manager.SetFromReplacement(mapping.FromElement, null);
 
-            foreach (var property in model.Properties)
-            {
-                var connection = mapping.Connections.SingleOrDefault(x => x.ToPath.Last().Element.Id == property.Id);
-                if (connection == null)
-                {
-                    invocation.AddArgument("null");
-                    continue;
-                }
-
-
-
-                invocation.AddArgument(GetPath(connection.FromPath, classModel, mapping.FromElement.AsClassConstructorModel()));
-            }
-
-            return $"new {invocation}";
+            return manager.GetCreationStatement(mapping);
         }
 
         private static string GetPath(IList<IElementMappingPathTarget> path, params IMetadataModel[] rootModels)

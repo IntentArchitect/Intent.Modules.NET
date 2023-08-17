@@ -111,42 +111,35 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
 
-            var newVariables = new List<(ICanBeReferencedType Type, string Replacement)>();
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
+            var csharpMapping = new CSharpClassMappingManager(_template);
+            csharpMapping.SetFromReplacement(model.InternalElement, "request");
+            csharpMapping.SetToReplacement(foundEntity.InternalElement, entityVariableName);
             foreach (var createAction in model.CreatedEntities())
             {
-                var map = createAction.InternalAssociation.Mapping;
-                if (map == null)
+                var mapping = createAction.InternalAssociation.Mapping;
+                if (mapping == null)
                 {
                     continue;
                 }
-                var groupedMappings = new CreateClassMappingFactory(null, _template).Create(map.ToElement, map.Connections);
 
-                groupedMappings.SetFromReplacement(map.FromElement, "request");
-
-                var variableName = "newEntity";
-                newVariables.Add(new(createAction.InternalAssociationEnd, variableName));
-                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", groupedMappings.GetFromStatement()).WithSemicolon());
+                const string variableName = "newEntity";
+                csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, variableName);
+                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", csharpMapping.GetCreationStatement(mapping)).WithSemicolon());
             }
-            var mapping = model.UpdatedEntities().FirstOrDefault()?.InternalAssociation.Mapping;
-            if (mapping != null && mapping.ToElement.IsClassModel())
-            {
-                var groupedMappings = new UpdateClassMappingFactory(null, _template).Create(mapping.ToElement, mapping.Connections);
 
-                groupedMappings.SetFromReplacement(mapping.FromElement, "request");
-                foreach (var newVariable in newVariables)
+            if (model.UpdatedEntities().Any())
+            {
+                foreach (var updateAction in model.UpdatedEntities())
                 {
-                    groupedMappings.SetFromReplacement(newVariable.Type, newVariable.Replacement);
+                    var mapping = updateAction.InternalAssociation.Mapping;
+                    if (mapping == null)
+                    {
+                        continue;
+                    }
+
+                    codeLines.AddRange(csharpMapping.GetUpdateStatements(mapping));
                 }
-                groupedMappings.SetToReplacement(mapping.ToElement, entityVariableName);
-                codeLines.AddRange(groupedMappings.GetMappingStatement());
-                //codeLines.AddRange(assignmentStatements);
-                //if (assignmentStatements.Any())
-                //{
-                //    codeLines.Add(new CSharpStatementBlock()
-                //        .AddStatements(assignmentStatements)
-                //        .WithSemicolon());
-                //}
             }
             else
             {

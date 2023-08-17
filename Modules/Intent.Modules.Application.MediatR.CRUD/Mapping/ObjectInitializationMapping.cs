@@ -13,7 +13,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
     {
         private readonly ICSharpFileBuilderTemplate _template;
 
-        public ClassConstructionMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+        public ClassConstructionMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
         {
             _template = template;
         }
@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping
     {
         private readonly ICSharpFileBuilderTemplate _template;
 
-        public ObjectInitializationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children)
+        public ObjectInitializationMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
         {
             _template = template;
         }

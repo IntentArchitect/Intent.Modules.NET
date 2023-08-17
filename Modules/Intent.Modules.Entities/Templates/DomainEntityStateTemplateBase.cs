@@ -71,6 +71,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         {
             property.TryAddXmlDocComments(element);
             property.AddMetadata("model", model);
+            property.RepresentsModel(model);
             if (typeReference.Element.IsClassModel()) // not the most robust. Needed for lazy loading proxies (so should move to EF).
             {
                 property.Virtual();
