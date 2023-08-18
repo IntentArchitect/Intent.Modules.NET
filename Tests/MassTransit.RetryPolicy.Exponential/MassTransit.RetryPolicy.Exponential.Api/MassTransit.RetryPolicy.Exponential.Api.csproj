@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MassTransit.RetryPolicy.Exponential.Infrastructure\MassTransit.RetryPolicy.Exponential.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -28,10 +28,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
                 {
                     @class.ImplementsInterface("IMultiTenantStrategy")
                         .AddField("string", "tenantIdentifier".ToPrivateMemberName(), f => f.Private().WithAssignment("null!"))
-                        .AddMethod("Task<string>", "GetIdentifierAsync", method => 
+                        .AddMethod("Task<string>", "GetIdentifierAsync", method =>
                         {
                             method.AddParameter("object", "context")
-                                .AddStatement("return Task.FromResult(_tenantIdentifier);"); 
+                                .AddStatement("return Task.FromResult(_tenantIdentifier);");
                         })
                         .AddMethod("void", "SetTenantIdentifier", method =>
                         {

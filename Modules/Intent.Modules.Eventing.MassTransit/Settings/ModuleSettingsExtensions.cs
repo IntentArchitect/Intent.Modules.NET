@@ -133,5 +133,63 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
             InMemory,
             EntityFramework,
         }
+        public RetryPolicyOptions RetryPolicy() => new RetryPolicyOptions(_groupSettings.GetSetting("4c41cfe0-a2a0-4b67-b8c3-878650f8639f")?.Value);
+
+        public class RetryPolicyOptions
+        {
+            public readonly string Value;
+
+            public RetryPolicyOptions(string value)
+            {
+                Value = value;
+            }
+
+            public RetryPolicyOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "retry-immediate" => RetryPolicyOptionsEnum.RetryImmediate,
+                    "retry-interval" => RetryPolicyOptionsEnum.RetryInterval,
+                    "retry-incremental" => RetryPolicyOptionsEnum.RetryIncremental,
+                    "retry-exponential" => RetryPolicyOptionsEnum.RetryExponential,
+                    "retry-none" => RetryPolicyOptionsEnum.RetryNone,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsRetryImmediate()
+            {
+                return Value == "retry-immediate";
+            }
+
+            public bool IsRetryInterval()
+            {
+                return Value == "retry-interval";
+            }
+
+            public bool IsRetryIncremental()
+            {
+                return Value == "retry-incremental";
+            }
+
+            public bool IsRetryExponential()
+            {
+                return Value == "retry-exponential";
+            }
+
+            public bool IsRetryNone()
+            {
+                return Value == "retry-none";
+            }
+        }
+
+        public enum RetryPolicyOptionsEnum
+        {
+            RetryImmediate,
+            RetryInterval,
+            RetryIncremental,
+            RetryExponential,
+            RetryNone,
+        }
     }
 }

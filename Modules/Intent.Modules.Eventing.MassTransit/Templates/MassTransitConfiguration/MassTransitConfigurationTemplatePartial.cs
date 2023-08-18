@@ -190,29 +190,34 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             {
                 yield return $@"{configVarName}.PrefetchCount = {settings.PrefetchCount()};";
             }
+
             yield return $@"{configVarName}.RequiresSession = {settings.RequiresSession().ToString().ToLower()};";
             if (!string.IsNullOrWhiteSpace(settings.DefaultMessageTimeToLive()))
             {
                 ValidateTimeSpanString(settings.DefaultMessageTimeToLive(), nameof(settings.DefaultMessageTimeToLive), out var ts);
                 yield return $@"{configVarName}.DefaultMessageTimeToLive = TimeSpan.Parse(""{ts}"");";
             }
+
             if (!string.IsNullOrWhiteSpace(settings.LockDuration()))
             {
                 ValidateTimeSpanString(settings.LockDuration(), nameof(settings.LockDuration), out var ts);
                 yield return $@"{configVarName}.LockDuration = TimeSpan.Parse(""{ts}"");";
             }
+
             yield return $@"{configVarName}.RequiresDuplicateDetection = {settings.RequiresDuplicateDetection().ToString().ToLower()};";
             if (settings.RequiresDuplicateDetection() && !string.IsNullOrWhiteSpace(settings.DuplicateDetectionHistoryTimeWindow()))
             {
                 ValidateTimeSpanString(settings.DuplicateDetectionHistoryTimeWindow(), nameof(settings.DuplicateDetectionHistoryTimeWindow), out var ts);
                 yield return $@"{configVarName}.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse(""{ts}"");";
             }
+
             yield return $@"{configVarName}.EnableBatchedOperations = {settings.EnableBatchedOperations().ToString().ToLower()};";
             yield return $@"{configVarName}.EnableDeadLetteringOnMessageExpiration = {settings.EnableDeadLetteringOnMessageExpiration().ToString().ToLower()};";
             if (settings.MaxQueueSize().HasValue)
             {
                 yield return $@"{configVarName}.MaxSizeInMegabytes = {settings.MaxQueueSize()};";
             }
+
             if (settings.MaxDeliveryCount().HasValue)
             {
                 yield return $@"{configVarName}.MaxDeliveryCount = {settings.MaxDeliveryCount()};";
@@ -227,6 +232,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             {
                 yield return $@"{configVarName}.PrefetchCount = {settings.PrefetchCount()};";
             }
+
             yield return $@"{configVarName}.Lazy = {settings.Lazy().ToString().ToLower()};";
             yield return $@"{configVarName}.Durable = {settings.Durable().ToString().ToLower()};";
             yield return $@"{configVarName}.PurgeOnStartup = {settings.PurgeOnStartup().ToString().ToLower()};";
@@ -312,6 +318,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
         }
+
         if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
         {
             yield return new CSharpStatement("cfg.UseInMemoryOutbox();");
@@ -325,13 +332,89 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private CSharpStatement GetMessageRetryStatement(string configParamName, string configurationVarName)
     {
-        return new CSharpInvocationStatement($@"{configParamName}.UseMessageRetry")
-            .AddArgument(new CSharpLambdaBlock("r").WithExpressionBody(new CSharpInvocationStatement("r.Interval")
+        return ExecutionContext.Settings.GetEventingSettings().RetryPolicy().AsEnum() switch
+        {
+            EventingSettings.RetryPolicyOptionsEnum.RetryImmediate => GetCSharpRetryStatements("Immediate",
+                ("int", "RetryLimit", "5")),
+            EventingSettings.RetryPolicyOptionsEnum.RetryInterval => GetCSharpRetryStatements("Interval",
+                ("int", "RetryCount", "10"),
+                ("TimeSpan", "Interval", "TimeSpan.FromSeconds(5)")),
+            EventingSettings.RetryPolicyOptionsEnum.RetryIncremental => GetCSharpRetryStatements("Incremental",
+                ("int", "RetryLimit", "10"),
+                ("TimeSpan", "InitialInterval", "TimeSpan.FromSeconds(5)"),
+                ("TimeSpan", "IntervalIncrement", "TimeSpan.FromSeconds(5)")),
+            EventingSettings.RetryPolicyOptionsEnum.RetryExponential => GetCSharpRetryStatements("Exponential",
+                ("int", "RetryLimit", "10"),
+                ("TimeSpan", "MinInterval", "TimeSpan.FromSeconds(5)"),
+                ("TimeSpan", "MaxInterval", "TimeSpan.FromMinutes(30)"),
+                ("TimeSpan", "IntervalDelta", "TimeSpan.FromSeconds(5)")),
+            EventingSettings.RetryPolicyOptionsEnum.RetryNone => GetCSharpRetryStatements("None"),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        CSharpStatement GetCSharpRetryStatements(string methodName, params (string Type, string Name, string DefaultValue)[] args)
+        {
+            var retry = new CSharpInvocationStatement($"r.{methodName}")
                 .WithoutSemicolon()
-                .AddArgument($@"{configurationVarName}.GetValue<int?>(""MassTransit:Retry:RetryCount"") ?? 10")
-                .AddArgument(
-                    $@"{configurationVarName}.GetValue<TimeSpan?>(""MassTransit:Retry:Interval"") ?? TimeSpan.FromSeconds(30)")
-                .WithArgumentsOnNewLines()));
+                .WithArgumentsOnNewLines();
+
+            foreach (var arg in args)
+            {
+                retry.AddArgument($@"{configurationVarName}.GetValue<{arg.Type}?>(""MassTransit:Retry{methodName}:{arg.Name}"") ?? {arg.DefaultValue}");
+            }
+
+            return new CSharpInvocationStatement($@"{configParamName}.UseMessageRetry")
+                .AddArgument(new CSharpLambdaBlock("r").WithExpressionBody(retry));
+        }
+    }
+
+    private void PublishRetryPoliciesAppSettings()
+    {
+        // Justification: No, there aren't any articles that I could find on the internet
+        // that would provide as good defaults, but based on the use cases for each retry
+        // policy, I've put together some values that make sense.
+
+        switch (ExecutionContext.Settings.GetEventingSettings().RetryPolicy().AsEnum())
+        {
+            case EventingSettings.RetryPolicyOptionsEnum.RetryImmediate:
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryImmediate",
+                    new
+                    {
+                        RetryLimit = 5
+                    }));
+                break;
+            case EventingSettings.RetryPolicyOptionsEnum.RetryInterval:
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryInterval",
+                    new
+                    {
+                        RetryCount = 10,
+                        Interval = TimeSpan.FromSeconds(5)
+                    }));
+                break;
+            case EventingSettings.RetryPolicyOptionsEnum.RetryIncremental:
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryIncremental",
+                    new
+                    {
+                        RetryLimit = 10,
+                        InitialInterval = TimeSpan.FromSeconds(5),
+                        IntervalIncrement = TimeSpan.FromSeconds(5)
+                    }));
+                break;
+            case EventingSettings.RetryPolicyOptionsEnum.RetryExponential:
+                // I used the MassTransit algo to work out this one.
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryExponential",
+                    new
+                    {
+                        RetryLimit = 10,
+                        MinInterval = TimeSpan.FromSeconds(5),
+                        MaxInterval = TimeSpan.FromMinutes(30),
+                        IntervalDelta = TimeSpan.FromSeconds(5)
+                    }));
+                break;
+            case EventingSettings.RetryPolicyOptionsEnum.RetryNone:
+            default:
+                break;
+        }
     }
 
     private bool HasMessageBrokerStereotype(MessageSubscribeAssocationTargetEndModel messageHandlerModel)
@@ -351,13 +434,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .ForConcern("Infrastructure")
             .HasDependency(this));
 
-        ExecutionContext.EventDispatcher.Publish(
-            new AppSettingRegistrationRequest("MassTransit:Retry",
-                new
-                {
-                    RetryCount = 10,
-                    Interval = TimeSpan.FromSeconds(30)
-                }));
+        PublishRetryPoliciesAppSettings();
 
         switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
         {
@@ -403,8 +480,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    [IntentManaged(Mode.Fully)]
-    public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

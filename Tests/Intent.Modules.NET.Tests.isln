@@ -50,5 +50,9 @@
     <application id="38950864-1930-4a7f-9a21-57f1b4043ad1" name="RichDomain" relativePath="RichDomain/RichDomain.application.config" />
     <application id="34dbc504-75a2-418a-825a-85c6bb5d234e" name="MultipleDocumentStores" relativePath="MultipleDocumentStores/MultipleDocumentStores.application.config" />
     <application id="99d9853b-ec11-46cc-aa5c-f9341252f75f" name="MassTransitFinbuckle.Test" relativePath="MassTransitFinbuckle.Test/MassTransitFinbuckle.Test.application.config" />
+    <application id="b86ee49d-5c65-47b8-ad9b-b99710c799ab" name="MassTransit.RetryPolicy.Immediate" relativePath="MassTransit.RetryPolicy.Immediate/MassTransit.RetryPolicy.Immediate.application.config" />
+    <application id="b8b8812c-9f81-4c14-bc3c-84779082a68d" name="MassTransit.RetryPolicy.Interval" relativePath="MassTransit.RetryPolicy.Interval/MassTransit.RetryPolicy.Interval.application.config" />
+    <application id="5385b8fc-6bf9-4b2c-8268-12844932228c" name="MassTransit.RetryPolicy.Incremental" relativePath="MassTransit.RetryPolicy.Incremental/MassTransit.RetryPolicy.Incremental.application.config" />
+    <application id="50d558de-c495-4ed5-b9d0-de5dfdb4b4f1" name="MassTransit.RetryPolicy.Exponential" relativePath="MassTransit.RetryPolicy.Exponential/MassTransit.RetryPolicy.Exponential.application.config" />
   </applications>
 </solution>

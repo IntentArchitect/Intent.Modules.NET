@@ -53,7 +53,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                         method.Async()
                             .AddParameter($"ConsumeContext<{t}>", "context")
                             .AddParameter($"IPipe<ConsumeContext<{t}>>", "next")
-                            .AddIfStatement("context.TryGetHeader<string>(_headerName, out var tenantIndentifier)",  stmt => 
+                            .AddIfStatement("context.TryGetHeader<string>(_headerName, out var tenantIndentifier)", stmt =>
                             {
                                 stmt.AddStatement("_messageHeaderStrategy.SetTenantIdentifier(tenantIndentifier);");
                                 stmt.AddStatement("var multiTenantContext = await _tenantResolver.ResolveAsync(context);");
@@ -62,7 +62,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                             .AddStatement("await next.Send(context);")
                             ;
                     })
-                    .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); })                    ;
+                    .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); });
                 });
         }
 

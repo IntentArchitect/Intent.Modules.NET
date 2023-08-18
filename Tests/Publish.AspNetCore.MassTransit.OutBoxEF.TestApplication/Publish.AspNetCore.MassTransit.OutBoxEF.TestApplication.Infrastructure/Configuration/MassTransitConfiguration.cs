@@ -23,8 +23,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(
-                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
-                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                        configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
                     cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
                         host.Username(configuration["RabbitMq:Username"]);

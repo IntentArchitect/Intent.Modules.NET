@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c617a353-ead7-4d4b-92ec-f2b645f0e354" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40078887-5887-4806-9c28-d334a9b11669</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

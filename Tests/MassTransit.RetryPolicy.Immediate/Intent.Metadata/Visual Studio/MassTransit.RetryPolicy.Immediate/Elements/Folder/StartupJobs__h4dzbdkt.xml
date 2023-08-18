@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="697d19db-7b79-40a5-905c-1d7af2e3bfb0" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>StartupJobs</name>
+  <display>StartupJobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>27cbcca6-d040-4a6c-a96f-780edf3e1d36</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

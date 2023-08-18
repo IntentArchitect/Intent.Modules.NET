@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>5.2.0-pre.0</version>
+  <version>5.2.0-pre.1</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -112,6 +112,18 @@
             <option value="none" description="None" />
             <option value="in-memory" description="In Memory" />
             <option value="entity-framework" description="Entity Framework" />
+          </options>
+        </setting>
+        <setting id="4c41cfe0-a2a0-4b67-b8c3-878650f8639f" title="Retry Policy" type="select">
+          <isRequired>true</isRequired>
+          <hint>The strategy to use when messages fail to deliver to their destination.</hint>
+          <defaultValue>retry-interval</defaultValue>
+          <options>
+            <option value="retry-immediate" description="Immediate" />
+            <option value="retry-interval" description="Interval" />
+            <option value="retry-incremental" description="Incremental" />
+            <option value="retry-exponential" description="Exponential" />
+            <option value="retry-none" description="None" />
           </options>
         </setting>
       </settings>

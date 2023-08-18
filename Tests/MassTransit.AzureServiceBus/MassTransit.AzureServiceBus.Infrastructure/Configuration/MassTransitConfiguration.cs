@@ -25,8 +25,8 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 x.UsingAzureServiceBus((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(
-                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
-                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                        configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
                     cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);

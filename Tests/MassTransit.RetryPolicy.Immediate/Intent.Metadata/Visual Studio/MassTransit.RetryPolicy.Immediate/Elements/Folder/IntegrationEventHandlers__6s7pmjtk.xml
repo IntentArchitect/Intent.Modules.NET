@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d9f72162-7f91-43ac-a513-bd472f0c3a2f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationEventHandlers</name>
+  <display>IntegrationEventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>56712bb1-92b2-4e46-8289-b5a76121ac06</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dc1ee631-e00a-45dd-969f-98e3672d9c68" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9f72162-7f91-43ac-a513-bd472f0c3a2f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
