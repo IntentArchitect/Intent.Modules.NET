@@ -47,6 +47,6 @@ public class CSharpClassMappingManager : MappingManagerBase
         {
             return new ImplicitConstructorMapping(model, mapping, children, _template);
         }
-        return new ObjectUpdateMapping(model, mapping, children.Where(x => !StereotypeExtensions.HasStereotype(x.Model, "Primary Key")).ToList(), _template);
+        return new ObjectUpdateMapping(model, mapping, children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _template);
     }
 }

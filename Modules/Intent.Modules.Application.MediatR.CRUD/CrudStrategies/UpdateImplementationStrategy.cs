@@ -125,7 +125,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 const string variableName = "newEntity";
                 csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, variableName);
-                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", csharpMapping.GetCreationStatement(mapping)).WithSemicolon());
+                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
             }
 
             if (model.UpdatedEntities().Any())
@@ -138,7 +138,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         continue;
                     }
 
-                    codeLines.AddRange(csharpMapping.GetUpdateStatements(mapping));
+                    codeLines.AddRange(csharpMapping.GenerateUpdateStatements(mapping));
                 }
             }
             else

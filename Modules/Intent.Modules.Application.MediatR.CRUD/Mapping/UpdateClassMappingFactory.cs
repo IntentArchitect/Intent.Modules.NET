@@ -83,32 +83,6 @@ public class ObjectUpdateMapping : CSharpMappingBase
         else
         {
             yield return new CSharpAssignmentStatement(GetToStatement(), GetFromStatement());
-            //if (Children.Count == 0)
-            //{
-            //    yield return new CSharpAssignmentStatement($"{GetToPath(toReplacements)}", $"{GetFromPath(fromReplacements)}").WithSemicolon();
-            //} 
-            //else if (Model.TypeReference.IsCollection)
-            //{
-            //    yield return new CSharpAssignmentStatement($"{GetToPath(toReplacements)}", $"UpdateHelper.CreateOrUpdateCollection({GetToPath(toReplacements)}, {GetFromPath(fromReplacements)}, (e, d) => e.Id == d.Id, {$"CreateOrUpdate{Mapping.ToPath.Last().Element.Name.ToPascalCase()}"})").WithSemicolon();
-
-            //    _template.CSharpFile.AfterBuild(file =>
-            //    {
-            //        file.Classes.First().AddMethod(_template.GetTypeName((IElement)Model.TypeReference.Element), $"CreateOrUpdate{Mapping.ToPath.Last().Element.Name.ToPascalCase()}", method =>
-            //        {
-
-            //            method.Private().Static();
-            //            method.AddParameter(_template.GetTypeName(Model.TypeReference.Element.AsTypeReference(true, false)), "entity");
-            //            method.AddParameter(_template.GetTypeName((IElement)Mapping.FromPath.Last().Element.TypeReference.Element), "dto");
-            //            method.AddStatement($"entity ??= new {_template.GetTypeName((IElement)Model.TypeReference.Element)}();");
-
-            //            fromReplacements = fromReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.FromPath.Skip(fromReplacements.Count).First().Element, "dto") }).ToDictionary(x => x.Key, x => x.Value);
-            //            toReplacements = toReplacements.Concat(new[] { new KeyValuePair<ICanBeReferencedType, string>(Mapping.ToPath.Skip(toReplacements.Count).First().Element, "entity") }).ToDictionary(x => x.Key, x => x.Value);
-            //            method.AddStatements(Children.Select(x => new CSharpAssignmentStatement(x.GetToStatement(), x.GetFromStatement())));
-
-            //            method.AddStatement("return entity;");
-            //        });
-            //    });
-            //}
         }
     }
 
@@ -131,6 +105,7 @@ public class ObjectUpdateMapping : CSharpMappingBase
         {
             file.Classes.First().AddMethod(domainTypeName, updateMethodName, method =>
             {
+                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                 method.Private().Static();
                 method.AddParameter(_template.GetTypeName(Model.TypeReference.Element.AsTypeReference(true, false)), "entity");
                 method.AddParameter(_template.GetTypeName((IElement)GetFromPath().Last().Element.TypeReference.Element), "dto");

@@ -111,7 +111,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             manager.SetFromReplacement(mapping.Connections.First().FromPath.First().Element, "this");
             manager.SetFromReplacement(mapping.FromElement, null);
 
-            return manager.GetCreationStatement(mapping);
+            return manager.GenerateCreationStatement(mapping);
         }
 
         private static string GetPath(IList<IElementMappingPathTarget> path, params IMetadataModel[] rootModels)

@@ -15,7 +15,7 @@ public abstract class MappingManagerBase
     {
     }
 
-    public CSharpStatement GetCreationStatement(IElementToElementMapping model)
+    public CSharpStatement GenerateCreationStatement(IElementToElementMapping model)
     {
         var mapping = CreateMapping(model.ToElement, model.Connections, GetCreateMappingType);
         ApplyReplacements(mapping);
@@ -23,7 +23,7 @@ public abstract class MappingManagerBase
         return mapping.GetFromStatement();
     }
 
-    public IList<CSharpStatement> GetUpdateStatements(IElementToElementMapping model)
+    public IList<CSharpStatement> GenerateUpdateStatements(IElementToElementMapping model)
     {
         var mapping = CreateMapping(model.ToElement, model.Connections, GetUpdateMappingType);
         ApplyReplacements(mapping);
