@@ -108,6 +108,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             DomainEventModel model)
         {
             var manager = new CSharpClassMappingManager(template);
+            manager.AddMappingResolver(new DomainEventMappingTypeResolver(template));
             manager.SetFromReplacement(mapping.Connections.First().FromPath.First().Element, "this");
             manager.SetFromReplacement(mapping.FromElement, null);
 

@@ -90,6 +90,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
             var csharpMapping = new CSharpClassMappingManager(_template);
+            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.SetFromReplacement(model.InternalElement, "request");
             if (model.CreatedEntities().Any())
             {

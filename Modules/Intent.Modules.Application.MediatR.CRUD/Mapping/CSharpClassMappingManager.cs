@@ -14,39 +14,4 @@ public class CSharpClassMappingManager : MappingManagerBase
     {
         _template = template;
     }
-
-    protected override ICSharpMapping GetCreateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children)
-    {
-        if (model.TypeReference?.Element.SpecializationType == "Value Object")
-        {
-            return new ImplicitConstructorMapping(model, mapping, children, _template);
-        }
-        if (model.SpecializationType == "Domain Event")
-        {
-            return new ImplicitConstructorMapping(model, mapping, children, _template);
-        }
-        if (model.SpecializationType == "Class Constructor")
-        {
-            return new ImplicitConstructorMapping(((IElement)model).ParentElement, mapping, children, _template);
-        }
-        if (model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(((IElement)model).ParentElement, mapping, children, _template);
-        }
-        return new ObjectInitializationMapping(model, mapping, children, _template);
-    }
-
-    protected override ICSharpMapping GetUpdateMappingType(ICanBeReferencedType model, IElementToElementMappingConnection mapping, List<ICSharpMapping> children)
-    {
-        if (model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(model, mapping, children, _template);
-        }
-
-        if (model.TypeReference?.Element.SpecializationType == "Value Object")
-        {
-            return new ImplicitConstructorMapping(model, mapping, children, _template);
-        }
-        return new ObjectUpdateMapping(model, mapping, children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _template);
-    }
 }

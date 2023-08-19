@@ -14,7 +14,11 @@ public class ObjectUpdateMapping : CSharpMappingBase
 {
     private readonly ICSharpFileBuilderTemplate _template;
 
-    public ObjectUpdateMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
+    public ObjectUpdateMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<MappingModel> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
+    {
+        _template = template;
+    }
+    public ObjectUpdateMapping(MappingModel model, ICSharpFileBuilderTemplate template) : base(model, template)
     {
         _template = template;
     }
@@ -23,36 +27,19 @@ public class ObjectUpdateMapping : CSharpMappingBase
     {
         if (Mapping == null) // is traversal
         {
-            return GetPath(GetFromPath(), _fromReplacements);
+            return GetPathText(GetFromPath(), _fromReplacements);
         }
         else
         {
             if (Children.Count == 0)
             {
-                return $"{GetFromPath(_fromReplacements)}";
+                return $"{GetFromPathText()}";
             }
             else if (Model.TypeReference.IsCollection)
             {
-                var from = $"UpdateHelper.CreateOrUpdateCollection({GetToPath(_toReplacements)}, {GetFromPath(_fromReplacements)}, (e, d) => e.Id == d.Id, CreateOrUpdate{Model.TypeReference.Element.Name.ToPascalCase()})";
+                var from = $"UpdateHelper.CreateOrUpdateCollection({GetToPathText()}, {GetFromPathText()}, (e, d) => e.Id == d.Id, CreateOrUpdate{Model.TypeReference.Element.Name.ToPascalCase()})";
 
                 CreateUpdateMethod($"CreateOrUpdate{Model.TypeReference.Element.Name.ToPascalCase()}");
-                //_template.CSharpFile.AfterBuild(file =>
-                //{
-                //    file.Classes.First().AddMethod(_template.GetTypeName((IElement)Model.TypeReference.Element), $"CreateOrUpdate{Mapping.ToPath.Last().Element.Name.ToPascalCase()}", method =>
-                //    {
-
-                //        method.Private().Static();
-                //        method.AddParameter(_template.GetTypeName(Model.TypeReference.Element.AsTypeReference(true, false)), "entity");
-                //        method.AddParameter(_template.GetTypeName((IElement)Mapping.FromPath.Last().Element.TypeReference.Element), "dto");
-                //        method.AddStatement($"entity ??= new {_template.GetTypeName((IElement)Model.TypeReference.Element)}();");
-
-                //        AddFromReplacement(Mapping.FromPath.Skip(_fromReplacements.Count).First().Element, "dto");
-                //        AddToReplacement(Mapping.ToPath.Skip(_toReplacements.Count).First().Element, "entity");
-                //        method.AddStatements(Children.SelectMany(x => x.GetMappingStatement(null, null)).Select(x => x.WithSemicolon()));
-
-                //        method.AddStatement("return entity;");
-                //    });
-                //});
 
                 return from;
             }

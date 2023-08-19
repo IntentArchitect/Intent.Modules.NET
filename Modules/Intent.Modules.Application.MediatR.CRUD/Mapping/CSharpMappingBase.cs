@@ -5,8 +5,20 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
+
+public class DefaultCSharpMapping : CSharpMappingBase
+{
+    public DefaultCSharpMapping(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<MappingModel> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
+    {
+    }
+
+    public DefaultCSharpMapping(MappingModel model, ICSharpFileBuilderTemplate template) : base(model, template)
+    {
+    }
+}
 
 public abstract class CSharpMappingBase : ICSharpMapping
 {
@@ -18,34 +30,43 @@ public abstract class CSharpMappingBase : ICSharpMapping
     public IElementToElementMappingConnection Mapping { get; set; }
     protected readonly ICSharpFileBuilderTemplate Template;
 
-    protected CSharpMappingBase(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<ICSharpMapping> children, ICSharpFileBuilderTemplate template)
+    protected CSharpMappingBase(ICanBeReferencedType model, IElementToElementMappingConnection mapping, IList<MappingModel> children, ICSharpFileBuilderTemplate template)
     {
         Template = template;
         Model = model;
         Mapping = mapping;
-        Children = children;
+        Children = children.Select(x => x.GetMapping()).ToList();
     }
+
+    protected CSharpMappingBase(MappingModel model, ICSharpFileBuilderTemplate template)
+    {
+        Template = template;
+        Model = model.Model;
+        Mapping = model.Mapping;
+        Children = model.Children.Select(x => x.GetMapping()).ToList();
+    }
+
+    //protected CSharpMappingBase(MappingModel mappingModel, ICSharpFileBuilderTemplate template)
+    //{
+    //    Template = template;
+    //    Model = mappingModel.Model;
+    //    Mapping = mappingModel.Mapping;
+    //    Children = mappingModel.GetChildMappings(template);
+    //}
 
     public virtual IEnumerable<CSharpStatement> GetMappingStatement()
     {
-        throw new NotImplementedException();
+        yield return new CSharpAssignmentStatement(GetToPathText(), GetFromPathText());
     }
 
     public virtual CSharpStatement GetFromStatement()
     {
-        throw new NotImplementedException();
+        return GetFromPathText();
     }
 
     public virtual CSharpStatement GetToStatement()
     {
-        if (Mapping != null)
-        {
-            return GetToPath(_toReplacements);
-        }
-
-        var mapping = Children.First(x => x.Mapping != null).Mapping;
-        var toPath = mapping.ToPath.Take(mapping.ToPath.IndexOf(mapping.ToPath.Single(x => x.Element == Model)) + 1).ToList();
-        return GetPath(GetToPath(), _toReplacements);
+        return GetToPathText();
     }
 
     protected IList<IElementMappingPathTarget> GetFromPath()
@@ -108,17 +129,17 @@ public abstract class CSharpMappingBase : ICSharpMapping
         }
     }
 
-    protected string GetFromPath(IDictionary<ICanBeReferencedType, string> replacements)
+    protected string GetFromPathText()
     {
-        return GetPath(GetFromPath(), _fromReplacements);
+        return GetPathText(GetFromPath(), _fromReplacements);
     }
 
-    protected string GetToPath(IDictionary<ICanBeReferencedType, string> replacements)
+    protected string GetToPathText()
     {
-        return GetPath(GetToPath(), _toReplacements);
+        return GetPathText(GetToPath(), _toReplacements);
     }
 
-    protected string GetPath(IList<IElementMappingPathTarget> mappingPath, IDictionary<ICanBeReferencedType, string> replacements)
+    protected string GetPathText(IList<IElementMappingPathTarget> mappingPath, IDictionary<ICanBeReferencedType, string> replacements)
     {
         var result = "";
         foreach (var mappingPathTarget in mappingPath)

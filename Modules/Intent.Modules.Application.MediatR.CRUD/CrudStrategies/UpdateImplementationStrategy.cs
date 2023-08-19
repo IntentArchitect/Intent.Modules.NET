@@ -12,6 +12,7 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.CRUD.Mapping;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -113,6 +114,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
             var csharpMapping = new CSharpClassMappingManager(_template);
+            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
+            //csharpMapping.AddMappingResolver("Class", (model) => new ObjectUpdateMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Message", (model) => new ObjectInitializationMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Eventing DTO", (model) => new ObjectInitializationMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Value Object", (model) => new ImplicitConstructorMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Domain Event", (model) => new ImplicitConstructorMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Class Constructor", (model) => new ImplicitConstructorMapping(model, _template));
+            //csharpMapping.AddMappingResolver("Operation", (model) => new MethodInvocationMapping(model, _template));
             csharpMapping.SetFromReplacement(model.InternalElement, "request");
             csharpMapping.SetToReplacement(foundEntity.InternalElement, entityVariableName);
             foreach (var createAction in model.CreatedEntities())
