@@ -16,6 +16,10 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
+        if (mappingModel.MappingType != "update-mapping")
+        {
+            return null;
+        }
         var model = mappingModel.Model;
         if (model.TypeReference?.Element?.SpecializationType == "Value Object")
         {

@@ -13,6 +13,10 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
+        if (mappingModel.MappingType != "create-mapping")
+        {
+            return null;
+        }
         var model = mappingModel.Model;
         if (model.TypeReference?.Element?.SpecializationType == "Value Object")
         {

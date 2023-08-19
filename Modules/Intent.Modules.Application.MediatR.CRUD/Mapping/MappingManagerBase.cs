@@ -8,6 +8,45 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
+public class MappingModel
+{
+    private readonly MappingManagerBase _manager;
+
+    public MappingModel(IElementToElementMapping mapping, MappingManagerBase manager) : this(mapping.MappingType, mapping.MappingTypeId, mapping.ToElement, mapping.Connections, manager)
+    {
+    }
+
+    private MappingModel(string mappingType,
+        string mappingTypeId, 
+        ICanBeReferencedType model, 
+        IList<IElementToElementMappingConnection> mappings, 
+        MappingManagerBase manager, 
+        int level = 1)
+    {
+        MappingType = mappingType;
+        MappingTypeId = mappingTypeId;
+        _manager = manager;
+        Model = model;
+        Mapping = mappings.SingleOrDefault(x => x.ToPath.Last().Element == model);
+        Children = mappings.Where(x => x.ToPath.Count > level)
+            .GroupBy(x => x.ToPath.Skip(level).First(), x => x)
+            .Select(x => new MappingModel(mappingType, mappingTypeId, x.Key.Element, x.ToList(), manager, level + 1))
+            .OrderBy(x => ((IElement)x.Model).Order)
+            .ToList();
+    }
+
+    public string MappingType { get; }
+    public string MappingTypeId { get; }
+    public ICanBeReferencedType Model { get; set; }
+    public IElementToElementMappingConnection Mapping { get; set; }
+    public IList<MappingModel> Children { get; set; }
+
+    public ICSharpMapping GetMapping()
+    {
+        return _manager.ResolveMappings(this);
+    }
+}
+
 public abstract class MappingManagerBase
 {
     protected Dictionary<ICanBeReferencedType, string> _fromReplacements = new();
@@ -68,7 +107,8 @@ public abstract class MappingManagerBase
                 return found;
             }
         }
-        return null;
+
+        throw new Exception($"No mapping could be resolved for model: {model.Model.Name} [{model.Model.SpecializationType}] with mapping [{model.MappingType}]");
         //var key = model.Model.TypeReference?.Element?.SpecializationType ?? ""; // what about operations that return?
         //if (!_mappingResolvers.ContainsKey(key))
         //{
@@ -151,34 +191,4 @@ public abstract class MappingManagerBase
     }
 
 
-}
-
-public class MappingModel
-{
-    private readonly MappingManagerBase _manager;
-
-    public MappingModel(IElementToElementMapping mapping, MappingManagerBase manager) : this(mapping.ToElement, mapping.Connections, manager)
-    {
-    }
-
-    private MappingModel(ICanBeReferencedType model, IList<IElementToElementMappingConnection> mappings, MappingManagerBase manager, int level = 1)
-    {
-        _manager = manager;
-        Model = model;
-        Mapping = mappings.SingleOrDefault(x => x.ToPath.Last().Element == model);
-        Children = mappings.Where(x => x.ToPath.Count > level)
-            .GroupBy(x => x.ToPath.Skip(level).First(), x => x)
-            .Select(x => new MappingModel(x.Key.Element, x.ToList(), manager, level + 1))
-            .OrderBy(x => ((IElement)x.Model).Order)
-            .ToList();
-    }
-
-    public ICanBeReferencedType Model { get; set; }
-    public IElementToElementMappingConnection Mapping { get; set; }
-    public IList<MappingModel> Children { get; set; }
-
-    public ICSharpMapping GetMapping()
-    {
-        return _manager.ResolveMappings(this);
-    }
 }
