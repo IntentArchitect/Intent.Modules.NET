@@ -22,8 +22,8 @@ public class DefaultCSharpMapping : CSharpMappingBase
 
 public abstract class CSharpMappingBase : ICSharpMapping
 {
-    protected Dictionary<ICanBeReferencedType, string> _fromReplacements = new();
-    protected Dictionary<ICanBeReferencedType, string> _toReplacements = new();
+    protected Dictionary<string, string> _fromReplacements = new();
+    protected Dictionary<string, string> _toReplacements = new();
 
     public ICanBeReferencedType Model { get; }
     public IList<ICSharpMapping> Children { get; }
@@ -103,26 +103,26 @@ public abstract class CSharpMappingBase : ICSharpMapping
         return Children.Concat(Children.SelectMany(x => ((CSharpMappingBase)x).GetAllChildren()).ToList());
     }
 
-    public void SetFromReplacement(ICanBeReferencedType type, string replacement)
+    public void SetFromReplacement(IMetadataModel type, string replacement)
     {
-        if (_fromReplacements.ContainsKey(type))
+        if (_fromReplacements.ContainsKey(type.Id))
         {
-            _fromReplacements.Remove(type);
+            _fromReplacements.Remove(type.Id);
         }
-        _fromReplacements.Add(type, replacement);
+        _fromReplacements.Add(type.Id, replacement);
         foreach (var child in Children)
         {
             child.SetFromReplacement(type, replacement);
         }
     }
 
-    public void SetToReplacement(ICanBeReferencedType type, string replacement)
+    public void SetToReplacement(IMetadataModel type, string replacement)
     {
-        if (_toReplacements.ContainsKey(type))
+        if (_toReplacements.ContainsKey(type.Id))
         {
-            _toReplacements.Remove(type);
+            _toReplacements.Remove(type.Id);
         }
-        _toReplacements.Add(type, replacement);
+        _toReplacements.Add(type.Id, replacement);
         foreach (var child in Children)
         {
             child.SetToReplacement(type, replacement);
@@ -139,14 +139,14 @@ public abstract class CSharpMappingBase : ICSharpMapping
         return GetPathText(GetToPath(), _toReplacements);
     }
 
-    protected string GetPathText(IList<IElementMappingPathTarget> mappingPath, IDictionary<ICanBeReferencedType, string> replacements)
+    protected string GetPathText(IList<IElementMappingPathTarget> mappingPath, IDictionary<string, string> replacements)
     {
         var result = "";
         foreach (var mappingPathTarget in mappingPath)
         {
-            if (replacements.ContainsKey(mappingPathTarget.Element))
+            if (replacements.ContainsKey(mappingPathTarget.Element.Id))
             {
-                result = replacements[mappingPathTarget.Element] ?? ""; // if map to null, ignore
+                result = replacements[mappingPathTarget.Element.Id] ?? ""; // if map to null, ignore
             }
             else
             {

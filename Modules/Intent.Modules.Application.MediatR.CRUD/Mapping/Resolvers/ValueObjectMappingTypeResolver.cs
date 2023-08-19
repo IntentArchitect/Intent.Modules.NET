@@ -1,12 +1,12 @@
 ﻿using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
+namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 
-public class DomainEventMappingTypeResolver : IMappingTypeResolver
+public class ValueObjectMappingTypeResolver : IMappingTypeResolver
 {
     private readonly ICSharpFileBuilderTemplate _sourceTemplate;
 
-    public DomainEventMappingTypeResolver(ICSharpFileBuilderTemplate sourceTemplate)
+    public ValueObjectMappingTypeResolver(ICSharpFileBuilderTemplate sourceTemplate)
     {
         _sourceTemplate = sourceTemplate;
     }
@@ -14,10 +14,11 @@ public class DomainEventMappingTypeResolver : IMappingTypeResolver
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
         var model = mappingModel.Model;
-        if (model.SpecializationType == "Domain Event")
+        if (model.TypeReference?.Element?.SpecializationType == "Value Object")
         {
             return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
         }
-        return new DefaultCSharpMapping(mappingModel, _sourceTemplate);
+
+        return null;
     }
 }

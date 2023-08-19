@@ -49,8 +49,8 @@ public class MappingModel
 
 public abstract class MappingManagerBase
 {
-    protected Dictionary<ICanBeReferencedType, string> _fromReplacements = new();
-    protected Dictionary<ICanBeReferencedType, string> _toReplacements = new();
+    protected Dictionary<IMetadataModel, string> _fromReplacements = new();
+    protected Dictionary<IMetadataModel, string> _toReplacements = new();
     private readonly List<IMappingTypeResolver> _mappingResolvers = new();
 
     protected MappingManagerBase()
@@ -79,7 +79,7 @@ public abstract class MappingManagerBase
         return mapping.GetMappingStatement().ToList();
     }
 
-    public void SetFromReplacement(ICanBeReferencedType type, string replacement)
+    public void SetFromReplacement(IMetadataModel type, string replacement)
     {
         if (_fromReplacements.ContainsKey(type))
         {
@@ -88,7 +88,7 @@ public abstract class MappingManagerBase
         _fromReplacements.Add(type, replacement);
     }
 
-    public void SetToReplacement(ICanBeReferencedType type, string replacement)
+    public void SetToReplacement(IMetadataModel type, string replacement)
     {
         if (_toReplacements.ContainsKey(type))
         {

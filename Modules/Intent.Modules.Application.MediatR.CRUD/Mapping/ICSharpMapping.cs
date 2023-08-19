@@ -14,6 +14,6 @@ public interface ICSharpMapping
     CSharpStatement GetFromStatement();
     CSharpStatement GetToStatement();
 
-    void SetFromReplacement(ICanBeReferencedType type, string replacement);
-    void SetToReplacement(ICanBeReferencedType type, string replacement);
+    void SetFromReplacement(IMetadataModel type, string replacement);
+    void SetToReplacement(IMetadataModel type, string replacement);
 }

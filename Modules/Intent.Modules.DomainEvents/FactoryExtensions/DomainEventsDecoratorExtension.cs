@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Application.MediatR.CRUD.Mapping;
+using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -108,8 +109,9 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             DomainEventModel model)
         {
             var manager = new CSharpClassMappingManager(template);
+            manager.AddMappingResolver(new ValueObjectMappingTypeResolver(template));
             manager.AddMappingResolver(new DomainEventMappingTypeResolver(template));
-            manager.SetFromReplacement(mapping.Connections.First().FromPath.First().Element, "this");
+            manager.SetFromReplacement((IMetadataModel)((ITemplateWithModel)template).Model, "this");
             manager.SetFromReplacement(mapping.FromElement, null);
 
             return manager.GenerateCreationStatement(mapping);

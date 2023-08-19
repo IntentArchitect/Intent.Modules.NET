@@ -1,6 +1,6 @@
 ﻿using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
+namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 
 public class EntityCreationMappingTypeResolver : IMappingTypeResolver
 {
@@ -17,11 +17,8 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         {
             return null;
         }
+
         var model = mappingModel.Model;
-        if (model.TypeReference?.Element?.SpecializationType == "Value Object")
-        {
-            return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
-        }
         if (model.SpecializationType == "Class Constructor")
         {
             return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);

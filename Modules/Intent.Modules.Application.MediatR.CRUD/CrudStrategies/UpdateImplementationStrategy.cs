@@ -10,6 +10,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.CRUD.Mapping;
+using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
@@ -114,6 +115,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
             var csharpMapping = new CSharpClassMappingManager(_template);
+            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.SetFromReplacement(model.InternalElement, "request");
