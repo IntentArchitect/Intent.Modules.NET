@@ -1,6 +1,6 @@
 ﻿# Intent.MongoDb
 
-This module provides patterns for working with MongoDB. 
+This module provides patterns for working with MongoDB.
 
 ## What's is MongoDB?
 

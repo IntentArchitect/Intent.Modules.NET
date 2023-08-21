@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9bdcf645-06c7-4558-8510-05d346e3aac1" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>RegistrationsFactoryExtension</name>
+  <display>RegistrationsFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1adc2f81-0b15-45a8-826f-ba1f5895e867</parentFolderId>
+  <packageId>1adc2f81-0b15-45a8-826f-ba1f5895e867</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Secrets</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

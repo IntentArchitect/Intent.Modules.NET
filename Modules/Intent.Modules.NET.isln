@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.30" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.32" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -110,5 +110,6 @@
     <application id="5692b8df-ecfc-4d14-bbb3-9f2ecacf9879" name="Intent.Modules.Blazor.HttpClients.AccountController" relativePath="Intent.Modules.Blazor.HttpClients.AccountController/Intent.Modules.Blazor.HttpClients.AccountController.application.config" />
     <application id="c432a6b5-0208-4aa7-aa55-006c90cb04d5" name="Intent.Modules.AspNetCore.HealthChecks" relativePath="Intent.Modules.AspNetCore.HealthChecks/Intent.Modules.AspNetCore.HealthChecks.application.config" />
     <application id="c7fa9e37-74f9-4737-826f-71bb2f1389e8" name="Intent.Modules.Dapr.AspNetCore.Metadata" relativePath="Intent.Modules.Dapr.AspNetCore.Metadata/Intent.Modules.Dapr.AspNetCore.Metadata.application.config" />
+    <application id="ec005aa8-56ab-4bbd-b50c-0a0dd619504f" name="Intent.Modules.Dapr.AspNetCore.Secrets" relativePath="Intent.Modules.Dapr.AspNetCore.Secrets/Intent.Modules.Dapr.AspNetCore.Secrets.application.config" />
   </applications>
 </solution>
