@@ -111,5 +111,7 @@
     <application id="c432a6b5-0208-4aa7-aa55-006c90cb04d5" name="Intent.Modules.AspNetCore.HealthChecks" relativePath="Intent.Modules.AspNetCore.HealthChecks/Intent.Modules.AspNetCore.HealthChecks.application.config" />
     <application id="c7fa9e37-74f9-4737-826f-71bb2f1389e8" name="Intent.Modules.Dapr.AspNetCore.Metadata" relativePath="Intent.Modules.Dapr.AspNetCore.Metadata/Intent.Modules.Dapr.AspNetCore.Metadata.application.config" />
     <application id="ec005aa8-56ab-4bbd-b50c-0a0dd619504f" name="Intent.Modules.Dapr.AspNetCore.Secrets" relativePath="Intent.Modules.Dapr.AspNetCore.Secrets/Intent.Modules.Dapr.AspNetCore.Secrets.application.config" />
+    <application id="a7c14bfc-4fde-46bf-9744-b54c66c3b22d" name="Intent.Modules.ContinuousIntegration.AzurePipelines" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines/Intent.Modules.ContinuousIntegration.AzurePipelines.application.config" />
+    <application id="a1f7bab8-79b2-433e-ab02-367fc60ae815" name="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata/Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata.application.config" />
   </applications>
 </solution>
