@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/MessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#21c3df1c-5140-4f65-9814-a68e1a577768</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>

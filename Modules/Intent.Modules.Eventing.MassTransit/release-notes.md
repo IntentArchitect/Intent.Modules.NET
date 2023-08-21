@@ -2,6 +2,7 @@
 
 - New Feature: Finbuckle multi-tenancy support for MassTransit messaging.
 - Improvement: Choose which default retry strategy to use from the Module settings.
+- Improvement: Override the Entity Name for a Message (i.e. change the `topic` name) by applying the `Message Settings` stereotype.
 
 ### Version 5.1.0
 

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -32,9 +33,15 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
+        MessagesWithSettings = ExecutionContext.MetadataManager
+            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetMessageModels()
+            .Where(p => p.HasMessageSettings() && !string.IsNullOrWhiteSpace(p.GetMessageSettings().EntityName()))
+            .ToList();
+
         MessageHandlerModels = ExecutionContext.MetadataManager
             .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
-            .SelectMany(x => x.SubscribedMessages());
+            .SelectMany(x => x.SubscribedMessages())
+            .ToList();
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -55,6 +62,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                         .AddArgument(GetConfigurationForAddMassTransit("configuration"))
                         .AddMetadata("configure-masstransit", true));
                 });
+                AddMessageTopologyConfiguration(@class);
                 @class.AddMethod("void", "AddConsumers", method =>
                 {
                     method.Private().Static();
@@ -65,8 +73,27 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             });
     }
 
-    private IEnumerable<MessageSubscribeAssocationTargetEndModel> MessageHandlerModels { get; }
+    private IReadOnlyCollection<MessageModel> MessagesWithSettings { get; }
+    private IReadOnlyCollection<MessageSubscribeAssocationTargetEndModel> MessageHandlerModels { get; }
 
+    private void AddMessageTopologyConfiguration(CSharpClass @class)
+    {
+        if (!MessagesWithSettings.Any())
+        {
+            return;
+        }
+        
+        @class.AddMethod("void", "AddMessageTopologyConfiguration", method =>
+        {
+            method.Private().Static();
+            method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
+            foreach (var messageModel in MessagesWithSettings)
+            {
+                method.AddStatement($@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageSettings().EntityName()}""));");
+            }
+        });
+    }
+    
     private IReadOnlyCollection<CSharpStatement> GetConsumerStatements(string configParamName)
     {
         var statements = new List<CSharpStatement>();
@@ -104,8 +131,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum() switch
         {
-            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => throw new NotSupportedException(),
-            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => "IAmazonSqsBusFactoryConfigurator",
+            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => "IInMemoryBusFactoryConfigurator",
             EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => "IRabbitMqBusFactoryConfigurator",
             EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => "IServiceBusBusFactoryConfigurator",
             _ => throw new ArgumentOutOfRangeException()
@@ -116,8 +143,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum() switch
         {
-            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => throw new NotSupportedException(),
-            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => throw new NotSupportedException(),
+            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => "IAmazonSqsReceiveEndpointConfigurator",
+            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => "IInMemoryReceiveEndpointConfigurator",
             EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => "IRabbitMqReceiveEndpointConfigurator",
             EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => "IServiceBusReceiveEndpointConfigurator",
             _ => throw new ArgumentOutOfRangeException()
@@ -327,6 +354,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                  ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
         {
             Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
+        }
+
+        if (MessagesWithSettings.Any())
+        {
+            yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
         }
     }
 

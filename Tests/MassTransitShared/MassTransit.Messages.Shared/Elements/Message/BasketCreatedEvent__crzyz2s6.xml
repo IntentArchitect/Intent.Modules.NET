@@ -18,7 +18,16 @@
   <parentFolderId>6fb3b007-f3a6-4664-a792-fdefa1f970a0</parentFolderId>
   <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
   <packageName>MassTransit.Messages.Shared</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="fc095295-eb25-470a-9ee5-19129919db2b" name="Message Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="07825809-0d05-407b-a513-37be94fa114d" display="Entity Name" value="basket-created-topic-rename" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="b905e5df-3fa5-4ffd-96d4-56fe04d59cad" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">

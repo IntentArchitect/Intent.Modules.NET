@@ -34,9 +34,15 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
                     });
                     cfg.ConfigureEndpoints(context);
                     cfg.UseInMemoryOutbox();
+                    cfg.AddMessageTopologyConfiguration();
                 });
                 x.AddInMemoryInboxOutbox();
             });
+        }
+
+        private static void AddMessageTopologyConfiguration(this IRabbitMqBusFactoryConfigurator cfg)
+        {
+            cfg.Message<BasketCreatedEvent>(x => x.SetEntityName("basket-created-topic-rename"));
         }
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
