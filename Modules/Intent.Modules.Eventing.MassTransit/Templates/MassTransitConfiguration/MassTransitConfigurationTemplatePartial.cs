@@ -33,13 +33,18 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
-        MessagesWithSettings = ExecutionContext.MetadataManager
-            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetMessageModels()
+        var appModels = ExecutionContext.MetadataManager
+            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels();
+
+        MessagesWithSettings = appModels
+            .SelectMany(x => x.SubscribedMessages())
+            .Select(x => x.TypeReference.Element.AsMessageModel())
+            .Union(appModels.SelectMany(x => x.PublishedMessages())
+                .Select(x => x.TypeReference.Element.AsMessageModel()))
             .Where(p => p.HasMessageSettings() && !string.IsNullOrWhiteSpace(p.GetMessageSettings().EntityName()))
             .ToList();
 
-        MessageHandlerModels = ExecutionContext.MetadataManager
-            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
+        MessageHandlerModels = appModels
             .SelectMany(x => x.SubscribedMessages())
             .ToList();
 
