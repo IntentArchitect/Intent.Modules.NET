@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dapr.AspNetCore" Version="1.9.0" />
+    <PackageReference Include="Dapr.Extensions.Configuration" Version="1.9.0" />
     <PackageReference Include="IdentityModel" Version="6.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.0" />
     <PackageReference Include="Man.Dapr.Sidekick.AspNetCore" Version="1.1.0" />

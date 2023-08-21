@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Secrets.DaprSecretsConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprSecretsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprSecretsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
@@ -1582,6 +1590,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>dapr/components/pubsub.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>dapr/components/pubsub.yaml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Secrets.DefaultLocalSecretStore</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/secret-store.yaml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/secret-store.yaml</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
