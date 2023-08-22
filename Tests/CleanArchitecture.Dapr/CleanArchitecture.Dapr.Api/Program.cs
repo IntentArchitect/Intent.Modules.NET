@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using CleanArchitecture.Dapr.Api.Configuration;
+using Dapr.Client;
+using Dapr.Extensions.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -42,6 +46,11 @@ namespace CleanArchitecture.Dapr.Api
                     .ReadFrom.Services(services)
                     .Enrich.FromLogContext()
                     .WriteTo.Console())
+                .ConfigureAppConfiguration((config) =>
+                {
+                    config.AddDaprConfigurationStoreDeferred();
+                    config.AddDaprSecretStoreDeferred();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

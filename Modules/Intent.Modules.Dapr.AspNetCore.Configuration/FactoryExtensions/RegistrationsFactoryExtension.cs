@@ -66,6 +66,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
                 file.AddUsing("Dapr.Extensions.Configuration");
                 file.AddUsing("System.Collections.Generic");
 
+                programTemplate.GetDaprConfigurationConfigurationName();
                 var @class = file.Classes.First();
                 var hostBuilder = @class.FindMethod("CreateHostBuilder");
                 var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();

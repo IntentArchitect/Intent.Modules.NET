@@ -139,7 +139,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
 
                         foreach (var key in result.Keys)
                         {
-                            if (data.ContainsKey(key))
+                            if (Data.ContainsKey(key))
                             {
                                 throw new InvalidOperationException($""A duplicate key '{key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store."");
                             }
@@ -155,7 +155,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                     {
                         foreach (var secret in result[key])
                         {
-                            if (data.ContainsKey(secret.Key))
+                            if (Data.ContainsKey(secret.Key))
                             {
                                 throw new InvalidOperationException($""A duplicate key '{secret.Key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store."");
                             }

@@ -70,6 +70,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 file.AddUsing("Dapr.Extensions.Configuration");
                 file.AddUsing("System.Collections.Generic");
 
+                programTemplate.GetDaprSecretsConfigurationName();
                 var @class = file.Classes.First();
                 var hostBuilder = @class.FindMethod("CreateHostBuilder");
                 var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();

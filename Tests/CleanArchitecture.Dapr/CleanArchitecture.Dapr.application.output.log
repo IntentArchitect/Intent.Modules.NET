@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DaprConfigurationConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfigurationConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprConfigurationConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.Secrets.DaprSecretsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprSecretsConfiguration.cs</ApplicationRelativeFilePath>
@@ -1582,6 +1590,14 @@
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#77896063-2cc6-46a0-9f31-84703d132fa9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DefaultLocalConfigurationStore</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/configuration-store.yaml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/configuration-store.yaml</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

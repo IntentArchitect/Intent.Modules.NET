@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Dapr.Client;
 using Dapr.Extensions.Configuration;
@@ -14,19 +15,20 @@ namespace CleanArchitecture.Dapr.Api.Configuration
 {
     public static class DaprSecretsConfiguration
     {
-        public static void AddDaprSecretStore(this IApplicationBuilder app, IConfiguration configuration)
+        public static void AddDaprSecretStoreDeferred(this IConfigurationBuilder configBuilder)
         {
+            configBuilder.Add(new DaprSecretStoreConfigurationSourceDeferred());
+        }
+
+        public static void LoadDaprSecretStoreDeferred(this IApplicationBuilder app, IConfiguration configuration)
+        {
+            var config = (IConfigurationRoot)configuration;
+            var deferredProvider = (DaprSecretsStoreProviderDeferred)config.Providers.First(x => x is DaprSecretsStoreProviderDeferred);
             string store = configuration.GetValue<string>("Dapr.Secrets:StoreName") ?? "secret-store";
             string? descriptorsList = configuration.GetValue<string?>("Dapr.Secrets:Descriptors");
             var secretDescriptors = CreateDescriptors(descriptorsList);
             var client = new DaprClientBuilder().Build();
-            var daprSecretsLoader = new DaprSecretStoreConfigurationSourceCopy();
-            var data = daprSecretsLoader.Load(client, store, secretDescriptors);
-
-            foreach (var kvp in data)
-            {
-                configuration[kvp.Key] = kvp.Value;
-            }
+            deferredProvider.Load(client, store, secretDescriptors);
         }
 
         public static List<DaprSecretDescriptor>? CreateDescriptors(string? descriptorsList)
@@ -49,15 +51,29 @@ namespace CleanArchitecture.Dapr.Api.Configuration
         /// This class is basically a copy of DaprSecretStoreConfigurationSource in the Dapr.Extensions.Configuration assembly.
         /// A standard Dapr implementation would load configuration in CreateHostBuilder (Program.cs)
         /// because We are using SideKick we can not load the Secrets Config until the SideCar is ready which happened after ServicesConfiguration (StartUp.cs).
+        /// https://github.com/dapr/dotnet-sdk/blob/master/src/Dapr.Extensions.Configuration/DaprSecretStoreConfigurationSource.cs
         /// </summary>
-        private class DaprSecretStoreConfigurationSourceCopy
+        private class DaprSecretStoreConfigurationSourceDeferred : IConfigurationSource
+        {
+            public IConfigurationProvider Build(IConfigurationBuilder builder)
+            {
+                return new DaprSecretsStoreProviderDeferred();
+            }
+        }
+        /// <summary>
+        /// This class is basically a copy of DaprSecretsStoreProvider in the Dapr.Extensions.Configuration assembly.
+        /// A standard Dapr implementation would load configuration in CreateHostBuilder (Program.cs)
+        /// because We are using SideKick we can not load the Secrets Config until the SideCar is ready which happened after ServicesConfiguration (StartUp.cs).
+        /// https://github.com/dapr/dotnet-sdk/blob/master/src/Dapr.Extensions.Configuration/DaprSecretsStoreProvider.cs
+        /// </summary>
+        private class DaprSecretsStoreProviderDeferred : ConfigurationProvider
         {
             private readonly TimeSpan _sidecarWaitTimeout = TimeSpan.FromSeconds(35);
             private readonly bool _normalizeKey = true;
             private readonly IList<string> _keyDelimiters = new List<string> { "__" };
             private readonly IReadOnlyDictionary<string, string>? _metadata = null;
 
-            public DaprSecretStoreConfigurationSourceCopy()
+            public DaprSecretsStoreProviderDeferred()
             {
             }
 
@@ -73,13 +89,8 @@ namespace CleanArchitecture.Dapr.Api.Configuration
                 return key;
             }
 
-            public Dictionary<string, string> Load(
-                DaprClient client,
-                string store,
-                List<DaprSecretDescriptor>? secretDescriptors = null)
+            public void Load(DaprClient client, string store, List<DaprSecretDescriptor>? secretDescriptors = null)
             {
-                var data = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-
                 // Wait for the Dapr Sidecar to report healthy before attempting to fetch secrets.
                 using (var tokenSource = new CancellationTokenSource(_sidecarWaitTimeout))
                 {
@@ -94,12 +105,12 @@ namespace CleanArchitecture.Dapr.Api.Configuration
 
                         foreach (var key in result.Keys)
                         {
-                            if (data.ContainsKey(key))
+                            if (Data.ContainsKey(key))
                             {
                                 throw new InvalidOperationException($"A duplicate key '{key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store.");
                             }
 
-                            data.Add(_normalizeKey ? NormalizeKey(_keyDelimiters, key) : key, result[key]);
+                            Set(_normalizeKey ? NormalizeKey(_keyDelimiters, key) : key, result[key]);
                         }
                     }
                 }
@@ -110,16 +121,16 @@ namespace CleanArchitecture.Dapr.Api.Configuration
                     {
                         foreach (var secret in result[key])
                         {
-                            if (data.ContainsKey(secret.Key))
+                            if (Data.ContainsKey(secret.Key))
                             {
                                 throw new InvalidOperationException($"A duplicate key '{secret.Key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store.");
                             }
 
-                            data.Add(_normalizeKey ? NormalizeKey(_keyDelimiters, secret.Key) : secret.Key, secret.Value);
+                            Set(_normalizeKey ? NormalizeKey(_keyDelimiters, secret.Key) : secret.Key, secret.Value);
                         }
                     }
                 }
-                return data;
+                OnReload();
             }
         }
     }
