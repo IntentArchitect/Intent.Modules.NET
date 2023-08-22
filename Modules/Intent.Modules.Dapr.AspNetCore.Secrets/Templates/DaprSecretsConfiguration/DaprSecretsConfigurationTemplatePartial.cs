@@ -6,8 +6,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.SdkEvolutionHelpers;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -24,6 +22,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Dapr.Client")
@@ -34,22 +33,26 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                 {
                     this.ApplyAppSetting("Dapr.Secrets:StoreName", "secret-store");
                     @class.Static();
-                    @class.AddMethod("void", "AddDaprSecretStore", method =>
+                    @class.AddMethod("void", "AddDaprSecretStoreDeferred", method =>
+                    {
+                        method.Static()
+                            .AddParameter("IConfigurationBuilder", "configBuilder", p => p.WithThisModifier())
+                            .AddStatement("configBuilder.Add(new DaprSecretStoreConfigurationSourceDeferred());")
+                            ;
+                    });
+                    @class.AddMethod("void", "LoadDaprSecretStoreDeferred", method =>
                     {
 
                         method.Static()
                             .AddParameter("IApplicationBuilder", "app", p => p.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration")
+                            .AddStatement("var config = (IConfigurationRoot)configuration;")
+                            .AddStatement("var deferredProvider = (DaprSecretsStoreProviderDeferred)config.Providers.First(x => x is DaprSecretsStoreProviderDeferred);")
                             .AddStatement("string store = configuration.GetValue<string>(\"Dapr.Secrets:StoreName\") ?? \"secret-store\" ;")
                             .AddStatement("string? descriptorsList = configuration.GetValue<string?>(\"Dapr.Secrets:Descriptors\");")
                             .AddStatement("var secretDescriptors = CreateDescriptors(descriptorsList);")
                             .AddStatement("var client = new DaprClientBuilder().Build();")
-                            .AddStatement("var daprSecretsLoader = new DaprSecretStoreConfigurationSourceCopy();")
-                            .AddStatement("var data = daprSecretsLoader.Load(client, store, secretDescriptors);")
-                            .AddForEachStatement("kvp", "data", loop =>
-                            {
-                                loop.AddStatement("configuration[kvp.Key] = kvp.Value;");
-                            })
+                            .AddStatement("deferredProvider.Load(client, store, secretDescriptors);")
                             ;
                     });
                     @class.AddMethod("List<DaprSecretDescriptor>?", "CreateDescriptors", method =>
@@ -67,14 +70,33 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                             .AddStatement("return result;")
                             ;
                     });
-                    @class.AddNestedClass("DaprSecretStoreConfigurationSourceCopy", child =>
+                    @class.AddNestedClass("DaprSecretStoreConfigurationSourceDeferred", child =>
                     {
                         child.Private()
+                            .ImplementsInterface("IConfigurationSource")
                             .WithComments(@"
 /// <summary>
 /// This class is basically a copy of DaprSecretStoreConfigurationSource in the Dapr.Extensions.Configuration assembly.
 /// A standard Dapr implementation would load configuration in CreateHostBuilder (Program.cs)
 /// because We are using SideKick we can not load the Secrets Config until the SideCar is ready which happened after ServicesConfiguration (StartUp.cs).
+/// https://github.com/dapr/dotnet-sdk/blob/master/src/Dapr.Extensions.Configuration/DaprSecretStoreConfigurationSource.cs
+/// </summary>");
+                        child.AddMethod("IConfigurationProvider", "Build", method => 
+                        {
+                            method.AddParameter("IConfigurationBuilder", "builder")
+                                .AddStatement("return new DaprSecretsStoreProviderDeferred();");
+                        });
+                    });
+                    @class.AddNestedClass("DaprSecretsStoreProviderDeferred", child =>
+                    {
+                        child.Private()
+                            .ImplementsInterface("ConfigurationProvider")
+                            .WithComments(@"
+/// <summary>
+/// This class is basically a copy of DaprSecretsStoreProvider in the Dapr.Extensions.Configuration assembly.
+/// A standard Dapr implementation would load configuration in CreateHostBuilder (Program.cs)
+/// because We are using SideKick we can not load the Secrets Config until the SideCar is ready which happened after ServicesConfiguration (StartUp.cs).
+/// https://github.com/dapr/dotnet-sdk/blob/master/src/Dapr.Extensions.Configuration/DaprSecretsStoreProvider.cs
 /// </summary>");
                         child.AddField("TimeSpan", "_sidecarWaitTimeout", f => f.PrivateReadOnly().WithAssignment("TimeSpan.FromSeconds(35)"));
                         child.AddField("bool", "_normalizeKey", f => f.PrivateReadOnly().WithAssignment("true"));
@@ -98,7 +120,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                             .AddStatement("return key;")
                             ;
                         });
-                        child.AddMethod("Dictionary<string, string>", "Load", method =>
+                        child.AddMethod("void", "Load", method =>
                         {
                             method.AddParameter("DaprClient", "client");
                             method.AddParameter("string", "store");
@@ -124,7 +146,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                                 throw new InvalidOperationException($""A duplicate key '{key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store."");
                             }
 
-                            data.Add(_normalizeKey ? NormalizeKey(_keyDelimiters, key) : key, result[key]);
+                            Set(_normalizeKey ? NormalizeKey(_keyDelimiters, key) : key, result[key]);
                         }
                     }
                 }
@@ -140,11 +162,11 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                                 throw new InvalidOperationException($""A duplicate key '{secret.Key}' was found in the secret store '{store}'. Please remove any duplicates from your secret store."");
                             }
 
-                            data.Add(_normalizeKey ? NormalizeKey(_keyDelimiters, secret.Key) : secret.Key, secret.Value);
+                            Set(_normalizeKey ? NormalizeKey(_keyDelimiters, secret.Key) : secret.Key, secret.Value);
                         }
                     }
                 }
-                return data;
+                OnReload();
 ");
                         });
                     });

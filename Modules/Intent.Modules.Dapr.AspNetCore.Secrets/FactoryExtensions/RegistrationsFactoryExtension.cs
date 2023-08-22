@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Dapr.AspNetCore.Secrets.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -26,10 +27,11 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            AddProgramRegistrations(application);
             AddStartupRegistrations(application);
         }
 
-        private void AddStartupRegistrations(IApplication application)
+        private void AddProgramRegistrations(IApplication application)
         {
             var startupTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
             if (startupTemplate == null)
@@ -47,13 +49,12 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 {
                     return;
                 }
-
-                configureMethod.InsertStatement(0, "app.AddDaprSecretStore(Configuration);");
-            });
+                startupTemplate.GetDaprSecretsConfigurationName();
+                configureMethod.InsertStatement(0, "app.LoadDaprSecretStoreDeferred(Configuration);");
+            }, 10);
         }
 
-        /*
-        private void AddProgramRegistrations(IApplication application)
+        private void AddStartupRegistrations(IApplication application)
         {
             var programTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
             if (programTemplate == null)
@@ -70,37 +71,23 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 file.AddUsing("System.Collections.Generic");
 
                 var @class = file.Classes.First();
-
-                string storeName = programTemplate.ExecutionContext.Settings.GetDapperSettings().SecretStoreName();
                 var hostBuilder = @class.FindMethod("CreateHostBuilder");
                 var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
-                hostBuilderChain.Statements.Last()
-                    .InsertAbove(new CSharpInvocationStatement("ConfigureAppConfiguration")
-                    .WithoutSemicolon()
-                    .AddArgument(new CSharpLambdaBlock("(config)")
-                    .AddStatement("var daprClient = new DaprClientBuilder().Build();")
-                    .AddStatement($@"var secretDescriptors = new List<DaprSecretDescriptor>
-                {{                   
-{CreateInitStatement(programTemplate)}                    
-                }};")
-                    .AddStatement($"config.AddDaprSecretStore(\"{storeName}\", secretDescriptors, daprClient);")
-                    ));
+                var appConfigurationBlock = (CSharpInvocationStatement)hostBuilderChain.FindStatement(stmt => stmt.GetText("").StartsWith(".ConfigureAppConfiguration"));
+                if (appConfigurationBlock == null)
+                {
+                    appConfigurationBlock = new CSharpInvocationStatement("ConfigureAppConfiguration")
+                        .WithoutSemicolon()
+                        .AddArgument(new CSharpLambdaBlock("(config)")
+                        .AddStatement("config.AddDaprSecretStoreDeferred();"));
+                    hostBuilderChain.Statements.Last()
+                        .InsertAbove(appConfigurationBlock);
+                }
+                else
+                {
+                    ((CSharpLambdaBlock)appConfigurationBlock.Statements[0]).Statements.Add("config.AddDaprSecretStoreDeferred();");
+                }
             }, 10);
         }
-
-        private string CreateInitStatement(ICSharpFileBuilderTemplate programTemplate)
-        {
-            string[] secretDescriptors = programTemplate.ExecutionContext.Settings.GetDapperSettings().SecretDescriptors()?.Split(',');
-            var initStatements = new StringBuilder();
-            if (secretDescriptors != null && secretDescriptors.Length > 0)
-            {
-                foreach (var secretDescriptor in secretDescriptors)
-                {
-                    initStatements.AppendLine($"                    new DaprSecretDescriptor(\"{secretDescriptor}\"),");
-                }
-            }
-            return initStatements.ToString();
-        }
-        */
     }
 }

@@ -4,7 +4,7 @@ This modules implements patterns for working with Dapr (Distributed Application 
 
 ## What's is Dapr Secrets component?
 
-Dapr (Distributed Application Runtime) Secrets is a component within the Dapr framework designed to manage sensitive information such as passwords, API keys, and connection strings in a secure manner for distributed applications. It provides a standardized and consistent way to access secrets from various secret stores, like Azure Key Vault, AWS Secrets Manager, HashiCorp Vault, and more. Dapr abstracts away the complexities of interacting with different secret management systems, enabling developers to easily retrieve and utilize secrets without hardcoding them directly into their application code. This enhances security by centralizing secret management and reducing the risk of exposing sensitive data.
+Dapr (Distributed Application Runtime) Secrets is a component within the Dapr framework designed to manage sensitive information such as passwords, API keys, and connection strings in a secure manner for distributed applications. It provides a standardized and consistent way to access secrets from various secret stores, like Azure Key Vault, AWS Secrets Manager, HashiCorp Vault, and more. Dapr abstracts away the complexities of interacting with different secret management systems, enabling developers to easily retrieve and utilize secrets without hard-coding them directly into their application code. This enhances security by centralizing secret management and reducing the risk of exposing sensitive data.
 
 For more information on Dapr Secrets component, check out their [official site](https://docs.dapr.io/developing-applications/building-blocks/secrets/).
 And more specifically for [.Net](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/secrets-management#use-the-dapr-net-sdk).
@@ -18,7 +18,7 @@ Out the box this module will generate an Environment Variable secret store for e
 
 Because this modules is designed to work with `Man.Dapr.Sidekick.AspNetCore`, there are a few limitations
 
-- The fully configured `IConfiguration` is only avilable after `ConfigureServices` (Startup.cs), as this is when SideKick starts up the Sidecar, which is needed to fetch the secrets.
+- The fully configured `IConfiguration` is only available after `ConfigureServices` (Startup.cs), as this is when SideKick starts up the Sidecar, which is needed to fetch the secrets.
 - The local file secret store needs to be configured with an absolute path.
 
 ## appsettings.json configuration
@@ -26,7 +26,7 @@ Because this modules is designed to work with `Man.Dapr.Sidekick.AspNetCore`, th
 In the `Dapr.Secrets` section you can configure the following settings
 
 - **StoreName**, which secrets store to connect to. 
-- **Descriptors** (optional), comma sperated list of which secrets you would like to load.
+- **Descriptors** (optional), comma separated list of which secrets you would like to load.
 
 ```json
 
