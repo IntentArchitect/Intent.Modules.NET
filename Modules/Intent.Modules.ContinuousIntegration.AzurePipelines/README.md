@@ -1,6 +1,6 @@
 # Intent.ContinuousIntegration.AzurePipelines
 
-This module generates a basic `azure-pipeline.yml` for [Azure Pipelines](https://learn.microsoft.com/azure/devops/pipelines/?view=azure-devops) file which will:
+This module generates a basic `azure-pipeline.yml` file for [Azure Pipelines](https://learn.microsoft.com/azure/devops/pipelines/?view=azure-devops) which will:
 
 - Build all `.csproj` files in the repository.
 - Run unit tests for any `.csproj` whose name is suffixed with `Tests`.
@@ -30,7 +30,7 @@ If you have a warning starting with `Intent Architect Credentials not configured
 
 ## Configuring Intent Architect Credentials
 
-Because valid Intent Architect account credentials are required to run the the [Intent Architect Software Factory CLI](https://docs.intentarchitect.com/articles/cli-tools/software-factory-cli/software-factory-cli.html), some quick additional configuration will be required to make them available to pipeline.
+Because valid Intent Architect account credentials are required to run the [Intent Architect Software Factory CLI](https://docs.intentarchitect.com/articles/cli-tools/software-factory-cli/software-factory-cli.html), some quick additional configuration will be required to make them available to the pipeline.
 
 In the left navigation pane, go to `Library`.
 
