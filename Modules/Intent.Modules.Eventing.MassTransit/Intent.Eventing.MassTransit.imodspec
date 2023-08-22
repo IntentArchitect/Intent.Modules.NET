@@ -70,6 +70,7 @@
   </templates>
   <decorators />
   <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInterfaceExtension" externalReference="db68c782-b2b2-4c77-a9c7-d8da2caf8d68" />
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
     <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfigurator" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
     <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfigurator" externalReference="75840da1-9946-4375-845b-78aad753a902" />
@@ -135,7 +136,7 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36" />
+    <dependency id="Intent.Common.CSharp" version="3.3.40" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts" version="4.0.8" />
     <dependency id="Intent.Modelers.Eventing" version="4.0.4" />

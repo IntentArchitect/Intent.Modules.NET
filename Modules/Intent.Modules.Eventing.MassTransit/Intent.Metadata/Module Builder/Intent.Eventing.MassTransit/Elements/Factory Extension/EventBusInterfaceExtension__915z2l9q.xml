@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="db68c782-b2b2-4c77-a9c7-d8da2caf8d68" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusInterfaceExtension</name>
+  <display>EventBusInterfaceExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6502ee82-f515-4007-9635-bade3eb88e72</parentFolderId>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -89,10 +89,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
         statements.Add($@"services.AddScoped<{this.GetEventBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
-        
+
         return statements;
     }
-    
+
     private CSharpLambdaBlock GetConfigurationForAddMassTransit(string configurationVarName)
     {
         var block = new CSharpLambdaBlock("x")
@@ -103,7 +103,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             block.AddStatement($"x.AddDelayedMessageScheduler();");
         }
-        
+
         switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
         {
             case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
@@ -123,7 +123,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                             .AddArgument(@"configuration[""RabbitMq:VirtualHost""]")
                             .AddArgument(new CSharpLambdaBlock("host")
                                 .AddStatement(@"host.Username(configuration[""RabbitMq:Username""]);")
-                                .AddStatement(@"host.Password(configuration[""RabbitMq:Password""]);")))
+                                .AddStatement(@"host.Password(configuration[""RabbitMq:Password""]);"))
+                            .SeparatedFromPrevious())
                         .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "rabbit-mq")
                     .SeparatedFromPrevious());
@@ -133,7 +134,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     .AddArgument(new CSharpLambdaBlock("(context, cfg)")
                         .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
                         .AddInvocationStatement("cfg.Host", host => host
-                            .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]"))
+                            .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]")
+                            .SeparatedFromPrevious())
                         .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "azure-service-bus")
                     .SeparatedFromPrevious());
@@ -146,7 +148,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                             .AddArgument(@"configuration[""AmazonSqs:Host""]")
                             .AddArgument(new CSharpLambdaBlock("host")
                                 .AddStatement(@"host.AccessKey(configuration[""AmazonSqs:AccessKey""]);")
-                                .AddStatement(@"host.SecretKey(configuration[""AmazonSqs:SecretKey""]);")))
+                                .AddStatement(@"host.SecretKey(configuration[""AmazonSqs:SecretKey""]);"))
+                            .SeparatedFromPrevious())
                         .AddStatements(GetPostHostConfigurationStatements()))
                     .AddMetadata("message-broker", "amazon-sqs")
                     .SeparatedFromPrevious());
@@ -163,7 +166,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         return block;
     }
-    
+
     private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
     {
         yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
@@ -192,7 +195,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return new CSharpStatement("cfg.UseDelayedMessageScheduler();");
         }
     }
-    
+
     private void AddMessageTopologyConfiguration(CSharpClass @class)
     {
         if (!MessagesWithSettings.Any())
@@ -394,7 +397,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             }
         }
     }
-    
+
     private bool HasMessageBrokerStereotype(MessageSubscribeAssocationTargetEndModel messageHandlerModel)
     {
         return (messageHandlerModel.HasAzureServiceBusConsumerSettings() &&

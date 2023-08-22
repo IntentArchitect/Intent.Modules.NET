@@ -23,11 +23,6 @@ public class TelemetryConfigurator : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        if (application.InstalledModules.All(p => p.ModuleId != "Intent.OpenTelemetry"))
-        {
-            return;
-        }
-
         UpdateOpenTelemetryConfiguration(application);
     }
 

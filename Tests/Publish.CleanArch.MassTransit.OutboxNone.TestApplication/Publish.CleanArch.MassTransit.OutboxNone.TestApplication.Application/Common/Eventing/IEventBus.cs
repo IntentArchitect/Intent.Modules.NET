@@ -11,7 +11,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     public interface IEventBus
     {
         void Publish<T>(T message) where T : class;
-        void SchedulePublish<T>(T message, TimeSpan delayedSpan) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
+        void SchedulePublish<T>(T message, DateTime scheduled)
+            where T : class;
+        void SchedulePublish<T>(T message, TimeSpan delay)
+            where T : class;
     }
 }

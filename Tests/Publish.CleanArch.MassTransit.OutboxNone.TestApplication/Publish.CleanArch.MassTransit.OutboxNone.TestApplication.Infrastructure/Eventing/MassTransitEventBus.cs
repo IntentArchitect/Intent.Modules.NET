@@ -15,8 +15,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
     public class MassTransitEventBus : IEventBus
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly List<object> _messagesToPublish = new();
-        private readonly List<ScheduleEntry> _messagesToSchedule = new();
+        private readonly List<object> _messagesToPublish = new List<object>();
+        private readonly List<ScheduleEntry> _messagesToSchedule = new List<ScheduleEntry>();
 
         public MassTransitEventBus(IServiceProvider serviceProvider)
         {
@@ -30,12 +30,14 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToPublish.Add(message);
         }
 
-        public void SchedulePublish<T>(T message, DateTime scheduled) where T : class
+        public void SchedulePublish<T>(T message, DateTime scheduled)
+            where T : class
         {
             _messagesToSchedule.Add(ScheduleEntry.ForScheduled(message, scheduled));
         }
-        
-        public void SchedulePublish<T>(T message, TimeSpan delay) where T : class
+
+        public void SchedulePublish<T>(T message, TimeSpan delay)
+            where T : class
         {
             _messagesToSchedule.Add(ScheduleEntry.ForDelay(message, delay));
         }
@@ -50,7 +52,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             {
                 await PublishWithNormalContext(cancellationToken);
             }
-            
+
             _messagesToPublish.Clear();
             _messagesToSchedule.Clear();
         }
@@ -58,20 +60,20 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
         private async Task PublishWithConsumeContext(CancellationToken cancellationToken)
         {
             await ConsumeContext!.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
-            
+
             foreach (var scheduleEntry in _messagesToSchedule)
             {
                 await ConsumeContext!.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);
             }
         }
-        
+
         private async Task PublishWithNormalContext(CancellationToken cancellationToken)
         {
             var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
             var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();
-            
+
             await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
-            
+
             foreach (var scheduleEntry in _messagesToSchedule)
             {
                 await messageScheduler.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);
@@ -80,24 +82,24 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 
         private class ScheduleEntry
         {
-            private ScheduleEntry(object message, DateTime scheduled) 
+            private ScheduleEntry(object message, DateTime scheduled)
             {
                 Message = message;
                 Scheduled = scheduled;
             }
 
-            public static ScheduleEntry ForScheduled(object message, DateTime scheduled) 
+            public object Message { get; }
+            public DateTime Scheduled { get; }
+
+            public static ScheduleEntry ForScheduled(object message, DateTime scheduled)
             {
                 return new ScheduleEntry(message, scheduled);
             }
 
-            public static ScheduleEntry ForDelay(object message, TimeSpan delay) 
+            public static ScheduleEntry ForDelay(object message, TimeSpan delay)
             {
                 return new ScheduleEntry(message, DateTime.UtcNow.Add(delay));
             }
-            
-            public object Message { get; }
-            public DateTime Scheduled { get; }
         }
     }
 }
