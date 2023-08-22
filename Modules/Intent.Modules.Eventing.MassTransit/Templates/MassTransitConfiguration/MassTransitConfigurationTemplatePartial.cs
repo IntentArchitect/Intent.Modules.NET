@@ -63,9 +63,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");
+                    method.AddStatements(GetContainerRegistrationStatements());
                     method.AddInvocationStatement("services.AddMassTransit", stmt => stmt
                         .AddArgument(GetConfigurationForAddMassTransit("configuration"))
-                        .AddMetadata("configure-masstransit", true));
+                        .AddMetadata("configure-masstransit", true)
+                        .SeparatedFromPrevious());
                 });
                 AddMessageTopologyConfiguration(@class);
                 @class.AddMethod("void", "AddConsumers", method =>
@@ -81,6 +83,116 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     private IReadOnlyCollection<MessageModel> MessagesWithSettings { get; }
     private IReadOnlyCollection<MessageSubscribeAssocationTargetEndModel> MessageHandlerModels { get; }
 
+    private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
+    {
+        var statements = new List<CSharpStatement>();
+
+        statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
+        statements.Add($@"services.AddScoped<{this.GetEventBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+        
+        return statements;
+    }
+    
+    private CSharpLambdaBlock GetConfigurationForAddMassTransit(string configurationVarName)
+    {
+        var block = new CSharpLambdaBlock("x")
+            .AddStatement($"x.SetKebabCaseEndpointNameFormatter();")
+            .AddStatement($"x.AddConsumers();");
+
+        if (ExecutionContext.Settings.GetEventingSettings().EnableScheduledPublishing())
+        {
+            block.AddStatement($"x.AddDelayedMessageScheduler();");
+        }
+        
+        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+        {
+            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
+                block.AddInvocationStatement("x.UsingInMemory", memory => memory
+                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
+                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
+                        .AddStatements(GetPostHostConfigurationStatements()))
+                    .AddMetadata("message-broker", "memory")
+                    .SeparatedFromPrevious());
+                break;
+            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
+                block.AddInvocationStatement("x.UsingRabbitMq", rabbitMq => rabbitMq
+                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
+                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
+                        .AddInvocationStatement("cfg.Host", host => host
+                            .AddArgument(@"configuration[""RabbitMq:Host""]")
+                            .AddArgument(@"configuration[""RabbitMq:VirtualHost""]")
+                            .AddArgument(new CSharpLambdaBlock("host")
+                                .AddStatement(@"host.Username(configuration[""RabbitMq:Username""]);")
+                                .AddStatement(@"host.Password(configuration[""RabbitMq:Password""]);")))
+                        .AddStatements(GetPostHostConfigurationStatements()))
+                    .AddMetadata("message-broker", "rabbit-mq")
+                    .SeparatedFromPrevious());
+                break;
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                block.AddInvocationStatement("x.UsingAzureServiceBus", azBus => azBus
+                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
+                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
+                        .AddInvocationStatement("cfg.Host", host => host
+                            .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]"))
+                        .AddStatements(GetPostHostConfigurationStatements()))
+                    .AddMetadata("message-broker", "azure-service-bus")
+                    .SeparatedFromPrevious());
+                break;
+            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
+                block.AddInvocationStatement("x.UsingAmazonSqs", sqs => sqs
+                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
+                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
+                        .AddInvocationStatement("cfg.Host", host => host
+                            .AddArgument(@"configuration[""AmazonSqs:Host""]")
+                            .AddArgument(new CSharpLambdaBlock("host")
+                                .AddStatement(@"host.AccessKey(configuration[""AmazonSqs:AccessKey""]);")
+                                .AddStatement(@"host.SecretKey(configuration[""AmazonSqs:SecretKey""]);")))
+                        .AddStatements(GetPostHostConfigurationStatements()))
+                    .AddMetadata("message-broker", "amazon-sqs")
+                    .SeparatedFromPrevious());
+                break;
+            default:
+                throw new InvalidOperationException(
+                    $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum()}");
+        }
+
+        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        {
+            block.AddStatement("x.AddInMemoryInboxOutbox();");
+        }
+
+        return block;
+    }
+    
+    private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
+    {
+        yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
+        if (MessageHandlerModels.Any(HasMessageBrokerStereotype))
+        {
+            yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
+        }
+
+        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        {
+            yield return new CSharpStatement("cfg.UseInMemoryOutbox();");
+        }
+        else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
+                 ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
+        {
+            Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
+        }
+
+        if (MessagesWithSettings.Any())
+        {
+            yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
+        }
+
+        if (ExecutionContext.Settings.GetEventingSettings().EnableScheduledPublishing())
+        {
+            yield return new CSharpStatement("cfg.UseDelayedMessageScheduler();");
+        }
+    }
+    
     private void AddMessageTopologyConfiguration(CSharpClass @class)
     {
         if (!MessagesWithSettings.Any())
@@ -271,6 +383,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return $@"{configVarName}.Exclusive = {settings.Exclusive().ToString().ToLower()};";
         }
 
+        yield break;
+
         // Until we get a nice UI text field that can capture time this will have to do
         static void ValidateTimeSpanString(string settingStringValue, string memberName, out TimeSpan parsedTimeSpan)
         {
@@ -280,91 +394,14 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             }
         }
     }
-
-    private CSharpLambdaBlock GetConfigurationForAddMassTransit(string configurationVarName)
+    
+    private bool HasMessageBrokerStereotype(MessageSubscribeAssocationTargetEndModel messageHandlerModel)
     {
-        var block = new CSharpLambdaBlock("x")
-            .AddStatement($"x.SetKebabCaseEndpointNameFormatter();")
-            .AddStatement($"x.AddConsumers();");
-
-        switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
-        {
-            case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
-                block.AddInvocationStatement("x.UsingInMemory", memory => memory
-                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
-                        .AddStatements(GetPostHostConfigurationStatements()))
-                    .AddMetadata("message-broker", "memory"));
-                break;
-            case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
-                block.AddInvocationStatement("x.UsingRabbitMq", rabbitMq => rabbitMq
-                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
-                        .AddInvocationStatement("cfg.Host", host => host
-                            .AddArgument(@"configuration[""RabbitMq:Host""]")
-                            .AddArgument(@"configuration[""RabbitMq:VirtualHost""]")
-                            .AddArgument(new CSharpLambdaBlock("host")
-                                .AddStatement(@"host.Username(configuration[""RabbitMq:Username""]);")
-                                .AddStatement(@"host.Password(configuration[""RabbitMq:Password""]);")))
-                        .AddStatements(GetPostHostConfigurationStatements()))
-                    .AddMetadata("message-broker", "rabbit-mq"));
-                break;
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
-                block.AddInvocationStatement("x.UsingAzureServiceBus", azBus => azBus
-                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
-                        .AddInvocationStatement("cfg.Host", host => host
-                            .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]"))
-                        .AddStatements(GetPostHostConfigurationStatements()))
-                    .AddMetadata("message-broker", "azure-service-bus"));
-                break;
-            case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
-                block.AddInvocationStatement("x.UsingAmazonSqs", sqs => sqs
-                    .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                        .AddStatement(GetMessageRetryStatement("cfg", configurationVarName))
-                        .AddInvocationStatement("cfg.Host", host => host
-                            .AddArgument(@"configuration[""AmazonSqs:Host""]")
-                            .AddArgument(new CSharpLambdaBlock("host")
-                                .AddStatement(@"host.AccessKey(configuration[""AmazonSqs:AccessKey""]);")
-                                .AddStatement(@"host.SecretKey(configuration[""AmazonSqs:SecretKey""]);")))
-                        .AddStatements(GetPostHostConfigurationStatements()))
-                    .AddMetadata("message-broker", "amazon-sqs"));
-                break;
-            default:
-                throw new InvalidOperationException(
-                    $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum()}");
-        }
-
-        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
-        {
-            block.AddStatement("x.AddInMemoryInboxOutbox();");
-        }
-
-        return block;
-    }
-
-    private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
-    {
-        yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
-        if (MessageHandlerModels.Any(HasMessageBrokerStereotype))
-        {
-            yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
-        }
-
-        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
-        {
-            yield return new CSharpStatement("cfg.UseInMemoryOutbox();");
-        }
-        else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
-                 ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
-        {
-            Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
-        }
-
-        if (MessagesWithSettings.Any())
-        {
-            yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
-        }
+        return (messageHandlerModel.HasAzureServiceBusConsumerSettings() &&
+                ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsAzureServiceBus())
+               ||
+               (messageHandlerModel.HasRabbitMQConsumerSettings() &&
+                ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsRabbitmq());
     }
 
     private CSharpStatement GetMessageRetryStatement(string configParamName, string configurationVarName)
@@ -454,15 +491,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    private bool HasMessageBrokerStereotype(MessageSubscribeAssocationTargetEndModel messageHandlerModel)
-    {
-        return (messageHandlerModel.HasAzureServiceBusConsumerSettings() &&
-                ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsAzureServiceBus())
-               ||
-               (messageHandlerModel.HasRabbitMQConsumerSettings() &&
-                ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsRabbitmq());
-    }
-
     public override void BeforeTemplateExecution()
     {
         ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister(
@@ -517,7 +545,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

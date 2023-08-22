@@ -24,17 +24,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
         {
         }
 
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForConcern("Infrastructure")
-                .WithPerServiceCallLifeTime());
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForConcern("Infrastructure")
-                .ForInterface(GetTemplate<IClassProvider>(EventBusInterfaceTemplate.TemplateId))
-                .WithResolveFromContainer());
-        }
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {

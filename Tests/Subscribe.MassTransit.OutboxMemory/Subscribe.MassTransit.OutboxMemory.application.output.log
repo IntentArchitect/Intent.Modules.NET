@@ -332,6 +332,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f3cafa71-1673-4016-a0a0-5ba10f4887b4</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#26641787-3a05-40f4-92aa-10e2df0665f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEventHandlers/DelayedNotificationEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DelayedNotificationEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3cafa71-1673-4016-a0a0-5ba10f4887b4</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#d97f6339-17d1-4164-852f-2578924666b3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEventHandlers/RoleCreatedEventHandler.cs</ApplicationRelativeFilePath>
@@ -440,6 +448,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Roles/RoleUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>790d8c81-0217-44bf-9c0a-d56ef41e3456</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d788a26e-930b-4ffb-af58-b7247a14e6d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Scheduled/DelayedNotificationEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/DelayedNotificationEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

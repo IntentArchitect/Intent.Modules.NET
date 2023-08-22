@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -10,6 +11,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     public interface IEventBus
     {
         void Publish<T>(T message) where T : class;
+        void SchedulePublish<T>(T message, TimeSpan delayedSpan) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }
 }

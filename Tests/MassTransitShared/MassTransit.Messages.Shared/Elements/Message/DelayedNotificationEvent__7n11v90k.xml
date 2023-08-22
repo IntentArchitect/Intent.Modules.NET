@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d788a26e-930b-4ffb-af58-b7247a14e6d4" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>DelayedNotificationEvent</name>
+  <display>DelayedNotificationEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>53366233-5a04-4b87-921a-1f39b4a8e9db</parentFolderId>
+  <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+  <packageName>MassTransit.Messages.Shared</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="868d177c-374f-4379-8a09-af17b6ad8052" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c96a588d-ad7c-40b7-96a5-bba8716cb833">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d788a26e-930b-4ffb-af58-b7247a14e6d4</parentFolderId>
+      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+      <packageName>MassTransit.Messages.Shared</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

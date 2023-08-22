@@ -53,7 +53,7 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
                     method.AddParameter($"ConsumeContext<{tMessage}>", "context");
                     method.AddStatement(
                         $"var eventBus = _serviceProvider.GetService<{this.GetMassTransitEventBusName()}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};");
-                    method.AddStatement($"eventBus.Current = context;");
+                    method.AddStatement($"eventBus.ConsumeContext = context;");
                     method.AddStatement(
                         $"var handler = _serviceProvider.GetService<{tHandler}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};",
                         stmt => stmt.AddMetadata("handler", "instantiate"));

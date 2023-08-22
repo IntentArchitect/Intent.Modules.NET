@@ -56,6 +56,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
         }
     }
 }
