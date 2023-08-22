@@ -1,26 +1,22 @@
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Dapr.AspNetCore.Secrets.Templates;
+using Intent.Modules.Dapr.AspNetCore.Configuration.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
+namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class RegistrationsFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Dapr.AspNetCore.Secrets.RegistrationsFactoryExtension";
+        public override string Id => "Intent.Dapr.AspNetCore.Configuration.RegistrationsFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -49,9 +45,9 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 {
                     return;
                 }
-                startupTemplate.GetDaprSecretsConfigurationName();
-                configureMethod.InsertStatement(0, "app.LoadDaprSecretStoreDeferred(Configuration);");
-            }, 10);
+                startupTemplate.GetDaprConfigurationConfigurationName();
+                configureMethod.InsertStatement(0, "app.LoadDaprConfigurationStoreDeferred(Configuration);");
+            }, 15);
         }
 
         private void AddStartupRegistrations(IApplication application)
@@ -79,15 +75,15 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                     appConfigurationBlock = new CSharpInvocationStatement("ConfigureAppConfiguration")
                         .WithoutSemicolon()
                         .AddArgument(new CSharpLambdaBlock("(config)")
-                        .AddStatement("config.AddDaprSecretStoreDeferred();"));
+                        .AddStatement("config.AddDaprConfigurationStoreDeferred();"));
                     hostBuilderChain.Statements.Last()
                         .InsertAbove(appConfigurationBlock);
                 }
                 else
                 {
-                    ((CSharpLambdaBlock)appConfigurationBlock.Statements[0]).Statements.Add("config.AddDaprSecretStoreDeferred();");
+                    ((CSharpLambdaBlock)appConfigurationBlock.Statements[0]).Statements.Add("config.AddDaprConfigurationStoreDeferred();");
                 }
-            }, 15);
+            }, 10);
         }
     }
 }

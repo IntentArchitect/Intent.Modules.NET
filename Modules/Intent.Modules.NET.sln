@@ -229,6 +229,7 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.H
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.Secrets", "Intent.Modules.Dapr.AspNetCore.Secrets\Intent.Modules.Dapr.AspNetCore.Secrets.csproj", "{6280010A-9C5C-4110-A7C2-B03B15D3E18F}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.Configuration", "Intent.Modules.Dapr.AspNetCore.Configuration\Intent.Modules.Dapr.AspNetCore.Configuration.csproj", "{00BCEF41-099A-4A9B-8557-5399F39D2DFC}"
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ContinuousIntegration.AzurePipelines", "Intent.Modules.ContinuousIntegration.AzurePipelines\Intent.Modules.ContinuousIntegration.AzurePipelines.csproj", "{2D938CA8-3FED-4E2C-BD3C-642E8F996396}"
 EndProject
 Global
@@ -641,6 +642,10 @@ Global
 		{6280010A-9C5C-4110-A7C2-B03B15D3E18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6280010A-9C5C-4110-A7C2-B03B15D3E18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6280010A-9C5C-4110-A7C2-B03B15D3E18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BCEF41-099A-4A9B-8557-5399F39D2DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BCEF41-099A-4A9B-8557-5399F39D2DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BCEF41-099A-4A9B-8557-5399F39D2DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BCEF41-099A-4A9B-8557-5399F39D2DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2D938CA8-3FED-4E2C-BD3C-642E8F996396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D938CA8-3FED-4E2C-BD3C-642E8F996396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D938CA8-3FED-4E2C-BD3C-642E8F996396}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -757,6 +762,7 @@ Global
 		{97C65F17-2BA8-42E5-B8C3-4678126A2F73} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{A81DFFDC-912E-42DA-980D-E386D8EDB684} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{6280010A-9C5C-4110-A7C2-B03B15D3E18F} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{00BCEF41-099A-4A9B-8557-5399F39D2DFC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{2D938CA8-3FED-4E2C-BD3C-642E8F996396} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

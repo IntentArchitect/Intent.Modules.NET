@@ -125,9 +125,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
                             method.AddParameter("DaprClient", "client");
                             method.AddParameter("string", "store");
                             method.AddParameter("List<DaprSecretDescriptor>?", "secretDescriptors", p => p.WithDefaultValue("null"));
-                            method.AddStatement(@"var data = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-
-                // Wait for the Dapr Sidecar to report healthy before attempting to fetch secrets.
+                            method.AddStatement(@"// Wait for the Dapr Sidecar to report healthy before attempting to fetch secrets.
                 using (var tokenSource = new CancellationTokenSource(_sidecarWaitTimeout))
                 {
                     client.WaitForSidecarAsync(tokenSource.Token).GetAwaiter().GetResult();
