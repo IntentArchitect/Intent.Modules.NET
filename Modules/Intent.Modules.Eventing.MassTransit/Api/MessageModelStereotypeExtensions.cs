@@ -13,35 +13,35 @@ namespace Intent.Eventing.MassTransit.Api
 {
     public static class MessageModelStereotypeExtensions
     {
-        public static MessageSettings GetMessageSettings(this MessageModel model)
+        public static MessageTopologySettings GetMessageTopologySettings(this MessageModel model)
         {
-            var stereotype = model.GetStereotype("Message Settings");
-            return stereotype != null ? new MessageSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Message Topology Settings");
+            return stereotype != null ? new MessageTopologySettings(stereotype) : null;
         }
 
 
-        public static bool HasMessageSettings(this MessageModel model)
+        public static bool HasMessageTopologySettings(this MessageModel model)
         {
-            return model.HasStereotype("Message Settings");
+            return model.HasStereotype("Message Topology Settings");
         }
 
-        public static bool TryGetMessageSettings(this MessageModel model, out MessageSettings stereotype)
+        public static bool TryGetMessageTopologySettings(this MessageModel model, out MessageTopologySettings stereotype)
         {
-            if (!HasMessageSettings(model))
+            if (!HasMessageTopologySettings(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new MessageSettings(model.GetStereotype("Message Settings"));
+            stereotype = new MessageTopologySettings(model.GetStereotype("Message Topology Settings"));
             return true;
         }
 
-        public class MessageSettings
+        public class MessageTopologySettings
         {
             private IStereotype _stereotype;
 
-            public MessageSettings(IStereotype stereotype)
+            public MessageTopologySettings(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

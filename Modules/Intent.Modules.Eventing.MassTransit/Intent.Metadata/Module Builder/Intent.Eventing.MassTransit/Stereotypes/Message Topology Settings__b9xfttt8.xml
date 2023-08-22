@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="fc095295-eb25-470a-9ee5-19129919db2b" version="3.1.0">
-  <name>Message Settings</name>
+  <name>Message Topology Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>

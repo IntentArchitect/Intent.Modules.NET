@@ -41,7 +41,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Select(x => x.TypeReference.Element.AsMessageModel())
             .Union(appModels.SelectMany(x => x.PublishedMessages())
                 .Select(x => x.TypeReference.Element.AsMessageModel()))
-            .Where(p => p.HasMessageSettings() && !string.IsNullOrWhiteSpace(p.GetMessageSettings().EntityName()))
+            .Where(p => p.HasMessageTopologySettings() && !string.IsNullOrWhiteSpace(p.GetMessageTopologySettings().EntityName()))
             .ToList();
 
         MessageHandlerModels = appModels
@@ -87,18 +87,18 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             return;
         }
-        
+
         @class.AddMethod("void", "AddMessageTopologyConfiguration", method =>
         {
             method.Private().Static();
             method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             foreach (var messageModel in MessagesWithSettings)
             {
-                method.AddStatement($@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageSettings().EntityName()}""));");
+                method.AddStatement($@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));");
             }
         });
     }
-    
+
     private IReadOnlyCollection<CSharpStatement> GetConsumerStatements(string configParamName)
     {
         var statements = new List<CSharpStatement>();
