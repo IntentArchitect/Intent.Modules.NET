@@ -98,26 +98,16 @@ steps:
 
 - task: PowerShell@2
   displayName: 'Template Testing'
+  env:
+    INTENT_USER: $(intent-architect-user)
+    INTENT_PASS: $(intent-architect-password)
+    INTENT_SOLUTION_PATH: $(intent-solution)
   inputs:
     targetType: 'inline'
     pwsh: true
     script: |
       ./prepare-intent-testing.ps1
-      $testSln = [xml] (Get-Content './$(intent-solution)' -Encoding UTF8)
-      $testsFailed = $false
-      $testSln.solution.applications.application | % {
-        $appId = $_.id
-        Write-Host ==================================================
-        Write-Host Application = $_.name
-        Write-Host ==================================================
-        intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$($appId)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)"
-        if ($LASTEXITCODE -ne 0) {
-            $testsFailed = $true
-        }
-      }
-      if ($testsFailed -eq $true) {
-        throw "Template Testing failed. Please review [error] tags."
-      }
+      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
 
 - task: PowerShell@2
   displayName: 'install intent packager'
