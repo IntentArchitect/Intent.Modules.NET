@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="68a235b8-0b3c-4829-ad6d-9e16d3b15230" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MassTransitConfigurationExtension</name>
+  <display>MassTransitConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ae6151a9-d772-4ba2-b5c8-75c9cca13bbd</parentFolderId>
+  <packageId>ae6151a9-d772-4ba2-b5c8-75c9cca13bbd</packageId>
+  <packageName>Intent.Eventing.MassTransit.Scheduling</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

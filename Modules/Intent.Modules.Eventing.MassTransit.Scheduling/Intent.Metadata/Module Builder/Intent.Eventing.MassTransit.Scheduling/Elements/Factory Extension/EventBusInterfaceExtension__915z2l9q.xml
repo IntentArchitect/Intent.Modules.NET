@@ -5,9 +5,9 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>6502ee82-f515-4007-9635-bade3eb88e72</parentFolderId>
-  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-  <packageName>Intent.Eventing.MassTransit</packageName>
+  <parentFolderId>ae6151a9-d772-4ba2-b5c8-75c9cca13bbd</parentFolderId>
+  <packageId>ae6151a9-d772-4ba2-b5c8-75c9cca13bbd</packageId>
+  <packageName>Intent.Eventing.MassTransit.Scheduling</packageName>
   <stereotypes />
   <metadata />
   <childElements />

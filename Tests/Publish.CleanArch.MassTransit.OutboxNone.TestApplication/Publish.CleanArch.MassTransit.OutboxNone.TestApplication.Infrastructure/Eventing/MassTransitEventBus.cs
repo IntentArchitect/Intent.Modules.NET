@@ -70,9 +70,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
         private async Task PublishWithNormalContext(CancellationToken cancellationToken)
         {
             var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
-            var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();
 
             await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
+
+            var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();
 
             foreach (var scheduleEntry in _messagesToSchedule)
             {

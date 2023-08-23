@@ -115,5 +115,6 @@
     <application id="a7c14bfc-4fde-46bf-9744-b54c66c3b22d" name="Intent.Modules.ContinuousIntegration.AzurePipelines" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines/Intent.Modules.ContinuousIntegration.AzurePipelines.application.config" />
     <application id="a1f7bab8-79b2-433e-ab02-367fc60ae815" name="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata/Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata.application.config" />
     <application id="4f469de8-b6e4-469b-8740-3fe74d5d6d1c" name="Intent.Modules.Dapr.AspNetCore.Bindings.Cron" relativePath="Intent.Modules.Dapr.AspNetCore.Bindings.Cron/Intent.Modules.Dapr.AspNetCore.Bindings.Cron.application.config" />
+    <application id="bf507eae-8dae-4ab3-932a-29a6a30f29b8" name="Intent.Modules.Eventing.MassTransit.Scheduling" relativePath="Intent.Modules.Eventing.MassTransit.Scheduling/Intent.Modules.Eventing.MassTransit.Scheduling.application.config" />
   </applications>
 </solution>

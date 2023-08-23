@@ -191,7 +191,5 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
             RetryExponential,
             RetryNone,
         }
-
-        public bool EnableScheduledPublishing() => bool.TryParse(_groupSettings.GetSetting("917a5c7c-cc7d-458a-8ecf-82315778f038")?.Value.ToPascalCase(), out var result) && result;
     }
 }

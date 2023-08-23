@@ -99,11 +99,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .AddStatement($"x.SetKebabCaseEndpointNameFormatter();")
             .AddStatement($"x.AddConsumers();");
 
-        if (ExecutionContext.Settings.GetEventingSettings().EnableScheduledPublishing())
-        {
-            block.AddStatement($"x.AddDelayedMessageScheduler();");
-        }
-
         switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
         {
             case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
@@ -188,11 +183,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         if (MessagesWithSettings.Any())
         {
             yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
-        }
-
-        if (ExecutionContext.Settings.GetEventingSettings().EnableScheduledPublishing())
-        {
-            yield return new CSharpStatement("cfg.UseDelayedMessageScheduler();");
         }
     }
 

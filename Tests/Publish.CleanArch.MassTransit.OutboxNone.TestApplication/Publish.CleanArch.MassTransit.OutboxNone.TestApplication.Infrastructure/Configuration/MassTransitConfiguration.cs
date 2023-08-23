@@ -25,7 +25,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
-                x.AddDelayedMessageScheduler();
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
@@ -42,6 +41,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
                     cfg.AddMessageTopologyConfiguration();
                     cfg.UseDelayedMessageScheduler();
                 });
+                x.AddDelayedMessageScheduler();
             });
         }
 
