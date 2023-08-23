@@ -18,15 +18,20 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
     {
         public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<MassTransitEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
+
                 x.UsingAzureServiceBus((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(
                         configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);

@@ -1,5 +1,7 @@
 using System;
 using System.Reflection;
+using CleanArchitecture.TestApplication.Application.Common.Eventing;
+using CleanArchitecture.TestApplication.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using MassTransit.Configuration;
@@ -15,10 +17,14 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Configuration
     {
         public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<MassTransitEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
+
                 x.UsingInMemory((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(

@@ -14,8 +14,6 @@ namespace MassTransit.RetryPolicy.Incremental.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddMassTransitConfiguration(configuration);
             return services;
         }

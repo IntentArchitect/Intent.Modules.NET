@@ -71,8 +71,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IOpAndCtorMapping3Repository, OpAndCtorMapping3Repository>();
             services.AddTransient<IOperationsClassRepository, OperationsClassRepository>();
             services.AddTransient<ILogEntryRepository, LogEntryRepository>();
-            services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             services.AddHttpClients(configuration);

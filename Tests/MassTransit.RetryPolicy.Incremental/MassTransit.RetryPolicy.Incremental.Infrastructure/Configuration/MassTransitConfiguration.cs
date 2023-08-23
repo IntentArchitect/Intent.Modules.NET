@@ -3,6 +3,8 @@ using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using MassTransit.Configuration;
+using MassTransit.RetryPolicy.Incremental.Application.Common.Eventing;
+using MassTransit.RetryPolicy.Incremental.Infrastructure.Eventing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,10 +17,14 @@ namespace MassTransit.RetryPolicy.Incremental.Infrastructure.Configuration
     {
         public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<MassTransitEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
+
                 x.UsingInMemory((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Incremental(

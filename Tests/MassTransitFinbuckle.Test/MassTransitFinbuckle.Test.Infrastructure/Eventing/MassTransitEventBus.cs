@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using MassTransitFinbuckle.Test.Application.Common.Eventing;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.MassTransitEventBus", Version = "1.0")]
@@ -13,13 +15,14 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
     public class MassTransitEventBus : IEventBus
     {
         private readonly List<object> _messagesToPublish = new List<object>();
+        private readonly IServiceProvider _serviceProvider;
 
-        public MassTransitEventBus(IPublishEndpoint publishEndpoint)
+        public MassTransitEventBus(IServiceProvider serviceProvider)
         {
-            Current = publishEndpoint;
+            _serviceProvider = serviceProvider;
         }
 
-        public IPublishEndpoint Current { get; set; }
+        public ConsumeContext? ConsumeContext { get; set; }
 
         public void Publish<T>(T message) where T : class
         {
@@ -28,8 +31,28 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
-            await Current.PublishBatch(_messagesToPublish, cancellationToken);
+            if (ConsumeContext is not null)
+            {
+                await PublishWithConsumeContext(cancellationToken);
+            }
+            else
+            {
+                await PublishWithNormalContext(cancellationToken);
+            }
+
             _messagesToPublish.Clear();
+        }
+
+        private async Task PublishWithConsumeContext(CancellationToken cancellationToken)
+        {
+            await ConsumeContext!.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
+        }
+
+        private async Task PublishWithNormalContext(CancellationToken cancellationToken)
+        {
+            var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
+
+            await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
         }
     }
 }
