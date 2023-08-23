@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -283,7 +284,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
-            else if (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name))
+            else if (!IsTableInlined(model) && ( !string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)))
             {
                 yield return ToTableStatement(model);
             }
@@ -323,6 +324,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 return statement;
             }
+        }
+
+        private bool IsTableInlined(ClassExtensionModel model)
+        {
+            if (model.HasView() || model.HasTable())
+            {
+                return false;
+            }
+            if (!IsOwned(model.InternalElement))
+            {
+                return false;
+            }
+            if (model.InternalElement.IsClassModel())
+            {
+                var type = model.InternalElement.AsClassModel();
+                var from = type.AssociatedFromClasses();
+                if (from.Count == 1 && from.First().Association.GetRelationshipType() == RelationshipType.OneToOne)
+                {
+                    return true;
+                }
+            }
+            return model.InternalElement.IsValueObject(ExecutionContext);
         }
 
         private bool RequiresToTableStatementForConvention(string className)
