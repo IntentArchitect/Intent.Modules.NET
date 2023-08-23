@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="48db7f06-3edd-488a-8838-1f7f33b81eb0" version="3.1.0">
+  <name>Dapr Cron Binding</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="clock" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>ff4de417-d04c-4037-9ae9-86ddf1b72113</parentFolderId>
+  <order>100</order>
+  <packageId>b83896a0-ff9f-44e5-a98c-50a54baf63ec</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Bindings.Cron</packageName>
+  <properties>
+    <property id="0491ea40-ac2a-41a1-b960-0b14a9a38d15">
+      <hint>The valid cron schedule to use. See [this](https://docs.dapr.io/reference/components-reference/supported-bindings/cron/#schedule-format) for more details.</hint>
+      <name>Schedule</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>@every 5m</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>
