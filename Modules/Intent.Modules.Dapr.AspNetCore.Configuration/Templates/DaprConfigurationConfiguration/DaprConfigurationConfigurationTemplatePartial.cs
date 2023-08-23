@@ -27,6 +27,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.Templates.DaprConfigurati
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")                
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Dapr.Client")
                 .AddUsing("Dapr.Extensions.Configuration")
