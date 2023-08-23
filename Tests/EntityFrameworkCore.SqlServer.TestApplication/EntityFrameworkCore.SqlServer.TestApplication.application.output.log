@@ -780,6 +780,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ee31a830-1e39-46aa-b20c-89a44ba2e770</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/SchemaInLineChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SchemaInLineChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#3b1497ec-cf75-4e23-9b9c-57cedebece4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/SchemaParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SchemaParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#85bfc1c6-7a1a-40b0-be55-b8c79818609e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/SoftDelete/ClassWithSoftDelete.cs</ApplicationRelativeFilePath>
@@ -1712,6 +1728,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#3b1497ec-cf75-4e23-9b9c-57cedebece4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/ISchemaParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISchemaParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2788,6 +2812,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3b1497ec-cf75-4e23-9b9c-57cedebece4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/SchemaParentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SchemaParentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#85bfc1c6-7a1a-40b0-be55-b8c79818609e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/SoftDelete/ClassWithSoftDeleteConfiguration.cs</ApplicationRelativeFilePath>
@@ -3728,6 +3760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#3b1497ec-cf75-4e23-9b9c-57cedebece4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/SchemaParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SchemaParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -65,6 +65,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
         public DbSet<ChildNonStdId> ChildNonStdIds { get; set; }
         public DbSet<ParentNonStdId> ParentNonStdIds { get; set; }
+        public DbSet<SchemaParent> SchemaParents { get; set; }
 
         public DbSet<Table> Tables { get; set; }
         public DbSet<TableExplicitSchema> TableExplicitSchemas { get; set; }
@@ -218,6 +219,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new ParentNonStdIdConfiguration());
+            modelBuilder.ApplyConfiguration(new SchemaParentConfiguration());
             modelBuilder.ApplyConfiguration(new TableConfiguration());
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());
