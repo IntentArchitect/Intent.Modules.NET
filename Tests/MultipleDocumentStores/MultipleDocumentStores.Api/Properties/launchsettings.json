@@ -11,7 +11,7 @@
     "MultipleDocumentStores.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44305/",
+      "applicationUrl": "https://localhost:44305/;http://localhost:57437",
       "launchUrl": "https://localhost:44305/swagger",
       "publishAllPorts": false,
       "environmentVariables": {
