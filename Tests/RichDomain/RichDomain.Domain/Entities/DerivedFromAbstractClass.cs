@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -15,6 +16,11 @@ namespace RichDomain.Domain.Entities
         {
             DerivedAttribute = derivedAttribute;
             AbstractBaseAttribute = abstractBaseClassAbstractBaseAttribute;
+        }
+
+        public override bool AbstractOp(string thing)
+        {
+            throw new NotImplementedException("Replace with your implementation...");
         }
     }
 }

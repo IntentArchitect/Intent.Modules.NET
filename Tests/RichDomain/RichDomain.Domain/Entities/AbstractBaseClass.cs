@@ -15,5 +15,13 @@ namespace RichDomain.Domain.Entities
         {
             AbstractBaseAttribute = abstractBaseAttribute;
         }
+
+        public abstract bool AbstractOp(string thing);
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public virtual void VirtualOp(string abstractBaseAttribute)
+        {
+            AbstractBaseAttribute = abstractBaseAttribute;
+        }
     }
 }

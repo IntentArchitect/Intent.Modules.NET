@@ -223,6 +223,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 {
                     foreach (var method in file.Classes.First().Methods)
                     {
+                        if (method.IsAbstract)
+                            continue;
                         if (!method.Statements.Any())
                         {
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
