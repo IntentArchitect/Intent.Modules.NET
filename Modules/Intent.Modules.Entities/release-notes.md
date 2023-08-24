@@ -1,5 +1,6 @@
 ### Version 4.3.7
 
+- Improvement: Added support for `abstract` operations, and override implementations in derived classes. 
 - Fixed: Parameterless `public` constructor with `<Property> = null!` statements will no longer be generated in order to avoid impacting already existing files with unmanaged constructors.
 
 ### Version 4.3.6

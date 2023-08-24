@@ -10,7 +10,7 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 ## What's in this module?
 
-This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding CosmosDB implementation:-
+This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:-
 
 * MassTransit ESB Implimentation
 * Message Publishing.
@@ -21,13 +21,13 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 
 ## Multitenancy Finbuckle Integration
 
-If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multitenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant idenitifier in the header and all message consumers which encounter messages with a tenant idenitifier will set up the Finbuckle tenanct for the processing of the message.
+If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multitenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.
 
-Notable details of the implemenation:
+Notable details of the implementation:
 
-* Tenancy Publshing Filter, this filter add's the current Tenant Identity to outbound messages.
+* Tenancy Publishing Filter, this filter add's the current Tenant Identity to outbound messages.
 * Tenancy Consuming Filter, reads the Tenant Identity in inbound messages and configures Finbuckle accordingly.
-* Finbucke Message Header Tenancy Strategy, Finback integration with setting up Tencacy through Message headers.
+* Finbuckle Message Header Tenancy Strategy, Finbuckle integration with setting up Tenancy through Message headers.
 
 You can configure the name of the header in your `appsettings.json`, by default the header will be "Tenant-Identifier". If you re-configure these make sure the configuration is done across publishers and consuimers.
 

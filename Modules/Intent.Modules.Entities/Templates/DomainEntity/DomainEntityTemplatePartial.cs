@@ -20,6 +20,7 @@ using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Modules.Common.Types.Api;
+using System;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -51,7 +52,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass(Model.Name, @class =>
+                .AddClass(Model.Name, (Action<CSharpClass>)(@class =>
                 {
                     foreach (var genericType in Model.GenericTypes)
                     {
@@ -147,65 +148,25 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
                     foreach (var operation in Model.Operations)
                     {
-                        @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
-                        {
-                            method.AddMetadata("model", operation);
-                            method.TryAddXmlDocComments(operation.InternalElement);
-
-                            var hasImplementation = false;
-
-                            foreach (var parameter in operation.Parameters)
-                            {
-                                var parameterName = parameter.Name.ToCamelCase();
-                                method.AddParameter(GetOperationTypeName(parameter), parameterName,
-                                    parm => parm.WithDefaultValue(parameter.Value));
-                                if (!parameter.InternalElement.IsMapped)
-                                {
-                                    continue;
-                                }
-
-                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
-                                if (!parameter.TypeReference.IsCollection)
-                                {
-                                    method.AddStatement($"{assignmentTarget} = {parameterName};");
-                                    hasImplementation = true;
-                                    continue;
-                                }
-
-                                if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                                {
-                                    assignmentTarget = assignmentTarget.ToPrivateMemberName();
-                                    method.AddStatement($"{assignmentTarget}.Clear();");
-                                    method.AddStatement($"{assignmentTarget}.AddRange({parameterName});");
-                                    hasImplementation = true;
-                                    continue;
-                                }
-
-                                method.AddStatement($"{assignmentTarget}.Clear();");
-
-                                method.AddStatementBlock($"foreach (var item in {parameterName})", sb => sb
-                                    .AddStatement($"{assignmentTarget}.Add(item);")
-                                    .SeparatedFromPrevious());
-
-                                hasImplementation = true;
-                            }
-
-                            if (operation.IsAsync())
-                            {
-                                method.Async();
-                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
-                            }
-                        });
-
-                        if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
-                            !ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour() &&
-                            (!InterfaceTemplate.GetOperationTypeName(operation).Equals(this.GetOperationTypeName(operation)) ||
-                             !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(this.GetOperationTypeName))))
-                        {
-                            AddInterfaceQualifiedMethod(@class, operation);
-                        }
+                        AddOperation(@class, operation, isOverride: false);
                     }
-                })
+                    if (!Model.IsAbstract && Model.ParentClass != null)
+                    {
+                        GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.OnBuild(file => 
+                        {
+                            var baseType = file.Classes.First();
+                            var abstractMethods = baseType.Methods.Where(m => m.IsAbstract);
+                            if (abstractMethods.Any())
+                            {
+                                foreach (var abstractMethod in abstractMethods)
+                                {
+                                    var operation = abstractMethod.GetMetadata<OperationModel>("model");
+                                    AddOperation(@class, operation, isOverride: true);
+                                }
+                            }
+                        }, 100);
+                    }
+                }))
                 .OnBuild(file =>
                 {
                     // This is actually all pointless since by default we have the following above the class:
@@ -228,7 +189,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             continue;
                         }
 
-                        var typeInfo = GetTypeInfo(attribute.TypeReference);
+                        var typeInfo = base.GetTypeInfo(attribute.TypeReference);
                         if (NeedsNullabilityAssignment(typeInfo))
                         {
                             nullabilityStatements.Add($"{attribute.Name.ToPascalCase()} = null!;");
@@ -277,6 +238,90 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 AddUsing("System.Threading.Tasks");
             }
         }
+
+        private void AddOperation(CSharpClass @class, OperationModel operation, bool isOverride)
+        {
+            @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
+            {
+                method.AddMetadata("model", operation);
+                method.TryAddXmlDocComments(operation.InternalElement);
+
+                var hasImplementation = false;
+
+                foreach (var parameter in operation.Parameters)
+                {
+                    var parameterName = parameter.Name.ToCamelCase();
+                    method.AddParameter(GetOperationTypeName(parameter), parameterName,
+                        parm => parm.WithDefaultValue(parameter.Value));
+                    if (!parameter.InternalElement.IsMapped)
+                    {
+                        continue;
+                    }
+
+                    var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
+                    if (!parameter.TypeReference.IsCollection)
+                    {
+                        method.AddStatement($"{assignmentTarget} = {parameterName};");
+                        hasImplementation = true;
+                        continue;
+                    }
+
+                    if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                    {
+                        assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                        method.AddStatement($"{assignmentTarget}.Clear();");
+                        method.AddStatement($"{assignmentTarget}.AddRange({parameterName});");
+                        hasImplementation = true;
+                        continue;
+                    }
+
+                    method.AddStatement($"{assignmentTarget}.Clear();");
+
+                    method.AddStatementBlock($"foreach (var item in {parameterName})", sb => sb
+                        .AddStatement($"{assignmentTarget}.Add(item);")
+                        .SeparatedFromPrevious());
+
+                    hasImplementation = true;
+                }
+
+                if (isOverride)
+                {
+                    method.Override();
+                }
+                else
+                {
+                    if (operation.IsAbstract)
+                    {
+                        //Abstract + Implementation = virtual
+                        // This is a fall back you can technically model this and this seems like a reasonable assumption of what you want
+                        if (hasImplementation)
+                        {
+                            method.Virtual();
+                        }
+                        else
+                        {
+                            method.Abstract();
+                            if (!@class.IsAbstract) { @class.Abstract(); }
+                        }
+                    }
+                }
+
+                if (operation.IsAsync())
+                {
+                    method.Async();
+                    method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                }
+            });
+
+            if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
+                !ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour() &&
+                (!InterfaceTemplate.GetOperationTypeName(operation).Equals(this.GetOperationTypeName(operation)) ||
+                 !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(this.GetOperationTypeName))))
+            {
+                AddInterfaceQualifiedMethod(@class, operation);
+            }
+        }
+
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
