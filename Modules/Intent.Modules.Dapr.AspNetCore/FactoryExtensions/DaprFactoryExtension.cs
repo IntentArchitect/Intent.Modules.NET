@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -23,7 +24,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            application.EventDispatcher.Publish(LaunchProfileHttpPortRequired.EventId);
+            application.EventDispatcher.Publish(LaunchProfileHttpPortRequired.EventId, new Dictionary<string, string>());
             application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DaprSidekick", new
             {
                 Sidecar = new
