@@ -51,7 +51,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonSerializer.Deserialize<SampleDomainUpdateDto>(requestBody)!;
+                var dto = JsonSerializer.Deserialize<SampleDomainUpdateDto>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
                 await _validator.Handle(dto, cancellationToken);
 
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,

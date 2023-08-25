@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 
@@ -38,7 +39,25 @@ namespace AzureFunctions.TestApplication.Api
             return parsed;
         }
 
-        public static T GetHeaderParam<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+        public static IEnumerable<T> GetQueryParamCollection<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var result = new List<T>();
+            var strVal = query[paramName];
+            var values = strVal.ToString().Split(",");
+            foreach (var v in values)
+            {
+                if (string.IsNullOrEmpty(v) || !parse(v, out T parsed))
+                {
+                    throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+                }
+                result.Add(parsed);
+            }
+
+            return result;
+        }
+
+        public static T GetHeadersParam<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
             where T : struct
         {
             var strVal = headers[paramName];
@@ -50,7 +69,7 @@ namespace AzureFunctions.TestApplication.Api
             return parsed;
         }
 
-        public static T? GetHeaderParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+        public static T? GetHeadersParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
             where T : struct
         {
             var strVal = headers[paramName];
@@ -65,6 +84,24 @@ namespace AzureFunctions.TestApplication.Api
             }
 
             return parsed;
+        }
+
+        public static IEnumerable<T> GetHeadersParamCollection<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var result = new List<T>();
+            var strVal = headers[paramName];
+            var values = strVal.ToString().Split(",");
+            foreach (var v in values)
+            {
+                if (string.IsNullOrEmpty(v) || !parse(v, out T parsed))
+                {
+                    throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+                }
+                result.Add(parsed);
+            }
+
+            return result;
         }
 
         public delegate bool ParseDelegate<T>(string strVal, out T parsed);

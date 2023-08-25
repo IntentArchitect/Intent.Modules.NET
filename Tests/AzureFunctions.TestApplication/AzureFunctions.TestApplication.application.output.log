@@ -124,6 +124,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Params/FromBodyTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/FromBodyTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Params/GetByIdsHeadersTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsHeadersTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Params/GetByIdsQueryTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsQueryTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Queues/Bindings/Bind.cs</ApplicationRelativeFilePath>
@@ -636,6 +660,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/FromBodyTest/FromBodyTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/FromBodyTest/FromBodyTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/FromBodyTest/FromBodyTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/FromBodyTest/FromBodyTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsHeadersTest/GetByIdsHeadersTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsHeadersTest/GetByIdsHeadersTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsHeadersTest/GetByIdsHeadersTestHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsHeadersTest/GetByIdsHeadersTestHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsQueryTest/GetByIdsQueryTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsQueryTest/GetByIdsQueryTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsQueryTest/GetByIdsQueryTestHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsQueryTest/GetByIdsQueryTestHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/Bindings/Bind/BindCommand.cs</ApplicationRelativeFilePath>
@@ -800,6 +872,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Params/FromBodyTest/FromBodyTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/FromBodyTest/FromBodyTestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Params/GetByIdsHeadersTest/GetByIdsHeadersTestValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsHeadersTest/GetByIdsHeadersTestValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Params/GetByIdsQueryTest/GetByIdsQueryTestValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Params/GetByIdsQueryTest/GetByIdsQueryTestValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

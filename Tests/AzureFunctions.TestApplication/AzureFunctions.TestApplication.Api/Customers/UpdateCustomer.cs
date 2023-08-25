@@ -48,7 +48,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<UpdateCustomerCommand>(requestBody)!;
+                var command = JsonSerializer.Deserialize<UpdateCustomerCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
                 if (id != command.Id)
                 {
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });

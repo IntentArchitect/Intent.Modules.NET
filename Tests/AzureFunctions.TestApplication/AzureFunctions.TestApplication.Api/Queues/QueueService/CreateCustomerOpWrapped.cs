@@ -31,7 +31,7 @@ namespace AzureFunctions.TestApplication.Api
         [FunctionName("CreateCustomerOpWrapped")]
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
-            var dto = JsonSerializer.Deserialize<CustomerDto>(message.Body.ToString())!;
+            var dto = JsonSerializer.Deserialize<CustomerDto>(message.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
 
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

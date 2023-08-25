@@ -9,6 +9,7 @@
 <#@ import namespace="Intent.Metadata.Models" #>
 using System;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 

@@ -50,7 +50,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonSerializer.Deserialize<SampleMappedRequest>(requestBody)!;
+                var request = JsonSerializer.Deserialize<SampleMappedRequest>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
                 await _validator.Handle(request, cancellationToken);
 
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,

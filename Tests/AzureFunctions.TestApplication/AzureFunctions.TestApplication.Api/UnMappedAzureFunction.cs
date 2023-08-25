@@ -42,7 +42,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonSerializer.Deserialize<SampleDomainDto>(requestBody)!;
+                var request = JsonSerializer.Deserialize<SampleDomainDto>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
                 //IntentIgnore
                 return new NoContentResult();
             }
