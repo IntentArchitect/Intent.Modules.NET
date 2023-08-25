@@ -21,6 +21,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Modules.Common.Types.Api;
 using System;
+using Intent.Utils;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -248,6 +249,16 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 method.AddMetadata("model", operation);
                 method.TryAddXmlDocComments(operation.InternalElement);
 
+                if (isOverride)
+                {
+                    method.Override();
+                }
+                else if (operation.IsAbstract)
+                {                    
+                    method.Abstract();
+                    if (!@class.IsAbstract) { @class.Abstract(); }
+                }
+
                 var hasImplementation = false;
 
                 foreach (var parameter in operation.Parameters)
@@ -257,6 +268,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         parm => parm.WithDefaultValue(parameter.Value));
                     if (!parameter.InternalElement.IsMapped)
                     {
+                        continue;
+                    }
+
+                    if (method.IsAbstract)
+                    {
+                        Logging.Log.Warning($"Operation {operation.Name} - On {@class.Name} marked as abstract, ignoring mapping implementation.");
                         continue;
                     }
 
@@ -284,28 +301,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         .SeparatedFromPrevious());
 
                     hasImplementation = true;
-                }
-
-                if (isOverride)
-                {
-                    method.Override();
-                }
-                else
-                {
-                    if (operation.IsAbstract)
-                    {
-                        //Abstract + Implementation = virtual
-                        // This is a fall back you can technically model this and this seems like a reasonable assumption of what you want
-                        if (hasImplementation)
-                        {
-                            method.Virtual();
-                        }
-                        else
-                        {
-                            method.Abstract();
-                            if (!@class.IsAbstract) { @class.Abstract(); }
-                        }
-                    }
                 }
 
                 if (operation.IsAsync())

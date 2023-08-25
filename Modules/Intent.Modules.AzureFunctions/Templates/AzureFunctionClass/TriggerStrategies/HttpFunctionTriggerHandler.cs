@@ -12,6 +12,7 @@ using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
@@ -77,7 +78,18 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                     continue;
                 }
 
-                tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                if (param.TypeReference.IsCollection)
+                {
+                    var itemType = _template.GetTypeName(param.TypeReference, "{0}");
+                    tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}..GetQueryParamCollection(""{param.Name.ToParameterName()}""
+                    , req.Query
+                    , (string val, out {itemType} parsed) => {itemType}.TryParse(val, out parsed)).ToList();
+");
+                }
+                else
+                {
+                    tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                }
             }
 
             foreach (var param in GetHeaderParams())
