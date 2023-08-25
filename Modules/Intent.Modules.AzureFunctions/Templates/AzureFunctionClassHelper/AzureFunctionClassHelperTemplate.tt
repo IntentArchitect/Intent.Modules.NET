@@ -63,7 +63,7 @@ namespace <#= Namespace #>
             return result;
         }
 
-        public static T GetHeaderParam<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+        public static T GetHeadersParam<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
             where T : struct
         {
             var strVal = headers[paramName];
@@ -75,7 +75,7 @@ namespace <#= Namespace #>
             return parsed;
         }
 
-        public static T? GetHeaderParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+        public static T? GetHeadersParamNullable<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
             where T : struct
         {
             var strVal = headers[paramName];
@@ -92,7 +92,7 @@ namespace <#= Namespace #>
             return parsed;
         }
 
-        public static IEnumerable<T> GetQueryHeaderollection<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
+        public static IEnumerable<T> GetHeadersParamCollection<T>(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)
             where T : struct
         {
             var result = new List<T>();

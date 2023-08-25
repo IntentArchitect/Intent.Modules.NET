@@ -64,43 +64,12 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         {
             foreach (var param in GetQueryParams())
             {
-                if (param.TypeReference.HasStringType())
-                {
-                    if (param.TypeReference.IsCollection)
-                    {
-                        _template.AddUsing("System.Linq");
-                        tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = ((string)req.Query[""{param.Name.ToCamelCase()}""]).Split(',').ToList();");
-                    }
-                    else
-                    {
-                        tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
-                    }
-                    continue;
-                }
-
-                if (param.TypeReference.IsCollection)
-                {
-                    var itemType = _template.GetTypeName(param.TypeReference, "{0}");
-                    tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}..GetQueryParamCollection(""{param.Name.ToParameterName()}""
-                    , req.Query
-                    , (string val, out {itemType} parsed) => {itemType}.TryParse(val, out parsed)).ToList();
-");
-                }
-                else
-                {
-                    tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
-                }
+                ConvertParamToLocalVariable(tryBlock, param, "Query");
             }
 
             foreach (var param in GetHeaderParams())
             {
-                if (param.TypeReference.HasStringType())
-                {
-                    tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Headers[""{param.Name.ToCamelCase()}""];");
-                    continue;
-                }
-
-                tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetHeaderParamNullable" : "GetHeaderParam")}(""{param.Name.ToParameterName()}"", req.Headers, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                ConvertParamToLocalVariable(tryBlock, param, "Headers");
             }
 
 
@@ -113,6 +82,36 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         {
             catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});");
         });
+    }
+
+    private void ConvertParamToLocalVariable(CSharpTryBlock tryBlock, IHttpEndpointInputModel param, string paramType)
+    {
+        if (param.TypeReference.HasStringType())
+        {
+            if (param.TypeReference.IsCollection)
+            {
+                _template.AddUsing("System.Linq");
+                tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = ((string)req.{paramType}[""{param.Name.ToCamelCase()}""]).Split(',').ToList();");
+            }
+            else
+            {
+                tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.{paramType}[""{param.Name.ToCamelCase()}""];");
+            }
+            return;
+        }
+
+        if (param.TypeReference.IsCollection)
+        {
+            var itemType = _template.GetTypeName(param.TypeReference, "{0}");
+            tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.Get{paramType}ParamCollection(""{param.Name.ToParameterName()}""
+                    , req.{paramType}
+                    , (string val, out {itemType} parsed) => {itemType}.TryParse(val, out parsed)).ToList();
+");
+        }
+        else
+        {
+            tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? $"Get{paramType}ParamNullable" : $"Get{paramType}Param")}(""{param.Name.ToParameterName()}"", req.{paramType}, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+        }
     }
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
