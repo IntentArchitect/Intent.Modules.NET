@@ -102,6 +102,8 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
         if (param.TypeReference.IsCollection)
         {
+            _template.AddUsing("System.Linq");
+
             var itemType = _template.GetTypeName(param.TypeReference, "{0}");
             tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.Get{paramType}ParamCollection(""{param.Name.ToParameterName()}""
                     , req.{paramType}
@@ -129,7 +131,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         var dtoParameter = GetRequestInput();
         return dtoParameter == null
             ? null
-            : _template.GetTypeName(dtoParameter.TypeReference.Element.AsTypeReference());
+            : _template.GetTypeName(dtoParameter.TypeReference, "System.Collections.Generic.List<{0}>");
     }
 
     private IEnumerable<IHttpEndpointInputModel> GetQueryParams()
