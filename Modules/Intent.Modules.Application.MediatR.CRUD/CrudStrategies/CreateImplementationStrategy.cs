@@ -6,12 +6,14 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.CRUD.Mapping;
 using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -95,9 +97,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
 
             csharpMapping.SetFromReplacement(model.InternalElement, "request");
-            if (model.CreatedEntities().Any())
+            if (model.CreateEntityActions().Any())
             {
-                foreach (var createAction in model.CreatedEntities())
+                foreach (var createAction in model.CreateEntityActions())
                 {
                     var mapping = createAction.Mappings.SingleOrDefault();
                     if (mapping == null)

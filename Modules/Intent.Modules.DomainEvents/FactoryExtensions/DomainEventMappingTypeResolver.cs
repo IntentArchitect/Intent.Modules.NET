@@ -1,6 +1,7 @@
-﻿using Intent.Modules.Common.CSharp.Templates;
+﻿using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
+namespace Intent.Modules.DomainEvents.FactoryExtensions;
 
 public class DomainEventMappingTypeResolver : IMappingTypeResolver
 {

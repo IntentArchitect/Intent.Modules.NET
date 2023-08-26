@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
@@ -16,7 +17,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.MappingTypeId != "c20a335d-b890-4ebf-85d7-296a56901831")
+        if (mappingModel.MappingTypeId != "01721b1a-a85d-4320-a5cd-8bd39247196a")
         {
             return null;
         }

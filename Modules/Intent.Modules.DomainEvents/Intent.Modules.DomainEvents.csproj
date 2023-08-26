@@ -55,10 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FactoryExtensions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.MediatR.CRUD\Intent.Modules.Application.MediatR.CRUD.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
