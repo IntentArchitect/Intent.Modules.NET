@@ -122,7 +122,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             csharpMapping.SetToReplacement(foundEntity.InternalElement, entityVariableName);
             foreach (var createAction in model.CreatedEntities())
             {
-                var mapping = createAction.InternalAssociation.Mapping;
+                var mapping = createAction.Mappings.SingleOrDefault();
                 if (mapping == null)
                 {
                     continue;
@@ -137,7 +137,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 foreach (var updateAction in model.UpdatedEntities())
                 {
-                    var mapping = updateAction.InternalAssociation.Mapping;
+                    var mapping = updateAction.Mappings.SingleOrDefault();
                     if (mapping == null)
                     {
                         continue;

@@ -99,7 +99,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 foreach (var createAction in model.CreatedEntities())
                 {
-                    var mapping = createAction.InternalAssociation.Mapping;
+                    var mapping = createAction.Mappings.SingleOrDefault();
                     if (mapping == null)
                     {
                         continue;

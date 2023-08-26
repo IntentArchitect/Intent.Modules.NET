@@ -16,11 +16,15 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.MappingType != "update-mapping")
+        if (mappingModel.MappingTypeId != "c20a335d-b890-4ebf-85d7-296a56901831")
         {
             return null;
         }
         var model = mappingModel.Model;
+        if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
+        {
+            return new ObjectUpdateMapping(mappingModel.Model, mappingModel.Mapping, mappingModel.Children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _sourceTemplate);
+        }
         if (model.SpecializationType == "Class Constructor")
         {
             //return new ImplicitConstructorMapping(((IElement)mappingModel.Model).ParentElement, mappingModel.Mapping, mappingModel.Children, _sourceTemplate);
@@ -30,6 +34,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
         {
             return new MethodInvocationMapping(mappingModel, _sourceTemplate);
         }
-        return new ObjectUpdateMapping(mappingModel.Model, mappingModel.Mapping, mappingModel.Children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _sourceTemplate);
+
+        return null;
     }
 }

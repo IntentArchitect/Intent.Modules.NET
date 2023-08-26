@@ -18,6 +18,7 @@ public class DomainEventMappingTypeResolver : IMappingTypeResolver
         {
             return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
         }
-        return new DefaultCSharpMapping(mappingModel, _sourceTemplate);
+
+        return null;
     }
 }

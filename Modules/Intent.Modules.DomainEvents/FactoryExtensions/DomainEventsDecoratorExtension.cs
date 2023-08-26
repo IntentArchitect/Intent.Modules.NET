@@ -60,7 +60,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                 foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
                                 {
                                     ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    var mapping = publishedDomainEvent.InternalAssociation.Mapping;
+                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
                                     if (mapping != null)
                                     {
                                         ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())));
@@ -78,10 +78,18 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             var method = @class.Methods.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, operationModel));
                             if (method != null)
                             {
-                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents())
                                 {
                                     method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    method.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
+                                    if (mapping != null)
+                                    {
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())));
+                                    }
+                                    else
+                                    {
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                                    }
                                 }
                             }
                         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
@@ -49,19 +50,21 @@ public class MappingModel
 
 public abstract class MappingManagerBase
 {
+    private readonly ICSharpFileBuilderTemplate _template;
     protected Dictionary<IMetadataModel, string> _fromReplacements = new();
     protected Dictionary<IMetadataModel, string> _toReplacements = new();
     private readonly List<IMappingTypeResolver> _mappingResolvers = new();
 
-    protected MappingManagerBase()
+    protected MappingManagerBase(ICSharpFileBuilderTemplate template)
     {
+        _template = template;
     }
 
     public CSharpStatement GenerateCreationStatement(IElementToElementMapping model)
     {
         //var mapping = CreateMapping(new MappingModel(model), GetCreateMappingType);
         var mappingModel = new MappingModel(model, this);
-        var mapping = ResolveMappings(mappingModel);
+        var mapping = ResolveMappings(mappingModel, new ObjectInitializationMapping(mappingModel, _template));
         ApplyReplacements(mapping);
 
         return mapping.GetFromStatement();
@@ -73,7 +76,7 @@ public abstract class MappingManagerBase
         //ApplyReplacements(mapping);
 
         var mappingModel = new MappingModel(model, this);
-        var mapping = ResolveMappings(mappingModel);
+        var mapping = ResolveMappings(mappingModel, new ObjectUpdateMapping(mappingModel, _template));
         ApplyReplacements(mapping);
 
         return mapping.GetMappingStatement().ToList();
@@ -97,7 +100,7 @@ public abstract class MappingManagerBase
         _toReplacements.Add(type, replacement);
     }
 
-    public ICSharpMapping ResolveMappings(MappingModel model)
+    public ICSharpMapping ResolveMappings(MappingModel model, ICSharpMapping defaultMapping = null)
     {
         foreach (var resolver in _mappingResolvers)
         {
@@ -108,7 +111,8 @@ public abstract class MappingManagerBase
             }
         }
 
-        throw new Exception($"No mapping could be resolved for model: {model.Model.Name} [{model.Model.SpecializationType}] with mapping [{model.MappingType}]");
+        return defaultMapping ?? new DefaultCSharpMapping(model, _template);
+        //throw new Exception($"No mapping could be resolved for model: {model.Model.Name} [{model.Model.SpecializationType}] with mapping [{model.MappingType}]");
         //var key = model.Model.TypeReference?.Element?.SpecializationType ?? ""; // what about operations that return?
         //if (!_mappingResolvers.ContainsKey(key))
         //{

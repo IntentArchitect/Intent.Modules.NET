@@ -8,10 +8,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping;
 
 public class CSharpClassMappingManager : MappingManagerBase
 {
-    private readonly ICSharpFileBuilderTemplate _template;
-
-    public CSharpClassMappingManager(ICSharpFileBuilderTemplate template) : base()
+    public CSharpClassMappingManager(ICSharpFileBuilderTemplate template) : base(template)
     {
-        _template = template;
     }
 }
