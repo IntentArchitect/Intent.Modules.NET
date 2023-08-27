@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8659d4b3-bb7c-416a-85c3-0d8f8af1c81d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e2da32c-a312-4e8d-a580-b7366a22dbfe</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4ff30515-8881-41d1-b489-d1de8479c2a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.EventBusInterface</name>
+      <display>Intent.Eventing.Contracts.EventBusInterface</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8659d4b3-bb7c-416a-85c3-0d8f8af1c81d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b819542c-3759-4b99-ad01-a212719d1064" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8659d4b3-bb7c-416a-85c3-0d8f8af1c81d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

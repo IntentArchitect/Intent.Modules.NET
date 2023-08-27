@@ -32,55 +32,66 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing Microsoft.AspNetCore.Http;\r\n\r\n[assembly: DefaultIntentManage" +
-                    "d(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing Microsoft.AspNetCore.Http;\r\nusing System.Collections.Generic" +
+                    ";\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    static class ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write(@"
-    {
-        public static T GetQueryParam<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
-            where T : struct
-        {
-            var strVal = query[paramName];
-            if (string.IsNullOrEmpty(strVal) || !parse(strVal, out T parsed))
-            {
-                throw new FormatException($""Parameter '{paramName}' could not be parsed as a {typeof(T).Name}."");
-            }
-
-            return parsed;
-        }
-        
-        public static T? GetQueryParamNullable<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
-            where T : struct
-        {
-            var strVal = query[paramName];
-            if (string.IsNullOrEmpty(strVal))
-            {
-                return null;
-            }
-
-            if (!parse(strVal, out T parsed))
-            {
-                throw new FormatException($""Parameter '{paramName}' could not be parsed as a {typeof(T).Name}."");
-            }
-
-            return parsed;
-        }
-        
-        public delegate bool ParseDelegate<T>(string strVal, out T parsed);
-    }
-}");
+            this.Write("\r\n    {\r\n        public static T GetQueryParam<T>(string paramName, IQueryCollect" +
+                    "ion query, ParseDelegate<T> parse)\r\n            where T : struct\r\n        {\r\n   " +
+                    "         var strVal = query[paramName];\r\n            if (string.IsNullOrEmpty(st" +
+                    "rVal) || !parse(strVal, out T parsed))\r\n            {\r\n                throw new" +
+                    " FormatException($\"Parameter \'{paramName}\' could not be parsed as a {typeof(T).N" +
+                    "ame}.\");\r\n            }\r\n\r\n            return parsed;\r\n        }\r\n        \r\n    " +
+                    "    public static T? GetQueryParamNullable<T>(string paramName, IQueryCollection" +
+                    " query, ParseDelegate<T> parse)\r\n            where T : struct\r\n        {\r\n      " +
+                    "      var strVal = query[paramName];\r\n            if (string.IsNullOrEmpty(strVa" +
+                    "l))\r\n            {\r\n                return null;\r\n            }\r\n\r\n            i" +
+                    "f (!parse(strVal, out T parsed))\r\n            {\r\n                throw new Forma" +
+                    "tException($\"Parameter \'{paramName}\' could not be parsed as a {typeof(T).Name}.\"" +
+                    ");\r\n            }\r\n\r\n            return parsed;\r\n        }\r\n\r\n        public sta" +
+                    "tic IEnumerable<T> GetQueryParamCollection<T>(string paramName, IQueryCollection" +
+                    " query, ParseDelegate<T> parse)\r\n            where T : struct\r\n        {\r\n      " +
+                    "      var result = new List<T>();\r\n            var strVal = query[paramName];\r\n " +
+                    "           var values = strVal.ToString().Split(\",\");\r\n            foreach (var " +
+                    "v in values ) \r\n            {\r\n                if (string.IsNullOrEmpty(v) || !p" +
+                    "arse(v, out T parsed))\r\n                {\r\n                    throw new FormatE" +
+                    "xception($\"Parameter \'{paramName}\' could not be parsed as a {typeof(T).Name}.\");" +
+                    "\r\n                }\r\n                result.Add(parsed);\r\n            }\r\n\r\n     " +
+                    "       return result;\r\n        }\r\n\r\n        public static T GetHeadersParam<T>(s" +
+                    "tring paramName, IHeaderDictionary headers, ParseDelegate<T> parse)\r\n           " +
+                    " where T : struct\r\n        {\r\n            var strVal = headers[paramName];\r\n    " +
+                    "        if (string.IsNullOrEmpty(strVal) || !parse(strVal, out T parsed))\r\n     " +
+                    "       {\r\n                throw new FormatException($\"Parameter \'{paramName}\' co" +
+                    "uld not be parsed as a {typeof(T).Name}.\");\r\n            }\r\n\r\n            return" +
+                    " parsed;\r\n        }\r\n\r\n        public static T? GetHeadersParamNullable<T>(strin" +
+                    "g paramName, IHeaderDictionary headers, ParseDelegate<T> parse)\r\n            whe" +
+                    "re T : struct\r\n        {\r\n            var strVal = headers[paramName];\r\n        " +
+                    "    if (string.IsNullOrEmpty(strVal))\r\n            {\r\n                return nul" +
+                    "l;\r\n            }\r\n\r\n            if (!parse(strVal, out T parsed))\r\n            " +
+                    "{\r\n                throw new FormatException($\"Parameter \'{paramName}\' could not" +
+                    " be parsed as a {typeof(T).Name}.\");\r\n            }\r\n\r\n            return parsed" +
+                    ";\r\n        }\r\n\r\n        public static IEnumerable<T> GetHeadersParamCollection<T" +
+                    ">(string paramName, IHeaderDictionary headers, ParseDelegate<T> parse)\r\n        " +
+                    "    where T : struct\r\n        {\r\n            var result = new List<T>();\r\n      " +
+                    "      var strVal = headers[paramName];\r\n            var values = strVal.ToString" +
+                    "().Split(\",\");\r\n            foreach (var v in values ) \r\n            {\r\n        " +
+                    "        if (string.IsNullOrEmpty(v) || !parse(v, out T parsed))\r\n               " +
+                    " {\r\n                    throw new FormatException($\"Parameter \'{paramName}\' coul" +
+                    "d not be parsed as a {typeof(T).Name}.\");\r\n                }\r\n                re" +
+                    "sult.Add(parsed);\r\n            }\r\n\r\n            return result;\r\n        }\r\n     " +
+                    "   \r\n        public delegate bool ParseDelegate<T>(string strVal, out T parsed);" +
+                    "\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

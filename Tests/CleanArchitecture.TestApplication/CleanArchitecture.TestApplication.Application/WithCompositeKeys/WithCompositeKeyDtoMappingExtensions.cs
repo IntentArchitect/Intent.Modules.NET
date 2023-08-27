@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

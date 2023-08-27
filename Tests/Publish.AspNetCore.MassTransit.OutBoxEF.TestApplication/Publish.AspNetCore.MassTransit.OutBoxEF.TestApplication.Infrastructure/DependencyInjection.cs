@@ -31,8 +31,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddMassTransitConfiguration(configuration);
             return services;
         }

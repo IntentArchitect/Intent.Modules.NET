@@ -20,7 +20,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
 namespace AzureFunctions.TestApplication.Api
 {
@@ -47,7 +47,7 @@ namespace AzureFunctions.TestApplication.Api
             try
             {
                 var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<CreateCustomerCommand>(requestBody)!;
+                var command = JsonSerializer.Deserialize<CreateCustomerCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
                 var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }

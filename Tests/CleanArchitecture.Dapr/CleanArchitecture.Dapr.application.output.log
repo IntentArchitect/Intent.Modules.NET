@@ -28,6 +28,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DaprConfigurationConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfigurationConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprConfigurationConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Secrets.DaprSecretsConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprSecretsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprSecretsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
@@ -80,6 +96,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#fba727f3-d20d-4d9f-9ad8-1b940de5d65c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/ScheduledController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1060,6 +1084,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#89ef97be-06eb-4df7-866f-a0059cc81394</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Daily/DailyCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Daily/DailyCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#89ef97be-06eb-4df7-866f-a0059cc81394</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Daily/DailyCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Daily/DailyCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#89ef97be-06eb-4df7-866f-a0059cc81394</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Daily/DailyCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Daily/DailyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6ee6d8af-8c79-4caa-97a2-1428ccf63990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Hourly/HourlyCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Hourly/HourlyCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6ee6d8af-8c79-4caa-97a2-1428ccf63990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Hourly/HourlyCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Hourly/HourlyCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6ee6d8af-8c79-4caa-97a2-1428ccf63990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Hourly/HourlyCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/Hourly/HourlyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#ef86a152-3fe6-48a8-94b1-00d811e9d5df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Tags/CreateTag/CreateTagCommand.cs</ApplicationRelativeFilePath>
@@ -1578,10 +1650,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Bindings.Cron.CronBindingComponent#89ef97be-06eb-4df7-866f-a0059cc81394</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/bindings.cron.api-scheduled-daily.yml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/bindings.cron.api-scheduled-daily.yml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Bindings.Cron.CronBindingComponent#6ee6d8af-8c79-4caa-97a2-1428ccf63990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/bindings.cron.api-scheduled-hourly.yml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/bindings.cron.api-scheduled-hourly.yml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DefaultLocalConfigurationStore</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/configuration-store.yaml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/configuration-store.yaml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
       <CorrelationId>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration#dapr/components/pubsub.yaml</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>dapr/components/pubsub.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>dapr/components/pubsub.yaml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>067f1acb-7998-4db2-81e4-fe28e43a07a7</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Secrets.DefaultLocalSecretStore</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>dapr/components/secret-store.yaml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>dapr/components/secret-store.yaml</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

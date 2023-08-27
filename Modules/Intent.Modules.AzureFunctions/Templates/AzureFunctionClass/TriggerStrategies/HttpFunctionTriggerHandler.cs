@@ -12,6 +12,7 @@ using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
@@ -63,24 +64,56 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         {
             foreach (var param in GetQueryParams())
             {
-                if (param.TypeReference.HasStringType())
-                {
-                    tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
-                    continue;
-                }
-
-                tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                ConvertParamToLocalVariable(tryBlock, param, "Query");
             }
+
+            foreach (var param in GetHeaderParams())
+            {
+                ConvertParamToLocalVariable(tryBlock, param, "Headers");
+            }
+
 
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody)!;");
+                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody, new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
             }
         }).AddCatchBlock("FormatException", "exception", catchBlock =>
         {
             catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});");
         });
+    }
+
+    private void ConvertParamToLocalVariable(CSharpTryBlock tryBlock, IHttpEndpointInputModel param, string paramType)
+    {
+        if (param.TypeReference.HasStringType())
+        {
+            if (param.TypeReference.IsCollection)
+            {
+                _template.AddUsing("System.Linq");
+                tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = ((string)req.{paramType}[""{param.Name.ToCamelCase()}""]).Split(',').ToList();");
+            }
+            else
+            {
+                tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.{paramType}[""{param.Name.ToCamelCase()}""];");
+            }
+            return;
+        }
+
+        if (param.TypeReference.IsCollection)
+        {
+            _template.AddUsing("System.Linq");
+
+            var itemType = _template.GetTypeName(param.TypeReference, "{0}");
+            tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.Get{paramType}ParamCollection(""{param.Name.ToParameterName()}""
+                    , req.{paramType}
+                    , (string val, out {itemType} parsed) => {itemType}.TryParse(val, out parsed)).ToList();
+");
+        }
+        else
+        {
+            tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? $"Get{paramType}ParamNullable" : $"Get{paramType}Param")}(""{param.Name.ToParameterName()}"", req.{paramType}, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+        }
     }
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -98,11 +131,15 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         var dtoParameter = GetRequestInput();
         return dtoParameter == null
             ? null
-            : _template.GetTypeName(dtoParameter.TypeReference.Element.AsTypeReference());
+            : _template.GetTypeName(dtoParameter.TypeReference, "System.Collections.Generic.List<{0}>");
     }
 
     private IEnumerable<IHttpEndpointInputModel> GetQueryParams()
     {
         return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromQuery);
+    }
+    private IEnumerable<IHttpEndpointInputModel> GetHeaderParams()
+    {
+        return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromHeader);
     }
 }

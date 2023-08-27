@@ -14,13 +14,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Invoice : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public Invoice()
-        {
-            Id = null!;
-            ClientId = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

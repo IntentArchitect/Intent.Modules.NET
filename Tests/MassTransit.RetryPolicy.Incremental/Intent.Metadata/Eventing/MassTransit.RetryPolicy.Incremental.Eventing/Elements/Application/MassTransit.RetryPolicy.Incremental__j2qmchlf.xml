@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="33ccc7e8-4e9a-478c-963c-281a624b5a3d" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MassTransit.RetryPolicy.Incremental</name>
+  <display>MassTransit.RetryPolicy.Incremental</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79683747-e734-449e-aee3-00be5b7b811c</parentFolderId>
+  <diagram>
+    <targetPackageId>07dc5d3b-37bf-4556-8a8e-abb09f286fee</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

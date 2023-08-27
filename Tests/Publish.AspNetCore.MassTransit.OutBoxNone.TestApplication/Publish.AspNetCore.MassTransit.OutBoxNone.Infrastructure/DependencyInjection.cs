@@ -29,8 +29,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IRoleRepository, RoleRepository>();
-            services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddMassTransitConfiguration(configuration);
             return services;
         }

@@ -34,6 +34,38 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Enums.ClassWithEnu
         }
 
         public static void AssertEquivalent(
+            IEnumerable<ClassWithEnumsDto> actualDtos,
+            IEnumerable<Domain.Entities.Enums.ClassWithEnums> expectedEntities)
+        {
+            if (expectedEntities == null)
+            {
+                actualDtos.Should().BeNullOrEmpty();
+                return;
+            }
+
+            actualDtos.Should().HaveSameCount(actualDtos);
+            for (int i = 0; i < expectedEntities.Count(); i++)
+            {
+                var entity = expectedEntities.ElementAt(i);
+                var dto = actualDtos.ElementAt(i);
+                if (entity == null)
+                {
+                    dto.Should().BeNull();
+                    continue;
+                }
+
+                dto.Should().NotBeNull();
+                dto.Id.Should().Be(entity.Id);
+                dto.EnumWithDefaultLiteral.Should().Be(entity.EnumWithDefaultLiteral);
+                dto.EnumWithoutDefaultLiteral.Should().Be(entity.EnumWithoutDefaultLiteral);
+                dto.EnumWithoutValues.Should().Be(entity.EnumWithoutValues);
+                dto.NullibleEnumWithDefaultLiteral.Should().Be(entity.NullibleEnumWithDefaultLiteral);
+                dto.NullibleEnumWithoutDefaultLiteral.Should().Be(entity.NullibleEnumWithoutDefaultLiteral);
+                dto.NullibleEnumWithoutValues.Should().Be(entity.NullibleEnumWithoutValues);
+            }
+        }
+
+        public static void AssertEquivalent(
             ClassWithEnumsDto actualDto,
             Domain.Entities.Enums.ClassWithEnums expectedEntity)
         {

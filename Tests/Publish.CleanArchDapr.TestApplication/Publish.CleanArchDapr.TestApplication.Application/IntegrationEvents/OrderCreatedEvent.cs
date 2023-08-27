@@ -13,7 +13,7 @@ namespace Publish.CleanArchDapr.TestApplication.Eventing.Messages
         public const string TopicName = nameof(OrderCreatedEvent);
         public Guid Id { get; init; }
         public Guid CustomerId { get; init; }
-        string IEvent.PubsubName { get; } = PubsubName;
-        string IEvent.TopicName { get; } = TopicName;
+        string IEvent.PubsubName => PubsubName;
+        string IEvent.TopicName => TopicName;
     }
 }

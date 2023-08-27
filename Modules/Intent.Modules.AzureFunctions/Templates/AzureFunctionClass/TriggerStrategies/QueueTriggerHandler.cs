@@ -108,7 +108,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
         if (_azureFunctionModel.IncludeMessageEnvelope)
         {
-            method.AddStatement($"var {parameterName} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{messageType}>(message.Body.ToString())!;");
+            method.AddStatement($"var {parameterName} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{messageType}>(message.Body.ToString(), new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
         }
     }
 

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.SdkEvolutionHelpers;
 
 namespace Intent.Modules.Enums.Shared;
 
@@ -46,15 +48,26 @@ namespace {_template.Namespace}
         " : string.Empty;
         }
 
-        private static string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
+        private string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
         {
             return string.Join(@",
             ", literals.Select(GetEnumLiteral));
         }
 
-        private static string GetEnumLiteral(EnumLiteralModel literal)
+        private string GetEnumLiteral(EnumLiteralModel literal)
         {
-            return $"{GetComments(literal.InternalElement, "        ")}{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
+            return $"{GetComments(literal.InternalElement, "        ")}{GetLiteralAttributes(literal)}{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
+        }
+
+        private string GetLiteralAttributes(EnumLiteralModel literal)
+        {
+            if (literal.HasStereotype("Description") && !string.IsNullOrWhiteSpace(literal.GetStereotypeProperty<string>("Description", "Value")))
+            {
+                _template.AddUsing("System.ComponentModel");
+                return $@"[Description(""{literal.GetStereotypeProperty<string>("Description", "Value")}"")]
+        ";
+            }
+            return string.Empty;
         }
 
         private static string GetComments(IElement element, string indentation)

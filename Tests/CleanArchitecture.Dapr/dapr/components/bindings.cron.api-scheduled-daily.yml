@@ -1,0 +1,12 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: 'api/scheduled/daily'
+spec:
+  type: bindings.cron
+  version: v1
+  metadata:
+  - name: schedule
+    value: '@daily'
+  - name: direction
+    value: input

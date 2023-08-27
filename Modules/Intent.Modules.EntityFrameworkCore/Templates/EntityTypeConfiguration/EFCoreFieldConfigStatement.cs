@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Utils;
 using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions;
+using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
@@ -18,8 +19,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
 
     public static EfCoreFieldConfigStatement CreateProperty(AttributeModel attribute,
-        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum databaseProvider)
+        DatabaseSettings dbSettings)
     {
+        var databaseProvider = dbSettings.DatabaseProvider().AsEnum();
         var field = new EfCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute);
         if (!attribute.Type.IsNullable)
         {
@@ -28,7 +30,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 
         if (databaseProvider != DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos)
         {
-            field.AddStatements(field.AddRdbmsMappingStatements(attribute));
+            field.AddStatements(field.AddRdbmsMappingStatements(attribute, dbSettings));
         }
 
         return field;
@@ -89,7 +91,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
     }
 
-    private List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute)
+    private List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings)
     {
         var statements = new List<CSharpStatement>();
 
@@ -160,13 +162,22 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
             var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
             var decimalScale = attribute.GetDecimalConstraints()?.Scale();
             var columnType = attribute.GetColumn()?.Type();
-            if (decimalPrecision.HasValue && decimalScale.HasValue)
-            {
-                statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
-            }
-            else if (!string.IsNullOrWhiteSpace(columnType))
+
+            if (!string.IsNullOrWhiteSpace(columnType))
             {
                 statements.Add($".HasColumnType(\"{columnType}\")");
+            }
+            else if (attribute.Type.Element.Name == "decimal")
+            {
+                if (decimalPrecision.HasValue && decimalScale.HasValue)
+                {
+                    statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
+                }
+                else if (!string.IsNullOrEmpty(dbSettings.DecimalPrecisionAndScale()))
+                {
+                    var safeString = dbSettings.DecimalPrecisionAndScale().Trim().Replace("(","").Replace(")", "");
+                    statements.Add($".HasColumnType(\"decimal({safeString})\")");
+                }
             }
         }
 

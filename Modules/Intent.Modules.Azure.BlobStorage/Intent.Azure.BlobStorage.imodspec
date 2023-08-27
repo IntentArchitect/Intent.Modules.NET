@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Azure.BlobStorage</id>
-  <version>3.4.0-pre.0</version>
+  <version>3.4.0</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Blob storage client that can link with Azure's Blob Storage.</summary>
   <description>Introduces a Blob storage client that can link with Azure's Blob Storage.</description>

@@ -13,11 +13,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Purchase : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public Purchase()
-        {
-            Cost = null!;
-        }
+
         public Guid Id { get; set; }
 
         public Money Cost { get; set; }

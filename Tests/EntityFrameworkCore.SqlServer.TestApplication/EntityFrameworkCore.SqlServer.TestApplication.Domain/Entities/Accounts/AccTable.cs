@@ -13,10 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Accounts
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AccTable : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public AccTable()
-        {
-        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

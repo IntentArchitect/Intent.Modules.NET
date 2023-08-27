@@ -6,22 +6,75 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
-public static class AssertionMethodHelper
+internal static class AssertionMethodHelper
 {
+    public static void AddCommandAssertionMethods(this ICSharpFileBuilderTemplate template, CommandModel commandModel)
+    {
+        if (!commandModel.IsValidCommandMapping())
+        {
+            return;
+        }
+
+        var domainModel = commandModel.GetClassModel();
+        var templateInstance = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
+
+        templateInstance?.AddAssertionMethods(templateInstance.CSharpFile.Classes.First(), commandModel, domainModel);
+    }
+
+    public static void AddPaginationAssertionMethod(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, QueryModel queryModel, ClassModel domainModel)
+    {
+        builderClass.AddMethod("void", "AssertEquivalent", method =>
+        {
+            method.Static();
+
+            var paginatedDtoModel = queryModel.TypeReference.GenericTypeParameters.First().Element.AsDTOModel();
+            var concretePaginatedResult = template.GetTypeName("Application.Contract.Dto.Pagination.Result");
+            var paginatedResultInterface = template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.PagedResult);
+            var domainEntityTypeName = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
+            var queryReturnDtoTypeName = template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, paginatedDtoModel);
+            
+            method.AddParameter($"{concretePaginatedResult}<{queryReturnDtoTypeName}>", "actualDtos");
+            method.AddParameter($"{paginatedResultInterface}<{domainEntityTypeName}>", "expectedEntities");
+
+            method.AddIfStatement("expectedEntities == null", ifStmt =>
+            {
+                ifStmt.AddStatement($"actualDtos.Should().Match<{concretePaginatedResult}<{queryReturnDtoTypeName}>>(p => p == null || !p.Data.Any());");
+                ifStmt.AddStatement("return;");
+            });
+            
+            method.AddStatement("actualDtos.Data.Should().HaveSameCount(expectedEntities);");
+            method.AddStatement("actualDtos.PageSize.Should().Be(expectedEntities.PageSize);");
+            method.AddStatement("actualDtos.PageCount.Should().Be(expectedEntities.PageCount);");
+            method.AddStatement("actualDtos.PageNumber.Should().Be(expectedEntities.PageNo);");
+            method.AddStatement("actualDtos.TotalCount.Should().Be(expectedEntities.TotalCount);");
+
+            method.AddStatementBlock("for (int i = 0; i < expectedEntities.Count(); i++)", block =>
+            {
+                block.AddStatement("var dto = actualDtos.Data.ElementAt(i);");
+                block.AddStatement("var entity = expectedEntities.ElementAt(i);");
+                block.AddStatements(GetDomainToDtoPropertyAssignments(template, "dto", "entity", paginatedDtoModel, domainModel, true));
+            });
+        });
+    }
+    
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
     {
         builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
             method.Static();
-            method.AddParameter(template.GetTypeName(commandModel.InternalElement), "expectedDto");
-            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "actualEntity");
+            method.AddParameter(template.GetTypeName(CommandModelsTemplate.TemplateId, commandModel), "expectedDto");
+            method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel), "actualEntity");
             method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
         });
 
@@ -35,8 +88,8 @@ public static class AssertionMethodHelper
 
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel, bool hasCollection)
     {
-        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(dtoModel.InternalElement)}>" : template.GetTypeName(dtoModel.InternalElement);
-        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(domainModel.InternalElement)}>" : template.GetTypeName(domainModel.InternalElement);
+        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel);
+        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
         if (builderClass.FindMethod(stmt => stmt.Parameters.First().Type == dtoModelTypeName && stmt.Parameters.Last().Type == domainModelTypeName) != null)
         {
             return;
@@ -167,7 +220,7 @@ public static class AssertionMethodHelper
             actualEntities.Should().BeNullOrEmpty();
             return;"))
                                 .AddStatement(string.Empty)
-                                .AddStatement("actualEntities.Should().HaveSameCount(actualEntities);")
+                                .AddStatement("actualEntities.Should().HaveSameCount(expectedDtos);")
                                 .AddStatementBlock("for (int i = 0; i < expectedDtos.Count(); i++)", block => block
                                     .AddStatements($@"
             var dto = expectedDtos.ElementAt(i);
@@ -274,7 +327,7 @@ public static class AssertionMethodHelper
             actualDtos.Should().BeNullOrEmpty();
             return;"))
                                 .AddStatement(string.Empty)
-                                .AddStatement("actualDtos.Should().HaveSameCount(actualDtos);")
+                                .AddStatement("actualDtos.Should().HaveSameCount(expectedEntities);")
                                 .AddStatementBlock("for (int i = 0; i < expectedEntities.Count(); i++)", block => block
                                     .AddStatements($@"
             var entity = expectedEntities.ElementAt(i);

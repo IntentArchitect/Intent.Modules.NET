@@ -26,6 +26,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerI
 
         public override string TemplateId => IntegrationEventHandlerImplementationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model)
         {
             return new IntegrationEventHandlerImplementationTemplate(outputTarget, model);

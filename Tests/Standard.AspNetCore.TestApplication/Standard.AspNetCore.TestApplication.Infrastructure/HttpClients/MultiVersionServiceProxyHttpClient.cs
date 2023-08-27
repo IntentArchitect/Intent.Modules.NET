@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -18,7 +14,7 @@ using Standard.AspNetCore.TestApplication.Application.IntegrationServices;
 
 namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
-    public class MultiVersionServiceProxyHttpClient : IMultiVersionService
+    public class MultiVersionServiceProxyHttpClient : IMultiVersionServiceProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

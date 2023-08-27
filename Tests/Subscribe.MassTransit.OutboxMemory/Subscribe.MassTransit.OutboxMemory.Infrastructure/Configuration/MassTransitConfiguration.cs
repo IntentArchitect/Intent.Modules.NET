@@ -18,15 +18,20 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
     {
         public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<MassTransitEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
+
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(
-                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
-                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                        configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
                         host.Username(configuration["RabbitMq:Username"]);
@@ -34,9 +39,15 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
                     });
                     cfg.ConfigureEndpoints(context);
                     cfg.UseInMemoryOutbox();
+                    cfg.AddMessageTopologyConfiguration();
                 });
                 x.AddInMemoryInboxOutbox();
             });
+        }
+
+        private static void AddMessageTopologyConfiguration(this IRabbitMqBusFactoryConfigurator cfg)
+        {
+            cfg.Message<BasketCreatedEvent>(x => x.SetEntityName("basket-created-topic-rename"));
         }
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
@@ -50,6 +61,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Configuration
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEvent>)).Endpoint(config => config.InstanceId = "Subscribe-MassTransit-OutboxMemory");
         }
     }
 }

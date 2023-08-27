@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.UpdateImplicitKeyAggrRoot;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -25,8 +26,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<ImplicitKeyAggrRoot>();
             fixture.Customize<UpdateImplicitKeyAggrRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
@@ -40,10 +40,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyAggrRoot existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateImplicitKeyAggrRootCommandHandler(repository);
+            var sut = new UpdateImplicitKeyAggrRootCommandHandler(implicitKeyAggrRootRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -58,11 +58,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<ImplicitKeyAggrRoot>(default));
 
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<ImplicitKeyAggrRoot>(null));
 
-            var sut = new UpdateImplicitKeyAggrRootCommandHandler(repository);
+            var sut = new UpdateImplicitKeyAggrRootCommandHandler(implicitKeyAggrRootRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

@@ -25,8 +25,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<Domain.Entities.Enums.ClassWithEnums>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<Domain.Entities.Enums.ClassWithEnums>();
             fixture.Customize<UpdateClassWithEnumsCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateClassWithEnumsCommand>();
@@ -40,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             Domain.Entities.Enums.ClassWithEnums existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
+            classWithEnumsRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateClassWithEnumsCommandHandler(repository);
+            var sut = new UpdateClassWithEnumsCommandHandler(classWithEnumsRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -58,11 +57,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateClassWithEnumsCommand>();
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
+            classWithEnumsRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(default));
 
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(null));
 
-            var sut = new UpdateClassWithEnumsCommandHandler(repository);
+            var sut = new UpdateClassWithEnumsCommandHandler(classWithEnumsRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

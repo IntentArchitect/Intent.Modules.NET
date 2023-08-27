@@ -12,11 +12,6 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Audited : IAuditable
     {
-        [IntentManaged(Mode.Fully)]
-        public Audited()
-        {
-            CreatedBy = null!;
-        }
         public Guid Id { get; private set; }
 
         public string CreatedBy { get; private set; }

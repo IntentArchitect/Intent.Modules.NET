@@ -5,6 +5,8 @@ using MassTransit;
 using MassTransit.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Eventing;
+using Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.MassTransitConfiguration", Version = "1.0")]
@@ -15,15 +17,20 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Configuration
     {
         public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<MassTransitEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers();
+
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.UseMessageRetry(r => r.Interval(
-                        configuration.GetValue<int?>("MassTransit:Retry:RetryCount") ?? 10,
-                        configuration.GetValue<TimeSpan?>("MassTransit:Retry:Interval") ?? TimeSpan.FromSeconds(30)));
+                        configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
+                        configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], host =>
                     {
                         host.Username(configuration["RabbitMq:Username"]);

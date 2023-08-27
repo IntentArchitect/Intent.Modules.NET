@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5f9fd4e1-0e13-4abc-920d-75e7edcb6372" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>dapr</name>
+  <display>dapr</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>85fbd2c2-b030-4932-933e-95ff7f85782d</parentFolderId>
+  <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+  <packageName>MultipleDocumentStores</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="fd4ba0ac-bf9e-4ea5-b070-d185530931a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Dapr.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5f9fd4e1-0e13-4abc-920d-75e7edcb6372</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3713038a-4ada-42cc-90b1-a7cddb218e92" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr</name>
+      <display>Dapr</display>
+      <externalReference>a47ae6b9-d22d-4fb1-bf8b-7c4793acffcf</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5f9fd4e1-0e13-4abc-920d-75e7edcb6372</parentFolderId>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

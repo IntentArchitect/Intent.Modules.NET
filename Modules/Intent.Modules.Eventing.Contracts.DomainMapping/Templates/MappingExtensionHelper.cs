@@ -9,6 +9,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using DomainEvent = Intent.Modelers.Domain.Events.Api;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 
 namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates;
@@ -39,10 +40,21 @@ internal static class MappingExtensionHelper
                 sourcePath = $"{domainEntityVar}.{sourcePath}";
             }
 
+            
             switch (mappedPropertyElement?.Element?.SpecializationTypeId)
             {
                 case null:
                 case AttributeModel.SpecializationTypeId:
+                    if (property.TypeReference.Element.Name == "string" && mappedPropertyElement?.Element?.TypeReference.Element.Name != "string")
+                    {
+                        codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath}.ToString(),");
+                    }
+                    else
+                    {
+                        codeLines.Add($"{property.Name.ToPascalCase()} = {GetCastingIfNecessary(template, property, mappedPropertyElement?.Path)}{sourcePath},");
+                    }
+                    break;
+                case DomainEvent.PropertyModel.SpecializationTypeId:
                     if (property.TypeReference.Element.Name == "string" && mappedPropertyElement?.Element?.TypeReference.Element.Name != "string")
                     {
                         codeLines.Add($"{property.Name.ToPascalCase()} = {sourcePath}.ToString(),");

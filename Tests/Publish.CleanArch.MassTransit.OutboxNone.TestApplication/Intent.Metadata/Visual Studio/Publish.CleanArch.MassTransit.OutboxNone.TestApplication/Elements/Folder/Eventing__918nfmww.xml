@@ -37,5 +37,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="e226eee6-4719-47d3-814c-f2e7e495bb48" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1ac6d182-cc10-48ae-adfe-f8c33578266e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a18f0bea-0e93-465a-ad36-72b908d35c65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1ac6d182-cc10-48ae-adfe-f8c33578266e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4e321d25-0665-437d-8079-2c93b5ad5662" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbucklePublishingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbucklePublishingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1ac6d182-cc10-48ae-adfe-f8c33578266e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

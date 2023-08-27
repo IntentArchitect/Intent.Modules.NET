@@ -13,10 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NotSchem
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TableFolder : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TableFolder()
-        {
-        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

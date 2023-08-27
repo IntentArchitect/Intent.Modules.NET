@@ -17,6 +17,14 @@ namespace RichDomain.Infrastructure.Persistence.Configurations
             builder.Property(x => x.FirstName)
                 .IsRequired();
 
+            builder.Property(x => x.DepartmentId)
+                .IsRequired();
+
+            builder.HasOne(x => x.Department)
+                .WithMany()
+                .HasForeignKey(x => x.DepartmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

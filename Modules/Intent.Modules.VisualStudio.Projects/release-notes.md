@@ -1,6 +1,10 @@
+### Version 3.3.30
+
+- Improvement: `launchsettings.json` now listens for an event named `LaunchProfileHttpPortRequired` and if received will add a regular `http://…` entry to a profile's `applicationUrl` when it only contains a single `https://…` item.
+
 ### Version 3.3.29
 
-- Update: Added the following as available SDK options for .NET Projects making the list [complete](https://learn.microsoft.com/dotnet/core/project-sdk/overview#available-sdks):
+- Improvement: Added the following as available SDK options for .NET Projects making the list [complete](https://learn.microsoft.com/dotnet/core/project-sdk/overview#available-sdks):
   - `Microsoft.NET.Sdk.Razor`
   - `Microsoft.NET.Sdk.Worker`
   - `Microsoft.NET.Sdk.WindowsDesktop`
@@ -8,23 +12,23 @@
 
 ### Version 3.3.28
 
-- Update: Added `Microsoft.NET.Sdk.BlazorWebAssembly` as an available SDK option for .NET Projects.
+- Improvement: Added `Microsoft.NET.Sdk.BlazorWebAssembly` as an available SDK option for .NET Projects.
 
 ### Version 3.3.27
 
-- Update: Added `10.0`, `11.0` and `12.0` as selectable C# Project `Language Version`s.
-- Update: Added `.NET 8.0` as a selectable `.NET Version` option.
+- Improvement: Added `10.0`, `11.0` and `12.0` as selectable C# Project `Language Version`s.
+- Improvement: Added `.NET 8.0` as a selectable `.NET Version` option.
 - The template for `local.settings.json` for Azure Functions projects will now automatically flatten hierarchical settings from `AppSettingRegistrationRequest`s into a discrete key per field with `:` used to represent its hierarchical location which .NET's configuration system is able to reassemble into a hierarchical object at runtime.
 
 ### Version 3.3.26
 
 - Fixed : Software Factory would throw "Duplicate Key" exception if a NuGet package, for the same package, existed more than once. If now works with the first one it finds.
-- Update: Manage Dependency Versions for nuget packages found in C# projects used to create Intent Architect Modules.
-- Update: Newly generated `launchsettings.json` profile for API profiles will no longer have HTTP urls since there are just too many instances where the startup application breaks due to conflicting ports being detected. Sticking to HTTPS alleviates that. Also its best practice to design your APIs for HTTPS.
+- Improvement: Manage Dependency Versions for nuget packages found in C# projects used to create Intent Architect Modules.
+- Improvement: Newly generated `launchsettings.json` profile for API profiles will no longer have HTTP urls since there are just too many instances where the startup application breaks due to conflicting ports being detected. Sticking to HTTPS alleviates that. Also its best practice to design your APIs for HTTPS.
 
 ### Version 3.3.25
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 3.3.24
 - Update : Adjusting `launchSettings.json` to start as Https, made `isSSL` setting more inline with `VS` behaviour.
@@ -35,7 +39,7 @@
 
 ### Version 3.3.21
 
-- Added support for Implicit Usings for projects.
+- Improvement: Added support for Implicit Usings for projects.
 - Fixed: Added SSL URI in `applicationUrl` for `Project` Laumch Profiles.
 
 ### Version 3.3.19
@@ -46,13 +50,13 @@
 
 ### Version 3.3.18
 
-- Added .NET 7.0 version option.
-- Added support for generating `Remove` element types for file items in .NET `.csproj` files.
-- The `Root Namespace` value of a project in the Visual Studio designer is now made available on `IOutputTarget.Metadata` under the `Root Namespace` key.
+- Improvement: Added .NET 7.0 version option.
+- Improvement: Added support for generating `Remove` element types for file items in .NET `.csproj` files.
+- Improvement: The `Root Namespace` value of a project in the Visual Studio designer is now made available on `IOutputTarget.Metadata` under the `Root Namespace` key.
 
 ### Version 3.3.17
 
-Updated description of module.
+- Improvement: Updated description of module.
 
 ### Version 3.3.16
 
@@ -60,11 +64,11 @@ Updated description of module.
 
 ### Version 3.3.15
 
-- Updated `Nullable` stereotype property for the `C# Project Options` stereotype to have all available options for `.csproj` files.
+- Improvement: Updated `Nullable` stereotype property for the `C# Project Options` stereotype to have all available options for `.csproj` files.
 
 ### Version 3.3.14
 
-- If a `.csproj` file has a defined value when its corresponding property in the `.NET Core Settings` stereotype is blank, it will no longer be removed from the `.csproj` file.
+- Improvement: If a `.csproj` file has a defined value when its corresponding property in the `.NET Core Settings` stereotype is blank, it will no longer be removed from the `.csproj` file.
 - `IntentIgnore="true"` can now be applied to file item sub-elements in `.csproj` files.
 - Fixed: `No project found for id "{projectId}"` exception would be thrown when a `Template Output` was in a solution folder and not a project.
 

@@ -14,12 +14,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudi
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class Audit_BaseClass : IHasDomainEvent, IAuditable
     {
-        [IntentManaged(Mode.Fully)]
-        public Audit_BaseClass()
-        {
-            PartitionKey = null!;
-            CreatedBy = null!;
-        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

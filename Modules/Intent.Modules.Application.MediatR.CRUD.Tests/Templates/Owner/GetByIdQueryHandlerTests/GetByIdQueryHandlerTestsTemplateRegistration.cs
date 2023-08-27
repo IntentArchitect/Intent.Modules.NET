@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
 
         public override string TemplateId => GetByIdQueryHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new GetByIdQueryHandlerTestsTemplate(outputTarget, model);
@@ -38,9 +39,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(p => p.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase)
-                            && p.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
+                .Where(query => query.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase) &&
+                            query.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase) &&
+                            query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }
     }

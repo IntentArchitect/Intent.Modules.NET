@@ -26,6 +26,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
         public DbSet<CustomerAnemic> CustomerAnemics { get; set; }
         public DbSet<CustomerRich> CustomerRiches { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<TestDecimals> TestDecimals { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -49,6 +50,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
             modelBuilder.ApplyConfiguration(new CustomerAnemicConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerRichConfiguration());
             modelBuilder.ApplyConfiguration(new PurchaseConfiguration());
+            modelBuilder.ApplyConfiguration(new TestDecimalsConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

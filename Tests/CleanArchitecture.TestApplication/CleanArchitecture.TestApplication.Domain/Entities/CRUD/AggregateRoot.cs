@@ -14,13 +14,13 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
         public AggregateRoot()
         {
             AggregateAttr = null!;
             LimitedDomain = null!;
             LimitedService = null!;
         }
+
         public Guid Id { get; set; }
 
         public string AggregateAttr { get; set; }

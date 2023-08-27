@@ -49,12 +49,12 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.FactoryExtensions
                         .AddProperty("string", "PubsubName", p => p
                             .ExplicitlyImplements(interfaceType)
                             .WithoutSetter()
-                            .WithInitialValue("PubsubName")
+                            .Getter.WithExpressionImplementation("PubsubName")
                         )
                         .AddProperty("string", "TopicName", p => p
                             .ExplicitlyImplements(interfaceType)
                             .WithoutSetter()
-                            .WithInitialValue("TopicName")
+                            .Getter.WithExpressionImplementation("TopicName")
                         )
                         ;
                 });

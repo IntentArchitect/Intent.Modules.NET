@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQu
 
         public override string TemplateId => GetAllQueryHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new GetAllQueryHandlerTestsTemplate(outputTarget, model);
@@ -38,8 +39,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQu
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
-                .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
+                .Where(query =>
+                    query.TypeReference.IsCollection &&
+                    query.TypeReference.Element.IsDTOModel() &&
+                    query.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
     }

@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>5.1.0</Version>
+    <Version>5.2.0-pre.5</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -88,11 +88,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EventBusInterfaceTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\MassTransitEventBus\MassTransitEventBusTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MassTransitEventBusTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -156,15 +151,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventBusInterfaceTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MassTransitEventBusTemplate.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.40" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="4.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">

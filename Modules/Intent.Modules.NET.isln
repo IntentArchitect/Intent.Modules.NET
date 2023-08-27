@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.30" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.34" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -109,5 +109,12 @@
     <application id="aa397c5c-7cbc-421d-8671-596b0a2cd970" name="Intent.Modules.EntityFrameworkCore.BasicAuditing" relativePath="Intent.Modules.EntityFrameworkCore.BasicAuditing/Intent.Modules.EntityFrameworkCore.BasicAuditing.application.config" />
     <application id="5692b8df-ecfc-4d14-bbb3-9f2ecacf9879" name="Intent.Modules.Blazor.HttpClients.AccountController" relativePath="Intent.Modules.Blazor.HttpClients.AccountController/Intent.Modules.Blazor.HttpClients.AccountController.application.config" />
     <application id="c432a6b5-0208-4aa7-aa55-006c90cb04d5" name="Intent.Modules.AspNetCore.HealthChecks" relativePath="Intent.Modules.AspNetCore.HealthChecks/Intent.Modules.AspNetCore.HealthChecks.application.config" />
+    <application id="c7fa9e37-74f9-4737-826f-71bb2f1389e8" name="Intent.Modules.Dapr.AspNetCore.Metadata" relativePath="Intent.Modules.Dapr.AspNetCore.Metadata/Intent.Modules.Dapr.AspNetCore.Metadata.application.config" />
+    <application id="ec005aa8-56ab-4bbd-b50c-0a0dd619504f" name="Intent.Modules.Dapr.AspNetCore.Secrets" relativePath="Intent.Modules.Dapr.AspNetCore.Secrets/Intent.Modules.Dapr.AspNetCore.Secrets.application.config" />
+    <application id="75510471-3b29-4bac-8253-6eae740fdc30" name="Intent.Modules.Dapr.AspNetCore.Configuration" relativePath="Intent.Modules.Dapr.AspNetCore.Configuration/Intent.Modules.Dapr.AspNetCore.Configuration.application.config" />
+    <application id="a7c14bfc-4fde-46bf-9744-b54c66c3b22d" name="Intent.Modules.ContinuousIntegration.AzurePipelines" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines/Intent.Modules.ContinuousIntegration.AzurePipelines.application.config" />
+    <application id="a1f7bab8-79b2-433e-ab02-367fc60ae815" name="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata/Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata.application.config" />
+    <application id="4f469de8-b6e4-469b-8740-3fe74d5d6d1c" name="Intent.Modules.Dapr.AspNetCore.Bindings.Cron" relativePath="Intent.Modules.Dapr.AspNetCore.Bindings.Cron/Intent.Modules.Dapr.AspNetCore.Bindings.Cron.application.config" />
+    <application id="bf507eae-8dae-4ab3-932a-29a6a30f29b8" name="Intent.Modules.Eventing.MassTransit.Scheduling" relativePath="Intent.Modules.Eventing.MassTransit.Scheduling/Intent.Modules.Eventing.MassTransit.Scheduling.application.config" />
   </applications>
 </solution>

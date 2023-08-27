@@ -111,7 +111,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAg
                 return;
             }
 
-            actualEntities.Should().HaveSameCount(actualEntities);
+            actualEntities.Should().HaveSameCount(expectedDtos);
             for (int i = 0; i < expectedDtos.Count(); i++)
             {
                 var dto = expectedDtos.ElementAt(i);
@@ -192,7 +192,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAg
                 return;
             }
 
-            actualEntities.Should().HaveSameCount(actualEntities);
+            actualEntities.Should().HaveSameCount(expectedDtos);
             for (int i = 0; i < expectedDtos.Count(); i++)
             {
                 var dto = expectedDtos.ElementAt(i);

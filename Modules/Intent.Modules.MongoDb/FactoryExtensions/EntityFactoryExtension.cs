@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.DocumentDB.Shared;
+using Intent.Modules.MongoDb.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
@@ -35,6 +36,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         {
             EntityFactoryExtensionHelper.Execute(
                 application: application,
+                dbProviderApplies: MongoDbProvider.FilterDbProvider,
                 initializePrimaryKeyOnAggregateRoots: false);
         }
     }

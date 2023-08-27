@@ -43,5 +43,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="e5af0ae6-0b7b-4e71-97b9-22c0d9dd2b63" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Secrets.DefaultLocalSecretStore</name>
+      <display>Intent.Dapr.AspNetCore.Secrets.DefaultLocalSecretStore</display>
+      <externalReference>Intent.Dapr.AspNetCore.Secrets</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7e183be2-a54e-4d77-9497-a4c391391a16" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Configuration.DefaultLocalConfigurationStore</name>
+      <display>Intent.Dapr.AspNetCore.Configuration.DefaultLocalConfigurationStore</display>
+      <externalReference>Intent.Dapr.AspNetCore.Configuration</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d58b1568-9ccc-46c5-a032-feab293f8ab5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Bindings.Cron.CronBindingComponent</name>
+      <display>Intent.Dapr.AspNetCore.Bindings.Cron.CronBindingComponent</display>
+      <externalReference>Intent.Dapr.AspNetCore.Bindings.Cron</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

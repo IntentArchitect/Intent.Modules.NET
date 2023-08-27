@@ -14,7 +14,6 @@ using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
-
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
@@ -25,7 +24,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
     {
         private readonly IList<ContainerRegistrationRequest> _containerRegistrationRequests = new List<ContainerRegistrationRequest>();
 
-        public override string Id => "Intent.Application.MediatR.DependencyInjectionFactoryExtension";
+        public override string Id => "Intent.Application.DependencyInjection.MediatR.DependencyInjectionFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

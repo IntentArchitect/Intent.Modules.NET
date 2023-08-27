@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPT_ConcreteBaseClassAssociated : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPT_ConcreteBaseClassAssociated()
-        {
-            AssociatedField = null!;
-            ConcreteBaseClass = null!;
-        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

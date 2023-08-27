@@ -14,13 +14,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public abstract class BaseType : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public BaseType()
-        {
-            Id = null!;
-            BaseAttribute = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

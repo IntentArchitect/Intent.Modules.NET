@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Explicit
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class FK_A_CompositeForeignKey : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public FK_A_CompositeForeignKey()
-        {
-            PK_A_CompositeKey = null!;
-        }
         public Guid Id { get; set; }
 
         public virtual PK_A_CompositeKey PK_A_CompositeKey { get; set; }

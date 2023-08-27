@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class G_RequiredCompositeNav : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public G_RequiredCompositeNav()
-        {
-            ReqCompNavAttr = null!;
-        }
         public Guid Id { get; set; }
 
         public string ReqCompNavAttr { get; set; }

@@ -11,6 +11,16 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstruc
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class OpAndCtorMapping1
     {
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected OpAndCtorMapping1()
+        {
+            OpAndCtorMapping3 = null!;
+            OpAndCtorMapping2 = null!;
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public OpAndCtorMapping1(OpAndCtorMapping3 opAndCtorMapping3, OpAndCtorMapping2 opAndCtorMapping2)
         {

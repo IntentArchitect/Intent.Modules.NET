@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot1 : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public AggregateRoot1()
-        {
-            Tag = null!;
-        }
         public Guid Id { get; set; }
 
         public string Tag { get; set; }

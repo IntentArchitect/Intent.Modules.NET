@@ -1,7 +1,4 @@
 using System;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -19,7 +16,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Pu
 
 namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
 {
-    public class MyProxyHttpClient : IMyService
+    public class MyProxyHttpClient : IMyProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

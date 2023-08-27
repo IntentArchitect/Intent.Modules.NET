@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9909477e-031b-40e2-a3e3-7c11286c8e94" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MassTransitFinbuckle.Test</name>
+  <display>MassTransitFinbuckle.Test</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>521329a3-0930-49b4-b3f9-bcb6ae108634</parentFolderId>
+  <diagram>
+    <targetPackageId>6946325b-4ee9-41a8-b583-8e98120b5c37</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

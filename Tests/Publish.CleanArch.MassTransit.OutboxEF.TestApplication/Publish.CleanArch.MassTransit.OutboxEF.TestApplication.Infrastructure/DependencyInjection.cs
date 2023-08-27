@@ -33,8 +33,6 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddScoped<MassTransitEventBus>();
-            services.AddTransient<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             return services;

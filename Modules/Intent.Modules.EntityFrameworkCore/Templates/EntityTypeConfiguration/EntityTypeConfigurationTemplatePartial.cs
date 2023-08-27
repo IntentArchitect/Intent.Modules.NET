@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -70,8 +71,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                             AddIgnoreForNonPersistent(method, isOwned: false);
                         });
-
-                    EnsureParameterlessConstructorOnEntity(Model);
 
                     foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(x => x.KeyColumns.Any())))
                     {
@@ -285,7 +284,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
-            else if (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name))
+            else if (!IsTableInlined(model) && ( !string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)))
             {
                 yield return ToTableStatement(model);
             }
@@ -325,6 +324,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 return statement;
             }
+        }
+
+        private bool IsTableInlined(ClassExtensionModel model)
+        {
+            if (model.HasView() || model.HasTable())
+            {
+                return false;
+            }
+            if (!IsOwned(model.InternalElement))
+            {
+                return false;
+            }
+            if (model.InternalElement.IsClassModel())
+            {
+                var type = model.InternalElement.AsClassModel();
+                var from = type.AssociatedFromClasses();
+                if (from.Count == 1 && from.First().Association.GetRelationshipType() == RelationshipType.OneToOne)
+                {
+                    return true;
+                }
+            }
+            return model.InternalElement.IsValueObject(ExecutionContext);
         }
 
         private bool RequiresToTableStatementForConvention(string className)
@@ -390,7 +411,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
-                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings());
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
@@ -447,25 +468,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         .WithForeignKey();
 
                 case RelationshipType.OneToMany:
-                {
-                    if (IsOwned(associationEnd.Element))
                     {
-                        var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
-                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        if (IsOwned(associationEnd.Element))
                         {
-                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                            method.AddMetadata("model", (IElement)associationEnd.Element);
-                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                            method.Statements.SeparateAll();
+                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
+                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                            {
+                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                                method.AddMetadata("model", (IElement)associationEnd.Element);
+                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
+                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                                method.Statements.SeparateAll();
 
-                            AddIgnoreForNonPersistent(method, isOwned: true);
-                        });
+                                AddIgnoreForNonPersistent(method, isOwned: true);
+                            });
 
-                        return field;
+                            return field;
+                        }
                     }
-                }
                     return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention)
                         .WithForeignKey();
 
@@ -631,58 +652,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private void EnsureParameterlessConstructorOnEntity(ClassModel model)
-        {
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model.Id, out var template))
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var entityClass = file.Classes.First();
-                    if (entityClass.Constructors.Count > 0 &&
-                        entityClass.Constructors.All(x => x.Parameters.Count > 0))
-                    {
-                        entityClass.AddConstructor(ctor =>
-                        {
-                            ctor.WithComments(new[]
-                            {
-                                "/// <summary>",
-                                "/// Required by Entity Framework.",
-                                "/// </summary>"
-                            });
-                            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            ctor.Protected();
-                            foreach (var attribute in model.Attributes)
-                            {
-                                if (string.IsNullOrWhiteSpace(attribute.Value))
-                                {
-                                    var typeInfo = GetTypeInfo(attribute.TypeReference);
-                                    if (NeedsNullabilityAssignment(typeInfo))
-                                    {
-                                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
-                                    }
-                                }
-                            }
-
-                            foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
-                            {
-                                if (!associationEnd.IsCollection && !associationEnd.IsNullable)
-                                {
-                                    ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-        }
-
-        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
-        {
-            return !(typeInfo.IsPrimitive
-                     || typeInfo.IsNullable == true
-                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
-        }
-
         public void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entityModel.Id, out var template))
@@ -694,7 +663,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     foreach (var column in columns)
                     {
                         entityClass.TryGetMetadata<ClassModel>("model", out var model);
-                        var existingPk = model is not null 
+                        var existingPk = model is not null
                             ? GetAllBuilderProperties(model).FirstOrDefault(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase))
                             : null;
                         if (existingPk == null)

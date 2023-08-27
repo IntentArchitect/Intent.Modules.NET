@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -28,6 +29,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCo
 
         public override string TemplateId => DeleteCommandHandlerTestsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
             return new DeleteCommandHandlerTestsTemplate(outputTarget, model);
@@ -38,8 +40,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCo
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == true)
+                .Where(command => command.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
+                            && command.GetClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
     }

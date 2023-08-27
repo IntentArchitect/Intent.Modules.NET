@@ -24,8 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateRootLong>();
             fixture.Customize<DeleteAggregateRootLongCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteAggregateRootLongCommand>();
@@ -39,30 +38,29 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AggregateRootLong existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
+            var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
+            aggregateRootLongRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new DeleteAggregateRootLongCommandHandler(repository);
+            var sut = new DeleteAggregateRootLongCommandHandler(aggregateRootLongRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            repository.Received(1).Remove(Arg.Is<AggregateRootLong>(p => p.Id == testCommand.Id));
+            aggregateRootLongRepository.Received(1).Remove(Arg.Is<AggregateRootLong>(p => testCommand.Id == p.Id));
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidAggregateRootLongId_ReturnsNotFound()
         {
             // Arrange
+            var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteAggregateRootLongCommand>();
+            aggregateRootLongRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<AggregateRootLong>(default));
 
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRootLong>(default));
-            repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
-            var sut = new DeleteAggregateRootLongCommandHandler(repository);
+            var sut = new DeleteAggregateRootLongCommandHandler(aggregateRootLongRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

@@ -24,7 +24,8 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
         public void ConfigureCost(OwnedNavigationBuilder<Purchase, Money> builder)
         {
             builder.Property(x => x.Amount)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("decimal(18,4)");
 
             builder.Property(x => x.Currency)
                 .IsRequired();

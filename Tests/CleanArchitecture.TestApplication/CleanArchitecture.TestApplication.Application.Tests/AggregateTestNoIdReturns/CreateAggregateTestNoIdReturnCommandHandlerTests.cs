@@ -32,10 +32,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
         public async Task Handle_WithValidCommand_AddsAggregateTestNoIdReturnToRepository(CreateAggregateTestNoIdReturnCommand testCommand)
         {
             // Arrange
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
             AggregateTestNoIdReturn addedAggregateTestNoIdReturn = null;
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.OnAdd(ent => addedAggregateTestNoIdReturn = ent);
-            var sut = new CreateAggregateTestNoIdReturnCommandHandler(repository);
+            aggregateTestNoIdReturnRepository.OnAdd(ent => addedAggregateTestNoIdReturn = ent);
+
+            var sut = new CreateAggregateTestNoIdReturnCommandHandler(aggregateTestNoIdReturnRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);

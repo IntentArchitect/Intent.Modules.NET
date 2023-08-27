@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b3da117e-3c5d-48e2-8ef7-6aee3de35697" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Filters</name>
+  <display>Filters</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3c9062a3-83b2-44d6-8dce-ac88e0fedd13</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f6cabdd6-eb25-4189-a76b-a65a4683d7ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7b9826bb-897d-479c-bbf3-de73502171ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a78464ff-cb58-43d1-9928-452c89303d33" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</display>
+      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

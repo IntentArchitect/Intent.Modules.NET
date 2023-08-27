@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Base : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public Base()
-        {
-            BaseField1 = null!;
-            PartitionKey = null!;
-        }
         public Guid Id { get; set; }
 
         public string BaseField1 { get; set; }

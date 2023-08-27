@@ -12,10 +12,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MultikeyIndexEntitySingleChild
     {
-        [IntentManaged(Mode.Fully)]
-        public MultikeyIndexEntitySingleChild()
-        {
-        }
         private string? _id;
 
         public ICollection<string> MultiKey { get; set; } = new List<string>();

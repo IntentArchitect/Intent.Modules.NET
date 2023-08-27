@@ -5,8 +5,8 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-[assembly: IntentTemplate("Intent.Azure.KeyVault.AzureKeyVaultConfiguration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Azure.KeyVault.AzureKeyVaultConfiguration", Version = "1.0")]
 
 namespace AzureKeyVault.Api.Configuration;
 

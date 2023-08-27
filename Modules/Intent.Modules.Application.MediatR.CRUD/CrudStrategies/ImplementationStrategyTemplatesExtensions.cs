@@ -92,7 +92,13 @@ public static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
-    public record EntityIdAttribute(string IdName, string Type);
+    public interface IEntityId
+    {
+        string IdName { get; }
+        string Type { get; }
+    }
+    
+    public record EntityIdAttribute(string IdName, string Type) : IEntityId;
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
@@ -111,19 +117,24 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
-    public record EntityNestedCompositionalIdAttribute(string IdName, string Type);
-    
-    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
+    public record EntityNestedCompositionalIdAttribute(string IdName, string Type) : IEntityId;
+
+    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner,
+        ISoftwareFactoryExecutionContext executionContext)
     {
-        var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(entity, owner);
-        if (explicitKeyField != null) return explicitKeyField;
-        return new EntityNestedCompositionalIdAttribute($"{owner.Name}Id", GetDefaultSurrogateKeyType(executionContext));
+        return GetNestedCompositionalOwnerIdAttributes(entity, owner, executionContext).FirstOrDefault();
+    }
+    
+    public static IList<EntityNestedCompositionalIdAttribute> GetNestedCompositionalOwnerIdAttributes(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
+    {
+        var explicitKeyFields = GetExplicitForeignKeyNestedCompOwnerFields(entity, owner);
+        if (explicitKeyFields.Any()) return explicitKeyFields;
+        return new List<EntityNestedCompositionalIdAttribute> { new($"{owner.Name}Id", GetDefaultSurrogateKeyType(executionContext)) };
         
-        EntityNestedCompositionalIdAttribute GetExplicitForeignKeyNestedCompOwnerField(ClassModel entity, ClassModel owner)
+        IList<EntityNestedCompositionalIdAttribute> GetExplicitForeignKeyNestedCompOwnerFields(ClassModel innerEntity, ClassModel innerOwner)
         {
-            var idField = entity.Attributes
-                .FirstOrDefault(attr =>
-                {
+            return innerEntity.Attributes
+                .Where(attr => { 
                     if (!attr.IsForeignKey())
                     {
                         return false;
@@ -133,16 +144,13 @@ public static class ImplementationStrategyTemplatesExtensions
                     // Backward compatible lookup method
                     if (fkAssociation == null)
                     {
-                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                        return attr.Name.Contains(innerOwner.Name, StringComparison.OrdinalIgnoreCase);
                     }
 
-                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
-                });
-            if (idField == null)
-            {
-                return null;
-            }
-            return new EntityNestedCompositionalIdAttribute(idField.Name, GetKeyTypeName(idField.Type));
+                    return innerOwner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
+                })
+                .Select(attr => new EntityNestedCompositionalIdAttribute(attr.Name, GetKeyTypeName(attr.Type)))
+                .ToList();
         }
     }
 

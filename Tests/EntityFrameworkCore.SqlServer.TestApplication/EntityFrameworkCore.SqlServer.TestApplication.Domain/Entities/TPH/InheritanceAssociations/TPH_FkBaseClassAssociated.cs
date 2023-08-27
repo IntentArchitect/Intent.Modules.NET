@@ -13,12 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPH_FkBaseClassAssociated : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPH_FkBaseClassAssociated()
-        {
-            AssociatedField = null!;
-            FkBaseClass = null!;
-        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

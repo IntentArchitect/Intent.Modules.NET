@@ -24,6 +24,7 @@ namespace RichDomain.Infrastructure.Persistence
         }
 
         public DbSet<BaseClass> BaseClasses { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<DerivedClass> DerivedClasses { get; set; }
         public DbSet<DerivedFromAbstractClass> DerivedFromAbstractClasses { get; set; }
         public DbSet<Person> People { get; set; }
@@ -48,6 +49,7 @@ namespace RichDomain.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new BaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedFromAbstractClassConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());

@@ -13,10 +13,6 @@ namespace Publish.CleanArchDapr.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Customer : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public Customer()
-        {
-        }
         public Guid Id { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

@@ -3,7 +3,9 @@ using System.Linq;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
+using CleanArchitecture.TestApplication.Application.Common.Pagination;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
+using CleanArchitecture.TestApplication.Domain.Repositories;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -39,6 +41,37 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
 
             actualEntity.Should().NotBeNull();
             actualEntity.Attribute.Should().Be(expectedDto.Attribute);
+        }
+
+        public static void AssertEquivalent(
+            PagedResult<AggregateRootLongDto> actualDtos,
+            IPagedResult<AggregateRootLong> expectedEntities)
+        {
+            if (expectedEntities == null)
+            {
+                actualDtos.Should().Match<PagedResult<AggregateRootLongDto>>(p => p == null || !p.Data.Any());
+                return;
+            }
+            actualDtos.Data.Should().HaveSameCount(expectedEntities);
+            actualDtos.PageSize.Should().Be(expectedEntities.PageSize);
+            actualDtos.PageCount.Should().Be(expectedEntities.PageCount);
+            actualDtos.PageNumber.Should().Be(expectedEntities.PageNo);
+            actualDtos.TotalCount.Should().Be(expectedEntities.TotalCount);
+            for (int i = 0; i < expectedEntities.Count(); i++)
+            {
+                var dto = actualDtos.Data.ElementAt(i);
+                var entity = expectedEntities.ElementAt(i);
+                if (entity == null)
+                {
+                    dto.Should().BeNull();
+                    continue;
+                }
+
+                dto.Should().NotBeNull();
+                dto.Id.Should().Be(entity.Id);
+                dto.Attribute.Should().Be(entity.Attribute);
+                AssertEquivalent(dto.CompositeOfAggrLong, entity.CompositeOfAggrLong);
+            }
         }
 
         public static void AssertEquivalent(AggregateRootLongDto actualDto, AggregateRootLong expectedEntity)

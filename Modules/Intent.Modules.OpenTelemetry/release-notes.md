@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+Improvement: Added `application insight appinsights` to tags to make this module more discoverable.
+
 ### Version 1.1.0
 
 - Update: Export setting from `Application Insights` to `Azure Application Insights`. If you have updated to this version you will need to re-set the Export option on the Module settings page to prevent Software Factory errors.

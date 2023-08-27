@@ -39,6 +39,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
             services.AddTransient<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEventHandler>();
             return services;
         }
     }

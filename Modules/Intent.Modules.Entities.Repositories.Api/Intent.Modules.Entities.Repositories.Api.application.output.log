@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4acffb1f-fca7-4eda-bc36-f7a1ccc0a4ca</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e1ba2cf8-f258-42bb-b5e4-3302edac3747</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/CustomDbProviderFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomDbProviderFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fe8d3d6d-df7f-4a17-a9f1-3afdb046844c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

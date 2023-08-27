@@ -18,6 +18,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
     {
         public override string TemplateId => WrapperConsumerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new WrapperConsumerTemplate(outputTarget);

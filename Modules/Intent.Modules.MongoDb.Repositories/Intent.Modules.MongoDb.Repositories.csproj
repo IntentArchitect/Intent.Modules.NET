@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2-pre.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2023</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -16,12 +16,12 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.39" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.5" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.5" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
   </ItemGroup>
 

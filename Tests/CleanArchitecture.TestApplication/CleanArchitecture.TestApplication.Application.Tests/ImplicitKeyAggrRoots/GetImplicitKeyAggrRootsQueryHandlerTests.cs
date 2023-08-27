@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.GetImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -37,8 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>().ToList() };
             yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>(0).ToList() };
         }
@@ -48,17 +48,18 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         public async Task Handle_WithValidQuery_RetrievesImplicitKeyAggrRoots(List<ImplicitKeyAggrRoot> testEntities)
         {
             // Arrange
-            var testQuery = new GetImplicitKeyAggrRootsQuery();
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
+            var fixture = new Fixture();
+            var testQuery = fixture.Create<GetImplicitKeyAggrRootsQuery>();
+            var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            implicitKeyAggrRootRepository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
-            var sut = new GetImplicitKeyAggrRootsQueryHandler(repository, _mapper);
+            var sut = new GetImplicitKeyAggrRootsQueryHandler(implicitKeyAggrRootRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            ImplicitKeyAggrRootAssertions.AssertEquivalent(result, testEntities);
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(results, testEntities);
         }
     }
 }

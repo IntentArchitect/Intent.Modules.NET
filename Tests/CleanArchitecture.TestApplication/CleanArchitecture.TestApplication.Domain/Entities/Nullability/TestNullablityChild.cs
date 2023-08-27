@@ -11,10 +11,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Nullability
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TestNullablityChild
     {
-        [IntentManaged(Mode.Fully)]
-        public TestNullablityChild()
-        {
-        }
         public Guid Id { get; set; }
 
         public Guid TestNullablityId { get; set; }

@@ -14,5 +14,7 @@ namespace RichDomain.Domain.Entities
         string AbstractBaseAttribute { get; }
 
         void BaseOperation(string abstractBaseAttribute);
+
+        bool AbstractOp(string thing);
     }
 }

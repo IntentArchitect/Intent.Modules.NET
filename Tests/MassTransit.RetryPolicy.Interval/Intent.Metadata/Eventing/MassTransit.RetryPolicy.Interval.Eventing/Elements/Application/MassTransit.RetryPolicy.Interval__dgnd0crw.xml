@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="739d78b4-5e9a-4dda-869f-2997877af23f" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MassTransit.RetryPolicy.Interval</name>
+  <display>MassTransit.RetryPolicy.Interval</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>103dade3-5324-4f0f-9b33-c7590e93d710</parentFolderId>
+  <diagram>
+    <targetPackageId>735fae15-b5ac-4dbc-8d03-0ca97572dbfc</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

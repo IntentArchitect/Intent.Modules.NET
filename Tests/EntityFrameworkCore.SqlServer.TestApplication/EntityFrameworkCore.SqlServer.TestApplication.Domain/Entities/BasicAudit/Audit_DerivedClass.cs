@@ -10,11 +10,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAud
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Audit_DerivedClass : Audit_BaseClass
     {
-        [IntentManaged(Mode.Fully)]
-        public Audit_DerivedClass()
-        {
-            DerivedAttr = null!;
-        }
         public string DerivedAttr { get; set; }
     }
 }

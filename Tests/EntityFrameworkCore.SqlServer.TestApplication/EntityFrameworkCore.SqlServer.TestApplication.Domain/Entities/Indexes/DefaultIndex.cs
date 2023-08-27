@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DefaultIndex : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public DefaultIndex()
-        {
-            IndexField = null!;
-        }
         public Guid Id { get; set; }
 
         public string IndexField { get; set; }

@@ -24,8 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<TestNullablity>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<TestNullablity>();
             fixture.Customize<DeleteTestNullablityCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteTestNullablityCommand>();
@@ -39,30 +38,29 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             TestNullablity existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
+            testNullablityRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new DeleteTestNullablityCommandHandler(repository);
+            var sut = new DeleteTestNullablityCommandHandler(testNullablityRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            repository.Received(1).Remove(Arg.Is<TestNullablity>(p => p.Id == testCommand.Id));
+            testNullablityRepository.Received(1).Remove(Arg.Is<TestNullablity>(p => testCommand.Id == p.Id));
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidTestNullablityId_ReturnsNotFound()
         {
             // Arrange
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteTestNullablityCommand>();
+            testNullablityRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<TestNullablity>(default));
 
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<TestNullablity>(default));
-            repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
-            var sut = new DeleteTestNullablityCommandHandler(repository);
+            var sut = new DeleteTestNullablityCommandHandler(testNullablityRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

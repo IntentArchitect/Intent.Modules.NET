@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3d04d1cc-172d-4f43-a566-305a85a56daf">
+  <sourceEnd id="cde48d85-0884-4365-9326-dc62ccd541ee" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>People</name>
+    <display>People: Person[*]</display>
+    <order>0</order>
+    <typeReference id="a83fe045-9736-4ce3-87fc-1abc6309e801">
+      <typeId>c2056685-3725-4ae1-a9cc-cc7621296e32</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>RichDomain.Domain</typePackageName>
+      <typePackageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3d04d1cc-172d-4f43-a566-305a85a56daf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Department</name>
+    <display>Department: Department   [* --&gt; 1]</display>
+    <order>6</order>
+    <typeReference id="8cba9474-152a-47fe-a7ff-4267b79caff2">
+      <typeId>93d39159-a451-4130-b6d2-60fd2236ea41</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>RichDomain.Domain</typePackageName>
+      <typePackageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

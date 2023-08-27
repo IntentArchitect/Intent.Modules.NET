@@ -5,9 +5,9 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.AzureFunctions.Startup", Version = "1.0")]
 
 [assembly: FunctionsStartup(typeof(GraphQL.AzureFunction.TestApplication.Api.Startup))]
-[assembly: IntentTemplate("Intent.AzureFunctions.Startup", Version = "1.0")]
 
 namespace GraphQL.AzureFunction.TestApplication.Api
 {

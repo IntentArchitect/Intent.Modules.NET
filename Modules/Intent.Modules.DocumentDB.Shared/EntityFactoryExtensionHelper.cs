@@ -16,13 +16,13 @@ namespace Intent.Modules.DocumentDB.Shared
 {
     internal static class EntityFactoryExtensionHelper
     {
-        public static void Execute(IApplication application, bool initializePrimaryKeyOnAggregateRoots)
+        public static void Execute(IApplication application, Func<ClassModel, bool> dbProviderApplies, bool initializePrimaryKeyOnAggregateRoots)
         {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
             foreach (var template in templates)
             {
                 var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
-                if (!templateModel.InternalElement.Package.HasStereotype("Document Database"))
+                if (!dbProviderApplies(templateModel))
                 {
                     continue;
                 }

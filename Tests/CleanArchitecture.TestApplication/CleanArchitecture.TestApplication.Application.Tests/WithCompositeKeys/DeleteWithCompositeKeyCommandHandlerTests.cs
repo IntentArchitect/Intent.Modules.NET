@@ -7,8 +7,8 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.WithCompositeKeys.DeleteWithCompositeKey;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
-using CleanArchitecture.TestApplication.Domain.Entities;
-using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
+using CleanArchitecture.TestApplication.Domain.Repositories.CompositeKeys;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
@@ -24,45 +24,45 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<WithCompositeKey>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<WithCompositeKey>();
-            fixture.Customize<DeleteWithCompositeKeyCommand>(comp => comp.With(x => x.Key1Id, existingEntity.Key1Id));
+            fixture.Customize<DeleteWithCompositeKeyCommand>(comp => comp
+                .With(x => x.Key1Id, existingEntity.Key1Id)
+                .With(x => x.Key2Id, existingEntity.Key2Id));
             var testCommand = fixture.Create<DeleteWithCompositeKeyCommand>();
             yield return new object[] { testCommand, existingEntity };
         }
 
-        [Theory(Skip = "Not working")]
+        [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_DeletesWithCompositeKeyFromRepository(
             DeleteWithCompositeKeyCommand testCommand,
             WithCompositeKey existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-           //repository.FindByIdAsync(testCommand.Key1Id).Returns(Task.FromResult(existingEntity));
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
+            withCompositeKeyRepository.FindByIdAsync((testCommand.Key1Id, testCommand.Key2Id), CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new DeleteWithCompositeKeyCommandHandler(repository);
+            var sut = new DeleteWithCompositeKeyCommandHandler(withCompositeKeyRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            repository.Received(1).Remove(Arg.Is<WithCompositeKey>(p => p.Key1Id == testCommand.Key1Id));
+            withCompositeKeyRepository.Received(1).Remove(Arg.Is<WithCompositeKey>(p => testCommand.Key1Id == p.Key1Id && testCommand.Key2Id == p.Key2Id));
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidWithCompositeKeyId_ReturnsNotFound()
         {
             // Arrange
+            var withCompositeKeyRepository = Substitute.For<IWithCompositeKeyRepository>();
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteWithCompositeKeyCommand>();
+            withCompositeKeyRepository.FindByIdAsync((testCommand.Key1Id, testCommand.Key2Id), CancellationToken.None)!.Returns(Task.FromResult<WithCompositeKey>(default));
 
-            var repository = Substitute.For<IWithCompositeKeyRepository>();
-            //repository.FindByIdAsync(testCommand.Key1Id, CancellationToken.None).Returns(Task.FromResult<WithCompositeKey>(default));
-            repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
-            var sut = new DeleteWithCompositeKeyCommandHandler(repository);
+            var sut = new DeleteWithCompositeKeyCommandHandler(withCompositeKeyRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

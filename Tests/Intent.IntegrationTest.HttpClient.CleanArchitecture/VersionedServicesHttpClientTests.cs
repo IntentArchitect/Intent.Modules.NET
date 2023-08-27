@@ -13,8 +13,8 @@ using Intent.IntegrationTest.HttpClient.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Versioned.TestCommandV1;
-using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Versioned.TestCommandV2;
+using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV1;
+using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV2;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 
@@ -36,7 +36,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(VersionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestVersionedService>()!;
+        var service = sp.GetService<ITestVersionedProxy>()!;
         await service.TestCommandV1Async(new TestCommandV1 { Value = TestCommandV1Handler.ExpectedInput });
     }
 
@@ -46,7 +46,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(VersionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestVersionedService>()!;
+        var service = sp.GetService<ITestVersionedProxy>()!;
         var result = await service.TestQueryV1Async("123");
         Assert.Equal(123, result);
     }
@@ -57,7 +57,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(VersionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestVersionedService>()!;
+        var service = sp.GetService<ITestVersionedProxy>()!;
         await service.TestCommandV2Async(new TestCommandV2 { Value = TestCommandV2Handler.ExpectedInput });
     }
 
@@ -67,7 +67,7 @@ public class VersionedServicesHttpClientTests
         using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(VersionedController).Assembly, ApiPortNumber);
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var service = sp.GetService<ITestVersionedService>()!;
+        var service = sp.GetService<ITestVersionedProxy>()!;
         var result = await service.TestQueryV2Async("123");
         Assert.Equal(128, result);
     }

@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_Poly_TopLevel : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPC_Poly_TopLevel()
-        {
-            TopField = null!;
-        }
         public Guid Id { get; set; }
 
         public string TopField { get; set; }

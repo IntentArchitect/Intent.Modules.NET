@@ -14,11 +14,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.SoftDele
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassWithSoftDelete : IHasDomainEvent, ISoftDelete
     {
-        [IntentManaged(Mode.Fully)]
-        public ClassWithSoftDelete()
-        {
-            Attribute1 = null!;
-        }
         public Guid Id { get; set; }
 
         public string Attribute1 { get; set; }

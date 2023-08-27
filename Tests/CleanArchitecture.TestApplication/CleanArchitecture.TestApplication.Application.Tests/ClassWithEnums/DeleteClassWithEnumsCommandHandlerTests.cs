@@ -24,8 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<Domain.Entities.Enums.ClassWithEnums>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<Domain.Entities.Enums.ClassWithEnums>();
             fixture.Customize<DeleteClassWithEnumsCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteClassWithEnumsCommand>();
@@ -39,30 +38,29 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
             Domain.Entities.Enums.ClassWithEnums existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
+            classWithEnumsRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new DeleteClassWithEnumsCommandHandler(repository);
+            var sut = new DeleteClassWithEnumsCommandHandler(classWithEnumsRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            repository.Received(1).Remove(Arg.Is<Domain.Entities.Enums.ClassWithEnums>(p => p.Id == testCommand.Id));
+            classWithEnumsRepository.Received(1).Remove(Arg.Is<Domain.Entities.Enums.ClassWithEnums>(p => testCommand.Id == p.Id));
         }
 
         [Fact]
-        public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+        public async Task Handle_WithInvalidClassWithEnumsId_ReturnsNotFound()
         {
             // Arrange
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
             var fixture = new Fixture();
             var testCommand = fixture.Create<DeleteClassWithEnumsCommand>();
+            classWithEnumsRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(default));
 
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<Domain.Entities.Enums.ClassWithEnums>(default));
-            repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
-            var sut = new DeleteClassWithEnumsCommandHandler(repository);
+            var sut = new DeleteClassWithEnumsCommandHandler(classWithEnumsRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

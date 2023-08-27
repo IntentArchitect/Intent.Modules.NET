@@ -15,12 +15,6 @@ namespace CosmosDB.Domain.Entities
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public BaseOfT()
-        {
-            Id = null!;
-        }
-
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

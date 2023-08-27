@@ -5,8 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("Intent.Azure.BlobStorage.BlobStorageExtensions", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Azure.BlobStorage.BlobStorageExtensions", Version = "1.0")]
 
 namespace AzureFunctions.TestApplication.Application.Common.Storage;
 

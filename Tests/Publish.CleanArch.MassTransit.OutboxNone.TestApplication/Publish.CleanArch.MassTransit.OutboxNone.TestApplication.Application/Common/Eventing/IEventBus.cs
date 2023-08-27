@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -11,5 +12,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     {
         void Publish<T>(T message) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
+        void SchedulePublish<T>(T message, DateTime scheduled)
+            where T : class;
+        void SchedulePublish<T>(T message, TimeSpan delay)
+            where T : class;
     }
 }

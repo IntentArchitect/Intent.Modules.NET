@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Derived : Base
     {
-        [IntentManaged(Mode.Fully)]
-        public Derived()
-        {
-            DerivedField1 = null!;
-            Associated = null!;
-        }
         public string DerivedField1 { get; set; }
 
         public Guid AssociatedId { get; set; }

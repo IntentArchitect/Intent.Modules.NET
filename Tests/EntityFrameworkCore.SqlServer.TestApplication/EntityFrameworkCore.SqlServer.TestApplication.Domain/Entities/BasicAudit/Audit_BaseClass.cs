@@ -14,11 +14,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAud
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class Audit_BaseClass : IHasDomainEvent, IAuditable
     {
-        [IntentManaged(Mode.Fully)]
-        public Audit_BaseClass()
-        {
-            CreatedBy = null!;
-        }
         public Guid Id { get; set; }
 
         public string CreatedBy { get; set; }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4ffd1b74-c3f8-425c-92f5-5d4b3c60eb59" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>components</name>
+  <display>components</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5f9fd4e1-0e13-4abc-920d-75e7edcb6372</parentFolderId>
+  <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+  <packageName>MultipleDocumentStores</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1abebe60-d51e-4aea-b5db-e62f62787d37" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Dapr.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4ffd1b74-c3f8-425c-92f5-5d4b3c60eb59</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="03a12ed7-b86a-45c0-8765-a24e96827a10" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr.Components</name>
+      <display>Dapr.Components</display>
+      <externalReference>224e47c9-c2e5-484e-b95c-e1e090478167</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4ffd1b74-c3f8-425c-92f5-5d4b3c60eb59</parentFolderId>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

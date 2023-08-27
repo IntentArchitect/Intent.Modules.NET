@@ -18,6 +18,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
     {
         public override string TemplateId => MassTransitEventBusTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new MassTransitEventBusTemplate(outputTarget);

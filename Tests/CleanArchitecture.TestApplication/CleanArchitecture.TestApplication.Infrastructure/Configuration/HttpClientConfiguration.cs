@@ -25,12 +25,12 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Configuration
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:SecureServicesService:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:SecureServicesService:Timeout") ?? TimeSpan.FromSeconds(100);
             }).AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ?? "default");
-            services.AddHttpClient<ITestUnversionedService, TestUnversionedProxyHttpClient>(http =>
+            services.AddHttpClient<ITestUnversionedProxy, TestUnversionedProxyHttpClient>(http =>
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:TestUnversionedProxy:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:TestUnversionedProxy:Timeout") ?? TimeSpan.FromSeconds(100);
             });
-            services.AddHttpClient<ITestVersionedService, TestVersionedProxyHttpClient>(http =>
+            services.AddHttpClient<ITestVersionedProxy, TestVersionedProxyHttpClient>(http =>
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:TestVersionedProxy:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:TestVersionedProxy:Timeout") ?? TimeSpan.FromSeconds(100);

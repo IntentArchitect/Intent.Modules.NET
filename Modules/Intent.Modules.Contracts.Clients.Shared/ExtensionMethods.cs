@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Templates;
@@ -35,7 +34,7 @@ public static class ExtensionMethods
         where T : IHasFolder
     {
         return string.Join('/', Enumerable.Empty<string>()
-            .Concat(GetElementPackageParts(GetElement(template)))
+            .Concat(GetElementPackageParts(template))
             .Concat(GetParentFolders(template.Model))
         );
     }
@@ -45,22 +44,32 @@ public static class ExtensionMethods
     {
         return string.Join('.', Enumerable.Empty<string>()
             .Concat(template.OutputTarget.GetNamespace().Split('.'))
-            .Concat(GetElementPackageParts(GetElement(template)))
+            .Concat(GetElementPackageParts(template))
             .Concat(GetParentFolders(template.Model))
         );
     }
 
-    private static IElement GetElement<TModel>(CSharpTemplateBase<TModel> template) =>
-        template.Model switch
+    private static IEnumerable<string> GetElementPackageParts<T>(CSharpTemplateBase<T> template)
+    {
+        var element = template.Model switch
         {
             EnumModel model => model.InternalElement,
             DTOModel model => model.InternalElement,
             _ => throw new InvalidOperationException()
         };
 
-    private static IEnumerable<string> GetElementPackageParts(this IElement element)
-    {
-        return element.Package.Name.Split(".").Select(x => x.ToCSharpIdentifier());
+        var outputTargetParts = new Queue<string>(template.OutputTarget.GetNamespace().Split('.'));
+        var packageParts = new Queue<string>(element.Package.Name.Split("."));
+
+        while (outputTargetParts.TryPeek(out var outputTargetPart) &&
+               packageParts.TryPeek(out var packagePart) &&
+               outputTargetPart == packagePart)
+        {
+            outputTargetParts.Dequeue();
+            packageParts.Dequeue();
+        }
+
+        return packageParts.Select(x => x.ToCSharpIdentifier());
     }
 
     private static IEnumerable<string> GetParentFolders(IHasFolder hasFolder) => hasFolder.GetParentFolders()

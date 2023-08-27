@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.GetAggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -37,8 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateTestNoIdReturn>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             yield return new object[] { fixture.CreateMany<AggregateTestNoIdReturn>().ToList() };
             yield return new object[] { fixture.CreateMany<AggregateTestNoIdReturn>(0).ToList() };
         }
@@ -48,17 +48,18 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
         public async Task Handle_WithValidQuery_RetrievesAggregateTestNoIdReturns(List<AggregateTestNoIdReturn> testEntities)
         {
             // Arrange
-            var testQuery = new GetAggregateTestNoIdReturnsQuery();
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
+            var fixture = new Fixture();
+            var testQuery = fixture.Create<GetAggregateTestNoIdReturnsQuery>();
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
+            aggregateTestNoIdReturnRepository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
-            var sut = new GetAggregateTestNoIdReturnsQueryHandler(repository, _mapper);
+            var sut = new GetAggregateTestNoIdReturnsQueryHandler(aggregateTestNoIdReturnRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateTestNoIdReturnAssertions.AssertEquivalent(result, testEntities);
+            AggregateTestNoIdReturnAssertions.AssertEquivalent(results, testEntities);
         }
     }
 }

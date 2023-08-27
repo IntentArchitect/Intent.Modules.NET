@@ -17,9 +17,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
-using Intent.Modules.Common.Types.Api;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

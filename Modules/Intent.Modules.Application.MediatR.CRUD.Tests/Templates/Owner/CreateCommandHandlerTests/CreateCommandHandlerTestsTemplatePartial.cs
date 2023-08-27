@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -39,126 +40,79 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+
+        Facade = new CommandHandlerFacade(this, model);
 
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddClass($"{Model.Name}HandlerTests")
-            .OnBuild(file =>
+            .AfterBuild(file =>
             {
-                file.AddUsing("System");
-                file.AddUsing("System.Collections.Generic");
-                file.AddUsing("System.Linq");
-                file.AddUsing("System.Threading");
-                file.AddUsing("System.Threading.Tasks");
-                file.AddUsing("AutoFixture");
-                file.AddUsing("FluentAssertions");
-                file.AddUsing("NSubstitute");
-                file.AddUsing("Xunit");
-
-                var repoExtTemplate = ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(RepositoryExtensionsTemplate.TemplateId));
-                if (repoExtTemplate != null)
-                {
-                    file.AddUsing(repoExtTemplate.Namespace);
-                }
-
-                var domainElement = Model.Mapping.Element.AsClassModel();
-                var domainElementName = domainElement.Name.ToPascalCase();
-                var domainIdAttr = domainElement.GetEntityIdAttribute(ExecutionContext);
+                AddUsingDirectives(file);
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
+                AddSuccessfulResultTestData(priClass);
+                AddSuccessfulHandlerTest(priClass);
 
-                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
-                {
-                    method.Static();
-                    method.AddStatements($@"
-        var fixture = new Fixture();
-        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-
-                    foreach (var property in Model.Properties
-                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
-                    {
-                        method.AddStatement("");
-                        method.AddStatements($@"
-        fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
-        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-                    }
-                });
-
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{domainElementName}ToRepository", method =>
-                {
-                    var hasIdReturnType = model.TypeReference.Element != null;
-                    
-                    method.Async();
-                    method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                    method.AddStatements($@"
-        // Arrange");
-                    if (hasIdReturnType)
-                    {
-                        method.AddStatement($@"var expected{domainElementName}Id = new Fixture().Create<{domainIdAttr.Type}>();");
-                    }
-
-                    method.AddStatements($@"{GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.OnAdd(ent => added{domainElementName} = ent);");
-                    if (hasIdReturnType)
-                    {
-                        method.AddStatement(new CSharpMethodChainStatement("repository.UnitOfWork") { BeforeSeparator = CSharpCodeSeparatorType.NewLine }
-                            .WithoutSemicolon()
-                            .AddChainStatement(new CSharpInvocationStatement("When")
-                                .WithoutSemicolon()
-                                .AddArgument("async x => await x.SaveChangesAsync(CancellationToken.None)")
-                            )
-                            .AddChainStatement(new CSharpInvocationStatement("Do")
-                                .AddArgument($@"_ => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id")
-                            )
-                        );
-                    }
-                    string act = hasIdReturnType ?
-                        "var result = await sut.Handle(testCommand, CancellationToken.None);"
-                        : "await sut.Handle(testCommand, CancellationToken.None);";
-
-                    method.AddStatements($@"var sut = new {this.GetCommandHandlerName(Model)}(repository);
-
-        // Act
-        {act}
-
-        // Assert");
-                    if (hasIdReturnType)
-                    {
-                        method.AddStatements($@"result.Should().Be(expected{domainElementName}Id);
-        await repository.UnitOfWork.Received(1).SaveChangesAsync();");
-                    }
-
-                    method.AddStatement($@"{this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, added{domainElementName});");
-                });
-            })
-            .OnBuild(file =>
-            {
-                AddAssertionMethods();
+                this.AddCommandAssertionMethods(Model);
             }, 1);
     }
 
-    private void AddAssertionMethods()
+    private CommandHandlerFacade Facade { get; }
+
+    private void AddSuccessfulResultTestData(CSharpClass priClass)
     {
-        if (Model?.Mapping?.Element?.IsClassModel() != true)
+        priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
         {
-            return;
-        }
+            method.Static();
+            method.AddStatements(Facade.Get_ProduceSingleCommand_TestDataStatements());
+            method.AddStatements(Facade.Get_ProduceCommandWithNullableFields_TestDataStatements());
+        });
+    }
 
-        var domainModel = Model.Mapping.Element.AsClassModel();
-        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
-        if (template == null)
+    private void AddSuccessfulHandlerTest(CSharpClass priClass)
+    {
+        priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{Facade.SingularTargetDomainName}ToRepository", method =>
         {
-            return;
-        }
+            method.Async();
+            method.AddAttribute("Theory");
+            method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
+            method.AddParameter(Facade.CommandTypeName, "testCommand");
 
-        template.AddAssertionMethods(template.CSharpFile.Classes.First(), Model, domainModel);
+            method.AddStatement("// Arrange");
+            method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
+            method.AddStatements(Facade.GetAggregateDomainRepositoryUnitOfWorkMockingStatements());
+            method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
+
+            method.AddStatement(string.Empty);
+            method.AddStatement("// Act");
+            method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
+
+            method.AddStatement(string.Empty);
+            method.AddStatement("// Assert");
+            method.AddStatements(Facade.GetAggregateDomainRepositorySaveChangesAssertionStatement());
+            method.AddStatements(Facade.GetCommandCompareToNewAddedDomainAssertionStatement("testCommand"));
+        });
+    }
+
+    private void AddUsingDirectives(CSharpFile file)
+    {
+        file.AddUsing("System");
+        file.AddUsing("System.Collections.Generic");
+        file.AddUsing("System.Linq");
+        file.AddUsing("System.Threading");
+        file.AddUsing("System.Threading.Tasks");
+        file.AddUsing("AutoFixture");
+        file.AddUsing("FluentAssertions");
+        file.AddUsing("NSubstitute");
+        file.AddUsing("Xunit");
+
+        var repoExtTemplate = ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(RepositoryExtensionsTemplate.TemplateId));
+        if (repoExtTemplate != null)
+        {
+            file.AddUsing(repoExtTemplate.Namespace);
+        }
     }
 
     [IntentManaged(Mode.Fully)]

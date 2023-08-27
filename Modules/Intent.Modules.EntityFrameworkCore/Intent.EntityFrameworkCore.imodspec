@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.8-pre.1</version>
+  <version>4.4.9-pre.3</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -52,7 +52,7 @@
   <interoperability>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.0.7-pre.0" />
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.0.7" />
       </install>
     </detect>
   </interoperability>
@@ -60,7 +60,7 @@
     <dependency id="Intent.Common" version="3.4.2" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.5.7-pre.0" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.5.8-pre.1" />
     <dependency id="Intent.Modelers.Domain" version="3.4.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
@@ -103,5 +103,6 @@
   </moduleSettingsExtensions>
   <factoryExtensions>
     <factoryExtension id="Intent.EntityFrameworkCore.DependencyInjectionExtension" externalReference="9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9" />
+    <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
   </factoryExtensions>
 </package>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c279ea27-3318-415c-a0c9-353713cb5977" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>RegistrationsFactoryExtension</name>
+  <display>RegistrationsFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3108d52b-7ce3-4bef-9d61-3bd7d6291fcb</parentFolderId>
+  <packageId>3108d52b-7ce3-4bef-9d61-3bd7d6291fcb</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Configuration</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

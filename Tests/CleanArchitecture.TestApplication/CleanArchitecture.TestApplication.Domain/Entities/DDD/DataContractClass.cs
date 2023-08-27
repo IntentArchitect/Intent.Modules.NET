@@ -14,11 +14,11 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DataContractClass : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
         public DataContractClass()
         {
             Name = null!;
         }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -37,78 +38,72 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(QueryModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+
+        Facade = new QueryHandlerFacade(this, model);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
-            .OnBuild(file =>
+            .AfterBuild(file =>
             {
-                file.AddUsing("System");
-                file.AddUsing("System.Collections.Generic");
-                file.AddUsing("System.Linq");
-                file.AddUsing("System.Threading");
-                file.AddUsing("System.Threading.Tasks");
-                file.AddUsing("AutoFixture");
-                file.AddUsing("FluentAssertions");
-                file.AddUsing("NSubstitute");
-                file.AddUsing("Xunit");
-                file.AddUsing("AutoMapper");
-
-                var dtoModel = Model.TypeReference.Element.AsDTOModel();
-                var domainElement = dtoModel.Mapping.Element.AsClassModel();
-                var domainElementName = domainElement.Name.ToPascalCase();
-                var domainElementPluralName = domainElementName.Pluralize();
+                AddUsingDirectives(file);
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
-                priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
                 priClass.AddConstructor(ctor =>
                 {
-                    ctor.AddStatement(new CSharpInvocationStatement("var mapperConfiguration = new MapperConfiguration")
-                        .AddArgument(new CSharpLambdaBlock("config")
-                            .AddStatement($"config.AddMaps(typeof({this.GetQueryHandlerName(Model)}));"))
-                        .WithArgumentsOnNewLines());
-                    ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
+                    ctor.AddStatements(Facade.GetAutoMapperProfilesAndAddBackendField(priClass));
                 });
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements($@"var fixture = new Fixture();");
-
-                    this.RegisterDomainEventBaseFixture(method, domainElement);
-
-                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");
-
-                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
+                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        includeVarKeyword: true));
+                    method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements());
+                    method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementPluralName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter($"List<{GetTypeName(domainElement.InternalElement)}>", "testEntities");
-                    method.AddStatements($@"
-        // Arrange
-        var testQuery = new {GetTypeName(Model.InternalElement)}();
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
+                    method.AddParameter($"List<{Facade.TargetDomainTypeName}>", "testEntities");
 
-        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
+                    method.AddStatement("// Arrange");
+                    method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
+                    method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
+                    method.AddStatements(Facade.GetDomainRepositoryFindAllMockingStatements(entitiesVarName: "testEntities", repositoryVarName: Facade.DomainAggregateRepositoryVarName));
+                    method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 
-        // Act
-        var result = await sut.Handle(testQuery, CancellationToken.None);
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Act");
+                    method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
 
-        // Assert
-        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(result, testEntities);");
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Assert");
+                    method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("testEntities"));
                 });
-            })
-            .OnBuild(file =>
-            {
+
                 AddAssertionMethods();
-            }, 3);
+            });
+    }
+
+    private QueryHandlerFacade Facade { get; }
+
+    private static void AddUsingDirectives(CSharpFile file)
+    {
+        file.AddUsing("System");
+        file.AddUsing("System.Collections.Generic");
+        file.AddUsing("System.Linq");
+        file.AddUsing("System.Threading");
+        file.AddUsing("System.Threading.Tasks");
+        file.AddUsing("AutoFixture");
+        file.AddUsing("FluentAssertions");
+        file.AddUsing("NSubstitute");
+        file.AddUsing("Xunit");
+        file.AddUsing("AutoMapper");
     }
 
     private void AddAssertionMethods()

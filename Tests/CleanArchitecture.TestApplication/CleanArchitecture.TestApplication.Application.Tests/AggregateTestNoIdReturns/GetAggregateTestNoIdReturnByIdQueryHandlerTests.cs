@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns.GetAggregateTestNoIdReturnById;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateTestNoIdReturns;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -38,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateTestNoIdReturn>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
+
             var existingEntity = fixture.Create<AggregateTestNoIdReturn>();
-            fixture.Customize<GetAggregateTestNoIdReturnByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            fixture.Customize<GetAggregateTestNoIdReturnByIdQuery>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testQuery = fixture.Create<GetAggregateTestNoIdReturnByIdQuery>();
             yield return new object[] { testQuery, existingEntity };
         }
@@ -53,16 +54,17 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             AggregateTestNoIdReturn existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
+            aggregateTestNoIdReturnRepository.FindByIdAsync(testQuery.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new GetAggregateTestNoIdReturnByIdQueryHandler(repository, _mapper);
+
+            var sut = new GetAggregateTestNoIdReturnByIdQueryHandler(aggregateTestNoIdReturnRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateTestNoIdReturnAssertions.AssertEquivalent(result, existingEntity);
+            AggregateTestNoIdReturnAssertions.AssertEquivalent(results, existingEntity);
         }
 
         [Fact]
@@ -71,11 +73,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             // Arrange
             var fixture = new Fixture();
             var query = fixture.Create<GetAggregateTestNoIdReturnByIdQuery>();
+            var aggregateTestNoIdReturnRepository = Substitute.For<IAggregateTestNoIdReturnRepository>();
+            aggregateTestNoIdReturnRepository.FindByIdAsync(query.Id, CancellationToken.None)!.Returns(Task.FromResult<AggregateTestNoIdReturn>(default));
 
-            var repository = Substitute.For<IAggregateTestNoIdReturnRepository>();
-            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<AggregateTestNoIdReturn>(default));
-
-            var sut = new GetAggregateTestNoIdReturnByIdQueryHandler(repository, _mapper);
+            var sut = new GetAggregateTestNoIdReturnByIdQueryHandler(aggregateTestNoIdReturnRepository, _mapper);
 
             // Act
             var act = async () => await sut.Handle(query, CancellationToken.None);

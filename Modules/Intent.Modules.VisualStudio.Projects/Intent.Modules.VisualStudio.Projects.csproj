@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.3.29</Version>
+    <Version>3.3.30-pre.0</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -35,6 +35,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <None Update="Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionsCsProjectTemplate.cs</LastGenOutput>

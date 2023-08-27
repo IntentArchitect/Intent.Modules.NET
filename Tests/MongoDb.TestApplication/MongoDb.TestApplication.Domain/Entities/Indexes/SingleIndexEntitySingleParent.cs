@@ -11,13 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class SingleIndexEntitySingleParent
     {
-        [IntentManaged(Mode.Fully)]
-        public SingleIndexEntitySingleParent()
-        {
-            Id = null!;
-            SomeField = null!;
-            SingleIndexEntitySingleChild = null!;
-        }
         public string Id { get; set; }
 
         public string SomeField { get; set; }

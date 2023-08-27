@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassB
     {
-        [IntentManaged(Mode.Fully)]
-        public ClassB()
-        {
-            ClassBAttr = null!;
-            ClassC = null!;
-        }
         public Guid Id { get; set; }
 
         public string ClassBAttr { get; set; }

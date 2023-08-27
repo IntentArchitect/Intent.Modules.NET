@@ -3,8 +3,8 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter", Version = "1.0")]
 
 namespace Finbuckle.SeparateDatabase.TestApplication.Api.Filters;
 

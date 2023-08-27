@@ -32,21 +32,22 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ClassWithEnums
         public async Task Handle_WithValidCommand_AddsClassWithEnumsToRepository(CreateClassWithEnumsCommand testCommand)
         {
             // Arrange
+            var classWithEnumsRepository = Substitute.For<IClassWithEnumsRepository>();
             var expectedClassWithEnumsId = new Fixture().Create<System.Guid>();
             Domain.Entities.Enums.ClassWithEnums addedClassWithEnums = null;
-            var repository = Substitute.For<IClassWithEnumsRepository>();
-            repository.OnAdd(ent => addedClassWithEnums = ent);
-            repository.UnitOfWork
+            classWithEnumsRepository.OnAdd(ent => addedClassWithEnums = ent);
+            classWithEnumsRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ => addedClassWithEnums.Id = expectedClassWithEnumsId);
-            var sut = new CreateClassWithEnumsCommandHandler(repository);
+
+            var sut = new CreateClassWithEnumsCommandHandler(classWithEnumsRepository);
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
             result.Should().Be(expectedClassWithEnumsId);
-            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            await classWithEnumsRepository.UnitOfWork.Received(1).SaveChangesAsync();
             ClassWithEnumsAssertions.AssertEquivalent(testCommand, addedClassWithEnums);
         }
     }

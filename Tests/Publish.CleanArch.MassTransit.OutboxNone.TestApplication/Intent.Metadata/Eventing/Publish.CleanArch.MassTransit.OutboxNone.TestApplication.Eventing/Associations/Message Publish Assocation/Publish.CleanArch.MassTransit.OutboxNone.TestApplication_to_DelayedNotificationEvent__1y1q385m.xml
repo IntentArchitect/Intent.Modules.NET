@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b2d4071c-f60d-467c-b8d3-da35d1f1cbed">
+  <sourceEnd id="e48ae4a5-c178-43fa-a320-c38c9f4b9cd0" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</name>
+    <display>publisher: Publish.CleanArch.MassTransit.OutboxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="61319029-8d71-4a76-99ee-be067c980119">
+      <typeId>fe26704f-5e89-4a7e-90ba-660fffe7f9cd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Eventing</typePackageName>
+      <typePackageId>8623ded6-8707-415c-af08-2fe8e344dfbf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b2d4071c-f60d-467c-b8d3-da35d1f1cbed" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>DelayedNotificationEvent</name>
+    <display>publish: DelayedNotificationEvent</display>
+    <order>6</order>
+    <typeReference id="6650219b-5926-41f6-9370-24ecb4259b82">
+      <typeId>d788a26e-930b-4ffb-af58-b7247a14e6d4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

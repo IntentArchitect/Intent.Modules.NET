@@ -4,8 +4,8 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Controllers.ResponseTypes;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.CreateIntegrationTriggering;
-using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.UpdateIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.CreateDddIntegrationTriggering;
+using CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.UpdateDddIntegrationTriggering;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -38,8 +38,8 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateIntegrationTriggering(
-            [FromBody] CreateIntegrationTriggeringCommand command,
+        public async Task<ActionResult<Guid>> CreateDddIntegrationTriggering(
+            [FromBody] CreateDddIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
@@ -54,9 +54,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> UpdateIntegrationTriggering(
+        public async Task<ActionResult> UpdateDddIntegrationTriggering(
             [FromRoute] Guid id,
-            [FromBody] UpdateIntegrationTriggeringCommand command,
+            [FromBody] UpdateDddIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
             if (id != command.Id)

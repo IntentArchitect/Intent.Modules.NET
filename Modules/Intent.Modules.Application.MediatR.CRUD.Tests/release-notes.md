@@ -1,19 +1,32 @@
-### Versuib 1.1.1
+### Version 1.2.0
+
+- Improvement: Refactored module completely for better internal maintainability.
+- Improvement: Future-proofing Command / Query Handler constructor parameters that receive new parameters (from Intent Architect) will now automatically get stubbed/mocked in unit tests.
+- Improvement: Now catering for composite keys in Command / Query handlers.
+- Improvement: Now generating tests for Commands projecting to Constructors and Operations.
+- Improvement: Assertion classes will now only generate if being used by Unit Tests.
+- Improvement: Now generating tests for Queries that are setup for pagination.
+- Fixed: Get query handler tests would cause a crash in some cases when trying to generate.
+- Fixed: Inaccurately named unit tests.
+- Fixed: Assertions classes had a wrong comparison input on `HaveSameCount()` calls.
+- Fixed: Mistake in nested delete handler tests where testing missing nested entity didn't return aggregate root item.
+
+### Version 1.1.1
 
 - Fixed: Ensure certain fields to be within a certain text range for negative testing to work successfully.
 
 ### Version 1.1.0
 
-- Update: Introduces NotFoundException when an entity is not found in the tests.
+- Improvement: Introduces NotFoundException when an entity is not found in the tests.
 
-## Version 1.0.3
+### Version 1.0.3
 
-- Fixed Unit Tests for negative test cases where Enums are in collections.
+- Improvement: Fixed Unit Tests for negative test cases where Enums are in collections.
 
 ### Version 1.0.1
 
-- Fixed and improved test scenarios for Enums where Enums that doesn't have a default literal value of `0` will be tested and then also literal values that doesn't exist in an Enum. It will also handle Enums that doesn't have literal values at all. 
+- Improvement: Fixed and improved test scenarios for Enums where Enums that doesn't have a default literal value of `0` will be tested and then also literal values that doesn't exist in an Enum. It will also handle Enums that doesn't have literal values at all. 
 
 ### Version 1.0.0
 
-- New: Module to generate Unit Tests for Command and Query handlers as well as Fluent Validation Validators.
+- New Feature: Module to generate Unit Tests for Command and Query handlers as well as Fluent Validation Validators.

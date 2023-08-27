@@ -7,8 +7,8 @@ using HotChocolate.Types;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: IntentTemplate("Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration", Version = "1.0")]
 
 namespace GraphQL.CQRS.TestApplication.Api.Configuration
 {

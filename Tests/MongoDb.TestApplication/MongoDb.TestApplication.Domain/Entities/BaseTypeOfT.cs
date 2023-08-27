@@ -11,11 +11,6 @@ namespace MongoDb.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public abstract class BaseTypeOfT<T>
     {
-        [IntentManaged(Mode.Fully)]
-        public BaseTypeOfT()
-        {
-            Id = null!;
-        }
         public string Id { get; set; }
 
         public T BaseAttribute { get; set; }

@@ -10,11 +10,6 @@ namespace RichDomain.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public partial class DerivedClass : BaseClass, IDerivedClass
     {
-        [IntentManaged(Mode.Fully)]
-        public DerivedClass()
-        {
-            DerivedAttribute = null!;
-        }
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void DerivedOperation(string derivedAttribute, string baseClassBaseAttribute)
         {

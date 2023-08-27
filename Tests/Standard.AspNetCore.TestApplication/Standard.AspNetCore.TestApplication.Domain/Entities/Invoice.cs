@@ -12,11 +12,6 @@ namespace Standard.AspNetCore.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
-        [IntentManaged(Mode.Fully)]
-        public Invoice()
-        {
-            Number = null!;
-        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

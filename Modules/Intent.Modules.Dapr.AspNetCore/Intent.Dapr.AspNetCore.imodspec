@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore</id>
-  <version>1.2.0</version>
+  <version>1.2.1-pre.3</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Base functionality to enable Dapr for ASP.NET projects.</summary>
   <description>Base functionality to enable Dapr for ASP.NET projects.</description>
@@ -32,6 +32,13 @@
     <factoryExtension id="Intent.Dapr.AspNetCore.DaprFactoryExtension" externalReference="a1f4f7b9-47c9-4262-9c5f-a90d571f2ff6" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="3.3.30-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />

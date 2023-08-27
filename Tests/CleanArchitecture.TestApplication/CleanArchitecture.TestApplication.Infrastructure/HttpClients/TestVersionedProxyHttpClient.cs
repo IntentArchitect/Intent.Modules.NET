@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -11,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Application.Common.Exceptions;
 using CleanArchitecture.TestApplication.Application.IntegrationServices;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.Versioned;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 
@@ -21,7 +18,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
 {
-    public class TestVersionedProxyHttpClient : ITestVersionedService
+    public class TestVersionedProxyHttpClient : ITestVersionedProxy
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
@@ -75,7 +72,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v1/versioned/test-query";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -87,14 +84,10 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return int.Parse(str);
                 }
@@ -105,7 +98,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v2/versioned/test-query";
 
-            var queryParams = new Dictionary<string, string>();
+            var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -117,14 +110,10 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
                     if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return int.Parse(str);
                 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0031930c-b30b-41a7-95d7-ae4f729da3c5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Persistence</name>
+  <display>Persistence</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3cc1c253-5fdd-45e3-a694-3685bf87651b</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

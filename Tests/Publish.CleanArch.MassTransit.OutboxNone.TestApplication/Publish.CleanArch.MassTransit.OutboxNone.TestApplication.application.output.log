@@ -51,6 +51,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2e5d8763-8039-4969-99f5-224d6a01e9ae</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#1f254e6d-5450-4073-b943-cd4f94d025b1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/ScheduledController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b3f4f36-d6a6-469a-89bd-be009988eb9f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -667,11 +675,43 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d788a26e-930b-4ffb-af58-b7247a14e6d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Scheduled/DelayedNotificationEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/DelayedNotificationEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#48f82faa-76ce-4e02-b346-66d8841391e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#de788e31-dfbf-441f-a18a-df6d5ae9b5da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#de788e31-dfbf-441f-a18a-df6d5ae9b5da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#de788e31-dfbf-441f-a18a-df6d5ae9b5da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

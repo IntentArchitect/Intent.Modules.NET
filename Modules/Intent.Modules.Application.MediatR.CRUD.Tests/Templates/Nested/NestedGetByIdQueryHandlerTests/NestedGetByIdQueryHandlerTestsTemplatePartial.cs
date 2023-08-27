@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -37,114 +38,94 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(QueryModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+
+        Facade = new QueryHandlerFacade(this, model);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
-            .OnBuild(file =>
+            .AfterBuild(file =>
             {
-                file.AddUsing("System");
-                file.AddUsing("System.Collections.Generic");
-                file.AddUsing("System.Linq");
-                file.AddUsing("System.Threading");
-                file.AddUsing("System.Threading.Tasks");
-                file.AddUsing("AutoFixture");
-                file.AddUsing("FluentAssertions");
-                file.AddUsing("NSubstitute");
-                file.AddUsing("Xunit");
-                file.AddUsing("AutoMapper");
-
-                var dtoModel = Model.TypeReference.Element.AsDTOModel();
-                var nestedDomainElement = Model.Mapping.Element.AsClassModel();
-                var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
-                var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
-                var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
-                var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
-                var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
-                var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
-                var queryIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;
-                var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
+                AddUsingDirectives(file);
+                Facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
-                priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
                 priClass.AddConstructor(ctor =>
                 {
-                    ctor.AddStatement(new CSharpInvocationStatement("var mapperConfiguration = new MapperConfiguration")
-                        .AddArgument(new CSharpLambdaBlock("config")
-                            .AddStatement($"config.AddMaps(typeof({this.GetQueryHandlerName(Model)}));"))
-                        .WithArgumentsOnNewLines());
-                    ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
+                    ctor.AddStatements(Facade.GetAutoMapperProfilesAndAddBackendField(priClass));
                 });
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements($@"
-        var fixture = new Fixture();");
-                    this.RegisterDomainEventBaseFixture(method, ownerDomainElement);
-                    method.AddStatements($@"
-        var existingOwnerEntity = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
-        var expectedEntity = existingOwnerEntity.{nestedAssociationName}.First();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp
-            .With(x => x.{queryIdFieldName}, expectedEntity.Id)
-            .With(x => x.{nestedOwnerIdFieldName}, existingOwnerEntity.{ownerDomainElementIdName}));
-        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, existingOwnerEntity, expectedEntity }};");
+
+                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        includeVarKeyword: true));
+                    method.AddStatements(Facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{nestedDomainElementName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.TargetDomainTypeName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testQuery");
-                    method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
-                    method.AddParameter(GetTypeName(nestedDomainElement.InternalElement), "existingEntity");
-                    method.AddStatements($@"
-        // Arrange
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+                    method.AddParameter(Facade.QueryTypeName, "testQuery");
+                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
+                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
 
-        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
+                    method.AddStatement("// Arrange");
+                    method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
+                    method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 
-        // Act
-        var result = await sut.Handle(testQuery, CancellationToken.None);
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Act");
+                    method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
 
-        // Assert
-        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(result, existingEntity);");
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Assert");
+                    method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingEntity"));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
-                    method.AddStatements($@"
-        // Arrange
-        var fixture = new Fixture();");
-                    this.RegisterDomainEventBaseFixture(method);
-                    method.AddStatements($@"
-        fixture.Customize<{GetTypeName(ownerDomainElement.InternalElement)}>(comp => comp.With(p => p.{nestedAssociationName}, new List<{GetTypeName(nestedDomainElement.InternalElement)}>()));
-        var existingOwnerEntity = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
-        var testQuery = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
-        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
-        
-        // Act
-        var act = async () => await sut.Handle(testQuery, CancellationToken.None);
-        
-        // Assert
-        await act.Should().ThrowAsync<{this.GetNotFoundExceptionName()}>();");
+                    method.AddStatements("// Arrange");
+                    method.AddStatements(Facade.GetNewAggregateOwnerWithoutCompositesStatements());
+                    method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
+                    method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatement(string.Empty);
+                    method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
+
+                    method.AddStatement(string.Empty);
+                    method.AddStatements("// Act");
+                    method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
+
+                    method.AddStatement(string.Empty);
+                    method.AddStatement("// Assert");
+                    method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-            })
-            .OnBuild(file =>
-            {
+
                 AddAssertionMethods();
-            }, 5);
+            });
+    }
+
+    private QueryHandlerFacade Facade { get; }
+
+    private static void AddUsingDirectives(CSharpFile file)
+    {
+        file.AddUsing("System");
+        file.AddUsing("System.Collections.Generic");
+        file.AddUsing("System.Linq");
+        file.AddUsing("System.Threading");
+        file.AddUsing("System.Threading.Tasks");
+        file.AddUsing("AutoFixture");
+        file.AddUsing("FluentAssertions");
+        file.AddUsing("NSubstitute");
+        file.AddUsing("Xunit");
+        file.AddUsing("AutoMapper");
     }
 
     private void AddAssertionMethods()

@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.StateManagement</id>
-  <version>1.1.0-alpha.6</version>
+  <version>1.1.0-alpha.9</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Create long running, stateless and stateful services.</summary>
   <description>Create long running, stateless and stateful services.</description>
   <authors>Intent Architect</authors>
   <iconUrl>data:image/png;base64,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</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.Dapr.AspNetCore.StateManagement/README.md</projectUrl>
   <tags>csharp dotnet aspnetcore dapr state-management</tags>
   <templates>
     <template id="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository" externalReference="8658fc27-925e-40c7-b0be-5343c37dd512">
@@ -96,10 +97,10 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.34" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Dapr.AspNetCore" version="1.0.3" />
+    <dependency id="Intent.Dapr.AspNetCore" version="1.2.1-pre.1" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.4" />
-    <dependency id="Intent.Metadata.DocumentDB" version="1.1.2" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.3" />
+    <dependency id="Intent.Metadata.DocumentDB" version="1.1.3-pre.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

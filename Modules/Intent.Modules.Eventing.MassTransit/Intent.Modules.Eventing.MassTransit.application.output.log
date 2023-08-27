@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/MessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#21c3df1c-5140-4f65-9814-a68e1a577768</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -22,6 +30,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EventBusInteropInstaller.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusInteropInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#869c1e00-4970-45e5-95c4-4641448ceeb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/FinbuckleConfigurator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleConfigurator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -50,10 +66,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -62,6 +78,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fc20086d-0bb2-4c9b-8f04-68d69d2adace</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fc20086d-0bb2-4c9b-8f04-68d69d2adace</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ca1ed582-4747-4e96-9b86-eb2a284fa58e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ca1ed582-4747-4e96-9b86-eb2a284fa58e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleMessageHeaderStrategy/FinbuckleMessageHeaderStrategyTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d184fa42-e26e-4668-b5db-21e4cbfb04fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbucklePublishingFilter/FinbucklePublishingFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d184fa42-e26e-4668-b5db-21e4cbfb04fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbucklePublishingFilter/FinbucklePublishingFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbucklePublishingFilter/FinbucklePublishingFilterTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -110,22 +174,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitConfiguration/MassTransitConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#014ed2f0-99fc-422f-b070-67a01953c8a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MassTransitEventBus/MassTransitEventBusTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus/MassTransitEventBusTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#014ed2f0-99fc-422f-b070-67a01953c8a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MassTransitEventBus/MassTransitEventBusTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus/MassTransitEventBusTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRootCompositeManyBById;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoots;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -38,15 +39,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             var expectedEntity = existingOwnerEntity.Composites.First();
             fixture.Customize<GetAggregateRootCompositeManyBByIdQuery>(comp => comp
-            .With(x => x.Id, expectedEntity.Id)
-            .With(x => x.AggregateRootId, existingOwnerEntity.Id));
-            var testCommand = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
-            yield return new object[] { testCommand, existingOwnerEntity, expectedEntity };
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
+                .With(x => x.Id, expectedEntity.Id));
+            var testQuery = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
+            yield return new object[] { testQuery, existingOwnerEntity, expectedEntity };
         }
 
         [Theory]
@@ -57,16 +57,16 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             CompositeManyB existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
 
-            var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(repository, _mapper);
+            var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(aggregateRootRepository, _mapper);
 
             // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
+            var results = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(result, existingEntity);
+            AggregateRootAssertions.AssertEquivalent(results, existingEntity);
         }
 
         [Fact]
@@ -74,15 +74,17 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
+            fixture.Register<DomainEvent>(() => null!);
             fixture.Customize<AggregateRoot>(comp => comp.With(p => p.Composites, new List<CompositeManyB>()));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<GetAggregateRootCompositeManyBByIdQuery>(comp => comp
+                .With(p => p.AggregateRootId, existingOwnerEntity.Id));
             var testQuery = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
+            var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
+            aggregateRootRepository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
 
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
-            var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(repository, _mapper);
+            var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(aggregateRootRepository, _mapper);
 
             // Act
             var act = async () => await sut.Handle(testQuery, CancellationToken.None);

@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.SecureServices;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.Services.SecureServices;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

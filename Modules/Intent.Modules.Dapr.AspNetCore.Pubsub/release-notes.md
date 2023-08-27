@@ -1,6 +1,10 @@
+### Version 1.1.1
+
+- Fixed: Nullability related compiler warnings.
+
 ### Version 1.1.0
 
-- Update : Upgraded to MediatR 12.
+- Improvement : Upgraded to MediatR 12.
 
 ### Version 1.0.5
 
@@ -10,7 +14,7 @@
 
 ### Version 1.0.4
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 1.0.2
 

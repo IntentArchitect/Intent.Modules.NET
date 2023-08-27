@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b5a8f74-9984-419d-9073-85434e4edc7a" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0aeed73a-654d-41f3-9c3f-4a4ace624274</parentFolderId>
+  <packageId>0aeed73a-654d-41f3-9c3f-4a4ace624274</packageId>
+  <packageName>CosmosDomain</packageName>
+  <diagram>
+    <targetPackageId>0aeed73a-654d-41f3-9c3f-4a4ace624274</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

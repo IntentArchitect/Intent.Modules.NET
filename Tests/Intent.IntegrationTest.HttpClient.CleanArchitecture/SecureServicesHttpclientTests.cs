@@ -5,7 +5,7 @@ using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Eventing;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Application.IntegrationServices;
-using CleanArchitecture.TestApplication.Application.IntegrationServices.CleanArchitecture.TestApplication.Services.SecureServices;
+using CleanArchitecture.TestApplication.Application.IntegrationServices.Services.SecureServices;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
 using Intent.IntegrationTest.HttpClient.Common;

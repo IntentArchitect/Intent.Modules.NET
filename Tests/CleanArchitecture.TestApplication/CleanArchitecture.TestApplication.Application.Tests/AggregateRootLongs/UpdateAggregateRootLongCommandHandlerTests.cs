@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Domain.Common;
@@ -25,16 +26,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateRootLong>();
             fixture.Customize<UpdateAggregateRootLongCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
             yield return new object[] { testCommand, existingEntity };
 
             fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             existingEntity = fixture.Create<AggregateRootLong>();
             fixture.Customize<UpdateAggregateRootLongCommand>(comp => comp.Without(x => x.CompositeOfAggrLong).With(x => x.Id, existingEntity.Id));
             testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
@@ -48,10 +47,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AggregateRootLong existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
+            aggregateRootLongRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateAggregateRootLongCommandHandler(repository);
+            var sut = new UpdateAggregateRootLongCommandHandler(aggregateRootLongRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -66,11 +65,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
+            var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
+            aggregateRootLongRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<AggregateRootLong>(default));
 
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRootLong>(null));
 
-            var sut = new UpdateAggregateRootLongCommandHandler(repository);
+            var sut = new UpdateAggregateRootLongCommandHandler(aggregateRootLongRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,16 +11,16 @@ namespace RichDomain.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public partial class DerivedFromAbstractClass : AbstractBaseClass, IDerivedFromAbstractClass
     {
-        [IntentManaged(Mode.Fully)]
-        public DerivedFromAbstractClass()
-        {
-            DerivedAttribute = null!;
-        }
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void DerivedOperation(string derivedAttribute, string abstractBaseClassAbstractBaseAttribute)
         {
             DerivedAttribute = derivedAttribute;
             AbstractBaseAttribute = abstractBaseClassAbstractBaseAttribute;
+        }
+
+        public override bool AbstractOp(string thing)
+        {
+            throw new NotImplementedException("Replace with your implementation...");
         }
     }
 }

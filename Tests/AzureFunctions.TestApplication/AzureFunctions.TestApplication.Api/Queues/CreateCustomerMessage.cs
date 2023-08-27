@@ -13,7 +13,7 @@ using MediatR;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
 namespace AzureFunctions.TestApplication.Api
 {
@@ -31,7 +31,7 @@ namespace AzureFunctions.TestApplication.Api
         [FunctionName("CreateCustomerMessage")]
         public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
         {
-            var createCustomerMessage = JsonSerializer.Deserialize<Application.Queues.CreateCustomerMessage.CreateCustomerMessage>(message.Body.ToString())!;
+            var createCustomerMessage = JsonSerializer.Deserialize<Application.Queues.CreateCustomerMessage.CreateCustomerMessage>(message.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
             await _mediator.Send(createCustomerMessage, cancellationToken);
 
         }

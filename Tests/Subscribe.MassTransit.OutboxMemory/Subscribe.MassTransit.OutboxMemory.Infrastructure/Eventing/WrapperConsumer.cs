@@ -28,7 +28,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Eventing
         public async Task Consume(ConsumeContext<TMessage> context)
         {
             var eventBus = _serviceProvider.GetService<MassTransitEventBus>()!;
-            eventBus.Current = context;
+            eventBus.ConsumeContext = context;
 
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

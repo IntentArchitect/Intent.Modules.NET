@@ -10,11 +10,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPT_DerivedClassForAbstract : TPT_AbstractBaseClass
     {
-        [IntentManaged(Mode.Fully)]
-        public TPT_DerivedClassForAbstract()
-        {
-            DerivedAttribute = null!;
-        }
         public string DerivedAttribute { get; set; }
     }
 }

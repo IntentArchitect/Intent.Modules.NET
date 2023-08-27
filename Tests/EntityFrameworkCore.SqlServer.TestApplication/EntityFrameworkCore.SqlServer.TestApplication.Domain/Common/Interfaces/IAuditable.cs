@@ -1,8 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface", Version = "1.0")]
 
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 

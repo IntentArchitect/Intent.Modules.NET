@@ -1,6 +1,11 @@
-﻿### Version 2.0.0
+﻿### Version 2.0.1
 
-> ⚠️ NOTE
+- Fixed: Nullability related compiler warnings.
+- Fixed: Dependency on `Intent.Application.Contracts.Clients` was not for version `.5.0.0`.
+
+### Version 2.0.0
+
+> ⚠️ **NOTE**
 >
 > This module depends on a new major version of `Intent.Application.Contracts.Clients` which may cause breaking changes to your codebase. Refer to [its release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.Contracts.Clients/release-notes.md#version-500) for more information.
 

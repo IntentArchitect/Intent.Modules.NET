@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d0a61d29-1f8f-46de-8826-e3e5196b005f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <externalReference>2bfb79a1-b955-402d-9e62-3e2f76c1b655</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1de85f05-077a-47e9-8e16-37cc23939ca5</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d0177331-ceb7-4428-9f9b-afd357149e41" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+      <name>dapr</name>
+      <display>dapr</display>
+      <externalReference>52897f11-e9e6-4b4b-a769-a0853e5bf7f2</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d0a61d29-1f8f-46de-8826-e3e5196b005f</parentFolderId>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6b40217b-8bf1-47fd-9a60-042a25284219" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>Dapr</name>
+          <display>Dapr</display>
+          <externalReference>a47ae6b9-d22d-4fb1-bf8b-7c4793acffcf</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0177331-ceb7-4428-9f9b-afd357149e41</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="33d2e5d5-1f94-4ffe-a158-c233963c581f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+          <name>components</name>
+          <display>components</display>
+          <externalReference>77d88443-1226-49d0-a4d3-42ea01ba8a64</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0177331-ceb7-4428-9f9b-afd357149e41</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="dfa58a45-c054-455d-a280-51825123a1bc" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>Dapr.Components</name>
+              <display>Dapr.Components</display>
+              <externalReference>224e47c9-c2e5-484e-b95c-e1e090478167</externalReference>
+              <isAbstract>false</isAbstract>
+              <order>1</order>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>33d2e5d5-1f94-4ffe-a158-c233963c581f</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

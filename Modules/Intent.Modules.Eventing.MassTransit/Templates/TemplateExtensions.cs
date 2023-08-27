@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter;
+using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy;
+using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
@@ -14,6 +17,19 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetFinbuckleConsumingFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(FinbuckleConsumingFilterTemplate.TemplateId);
+        }
+
+        public static string GetFinbuckleMessageHeaderStrategyName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(FinbuckleMessageHeaderStrategyTemplate.TemplateId);
+        }
+        public static string GetFinbucklePublishingFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(FinbucklePublishingFilterTemplate.TemplateId);
+        }
         public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);

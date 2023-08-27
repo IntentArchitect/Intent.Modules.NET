@@ -11,7 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{90624C68-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{067F1ACB-7998-4DB2-81E4-FE28E43A07A7}"
 	ProjectSection(SolutionItems) = preProject
+		dapr\components\bindings.cron.api-scheduled-daily.yml = dapr\components\bindings.cron.api-scheduled-daily.yml
+		dapr\components\bindings.cron.api-scheduled-hourly.yml = dapr\components\bindings.cron.api-scheduled-hourly.yml
+		dapr\components\configuration-store.yaml = dapr\components\configuration-store.yaml
 		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\secret-store.yaml = dapr\components\secret-store.yaml
 		dapr\components\statestore.yaml = dapr\components\statestore.yaml
 	EndProjectSection
 EndProject

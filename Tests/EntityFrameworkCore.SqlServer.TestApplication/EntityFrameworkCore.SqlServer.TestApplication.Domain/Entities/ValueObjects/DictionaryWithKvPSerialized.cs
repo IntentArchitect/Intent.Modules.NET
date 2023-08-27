@@ -14,11 +14,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObj
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DictionaryWithKvPSerialized : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public DictionaryWithKvPSerialized()
-        {
-            Title = null!;
-        }
         public Guid Id { get; set; }
 
         public string Title { get; set; }

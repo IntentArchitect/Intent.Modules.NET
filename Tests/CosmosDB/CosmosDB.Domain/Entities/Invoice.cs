@@ -14,15 +14,6 @@ namespace CosmosDB.Domain.Entities
     public class Invoice : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public Invoice()
-        {
-            Id = null!;
-            ClientIdentifier = null!;
-            Number = null!;
-            InvoiceLogo = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

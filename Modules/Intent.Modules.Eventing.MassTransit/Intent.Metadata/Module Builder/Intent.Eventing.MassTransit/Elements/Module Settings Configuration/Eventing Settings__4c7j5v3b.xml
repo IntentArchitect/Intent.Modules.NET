@@ -164,5 +164,102 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="4c41cfe0-a2a0-4b67-b8c3-878650f8639f" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Retry Policy</name>
+      <display>Retry Policy</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b1c11f3f-63ce-4917-8ffb-b6c7698346c7</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The strategy to use when messages fail to deliver to their destination." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="retry-interval" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0a9d5e1c-5f97-4a3a-aa4f-c005adbb7c45" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Immediate</name>
+          <display>Immediate = retry-immediate</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-immediate</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4c41cfe0-a2a0-4b67-b8c3-878650f8639f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a76464ab-bb3b-4096-ad87-265181b47ab6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Interval</name>
+          <display>Interval = retry-interval</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-interval</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4c41cfe0-a2a0-4b67-b8c3-878650f8639f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="897af2d9-0ffa-40b6-af98-a6a1f80af28d" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Incremental</name>
+          <display>Incremental = retry-incremental</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-incremental</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4c41cfe0-a2a0-4b67-b8c3-878650f8639f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7449b2b2-6523-49db-85ef-2a7779d42cdd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Exponential</name>
+          <display>Exponential = retry-exponential</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-exponential</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4c41cfe0-a2a0-4b67-b8c3-878650f8639f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cce39925-d223-4bf8-84b9-5e1cdd804a10" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = retry-none</display>
+          <isAbstract>false</isAbstract>
+          <value>retry-none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4c41cfe0-a2a0-4b67-b8c3-878650f8639f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

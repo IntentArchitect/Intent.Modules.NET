@@ -11,11 +11,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DerivedOfT : BaseOfT<int>
     {
-        [IntentManaged(Mode.Fully)]
-        public DerivedOfT()
-        {
-            DerivedAttribute = null!;
-        }
         public string DerivedAttribute { get; set; }
     }
 }

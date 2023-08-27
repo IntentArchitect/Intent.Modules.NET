@@ -57,7 +57,11 @@ namespace Intent.Modules.Application.Identity.Templates.AuthorizeAttribute
             
             #line default
             #line hidden
-            this.Write(@"() { }
+            this.Write(@"()
+        {
+            Roles = null!;
+            Policy = null!;
+        }
 
         /// <summary>
         /// Gets or sets a comma delimited list of roles that are allowed to access the resource.

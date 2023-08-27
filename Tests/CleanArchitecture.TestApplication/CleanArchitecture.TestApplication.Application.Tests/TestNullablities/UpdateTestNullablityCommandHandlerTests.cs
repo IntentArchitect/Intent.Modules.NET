@@ -25,8 +25,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<TestNullablity>(comp => comp.Without(x => x.DomainEvents));
+            fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<TestNullablity>();
             fixture.Customize<UpdateTestNullablityCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateTestNullablityCommand>();
@@ -40,10 +39,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             TestNullablity existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
+            testNullablityRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult(existingEntity));
 
-            var sut = new UpdateTestNullablityCommandHandler(repository);
+            var sut = new UpdateTestNullablityCommandHandler(testNullablityRepository);
 
             // Act
             await sut.Handle(testCommand, CancellationToken.None);
@@ -58,11 +57,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.TestNullablities
             // Arrange
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateTestNullablityCommand>();
+            var testNullablityRepository = Substitute.For<ITestNullablityRepository>();
+            testNullablityRepository.FindByIdAsync(testCommand.Id, CancellationToken.None)!.Returns(Task.FromResult<TestNullablity>(default));
 
-            var repository = Substitute.For<ITestNullablityRepository>();
-            repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<TestNullablity>(null));
 
-            var sut = new UpdateTestNullablityCommandHandler(repository);
+            var sut = new UpdateTestNullablityCommandHandler(testNullablityRepository);
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);

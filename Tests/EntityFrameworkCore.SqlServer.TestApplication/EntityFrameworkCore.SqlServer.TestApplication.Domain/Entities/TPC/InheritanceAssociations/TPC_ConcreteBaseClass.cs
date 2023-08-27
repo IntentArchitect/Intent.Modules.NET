@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Inhe
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPC_ConcreteBaseClass : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPC_ConcreteBaseClass()
-        {
-            BaseAttribute = null!;
-        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

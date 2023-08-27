@@ -140,6 +140,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#36747d74-0978-4f41-883c-71e2133fe305</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/PaginationController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#b371ea3e-5c63-479f-8546-026ff167dabd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/RequestSuffixCommandsWithoutTypeController.cs</ApplicationRelativeFilePath>
@@ -284,6 +292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#cc7186ab-1267-40a7-94f1-d3612d5abc90</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/CreateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -312,6 +328,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests#b6c38348-e150-4d08-a171-7e7392655ee8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -540,6 +564,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#cbff8e99-069f-41ff-b604-b1899cb7605c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/GetClassWithEnumsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassWithEnums/GetClassWithEnumsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#99707e09-c60e-4674-bfcd-38f681dfa4e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/UpdateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -560,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CompositeKeys/WithCompositeKeys/WithCompositeKeyAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeKeys/WithCompositeKeys/WithCompositeKeyAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -588,14 +628,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#06e86189-1b74-443d-94b8-8fb9d94c097a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CRUD/AggregateSingleCs/AggregateSingleCAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CRUD/AggregateSingleCs/AggregateSingleCAssertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b6ec559a-f523-4f26-bfc7-e919dea3cf90</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CRUD/AggregateTestNoIdReturns/AggregateTestNoIdReturnAssertions.cs</ApplicationRelativeFilePath>
@@ -620,26 +652,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#ae4cf81c-ec49-4c7a-a9d2-e137453430d7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#7bd45b8d-4efd-4c7b-8b66-838e686febd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/DataContractClasses/DataContractClassAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DDD/DataContractClasses/DataContractClassAssertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#8998a129-b219-4f74-b2ff-582a48074c5d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/Transactions/TransactionAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DDD/Transactions/TransactionAssertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b857a0c2-4032-40ad-b2e6-9556c6fec677</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaults/ClassWithDefaultAssertions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/CreateAccountHolderHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/CreateAccountHolderHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -774,48 +790,56 @@
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/DeleteIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/NullabilityPeers/NullabilityPeerAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Nullability/NullabilityPeers/NullabilityPeerAssertions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -828,22 +852,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#cbf005eb-63da-48a4-8b4d-a2a04cabda62</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/OperationAndConstructorMapping/OpAndCtorMapping2s/OpAndCtorMapping2Assertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationAndConstructorMapping/OpAndCtorMapping2s/OpAndCtorMapping2Assertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#2562baa7-f014-4afe-937b-e6d338c0c3be</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/OperationAndConstructorMapping/OpAndCtorMapping3s/OpAndCtorMapping3Assertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationAndConstructorMapping/OpAndCtorMapping3s/OpAndCtorMapping3Assertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#bd7476de-b70f-4850-a145-342baa029aab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Operations/OperationsClasses/OperationsClassAssertions.cs</ApplicationRelativeFilePath>
@@ -852,10 +860,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Pagination/GetLogEntriesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntriesQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Pagination/LogEntries/LogEntryAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntries/LogEntryAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#c9605cb3-6d77-40fc-8dea-9c8044163d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/GetTestNullablitiesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullablitiesQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -888,7 +928,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -896,7 +936,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/CreateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -904,7 +944,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/DeleteWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -912,7 +952,15 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeyByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#ff8fa181-d3e7-4c7b-9d27-835bf2aae863</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/GetWithCompositeKeysQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeys/GetWithCompositeKeysQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -920,7 +968,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
@@ -928,14 +976,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithCompositeKeys/UpdateWithCompositeKeyCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/WithCompositeKeys/WithCompositeKeyAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WithCompositeKeys/WithCompositeKeyAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2868,38 +2908,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/CleanArchitecture/TestApplication/Services/SecureServices/SecureCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/SecureServices/SecureCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/CleanArchitecture/TestApplication/Services/Unversioned/TestCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/Unversioned/TestCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/CleanArchitecture/TestApplication/Services/Versioned/TestCommandV1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/Versioned/TestCommandV1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/CleanArchitecture/TestApplication/Services/Versioned/TestCommandV2.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/Versioned/TestCommandV2.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#df30d82b-dcbe-46a7-990f-906b0044d463</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ISecureServicesService.cs</ApplicationRelativeFilePath>
@@ -2910,136 +2918,168 @@
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d609d381-84ee-434f-9a26-b74091101d9c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestUnversionedService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ITestUnversionedService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestUnversionedProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestUnversionedProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ac0e632c-2cca-49f5-ba06-792cda951a95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestVersionedService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ITestVersionedService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestVersionedProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestVersionedProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Services/SecureServices/SecureCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SecureServices/SecureCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#5f0d2e6d-25c9-44fc-b7ae-485138f12006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Services/Unversioned/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Unversioned/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Services/Versioned/TestCommandV1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Versioned/TestCommandV1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#010c053c-7f23-473f-a9b3-4506101da6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Services/Versioned/TestCommandV2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Versioned/TestCommandV2.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggering/CreateAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteIntegrationTriggering/DeleteIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggering/DeleteAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d5b3554e-fbf5-473c-b480-8d57ad01477f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/UpdateAnemicIntegrationTriggering/UpdateAnemicIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateIntegrationTriggering/CreateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggering/CreateDddIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateIntegrationTriggering/UpdateIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggering/UpdateDddIntegrationTriggeringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3120,6 +3160,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/SyncWithReturn/SyncWithReturnValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OperationsClasses/SyncWithReturn/SyncWithReturnValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#97591773-a1a0-4c4a-a8d7-3110de28c3cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6c326be1-1ab4-4002-8a45-69d16ae4971f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/LogEntryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6c326be1-1ab4-4002-8a45-69d16ae4971f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/LogEntryDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntryDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6c326be1-1ab4-4002-8a45-69d16ae4971f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/LogEntryDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntryDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3508,6 +3596,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#0ac4b164-338a-4323-9d97-9bdcd0192647</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ResultValidations/ResultValidationsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ResultValidations/ResultValidationsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/Validated/ValidatedCommand.cs</ApplicationRelativeFilePath>
@@ -3528,6 +3648,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/Validated/ValidatedCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Validation/Validated/ValidatedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidatedResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Validation/ValidatedResultDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidatedResultDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3803,238 +3939,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Domain/Enums/EnumWithDefaultLiteral.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Domain/Enums/EnumWithDefaultLiteral.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#8e99eda1-52d6-4f0a-9b9e-328eefa07361</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Domain/Enums/EnumWithoutDefaultLiteral.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Domain/Enums/EnumWithoutDefaultLiteral.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Domain/Enums/EnumWithoutValues.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Domain/Enums/EnumWithoutValues.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#3849f10a-4373-4be9-a94a-169d6516296e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#b2b07641-76d6-4de1-af0a-f672514556b2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#d966174b-8bcc-4f34-9911-f163ffef8fc7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#0b8ca816-d03e-4855-8291-9a0c244a765f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#4f3e2baa-ce89-46f1-b942-2b0e861eafad</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#19fd3bc2-bae3-436c-9c5b-eae9720fa0ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#a733e81e-070d-4219-9158-e2fbe7d98400</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/AggregateRootDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#b3ccbe02-de93-4834-84f5-d2e349dd17da</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5fafef2d-e558-4060-ac43-7f09f1ec434a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#7e32c772-8408-4429-8af2-820f832d584f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#6fb403ca-5147-47bd-b8e5-d9d034361096</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#f93fa513-6288-4e17-8fac-4cef0b6fb4e9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5cfa2694-65ee-4d3d-bd36-2045d7f08bd8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#8dd143db-99b4-4f77-bb66-52efd58e871e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#047b98a5-2213-40a0-b5d8-45028206da0f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#4e4f482f-422d-4612-99eb-f85b556d6cbc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#a654d5ee-08a9-4f71-918b-610623fd3575</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#3a89f77c-28f9-41ab-91e3-bfcd99a1abf3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5e79f290-4090-46d2-b024-705058178c6a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#fc4d0e39-67dc-4c4a-8a94-0999e87e6f32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e2ab1f3b-917e-414a-aca7-1f3ff5022ad9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e99b16ff-0910-436e-93e4-f2cff2790287</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#11cdf9f5-f388-4b3e-b500-2c654f0352db</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#56717f98-efb6-4aec-ab3e-f3f854b64a0f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CleanArchitecture/TestApplication/Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>64381007-65bd-40c5-a847-75415dde9248</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4048,6 +3952,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Common/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Domain/Enums/EnumWithDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Domain/Enums/EnumWithDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#8e99eda1-52d6-4f0a-9b9e-328eefa07361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Domain/Enums/EnumWithoutDefaultLiteral.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Domain/Enums/EnumWithoutDefaultLiteral.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Domain/Enums/EnumWithoutValues.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Domain/Enums/EnumWithoutValues.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4084,10 +4012,250 @@
     </FileLog>
     <FileLog>
       <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#8e572cd3-82cd-4207-b9bb-bec6e82f536f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClient#96a967fc-4cac-444e-8409-36fe946ef90d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/SecuredServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SecuredServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#3849f10a-4373-4be9-a94a-169d6516296e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#b2b07641-76d6-4de1-af0a-f672514556b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#d966174b-8bcc-4f34-9911-f163ffef8fc7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#0b8ca816-d03e-4855-8291-9a0c244a765f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#4f3e2baa-ce89-46f1-b942-2b0e861eafad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#19fd3bc2-bae3-436c-9c5b-eae9720fa0ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#a733e81e-070d-4219-9158-e2fbe7d98400</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/AggregateRootDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/AggregateRootDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#b3ccbe02-de93-4834-84f5-d2e349dd17da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5fafef2d-e558-4060-ac43-7f09f1ec434a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#7e32c772-8408-4429-8af2-820f832d584f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeManyBCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#6fb403ca-5147-47bd-b8e5-d9d034361096</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#f93fa513-6288-4e17-8fac-4cef0b6fb4e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5cfa2694-65ee-4d3d-bd36-2045d7f08bd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#8dd143db-99b4-4f77-bb66-52efd58e871e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#047b98a5-2213-40a0-b5d8-45028206da0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#4e4f482f-422d-4612-99eb-f85b556d6cbc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/CreateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#a654d5ee-08a9-4f71-918b-610623fd3575</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootAggregateSingleCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootAggregateSingleCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#3a89f77c-28f9-41ab-91e3-bfcd99a1abf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeManyBCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#5e79f290-4090-46d2-b024-705058178c6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeManyBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#fc4d0e39-67dc-4c4a-8a94-0999e87e6f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeManyBCompositeSingleBBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e2ab1f3b-917e-414a-aca7-1f3ff5022ad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeManyBDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeManyBDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e99b16ff-0910-436e-93e4-f2cff2790287</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#11cdf9f5-f388-4b3e-b500-2c654f0352db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#56717f98-efb6-4aec-ab3e-f3f854b64a0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/AggregateRoots/UpdateAggregateRootCompositeSingleADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.EnumContract#0ac4b164-338a-4323-9d97-9bdcd0192647</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Services/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f22126-76ef-4a59-bccf-12a08cc751d5</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#8e572cd3-82cd-4207-b9bb-bec6e82f536f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/ValidationServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4168,6 +4336,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Async/AsyncOperationsClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/AsyncOperationsClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/CompositeKeys/WithCompositeKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeKeys/WithCompositeKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4388,10 +4564,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntity#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/WithCompositeKey.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WithCompositeKey.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Pagination/LogEntry.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntry.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4456,6 +4632,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Async/IAsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/IAsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/CompositeKeys/IWithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeKeys/IWithCompositeKeyRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4572,14 +4756,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IWithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IWithCompositeKeyRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Nullability/INullabilityPeerRepository.cs</ApplicationRelativeFilePath>
@@ -4616,6 +4792,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Operations/IOperationsClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Operations/IOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Pagination/ILogEntryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/ILogEntryRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4776,6 +4960,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Async/AsyncOperationsClassConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/AsyncOperationsClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/CompositeKeys/WithCompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeKeys/WithCompositeKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4948,10 +5140,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/WithCompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WithCompositeKeyConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Pagination/LogEntryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntryConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4968,6 +5160,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Async/AsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/AsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/CompositeKeys/WithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeKeys/WithCompositeKeyRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5108,18 +5308,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#7fea9447-5553-481e-9f80-7786b8b32f8e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Pagination/LogEntryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/LogEntryRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/WithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WithCompositeKeyRepository.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

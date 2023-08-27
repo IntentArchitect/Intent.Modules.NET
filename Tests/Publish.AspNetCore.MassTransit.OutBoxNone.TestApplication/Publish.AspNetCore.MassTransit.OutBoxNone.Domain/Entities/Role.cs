@@ -12,11 +12,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Role
     {
-        [IntentManaged(Mode.Fully)]
-        public Role()
-        {
-            Name = null!;
-        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

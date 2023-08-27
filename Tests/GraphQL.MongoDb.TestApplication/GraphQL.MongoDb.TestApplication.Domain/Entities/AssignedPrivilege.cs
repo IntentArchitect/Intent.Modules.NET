@@ -13,13 +13,6 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully)]
-        public AssignedPrivilege()
-        {
-            Id = null!;
-            PrivilegeId = null!;
-        }
-
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

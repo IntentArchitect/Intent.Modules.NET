@@ -13,7 +13,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api.Configuration
     {
         public static void AddDaprServices(this IServiceCollection services)
         {
-            services.AddSingleton<IMyService, MyProxyHttpClient>(_ => new MyProxyHttpClient(DaprClient.CreateInvokeHttpClient("publish-clean-arch-dapr-test-application")));
+            services.AddSingleton<IMyProxy, MyProxyHttpClient>(_ => new MyProxyHttpClient(DaprClient.CreateInvokeHttpClient("publish-clean-arch-dapr-test-application")));
         }
     }
 }

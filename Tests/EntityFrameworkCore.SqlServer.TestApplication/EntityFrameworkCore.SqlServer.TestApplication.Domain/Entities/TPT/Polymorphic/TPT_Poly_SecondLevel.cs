@@ -13,11 +13,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Poly
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TPT_Poly_SecondLevel : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully)]
-        public TPT_Poly_SecondLevel()
-        {
-            SecondField = null!;
-        }
         public Guid Id { get; set; }
 
         public string SecondField { get; set; }

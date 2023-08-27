@@ -4,6 +4,8 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Registrations;
@@ -27,6 +29,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.Ass
 
         public override string TemplateId => AssertionClassTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new AssertionClassTemplate(outputTarget, model);
@@ -35,7 +38,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.Ass
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels().Where(p => p.IsAggregateRoot()).ToArray();
+            return _metadataManager.Services(application)
+                .GetCommandModels()
+                .Select(command => command.GetClassModel())
+                .Where(model => model is not null && model.IsAggregateRoot())
+                .Union(_metadataManager.Services(application).GetQueryModels()
+                    .Select(query => query.Mapping?.Element?.AsClassModel() 
+                                     ?? query.GetPaginatedClassModel())
+                    .Where(model => model is not null && model.IsAggregateRoot()))
+                .ToArray();
         }
     }
 }

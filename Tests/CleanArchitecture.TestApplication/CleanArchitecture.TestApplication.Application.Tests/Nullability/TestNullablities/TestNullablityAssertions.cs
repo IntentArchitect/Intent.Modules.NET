@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.TestApplication.Application.TestNullablities;
+using CleanArchitecture.TestApplication.Application.TestNullablities.CreateTestNullablity;
 using CleanArchitecture.TestApplication.Application.TestNullablities.UpdateTestNullablity;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using FluentAssertions;
@@ -13,6 +14,50 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
 {
     public static class TestNullablityAssertions
     {
+        public static void AssertEquivalent(CreateTestNullablityCommand expectedDto, TestNullablity actualEntity)
+        {
+            if (expectedDto == null)
+            {
+                actualEntity.Should().BeNull();
+                return;
+            }
+
+            actualEntity.Should().NotBeNull();
+        }
+
+        public static void AssertEquivalent(
+            IEnumerable<TestNullablityDto> actualDtos,
+            IEnumerable<TestNullablity> expectedEntities)
+        {
+            if (expectedEntities == null)
+            {
+                actualDtos.Should().BeNullOrEmpty();
+                return;
+            }
+
+            actualDtos.Should().HaveSameCount(actualDtos);
+            for (int i = 0; i < expectedEntities.Count(); i++)
+            {
+                var entity = expectedEntities.ElementAt(i);
+                var dto = actualDtos.ElementAt(i);
+                if (entity == null)
+                {
+                    dto.Should().BeNull();
+                    continue;
+                }
+
+                dto.Should().NotBeNull();
+                dto.Id.Should().Be(entity.Id);
+                dto.MyEnum.Should().Be(entity.SampleEnum);
+                dto.Str.Should().Be(entity.Str);
+                dto.Date.Should().Be(entity.Date);
+                dto.DateTime.Should().Be(entity.DateTime);
+                dto.NullableGuid.Should().Be(entity.NullableGuid);
+                dto.NullableEnum.Should().Be(entity.NullableEnum);
+                dto.NullabilityPeerId.Should().Be(entity.NullabilityPeerId);
+            }
+        }
+
         public static void AssertEquivalent(TestNullablityDto actualDto, TestNullablity expectedEntity)
         {
             if (expectedEntity == null)

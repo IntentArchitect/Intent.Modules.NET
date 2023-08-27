@@ -14,13 +14,6 @@ namespace CosmosDB.Domain.Entities.Folder
     public class FolderContainer : IHasDomainEvent
     {
         private string? _id;
-
-        [IntentManaged(Mode.Fully)]
-        public FolderContainer()
-        {
-            Id = null!;
-            FolderPartitionKey = null!;
-        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();
