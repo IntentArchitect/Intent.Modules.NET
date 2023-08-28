@@ -94,7 +94,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: dotnet tool install Intent.SoftwareFactory.CLI --version 4.0.4-alpha.2 --global
+    script: dotnet tool install Intent.SoftwareFactory.CLI --global --version 4.0.4-alpha.2
 
 - task: PowerShell@2
   displayName: 'Template Testing'
@@ -116,7 +116,7 @@ steps:
     targetType: 'inline'
     pwsh: true
     script: |
-      dotnet tool install Intent.IArchitect.Packager.CommandLine --version 4.0.4-alpha.2 --global --add-source '$(vstsFeedUrl)'
+      dotnet tool install Intent.IArchitect.Packager.CommandLine --global --prerelease --add-source '$(vstsFeedUrl)'
 
 - task: PowerShell@2
   displayName: 'filter modules to publish'
