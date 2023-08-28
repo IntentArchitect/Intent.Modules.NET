@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ContinuousIntegration.AzurePipelines</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</summary>
   <description>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</description>
@@ -17,7 +17,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.3-pre.0" />
+    <dependency id="Intent.Common" version="3.4.3" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>
