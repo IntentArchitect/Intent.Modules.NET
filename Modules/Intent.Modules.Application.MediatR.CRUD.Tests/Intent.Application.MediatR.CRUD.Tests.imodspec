@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD.Tests</id>
-  <version>1.2.0-pre.0</version>
+  <version>1.2.0-pre.1</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Generates unit tests for CRUD Command, Query handlers and Fluent Validation validators.</summary>
   <description>Generates unit tests for CRUD Command, Query handlers and Fluent Validation validators.</description>
@@ -127,7 +127,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.MediatR.CRUD" version="5.2.3-pre.0" />
+    <dependency id="Intent.Application.MediatR.CRUD" version="5.2.3-pre.2" />
     <dependency id="Intent.Application.MediatR.FluentValidation" version="4.2.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />
