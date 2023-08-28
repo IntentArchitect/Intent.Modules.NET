@@ -5,13 +5,14 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Templates;
+using Intent.Utils;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
@@ -24,7 +25,7 @@ public static class ImplementationStrategyTemplatesExtensions
             .GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
         return exceptionName;
     }
-    
+
     public static string GetDomainEntityName(this ICSharpTemplate template, ClassModel domainModel)
     {
         var entityName = template
@@ -96,9 +97,10 @@ public static class ImplementationStrategyTemplatesExtensions
     {
         string IdName { get; }
         string Type { get; }
+        AttributeModel Attribute { get; }
     }
-    
-    public record EntityIdAttribute(string IdName, string Type) : IEntityId;
+
+    public record EntityIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
@@ -107,87 +109,103 @@ public static class ImplementationStrategyTemplatesExtensions
 
     public static IList<EntityIdAttribute> GetEntityIdAttributes(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
-        var explicitKeyField = GetExplicitEntityIdField(entity);
-        if (explicitKeyField.Any()) return explicitKeyField;
-        return new List<EntityIdAttribute> { new EntityIdAttribute("Id", GetDefaultSurrogateKeyType(executionContext)) };
-
-        IList<EntityIdAttribute> GetExplicitEntityIdField(ClassModel entity)
+        while (entity != null)
         {
-            return entity.Attributes.Where(p => p.IsPrimaryKey()).Select(s => new EntityIdAttribute(s.Name, GetKeyTypeName(s.Type))).ToList();
+            var primaryKeys = entity.Attributes.Where(x => x.IsPrimaryKey()).ToArray();
+            if (!primaryKeys.Any())
+            {
+                entity = entity.ParentClass;
+                continue;
+            }
+
+            return primaryKeys
+                .Select(attribute => new EntityIdAttribute(attribute.Name, GetKeyTypeName(attribute.Type), attribute))
+                .ToList();
         }
+
+        // Implicit Key:
+        return new List<EntityIdAttribute>
+        {
+            new("Id", GetDefaultSurrogateKeyType(executionContext), null)
+        };
     }
 
-    public record EntityNestedCompositionalIdAttribute(string IdName, string Type) : IEntityId;
+    public record EntityNestedCompositionalIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
 
-    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner,
-        ISoftwareFactoryExecutionContext executionContext)
+    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
         return GetNestedCompositionalOwnerIdAttributes(entity, owner, executionContext).FirstOrDefault();
     }
-    
+
     public static IList<EntityNestedCompositionalIdAttribute> GetNestedCompositionalOwnerIdAttributes(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
-        var explicitKeyFields = GetExplicitForeignKeyNestedCompOwnerFields(entity, owner);
-        if (explicitKeyFields.Any()) return explicitKeyFields;
-        return new List<EntityNestedCompositionalIdAttribute> { new($"{owner.Name}Id", GetDefaultSurrogateKeyType(executionContext)) };
-        
-        IList<EntityNestedCompositionalIdAttribute> GetExplicitForeignKeyNestedCompOwnerFields(ClassModel innerEntity, ClassModel innerOwner)
+        while (entity != null)
         {
-            return innerEntity.Attributes
-                .Where(attr => { 
+            var foreignKeys = entity.Attributes.Where(x => x.IsForeignKey()).ToArray();
+            if (!foreignKeys.Any())
+            {
+                entity = entity.ParentClass;
+                continue;
+            }
+
+            return foreignKeys
+                .Where(attr =>
+                {
                     if (!attr.IsForeignKey())
                     {
                         return false;
                     }
 
                     var fkAssociation = attr.GetForeignKeyAssociation();
+
                     // Backward compatible lookup method
                     if (fkAssociation == null)
                     {
-                        return attr.Name.Contains(innerOwner.Name, StringComparison.OrdinalIgnoreCase);
+                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
                     }
 
-                    return innerOwner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
+                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
                 })
-                .Select(attr => new EntityNestedCompositionalIdAttribute(attr.Name, GetKeyTypeName(attr.Type)))
+                .Select(attribute => new EntityNestedCompositionalIdAttribute(attribute.Name, GetKeyTypeName(attribute.Type), attribute))
                 .ToList();
         }
+
+        // Implicit Key:
+        return new List<EntityNestedCompositionalIdAttribute>
+        {
+            new($"{owner.Name}Id", GetDefaultSurrogateKeyType(executionContext), null)
+        };
     }
 
-    public static DTOFieldModel GetEntityIdField(this IEnumerable<DTOFieldModel> properties, ClassModel entity)
+    public static DTOFieldModel GetEntityIdField(this ICollection<DTOFieldModel> fields, ClassModel entity, ISoftwareFactoryExecutionContext context)
     {
-        return GetEntityIdFields(properties, entity).FirstOrDefault();
+        return GetEntityIdFields(fields, entity, context).FirstOrDefault();
     }
 
-    public static List<DTOFieldModel> GetEntityIdFields(this IEnumerable<DTOFieldModel> properties, ClassModel entity)
+    public static List<DTOFieldModel> GetEntityIdFields(this ICollection<DTOFieldModel> fields, ClassModel entity, ISoftwareFactoryExecutionContext context)
     {
+        var primaryKeys = entity.GetEntityIdAttributes(context);
 
-        var explicitKeyFields = GetExplicitEntityIdField(entity, properties);
-        if (explicitKeyFields.Any()) return explicitKeyFields;
-        var implicitKeyField = GetImplicitEntityIdField(properties, entity);
-        if (implicitKeyField != null)
-        {
-            return new List<DTOFieldModel> { implicitKeyField };
-        }
-        return new List<DTOFieldModel>();
+        return primaryKeys
+            .Select(GetField)
+            .Where(x => x != null)
+            .ToList();
 
-        List<DTOFieldModel> GetExplicitEntityIdField(ClassModel entity, IEnumerable< DTOFieldModel> properties)
+        DTOFieldModel GetField(EntityIdAttribute pk)
         {
-            var idFields = properties
+            return fields
                 .Where(field =>
                 {
-                    var attr = field.Mapping?.Element.AsAttributeModel();
-                    return attr != null && attr.IsPrimaryKey();
-                });
-            return idFields.ToList();
-        }
+                    if (field.Mapping?.ElementId != null)
+                    {
+                        return field.Mapping.ElementId == pk.Attribute?.Id;
+                    }
 
-        DTOFieldModel GetImplicitEntityIdField(IEnumerable<DTOFieldModel> properties, ClassModel entity)
-        {
-            var idField = properties.FirstOrDefault(p =>
-                string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                (entity != null && string.Equals(p.Name, $"{entity.Name}Id", StringComparison.InvariantCultureIgnoreCase)));
-            return idField;
+                    // Fallback to matching by name
+                    return string.Equals(pk.IdName, field.Name, StringComparison.OrdinalIgnoreCase);
+                })
+                // We give priority to mapped elements and fallback to matches by name
+                .MinBy(x => x.Mapping?.ElementId != null);
         }
     }
 
@@ -198,19 +216,37 @@ public static class ImplementationStrategyTemplatesExtensions
         return $"p => {string.Join(" && ", idFields.Select(idField => $"p.{idField.Name.ToPascalCase()} == request.{idField.Name.ToPascalCase()}"))}";
     }
 
-    public static string GetEntityIdFromRequest(this IList<DTOFieldModel> idFields)
+    public static string GetEntityIdFromRequest(this IList<DTOFieldModel> idFields, IElement element)
     {
-        if (idFields.Count == 1)
-            return $"request.{idFields.First().Name.ToPascalCase()}";
-        return $"({string.Join(", ", idFields.Select(idField => $"request.{idField.Name.ToPascalCase()}"))})";
+        if (idFields.Any(x => x is null))
+        {
+            Logging.Log.Warning(
+                $"\"{element.Name}\" [{element.Id}] is missing one or more fields for its owning aggregate's " +
+                $"primary keys, add the missing fields either by mapping them for data mappings, or adding " +
+                $"them manually in the format of \"<owningEntityName><primaryKeyAttributeName>\" for " +
+                $"operation/constructor mappings.");
+        }
+
+        var values = idFields
+            .Select(idField => $"request.{idField?.Name.ToPascalCase() ?? "MISSING_FIELD"}")
+            .ToArray();
+
+        return values.Length == 1
+            ? values[0]
+            : $"({string.Join(", ", values)})";
     }
 
     public static string GetEntityIdFromRequestDescription(this IList<DTOFieldModel> idFields)
     {
-        if (idFields.Count == 1)
-            return $"{{request.{idFields.First().Name.ToPascalCase()}}}";
-        return $"({string.Join(", ", idFields.Select(idField => $"{{request.{idField.Name.ToPascalCase()}}}"))})";
+        var values = idFields
+            .Select(idField => $"{{request.{idField?.Name.ToPascalCase() ?? "MISSING_FIELD"}}}")
+            .ToArray();
+
+        return values.Length == 1
+            ? values[0]
+            : $"({string.Join(", ", values)})";
     }
+
     public static DTOFieldModel GetNestedCompositionalOwnerIdField(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
         return GetNestedCompositionalOwnerIdFields(properties, owner).FirstOrDefault();
@@ -219,7 +255,7 @@ public static class ImplementationStrategyTemplatesExtensions
     public static IList<DTOFieldModel> GetNestedCompositionalOwnerIdFields(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
         var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(properties, owner);
-        if (explicitKeyField .Any()) return explicitKeyField;
+        if (explicitKeyField.Any()) return explicitKeyField;
         var implicitKeyField = GetImplicitForeignKeyNestedCompOwnerField(properties, owner);
         if (implicitKeyField != null)
         {
@@ -262,57 +298,36 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
-    public static IList<DTOFieldModel> GetNestedCompositionalOwnerIdFields(this IList<DTOFieldModel> properties, ClassModel owner, ClassModel comp)
+    /// <remarks>
+    /// Only ever used for constructors and operations which can't possibly have mappings to
+    /// associations or attributes of the owner.The designer's "Create CRUD script" in such cases
+    /// always automatically creates a field for each owner's pk and prefixes it with the owning
+    /// entity's name.
+    /// </remarks>
+    public static IList<DTOFieldModel> GetCompositesOwnerIdFieldsForOperations(
+        this IList<DTOFieldModel> fields, 
+        ClassModel entity, 
+        ISoftwareFactoryExecutionContext executionContext)
     {
-        var explicitKeyFields = GetExplicitForeignKeyNestedCompOwnerField();
-        if (explicitKeyFields.Any()) return explicitKeyFields;
+        var pks = entity.GetEntityIdAttributes(executionContext);
 
-        var implicitKeyField = GetImplicitForeignKeyNestedCompOwnerField();
-        if (implicitKeyField != null)
-        {
-            return new List<DTOFieldModel> { implicitKeyField };
-        }
+        return pks
+            .Select(pk =>
+            {
+                var entityName = entity.Name.ToLowerInvariant();
+                var pkAttributeName = pk.IdName.ToLowerInvariant();
+                var fieldName = $"{entityName}{pkAttributeName.RemoveSuffix(entityName)}";
 
-        return new List<DTOFieldModel>();
-
-        List<DTOFieldModel> GetExplicitForeignKeyNestedCompOwnerField()
-        {
-            var idFields = properties
-                .Where(field =>
-                {
-                    var attr = field.Mapping?.Element.AsAttributeModel()
-                                    ?? comp.Attributes.SingleOrDefault(a => a.Name.Equals(field.Name, StringComparison.OrdinalIgnoreCase));
-                    
-                    if (!attr.IsForeignKey())
-                    {
-                        return false;
-                    }
-
-                    var fkAssociation = attr.GetForeignKeyAssociation();
-                    // Backward compatible lookup method
-                    if (fkAssociation == null)
-                    {
-                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
-                    }
-
-                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
-                });
-
-            return idFields.ToList();
-        }
-
-        DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField()
-        {
-            var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
-            return idField;
-        }
+                return fields.SingleOrDefault(field => string.Equals(field.Name, fieldName, StringComparison.OrdinalIgnoreCase));
+            })
+            .ToList();
     }
 
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {
         return owner.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
     }
-    
+
     public static IReadOnlyCollection<RequiredService> GetAdditionalServicesFromParameters(this ICSharpTemplate template, IEnumerable<ParameterModel> parameters)
     {
         return parameters
@@ -325,7 +340,7 @@ public static class ImplementationStrategyTemplatesExtensions
     {
         return element switch
         {
-            _ when template.TryGetTypeName("Domain.DomainServices.Interface", element, out var typeName) => 
+            _ when template.TryGetTypeName("Domain.DomainServices.Interface", element, out var typeName) =>
                 new RequiredService(typeName, "domainService"),
             _ => null
         };
@@ -341,7 +356,7 @@ public static class ImplementationStrategyTemplatesExtensions
             _ => typeReference.Element.Name
         };
     }
-    
+
     private static string GetDefaultSurrogateKeyType(ISoftwareFactoryExecutionContext executionContext)
     {
         //var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";

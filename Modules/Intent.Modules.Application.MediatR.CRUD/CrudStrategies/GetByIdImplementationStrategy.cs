@@ -67,7 +67,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 _template.AddUsing("System.Linq");
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
@@ -86,7 +86,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
 
-            codeLines.Add($@"var {foundEntity.Name.ToCamelCase()} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+            codeLines.Add($@"var {foundEntity.Name.ToCamelCase()} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
             codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                 variable: foundEntity.Name.ToCamelCase(),
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
@@ -119,7 +119,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return NoMatch;
             }
 
-            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity, _template.ExecutionContext);
             if (!idFields.Any())
             {
                 return NoMatch;

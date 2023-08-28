@@ -83,13 +83,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var aggregateRootIdFields = _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner, foundEntity);
+                var aggregateRootIdFields = _template.Model.Properties.GetCompositesOwnerIdFieldsForOperations(nestedCompOwner, _template.ExecutionContext);
                 if (!aggregateRootIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
@@ -105,7 +105,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
             else
             {
-                codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: entityVariableName,
                     message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
@@ -241,7 +241,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return NoMatch;
             }
 
-            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity, _template.ExecutionContext);
             if (!idFields.Any())
             {
                 return NoMatch;
