@@ -19,12 +19,11 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Operations
 
         public void Sync()
         {
-            throw new NotImplementedException("Replace with your implementation...");
         }
 
         public object SyncWithReturn()
         {
-            throw new NotImplementedException("Replace with your implementation...");
+            return new object();
         }
     }
 }

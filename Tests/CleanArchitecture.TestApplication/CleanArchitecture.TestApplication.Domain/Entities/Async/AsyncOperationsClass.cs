@@ -25,27 +25,25 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Async
 
         public async Task Explicit(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Replace with your implementation...");
         }
 
         public async Task<object> ExplicitWithReturn(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Replace with your implementation...");
+            return new object();
         }
 
         public async Task ImplicitAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Replace with your implementation...");
         }
 
         public async Task<object> ImplicitWithReturnAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Replace with your implementation...");
+            return new object();
         }
 
         public int Operation()
         {
-            throw new NotImplementedException("Replace with your implementation...");
+            return 1;
         }
     }
 }
