@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</id>
-  <version>5.1.4-pre.0</version>
+  <version>5.1.4</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Instructs ASP.NET Core Controllers to dispatch requests to a separate handler via Application Contract interfaces.</summary>
   <description>Instructs ASP.NET Core Controllers to dispatch requests to a separate handler via Application Contract interfaces.</description>
@@ -16,7 +16,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Contracts" version="5.0.3-pre.0" />
+    <dependency id="Intent.Application.Contracts" version="5.0.3" />
     <dependency id="Intent.AspNetCore.Controllers" version="5.1.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />

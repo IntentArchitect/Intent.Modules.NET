@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>5.3.3-pre.0</version>
+  <version>5.3.3</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -45,7 +45,7 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.1.4-pre.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.1.4" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">

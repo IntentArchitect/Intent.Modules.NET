@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ContinuousIntegration.AzurePipelines</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</summary>
   <description>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</description>
@@ -28,5 +28,5 @@
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/tree/master/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md</projectUrl>
 </package>
