@@ -1,0 +1,1 @@
+﻿# Intent.Eventing.MassTransit.EntityFrameworkCore

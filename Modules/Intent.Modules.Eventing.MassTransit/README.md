@@ -44,3 +44,7 @@ You can configure the name of the header in your `appsettings.json`, by default 
 ### Intent.Eventing.MassTransit.EntityFrameworkCore
 
 This modules provides patterns around using Entity Framework Core as the technology provider for the OutBox pattern.
+
+### Intent.Eventing.MassTransit.Scheduling
+
+This module brings in the abvility to publish scheduled messages.
