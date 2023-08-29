@@ -10,15 +10,13 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.O
 {
     public class OperationOneToManySourceCommand : IRequest, ICommand
     {
-        public OperationOneToManySourceCommand(string attribute, Guid ownerId, Guid id)
+        public OperationOneToManySourceCommand(Guid id, string attribute)
         {
-            Attribute = attribute;
-            OwnerId = ownerId;
             Id = id;
+            Attribute = attribute;
         }
 
         public string Attribute { get; set; }
-        public Guid OwnerId { get; set; }
         public Guid Id { get; set; }
     }
 }

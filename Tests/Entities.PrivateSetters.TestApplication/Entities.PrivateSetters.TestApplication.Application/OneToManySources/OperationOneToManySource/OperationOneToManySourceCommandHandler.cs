@@ -27,19 +27,14 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.O
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(OperationOneToManySourceCommand request, CancellationToken cancellationToken)
         {
-            var aggregateRoot = await _oneToManySourceRepository.FindByIdAsync(request.OwnerId, cancellationToken);
-            if (aggregateRoot is null)
+            var existingOneToManySource = await _oneToManySourceRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingOneToManySource is null)
             {
-                throw new NotFoundException($"{nameof(OneToManySource)} of Id '{request.OwnerId}' could not be found");
+                throw new NotFoundException($"Could not find OneToManySource '{request.Id}'");
             }
 
-            var existingOneToManyDest = aggregateRoot.Owneds.FirstOrDefault(p => p.Id == request.Id);
-            if (existingOneToManyDest is null)
-            {
-                throw new NotFoundException($"{nameof(OneToManyDest)} of Id '{request.Id}' could not be found associated with {nameof(OneToManySource)} of Id '{request.OwnerId}'");
-            }
-
-            existingOneToManyDest.Operation(request.Attribute);
+#warning No supported convention for populating "owneds" parameter
+            existingOneToManySource.Operation(request.Attribute, owneds: default);
         }
     }
 }
