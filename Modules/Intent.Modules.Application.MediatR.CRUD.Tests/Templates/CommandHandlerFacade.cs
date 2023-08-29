@@ -41,7 +41,7 @@ internal class CommandHandlerFacade
         TargetDomainModel = model.Mapping.Element.AsClassModel()
                             ?? ClassConstructorModelExtensions.AsClassConstructorModel(model.Mapping.Element)?.ParentClass
                             ?? OperationModelExtensions.AsOperationModel(model.Mapping.Element)?.ParentClass;
-        CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
+        CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
         TargetDomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
         SingularCommandName = model.Name.ToPascalCase();

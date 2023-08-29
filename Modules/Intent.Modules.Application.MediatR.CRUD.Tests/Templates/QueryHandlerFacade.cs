@@ -42,7 +42,7 @@ internal class QueryHandlerFacade
                             ?? model.GetPaginatedClassModel()
                             ?? throw new Exception($"No Domain Class mapping found for Query Model Id = {model.Id} / Name = {model.Name}");
 
-        QueryIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
+        QueryIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
         DomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
         SingularQueryName = model.Name.ToPascalCase();

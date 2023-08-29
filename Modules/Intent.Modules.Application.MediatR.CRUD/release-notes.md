@@ -1,3 +1,8 @@
+### Version 5.2.4
+
+- Improvement: Will now automatically add necessary fields for primary keys for command and queries mapped to owned composite entities and implementations will properly recognize them.
+- Fields and corresponding DTOs are now automatically created for `1 .. 1` associations.  
+
 ### Version 5.2.3
 
 - Improvement: Updated extension method to deal with composite keys for use in the Unit Test module.
