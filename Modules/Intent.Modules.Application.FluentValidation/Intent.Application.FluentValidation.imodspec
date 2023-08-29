@@ -10,6 +10,7 @@
   <templates />
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet validation</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.FluentValidation/README.md</projectUrl>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />
