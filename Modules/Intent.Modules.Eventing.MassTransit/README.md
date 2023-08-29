@@ -10,12 +10,12 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 ## What's in this module?
 
-This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:-
+This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:
 
-* MassTransit ESB Implimentation
+* MassTransit Message Broker implimentation.
 * Message Publishing.
 * Message Consumption.
-* Multitenancy Finbuckle Integration.
+* Multitenancy Finbuckle integration.
 * `app.settings` configuration.
 * Dependency Injection wiring.
 * Telemetry support.
@@ -24,7 +24,7 @@ This module consumes your `Eventing Model`, which you build in the `Eventing Des
 
 ### Messaging Service Provider Setting
 
-Configure what you underlying message broker is, the supported options are:
+Configure what your underlying message broker is, the supported options are:
 
 * In Memory
 * Rabbit MQ
@@ -39,23 +39,27 @@ Configure what you underlying message broker is, the supported options are:
 Configure your Outbox pattern implementation, the supported options are:
 
 * None
-* In Memory
-* Entity Framework
+* [In Memory](https://masstransit.io/documentation/patterns/in-memory-outbox)
+* [Entity Framework](https://masstransit.io/documentation/patterns/transactional-outbox)
+
+> ⚠️ **NOTE**
+> Using an Outbox pattern for Consumers will also introduce idempotency to ensure that the same messages doesn't get processed more than once.
 
 ### Retry Policy Setting
 
-Configure the messaging retry strategy.
+Configure the messaging retry strategy. Once the retry strategy is exhausted, the failing message will be placed in a error queue.
 
-* None
-* Exponential
-* Interval
-* Incemental
+* None: No retries occur (not recommended).
+* Immediate: Consecutive retries for a specified number of times without delay.
+* Interval: Retry with constant intervals, for a specified number of times.
+* Exponential: The retry interval increases exponentially, typically doubling each time.
+* Incremental: Retry interval increases by a consistent margin.
 
 For more information on these options check out the MassTransit [documentation](https://masstransit.io/documentation/concepts/exceptions#retry).
 
 ## Designer Support - Eventing Designer
 
-The eventing desinger can be used to describe messaging from an Applications perspective. This really bnoils down to the following:
+The eventing desinger can be used to describe messaging from an Applications perspective. This really boils down to the following:
 
 * The message contracts, i.e. the message content.
 * Which messages the application publishes.
@@ -169,7 +173,7 @@ Registers up the MassTransit dependency injection in the Infrastructual layer.
     }
 ```
 
-Adds a MassTransit Confgiguration file, which look similar to this depnding on your configuration.
+Adds a MassTransit Configuration file, which look similar to this depnding on your configuration.
 
 ```csharp
     public static class MassTransitConfiguration
@@ -214,7 +218,7 @@ This modules provides patterns around using Entity Framework Core as the technol
 
 ### Intent.Eventing.MassTransit.Scheduling
 
-This module brings in the abvility to publish scheduled messages.
+This module brings in the ability to publish scheduled messages.
 
 ## Local Development
 
