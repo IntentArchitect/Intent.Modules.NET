@@ -23,6 +23,8 @@ internal static class TriggerStrategyResolver
                 return new EventHubTriggerHandler(template, model);
             case TriggerType.ManualTrigger:
                 return new ManualTriggerHandler(template, model);
+            case TriggerType.CosmosDBTrigger:
+                return new CosmosDBTriggerHandler(template, model);
             default:
                 throw new ArgumentOutOfRangeException();
         }

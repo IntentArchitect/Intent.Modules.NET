@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 
 namespace Intent.AzureFunctions.Api;
 
-public interface IAzureFunctionModel : IMetadataModel, IHasName, IHasTypeReference, IHasFolder<IFolder>
+public interface IAzureFunctionModel : IMetadataModel, IHasName, IHasTypeReference, IHasFolder<IFolder>, IHasStereotypes
 {
     TriggerType TriggerType { get; }
     string AuthorizationLevel { get;}

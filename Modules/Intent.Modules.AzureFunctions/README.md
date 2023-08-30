@@ -8,6 +8,71 @@ In the service's designer you can model your services in any of the following wa
 * `Command`s and `Query`s' (Expose as `Azure Function`)
 * `Service`s. (Expose the `Operation`s as `Azure Function`)
 
+## Http Triggers
+
+Configure the Azure Function Stereotype:
+
+* Trigger to be `Http Trigger`.
+
+On the `Http Settings` stereotype you can configure the following :
+
+* Verb, the http Verb for the service end point.
+* Route, the http route for the service end point.
+* Return Type Mediatype, the content type of the service response.
+
+For more information on Azure Function Http Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger).
+
+## Cosmos DB Triggers
+
+Note, Cosmos DB Trigger are only available on `Azure Function` and `Service` models, as the payload is inherantly collection based, and these models can represent that.
+
+Configure the Azure Function Stereotype:
+
+* Trigger to be `Cosmos DB Trigger`.
+
+On the `Cosmos DB Trigger` stereotype configure the following :
+
+* Connection, name of the Cosmos DB connection string configured in your app.settings.
+* Database name, the name of the Azure Cosmos DB database with the container being monitored.
+* Container name, the name of the container being monitored.
+* LeaseContainerName, the name of the container used to store leases.
+* CreateLeaseContainerIfNotExists, when set to true, the leases container is automatically created when it doesn't already exist. The default value is false. When using Azure AD identities if you set the value to true, creating containers is not an allowed operation and your Function won't be able to start.
+
+![Configured Cosmos DB Trigger](docs/images/cosmosdb-trigger-service.png)
+
+Your generated Azure Function will look similar to this:-
+
+```csharp
+
+[FunctionName("CustomersCreated")]
+public async Task Run(
+    [CosmosDBTrigger(
+        databaseName: "CosmosDBTriggerTest", 
+        containerName: "Customers", 
+        Connection = "RepositoryOptions:CosmosConnectionString", 
+        CreateLeaseContainerIfNotExists = true, 
+        LeaseContainerName = "leases")] IReadOnlyCollection<CustomerCreatedDto> rawCollection,
+    CancellationToken cancellationToken)
+{
+    if (rawCollection == null || rawCollection.Count == 0) return;
+    var customers = rawCollection.ToList();
+    await _appService.CustomersCreated(customers, cancellationToken);
+    return;
+}
+
+```
+
+For more information on Azure Function Cosmos DB Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger).
+
+## Timer Triggers
+
+Configure the Azure Function Stereotype:
+
+* Trigger to be `Timer Trigger`.
+* Schedule Expression, the NCRONTAB expressions for the timer interval.
+
+For more information on Azure Function Timer Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer).
+
 ## Queue Triggers
 
 Configure the Azure Function Stereotype:
@@ -63,6 +128,12 @@ public async Task Run(
     await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
 }
 ```
+
+## Related Modules
+
+### Intent.AzureFunctions.OpenApi
+
+This module introduces Swagger generation and Swagger UI support for Http Trigger functions.
 
 ## Local Development
 

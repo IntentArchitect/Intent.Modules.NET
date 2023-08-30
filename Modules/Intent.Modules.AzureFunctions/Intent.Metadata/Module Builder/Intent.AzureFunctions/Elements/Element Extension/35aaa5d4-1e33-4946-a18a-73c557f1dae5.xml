@@ -154,6 +154,7 @@
           <childElements />
         </childElement>
         <childElement id="73223285-559f-489e-9b2d-75fb7c644e7c" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <comment>Queue Trigger</comment>
           <name>On Changed</name>
           <display>On Changed: Script</display>
           <isAbstract>false</isAbstract>
@@ -180,6 +181,40 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let azureFunctionTriggerId = &quot;a6411e1f-8199-4b18-b1a1-fd2aa73b1da6&quot;;&#xD;&#xA;let queueOutputBindingId = &quot;ec293aa6-7120-4870-800f-7db01391376f&quot;;//from AzureFunctions (this) module&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== &quot;Queue Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(queueOutputBindingId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.typeReference == null || element.typeReference.getType() == null ){&#xD;&#xA;    element.removeStereotype(queueOutputBindingId);&#xD;&#xA;} else if (element.getStereotype(queueOutputBindingId) == null) {&#xD;&#xA;    element.addStereotype(queueOutputBindingId);&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="78d060df-fe50-46b5-b036-4204a89a2cde" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <comment>Cosmos DB Trigger</comment>
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fd7c178d-7a10-47a0-bb8d-5e527c1203f6">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>377fdd6c-a4b8-471e-9d5c-2acf264da7df</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let azureFunctionTriggerId = &quot;a6411e1f-8199-4b18-b1a1-fd2aa73b1da6&quot;;&#xD;&#xA;let comsmosDBTriggerId = &quot;78edaf9d-bc43-4792-b483-408fcd630261&quot;;//from AzureFunctions (this) module&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== &quot;Cosmos DB Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(comsmosDBTriggerId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(comsmosDBTriggerId) == null) {&#xD;&#xA;    element.addStereotype(comsmosDBTriggerId);&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

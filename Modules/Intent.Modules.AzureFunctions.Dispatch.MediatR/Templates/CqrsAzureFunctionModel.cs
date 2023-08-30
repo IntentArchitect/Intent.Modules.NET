@@ -38,6 +38,8 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
         IsMapped = command.InternalElement.IsMapped;
         Mapping = command.InternalElement.MappedElement;
         Folder = command.Folder;
+        Stereotypes = command.InternalElement.Stereotypes;
+
     }
 
     public CqrsAzureFunctionModel(QueryModel query)
@@ -64,6 +66,7 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
         IsMapped = query.InternalElement.IsMapped;
         Mapping = query.InternalElement.MappedElement;
         Folder = query.Folder;
+        Stereotypes = query.InternalElement.Stereotypes;
     }
 
     public string Id { get; }
@@ -92,4 +95,6 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
 
     public IElementMapping Mapping { get; }
     public IFolder Folder { get; }
+
+    public IEnumerable<IStereotype> Stereotypes { get; }
 }
