@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: Value Objects are now supported that are embedded or associated with Classes.
+
 ### Version 1.2.0
 
 - Improvement: Refactored module completely for better internal maintainability.

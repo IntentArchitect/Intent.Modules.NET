@@ -27,6 +27,8 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
     public AssertionClassTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
     {
         AddTypeSource(CommandModelsTemplate.TemplateId);
+        AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+        AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
         AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Application.Contracts.Dto, "IEnumerable<{0}>"));
         AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Domain.Entity.Primary, "IEnumerable<{0}>"));
 
