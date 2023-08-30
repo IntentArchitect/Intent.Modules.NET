@@ -49,6 +49,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountHolder> AccountHolders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public DbSet<AggregateRoot> AggregateRoots { get; set; }
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
@@ -105,6 +106,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());

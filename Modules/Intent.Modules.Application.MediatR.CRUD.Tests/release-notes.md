@@ -1,6 +1,10 @@
-### Version 1.2.1
+### Version 1.2.2
 
 - Fixed: Software Factory `MethodNotFound` exception would occur when run with `Intent.Application.MediatR.CRUD` version `5.2.4` and newer.
+
+### Version 1.2.1
+
+- Fixed: Value Objects are now supported that are embedded or associated with Classes.
 
 ### Version 1.2.0
 
