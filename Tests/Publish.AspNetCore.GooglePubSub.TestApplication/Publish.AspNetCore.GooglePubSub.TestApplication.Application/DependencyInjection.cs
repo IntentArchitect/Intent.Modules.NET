@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Common.Eventing;
 using Publish.AspNetCore.GooglePubSub.TestApplication.Application.Implementation;
@@ -16,7 +17,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

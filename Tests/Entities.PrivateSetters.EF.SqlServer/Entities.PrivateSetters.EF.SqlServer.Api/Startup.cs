@@ -37,7 +37,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);

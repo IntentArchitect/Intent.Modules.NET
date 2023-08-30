@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Implementation;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interfaces;
@@ -13,7 +14,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

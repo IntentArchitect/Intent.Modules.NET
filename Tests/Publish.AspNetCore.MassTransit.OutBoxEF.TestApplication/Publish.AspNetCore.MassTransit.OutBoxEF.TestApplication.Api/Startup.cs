@@ -38,7 +38,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

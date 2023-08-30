@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransitFinbuckle.Test.Application.Common.Behaviours;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +14,7 @@ namespace MassTransitFinbuckle.Test.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg =>

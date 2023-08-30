@@ -58,7 +58,7 @@ public class UnversionedServicesHttpClientTests
     {
         var mockUnitOfWork = new MockUnitOfWork();
         var mockEventBus = new MockEventBus();
-        return x => x.AddApplication()
+        return x => x.AddApplication(Substitute.For<IConfiguration>())
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
             .AddTransient<IEventBus>(_ => mockEventBus)
             .AddTransient<ICurrentUserService, CurrentUserService>()

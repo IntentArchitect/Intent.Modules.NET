@@ -1,10 +1,14 @@
+### Version 4.0.7
+
+- Improvement: Updated nuget packages for .NET 8 framework readiness.
+
 ### Version 4.0.6
 
-- Update: Added Nuget Dependency `Microsoft.Extensions.Configuration.Binder`.
+- Improvement: Added Nuget Dependency `Microsoft.Extensions.Configuration.Binder`.
 
 ### Version 4.0.5
 
-- Update: Removed various compiler warnings.
+- Fixed: Removed various compiler warnings.
 
 ### Version 4.0.4
 
@@ -12,7 +16,7 @@
 
 ### Version 4.0.3
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 4.0.2
 
@@ -24,8 +28,8 @@
 
 ### Version 4.0.0
 
-- New: Upgraded Templates to use new Builder Pattern paradigm.
+- New Feature: Upgraded Templates to use new Builder Pattern paradigm.
 
 ### Version 3.3.8
 
-- Update: Dependency injection configuration now receives event updates from `ServiceConfigurationRequest` and not just from `ContainerRegistrationRequest`.
+- Improvement: Dependency injection configuration now receives event updates from `ServiceConfigurationRequest` and not just from `ContainerRegistrationRequest`.

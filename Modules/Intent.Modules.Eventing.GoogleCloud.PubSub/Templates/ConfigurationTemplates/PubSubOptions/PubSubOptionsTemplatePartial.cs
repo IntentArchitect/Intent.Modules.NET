@@ -57,7 +57,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
             this.ApplyAppSetting("GoogleCloudPubSub:VerificationToken", "your-own-secret-string");
 
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddOptions")
+                .ToRegister(extensionMethodName: "AddOptions")
                 .RequiresUsingNamespaces("Microsoft.Extensions.DependencyInjection")
                 .WithPriority(-1100));
         }

@@ -10,7 +10,9 @@ using CleanArchitecture.TestApplication.Application.Versioned.TestCommandV2;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
 using Intent.IntegrationTest.HttpClient.Common;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NSubstitute;
 using Xunit;
 using Xunit.Abstractions;
 using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV1;
@@ -76,7 +78,7 @@ public class VersionedServicesHttpClientTests
     {
         var mockUnitOfWork = new MockUnitOfWork();
         var mockEventBus = new MockEventBus();
-        return x => x.AddApplication()
+        return x => x.AddApplication(Substitute.For<IConfiguration>())
             .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
             .AddTransient<IEventBus>(_ => mockEventBus)
             .AddTransient<ICurrentUserService, CurrentUserService>()

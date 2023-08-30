@@ -4,6 +4,7 @@ using Finbuckle.SeparateDatabase.TestApplication.Application.Implementation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +14,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

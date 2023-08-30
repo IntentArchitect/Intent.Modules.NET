@@ -57,7 +57,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Templates.DaprConfiguration
             }
 
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddDaprServices")
+                .ToRegister(extensionMethodName: "AddDaprServices")
                 .HasDependency(this));
         }
 

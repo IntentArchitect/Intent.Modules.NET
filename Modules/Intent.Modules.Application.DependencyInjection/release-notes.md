@@ -1,9 +1,12 @@
-### Version 4.0.5
-- Update: Made the `DependencyInjectionTemplate` AfterBuild run later to better accommodate other templates wanting to interact with it during the AfterBuild step .
+### Version 4.0.6
 
+- Improvement: `AddApplication` extension method will now receive `IConfiguration` as a parameter.
+
+### Version 4.0.5
+- Improvement: Made the `DependencyInjectionTemplate` AfterBuild run later to better accommodate other templates wanting to interact with it during the AfterBuild step .
 
 ### Version 4.0.4
-- Update: Removed various compiler warnings.
+- Improvement: Removed various compiler warnings.
 
 ### Version 4.0.3
 
@@ -11,15 +14,15 @@
 
 ### Version 4.0.2
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 4.0.1
 
-- Updated supported client version to [3.3.0-pre.0, 5.0.0).
+- Fixed: Updated supported client version to [3.3.0-pre.0, 5.0.0).
 
 ### Version 4.0.0
 
-- New: Upgraded Templates to use new Builder Pattern paradigm.
+- New Feature: Upgraded Templates to use new Builder Pattern paradigm.
 
 ### Version 3.3.10
 
@@ -27,4 +30,4 @@
 
 ### Version 3.3.8
 
-- Update: Dependency injection configuration now receives event updates from `ServiceConfigurationRequest` and not just from `ContainerRegistrationRequest`.
+- Improvement: Dependency injection configuration now receives event updates from `ServiceConfigurationRequest` and not just from `ContainerRegistrationRequest`.

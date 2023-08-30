@@ -78,7 +78,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             ExecutionContext.EventDispatcher.Publish(
                 ServiceConfigurationRequest.ToRegister(
                         extensionMethodName: "AddInfrastructure",
-                        ServiceConfigurationRequest.ParameterType.Configuration)
+                        extensionMethodParameterList: ServiceConfigurationRequest.ParameterType.Configuration)
                     .HasDependency(this));
         }
 

@@ -68,7 +68,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureIdentity").HasDependency(this));
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister(extensionMethodName: "ConfigureIdentity").HasDependency(this));
             base.BeforeTemplateExecution();
         }
 

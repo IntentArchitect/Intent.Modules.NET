@@ -39,7 +39,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddOptions();
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

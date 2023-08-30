@@ -38,7 +38,7 @@ namespace AzureKeyVault.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();

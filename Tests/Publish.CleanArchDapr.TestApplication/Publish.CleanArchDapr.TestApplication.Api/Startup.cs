@@ -40,7 +40,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api
                 })
             .AddDapr();
             services.AddDaprSidekick(Configuration);
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);

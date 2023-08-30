@@ -10,6 +10,7 @@ using AzureFunctions.TestApplication.Application.Interfaces.Queues.Bindings;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,7 +20,7 @@ namespace AzureFunctions.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg =>

@@ -39,7 +39,7 @@ namespace Application.Identity.AccountController.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureIdentity();
             services.ConfigureProblemDetails();

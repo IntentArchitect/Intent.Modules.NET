@@ -16,7 +16,7 @@ namespace AzureFunctions.TestApplication.Api
         public override void Configure(IFunctionsHostBuilder builder)
         {
             var configuration = builder.GetContext().Configuration;
-            builder.Services.AddApplication();
+            builder.Services.AddApplication(configuration);
             builder.Services.ConfigureApplicationSecurity(configuration);
             builder.Services.AddInfrastructure(configuration);
         }

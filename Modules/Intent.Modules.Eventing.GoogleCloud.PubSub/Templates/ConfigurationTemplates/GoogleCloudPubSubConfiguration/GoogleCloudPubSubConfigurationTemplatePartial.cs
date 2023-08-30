@@ -105,19 +105,19 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("RegisterGoogleCloudPubSubServices", ServiceConfigurationRequest.ParameterType.Configuration)
+                .ToRegister(extensionMethodName: "RegisterGoogleCloudPubSubServices", extensionMethodParameterList: ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddSubscribers")
+                .ToRegister(extensionMethodName: "AddSubscribers")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("RegisterEventHandlers")
+                .ToRegister(extensionMethodName: "RegisterEventHandlers")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("RegisterTopicEvents")
+                .ToRegister(extensionMethodName: "RegisterTopicEvents")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
         }

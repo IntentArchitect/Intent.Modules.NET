@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
@@ -16,7 +17,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg =>
