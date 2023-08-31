@@ -24,8 +24,6 @@ For more information on Azure Function Http Triggers, refer to the official [doc
 
 ## Cosmos DB Triggers
 
-Note, Cosmos DB Trigger are only available on `Azure Function` and `Service` models, as the payload is inherantly collection based, and these models can represent that.
-
 Configure the Azure Function Stereotype:
 
 * Trigger to be `Cosmos DB Trigger`.
@@ -57,7 +55,31 @@ public async Task Run(
     if (rawCollection == null || rawCollection.Count == 0) return;
     var customers = rawCollection.ToList();
     await _appService.CustomersCreated(customers, cancellationToken);
-    return;
+}
+
+```
+
+> **NOTE**
+> I you model a `Command` or a `Service` which accepts a non-collection argument, the dispatching will be batched as per the example below.
+
+```csharp
+
+[FunctionName("CustomersCreated")]
+public async Task Run(
+    [CosmosDBTrigger(
+        databaseName: "CosmosDBTriggerTest", 
+        containerName: "Customers", 
+        Connection = "RepositoryOptions:CosmosConnectionString", 
+        CreateLeaseContainerIfNotExists = true, 
+        LeaseContainerName = "leases")] IReadOnlyCollection<CustomerCreatedDto> rawCollection,
+            CancellationToken cancellationToken)
+{
+    if (rawCollection == null || rawCollection.Count == 0) return;
+
+    foreach (var customer in rawCollection)
+    {
+        await _mediator.Send(customer, cancellationToken);
+    }
 }
 
 ```
