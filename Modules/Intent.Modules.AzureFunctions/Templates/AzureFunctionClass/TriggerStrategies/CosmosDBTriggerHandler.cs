@@ -92,7 +92,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 
             if (_azureFunctionModel.Parameters.Single().TypeReference.IsCollection)
             {
-                method.AddStatement($"var {parameterName} = rawCollection.ToList()");
+                method.AddStatement($"var {parameterName} = rawCollection.ToList();");
             }
             else
             {

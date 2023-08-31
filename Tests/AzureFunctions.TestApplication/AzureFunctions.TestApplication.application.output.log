@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CosmosDB/CosmosChange.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4dbd7f9c-7bf2-4541-8ff4-fffb6bbb2d5b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CosmosDB/NewAzureFunction.cs</ApplicationRelativeFilePath>
@@ -452,6 +460,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#478fb450-2a2d-462b-98c5-92ec09dd418e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChangeDto.cs</ApplicationRelativeFilePath>
@@ -848,6 +872,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/CosmosDB/CosmosChange/CosmosChangeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -39,7 +39,7 @@ namespace AzureFunctions.TestApplication.Api
                 await _appService.CreateCustomerOp(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
-                return;
+
             }
         }
     }

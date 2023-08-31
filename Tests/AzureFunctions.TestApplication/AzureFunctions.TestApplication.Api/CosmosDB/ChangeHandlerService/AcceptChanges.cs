@@ -41,7 +41,7 @@ namespace AzureFunctions.TestApplication.Api
                 await _appService.AcceptChanges(changes, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
-                return;
+
             }
         }
     }
