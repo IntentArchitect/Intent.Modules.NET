@@ -4,6 +4,9 @@ This module extends the `Intent.Eventing.MassTransit` module, by adding the abil
 
 For more info on MassTransit scheduling, check out their [documentation](https://masstransit.io/documentation/configuration/scheduling).
 
+> **NOTE**
+> Some Message Brokers (like RabbitMQ) requires plugins to be installed or configured for scheduled messages to work. Please see the [documentation](https://masstransit.io/documentation/configuration/scheduling) for more info.
+
 ## What's in this module?
 
 This modules enhances the `Intent.Eventing.MassTransit` module in the following ways:
