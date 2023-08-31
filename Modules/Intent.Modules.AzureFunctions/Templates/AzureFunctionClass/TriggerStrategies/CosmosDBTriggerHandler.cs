@@ -41,10 +41,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
             {
                 throw new Exception($"Missing Cosmos DB Trigger stereotype for the Cosmos DB triggered Azure Function [{_azureFunctionModel.Name}]");
             }
-            if (!_azureFunctionModel.Parameters.Single().TypeReference.IsCollection)
-            {
-                throw new Exception($"The parameter must be a collection, for the Cosmos DB triggered Azure Function [{_azureFunctionModel.Name}]");
-            }
 
             string messageType = string.Format("IReadOnlyCollection<{0}>", _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference.Element.AsTypeReference()));
 
@@ -93,7 +89,15 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
             _template.AddUsing("System.Linq");
             string parameterName = _azureFunctionModel.Parameters.Single().Name.ToParameterName();
             method.AddStatement("if (rawCollection == null || rawCollection.Count == 0) return;");
-            method.AddStatement($"var {parameterName} = rawCollection{ (_azureFunctionModel.Parameters.Single().TypeReference.IsCollection ? ".ToList()" :".Single()")};");
+
+            if (_azureFunctionModel.Parameters.Single().TypeReference.IsCollection)
+            {
+                method.AddStatement($"var {parameterName} = rawCollection.ToList()");
+            }
+            else
+            {
+                method.AddForEachStatement(parameterName, "rawCollection", stmt => stmt.AddMetadata("service-invoke", "true"));
+            }
         }
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()

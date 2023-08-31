@@ -62,8 +62,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                                 p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                             });
                         
-                        var runMethod = @class.FindMethod("Run");
-                        ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod)?
+                        var runMethod = FindServiceInvokePoint(@class)?
                             .AddStatements(GetValidations(template.Model))
                             .AddStatement(GetDispatchViaMediatorStatement(template, template.Model))
                             .AddStatement(GetReturnStatement(template.Model));
@@ -72,6 +71,13 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             }
         }
 
+        private IHasCSharpStatements FindServiceInvokePoint(CSharpClass @class)
+        {
+            var runMethod = @class.FindMethod("Run");
+            var explicitPoint = runMethod.FindStatement(s => s.HasMetadata("service-invoke")) as IHasCSharpStatements;
+            if (explicitPoint != null) return explicitPoint;
+            return ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod);
+        }
 
         private IEnumerable<CSharpStatement> GetValidations(IAzureFunctionModel model)
         {

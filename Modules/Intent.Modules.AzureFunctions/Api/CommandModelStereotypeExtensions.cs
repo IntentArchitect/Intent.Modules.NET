@@ -37,6 +37,30 @@ namespace Intent.AzureFunctions.Api
             return true;
         }
 
+        public static CosmosDBTrigger GetCosmosDBTrigger(this CommandModel model)
+        {
+            var stereotype = model.GetStereotype("Cosmos DB Trigger");
+            return stereotype != null ? new CosmosDBTrigger(stereotype) : null;
+        }
+
+
+        public static bool HasCosmosDBTrigger(this CommandModel model)
+        {
+            return model.HasStereotype("Cosmos DB Trigger");
+        }
+
+        public static bool TryGetCosmosDBTrigger(this CommandModel model, out CosmosDBTrigger stereotype)
+        {
+            if (!HasCosmosDBTrigger(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CosmosDBTrigger(model.GetStereotype("Cosmos DB Trigger"));
+            return true;
+        }
+
         public static QueueOutputBinding GetQueueOutputBinding(this CommandModel model)
         {
             var stereotype = model.GetStereotype("Queue Output Binding");
@@ -357,6 +381,64 @@ namespace Intent.AzureFunctions.Api
                 Default,
                 ApplicationJson
             }
+        }
+
+        public class CosmosDBTrigger
+        {
+            private IStereotype _stereotype;
+
+            public CosmosDBTrigger(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string Connection()
+            {
+                return _stereotype.GetProperty<string>("Connection");
+            }
+
+            public string ContainerName()
+            {
+                return _stereotype.GetProperty<string>("Container Name");
+            }
+
+            public string DatabaseName()
+            {
+                return _stereotype.GetProperty<string>("Database Name");
+            }
+
+            public string LeaseConnection()
+            {
+                return _stereotype.GetProperty<string>("Lease Connection");
+            }
+
+            public string LeaseDatabaseName()
+            {
+                return _stereotype.GetProperty<string>("Lease Database Name");
+            }
+
+            public string LeaseContainerName()
+            {
+                return _stereotype.GetProperty<string>("Lease Container Name");
+            }
+
+            public bool CreateLeaseContainerIfNotExists()
+            {
+                return _stereotype.GetProperty<bool>("Create Lease Container If not exists");
+            }
+
+            public int? LeasesContainerThroughput()
+            {
+                return _stereotype.GetProperty<int?>("Leases Container Throughput");
+            }
+
+            public string LeaseContainerPrefix()
+            {
+                return _stereotype.GetProperty<string>("Lease Container Prefix");
+            }
+
         }
 
         public class QueueOutputBinding
