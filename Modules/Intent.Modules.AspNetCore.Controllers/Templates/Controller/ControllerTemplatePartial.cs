@@ -72,7 +72,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
-                            method.AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
+                            method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
                         });
                     }
                 });
@@ -109,7 +109,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (Model.Route != null)
             {
-                attributes.Add(new CSharpAttribute($@"[Route(""{Model.Route}"")]"));
+                attributes.Add(new CSharpAttribute($"[Route(\"{Model.Route}\")]"));
             }
 
             return attributes;
@@ -194,7 +194,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
                 // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2320
-                attributes.Add(new CSharpAttribute($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]"));
+                attributes.Add(new CSharpAttribute($"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]"));
                 if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
                 {
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
@@ -204,19 +204,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
                     break;
                 case HttpVerb.Post:
-                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
                     attributes.Add(new CSharpAttribute(operation.ReturnType != null
-                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
-                        : @"[ProducesResponseType(StatusCodes.Status204NoContent)]"));
+                        ? $"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
+                        : "[ProducesResponseType(StatusCodes.Status204NoContent)]"));
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add(new CSharpAttribute($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -224,21 +224,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.Parameters.Any())
             {
-                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]"));
+                attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status400BadRequest)]"));
             }
 
             if (IsOperationSecured(operation))
             {
-                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]"));
-                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
+                attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status401Unauthorized)]"));
+                attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
             }
 
             if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
-                attributes.Add(new CSharpAttribute(@"[ProducesResponseType(StatusCodes.Status404NotFound)]"));
+                attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status404NotFound)]"));
             }
 
-            attributes.Add(new CSharpAttribute(@"[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]"));
+            attributes.Add(new CSharpAttribute("[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]"));
             return attributes;
         }
 
@@ -256,10 +256,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attribute.Statements.Add($"Policy = {authorizationModel.Policy}");
             }
 
+#pragma warning disable CS0618 // Type or member is obsolete
             if (!string.IsNullOrWhiteSpace(authorizationModel?.AuthenticationSchemesExpression))
             {
                 attribute.Statements.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
             }
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return attribute;
         }
@@ -311,7 +313,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 HttpInputSource.FromBody => "[FromBody]",
                 HttpInputSource.FromForm => "[FromForm]",
-                HttpInputSource.FromHeader => $@"[FromHeader(Name = ""{parameter.HeaderName ?? parameter.Name}"")]",
+                HttpInputSource.FromHeader => $"[FromHeader(Name = \"{parameter.HeaderName ?? parameter.Name}\")]",
                 HttpInputSource.FromQuery => "[FromQuery]",
                 HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty

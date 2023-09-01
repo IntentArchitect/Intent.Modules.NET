@@ -33,7 +33,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
             foreach (var template in templates)
             {
                 if (template.Model is not ServiceControllerModel)
@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }
         }
 
-        private void InstallValidation(ControllerTemplate template)
+        private static void InstallValidation(ControllerTemplate template)
         {
             if (!template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
             {
@@ -65,7 +65,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             {
                 var @class = file.Classes.First();
 
-                @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((field, statement) =>
+                @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((_, statement) =>
                 {
                     statement.ThrowArgumentNullException();
                 }));
@@ -73,7 +73,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 foreach (var method in @class.Methods)
                 {
                     var fromBodyParam = method.Parameters.FirstOrDefault(p =>
-                        p.Attributes.Any(p => p.GetText("")?.Contains("FromBody") == true));
+                        p.Attributes.Any(static parameter => parameter.GetText("")?.Contains("FromBody") == true));
                     if (fromBodyParam != null)
                     {
                         method.InsertStatement(0, $"await _validationService.Handle({fromBodyParam.Name}, cancellationToken);");
@@ -98,12 +98,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 {
                     if (method.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
-                        var await = string.Empty;
+                        var awaitModifier = string.Empty;
                         var arguments = template.GetArguments(operationModel.Parameters);
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                         {
-                            @await = "await ";
+                            awaitModifier = "await ";
                             arguments = string.IsNullOrEmpty(arguments)
                                 ? "cancellationToken"
                                 : $"{arguments}, cancellationToken";
@@ -112,12 +112,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         if (operationModel.ReturnType != null)
                         {
                             method.AddStatement($"var result = default({template.GetTypeName(operationModel)});");
-                            method.AddStatement($@"result = {@await}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
+                            method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
                         else
                         {
-                            method.AddStatement($@"{@await}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
+                            method.AddStatement($"{awaitModifier}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
 
@@ -127,7 +127,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             });
         }
 
-        private void InstallTransactionWithUnitOfWork(ControllerTemplate template, IApplication application)
+        private static void InstallTransactionWithUnitOfWork(ControllerTemplate template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallUnitOfWork(application))
             {
@@ -159,8 +159,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         continue;
                     }
 
-                    var transactionScopeStmt = new CSharpStatementBlock($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
+                    var transactionScopeStmt = new CSharpStatementBlock(@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))")
                         .AddStatement("await _unitOfWork.SaveChangesAsync(cancellationToken);")
                         .AddStatement("transaction.Complete();");
                     transactionScopeStmt.AddMetadata("transaction-scope", true);
@@ -185,15 +185,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 ctor.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString().StartsWith("[HttpGet"))))
+                foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
                 {
-                    method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
+                    method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
                         .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
         }
 
-        private void InstallMongoDbUnitOfWork(ControllerTemplate template, IApplication application)
+        private static void InstallMongoDbUnitOfWork(ControllerTemplate template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
             {
@@ -214,8 +214,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         continue;
                     }
 
-                    method.Statements.LastOrDefault(x => x.ToString().StartsWith("return "))
-                        ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                    method.Statements.LastOrDefault(x => x.ToString()!.StartsWith("return "))
+                        ?.InsertAbove("await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
                 }
             }, -150);
         }
@@ -237,42 +237,42 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         return $"return Ok({resultExpression});";
                     }
 
-                    return $@"return {resultExpression} != null ? Ok({resultExpression}) : NotFound();";
+                    return $"return {resultExpression} != null ? Ok({resultExpression}) : NotFound();";
                 case HttpVerb.Post:
                     return operation.ReturnType == null
-                        ? @"return Created(string.Empty, null);"
-                        : $@"return Created(string.Empty, {GetResultExpression(template, operation)});";
+                        ? "return Created(string.Empty, null);"
+                        : $"return Created(string.Empty, {GetResultExpression(template, operation)});";
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
                     return operation.ReturnType == null
-                        ? @"return NoContent();"
-                        : $@"return Ok({GetResultExpression(template, operation)});";
+                        ? "return NoContent();"
+                        : $"return Ok({GetResultExpression(template, operation)});";
                 case HttpVerb.Delete:
                     return operation.ReturnType == null
-                        ? @"return Ok();"
-                        : $@"return Ok({GetResultExpression(template, operation)});";
+                        ? "return Ok();"
+                        : $"return Ok({GetResultExpression(template, operation)});";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private string GetResultExpression(ControllerTemplate template, IControllerOperationModel operationModel)
+        private static string GetResultExpression(ControllerTemplate template, IControllerOperationModel operationModel)
         {
             if (operationModel.ReturnType == null)
             {
-                throw new ArgumentException($@"{nameof(operationModel.ReturnType)} is expected to be specified with a Type");
+                throw new ArgumentException($"{nameof(operationModel.ReturnType)} is expected to be specified with a Type");
             }
 
             if (operationModel.MediaType == HttpMediaType.ApplicationJson
                 && (template.GetTypeInfo(operationModel.ReturnType).IsPrimitive || operationModel.ReturnType.HasStringType()))
             {
-                return $@"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)";
+                return $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)";
             }
 
             return "result";
         }
 
-        private string GetUnitOfWork(ControllerTemplate template)
+        private static string GetUnitOfWork(ControllerTemplate template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||
                 template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWork) ||

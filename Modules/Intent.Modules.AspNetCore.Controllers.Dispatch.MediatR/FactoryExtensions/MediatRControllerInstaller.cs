@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
             foreach (var template in templates)
             {
                 if (template.Model is not CqrsControllerModel)
@@ -100,7 +100,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
             return operationModel.ReturnType != null
                 ? $"var result = await _mediator.Send({payload}, cancellationToken);"
-                : $@"await _mediator.Send({payload}, cancellationToken);";
+                : $"await _mediator.Send({payload}, cancellationToken);";
         }
 
         private CSharpStatement GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
@@ -118,24 +118,23 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                         return "return Ok(result);";
                     }
 
-                    return @"return result != null ? Ok(result) : NotFound();";
+                    return "return result != null ? Ok(result) : NotFound();";
                 case HttpVerb.Post:
                     var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
-                        x.ReturnType != null &&
-                        !x.ReturnType.IsCollection &&
-                        x.Parameters.Count() == 1 &&
+                        x.ReturnType is { IsCollection: false } &&
+                        x.Parameters.Count == 1 &&
                         x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int")
                     {
                         var value = $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel)}>(result)";
-                        return $@"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {value});";
+                        return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {value});";
                     }
-                    return operationModel.ReturnType == null ? @"return Created(string.Empty, null);" : @"return Created(string.Empty, result);";
+                    return operationModel.ReturnType == null ? "return Created(string.Empty, null);" : "return Created(string.Empty, result);";
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
+                    return operationModel.ReturnType == null ? "return NoContent();" : "return Ok(result);";
                 case HttpVerb.Delete:
-                    return operationModel.ReturnType == null ? @"return Ok();" : @"return Ok(result);";
+                    return operationModel.ReturnType == null ? "return Ok();" : "return Ok(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }

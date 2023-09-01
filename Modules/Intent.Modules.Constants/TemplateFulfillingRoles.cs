@@ -67,7 +67,7 @@ namespace Intent.Modules.Constants
             
             public static class Services
             {
-                [Obsolete("Üse Distribution.WebApi.Controller")]
+                [Obsolete("Use Distribution.WebApi.Controller")]
                 public const string Controllers = "Intent.AspNetCore.Controllers.Controller";
                 public const string Interface = "Application.Contracts";
             }
