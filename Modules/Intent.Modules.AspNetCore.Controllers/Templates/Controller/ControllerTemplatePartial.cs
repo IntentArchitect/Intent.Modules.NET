@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
@@ -160,9 +161,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 lines.Add("/// <response code=\"403\">Forbidden request.</response>");
             }
 
-            if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
+            if (CanReturnNotFound(operation))
             {
-                lines.Add($"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
+                var responseText = operation.ReturnType == null ||
+                                   operation.ReturnType.HasStringType() ||
+                                   GetTypeInfo(operation.ReturnType).IsPrimitive
+                    ? "One or more entities could not be found with the provided parameters."
+                    : $"No {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} could be found with the provided parameters.";
+
+                lines.Add($"/// <response code=\"404\">{responseText}</response>");
             }
 
             return lines;
@@ -233,7 +240,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
             }
 
-            if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
+            if (CanReturnNotFound(operation))
             {
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status404NotFound)]"));
             }
@@ -296,9 +303,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetReturnType(IControllerOperationModel operation)
         {
-            return operation.ReturnType == null
-                ? "ActionResult"
-                : $"ActionResult<{GetTypeName(operation.TypeReference)}>";
+            if (operation.ReturnType == null)
+            {
+                return "ActionResult";
+            }
+
+            var returnTypeName = GetTypeName(operation.TypeReference);
+            if (this.ShouldBeJsonResponseWrapped(operation))
+            {
+                returnTypeName = $"{this.GetJsonResponseName()}<{returnTypeName}>";
+            }
+
+            return $"ActionResult<{returnTypeName}>";
         }
 
         private static string GetPath(IControllerOperationModel operation)
@@ -318,6 +334,41 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
+        }
+
+        private static bool CanReturnNotFound(IControllerOperationModel operation)
+        {
+            if (operation.ReturnType?.IsNullable == true)
+            {
+                return false;
+            }
+
+            if (operation.Verb == HttpVerb.Get &&
+                operation.ReturnType?.IsCollection != true &&
+                !CSharpTypeIsCollection(operation.ReturnType) &&
+                operation.Parameters.Any())
+            {
+                return true;
+            }
+
+            return operation.Parameters.Any(x => x.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase) ||
+                                                 x.Name.StartsWith("id", StringComparison.OrdinalIgnoreCase));
+
+            static bool CSharpTypeIsCollection(ITypeReference typeReference)
+            {
+                if (typeReference?.Element is not IElement element)
+                {
+                    return false;
+                }
+
+                var stereotype = element.GetStereotype("C#");
+                if (stereotype == null)
+                {
+                    return false;
+                }
+
+                return stereotype.GetProperty<bool>("Is Collection");
+            }
         }
     }
 }

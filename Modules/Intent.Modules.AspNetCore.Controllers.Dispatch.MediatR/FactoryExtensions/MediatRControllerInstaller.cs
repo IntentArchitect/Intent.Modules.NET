@@ -8,7 +8,6 @@ using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControllers;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,7 +17,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -103,38 +101,62 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                 : $"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        private CSharpStatement GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
+        private static CSharpStatement GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
         {
+            var hasReturnType = operationModel.ReturnType != null;
+
+            var resultExpression = default(string);
+            if (hasReturnType)
+            {
+                resultExpression = template.ShouldBeJsonResponseWrapped(operationModel)
+                    ? $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)"
+                    : "result";
+            }
+
             switch (operationModel.Verb)
             {
                 case HttpVerb.Get:
-                    if (operationModel.ReturnType == null)
-                    {
-                        return "return NoContent();";
-                    }
-
-                    if (operationModel.ReturnType.IsCollection)
-                    {
-                        return "return Ok(result);";
-                    }
-
-                    return "return result != null ? Ok(result) : NotFound();";
-                case HttpVerb.Post:
-                    var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
-                        x.ReturnType is { IsCollection: false } &&
-                        x.Parameters.Count == 1 &&
-                        x.Parameters.FirstOrDefault()?.Name == "id");
-                    if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int")
-                    {
-                        var value = $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel)}>(result)";
-                        return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {value});";
-                    }
-                    return operationModel.ReturnType == null ? "return Created(string.Empty, null);" : "return Created(string.Empty, result);";
-                case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return operationModel.ReturnType == null ? "return NoContent();" : "return Ok(result);";
+                case HttpVerb.Put:
+                    return hasReturnType ? $"return Ok({resultExpression});" : "return NoContent();";
                 case HttpVerb.Delete:
-                    return operationModel.ReturnType == null ? "return Ok();" : "return Ok(result);";
+                    return hasReturnType ? $"return Ok({resultExpression});" : "return Ok();";
+                case HttpVerb.Post:
+                    switch (operationModel.Parameters.Count)
+                    {
+                        case 1:
+                            // Aggregate
+                        {
+                            var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                x.ReturnType is { IsCollection: false } &&
+                                x.Parameters.Count == 1 &&
+                                string.Equals(x.Parameters[0].Name, "id", StringComparison.OrdinalIgnoreCase));
+                            if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                            {
+                                return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {resultExpression});";
+                            }
+                        }
+                            break;
+                        case 2:
+                            // Owned composite
+                        {
+                            var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                x.ReturnType is { IsCollection: false } &&
+                                x.Parameters.Count == 2 &&
+                                string.Equals(x.Parameters[0].Name, operationModel.Parameters[0].Name, StringComparison.OrdinalIgnoreCase) &&
+                                string.Equals(x.Parameters[1].Name, "id", StringComparison.OrdinalIgnoreCase));
+                            if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                            {
+                                var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
+                                return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result }}, {resultExpression});";
+                            }
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    return hasReturnType ? $"return Created(string.Empty, {resultExpression});" : "return Created(string.Empty, null);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }

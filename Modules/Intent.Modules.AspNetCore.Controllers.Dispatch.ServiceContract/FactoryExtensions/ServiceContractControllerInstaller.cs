@@ -1,8 +1,6 @@
 using System;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
@@ -15,7 +13,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -220,56 +217,65 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }, -150);
         }
 
-        private string GetReturnStatement(ControllerTemplate template, IControllerOperationModel operation)
+        private static string GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
         {
-            switch (operation.Verb)
+            var hasReturnType = operationModel.ReturnType != null;
+
+            var resultExpression = default(string);
+            if (hasReturnType)
+            {
+                resultExpression = template.ShouldBeJsonResponseWrapped(operationModel)
+                    ? $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)"
+                    : "result";
+            }
+
+            switch (operationModel.Verb)
             {
                 case HttpVerb.Get:
-                    if (operation.ReturnType == null)
-                    {
-                        return "return NoContent();";
-                    }
-
-                    var resultExpression = GetResultExpression(template, operation);
-
-                    if (operation.ReturnType.IsCollection)
-                    {
-                        return $"return Ok({resultExpression});";
-                    }
-
-                    return $"return {resultExpression} != null ? Ok({resultExpression}) : NotFound();";
-                case HttpVerb.Post:
-                    return operation.ReturnType == null
-                        ? "return Created(string.Empty, null);"
-                        : $"return Created(string.Empty, {GetResultExpression(template, operation)});";
-                case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return operation.ReturnType == null
-                        ? "return NoContent();"
-                        : $"return Ok({GetResultExpression(template, operation)});";
+                case HttpVerb.Put:
+                    return hasReturnType ? $"return Ok({resultExpression});" : "return NoContent();";
                 case HttpVerb.Delete:
-                    return operation.ReturnType == null
-                        ? "return Ok();"
-                        : $"return Ok({GetResultExpression(template, operation)});";
+                    return hasReturnType ? $"return Ok({resultExpression});" : "return Ok();";
+                case HttpVerb.Post:
+                    switch (operationModel.Parameters.Count)
+                    {
+                        case 1:
+                            // Aggregate
+                            {
+                                var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                    x.ReturnType is { IsCollection: false } &&
+                                    x.Parameters.Count == 1 &&
+                                    string.Equals(x.Parameters[0].Name, "id", StringComparison.OrdinalIgnoreCase));
+                                if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                                {
+                                    return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {resultExpression});";
+                                }
+                            }
+                            break;
+                        case 2:
+                            // Owned composite
+                            {
+                                var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                    x.ReturnType is { IsCollection: false } &&
+                                    x.Parameters.Count == 2 &&
+                                    string.Equals(x.Parameters[0].Name, operationModel.Parameters[0].Name, StringComparison.OrdinalIgnoreCase) &&
+                                    string.Equals(x.Parameters[1].Name, "id", StringComparison.OrdinalIgnoreCase));
+                                if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                                {
+                                    var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
+                                    return $"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result }}, {resultExpression});";
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    return hasReturnType ? $"return Created(string.Empty, {resultExpression});" : "return Created(string.Empty, null);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        private static string GetResultExpression(ControllerTemplate template, IControllerOperationModel operationModel)
-        {
-            if (operationModel.ReturnType == null)
-            {
-                throw new ArgumentException($"{nameof(operationModel.ReturnType)} is expected to be specified with a Type");
-            }
-
-            if (operationModel.MediaType == HttpMediaType.ApplicationJson
-                && (template.GetTypeInfo(operationModel.ReturnType).IsPrimitive || operationModel.ReturnType.HasStringType()))
-            {
-                return $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel.ReturnType)}>(result)";
-            }
-
-            return "result";
         }
 
         private static string GetUnitOfWork(ControllerTemplate template)

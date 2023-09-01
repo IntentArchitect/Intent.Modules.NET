@@ -1,10 +1,15 @@
+### Version 5.4.0
+
+- Improvement: The heuristic for whether or not to annotate that particular controller methods can return a 404 response has been improved.
+- Fixed: Controller methods which would return `JsonResponse<T>` incorrectly had a return type of `ActionResult<T>` instead of `ActionResult<JsonResponse<T>>`.
+
 ### Version 5.3.2
 
-- Updated: `ExceptionFilter` will also look out for `UnauthorizedAccessException` exceptions for being thrown and returned as `FORBIDDEN` HTTP result types. 
+- Improvement: `ExceptionFilter` will also look out for `UnauthorizedAccessException` exceptions for being thrown and returned as `FORBIDDEN` HTTP result types. 
 
 ### Version 5.3.0
 
-- Updated: Ensure that Swagger will know about HTTP 500 errors returning `ProblemDetails`.
+- Improvement: Ensure that Swagger will know about HTTP 500 errors returning `ProblemDetails`.
 
 ### Version 5.2.1
 
@@ -12,22 +17,22 @@
 
 ### Version 5.2.0
 
-- FileBuilder metadata updated.
-- Updated contract to include Api Version information.
-- Introduced ExceptionFilter to deal with Exceptions that need to translate into an HTTP response.
+- Improvement: FileBuilder metadata updated.
+- Improvement: Updated contract to include Api Version information.
+- Improvement: Introduced ExceptionFilter to deal with Exceptions that need to translate into an HTTP response.
 
 ### Version 5.1.1
 
-- Have controllers fully manage using statements by default.
+- Improvement: Have controllers fully manage using statements by default.
 
 ### Version 5.1.0
 
-- Service Operations can now have Default values.
+- Improvement: Service Operations can now have Default values.
 - Fixed: When only a minimalist set of modules was installed, `Application.Contract.Dto` was missing as a type source for controllers.
 
 ### Version 5.0.5
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 5.0.4
 
@@ -35,21 +40,21 @@
 
 ### Version 5.0.3
 
-- Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.
+- Improvement: Refactored to use `IHttpEndpoint` abstraction available from `Intent.Modelers.Types.ServiceProxies` version 4+.
 
 ### Version 5.0.1
 
-- Moved interoperability dependencies for Dispatch.MediatR and Dispatch.Services to this module.
+- Improvement: Moved interoperability dependencies for Dispatch.MediatR and Dispatch.Services to this module.
 
 ### Version 5.0.0
 
-- Switched to abstract model type IControllerModel for ControllerTemplate, allowing support for Controllers being created from different sources.
+- Improvement: Switched to abstract model type IControllerModel for ControllerTemplate, allowing support for Controllers being created from different sources.
 - Fixed: Operations which returned nullable DTOs would generate uncompilable `typeof(SomeDto?)` for controller operation attributes.
 
 ### Version 4.0.2
 
 - Fixed: Errors thrown when applying `application/json` to the Return Type Mediatype the Http Settings of an operation.
-- Adds `[Produces(MediaTypeNames.Application.Json)]` when explicitly specified in the Http Settings.
+- Improvement: Adds `[Produces(MediaTypeNames.Application.Json)]` when explicitly specified in the Http Settings.
 
 ### Version 4.0.1
 
@@ -57,27 +62,27 @@
 
 ### Version 4.0.0
 
-- New: Upgraded Templates to use new Builder Pattern paradigm.
+- New Feature: Upgraded Templates to use new Builder Pattern paradigm.
 
 ### Version 3.3.14
 
-- Add `GetOperationAttributes` to `ControllerDecorator`.
+- Improvement: Add `GetOperationAttributes` to `ControllerDecorator`.
 
 ### Version 3.3.13
 
-- Add description to module.
+- Improvement: Add description to module.
 
 
 ### Version 3.3.12
 
-- Update: Updated Intent.Metadata.WebApi that will no longer automatically apply HttpSettings stereotypes but will auto add them using event scripts.
+- Improvement: Updated Intent.Metadata.WebApi that will no longer automatically apply HttpSettings stereotypes but will auto add them using event scripts.
 
 ### Version 3.3.11
 
-- New: Http Settings' Return Type Mediatype setting will determine if the primitive return type should be wrapped in a JsonResponse object or not.
+- New Feature: Http Settings' Return Type Mediatype setting will determine if the primitive return type should be wrapped in a JsonResponse object or not.
 - Fixed: Controllers will now add usings for enums.
 
 ### Version 3.3.10
 
-- Update: Decorators can add attributes to controllers.
+- Improvement: Decorators can add attributes to controllers.
 - Fixed: Controller actions that made use of Http Headers didn't specify header names.
