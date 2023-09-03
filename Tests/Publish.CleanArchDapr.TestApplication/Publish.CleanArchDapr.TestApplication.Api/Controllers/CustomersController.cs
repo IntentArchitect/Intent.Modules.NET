@@ -40,19 +40,21 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateCustomer(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomer(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new CreateCustomerCommand(), cancellationToken);
-            return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
+            return Created(string.Empty, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/customers/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
@@ -64,9 +66,11 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/customers/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
@@ -78,7 +82,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified CustomerDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an CustomerDto with the parameters provided.</response>
+        /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
         [HttpGet("api/customers/{id}")]
         [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -89,7 +93,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>

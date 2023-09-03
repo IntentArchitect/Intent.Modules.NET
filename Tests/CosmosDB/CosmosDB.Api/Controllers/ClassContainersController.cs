@@ -42,21 +42,23 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateClassContainer(
+        public async Task<ActionResult<JsonResponse<string>>> CreateClassContainer(
             [FromBody] CreateClassContainerCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetClassContainerById), new { id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/class-containers/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClassContainer(
             [FromRoute] string id,
@@ -70,9 +72,11 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/class-containers/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateClassContainer(
             [FromRoute] string id,
@@ -92,7 +96,7 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified ClassContainerDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an ClassContainerDto with the parameters provided.</response>
+        /// <response code="404">No ClassContainerDto could be found with the provided parameters.</response>
         [HttpGet("api/class-containers/{id}")]
         [ProducesResponseType(typeof(ClassContainerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -103,7 +107,7 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClassContainerByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>

@@ -47,24 +47,26 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateInvoice(
+        public async Task<ActionResult<JsonResponse<string>>> CreateInvoice(
             [FromBody] CreateInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetInvoiceById), new { id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPost("api/invoices/{invoiceId}/invoice-lines")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateInvoiceInvoiceLine(
+        public async Task<ActionResult<JsonResponse<string>>> CreateInvoiceInvoiceLine(
             [FromRoute] string invoiceId,
             [FromBody] CreateInvoiceInvoiceLineCommand command,
             CancellationToken cancellationToken = default)
@@ -75,16 +77,18 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetInvoiceInvoiceLineById), new { invoiceId = invoiceId, id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] string id, CancellationToken cancellationToken = default)
         {
@@ -96,9 +100,11 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/invoices/{invoiceId}/invoice-lines/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoiceInvoiceLine(
             [FromRoute] string invoiceId,
@@ -113,9 +119,11 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoice(
             [FromRoute] string id,
@@ -135,9 +143,11 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/invoices/{invoiceId}/invoice-lines/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoiceInvoiceLine(
             [FromRoute] string invoiceId,
@@ -162,7 +172,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified InvoiceDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an InvoiceDto with the parameters provided.</response>
+        /// <response code="404">No InvoiceDto could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{id}")]
         [ProducesResponseType(typeof(InvoiceDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -173,14 +183,14 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified InvoiceInvoiceLineDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an InvoiceInvoiceLineDto with the parameters provided.</response>
+        /// <response code="404">No InvoiceInvoiceLineDto could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{invoiceId}/invoice-lines/{id}")]
         [ProducesResponseType(typeof(InvoiceInvoiceLineDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -192,16 +202,18 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceInvoiceLineByIdQuery(invoiceId: invoiceId, id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;InvoiceInvoiceLineDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;InvoiceInvoiceLineDto&gt; could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{invoiceId}/invoice-lines")]
         [ProducesResponseType(typeof(List<InvoiceInvoiceLineDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<InvoiceInvoiceLineDto>>> GetInvoiceInvoiceLines(
             [FromRoute] string invoiceId,

@@ -47,24 +47,26 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateInvoice(
+        public async Task<ActionResult<JsonResponse<string>>> CreateInvoice(
             [FromBody] CreateInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetInvoiceById), new { id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPost("api/invoices/{invoiceId}/line-items")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateInvoiceLineItem(
+        public async Task<ActionResult<JsonResponse<string>>> CreateInvoiceLineItem(
             [FromRoute] string invoiceId,
             [FromBody] CreateInvoiceLineItemCommand command,
             CancellationToken cancellationToken = default)
@@ -75,16 +77,18 @@ namespace CosmosDB.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetInvoiceLineItemById), new { invoiceId = invoiceId, id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] string id, CancellationToken cancellationToken = default)
         {
@@ -96,9 +100,11 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/invoices/{invoiceId}/line-items/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoiceLineItem(
             [FromRoute] string invoiceId,
@@ -113,9 +119,11 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/invoices/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoice(
             [FromRoute] string id,
@@ -135,9 +143,11 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/invoices/{invoiceId}/line-items/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateInvoiceLineItem(
             [FromRoute] string invoiceId,
@@ -162,7 +172,7 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified InvoiceDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an InvoiceDto with the parameters provided.</response>
+        /// <response code="404">No InvoiceDto could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{id}")]
         [ProducesResponseType(typeof(InvoiceDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -173,14 +183,14 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified InvoiceLineItemDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an InvoiceLineItemDto with the parameters provided.</response>
+        /// <response code="404">No InvoiceLineItemDto could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{invoiceId}/line-items/{id}")]
         [ProducesResponseType(typeof(InvoiceLineItemDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -192,16 +202,18 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceLineItemByIdQuery(invoiceId: invoiceId, id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;InvoiceLineItemDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;InvoiceLineItemDto&gt; could be found with the provided parameters.</response>
         [HttpGet("api/invoices/{invoiceId}/line-items")]
         [ProducesResponseType(typeof(List<InvoiceLineItemDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<InvoiceLineItemDto>>> GetInvoiceLineItems(
             [FromRoute] string invoiceId,

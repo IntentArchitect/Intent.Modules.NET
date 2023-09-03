@@ -42,7 +42,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateCustomerAnemic(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomerAnemic(
             [FromBody] CreateCustomerAnemicCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -54,9 +54,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/customer-anemics/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomerAnemic(
             [FromRoute] Guid id,
@@ -70,9 +72,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/customer-anemics/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomerAnemic(
             [FromRoute] Guid id,
@@ -92,7 +96,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified CustomerAnemicDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an CustomerAnemicDto with the parameters provided.</response>
+        /// <response code="404">No CustomerAnemicDto could be found with the provided parameters.</response>
         [HttpGet("api/customer-anemics/{id}")]
         [ProducesResponseType(typeof(CustomerAnemicDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -103,7 +107,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerAnemicByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>

@@ -42,7 +42,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateOrder(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateOrder(
             [FromBody] CreateOrderCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -54,9 +54,11 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/orders/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteOrder([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
@@ -68,9 +70,11 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/orders/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateOrder(
             [FromRoute] Guid id,
@@ -90,7 +94,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified OrderDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an OrderDto with the parameters provided.</response>
+        /// <response code="404">No OrderDto could be found with the provided parameters.</response>
         [HttpGet("api/orders/{id}")]
         [ProducesResponseType(typeof(OrderDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -101,7 +105,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetOrderByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>

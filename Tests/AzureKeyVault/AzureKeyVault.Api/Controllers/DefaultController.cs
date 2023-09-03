@@ -29,15 +29,13 @@ namespace AzureKeyVault.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified KeyValuesDTO.</response>
-        /// <response code="404">Can't find an KeyValuesDTO with the parameters provided.</response>
         [HttpGet("api/azurekeyvault-services/key-values")]
         [ProducesResponseType(typeof(KeyValuesDTO), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<KeyValuesDTO>> GetKeyValues(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetKeyValues(), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
     }
 }

@@ -39,9 +39,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/customer-riches/{id}/change-address")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ChangeAddress(
             [FromRoute] Guid id,
@@ -61,9 +63,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No CheckAddressDCDto could be found with the provided parameters.</response>
         [HttpPut("api/customer-riches/{id}/check-result")]
         [ProducesResponseType(typeof(CheckAddressDCDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CheckAddressDCDto>> CheckResult(
             [FromRoute] Guid id,
@@ -82,7 +86,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateCustomerRich(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomerRich(
             [FromBody] CreateCustomerRichCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -95,9 +99,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/customer-riches/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomerRich(
             [FromRoute] Guid id,
@@ -111,9 +117,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/customer-riches/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomerRich(
             [FromRoute] Guid id,
@@ -133,7 +141,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified CustomerRichDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an CustomerRichDto with the parameters provided.</response>
+        /// <response code="404">No CustomerRichDto could be found with the provided parameters.</response>
         [HttpGet("api/customer-riches/{id}")]
         [ProducesResponseType(typeof(CustomerRichDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -144,7 +152,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerRichByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>

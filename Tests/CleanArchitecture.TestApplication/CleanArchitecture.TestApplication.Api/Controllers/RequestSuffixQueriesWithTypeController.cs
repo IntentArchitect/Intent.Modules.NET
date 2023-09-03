@@ -30,29 +30,25 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified int.</response>
-        /// <response code="404">Can't find an int with the parameters provided.</response>
         [HttpGet("api/request-suffix-queries-with-type/my")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> My(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new MyQueryRequest(), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified int.</response>
-        /// <response code="404">Can't find an int with the parameters provided.</response>
         [HttpGet("api/request-suffix-queries-with-type/my-request")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> MyRequest(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new MyRequestQuery(), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
     }
 }

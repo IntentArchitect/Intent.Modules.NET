@@ -32,11 +32,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified PagedResult&lt;LogEntryDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an PagedResult&lt;LogEntryDto&gt; with the parameters provided.</response>
         [HttpGet("api/pagination/log-entries")]
         [ProducesResponseType(typeof(PagedResult<LogEntryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<LogEntryDto>>> GetLogEntries(
             [FromQuery] int pageNo,
@@ -44,7 +42,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetLogEntriesQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
     }
 }

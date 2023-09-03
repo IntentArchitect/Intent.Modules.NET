@@ -50,14 +50,14 @@ namespace MongoDb.TestApplication.Api.Controllers
             var result = default(Guid);
             result = await _appService.CreateIdTypeGuid(dto, cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(FindIdTypeGuidById), new { id = result }, result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified IdTypeGuidDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an IdTypeGuidDto with the parameters provided.</response>
+        /// <response code="404">No IdTypeGuidDto could be found with the provided parameters.</response>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(IdTypeGuidDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -69,7 +69,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             var result = default(IdTypeGuidDto);
             result = await _appService.FindIdTypeGuidById(id, cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
@@ -89,9 +89,11 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateIdTypeGuid(
             [FromRoute] Guid id,
@@ -108,9 +110,11 @@ namespace MongoDb.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteIdTypeGuid(
             [FromRoute] Guid id,
