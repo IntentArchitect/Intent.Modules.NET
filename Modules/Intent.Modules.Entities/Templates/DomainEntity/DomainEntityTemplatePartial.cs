@@ -112,6 +112,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         @class.AddConstructor(ctor =>
                         {
                             ctor.AddMetadata("model", ctorModel);
+                            ctor.RepresentsModel(ctorModel);
                             ctor.TryAddXmlDocComments(ctorModel.InternalElement);
                             foreach (var parameter in ctorModel.Parameters)
                             {
