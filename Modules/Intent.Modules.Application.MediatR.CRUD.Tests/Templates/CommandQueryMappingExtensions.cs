@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
@@ -26,6 +27,15 @@ public static class CommandQueryMappingExtensions
                ?? commandModel.Mapping?.Element.AsClassConstructorModel()?.ParentClass
                ?? OperationModelExtensions.AsOperationModel(commandModel.Mapping?.Element)?.ParentClass;
     }
+
+    public static ClassModel GetClassModel(this QueryModel queryModel)
+    {
+        if (queryModel == null) throw new ArgumentNullException(nameof(queryModel));
+        
+        return queryModel.Mapping?.Element.AsClassModel()
+               ?? queryModel.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.AsClassModel()
+               ?? queryModel.GetPaginatedClassModel();
+    }
     
     const string pagedResultTypeDefinitionId = "9204e067-bdc8-45e7-8970-8a833fdc5253";
 
@@ -44,5 +54,17 @@ public static class CommandQueryMappingExtensions
         }
         return queryModel.TypeReference?.GenericTypeParameters
                    ?.FirstOrDefault()?.Element?.AsDTOModel()?.Mapping?.Element?.AsClassModel();
+    }
+
+    public static bool HasIdentityKeys(this QueryModel queryModel)
+    {
+        var classModel = queryModel.GetClassModel();
+        return classModel is not null && queryModel.Properties.GetEntityIdFields(classModel).Any();
+    }
+    
+    public static bool HasIdentityKeys(this CommandModel commandModel)
+    {
+        var classModel = commandModel.GetClassModel();
+        return classModel is not null && commandModel.Properties.GetEntityIdFields(classModel).Any();
     }
 }

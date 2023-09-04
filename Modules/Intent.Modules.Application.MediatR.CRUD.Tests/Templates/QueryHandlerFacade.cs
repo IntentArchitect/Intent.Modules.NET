@@ -37,10 +37,7 @@ internal class QueryHandlerFacade
         _activeTemplate = activeTemplate;
         _model = model;
 
-        TargetDomainModel = model.Mapping?.Element?.AsClassModel()
-                            ?? model.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.AsClassModel()
-                            ?? model.GetPaginatedClassModel()
-                            ?? throw new Exception($"No Domain Class mapping found for Query Model Id = {model.Id} / Name = {model.Name}");
+        TargetDomainModel = model.GetClassModel() ?? throw new Exception($"No Domain Class mapping found for Query Model Id = {model.Id} / Name = {model.Name}");
 
         QueryIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
         DomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();

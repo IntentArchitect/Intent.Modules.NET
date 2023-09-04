@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Fixed: Generated tests targeted Command / Query handlers that aren't auto-implemented by CRUD auto-implementation system.
+
 ### Version 1.2.1
 
 - Fixed: Value Objects are now supported that are embedded or associated with Classes.

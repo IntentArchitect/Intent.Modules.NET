@@ -45,6 +45,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Camera> Cameras { get; set; }
+
         public DbSet<WithCompositeKey> WithCompositeKeys { get; set; }
 
         public DbSet<Account> Accounts { get; set; }
@@ -92,6 +94,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CameraConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
