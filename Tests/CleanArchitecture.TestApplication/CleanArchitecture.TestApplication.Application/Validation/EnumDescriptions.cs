@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,7 +8,9 @@ namespace CleanArchitecture.TestApplication.Application.Validation
 {
     public enum EnumDescriptions
     {
+        [Description("My First Option")]
         Option1,
+        [Description("My Second Option")]
         Option2 = 2
     }
 }
