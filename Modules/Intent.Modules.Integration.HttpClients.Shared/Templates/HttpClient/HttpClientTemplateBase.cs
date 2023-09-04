@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -142,7 +143,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                             if (endpoint.ReturnType.IsNullable)
                             {
-                                usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
+                                usingResponseBlock.AddStatementBlock($"if (response.StatusCode == {UseType("System.Net.HttpStatusCode")}.NoContent || response.Content.Headers.ContentLength == 0)", s => s
                                     .AddStatement("return default;")
                                 );
                             }
@@ -166,13 +167,13 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 }
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                 {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
                                     usingContentStreamBlock.AddStatement("return str;");
                                 }
                                 else if (!isWrappedReturnType && returnsPrimitive)
                                 {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
                                     usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
                                     usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                 }
@@ -187,6 +188,16 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                 @class.AddMethod("void", "Dispose");
             });
+    }
+
+    private string GetReadToEndMethodCall()
+    {
+        return OutputTarget switch
+        {
+            _ when OutputTarget.GetProject().IsNetApp(5) => "ReadToEndAsync()",
+            _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
+            _ => "ReadToEndAsync(cancellationToken)"
+        }; 
     }
 
     [IntentManaged(Mode.Fully)]
