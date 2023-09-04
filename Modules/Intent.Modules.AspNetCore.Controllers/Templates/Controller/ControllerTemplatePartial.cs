@@ -161,7 +161,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 lines.Add("/// <response code=\"403\">Forbidden request.</response>");
             }
 
-            if (CanReturnNotFound(operation))
+            if (operation.CanReturnNotFound())
             {
                 var responseText = operation.ReturnType == null ||
                                    operation.ReturnType.HasStringType() ||
@@ -240,7 +240,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
             }
 
-            if (CanReturnNotFound(operation))
+            if (operation.CanReturnNotFound())
             {
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status404NotFound)]"));
             }
@@ -334,41 +334,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
-        }
-
-        private static bool CanReturnNotFound(IControllerOperationModel operation)
-        {
-            if (operation.ReturnType?.IsNullable == true)
-            {
-                return false;
-            }
-
-            if (operation.Verb == HttpVerb.Get &&
-                operation.ReturnType?.IsCollection != true &&
-                !CSharpTypeIsCollection(operation.ReturnType) &&
-                operation.Parameters.Any())
-            {
-                return true;
-            }
-
-            return operation.Parameters.Any(x => x.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase) ||
-                                                 x.Name.StartsWith("id", StringComparison.OrdinalIgnoreCase));
-
-            static bool CSharpTypeIsCollection(ITypeReference typeReference)
-            {
-                if (typeReference?.Element is not IElement element)
-                {
-                    return false;
-                }
-
-                var stereotype = element.GetStereotype("C#");
-                if (stereotype == null)
-                {
-                    return false;
-                }
-
-                return stereotype.GetProperty<bool>("Is Collection");
-            }
         }
     }
 }

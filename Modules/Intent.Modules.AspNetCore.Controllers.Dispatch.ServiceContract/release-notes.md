@@ -1,6 +1,6 @@
 ### Version 5.2.0
 
-- Improvement: Controller methods will no longer return `NotFound()` for `null` results. To have a `404 Not Found` HTTP response be returned, a `throw new NotFoundException("<message>")` can be performed as appropriate.
+- Fixed: Controller methods which return nullable types will no longer return `NotFound()` for `null` results. To force that a `404 Not Found` HTTP response be returned, a `throw new NotFoundException("<message>")` can be performed as appropriate.
 - Fixed: Controller methods with a _Return Type Mediatype_ of `application/json` would under certain circumstances not wrap scalar types in a `JsonResponse<T>`.
 
 ### Version 5.1.2
