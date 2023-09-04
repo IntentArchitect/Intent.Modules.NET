@@ -69,7 +69,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             var result = default(TextIndexEntitySingleParentDto);
             result = await _appService.FindTextIndexEntitySingleParentById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

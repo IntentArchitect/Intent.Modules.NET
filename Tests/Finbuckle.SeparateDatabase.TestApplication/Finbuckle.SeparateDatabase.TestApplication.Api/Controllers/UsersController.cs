@@ -76,7 +76,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         {
             var result = default(UserDto);
             result = await _appService.FindById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
     }
 }

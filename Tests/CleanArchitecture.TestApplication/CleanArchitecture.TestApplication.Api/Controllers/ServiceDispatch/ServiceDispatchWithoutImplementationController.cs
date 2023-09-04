@@ -112,7 +112,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
             result = _appService.Query(param);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
             result = await _appService.QueryAsync(param, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

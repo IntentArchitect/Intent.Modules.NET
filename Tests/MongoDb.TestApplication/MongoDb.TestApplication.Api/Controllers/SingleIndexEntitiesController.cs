@@ -69,7 +69,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             var result = default(SingleIndexEntityDto);
             result = await _appService.FindSingleIndexEntityById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

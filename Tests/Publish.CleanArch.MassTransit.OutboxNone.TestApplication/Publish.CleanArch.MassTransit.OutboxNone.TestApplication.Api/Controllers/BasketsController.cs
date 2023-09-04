@@ -184,7 +184,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketBasketItemByIdQuery(basketId: basketId, id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketBasketItemsQuery(basketId: basketId), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketByIdQuery(id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

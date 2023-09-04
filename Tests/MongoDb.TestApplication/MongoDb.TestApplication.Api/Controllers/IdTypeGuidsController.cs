@@ -69,7 +69,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             var result = default(IdTypeGuidDto);
             result = await _appService.FindIdTypeGuidById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

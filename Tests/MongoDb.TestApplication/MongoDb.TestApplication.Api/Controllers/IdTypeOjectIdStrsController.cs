@@ -69,7 +69,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             var result = default(IdTypeOjectIdStrDto);
             result = await _appService.FindIdTypeOjectIdStrById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

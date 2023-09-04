@@ -80,7 +80,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
         {
             var result = default(UserDto);
             result = await _appService.FindUserById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

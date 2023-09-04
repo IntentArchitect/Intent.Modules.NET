@@ -59,7 +59,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             var result = default(CustomDTO);
             result = await _appService.QueryParamOp(param1, param2, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

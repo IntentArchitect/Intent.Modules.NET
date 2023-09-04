@@ -77,7 +77,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetInvoiceInvoiceLineById), new { invoiceId = invoiceId, id = result }, new JsonResponse<string>(result));
+            return result == null ? NotFound() : CreatedAtAction(nameof(GetInvoiceInvoiceLineById), new { invoiceId = invoiceId, id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceByIdQuery(id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceInvoiceLineByIdQuery(invoiceId: invoiceId, id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoiceInvoiceLinesQuery(invoiceId: invoiceId), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

@@ -73,7 +73,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             var result = default(InvoiceDto);
             result = await _appService.FindInvoiceById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

@@ -74,7 +74,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new CheckResultCommand(id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerRichByIdQuery(id: id), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

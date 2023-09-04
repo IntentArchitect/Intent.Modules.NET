@@ -80,7 +80,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api.Controllers
         {
             var result = default(RoleDto);
             result = await _appService.FindRoleById(id, cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
