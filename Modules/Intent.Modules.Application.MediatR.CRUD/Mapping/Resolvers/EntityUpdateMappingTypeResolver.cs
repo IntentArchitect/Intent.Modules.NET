@@ -22,7 +22,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
             return null;
         }
         var model = mappingModel.Model;
-        if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
+        if (model.SpecializationType == "Class" || (model.SpecializationType == "Association Target End" && model.TypeReference?.Element?.SpecializationType == "Class"))
         {
             return new ObjectUpdateMapping(mappingModel.Model, mappingModel.Mapping, mappingModel.Children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _sourceTemplate);
         }

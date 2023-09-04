@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -125,6 +126,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             CSharpStatement GetConstructorStatement(string entityVarName, string dtoVarName, bool hasInitStatements)
             {
+
                 var ctor = _template.Model.Mapping.Element.AsClassConstructorModel();
                 var ctorParams = ctor?.Parameters;
 
@@ -139,20 +141,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     invocationStatement.WithoutSemicolon();
                 }
 
-                foreach (var param in ctorParams)
+                try
                 {
-                    var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
-                    if (invocationArgument == null)
+                    foreach (var param in ctorParams)
                     {
-                        codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
-                        invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
-                        continue;
+                        var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
+                        if (invocationArgument == null)
+                        {
+                            codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
+                            invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
+                            continue;
+                        }
+
+                        invocationStatement.AddArgument(invocationArgument);
                     }
 
-                    invocationStatement.AddArgument(invocationArgument);
+                    return invocationStatement;
                 }
-
-                return invocationStatement;
+                catch (Exception ex)
+                {
+                    throw new ElementException(_template.Model.InternalElement, $"Constructor mapping to [{ctor.ParentClass.Name}] could not be performed. See inner exception for more details.", ex);
+                }
             }
         }
 
@@ -165,7 +174,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
-                var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
+                var mappedField = fields.FirstOrDefault(field => field.Mapping?.Element?.Id == parameter.Id);
+                if (mappedField == null)
+                {
+                    throw new Exception($"A mapping doesn't exist for parameter '{parameter.Name}'");
+                }
                 var constructMethod = parameter.TypeReference.IsCollection
                     ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
                     : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";

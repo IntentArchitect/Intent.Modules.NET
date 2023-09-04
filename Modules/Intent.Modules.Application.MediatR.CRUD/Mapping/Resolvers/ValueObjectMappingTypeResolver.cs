@@ -1,4 +1,5 @@
-﻿using Intent.Modules.Common.CSharp.Mapping;
+﻿using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
