@@ -1,4 +1,8 @@
-﻿### Version 2.0.1
+﻿### Version 2.0.2
+
+- Fixed: `ReadToEndAsync` doesn't have a parameter in .NET 6 to receive a `CancellationToken`.
+
+### Version 2.0.1
 
 - Fixed: Nullability related compiler warnings.
 
