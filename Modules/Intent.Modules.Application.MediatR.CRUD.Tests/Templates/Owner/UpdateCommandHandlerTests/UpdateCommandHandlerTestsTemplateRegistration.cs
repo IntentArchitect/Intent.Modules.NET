@@ -40,8 +40,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCo
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(command => command.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
-                            && command.GetClassModel()?.IsAggregateRoot() == true)
+                .Where(command => command.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase) && 
+                                  command.GetClassModel()?.IsAggregateRoot() == true &&
+                                  command.HasIdentityKeys())
                 .ToList();
         }
     }

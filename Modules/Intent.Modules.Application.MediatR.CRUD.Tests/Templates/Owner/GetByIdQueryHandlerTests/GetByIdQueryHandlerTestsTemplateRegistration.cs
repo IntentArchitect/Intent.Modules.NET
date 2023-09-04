@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -41,7 +42,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
                 .GetQueryModels()
                 .Where(query => query.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase) &&
                             query.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase) &&
-                            query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
+                            query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true &&
+                            query.HasIdentityKeys())
                 .ToList();
         }
     }
