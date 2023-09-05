@@ -1,4 +1,8 @@
-﻿### Version 5.0.1
+﻿### Version 5.0.2
+
+- Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
+
+### Version 5.0.1
 
 - Fixed: Nullability related compiler warnings.
 

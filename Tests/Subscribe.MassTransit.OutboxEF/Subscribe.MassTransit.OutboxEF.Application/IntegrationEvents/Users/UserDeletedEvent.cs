@@ -9,6 +9,11 @@ namespace MassTransit.Messages.Shared
 {
     public record UserDeletedEvent
     {
+        public UserDeletedEvent()
+        {
+            Email = null!;
+            UserName = null!;
+        }
         public Guid Id { get; init; }
         public string Email { get; init; }
         public string UserName { get; init; }

@@ -9,6 +9,11 @@ namespace MassTransit.Messages.Shared
 {
     public record BasketCreatedEvent
     {
+        public BasketCreatedEvent()
+        {
+            Number = null!;
+            BasketItems = null!;
+        }
         public Guid Id { get; init; }
         public string Number { get; init; }
         public List<BasketItemDto> BasketItems { get; init; }

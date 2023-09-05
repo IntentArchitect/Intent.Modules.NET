@@ -8,6 +8,10 @@ namespace MassTransit.Messages.Shared
 {
     public record BasketDeletedEvent
     {
+        public BasketDeletedEvent()
+        {
+            Number = null!;
+        }
         public Guid Id { get; init; }
         public string Number { get; init; }
     }

@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/NullableResult/GetCustomerNullable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Params/FromBodyTest.cs</ApplicationRelativeFilePath>
@@ -724,6 +732,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullableHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullableHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/FromBodyTest/FromBodyTestCommand.cs</ApplicationRelativeFilePath>
@@ -952,6 +976,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/NullableResult/GetCustomerNullable/GetCustomerNullableValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullableValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

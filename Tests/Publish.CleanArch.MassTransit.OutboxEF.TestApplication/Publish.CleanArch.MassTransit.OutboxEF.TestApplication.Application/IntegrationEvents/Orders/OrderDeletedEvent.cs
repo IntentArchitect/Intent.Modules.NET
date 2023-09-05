@@ -9,6 +9,10 @@ namespace MassTransit.Messages.Shared
 {
     public record OrderDeletedEvent
     {
+        public OrderDeletedEvent()
+        {
+            Number = null!;
+        }
         public Guid Id { get; init; }
         public string Number { get; init; }
     }

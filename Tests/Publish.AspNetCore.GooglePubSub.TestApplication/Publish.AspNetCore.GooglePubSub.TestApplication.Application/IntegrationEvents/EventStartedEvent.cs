@@ -7,6 +7,10 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Eventing.Messages
 {
     public record EventStartedEvent
     {
+        public EventStartedEvent()
+        {
+            Message = null!;
+        }
         public string Message { get; init; }
     }
 }

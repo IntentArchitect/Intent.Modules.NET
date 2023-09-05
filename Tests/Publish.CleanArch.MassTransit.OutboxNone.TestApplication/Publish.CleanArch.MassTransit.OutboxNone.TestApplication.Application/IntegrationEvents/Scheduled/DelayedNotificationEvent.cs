@@ -7,6 +7,10 @@ namespace MassTransit.Messages.Shared
 {
     public record DelayedNotificationEvent
     {
+        public DelayedNotificationEvent()
+        {
+            Message = null!;
+        }
         public string Message { get; init; }
     }
 }

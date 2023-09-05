@@ -68,8 +68,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     att.AddArgument($"Description = \"{GetDescription(operationElement)}\"");
                 });
 
+
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
-                    ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
+                    ? template.UseType(template.GetTypeInfo( template.Model.GetRequestDtoParameter().TypeReference).WithIsNullable(false))
                     : null;
                 if (!string.IsNullOrEmpty(requestDtoTypeName))
                 {
@@ -90,7 +91,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                             att.AddArgument($"name: \"{parameterModel.Name.ToParameterName()}\"");
                             att.AddArgument($"In = ParameterLocation.{GetParameterLocation(parameterModel.Source)}");
                             att.AddArgument("Required = true");
-                            att.AddArgument($"Type = typeof({_template.GetTypeName(parameterModel.TypeReference)})");
+                            att.AddArgument($"Type = typeof({_template.UseType(template.GetTypeInfo(parameterModel.TypeReference).WithIsNullable(false))})");
                         });
                     }
                 }
@@ -101,7 +102,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     {
                         att.AddArgument("statusCode: HttpStatusCode.OK");
                         att.AddArgument($"contentType: \"application/json\"");
-                        att.AddArgument($"bodyType: typeof({_template.GetTypeName(_template.Model.ReturnType)})");
+                        att.AddArgument($"bodyType: typeof({_template.UseType(template.GetTypeInfo(_template.Model.ReturnType).WithIsNullable(false))})");
                     });
 
                 }

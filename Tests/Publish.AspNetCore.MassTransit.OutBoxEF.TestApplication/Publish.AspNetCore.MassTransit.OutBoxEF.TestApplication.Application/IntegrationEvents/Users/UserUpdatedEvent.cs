@@ -10,6 +10,12 @@ namespace MassTransit.Messages.Shared
 {
     public record UserUpdatedEvent
     {
+        public UserUpdatedEvent()
+        {
+            Email = null!;
+            UserName = null!;
+            Preferences = null!;
+        }
         public Guid Id { get; init; }
         public string Email { get; init; }
         public string UserName { get; init; }
