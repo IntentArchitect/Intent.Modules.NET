@@ -98,14 +98,14 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             method.AddStatement($"relativeUri = {UseType("Microsoft.AspNetCore.WebUtilities.QueryHelpers")}.AddQueryString(relativeUri, queryParams);");
                         }
 
-                        method.AddStatement($"var request = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
-                        method.AddStatement("request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
+                        method.AddStatement($"var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
+                        method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
 
                         foreach (var headerParameter in inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams)
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            method.AddStatement($"request.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
+                            method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
                         }
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
@@ -113,7 +113,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             var bodyParam = bodyParams.Single();
 
                             method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
-                            method.AddStatement("request.Content = new StringContent(content, Encoding.Default, \"application/json\");");
+                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.Default, \"application/json\");");
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
                         {
@@ -125,15 +125,15 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             }
 
                             method.AddStatement("var content = new FormUrlEncodedContent(formVariables);");
-                            method.AddStatement("request.Content = content;");
+                            method.AddStatement("httpRequest.Content = content;");
                         }
 
-                        method.AddStatementBlock("using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))", usingResponseBlock =>
+                        method.AddStatementBlock("using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))", usingResponseBlock =>
                         {
                             usingResponseBlock.SeparatedFromPrevious();
 
                             usingResponseBlock.AddStatementBlock("if (!response.IsSuccessStatusCode)", s => s
-                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);")
+                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);")
                             );
 
                             if (endpoint.ReturnType?.Element == null)
