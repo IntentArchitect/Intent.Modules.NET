@@ -28,14 +28,14 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
         public async Task<ValidatedResultDto> ResultValidationsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/validation/result-validations";
-            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))

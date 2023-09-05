@@ -1,4 +1,8 @@
-﻿### Version 2.0.2
+﻿### Version 2.0.3
+
+- Improvement: Renamed the `request` variable as it would conflict with developers who would use that name for their service parameters.
+
+### Version 2.0.2
 
 - Fixed: `ReadToEndAsync` doesn't have a parameter in .NET 6 to receive a `CancellationToken`.
 

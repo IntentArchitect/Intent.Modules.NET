@@ -31,14 +31,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task OperationForVersionOneAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v1/multi-version/operation-for-version-one";
-            var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -46,14 +46,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task OperationForVersionTwoAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v2/multi-version/operation-for-version-two";
-            var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

@@ -35,17 +35,17 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task<Guid> CreateInvoiceAsync(InvoiceCreateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices";
-            var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.Default, "application/json");
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
@@ -60,14 +60,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task<InvoiceDto> FindInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices/{id}";
-            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
@@ -80,14 +80,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task<List<InvoiceDto>> FindInvoicesAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices";
-            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
@@ -100,17 +100,17 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task UpdateInvoiceAsync(Guid id, InvoiceUpdateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices/{id}";
-            var request = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.Default, "application/json");
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -118,14 +118,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task DeleteInvoiceAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/invoices/{id}";
-            var request = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

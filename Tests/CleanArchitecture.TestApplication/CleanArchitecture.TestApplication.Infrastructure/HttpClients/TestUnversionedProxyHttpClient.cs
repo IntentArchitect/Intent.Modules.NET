@@ -35,17 +35,17 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
         public async Task TestAsync(TestCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/unversioned/test";
-            var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
-            request.Content = new StringContent(content, Encoding.Default, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.Default, "application/json");
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -57,14 +57,14 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
