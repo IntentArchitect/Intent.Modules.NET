@@ -28,5 +28,5 @@
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/tree/master/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md</projectUrl>
 </package>
