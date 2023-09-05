@@ -43,7 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
                 .Where(query => query.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase) &&
                             query.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase) &&
                             query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true &&
-                            query.HasIdentityKeys())
+                            query.HasIdentityKeys(application))
                 .ToList();
         }
     }

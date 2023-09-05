@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.Api;
@@ -56,15 +57,15 @@ public static class CommandQueryMappingExtensions
                    ?.FirstOrDefault()?.Element?.AsDTOModel()?.Mapping?.Element?.AsClassModel();
     }
 
-    public static bool HasIdentityKeys(this QueryModel queryModel)
+    public static bool HasIdentityKeys(this QueryModel queryModel, ISoftwareFactoryExecutionContext context)
     {
         var classModel = queryModel.GetClassModel();
-        return classModel is not null && queryModel.Properties.GetEntityIdFields(classModel).Any();
+        return classModel is not null && queryModel.Properties.GetEntityIdFields(classModel, context).Any();
     }
     
-    public static bool HasIdentityKeys(this CommandModel commandModel)
+    public static bool HasIdentityKeys(this CommandModel commandModel, ISoftwareFactoryExecutionContext context)
     {
         var classModel = commandModel.GetClassModel();
-        return classModel is not null && commandModel.Properties.GetEntityIdFields(classModel).Any();
+        return classModel is not null && commandModel.Properties.GetEntityIdFields(classModel, context).Any();
     }
 }

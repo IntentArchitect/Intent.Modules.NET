@@ -42,7 +42,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                 .GetCommandModels()
                 .Where(command => command.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
                             && command.GetClassModel()?.IsAggregateRoot() == false
-                            && command.HasIdentityKeys())
+                            && command.HasIdentityKeys(application))
                 .ToList();
         }
     }

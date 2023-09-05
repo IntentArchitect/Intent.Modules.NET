@@ -42,7 +42,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                 .Where(query => query.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase)
                                 && query.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false 
                                 && !query.TypeReference.IsCollection
-                                && query.HasIdentityKeys())
+                                && query.HasIdentityKeys(application))
                 .ToList();
         }
     }

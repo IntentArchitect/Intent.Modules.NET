@@ -42,7 +42,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCo
                 .GetCommandModels()
                 .Where(command => command.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
                             && command.GetClassModel()?.IsAggregateRoot() == true
-                            && command.HasIdentityKeys())
+                            && command.HasIdentityKeys(application))
                 .ToList();
         }
     }
