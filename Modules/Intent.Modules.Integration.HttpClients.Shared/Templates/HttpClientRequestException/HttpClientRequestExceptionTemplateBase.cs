@@ -2,6 +2,8 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequestException
 {
@@ -41,7 +43,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .AddStatements(new[]
                         {
                             "var fullRequestUri = new Uri(baseAddress, request.RequestUri!);",
-                            "var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);",
+                            $"var content = await response.Content.{GetReadAsStringAsyncMethodCall()}.ConfigureAwait(false);",
                             "var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);",
                             $"return new {@class.Name}(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);",
                         })
@@ -61,6 +63,16 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                     )
                 );
         }
+
+        private string GetReadAsStringAsyncMethodCall()
+        {
+            return OutputTarget switch
+            {
+                _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadAsStringAsync()",
+                _ => "ReadAsStringAsync(cancellationToken)"
+            };
+        }
+
 
         public CSharpFile CSharpFile { get; }
 

@@ -1,4 +1,9 @@
-﻿### Version 5.0.3
+﻿### Version 5.0.4
+
+- Improvement: Changed default proxy encoding to UTF8 as Default can be inconsistent(https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default).
+- Improvement: Added better out the box support for generating proxies into `netstandard` projects.
+
+### Version 5.0.3
 
 - Improvement: Renamed the `request` variable as it would conflict with developers who would use that name for their service parameters.
 

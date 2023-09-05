@@ -39,7 +39,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.Default, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -57,7 +57,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.Default, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -88,7 +88,11 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
-                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
+
+                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    {
+                        str = str.Substring(1, str.Length - 2);
+                    }
                     return int.Parse(str);
                 }
             }
@@ -114,7 +118,11 @@ namespace CleanArchitecture.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
-                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
+
+                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    {
+                        str = str.Substring(1, str.Length - 2);
+                    }
                     return int.Parse(str);
                 }
             }

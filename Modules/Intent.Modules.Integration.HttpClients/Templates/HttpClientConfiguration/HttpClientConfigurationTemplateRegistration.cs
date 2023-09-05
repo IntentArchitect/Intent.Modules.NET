@@ -4,10 +4,14 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Common.VisualStudio;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,6 +28,16 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         public HttpClientConfigurationTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
+        }
+
+        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.OutputTargets.First().GetProject().TargetFramework().StartsWith("netstandard"))
+            {
+                AbortRegistration(); // Need cleaner, more obvious way, to do this
+                return;
+            }
+            base.DoRegistration(registry, application);
         }
 
         public override string TemplateId => HttpClientConfigurationTemplate.TemplateId;

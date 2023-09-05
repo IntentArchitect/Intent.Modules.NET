@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
@@ -113,7 +114,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             var bodyParam = bodyParams.Single();
 
                             method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
-                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.Default, \"application/json\");");
+                            //Changed to UTF8 as Default can be sketchy..https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
+                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , \"application/json\");");
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
                         {
@@ -148,7 +150,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 );
                             }
 
-                            usingResponseBlock.AddStatementBlock("using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))", usingContentStreamBlock =>
+                            usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
                             {
                                 var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
                                 var returnsCollection = endpoint.ReturnType.IsCollection;
@@ -168,13 +170,19 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                 {
                                     usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
+                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    {
+                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                    });
                                     usingContentStreamBlock.AddStatement("return str;");
                                 }
                                 else if (!isWrappedReturnType && returnsPrimitive)
                                 {
                                     usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
+                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    {
+                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                    });
                                     usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                 }
                                 else
@@ -196,9 +204,20 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         {
             _ when OutputTarget.GetProject().IsNetApp(5) => "ReadToEndAsync()",
             _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
+            _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadToEndAsync()",
             _ => "ReadToEndAsync(cancellationToken)"
         }; 
     }
+
+    private string GetReadAsStreamAsyncMethodCall()
+    {
+        return OutputTarget switch
+        {
+            _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadAsStreamAsync()",
+            _ => "ReadAsStreamAsync(cancellationToken)"
+        };
+    }
+
 
     [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }
