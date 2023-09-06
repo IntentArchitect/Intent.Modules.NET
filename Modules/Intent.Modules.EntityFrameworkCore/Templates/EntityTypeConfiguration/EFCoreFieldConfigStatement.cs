@@ -208,9 +208,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         return statements;
     }
 
-    private string Escape(string computedValueSql)
+    private static string Escape(string computedValueSql)
     {
-        string result = computedValueSql.Trim('"');
+        var result = computedValueSql.Trim('"');
         return result.Replace("\"", "\\\"");
     }
 }

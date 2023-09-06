@@ -66,7 +66,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
                             method.AddStatements(GetCheckConstraints(Model));
-                            method.AddStatements(GetIndexes(Model));
                             method.Statements.SeparateAll();
 
                             AddIgnoreForNonPersistent(method, isOwned: false);
@@ -208,7 +207,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (targetType.IsClassModel())
             {
                 var classModel = new ClassExtensionModel(targetType);
-
+                
                 if (!ForCosmosDb())
                 {
                     statements.AddRange(GetTableMapping(classModel));
@@ -228,6 +227,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             statements.AddRange(GetAttributes(targetType)
                 .Where(RequiresConfiguration)
                 .Select(x => GetAttributeMapping(x, @class)));
+
+            if (targetType.IsClassModel())
+            {
+                var classModel = new ClassExtensionModel(targetType);
+                statements.AddRange(GetIndexes(classModel));
+            }
 
             statements.AddRange(GetAssociations(targetType)
                 .Where(RequiresConfiguration)

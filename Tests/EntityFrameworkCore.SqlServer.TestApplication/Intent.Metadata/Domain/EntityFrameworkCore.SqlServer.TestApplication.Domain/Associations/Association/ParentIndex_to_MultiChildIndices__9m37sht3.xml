@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="83b2238b-8a3d-4751-8a73-46e87c8e8f09">
+  <sourceEnd id="5565f6db-2753-4edd-9da3-064427e76898" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ParentIndex</name>
+    <display>ParentIndex: ParentIndex</display>
+    <order>0</order>
+    <typeReference id="a7177f3e-936b-4454-94f7-d08fa20ace1c">
+      <typeId>356ce581-a646-4080-9453-14685da73b8d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="83b2238b-8a3d-4751-8a73-46e87c8e8f09" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MultiChildIndices</name>
+    <display>MultiChildIndices: MultiChildIndex[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="a1f727a8-e2d0-4d22-a38c-1b292f38a5f3">
+      <typeId>0823c8e8-1617-4d4e-af87-bfcf8373c87d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
