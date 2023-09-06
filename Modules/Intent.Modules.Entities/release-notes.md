@@ -1,6 +1,7 @@
 ### Version 4.3.8
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
+- Improvement: Added code documentation for all helper code.
 
 ### Version 4.3.7
 
