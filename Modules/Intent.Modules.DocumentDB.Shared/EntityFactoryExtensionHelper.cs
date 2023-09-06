@@ -81,7 +81,8 @@ namespace Intent.Modules.DocumentDB.Shared
 
         private static void InitializePrimaryKey(ICSharpTemplate template, CSharpClass @class, AttributeModel attributePk, CSharpProperty existingPk, string fieldName)
         {
-            @class.AddField(template.GetTypeName(attributePk.TypeReference) + "?", fieldName);
+            var templateBase = (IntentTemplateBase)template;
+            @class.AddField(templateBase.UseType(templateBase.GetTypeInfo(attributePk.TypeReference).WithIsNullable(true)), fieldName);
             var getExpressionSuffix = attributePk.TypeReference.Element.Name switch
             {
                 "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",

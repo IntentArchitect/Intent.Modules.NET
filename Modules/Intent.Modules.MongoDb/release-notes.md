@@ -1,3 +1,8 @@
+### Version 1.0.4
+
+- Fixed: Addressed an issue where in certain scenarios nullable id's resulted in uncompilable code.
+
+
 ### Version 1.0.3
 
 - Improvement: Added Document DB Provider support, allowing this module to be used in conjunction with other Document DB technologies within the same application.
