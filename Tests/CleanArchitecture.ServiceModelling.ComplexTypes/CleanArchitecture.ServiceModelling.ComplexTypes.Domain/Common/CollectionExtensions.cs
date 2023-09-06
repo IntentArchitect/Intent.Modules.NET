@@ -8,8 +8,20 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common
 {
+    /// <summary>
+    /// Provides extension methods for collection objects.
+    /// </summary>
     public static class CollectionExtensions
     {
+        /// <summary>
+        /// Compares two collections and returns a result indicating the differences between them.
+        /// </summary>
+        /// <typeparam name="TChanged">The type of elements in the changed collection.</typeparam>
+        /// <typeparam name="TOriginal">The type of elements in the base collection.</typeparam>
+        /// <param name="baseCollection">The base collection to compare.</param>
+        /// <param name="changedCollection">The changed collection to compare against the base collection.</param>
+        /// <param name="equalityCheck">A function to determine if two elements are equal.</param>
+        /// <returns>A <see cref="ComparisonResult{TChanged, TOriginal}"/> object that describes the differences between the two collections.</returns>
         public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
             this ICollection<TOriginal> baseCollection,
             ICollection<TChanged> changedCollection,
@@ -36,8 +48,19 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common
             return new ComparisonResult<TChanged, TOriginal>(toAdd, toRemove, possibleEdits);
         }
 
+        /// <summary>
+        /// Represents the result of comparing two collections.
+        /// </summary>
+        /// <typeparam name="TChanged">The type of elements that have changed.</typeparam>
+        /// <typeparam name="TOriginal">The type of original elements.</typeparam>
         public class ComparisonResult<TChanged, TOriginal>
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ComparisonResult{TChanged, TOriginal}"/> class.
+            /// </summary>
+            /// <param name="toAdd">A collection of elements to be added.</param>
+            /// <param name="toRemove">A collection of elements to be removed.</param>
+            /// <param name="possibleEdits">A collection of matched elements that might have edits.</param>
             public ComparisonResult(ICollection<TChanged> toAdd, ICollection<TOriginal> toRemove, ICollection<Match<TChanged, TOriginal>> possibleEdits)
             {
                 ToAdd = toAdd;
@@ -45,24 +68,53 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common
                 PossibleEdits = possibleEdits;
             }
 
+            /// <summary>
+            /// Gets the collection of elements to be added.
+            /// </summary>
             public ICollection<TChanged> ToAdd { get; }
+            /// <summary>
+            /// Gets the collection of elements to be removed.
+            /// </summary>
             public ICollection<TOriginal> ToRemove { get; }
+            /// <summary>
+            /// Gets the collection of matched elements that might have edits.
+            /// </summary>
             public ICollection<Match<TChanged, TOriginal>> PossibleEdits { get; }
+            /// <summary>
+            /// Determines whether there are any changes between the two collections.
+            /// </summary>
+            /// <returns><c>true</c> if there are changes; otherwise, <c>false</c>.</returns>
             public bool HasChanges()
             {
                 return ToAdd.Any() || ToRemove.Any() || PossibleEdits.Any();
             }
         }
 
+        /// <summary>
+        /// Represents a matched pair of changed and original elements.
+        /// </summary>
+        /// <typeparam name="TChanged">The type of the changed element.</typeparam>
+        /// <typeparam name="TOriginal">The type of the original element.</typeparam>
         public class Match<TChanged, TOriginal>
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Match{TChanged, TOriginal}"/> class.
+            /// </summary>
+            /// <param name="changed">The changed element.</param>
+            /// <param name="original">The original element.</param>
             public Match(TChanged changed, TOriginal original)
             {
                 Changed = changed;
                 Original = original;
             }
 
+            /// <summary>
+            /// Gets the changed element.
+            /// </summary>
             public TChanged Changed { get; private set; }
+            /// <summary>
+            /// Gets the original element.
+            /// </summary>
             public TOriginal Original { get; private set; }
         }
     }
