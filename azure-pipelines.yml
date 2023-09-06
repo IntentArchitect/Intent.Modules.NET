@@ -71,6 +71,19 @@ steps:
     vstsFeed: $(vstsFeed)
     projects: $(targetsToBuild)
 
+- task: PowerShell@2
+  displayName: 'Update Project URLs in imodspecs'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: |
+      $isMaster = '$(Build.SourceBranch)' -eq 'refs/heads/master'
+      if ($isMaster -eq $true) {
+        Get-ChildItem -Recurse -Filter "*.imodspec" | ForEach-Object {
+          (Get-Content $_.FullName) -replace '/development/', '/master/' | Set-Content $_.FullName
+        }
+      }
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   env:
