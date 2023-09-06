@@ -35,5 +35,5 @@
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Dapr.AspNetCore.Bindings.Cron/Intent.Dapr.AspNetCore.Bindings.Cron.pkg.config" externalReference="b83896a0-ff9f-44e5-a98c-50a54baf63ec" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Dapr.AspNetCore.Bindings.Cron/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Dapr.AspNetCore.Bindings.Cron/README.md</projectUrl>
 </package>
