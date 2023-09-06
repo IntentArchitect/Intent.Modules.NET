@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Templates.DesignTimeDbContextFactory
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-    partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory";
 

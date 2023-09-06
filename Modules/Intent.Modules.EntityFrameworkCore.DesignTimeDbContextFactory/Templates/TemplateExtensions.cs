@@ -11,7 +11,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
 {
     public static class TemplateExtensions
     {
-        public static string GetDesignTimeDbContextFactoryName<T>(this IntentTemplateBase<T> template)
+        public static string GetDesignTimeDbContextFactoryName(this IIntentTemplate template)
         {
             return template.GetTypeName(DesignTimeDbContextFactoryTemplate.TemplateId);
         }

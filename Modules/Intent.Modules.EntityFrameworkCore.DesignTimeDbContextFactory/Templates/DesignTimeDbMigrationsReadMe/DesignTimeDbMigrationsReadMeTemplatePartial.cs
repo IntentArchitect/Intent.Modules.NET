@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -20,10 +24,11 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
         public DesignTimeDbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
-        
+
         public string BoundedContextName => OutputTarget.ApplicationName();
         public string MigrationProject => OutputTarget.GetProject().Name;
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(

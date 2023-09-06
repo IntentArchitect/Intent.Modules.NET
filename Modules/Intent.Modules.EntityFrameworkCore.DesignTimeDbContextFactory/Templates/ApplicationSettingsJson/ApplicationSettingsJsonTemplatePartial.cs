@@ -30,6 +30,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
             ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
@@ -38,6 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
             );
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
             if (!TryGetExistingFileContent(out var content))
