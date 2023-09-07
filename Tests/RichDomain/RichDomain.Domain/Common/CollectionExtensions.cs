@@ -20,7 +20,7 @@ namespace RichDomain.Domain.Common
         /// <typeparam name="TOriginal">The type of elements in the base collection.</typeparam>
         /// <param name="baseCollection">The base collection to compare.</param>
         /// <param name="changedCollection">The changed collection to compare against the base collection.</param>
-        /// <param name="equalityCheck">A function to determine if two elements are equal.</param>
+        /// <param name="equalityCheck">A predicate to determine if two elements are equal.</param>
         /// <returns>A <see cref="ComparisonResult{TChanged, TOriginal}"/> object that describes the differences between the two collections.</returns>
         public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
             this ICollection<TOriginal> baseCollection,
@@ -83,7 +83,7 @@ namespace RichDomain.Domain.Common
             /// <summary>
             /// Determines whether there are any changes between the two collections.
             /// </summary>
-            /// <returns><c>true</c> if there are changes; otherwise, <c>false</c>.</returns>
+            /// <returns><see langword="true" /> if there are changes; otherwise, <see langword="false" />.</returns>
             public bool HasChanges()
             {
                 return ToAdd.Any() || ToRemove.Any() || PossibleEdits.Any();
