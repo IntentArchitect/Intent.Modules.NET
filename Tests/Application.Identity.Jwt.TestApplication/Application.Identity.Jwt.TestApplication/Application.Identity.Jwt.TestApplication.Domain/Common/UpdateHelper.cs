@@ -19,12 +19,12 @@ namespace Application.Identity.Jwt.TestApplication.Domain.Common
         /// <typeparam name="TOriginal">The type of items in the base collection.</typeparam>
         /// <param name="baseCollection">The base collection to be updated.</param>
         /// <param name="changedCollection">The collection containing the changes.</param>
-        /// <param name="equalityCheck">A function that determines if an item from the base collection matches an item from the changed collection.</param>
-        /// <param name="assignmentAction">A function that defines how to update an item from the base collection using an item from the changed collection.</param>
+        /// <param name="equalityCheck">A predicate that determines if an item from the base collection matches an item from the changed collection.</param>
+        /// <param name="assignmentAction">A delegate that defines how to update an item from the base collection using an item from the changed collection.</param>
         /// <returns>The updated base collection.</returns>
         /// <remarks>
-        /// If the changed collection is null, an empty list of type <see cref="TOriginal"/> will be returned.
-        /// If the base collection is null, a new list of type <see cref="TOriginal"/> will be created and used.
+        /// If the changed collection is <see langword="null" />, an empty list of type <see cref="TOriginal"/> will be returned.
+        /// If the base collection is <see langword="null" />, a new list of type <see cref="TOriginal"/> will be created and used.
         /// </remarks>
         public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
             ICollection<TOriginal> baseCollection,
