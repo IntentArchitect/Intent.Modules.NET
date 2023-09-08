@@ -1,6 +1,7 @@
 ### Version 5.4.0
 
 - Improvement: The heuristic for whether or not to annotate that particular controller methods can return a 404 response has been improved.
+- Improvement: One can now specify a Default Route Prefix for API Services.
 - Fixed: Controller methods which would return `JsonResponse<T>` incorrectly had a return type of `ActionResult<T>` instead of `ActionResult<JsonResponse<T>>`.
 
 ### Version 5.3.2

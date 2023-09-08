@@ -41,7 +41,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.37" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.2.0" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.3.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.4" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
