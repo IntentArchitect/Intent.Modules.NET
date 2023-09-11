@@ -26,15 +26,6 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
         {
             return new ObjectUpdateMapping(mappingModel.Model, mappingModel.Mapping, mappingModel.Children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _sourceTemplate);
         }
-        if (model.SpecializationType == "Class Constructor")
-        {
-            //return new ImplicitConstructorMapping(((IElement)mappingModel.Model).ParentElement, mappingModel.Mapping, mappingModel.Children, _sourceTemplate);
-            return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
-        }
-        if (model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(mappingModel, _sourceTemplate);
-        }
 
         return null;
     }

@@ -34,10 +34,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template = template;
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
             _csharpMapping = new CSharpClassMappingManager(_template);
-            _csharpMapping.AddMappingResolver(new SelfUpdateMappingTypeResolver(_template, model));
-            _csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
             _csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             _csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
+            _csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template, model));
+            _csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
 
             _csharpMapping.SetFromReplacement(model.InternalElement, "request");
             _template.CSharpFile.Classes.First().AddMetadata("mapping-manager", _csharpMapping);
@@ -73,11 +73,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
                 handleMethod.AddStatements(GetImplementation(createAction));
                 handleMethod.AddStatement(string.Empty);
+
+                foreach (var actions in createAction.ProcessingActions)
+                {
+                    handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
+                    handleMethod.AddStatement(string.Empty);
+                }
             }
 
             foreach (var updateAction in _template.Model.UpdateEntityActions())
             {
-                var foundEntity = updateAction.Element.AsClassModel();
+                var foundEntity = updateAction.Element.AsClassModel() ?? ((IElement)updateAction.Element).ParentElement.AsClassModel();
                 if (foundEntity != null)
                 {
                     var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
@@ -90,6 +96,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                     var entityVariableName = foundEntity.GetExistingVariableName();
                     _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
                     _csharpMapping.SetFromReplacement(updateAction, entityVariableName);
+                    _csharpMapping.SetToReplacement(updateAction, entityVariableName);
 
                     var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
                     handleMethod.AddStatement($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
@@ -100,6 +107,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 handleMethod.AddStatement(string.Empty);
                 handleMethod.AddStatements(GetImplementation(updateAction));
                 handleMethod.AddStatement(string.Empty);
+
+                foreach (var actions in updateAction.ProcessingActions)
+                {
+                    handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
+                    handleMethod.AddStatement(string.Empty);
+                }
             }
 
             foreach (var processingAction in new CommandExtensionModel(_template.Model.InternalElement).ProcessingActions)
