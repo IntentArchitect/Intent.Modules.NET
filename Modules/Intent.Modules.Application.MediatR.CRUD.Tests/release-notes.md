@@ -1,5 +1,6 @@
-### Version 1.2.4
+### Version 1.3.0
 
+- Improvement: Updated based on improvements made in MediatR.CRUD module.
 - Fixed: Software Factory `MethodNotFound` exception would occur when run with `Intent.Application.MediatR.CRUD` version `5.2.4` and newer.
  
 ### Version 1.2.3
