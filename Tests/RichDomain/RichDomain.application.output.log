@@ -99,6 +99,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>327fe658-fe48-4c00-85ce-3edafab98268</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#327fe658-fe48-4c00-85ce-3edafab98268</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/RichDomain.Application.Tests.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichDomain.Application.Tests.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e82a0dcc-1bbb-4759-bf95-fa88667936d1</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

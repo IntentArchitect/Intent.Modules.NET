@@ -1,6 +1,10 @@
-### Version 1.2.3
+### Version 1.2.4
 
 - Fixed: Software Factory `MethodNotFound` exception would occur when run with `Intent.Application.MediatR.CRUD` version `5.2.4` and newer.
+ 
+### Version 1.2.3
+
+- Fixed: When Private Setters on the Domain designer is switched on, the CRUD Test implementations won't generate to match the lookup criteria for the Auto-CRUD Implementation.
 
 ### Version 1.2.2
 

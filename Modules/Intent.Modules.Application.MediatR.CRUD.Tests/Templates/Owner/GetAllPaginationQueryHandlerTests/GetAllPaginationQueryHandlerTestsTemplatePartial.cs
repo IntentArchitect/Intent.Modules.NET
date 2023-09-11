@@ -44,7 +44,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                 {
                     AddUsingDirectives(file);
                     Facade.AddHandlerConstructorMockUsings();
-                    
+
                     var priClass = file.Classes.First();
                     priClass.AddConstructor(ctor =>
                     {
@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                         method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(5));
                         method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                     });
-                    
+
                     priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>
                     {
                         method.Async();
@@ -73,9 +73,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                         method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
                         method.AddStatements(Facade.GetMockedPaginatedResults("fetchedResults", "testEntities"));
                         method.AddStatements(Facade.GetDomainRepositoryFindAllMockingStatements(
-                            entitiesVarName: "fetchedResults", 
-                            repositoryVarName: Facade.DomainAggregateRepositoryVarName, 
-                            pageNo: 1, 
+                            entitiesVarName: "fetchedResults",
+                            repositoryVarName: Facade.DomainAggregateRepositoryVarName,
+                            pageNo: 1,
                             pageSize: 5));
                         method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
 
@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                         method.AddStatement("// Assert");
                         method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("fetchedResults"));
                     });
-                    
+
                     AddAssertionMethods();
                 });
         }
@@ -114,7 +114,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
             {
                 return;
             }
-            
+
             var domainModel = Model.GetPaginatedClassModel();
             var templateInstance = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
