@@ -151,8 +151,8 @@
       </childElements>
     </childElement>
     <childElement id="d5df4992-a8a2-40ff-8371-bbc916007943" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>MongoDB (Preview)</name>
-      <display>MongoDB (Preview)</display>
+      <name>MongoDB</name>
+      <display>MongoDB</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
