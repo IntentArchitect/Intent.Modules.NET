@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Fixed: When Private Setters on the Domain designer is switched on, the CRUD Test implementations won't generate to match the lookup criteria for the Auto-CRUD Implementation.
+
 ### Version 1.2.2
 
 - Fixed: Generated tests targeted Command / Query handlers that aren't auto-implemented by CRUD auto-implementation system.
