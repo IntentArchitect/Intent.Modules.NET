@@ -3,6 +3,11 @@
 - Improvement: Updated based on improvements made in MediatR.CRUD module.
 - Fixed: Software Factory `MethodNotFound` exception would occur when run with `Intent.Application.MediatR.CRUD` version `5.2.4` and newer.
  
+### Version 1.2.4
+
+- Fixed: Limiting field mapping types for Assertion Class content generation.
+- Fixed: GetByIdQuery handlers will only be targeted if the mapped type matches the return DTO mapped type.
+
 ### Version 1.2.3
 
 - Fixed: When Private Setters on the Domain designer is switched on, the CRUD Test implementations won't generate to match the lookup criteria for the Auto-CRUD Implementation.

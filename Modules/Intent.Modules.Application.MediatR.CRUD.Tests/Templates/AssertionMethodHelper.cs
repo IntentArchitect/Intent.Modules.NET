@@ -302,7 +302,6 @@ internal static class AssertionMethodHelper
             
             switch (field.Mapping?.Element?.SpecializationTypeId)
             {
-                default:
                 case AttributeModel.SpecializationTypeId:
                     var attribute = field.Mapping?.Element?.AsAttributeModel()
                                     ?? domainModel.Attributes.First(p => p.Name == field.Name);
@@ -355,6 +354,8 @@ internal static class AssertionMethodHelper
                                 .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType, false)));
                     }
                 }
+                    break;
+                default:
                     break;
             }
         }
