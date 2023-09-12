@@ -412,6 +412,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#67eddab2-86b5-4abe-abcc-56835f7c3f2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsPaged/GetClientsPagedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#67eddab2-86b5-4abe-abcc-56835f7c3f2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#67eddab2-86b5-4abe-abcc-56835f7c3f2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f806aae9-cddd-4090-8ae4-d6f20cdc3dc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Clients/UpdateClient/UpdateClientCommand.cs</ApplicationRelativeFilePath>
@@ -1488,6 +1512,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/CosmosDBRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBRepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

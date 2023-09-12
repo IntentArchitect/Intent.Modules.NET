@@ -580,6 +580,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>10353fd9-3122-45d6-8f1b-fd9b50529bcc</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10353fd9-3122-45d6-8f1b-fd9b50529bcc</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepository#0fcbdf59-231a-426f-b338-58c8ac56cd60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Repositories/CustomerCosmosCosmosDBRepository.cs</ApplicationRelativeFilePath>

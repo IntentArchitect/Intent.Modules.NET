@@ -10,7 +10,9 @@ using CosmosDB.Application.Clients.DeleteClient;
 using CosmosDB.Application.Clients.GetClientById;
 using CosmosDB.Application.Clients.GetClientByName;
 using CosmosDB.Application.Clients.GetClients;
+using CosmosDB.Application.Clients.GetClientsPaged;
 using CosmosDB.Application.Clients.UpdateClient;
+using CosmosDB.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -116,6 +118,23 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByNameQuery(searchText: searchText), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ClientDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api//clients/paged")]
+        [ProducesResponseType(typeof(PagedResult<ClientDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ClientDto>>> GetClientsPaged(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetClientsPagedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
             return Ok(result);
         }
 

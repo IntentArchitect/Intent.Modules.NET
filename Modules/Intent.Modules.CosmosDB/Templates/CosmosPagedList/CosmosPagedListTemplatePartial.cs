@@ -23,6 +23,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
         public CosmosPagedListTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("Microsoft.Azure.CosmosRepository")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Paging")
                 .AddClass($"CosmosPagedList", @class =>
                 {
                     @class
