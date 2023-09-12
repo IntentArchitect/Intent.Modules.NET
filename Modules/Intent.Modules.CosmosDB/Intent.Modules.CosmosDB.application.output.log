@@ -210,6 +210,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d6e7abd-cc1f-4a55-b04f-e9b7355bd390</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosPagedList/CosmosPagedListTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosPagedList/CosmosPagedListTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3d6e7abd-cc1f-4a55-b04f-e9b7355bd390</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosPagedList/CosmosPagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosPagedList/CosmosPagedListTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

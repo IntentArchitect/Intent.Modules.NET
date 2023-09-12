@@ -9,6 +9,7 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosPagedList;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -71,6 +72,11 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosDBUnitOfWorkInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBUnitOfWorkInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetCosmosPagedListName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosPagedListTemplate.TemplateId);
         }
 
     }

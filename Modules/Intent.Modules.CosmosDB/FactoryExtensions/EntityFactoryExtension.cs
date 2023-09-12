@@ -55,7 +55,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var classes = application.MetadataManager.Domain(application).GetClassModels()
                         .Where(x => CosmosDbProvider.FilterDbProvider(x) &&
-                                    x.IsAggregateRoot() && 
+                                    x.IsAggregateRoot() &&
                                     !x.IsAbstract)
                         .ToArray();
 

@@ -116,11 +116,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement("var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);")
                         .AddStatement("var results = documents.Cast<TDomain>().ToList();")
-                        .AddForEachStatement("result", "results", fe =>
-                        {
-                            fe.SeparatedFromPrevious();
-                            fe.AddStatement("_unitOfWork.Track(result);");
-                        })
+                        .AddStatement("Track(results);")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
@@ -130,6 +126,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement(
                             "var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);")
+                        .AddStatement($"Track(({tDomain})document);")
                         .AddStatement("return document;", s => s.SeparatedFromPrevious())
                     );
 
@@ -140,8 +137,35 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                        method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);");
-                        method.AddStatement($"return documents.Cast<TDomain>().ToList();");
+                        method.AddStatement($"var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);")
+                            .AddStatement("var results = documents.Cast<TDomain>().ToList();")
+                            .AddStatement("Track(results);")
+                            .AddStatement("return results;", s => s.SeparatedFromPrevious());
+                    });
+
+                    @class.AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method.AddStatement($"return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);");
+                    });
+
+                    @class.AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method.AddStatement($"var pagedDocouments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);")
+                            .AddStatement("Track(pagedDocouments.Items.Cast<TDomain>());")
+                            .AddStatement("return new CosmosPagedList<TDomain, TDocument>(pagedDocouments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
@@ -154,11 +178,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement(
                             "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
                         .AddStatement("var results = documents.Cast<TDomain>().ToList();")
-                        .AddForEachStatement("result", "results", fe =>
-                        {
-                            fe.SeparatedFromPrevious();
-                            fe.AddStatement("_unitOfWork.Track(result);");
-                        })
+                        .AddStatement("Track(results);")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
@@ -181,6 +201,21 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
 
                     });
+
+                    @class.AddMethod($"void", "Track", method =>
+                    {
+                        method.AddParameter($"IEnumerable<{tDomain}>", "items");
+
+                        method.AddForEachStatement("item", "items", stmt => stmt.AddStatement("_unitOfWork.Track(item);"));
+
+                    });
+
+                    @class.AddMethod($"void", "Track", method =>
+                    {
+                        method.AddParameter($"{tDomain}", "item");
+                        method.AddStatement("_unitOfWork.Track(item);");
+                    });
+
 
                     @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
                     {
