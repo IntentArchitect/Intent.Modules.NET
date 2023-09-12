@@ -61,7 +61,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 file.AddUsing("FluentValidation");
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
-                var domainIdAttr = domainElement.GetEntityIdAttribute(ExecutionContext);
+                var domainIdAttr = domainElement.GetEntityPkAttribute(ExecutionContext);
                 var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
                     && Model.TypeReference.Element != null;
 

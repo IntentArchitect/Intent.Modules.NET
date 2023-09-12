@@ -77,7 +77,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var nestedCompOwnerIdFields = _template.Model.Properties.GetCompositesOwnerIdFieldsForOperations(nestedCompOwner, _template.ExecutionContext);
+                var nestedCompOwnerIdFields = _template.Model.Properties.GetCompositesOwnerIdFieldsForOperations(nestedCompOwner, foundEntity, _template.ExecutionContext);
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(

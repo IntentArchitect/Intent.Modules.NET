@@ -11,21 +11,23 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
-namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.OperationOneToManySource
+namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.CreateOneToManySourceOneToManyDest
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class OperationOneToManySourceCommandHandler : IRequestHandler<OperationOneToManySourceCommand>
+    public class CreateOneToManySourceOneToManyDestCommandHandler : IRequestHandler<CreateOneToManySourceOneToManyDestCommand, Guid>
     {
         private readonly IOneToManySourceRepository _oneToManySourceRepository;
 
         [IntentManaged(Mode.Merge)]
-        public OperationOneToManySourceCommandHandler(IOneToManySourceRepository oneToManySourceRepository)
+        public CreateOneToManySourceOneToManyDestCommandHandler(IOneToManySourceRepository oneToManySourceRepository)
         {
             _oneToManySourceRepository = oneToManySourceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(OperationOneToManySourceCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(
+            CreateOneToManySourceOneToManyDestCommand request,
+            CancellationToken cancellationToken)
         {
             var aggregateRoot = await _oneToManySourceRepository.FindByIdAsync(request.OwnerId, cancellationToken);
             if (aggregateRoot is null)
@@ -33,13 +35,11 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.O
                 throw new NotFoundException($"{nameof(OneToManySource)} of Id '{request.OwnerId}' could not be found");
             }
 
-            var existingOneToManyDest = aggregateRoot.Owneds.FirstOrDefault(p => p.Id == request.Id);
-            if (existingOneToManyDest is null)
-            {
-                throw new NotFoundException($"{nameof(OneToManyDest)} of Id '{request.Id}' could not be found associated with {nameof(OneToManySource)} of Id '{request.OwnerId}'");
-            }
+            var newOneToManyDest = new OneToManyDest(request.Attribute);
 
-            existingOneToManyDest.Operation(request.Attribute);
+            aggregateRoot.Owneds.Add(newOneToManyDest);
+            await _oneToManySourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOneToManyDest.Id;
         }
     }
 }

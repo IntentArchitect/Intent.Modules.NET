@@ -83,7 +83,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
             if (nestedCompOwner != null)
             {
-                var aggregateRootIdFields = _template.Model.Properties.GetCompositesOwnerIdFieldsForOperations(nestedCompOwner, _template.ExecutionContext);
+                var aggregateRootIdFields = _template.Model.Properties.GetCompositesOwnerIdFieldsForOperations(nestedCompOwner, foundEntity, _template.ExecutionContext);
                 if (!aggregateRootIdFields.Any())
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");

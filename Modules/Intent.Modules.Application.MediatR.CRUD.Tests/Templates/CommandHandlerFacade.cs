@@ -40,7 +40,7 @@ internal class CommandHandlerFacade
 
         TargetDomainModel = model.GetClassModel();
         CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
-        TargetDomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
+        TargetDomainIdAttributes = TargetDomainModel.GetEntityPkAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
         SingularCommandName = model.Name.ToPascalCase();
     }

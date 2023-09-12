@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -102,12 +103,12 @@ public static class ImplementationStrategyTemplatesExtensions
 
     public record EntityIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
 
-    public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
+    public static EntityIdAttribute GetEntityPkAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
-        return GetEntityIdAttributes(entity, executionContext).FirstOrDefault();
+        return GetEntityPkAttributes(entity, executionContext).FirstOrDefault();
     }
 
-    public static IList<EntityIdAttribute> GetEntityIdAttributes(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
+    public static IList<EntityIdAttribute> GetEntityPkAttributes(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
         while (entity != null)
         {
@@ -128,6 +129,57 @@ public static class ImplementationStrategyTemplatesExtensions
         {
             new("Id", GetDefaultSurrogateKeyType(executionContext), null)
         };
+    }
+
+    public static IList<EntityIdAttribute> GetEntityFkAttributes(
+        this ClassModel composite,
+        ClassModel owner,
+        ISoftwareFactoryExecutionContext executionContext)
+    {
+        var fkAttributes = new List<AttributeModel>(0);
+
+        while (composite != null)
+        {
+            var fkAttributesAndAssociations = composite.Attributes
+                .Where(x => x.IsForeignKey())
+                .Select(x => new
+                {
+                    Attribute = x,
+                    Association = x.GetForeignKeyAssociation()
+                })
+                .ToArray();
+
+            // Modern method of matching by the association on the FK:
+            fkAttributes = fkAttributesAndAssociations
+                .Where(x => owner.AssociationEnds().Any(y => x.Association.Id == y.Id))
+                .Select(x => x.Attribute)
+                .ToList();
+            if (fkAttributes.Any())
+            {
+                break;
+            }
+
+            // Fallback to legacy method of matching by name:
+            fkAttributes = fkAttributesAndAssociations
+                .Where(x =>
+                    x.Association == null &&
+                    x.Attribute.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase))
+                .Select(x => x.Attribute)
+                .ToList();
+            if (fkAttributes.Any())
+            {
+                break;
+            }
+
+            composite = composite.ParentClass;
+        }
+
+        return fkAttributes
+            .Select(x => new EntityIdAttribute(
+                IdName: x.Name,
+                Type: GetKeyTypeName(x.TypeReference),
+                Attribute: x))
+            .ToList();
     }
 
     public record EntityNestedCompositionalIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
@@ -184,7 +236,7 @@ public static class ImplementationStrategyTemplatesExtensions
 
     public static List<DTOFieldModel> GetEntityIdFields(this ICollection<DTOFieldModel> fields, ClassModel entity, ISoftwareFactoryExecutionContext context)
     {
-        var primaryKeys = entity.GetEntityIdAttributes(context);
+        var primaryKeys = entity.GetEntityPkAttributes(context);
 
         return primaryKeys
             .Select(GetField)
@@ -306,21 +358,44 @@ public static class ImplementationStrategyTemplatesExtensions
     /// </remarks>
     public static IList<DTOFieldModel> GetCompositesOwnerIdFieldsForOperations(
         this IList<DTOFieldModel> fields, 
-        ClassModel entity, 
+        ClassModel owner, 
+        ClassModel composite,
         ISoftwareFactoryExecutionContext executionContext)
     {
-        var pks = entity.GetEntityIdAttributes(executionContext);
+        // Try match by create CRUD script naming convention:
+        {
+            var pks = owner.GetEntityPkAttributes(executionContext);
+            var fieldsToReturn = pks
+                .Select(ownerPkAttribute =>
+                {
+                    var entityName = owner.Name.ToLowerInvariant();
+                    var pkAttributeName = ownerPkAttribute.IdName.ToLowerInvariant();
+                    var fieldName = $"{entityName}{pkAttributeName.RemoveSuffix(entityName)}";
 
-        return pks
-            .Select(pk =>
+                    return fields.SingleOrDefault(field =>
+                        string.Equals(field.Name, fieldName, StringComparison.OrdinalIgnoreCase));
+                })
+                .Where(x => x != null)
+                .ToList();
+            if (fieldsToReturn.Any())
             {
-                var entityName = entity.Name.ToLowerInvariant();
-                var pkAttributeName = pk.IdName.ToLowerInvariant();
-                var fieldName = $"{entityName}{pkAttributeName.RemoveSuffix(entityName)}";
+                return fieldsToReturn;
+            }
+        }
 
-                return fields.SingleOrDefault(field => string.Equals(field.Name, fieldName, StringComparison.OrdinalIgnoreCase));
-            })
-            .ToList();
+        // Try match by field name matching attribute with fk to to owner:
+        {
+            var fkAttributes = composite.GetEntityFkAttributes(owner, executionContext);
+            var fieldsToReturn = fields
+                .Where(field => fkAttributes.Any(attribute => string.Equals(attribute.IdName, field.Name, StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+            if (fieldsToReturn.Any())
+            {
+                return fieldsToReturn;
+            }
+        }
+
+        return new List<DTOFieldModel>(0);
     }
 
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)

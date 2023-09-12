@@ -5,12 +5,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "1.0")]
 
-namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.OperationOneToManyDest
+namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.CreateOneToManySourceOneToManyDest
 {
-    public class OperationOneToManyDestCommandValidator : AbstractValidator<OperationOneToManyDestCommand>
+    public class CreateOneToManySourceOneToManyDestCommandValidator : AbstractValidator<CreateOneToManySourceOneToManyDestCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public OperationOneToManyDestCommandValidator()
+        public CreateOneToManySourceOneToManyDestCommandValidator()
         {
             ConfigureValidationRules();
         }
