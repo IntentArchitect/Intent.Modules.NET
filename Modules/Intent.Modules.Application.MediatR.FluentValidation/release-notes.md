@@ -1,3 +1,7 @@
+### Version 4.3.2
+
+- Improvement: Further consolidated/generalized logic with other FluentValidation modules.
+
 ### Version 4.3.0
 
 - Update : Upgraded MediatR Package v12.

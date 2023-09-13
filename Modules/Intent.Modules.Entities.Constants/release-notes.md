@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Made interoperability with validators more robust.
+
 ### Version 1.0.1
 
 - Will now also apply to validations for `DTO`s (was previously only applied to validations for `Command`s and `Query`s).

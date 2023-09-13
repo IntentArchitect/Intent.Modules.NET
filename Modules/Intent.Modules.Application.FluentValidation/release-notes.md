@@ -1,3 +1,7 @@
+### Version 3.7.4
+
+- Improvement: Further consolidated/generalized logic with other FluentValidation modules.
+
 ### Version 3.7.2
 
 - Updated: All common logic for generating validations has been centralized from other `FluentValidation` modules in this one to ensure consistency and parity between all of them.

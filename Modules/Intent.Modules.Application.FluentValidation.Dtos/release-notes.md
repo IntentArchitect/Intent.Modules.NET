@@ -1,3 +1,7 @@
+### Version 3.6.4
+
+- Improvement: Further consolidated/generalized logic with other FluentValidation modules.
+
 ### Version 3.6.2
 
 - Updated: Removed compiler warning on possible null being returned.
