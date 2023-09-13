@@ -1,5 +1,9 @@
 ### Version 3.3.30
 
+- Improvement : Added Blazor WebAssembly configuration options for `launchsettings.json`.
+
+### Version 3.3.30
+
 - Improvement: `launchsettings.json` now listens for an event named `LaunchProfileHttpPortRequired` and if received will add a regular `http://…` entry to a profile's `applicationUrl` when it only contains a single `https://…` item.
 
 ### Version 3.3.29

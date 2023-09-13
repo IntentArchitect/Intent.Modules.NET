@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c2163b22-18c4-4f76-8f84-4736b53d1c56" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - UI</name>
+  <display>0 - UI</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>915db132-3fe9-40ba-8d3b-79ca38203475</parentFolderId>
+  <packageId>915db132-3fe9-40ba-8d3b-79ca38203475</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -118,5 +118,7 @@
     <application id="bf507eae-8dae-4ab3-932a-29a6a30f29b8" name="Intent.Modules.Eventing.MassTransit.Scheduling" relativePath="Intent.Modules.Eventing.MassTransit.Scheduling/Intent.Modules.Eventing.MassTransit.Scheduling.application.config" />
     <application id="0ae0571d-78df-4026-bf46-b8d35db2e8ff" name="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations" relativePath="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations/Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.application.config" />
     <application id="0f5ef9b3-50db-43fd-899f-c6e3981c0364" name="Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation" relativePath="Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.application.config" />
+    <application id="1778123f-6740-4552-9120-d21452253f32" name="Intent.Modules.Blazor.WebAssembly" relativePath="Intent.Modules.Blazor.WebAssembly/Intent.Modules.Blazor.WebAssembly.application.config" />
+    <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Intent.Modules.Blazor.WebAssembly.Metadata" relativePath="Intent.Modules.Blazor.WebAssembly.Metadata/Intent.Modules.Blazor.WebAssembly.Metadata.application.config" />
   </applications>
 </solution>
