@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="78dda50a-01f5-4c34-b69f-c1c3a527e12a">
+  <sourceEnd id="b198542a-f723-499b-90d2-d4da29e2b503" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>O_DestNameDiff</name>
+    <display>O_DestNameDiff: O_DestNameDiff</display>
+    <order>0</order>
+    <typeReference id="0db0dd84-aa33-43ad-afe5-2e92713888c3">
+      <typeId>e61af6f0-dffb-48fc-941e-379612082710</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="78dda50a-01f5-4c34-b69f-c1c3a527e12a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DestNameDiff</name>
+    <display>DestNameDiff: O_DestNameDiffDependent[*]   [1 --&gt; *]</display>
+    <order>1</order>
+    <typeReference id="71464740-b9d7-48cf-a95a-17135dd15833">
+      <typeId>17e3c3e0-41d7-4e5b-80a0-46d0d3f99515</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

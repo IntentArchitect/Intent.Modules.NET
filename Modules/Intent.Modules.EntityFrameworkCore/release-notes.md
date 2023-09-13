@@ -1,4 +1,8 @@
-﻿### Version 4.4.10
+﻿### Version 4.4.11
+
+- Fixed: When a Source-end association name is not in sync with the class name, Entity Type Configurations on a Cosmos DB setup will setup the wrong foreign key.
+
+### Version 4.4.10
 
 - Fixed: Composite Entities will now also have Index columns rendered.
 

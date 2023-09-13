@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="95aafee5-e9cb-4049-afea-e715e492de28">
+  <sourceEnd id="141243ab-dfee-4ffd-a843-e98cd599e737" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>O_DestNameDiff</name>
+    <display>O_DestNameDiff: O_DestNameDiff</display>
+    <order>0</order>
+    <typeReference id="1c8a336e-802a-4601-b1ad-1222c1e68b81">
+      <typeId>dc633736-bf39-4b1d-b17d-437f8c88ed66</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="95aafee5-e9cb-4049-afea-e715e492de28" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DestNameDiff</name>
+    <display>DestNameDiff: O_DestNameDiffDependent[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="9e2e15e3-9c4d-44a5-972d-4549b1b441be">
+      <typeId>8ebe82c8-1ba8-4e52-a0b7-92b4af4ecdde</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

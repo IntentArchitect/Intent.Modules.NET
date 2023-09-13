@@ -11,8 +11,8 @@ using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
@@ -28,9 +28,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public override string TemplateId => DbContextTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> models)
+        [IntentManaged(Mode.Fully)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {
-            return new DbContextTemplate(outputTarget, models);
+            return new DbContextTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

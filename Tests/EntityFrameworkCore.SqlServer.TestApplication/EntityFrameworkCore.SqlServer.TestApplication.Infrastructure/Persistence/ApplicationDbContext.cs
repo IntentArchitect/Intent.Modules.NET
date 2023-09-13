@@ -157,6 +157,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<N_ComplexRoot> N_ComplexRoots { get; set; }
         public DbSet<N_CompositeOne> N_CompositeOnes { get; set; }
         public DbSet<N_CompositeTwo> N_CompositeTwos { get; set; }
+        public DbSet<O_DestNameDiff> O_DestNameDiffs { get; set; }
+        public DbSet<P_SourceNameDiff> P_SourceNameDiffs { get; set; }
+        public DbSet<Q_DestNameDiff> Q_DestNameDiffs { get; set; }
+        public DbSet<R_SourceNameDiff> R_SourceNameDiffs { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
@@ -218,8 +222,6 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
-            modelBuilder.ApplyConfiguration(new ParentNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new SchemaParentConfiguration());
             modelBuilder.ApplyConfiguration(new TableConfiguration());
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
@@ -254,10 +256,16 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new N_ComplexRootConfiguration());
             modelBuilder.ApplyConfiguration(new N_CompositeOneConfiguration());
             modelBuilder.ApplyConfiguration(new N_CompositeTwoConfiguration());
+            modelBuilder.ApplyConfiguration(new O_DestNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new P_SourceNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new Q_DestNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new R_SourceNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new ParentNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());

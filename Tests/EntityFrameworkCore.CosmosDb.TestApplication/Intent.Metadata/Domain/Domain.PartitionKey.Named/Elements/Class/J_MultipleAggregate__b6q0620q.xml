@@ -13,6 +13,41 @@
   <stereotypes />
   <metadata />
   <childElements>
+    <childElement id="6655995e-ef3e-4719-a49c-3fbdbdd2cf47" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="afbc900d-172c-4511-9ecf-9da5a94455b9">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>62c1d293-ce8c-4833-bcb8-2a3bcc4da6f3</parentFolderId>
+      <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+      <packageName>Domain.PartitionKey.Named</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="91d6d5bb-dd19-4475-981b-07ee69fcaa78" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>PartitionKey</name>
       <display>PartitionKey: string</display>
@@ -87,6 +122,43 @@
         </stereotype>
       </stereotypes>
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5df7124d-8318-47e5-8847-4c12943980ff" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>JRequireddependentId</name>
+      <display>JRequireddependentId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8944166b-556d-4e60-b758-df60ceab719d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>62c1d293-ce8c-4833-bcb8-2a3bcc4da6f3</parentFolderId>
+      <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+      <packageName>Domain.PartitionKey.Named</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="60275aa1-2066-4620-8b27-0724a7930bf1" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="JRequireddependentId" />
+        <entry key="association" value="60275aa1-2066-4620-8b27-0724a7930bf1" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

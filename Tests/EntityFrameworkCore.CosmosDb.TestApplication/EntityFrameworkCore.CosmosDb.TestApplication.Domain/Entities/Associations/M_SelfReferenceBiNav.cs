@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string SelfRefBiNavAttr { get; set; }
 
-        public Guid? M_SelfReferenceBiNavAssocationId { get; set; }
+        public Guid? MSelfreferencebinavassocationId { get; set; }
 
         public virtual M_SelfReferenceBiNav? M_SelfReferenceBiNavAssocation { get; set; }
 

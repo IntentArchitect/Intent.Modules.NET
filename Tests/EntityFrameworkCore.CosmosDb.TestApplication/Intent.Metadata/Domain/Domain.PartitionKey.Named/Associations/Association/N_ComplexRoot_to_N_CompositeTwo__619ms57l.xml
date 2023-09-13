@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2b3e6d57-c1b9-40bc-aa50-6910e80d48f0">
+  <sourceEnd id="56e55e74-4a09-4a68-90c5-56bfccd8a3fd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>N_ComplexRoot</name>
+    <display>N_ComplexRoot: N_ComplexRoot</display>
+    <order>0</order>
+    <typeReference id="8049d744-4eaa-4876-8230-ea88ce706869">
+      <typeId>6d5cd3dd-1d75-4823-ab95-7d2f5b60f2c0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2b3e6d57-c1b9-40bc-aa50-6910e80d48f0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>N_CompositeTwo</name>
+    <display>N_CompositeTwo: N_CompositeTwo   [1 --&gt; 1]</display>
+    <order>4</order>
+    <typeReference id="8c7f07c7-3be1-4b97-93f5-504910e09f2a">
+      <typeId>176572fd-a365-4f1d-85e3-0ddd4dea98de</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

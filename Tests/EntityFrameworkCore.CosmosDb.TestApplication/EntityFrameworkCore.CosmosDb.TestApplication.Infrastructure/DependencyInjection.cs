@@ -64,6 +64,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IJ_RequiredDependentRepository, J_RequiredDependentRepository>();
             services.AddTransient<IK_SelfReferenceRepository, K_SelfReferenceRepository>();
             services.AddTransient<IM_SelfReferenceBiNavRepository, M_SelfReferenceBiNavRepository>();
+            services.AddTransient<IN_ComplexRootRepository, N_ComplexRootRepository>();
+            services.AddTransient<IO_DestNameDiffRepository, O_DestNameDiffRepository>();
+            services.AddTransient<IP_SourceNameDiffRepository, P_SourceNameDiffRepository>();
+            services.AddTransient<IQ_DestNameDiffRepository, Q_DestNameDiffRepository>();
+            services.AddTransient<IR_SourceNameDiffRepository, R_SourceNameDiffRepository>();
             services.AddTransient<IAudit_DerivedClassRepository, Audit_DerivedClassRepository>();
             services.AddTransient<IAudit_SoloClassRepository, Audit_SoloClassRepository>();
             services.AddTransient<IAssociatedRepository, AssociatedRepository>();

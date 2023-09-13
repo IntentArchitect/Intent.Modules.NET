@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string SelfRefAttr { get; set; }
 
-        public Guid? K_SelfReferenceAssociationId { get; set; }
+        public Guid K_SelfReferenceAssociationId { get; set; }
 
         public virtual K_SelfReference? K_SelfReferenceAssociation { get; set; }
 

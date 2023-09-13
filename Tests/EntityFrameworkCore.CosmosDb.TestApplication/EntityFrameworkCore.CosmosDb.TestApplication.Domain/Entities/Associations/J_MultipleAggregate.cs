@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string MultipleAggrAttr { get; set; }
 
-        public Guid J_RequiredDependentId { get; set; }
+        public Guid JRequireddependentId { get; set; }
 
         public virtual J_RequiredDependent J_RequiredDependent { get; set; }
 

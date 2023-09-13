@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="94103b25-dfa0-421a-9bf0-d8ab8c50d5d2">
+  <sourceEnd id="a91a8f14-7657-460e-81f4-b9a443c005ef" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SourceNameDiff</name>
+    <display>SourceNameDiff: P_SourceNameDiff</display>
+    <order>0</order>
+    <typeReference id="d9ceb5f0-b5ef-4ecb-9329-89164edec5d1">
+      <typeId>725fb7c7-d561-4053-aa6f-562827c04383</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="94103b25-dfa0-421a-9bf0-d8ab8c50d5d2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>P_SourceNameDiffDependents</name>
+    <display>P_SourceNameDiffDependents: P_SourceNameDiffDependent[*]   [1 --&gt; *]</display>
+    <order>1</order>
+    <typeReference id="10c239fc-4ee6-4c76-9b33-6671519bf9e3">
+      <typeId>5e9d5a5a-b7e0-478d-be87-ac61dfa259a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

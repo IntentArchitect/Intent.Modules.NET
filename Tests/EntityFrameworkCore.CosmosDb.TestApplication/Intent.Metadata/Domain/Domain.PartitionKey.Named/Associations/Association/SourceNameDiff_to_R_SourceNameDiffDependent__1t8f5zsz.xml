@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="54c1431a-12de-435a-8a0e-0fba0ae8c791">
+  <sourceEnd id="7380f4f0-2cc8-4436-993c-82c4764bd791" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SourceNameDiff</name>
+    <display>SourceNameDiff: R_SourceNameDiff</display>
+    <order>0</order>
+    <typeReference id="1c6d1ac5-5820-497c-815b-f3c1b1a68094">
+      <typeId>67d7d323-df76-41f8-9714-7acb929671c1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="54c1431a-12de-435a-8a0e-0fba0ae8c791" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>R_SourceNameDiffDependent</name>
+    <display>R_SourceNameDiffDependent: R_SourceNameDiffDependent   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="7c6ec946-0d78-4f90-a649-edc542573a23">
+      <typeId>7d322d2e-9a85-4d7e-8038-ce7b595b4ad1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

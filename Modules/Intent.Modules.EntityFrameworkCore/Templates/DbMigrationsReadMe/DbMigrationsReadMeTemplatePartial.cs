@@ -12,8 +12,8 @@ using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
 {
@@ -25,7 +25,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         public const string Identifier = "Intent.EntityFrameworkCore.DbMigrationsReadMe"; // Anything using this?
 
         [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-        public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, null)
+        public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

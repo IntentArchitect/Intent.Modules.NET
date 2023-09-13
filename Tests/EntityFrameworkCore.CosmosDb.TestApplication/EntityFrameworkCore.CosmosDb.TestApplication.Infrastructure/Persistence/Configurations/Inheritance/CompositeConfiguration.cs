@@ -23,6 +23,9 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
+
+            builder.Property(x => x.DerivedId)
+                .IsRequired();
         }
     }
 }

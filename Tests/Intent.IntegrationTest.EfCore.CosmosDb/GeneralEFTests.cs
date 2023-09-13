@@ -109,7 +109,7 @@ public class GeneralEFTests
         Assert.NotNull(DbContext.D_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        dstList.ForEach(x => x.D_OptionalAggregateId = null);
+        dstList.ForEach(x => x.DOptionalaggregateId = null);
         DbContext.SaveChanges();
 
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
@@ -221,7 +221,7 @@ public class GeneralEFTests
         Assert.NotNull(DbContext.H_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        dstList.ForEach(x => x.H_OptionalAggregateNavId = null);
+        dstList.ForEach(x => x.HOptionalaggregatenavId = null);
         DbContext.SaveChanges();
 
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));

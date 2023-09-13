@@ -19,6 +19,9 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.DerivedField1)
                 .IsRequired();
 
+            builder.Property(x => x.AssociatedId)
+                .IsRequired();
+
             builder.HasOne(x => x.Associated)
                 .WithMany()
                 .HasForeignKey(x => x.AssociatedId)

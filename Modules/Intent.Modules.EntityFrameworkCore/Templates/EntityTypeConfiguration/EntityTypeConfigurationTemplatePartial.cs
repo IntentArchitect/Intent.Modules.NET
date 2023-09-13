@@ -207,7 +207,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (targetType.IsClassModel())
             {
                 var classModel = new ClassExtensionModel(targetType);
-                
+
                 if (!ForCosmosDb())
                 {
                     statements.AddRange(GetTableMapping(classModel));
@@ -289,7 +289,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return ToTableStatement(model);
             }
-            else if (!IsTableInlined(model) && ( !string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)))
+            else if (!IsTableInlined(model) && (!string.IsNullOrEmpty(model.FindSchema()) || RequiresToTableStatementForConvention(model.Name)))
             {
                 yield return ToTableStatement(model);
             }
@@ -482,7 +482,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
+                                method.AddStatement(field.CreateWithOwner().WithForeignKey((!ForCosmosDb() || !field.HasDefaultAssociationSourceName()) && associationEnd.Element.IsClassModel()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
 

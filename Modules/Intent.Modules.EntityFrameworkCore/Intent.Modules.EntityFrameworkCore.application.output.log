@@ -67,10 +67,10 @@
     <FileLog>
       <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a1131531-4494-4841-85fa-1e3f07268ca9</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2e463fab-bd47-4559-9f22-da974b61c899</ProjectId>
@@ -79,22 +79,6 @@
       <ApplicationRelativeFilePath>modelers/EF Core Settings.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EF Core Settings.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#b80e5f8b-d853-4310-b839-44df48da4d96</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>PackageExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>fed3139b-f756-4f55-a155-e374d2965abf</ProjectId>

@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
     {
         public override string TemplateId => DbInitializationExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DbInitializationExtensionsTemplate(outputTarget);

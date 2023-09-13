@@ -14,5 +14,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
         public Guid Id { get; set; }
 
         public string MultipleDependentAttr { get; set; }
+
+        public Guid CRequiredcompositeId { get; set; }
     }
 }

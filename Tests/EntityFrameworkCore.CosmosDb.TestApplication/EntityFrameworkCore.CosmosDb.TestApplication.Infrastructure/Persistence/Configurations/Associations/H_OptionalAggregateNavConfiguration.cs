@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             builder.HasMany(x => x.H_MultipleDependents)
                 .WithOne(x => x.H_OptionalAggregateNav)
-                .HasForeignKey(x => x.H_OptionalAggregateNavId);
+                .HasForeignKey(x => x.HOptionalaggregatenavId);
 
             builder.Ignore(e => e.DomainEvents);
         }

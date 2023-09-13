@@ -39,12 +39,12 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     var entityImplCtors = file.Classes.First().Constructors;
                     var stateCtors = stateTemplate?.CSharpFile.Classes.First().Constructors ?? ArraySegment<CSharpConstructor>.Empty;
                     var collectiveCtors = entityImplCtors.Concat(stateCtors).ToArray();
-                    
+
                     if (collectiveCtors.Length == 0 || collectiveCtors.Any(x => !x.Parameters.Any()))
                     {
                         return;
                     }
-                    
+
                     if (stateTemplate is null)
                     {
                         var entityClass = file.Classes.First();

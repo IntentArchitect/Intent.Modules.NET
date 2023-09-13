@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4ec70bee-f7a0-448b-98a8-8e63634a59c3">
+  <sourceEnd id="9a49cc3f-e778-46dd-b0c6-d45361bd65d5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SourceNameDiff</name>
+    <display>SourceNameDiff: P_SourceNameDiff</display>
+    <order>0</order>
+    <typeReference id="ab571b08-b87f-492b-9f95-4590808fbb9b">
+      <typeId>1fd92f12-afd8-4fdd-b776-e4ffee4948bc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4ec70bee-f7a0-448b-98a8-8e63634a59c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>P_SourceNameDiffDependents</name>
+    <display>P_SourceNameDiffDependents: P_SourceNameDiffDependent[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="49f46242-dc13-4b12-bcf2-0e6d8659f443">
+      <typeId>50843666-c111-4531-b7bf-3d06deffd0a1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

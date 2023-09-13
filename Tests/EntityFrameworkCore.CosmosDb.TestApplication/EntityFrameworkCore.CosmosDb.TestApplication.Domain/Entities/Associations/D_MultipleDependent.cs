@@ -19,8 +19,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string PartitionKey { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public Guid? DOptionalaggregateId { get; set; }
 
-        public Guid? D_OptionalAggregateId { get; set; }
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

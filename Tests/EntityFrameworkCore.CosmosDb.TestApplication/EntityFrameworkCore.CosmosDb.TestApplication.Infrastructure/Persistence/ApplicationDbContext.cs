@@ -89,6 +89,13 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<N_ComplexRoot> N_ComplexRoots { get; set; }
+        public DbSet<N_CompositeOne> N_CompositeOnes { get; set; }
+        public DbSet<N_CompositeTwo> N_CompositeTwos { get; set; }
+        public DbSet<O_DestNameDiff> O_DestNameDiffs { get; set; }
+        public DbSet<P_SourceNameDiff> P_SourceNameDiffs { get; set; }
+        public DbSet<Q_DestNameDiff> Q_DestNameDiffs { get; set; }
+        public DbSet<R_SourceNameDiff> R_SourceNameDiffs { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
@@ -141,6 +148,13 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new N_ComplexRootConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeOneConfiguration());
+            modelBuilder.ApplyConfiguration(new N_CompositeTwoConfiguration());
+            modelBuilder.ApplyConfiguration(new O_DestNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new P_SourceNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new Q_DestNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new R_SourceNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
             modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
