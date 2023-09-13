@@ -16,6 +16,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
 {
     public abstract class DtoContractTemplateBase : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
     {
+        private static ISet<string> _outboundDtoElementIds = new HashSet<string>();
+
         protected DtoContractTemplateBase(
             string templateId,
             IOutputTarget outputTarget,
@@ -35,6 +37,11 @@ namespace Intent.Modules.Contracts.Clients.Shared
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"{Model.Name}", @class =>
                 {
+                    if (_outboundDtoElementIds.Contains(model.Id))
+                    {
+                        @class.AddMetadata("is-inbound", true);
+                    }
+
                     foreach (var genericType in Model.GenericTypes)
                     {
                         @class.AddGenericParameter(genericType);
@@ -80,6 +87,8 @@ namespace Intent.Modules.Contracts.Clients.Shared
                     {
                         @class.AddProperty(GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
                         {
+                            property.AddMetadata("model", field);
+
                             if (TryGetSerializedName(field, out var serializedName))
                             {
                                 property.AddAttribute(
@@ -89,6 +98,12 @@ namespace Intent.Modules.Contracts.Clients.Shared
                     }
                 });
         }
+
+        internal static void SetOutboundDtoElementIds(ISet<string> outboundDtoElementIds)
+        {
+            _outboundDtoElementIds = outboundDtoElementIds;
+        }
+
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive

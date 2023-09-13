@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.34" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.36" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -116,5 +116,7 @@
     <application id="a1f7bab8-79b2-433e-ab02-367fc60ae815" name="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata/Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata.application.config" />
     <application id="4f469de8-b6e4-469b-8740-3fe74d5d6d1c" name="Intent.Modules.Dapr.AspNetCore.Bindings.Cron" relativePath="Intent.Modules.Dapr.AspNetCore.Bindings.Cron/Intent.Modules.Dapr.AspNetCore.Bindings.Cron.application.config" />
     <application id="bf507eae-8dae-4ab3-932a-29a6a30f29b8" name="Intent.Modules.Eventing.MassTransit.Scheduling" relativePath="Intent.Modules.Eventing.MassTransit.Scheduling/Intent.Modules.Eventing.MassTransit.Scheduling.application.config" />
+    <application id="0ae0571d-78df-4026-bf46-b8d35db2e8ff" name="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations" relativePath="Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations/Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.application.config" />
+    <application id="0f5ef9b3-50db-43fd-899f-c6e3981c0364" name="Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation" relativePath="Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.application.config" />
   </applications>
 </solution>

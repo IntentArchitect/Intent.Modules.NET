@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e0050300-bd96-4ae6-9933-74101b2fdf0f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BlazorHttpClientFluentValidation</name>
+  <display>BlazorHttpClientFluentValidation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61a0a56c-98ab-4bed-9c93-f94d425d831a</parentFolderId>
+  <packageId>61a0a56c-98ab-4bed-9c93-f94d425d831a</packageId>
+  <packageName>Intent.Blazor.HttpClients.Dtos.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>0ae0571d-78df-4026-bf46-b8d35db2e8ff</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4fdcccc1-50e2-48c9-b775-36172980c82a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c3699d1-d038-4597-916f-5378e7da5026</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#be4b3f9b-a7f8-4317-8782-a301eea378d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/BlazorHttpClientDataAnnotations.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlazorHttpClientDataAnnotations.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#153f48c5-96fa-437d-ac88-f17033966d4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

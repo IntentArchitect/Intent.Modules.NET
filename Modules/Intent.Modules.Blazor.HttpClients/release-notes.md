@@ -1,6 +1,10 @@
-﻿### Version 2.0.4
+﻿### Version 3.0.0
 
-- Improvement: Changed default proxy encoding to UTF8 as Default can be inconsistent(https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default).
+- Improvement: Generation of `System.ComponentModel.DataAnnotations` attributes on DTOs has now been broken out into its own `Intent.Blazor.HttpClients.Dtos.DataAnnotations` module.
+
+### Version 2.0.4
+
+- Improvement: Changed default proxy encoding to UTF8 as Default can be inconsistent (https://learn.microsoft.com/dotnet/api/system.text.encoding.default).
 - Improvement: Added better out the box support for generating proxies into `netstandard` projects.
 
 ### Version 2.0.3
