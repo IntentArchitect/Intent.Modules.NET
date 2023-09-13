@@ -20,6 +20,6 @@
     <ProjectReference Include="..\Intent.Modules.Blazor.HttpClients\Intent.Modules.Blazor.HttpClients.csproj" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
 
 </Project>

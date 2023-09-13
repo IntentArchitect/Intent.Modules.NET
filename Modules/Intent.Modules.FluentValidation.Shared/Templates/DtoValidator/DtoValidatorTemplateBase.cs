@@ -6,7 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.Application.FluentValidation.Shared.Templates.DtoValidator;
+namespace Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 
 public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
 {

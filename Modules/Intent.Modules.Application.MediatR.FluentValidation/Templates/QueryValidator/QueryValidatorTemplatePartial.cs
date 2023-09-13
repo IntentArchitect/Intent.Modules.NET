@@ -1,7 +1,7 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.FluentValidation.Shared.Templates.DtoValidator;
+using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.RoslynWeaver.Attributes;
 

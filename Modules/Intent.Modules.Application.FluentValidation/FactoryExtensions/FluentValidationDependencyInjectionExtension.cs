@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Application.FluentValidation.Shared;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;

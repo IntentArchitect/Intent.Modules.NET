@@ -1,6 +1,6 @@
 ﻿using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Application.FluentValidation.Shared;
+namespace Intent.Modules.FluentValidation.Shared;
 
 public static class NuGetPackages
 {

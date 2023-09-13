@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.FluentValidation.Shared;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;

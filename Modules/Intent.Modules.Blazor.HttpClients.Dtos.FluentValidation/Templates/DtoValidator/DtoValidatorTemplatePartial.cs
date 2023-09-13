@@ -1,6 +1,6 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.FluentValidation.Shared.Templates.DtoValidator;
+using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.RoslynWeaver.Attributes;

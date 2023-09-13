@@ -1,7 +1,7 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
-using Intent.Modules.Application.FluentValidation.Shared.Templates.DtoValidator;
+using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

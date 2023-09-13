@@ -13,7 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Utils;
 
-namespace Intent.Modules.Application.FluentValidation.Shared;
+namespace Intent.Modules.FluentValidation.Shared;
 
 public static class ValidationRulesExtensions
 {

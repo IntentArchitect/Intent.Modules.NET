@@ -35,6 +35,6 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
 
 </Project>

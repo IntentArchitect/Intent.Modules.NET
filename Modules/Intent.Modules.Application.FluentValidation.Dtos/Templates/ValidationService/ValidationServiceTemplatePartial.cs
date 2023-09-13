@@ -1,6 +1,6 @@
 using Intent.Engine;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
-using Intent.Modules.Application.FluentValidation.Shared;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
