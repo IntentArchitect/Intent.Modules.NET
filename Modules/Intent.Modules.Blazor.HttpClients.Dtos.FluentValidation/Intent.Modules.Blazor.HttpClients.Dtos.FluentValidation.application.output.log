@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3652ef3c-111d-4057-becd-ab937c4ce38a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e0050300-bd96-4ae6-9933-74101b2fdf0f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/BlazorHttpClientFluentValidation.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BlazorHttpClientFluentValidation.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>98a21c3b-18c5-4d9c-8e22-94a186541490</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -38,6 +30,30 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd2b4329-787d-4baf-a062-323636a1b582</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoValidator/DtoValidatorTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoValidator/DtoValidatorTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#cd2b4329-787d-4baf-a062-323636a1b582</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoValidator/DtoValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoValidator/DtoValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

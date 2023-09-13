@@ -59,22 +59,17 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                 });
             }
 
-            PatchValidator<CommandModel>(application, "Intent.Application.MediatR.FluentValidation.CommandValidator");
-            PatchValidator<QueryModel>(application, "Intent.Application.MediatR.FluentValidation.QueryValidator");
-            PatchValidator<DTOModel>(application, "Intent.Application.FluentValidation.Dtos.DTOValidator");
+            PatchValidator(application, "Intent.Application.MediatR.FluentValidation.CommandValidator");
+            PatchValidator(application, "Intent.Application.MediatR.FluentValidation.QueryValidator");
+            PatchValidator(application, "Intent.Application.FluentValidation.Dtos.DTOValidator");
         }
 
-        private static void PatchValidator<TModel>(IApplication application, string validatorTemplateId)
+        private static void PatchValidator(IApplication application, string validatorTemplateId)
         {
-            var templates = application.FindTemplateInstances<CSharpTemplateBase<TModel>>(TemplateDependency.OnTemplate(validatorTemplateId));
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(validatorTemplateId));
             foreach (var template in templates)
             {
-                if (template is not ICSharpFileBuilderTemplate csTemplate)
-                {
-                    continue;
-                }
-
-                csTemplate.CSharpFile.AfterBuild(file =>
+                template.CSharpFile.AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("ConfigureValidationRules");
@@ -97,9 +92,9 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                         }
 
                         var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
-                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
+                        var entityTypeName = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
 
-                        var entityTypeName = template.GetTypeName(entityTemplate);
+                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
                         var entityOutput = entityTemplate.CSharpFile.Classes.First();
 
                         var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);

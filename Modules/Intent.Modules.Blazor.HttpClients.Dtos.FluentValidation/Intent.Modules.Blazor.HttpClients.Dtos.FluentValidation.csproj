@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.3" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.40" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.7" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,5 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor.HttpClients\Intent.Modules.Blazor.HttpClients.csproj" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems" Label="Shared" />
 
 </Project>

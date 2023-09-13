@@ -1,15 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
-using Intent.Modules.Application.FluentValidation.Templates;
+using Intent.Modules.Application.FluentValidation.Shared;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

@@ -218,7 +218,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         };
     }
 
-
     [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }
 

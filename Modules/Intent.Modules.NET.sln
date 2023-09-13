@@ -229,16 +229,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Secrets", "Intent.Modules.Dapr.AspNetCore.Secrets\Intent.Modules.Dapr.AspNetCore.Secrets.csproj", "{6280010A-9C5C-4110-A7C2-B03B15D3E18F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.Configuration", "Intent.Modules.Dapr.AspNetCore.Configuration\Intent.Modules.Dapr.AspNetCore.Configuration.csproj", "{00BCEF41-099A-4A9B-8557-5399F39D2DFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Configuration", "Intent.Modules.Dapr.AspNetCore.Configuration\Intent.Modules.Dapr.AspNetCore.Configuration.csproj", "{00BCEF41-099A-4A9B-8557-5399F39D2DFC}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ContinuousIntegration.AzurePipelines", "Intent.Modules.ContinuousIntegration.AzurePipelines\Intent.Modules.ContinuousIntegration.AzurePipelines.csproj", "{2D938CA8-3FED-4E2C-BD3C-642E8F996396}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Bindings.Cron", "Intent.Modules.Dapr.AspNetCore.Bindings.Cron\Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj", "{160C8BDF-CE41-4C1B-B1A4-354E6B7D701E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Application.FluentValidation.Shared", "Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.shproj", "{573B0AB5-858F-482B-A8B0-E9C2305EAC67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -792,6 +795,7 @@ Global
 		{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{98A21C3B-18C5-4D9C-8E22-94A186541490} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{153F48C5-96FA-437D-AC88-F17033966D4C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{573B0AB5-858F-482B-A8B0-E9C2305EAC67} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -800,15 +804,18 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{04ce09b0-68c2-4c8b-921f-65eea14d3d58}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{0adb36a1-6e3e-4f12-a296-6cb695acce17}*SharedItemsImports = 13
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{0ece1fc5-4ac8-4a07-bf27-b756e8809992}*SharedItemsImports = 5
+		Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems*{39362e67-e432-45bf-8901-84ae3a4dbf08}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{46039f50-4110-455c-8288-22dec8a0d340}*SharedItemsImports = 13
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{46ad781b-04fc-4d8d-9a46-4dbffe73628d}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{4faf05b4-370f-4929-9631-c0dd42a63c8b}*SharedItemsImports = 5
+		Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems*{573b0ab5-858f-482b-a8b0-e9c2305eac67}*SharedItemsImports = 13
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{9814251b-ad1b-4598-8ed6-d825633d77d9}*SharedItemsImports = 5
+		Intent.Modules.Application.FluentValidation.Shared\Intent.Modules.Application.FluentValidation.Shared.projitems*{98a21c3b-18c5-4d9c-8e22-94a186541490}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{99bacb3d-e9bd-4f8e-8646-59f298895049}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{a25be506-f63a-4638-8a59-4069fc088824}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{b5867ba4-e8ab-4e4a-986e-b7938d12795e}*SharedItemsImports = 13
