@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Application.Tests", "CleanArchitecture.TestApplication.Application.Tests\CleanArchitecture.TestApplication.Application.Tests.csproj", "{36DA585A-BFF5-4A4F-AFB0-A7A6646A622B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.BlazorClient", "CleanArchitecture.TestApplication.BlazorClient\CleanArchitecture.TestApplication.BlazorClient.csproj", "{C21178AF-6309-4E5C-963B-0C0CE380D56B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.BlazorClient", "CleanArchitecture.TestApplication.BlazorClient\CleanArchitecture.TestApplication.BlazorClient.csproj", "{C21178AF-6309-4E5C-963B-0C0CE380D56B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Frontend", "0 - Frontend", "{83A2FB42-E5C9-42F7-90F5-2BC9D1B110B4}"
 EndProject
