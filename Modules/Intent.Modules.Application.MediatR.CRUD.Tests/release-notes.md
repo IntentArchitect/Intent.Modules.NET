@@ -1,3 +1,7 @@
+### Version 1.3.1
+
+- Improvement: Fluent Validation tests updated to accomodate the `IServiceProvider` injection scenarios.
+
 ### Version 1.3.0
 
 - Improvement: Updated based on improvements made in MediatR.CRUD module.
