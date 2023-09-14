@@ -4,6 +4,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
@@ -98,5 +99,23 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     public override string TransformText()
     {
         return CSharpFile.ToString();
+    }
+    
+    public override RoslynMergeConfig ConfigureRoslynMerger()
+    {
+        return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new ConstructorSignatureMigration());
+    }
+
+    private class ConstructorSignatureMigration : ITemplateMigration
+    {
+        public string Execute(string currentText)
+        {
+            return currentText
+                .Replace(
+                    "[IntentManaged(Mode.Fully, Body = Mode.Ignore",
+                    "[IntentManaged(Mode.Fully, Body = Mode.Merge");
+        }
+
+        public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
     }
 }

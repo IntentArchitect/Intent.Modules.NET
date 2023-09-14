@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.FluentValidation.FactoryExtensions
             {
                 file.AddUsing("FluentValidation");
                 var @class = file.Classes.First();
-                @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());");
+                @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);");
             });
         }
     }

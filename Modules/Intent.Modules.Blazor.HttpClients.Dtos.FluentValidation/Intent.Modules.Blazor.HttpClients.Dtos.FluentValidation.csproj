@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor.HttpClients\Intent.Modules.Blazor.HttpClients.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />

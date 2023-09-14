@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Utils;
 
 namespace Intent.Modules.FluentValidation.Shared;
@@ -32,9 +33,10 @@ public static class ValidationRulesExtensions
         @class.WithBaseType($"AbstractValidator <{modelTypeName}>");
         @class.AddConstructor(ctor =>
         {
-            ctor.AddStatement("ConfigureValidationRules();");
-            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored().WithSignatureMerge());
-
+            var configureValidationRulesCall = new CSharpStatement("ConfigureValidationRules();").AddMetadata("configure-validation-rules", true);
+            configureValidationRulesCall.Parent = ctor;
+            ctor.AddStatement(configureValidationRulesCall);
+            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge().WithSignatureMerge());
         });
 
         @class.AddMethod("void", "ConfigureValidationRules", method =>
@@ -45,6 +47,8 @@ public static class ValidationRulesExtensions
             foreach (var propertyStatement in template.GetValidationRulesStatements(properties))
             {
                 method.AddStatement(propertyStatement);
+                
+                AddServiceProviderIfRequired(template, @class, propertyStatement);
             }
         });
 
@@ -89,7 +93,9 @@ public static class ValidationRulesExtensions
         }
     }
 
-    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel> template, IEnumerable<DTOFieldModel> fields)
+    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(
+        this CSharpTemplateBase<TModel> template, 
+        IEnumerable<DTOFieldModel> fields)
     {
         // If no template is present we still need a way to determine what
         // type is primitive.
@@ -109,11 +115,29 @@ public static class ValidationRulesExtensions
             {
                 validations.AddChainStatement("NotNull()");
             }
+            
             if (property.TypeReference.Element.IsEnumModel())
             {
                 validations.AddChainStatement(property.TypeReference.IsCollection
                     ? "ForEach(x => x.IsInEnum())"
                     : "IsInEnum()");
+            }
+            else if (property.TypeReference?.Element is not null &&
+                     property.TypeReference.Element.IsDTOModel() &&
+                     template?.TryGetTypeName(
+                         templateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                         model: property.TypeReference.Element.AsDTOModel(),
+                         typeName: out _) == true &&
+                     template?.TryGetTypeName(
+                         templateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                         model: property.TypeReference.Element.AsDTOModel(),
+                         typeName: out var dtoTemplateName) == true)
+            {
+                validations.AddChainStatement(property.TypeReference.IsCollection
+                    ? $"ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<{dtoTemplateName}>>()!))"
+                    : $"SetValidator(provider.GetRequiredService<IValidator<{dtoTemplateName}>>()!)");
+
+                validations.Metadata["requires-service-provider"] = true;
             }
 
             if (property.HasValidations())
@@ -202,6 +226,35 @@ public static class ValidationRulesExtensions
 
             yield return validations;
         }
+    }
+    
+    private static void AddServiceProviderIfRequired<TModel>(
+        CSharpTemplateBase<TModel> template,
+        CSharpClass @class,
+        CSharpMethodChainStatement statement)
+    {
+        if (!statement.TryGetMetadata("requires-service-provider", out bool requiresProvider) || !requiresProvider)
+        {
+            return;
+        }
+            
+        var ctor = @class.Constructors.First();
+
+        if (ctor.Parameters.Any(p => p.Type.Contains("IServiceProvider")))
+        {
+            return;
+        }
+            
+        template.AddUsing("Microsoft.Extensions.DependencyInjection");
+            
+        ctor.Parameters.Insert(0, new CSharpConstructorParameter(template.UseType("System.IServiceProvider"), "provider", ctor));
+        ctor.FindStatement(stmt => stmt.HasMetadata("configure-validation-rules"))
+            ?.Remove();
+        ctor.InsertStatement(0, new CSharpStatement("ConfigureValidationRules(provider);")
+            .AddMetadata("configure-validation-rules", true));
+            
+        @class.FindMethod(p => p.Name == "ConfigureValidationRules")
+            ?.AddParameter(template.UseType("System.IServiceProvider"), "provider");
     }
 
     private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute)

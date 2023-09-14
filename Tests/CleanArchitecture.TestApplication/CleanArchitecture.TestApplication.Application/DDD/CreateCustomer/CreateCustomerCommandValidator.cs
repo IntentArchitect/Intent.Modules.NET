@@ -1,22 +1,24 @@
 using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
 {
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public CreateCustomerCommandValidator()
+        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        public CreateCustomerCommandValidator(IServiceProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
+
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IServiceProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull()
@@ -31,7 +33,8 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
                 .MaximumLength(100);
 
             RuleFor(v => v.Address)
-                .NotNull();
+                .NotNull()
+                .SetValidator(provider.GetRequiredService<IValidator<CreateCustomerAddressDto>>()!);
         }
     }
 }

@@ -1,4 +1,4 @@
-### Version 3.7.4
+### Version 3.8.0
 
 - Improvement: Further consolidated/generalized logic with other FluentValidation modules.
 
