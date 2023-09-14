@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj" />
   </ItemGroup>
 
