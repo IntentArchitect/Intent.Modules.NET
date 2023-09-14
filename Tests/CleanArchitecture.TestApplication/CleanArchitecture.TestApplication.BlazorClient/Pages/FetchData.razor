@@ -1,17 +1,13 @@
-﻿@page "/fetchdata"
-@using CleanArchitecture.TestApplication.BlazorClient.HttpClients
-@using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService
-@using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.AggregateRoots
-@inject IAggregateRootsService AggregateRootsService
-@inject IAccountService AccountService
+@page "/fetchdata"
+@inject HttpClient Http
 
-<PageTitle>Fetch data demo</PageTitle>
+<PageTitle>Weather forecast</PageTitle>
 
-<h1>Fetch data demo</h1>
+<h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (_entities == null)
+@if (forecasts == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -20,16 +16,20 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>AggregateAttr</th>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var entity in _entities)
+            @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@entity.Id</td>
-                    <td>@entity.AggregateAttr</td>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
                 </tr>
             }
         </tbody>
@@ -37,19 +37,21 @@ else
 }
 
 @code {
-    private List<AggregateRootDto>? _entities;
+    private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            await AccountService.Register(new RegisterDto() { Email = "Joel@herecom", Password = "P@ssword123" });
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
 
-        }catch (Exception e)
-        {
-            
-        }
-        await AccountService.Login(new LoginDto { Email = "Joel@herecom", Password = "P@ssword123" });
-        _entities = await AggregateRootsService.GetAggregateRootsAsync();
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }

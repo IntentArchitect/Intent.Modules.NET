@@ -1,5 +1,5 @@
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService;
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.HttpClients;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 

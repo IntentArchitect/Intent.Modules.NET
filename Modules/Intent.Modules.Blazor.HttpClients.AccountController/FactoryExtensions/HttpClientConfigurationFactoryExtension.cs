@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Blazor.HttpClients.AccountController.Templates.AccountServiceInterface;
 using Intent.Modules.Blazor.HttpClients.AccountController.Templates.AccountServiceHttpClient;
 using Intent.Modules.Blazor.HttpClients.AccountController.Templates;
+using static Intent.Modules.Constants.Roles;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -39,6 +40,9 @@ namespace Intent.Modules.Blazor.HttpClients.AccountController.FactoryExtensions
                     method.AddMethodChainStatement("services", chain =>
                     {
                         var applicationName = "STSApplication";
+
+                        ((IntentTemplateBase)template).ApplyAppSetting($"Urls:{applicationName}", "", null, Frontend.Blazor);
+
 
                         chain.AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{template.GetAccountServiceInterfaceTemplateName()}, {template.GetAccountServiceHttpClientTemplateName()}>")
                             .AddArgument(new CSharpLambdaBlock("http")

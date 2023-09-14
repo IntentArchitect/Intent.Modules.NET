@@ -9,9 +9,9 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.Blazor.HttpClients.HttpClient", Version = "2.0")]
 
-namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.HttpClients
+namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementations
 {
-    public class AggregateRootsServiceHttpClient : BlazorClient.HttpClients.IAggregateRootsService
+    public class AggregateRootsServiceHttpClient : IAggregateRootsService
     {
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;

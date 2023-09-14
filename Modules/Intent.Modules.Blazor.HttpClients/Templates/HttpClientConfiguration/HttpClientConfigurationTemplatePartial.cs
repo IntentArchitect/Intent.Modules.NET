@@ -13,6 +13,7 @@ using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.Roles;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -54,7 +55,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 
                                 if (uniqueApplicationNames.Add(applicationName))
                                 {
-                                    this.ApplyAppSetting($"Urls:{applicationName}", "", null, "Blazor");
+                                    this.ApplyAppSetting($"Urls:{applicationName}", "", null, Frontend.Blazor);
                                 }
 
                                 chain.AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{this.GetServiceContractName(proxy)}, {this.GetHttpClientName(proxy)}>")

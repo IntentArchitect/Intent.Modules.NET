@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="15f22126-76ef-4a59-bccf-12a08cc751d5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="5112de09-b5eb-4c2b-932c-c6ec1313abac" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>HttpClients</name>
   <display>HttpClients</display>
+  <externalReference>df40c737-bb70-4e6e-85d4-5ef2d68b2c28</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
+  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>1520fd7a-9f62-40de-ab02-3b2934053ac4</parentFolderId>
+  <parentFolderId>4db14e1a-8b17-4990-bfef-8951cf818e01</parentFolderId>
   <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
   <packageName>CleanArchitecture.TestApplication</packageName>
   <stereotypes>
@@ -22,14 +23,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="de402818-97bc-407c-816d-f1c1a7d8473d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="45ef1f5e-0a16-4384-ae9f-bcd14755fe76" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.AccountController.AccountServiceHttpClientTemplate</name>
       <display>Intent.Blazor.HttpClients.AccountController.AccountServiceHttpClientTemplate</display>
       <externalReference>Intent.Blazor.HttpClients.AccountController</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -38,14 +39,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c564863d-aa8f-444d-b2d0-ae62beb6f9d5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4c6cc27e-2060-4f0e-b498-a323ba617cd3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.AccountController.AccountServiceInterfaceTemplate</name>
       <display>Intent.Blazor.HttpClients.AccountController.AccountServiceInterfaceTemplate</display>
       <externalReference>Intent.Blazor.HttpClients.AccountController</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -54,14 +55,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7f56f607-2750-4894-bddf-5669d87fa101" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4b758ae7-0d09-445d-8d58-636ea9567edc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.HttpClientConfiguration</name>
       <display>Intent.Blazor.HttpClients.HttpClientConfiguration</display>
       <externalReference>Intent.Blazor.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -70,14 +71,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="071fc55b-b128-43a3-9291-ebc1a98a855b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f0e099b0-31c6-4fe5-806e-b44d6f099e2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.ServiceContract</name>
       <display>Intent.Blazor.HttpClients.ServiceContract</display>
       <externalReference>Intent.Blazor.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -86,13 +87,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="99dd67b9-37d1-41b3-93ea-1cf2eec03ea1" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="6a11451a-bcae-4a08-a7a7-d2c913964b0b" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Blazor.HttpClient</name>
       <display>Blazor.HttpClient</display>
+      <externalReference>536aa766-9764-4c16-81ae-f5fd176755b2</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />

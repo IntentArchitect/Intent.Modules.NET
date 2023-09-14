@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1a80fc85-727b-46d1-bf09-f59366144c12" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="d6932f2e-b5fc-4146-9751-6bab13e0b150" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Contracts</name>
   <display>Contracts</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>15f22126-76ef-4a59-bccf-12a08cc751d5</parentFolderId>
+  <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
   <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
   <packageName>CleanArchitecture.TestApplication</packageName>
   <stereotypes>
@@ -21,14 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="15349078-9c8f-4bed-b4a7-618d5812cdfa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="95c02fa4-2ea1-4dd6-a607-29142fa12de2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.DtoContract</name>
       <display>Intent.Blazor.HttpClients.DtoContract</display>
       <externalReference>Intent.Blazor.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1a80fc85-727b-46d1-bf09-f59366144c12</parentFolderId>
+      <parentFolderId>d6932f2e-b5fc-4146-9751-6bab13e0b150</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -37,14 +37,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b3f513be-b28c-4910-9053-3cb340bb68e6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="8e3f141d-eeb1-4000-b52c-8aee14bff672" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</name>
       <display>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</display>
       <externalReference>Intent.Blazor.HttpClients.Dtos.FluentValidation</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1a80fc85-727b-46d1-bf09-f59366144c12</parentFolderId>
+      <parentFolderId>d6932f2e-b5fc-4146-9751-6bab13e0b150</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
@@ -53,14 +53,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2a0358e6-7a50-49e2-9eb8-e6e6877bf1d1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="746692e0-418e-49d4-968d-0a4d15c132da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.HttpClients.EnumContract</name>
       <display>Intent.Blazor.HttpClients.EnumContract</display>
       <externalReference>Intent.Blazor.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1a80fc85-727b-46d1-bf09-f59366144c12</parentFolderId>
+      <parentFolderId>d6932f2e-b5fc-4146-9751-6bab13e0b150</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />

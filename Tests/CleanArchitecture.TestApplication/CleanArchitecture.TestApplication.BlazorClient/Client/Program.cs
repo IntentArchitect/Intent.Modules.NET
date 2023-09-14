@@ -1,13 +1,12 @@
-using CleanArchitecture.TestApplication.BlazorClient;
-using CleanArchitecture.TestApplication.BlazorClient.Client;
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients;
-using Microsoft.AspNetCore.Components.Authorization;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration.Memory;
 
-namespace CleanArchitecture.TestApplication.BlazorClient
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Blazor.WebAssembly.ProgramTemplate", Version = "1.0")]
+
+namespace CleanArchitecture.TestApplication.BlazorClient.Client
 {
     public class Program
     {
@@ -16,22 +15,26 @@ namespace CleanArchitecture.TestApplication.BlazorClient
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
-
+            await LoadAppSettings(builder);
+            //IntentIgnore
+            CustomRegistrations(builder);
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            await builder.Build().RunAsync();
+        }
 
+        [IntentManaged(Mode.Ignore)]
+        private static void CustomRegistrations(WebAssemblyHostBuilder builder)
+        {
             builder.Services.AddScoped<IAccessTokenProvider, AccessTokenProvider>();
             builder.Services.AddTransient<AuthorizationMessageHandler>();
-            builder.Configuration.Add(new MemoryConfigurationSource
-            {
-                InitialData = new Dictionary<string, string>
-                {
-                    ["Urls:CleanArchitectureTestApplication"] = "https://localhost:44341/",
-                    ["Urls:STSApplication"] = "https://localhost:44384/",                    
-                }
-            });
-            builder.Services.AddHttpClients(builder.Configuration);
+        }
 
-            await builder.Build().RunAsync();
+        public static async Task LoadAppSettings(WebAssemblyHostBuilder builder)
+        {
+            var configProxy = new HttpClient() { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
+            using var response = await configProxy.GetAsync("appsettings.json");
+            using var stream = await response.Content.ReadAsStreamAsync();
+            builder.Configuration.AddJsonStream(stream);
         }
     }
 }

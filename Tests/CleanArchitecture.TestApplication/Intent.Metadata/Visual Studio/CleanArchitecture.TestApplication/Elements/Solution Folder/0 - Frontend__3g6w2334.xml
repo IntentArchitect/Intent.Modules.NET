@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="78f16bb7-c736-4ed4-b9e5-976fc5607203" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+<class id="7c9d0b32-fbbe-40e7-aebe-fcf1b7eb635b" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
   <name>0 - Frontend</name>
   <display>0 - Frontend</display>
+  <externalReference>c2163b22-18c4-4f76-8f84-4736b53d1c56</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
