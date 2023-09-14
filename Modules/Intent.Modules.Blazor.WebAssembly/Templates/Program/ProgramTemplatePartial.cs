@@ -44,7 +44,7 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
                         method.AddStatement("await builder.Build().RunAsync();");
                     });
 
-                    @class.AddMethod("Task", "LoadAppSettings", method => 
+                    @class.AddMethod("Task", "LoadAppSettings", method =>
                     {
                         method.Async()
                             .Static()
