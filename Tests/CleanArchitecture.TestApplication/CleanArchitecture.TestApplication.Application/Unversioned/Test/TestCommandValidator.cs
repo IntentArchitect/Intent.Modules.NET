@@ -26,10 +26,9 @@ namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
                 .MustAsync(ValidateValueAsync);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private async Task<bool> ValidateValueAsync(TestCommand command, string value, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your custom validation rules here...");
             return true;
         }
     }
