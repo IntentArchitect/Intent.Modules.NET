@@ -4,14 +4,14 @@ using GraphQL.AzureFunction.TestApplication.Application.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "2.0")]
 
 namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Customers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerUpdateDtoValidator : AbstractValidator<CustomerUpdateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public CustomerUpdateDtoValidator()
         {
             ConfigureValidationRules();

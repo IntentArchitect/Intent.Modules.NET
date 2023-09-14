@@ -7,7 +7,7 @@ foreach ($slnFile in $slnFiles) {
     $count++
     Write-Host
     Write-Host "Building $count of $($slnFiles.Count): $slnFile..."
-    dotnet build $slnFile
+    dotnet build $slnFile --interactive
 
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Exited early as build failed for $slnFile"

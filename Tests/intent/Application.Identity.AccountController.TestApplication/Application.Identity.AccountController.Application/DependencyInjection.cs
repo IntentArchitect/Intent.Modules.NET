@@ -14,7 +14,7 @@ namespace Application.Identity.AccountController.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

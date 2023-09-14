@@ -150,7 +150,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6b3406c5-91ad-4e09-ad45-f96f79a246de" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="aceaeaaf-3f23-446b-8153-2275df51f03d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosPagedList</name>
       <display>Intent.CosmosDB.CosmosPagedList</display>
       <externalReference>Intent.CosmosDB</externalReference>
