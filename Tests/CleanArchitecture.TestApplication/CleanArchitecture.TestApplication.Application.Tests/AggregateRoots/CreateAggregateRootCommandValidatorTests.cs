@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 
@@ -110,7 +112,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         private ValidationBehaviour<CreateAggregateRootCommand, System.Guid> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateAggregateRootCommand, System.Guid>(new[] { new CreateAggregateRootCommandValidator() });
+            var serviceProvider = Substitute.For<IServiceProvider>();
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeManyBDto>)).Returns(c => new CreateAggregateRootCompositeManyBDtoValidator(serviceProvider));
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto>)).Returns(c => new CreateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>)).Returns(c => new CreateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeSingleADto>)).Returns(c => new CreateAggregateRootCompositeSingleADtoValidator(serviceProvider));
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeSingleACompositeSingleAADto>)).Returns(c => new CreateAggregateRootCompositeSingleACompositeSingleAADtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeSingleACompositeManyAADto>)).Returns(c => new CreateAggregateRootCompositeSingleACompositeManyAADtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootAggregateSingleCDto>)).Returns(c => new CreateAggregateRootAggregateSingleCDtoValidator());
+            return new ValidationBehaviour<CreateAggregateRootCommand, System.Guid>(new[] { new CreateAggregateRootCommandValidator(serviceProvider) });
         }
     }
 }

@@ -69,9 +69,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         private ValidationBehaviour<UpdateAggregateRootLongCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();  
-            serviceProvider.GetRequiredService<IValidator<UpdateAggregateRootLongCompositeOfAggrLongDto>>().Returns(new UpdateAggregateRootLongCompositeOfAggrLongDtoValidator());  
-  
+            var serviceProvider = Substitute.For<IServiceProvider>();
+            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootLongCompositeOfAggrLongDto>)).Returns(c => new UpdateAggregateRootLongCompositeOfAggrLongDtoValidator());
             return new ValidationBehaviour<UpdateAggregateRootLongCommand, Unit>(new[] { new UpdateAggregateRootLongCommandValidator(serviceProvider) });
         }
     }

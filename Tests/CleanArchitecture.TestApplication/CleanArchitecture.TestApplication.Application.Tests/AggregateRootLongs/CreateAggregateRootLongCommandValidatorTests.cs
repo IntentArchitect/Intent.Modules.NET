@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 
@@ -69,7 +71,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         private ValidationBehaviour<CreateAggregateRootLongCommand, long> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateAggregateRootLongCommand, long>(new[] { new CreateAggregateRootLongCommandValidator() });
+            var serviceProvider = Substitute.For<IServiceProvider>();
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootLongCompositeOfAggrLongDto>)).Returns(c => new CreateAggregateRootLongCompositeOfAggrLongDtoValidator());
+            return new ValidationBehaviour<CreateAggregateRootLongCommand, long>(new[] { new CreateAggregateRootLongCommandValidator(serviceProvider) });
         }
     }
 }

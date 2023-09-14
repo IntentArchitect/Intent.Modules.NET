@@ -136,7 +136,15 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     priClass.Methods.Remove(priClass.FindMethod("GetFailedResultTestData"));
                     priClass.Methods.Remove(priClass.FindMethod("Validate_WithInvalidCommand_FailsValidation"));
                 }
-
+            })
+            .AfterBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var domainElement = Model.Mapping.Element.AsClassModel();
+                var domainIdAttr = domainElement.GetEntityPkAttribute(ExecutionContext);
+                var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                                            && Model.TypeReference.Element != null;
+                
                 priClass.AddMethod($"{this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>",
                     "GetValidationBehaviour", method =>
                     {
@@ -147,6 +155,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                         
                         if (MainValidatorHasServiceProviderRequirement())
                         {
+                            AddUsing("Microsoft.Extensions.DependencyInjection");
                             var dtoValidators = GetValidators(Model.Properties);
 
                             method.AddStatement($"var serviceProvider = Substitute.For<{UseType("System.IServiceProvider")}>();");
@@ -158,7 +167,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                                 {
                                     nestedValidatorInstantiation.AddArgument("serviceProvider");
                                 }
-                                method.AddStatement($"serviceProvider.GetRequiredService<{UseType("FluentValidation.IValidator")}<{validator.DtoName}>>().Returns({nestedValidatorInstantiation});");
+                                method.AddStatement($"serviceProvider.GetService(typeof({UseType("FluentValidation.IValidator")}<{validator.DtoName}>)).Returns(c => {nestedValidatorInstantiation});");
                             }
 
                             mainValidatorInstantiation.AddArgument("serviceProvider");
@@ -172,8 +181,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
     private bool MainValidatorHasServiceProviderRequirement()
     {
-        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model);
-        return template is not null &&
+        return TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var template) &&
                template.CSharpFile.Classes.First().Constructors.First().Parameters.Any(p => p.Type.Contains("IServiceProvider"));
     }
 

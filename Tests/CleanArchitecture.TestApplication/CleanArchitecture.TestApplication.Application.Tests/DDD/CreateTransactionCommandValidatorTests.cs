@@ -5,11 +5,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.DDD;
 using CleanArchitecture.TestApplication.Application.DDD.CreateTransaction;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 
@@ -77,7 +79,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD
 
         private ValidationBehaviour<CreateTransactionCommand, Unit> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateTransactionCommand, Unit>(new[] { new CreateTransactionCommandValidator() });
+            var serviceProvider = Substitute.For<IServiceProvider>();
+            serviceProvider.GetService(typeof(IValidator<CreateMoneyDto>)).Returns(c => new CreateMoneyDtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAccountDto>)).Returns(c => new CreateAccountDtoValidator());
+            return new ValidationBehaviour<CreateTransactionCommand, Unit>(new[] { new CreateTransactionCommandValidator(serviceProvider) });
         }
     }
 }

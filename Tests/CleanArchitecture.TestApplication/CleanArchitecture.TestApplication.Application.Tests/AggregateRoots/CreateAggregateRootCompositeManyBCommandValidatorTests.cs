@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 
@@ -74,7 +76,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         private ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid>(new[] { new CreateAggregateRootCompositeManyBCommandValidator() });
+            var serviceProvider = Substitute.For<IServiceProvider>();
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto>)).Returns(c => new CreateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
+            serviceProvider.GetService(typeof(IValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>)).Returns(c => new CreateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
+            return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid>(new[] { new CreateAggregateRootCompositeManyBCommandValidator(serviceProvider) });
         }
     }
 }
