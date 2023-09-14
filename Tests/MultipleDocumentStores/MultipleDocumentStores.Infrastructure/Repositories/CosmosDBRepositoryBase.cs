@@ -68,11 +68,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
             var results = documents.Cast<TDomain>().ToList();
-
-            foreach (var result in results)
-            {
-                _unitOfWork.Track(result);
-            }
+            Track(results);
 
             return results;
         }
@@ -80,6 +76,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
         public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
+            Track((TDomain)document);
 
             return document;
         }
@@ -89,7 +86,30 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
-            return documents.Cast<TDomain>().ToList();
+            var results = documents.Cast<TDomain>().ToList();
+            Track(results);
+
+            return results;
+        }
+
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);
+        }
+
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var pagedDocouments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
+            Track(pagedDocouments.Items.Cast<TDomain>());
+
+            return new CosmosPagedList<TDomain, TDocument>(pagedDocouments, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -100,11 +120,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
                 .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
             var results = documents.Cast<TDomain>().ToList();
-
-            foreach (var result in results)
-            {
-                _unitOfWork.Track(result);
-            }
+            Track(results);
 
             return results;
         }
@@ -119,6 +135,19 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
             return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
+        }
+
+        public void Track(IEnumerable<TDomain> items)
+        {
+            foreach (var item in items)
+            {
+                _unitOfWork.Track(item);
+            }
+        }
+
+        public void Track(TDomain item)
+        {
+            _unitOfWork.Track(item);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

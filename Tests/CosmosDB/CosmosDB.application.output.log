@@ -1492,6 +1492,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepository#7c17e3ba-924e-49f1-8cdc-d941d78c6036</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/DerivedOfTCosmosDBRepository.cs</ApplicationRelativeFilePath>
