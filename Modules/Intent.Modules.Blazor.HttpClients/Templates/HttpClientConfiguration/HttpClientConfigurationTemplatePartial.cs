@@ -45,11 +45,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                         method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
                         method.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
+                        var uniqueApplicationNames = new HashSet<string>();
                         foreach (var proxy in Model)
                         {
                             method.AddMethodChainStatement("services", chain =>
                             {
                                 var applicationName = GetApplicationName(proxy);
+
+                                if (uniqueApplicationNames.Add(applicationName))
+                                {
+                                    this.ApplyAppSetting($"Urls:{applicationName}", "", null, "Blazor");
+                                }
 
                                 chain.AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{this.GetServiceContractName(proxy)}, {this.GetHttpClientName(proxy)}>")
                                     .AddArgument(new CSharpLambdaBlock("http")

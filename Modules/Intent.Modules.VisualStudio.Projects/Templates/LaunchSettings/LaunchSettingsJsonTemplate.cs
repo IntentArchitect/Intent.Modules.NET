@@ -53,7 +53,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         {
             Profiles.Add(@event.GetValue(LaunchProfileRegistrationEvent.ProfileNameKey), new Profile
             {
-                CommandName = Enum.Parse<CommandName>(@event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey)),
+                CommandName = Enum.Parse<CommandName>(@event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey), true),
                 LaunchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey),
                     out var launchBrowser) && launchBrowser,
                 LaunchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
@@ -73,7 +73,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             Profiles.Add(request.Name, new Profile
             {
-                CommandName = Enum.Parse<CommandName>(request.CommandName),
+                CommandName = Enum.Parse<CommandName>(request.CommandName, true),
                 LaunchBrowser = request.LaunchBrowser,
                 ApplicationUrl = request.ApplicationUrl,
                 LaunchUrl = request.LaunchUrl,

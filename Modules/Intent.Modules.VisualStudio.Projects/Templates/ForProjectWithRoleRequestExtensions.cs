@@ -6,8 +6,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 {
     internal static class ForProjectWithRoleRequestExtensions
     {
-        public static bool IsApplicableTo(this IForProjectWithRoleRequest request, IntentTemplateBase template)
+        public static bool IsApplicableTo(this IForProjectWithRoleRequest request, IntentTemplateBase template, bool requiresSpecifiedRole = false)
         {
+            if (requiresSpecifiedRole && string.IsNullOrWhiteSpace(request.ForProjectWithRole))
+            {
+                return false;
+            }
+
             if (!string.IsNullOrWhiteSpace(request.ForProjectWithRole) &&
                 !template.OutputTarget.GetProject().HasRole(request.ForProjectWithRole))
             {

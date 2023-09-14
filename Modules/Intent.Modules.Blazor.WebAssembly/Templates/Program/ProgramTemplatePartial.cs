@@ -39,8 +39,21 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
                         method.AddStatement("var builder = WebAssemblyHostBuilder.CreateDefault(args);");
                         method.AddStatement("builder.RootComponents.Add<App>(\"#app\");");
                         method.AddStatement("builder.RootComponents.Add<HeadOutlet>(\"head::after\");");
+                        method.AddStatement("await LoadAppSettings(builder);");
                         method.AddStatement("builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });");
                         method.AddStatement("await builder.Build().RunAsync();");
+                    });
+
+                    @class.AddMethod("Task", "LoadAppSettings", method => 
+                    {
+                        method.Async()
+                            .Static()
+                            .AddParameter("WebAssemblyHostBuilder", "builder");
+
+                        method.AddStatement("var configProxy = new HttpClient() { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };");
+                        method.AddStatement("using var response = await configProxy.GetAsync(\"appsettings.json\");");
+                        method.AddStatement("using var stream = await response.Content.ReadAsStreamAsync();");
+                        method.AddStatement("builder.Configuration.AddJsonStream(stream);");
                     });
                 });
         }
