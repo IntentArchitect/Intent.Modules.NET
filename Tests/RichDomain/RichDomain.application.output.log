@@ -51,6 +51,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0468b4bb-04b7-4441-a4c3-4303581f0bd4</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#fd67dfed-5023-4ee1-b450-6bc8a1acd3c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Api/Controllers/PeopleController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PeopleController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>91a27956-dd57-4806-9234-74b09134c4af</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c4376fe0-5c68-40a8-bbb5-9d535193541d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -96,6 +112,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4210cf9e-caf6-4e21-aaba-8958e7df4d02</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/Extensions/RepositoryExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>327fe658-fe48-4c00-85ce-3edafab98268</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#5bca6b10-3e0e-4145-9739-0d76e402ad7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/People/DeletePersonCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/DeletePersonCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>327fe658-fe48-4c00-85ce-3edafab98268</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#8087eadd-f3d1-401a-9960-8041c361db61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/People/GetPeopleQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPeopleQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>327fe658-fe48-4c00-85ce-3edafab98268</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#79120673-385e-4972-87a6-22b59fa0773a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/People/GetPersonByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>327fe658-fe48-4c00-85ce-3edafab98268</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c2056685-3725-4ae1-a9cc-cc7621296e32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application.Tests/People/PersonAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -256,6 +312,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#71014629-4128-42fc-9f22-fde750c0c01f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/CreatePerson/CreatePersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#71014629-4128-42fc-9f22-fde750c0c01f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/CreatePerson/CreatePersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#71014629-4128-42fc-9f22-fde750c0c01f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/CreatePerson/CreatePersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5bca6b10-3e0e-4145-9739-0d76e402ad7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/DeletePerson/DeletePersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/DeletePerson/DeletePersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5bca6b10-3e0e-4145-9739-0d76e402ad7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/DeletePerson/DeletePersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/DeletePerson/DeletePersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5bca6b10-3e0e-4145-9739-0d76e402ad7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/DeletePerson/DeletePersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/DeletePerson/DeletePersonCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8087eadd-f3d1-401a-9960-8041c361db61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPeople/GetPeopleQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPeople/GetPeopleQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8087eadd-f3d1-401a-9960-8041c361db61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPeople/GetPeopleQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPeople/GetPeopleQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8087eadd-f3d1-401a-9960-8041c361db61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPeople/GetPeopleQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPeople/GetPeopleQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#79120673-385e-4972-87a6-22b59fa0773a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPersonById/GetPersonByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonById/GetPersonByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#79120673-385e-4972-87a6-22b59fa0773a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPersonById/GetPersonByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonById/GetPersonByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#79120673-385e-4972-87a6-22b59fa0773a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/GetPersonById/GetPersonByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonById/GetPersonByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#21e3f966-418d-474e-99a8-c2fd6eb4c4b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/PersonDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#21e3f966-418d-474e-99a8-c2fd6eb4c4b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/PersonDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4fb3dc12-e816-4e52-bd22-432863b3e3cb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/UpdatePersonPerson/UpdatePersonPersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4fb3dc12-e816-4e52-bd22-432863b3e3cb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/UpdatePersonPerson/UpdatePersonPersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4fb3dc12-e816-4e52-bd22-432863b3e3cb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

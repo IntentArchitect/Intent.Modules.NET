@@ -1,6 +1,7 @@
 ### Version 1.3.1
 
 - Improvement: Fluent Validation tests updated to accomodate the `IServiceProvider` injection scenarios.
+- Fixed: Entities with Interfaces are now supported.
 
 ### Version 1.3.0
 

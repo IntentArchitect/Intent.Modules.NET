@@ -94,7 +94,7 @@ internal class QueryHandlerFacade
         AggregateOwnerDomainModel.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
 
     public string PagedResultInterfaceName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.PagedResult);
-    
+
     public bool HasDomainEventBaseName()
     {
         return DomainEventBaseName is not null;
@@ -122,7 +122,7 @@ internal class QueryHandlerFacade
 
         return statements;
     }
-    
+
     public IReadOnlyCollection<CSharpStatement> Get_InitialAutoFixture_TestDataStatements(bool includeVarKeyword)
     {
         var statements = new List<CSharpStatement>();
@@ -186,7 +186,7 @@ internal class QueryHandlerFacade
                         var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
                         statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
                             .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
-                        
+
                         for (var i = 0; i < QueryIdFields.Count; i++)
                         {
                             var queryIdField = QueryIdFields[i];
@@ -194,6 +194,7 @@ internal class QueryHandlerFacade
                             fluent.AddChainStatement($"With(x => x.{queryIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                         }
                     }
+
                     break;
                 case QueryTargetDomain.NestedEntity:
                 {
@@ -330,14 +331,15 @@ internal class QueryHandlerFacade
     }
 
     public IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindAllMockingStatements(
-        string entitiesVarName, 
+        string entitiesVarName,
         string repositoryVarName,
         int? pageNo = null,
         int? pageSize = null)
     {
         var statements = new List<CSharpStatement>();
         var pagination = pageNo.HasValue && pageSize.HasValue ? $"{pageNo}, {pageSize}, " : string.Empty;
-        statements.Add($"{repositoryVarName}.FindAllAsync({pagination}CancellationToken.None).Returns(Task.FromResult({entitiesVarName}));");
+        statements.Add(
+            $"{repositoryVarName}.FindAllAsync({pagination}CancellationToken.None).Returns({GetFromResultExpression(entitiesVarName, TargetDomainTypeName, TargetDomainModel, true, true)});");
         return statements;
     }
 
@@ -399,25 +401,40 @@ internal class QueryHandlerFacade
         ReturnDefault
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response)
-    {
-        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateRepositoryVarName, QueryIdFields);
-    }
-
-    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName,
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateRepositoryFindByIdMockingStatements(
+        string queryVarName,
+        string entityVarName,
         MockRepositoryResponse response)
     {
-        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateOwnerRepositoryVarName, QueryFieldsForOwnerId);
+        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateRepositoryVarName, TargetDomainTypeName, TargetDomainModel,
+            QueryIdFields);
     }
 
-    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string queryVarName, string entityVarName, MockRepositoryResponse response,
-        string repositoryVarName, IReadOnlyList<DTOFieldModel> queryIdFields)
+    public IReadOnlyCollection<CSharpStatement> GetDomainAggregateOwnerRepositoryFindByIdMockingStatements(
+        string queryVarName,
+        string entityVarName,
+        MockRepositoryResponse response)
+    {
+        return GetDomainRepositoryFindByIdMockingStatements(queryVarName, entityVarName, response, DomainAggregateOwnerRepositoryVarName, AggregateOwnerDomainTypeName,
+            AggregateOwnerDomainModel, QueryFieldsForOwnerId);
+    }
+
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(
+        string queryVarName,
+        string entityVarName,
+        MockRepositoryResponse response,
+        string repositoryVarName,
+        string domainTypeName,
+        ClassModel domainModel,
+        IReadOnlyList<DTOFieldModel> queryIdFields)
     {
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
-            MockRepositoryResponse.ReturnDomainVariable => $".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
-            MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{TargetDomainTypeName}>(default))",
+            MockRepositoryResponse.ReturnDomainVariable =>
+                $".Returns({GetFromResultExpression(entityVarName ?? throw new ArgumentNullException(nameof(entityVarName)), TargetDomainTypeName, TargetDomainModel, true, false)})",
+            MockRepositoryResponse.ReturnDefault =>
+                $".Returns({GetFromResultExpression("default", domainTypeName, domainModel, false, false)})",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
         statements.Add($"{repositoryVarName}.FindByIdAsync({GetQueryIdKeysList(queryVarName, queryIdFields)}, CancellationToken.None)!{returns};");
@@ -430,7 +447,7 @@ internal class QueryHandlerFacade
         statements.Add($"await act.Should().ThrowAsync<{exceptionTypeName}>();");
         return statements;
     }
-    
+
     public IReadOnlyCollection<CSharpStatement> GetPaginationQuerySetup(string queryVarName, int pageNo, int pageSize)
     {
         var statements = new List<CSharpStatement>();
@@ -438,7 +455,7 @@ internal class QueryHandlerFacade
         statements.Add($"{queryVarName}.PageSize = {pageSize};");
         return statements;
     }
-    
+
     public IReadOnlyCollection<CSharpStatement> GetMockedPaginatedResults(string outputVarName, string inputVarName)
     {
         var statements = new List<CSharpStatement>();
@@ -461,5 +478,28 @@ internal class QueryHandlerFacade
         var right = queryIdFields.Count > 1 ? ")" : string.Empty;
 
         return $"{left}{string.Join(", ", queryIdFields.Select(idField => $"{queryVarName}.{idField.Name.ToCSharpIdentifier()}"))}{right}";
+    }
+
+    private string GetFromResultExpression(string returnExpression, string domainTypeName, ClassModel domainModel, bool preferImplicitGenerics, bool isList)
+    {
+        var entityTypeName = domainTypeName;
+        if (_activeTemplate.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, domainModel, out var interfaceTypeName))
+        {
+            entityTypeName = interfaceTypeName;
+        }
+
+        var performCast = entityTypeName != domainTypeName;
+        if (performCast && isList)
+        {
+            _activeTemplate.AddUsing("System.Linq");
+            return $"Task.FromResult({returnExpression}.Cast<{entityTypeName}>().ToList())";
+        }
+
+        if (performCast || !preferImplicitGenerics)
+        {
+            return $"Task.FromResult<{entityTypeName}>({returnExpression})";
+        }
+
+        return $"Task.FromResult({returnExpression})";
     }
 }
