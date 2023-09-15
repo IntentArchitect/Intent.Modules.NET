@@ -74,7 +74,7 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
             ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
             {
                 Name = "IIS Express",
-                CommandName = "IisExpress",
+                CommandName = "IISExpress",
                 LaunchBrowser = true,
                 InspectUri = "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
                 PublishAllPorts = true,

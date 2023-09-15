@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4017e8cf-2e65-4877-828f-f4b7e1ac690c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HostWiringFactoryExtension</name>
+  <display>HostWiringFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>933791d5-832a-43ab-8871-d09d99988bfa</parentFolderId>
+  <packageId>933791d5-832a-43ab-8871-d09d99988bfa</packageId>
+  <packageName>Intent.Blazor.Server</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

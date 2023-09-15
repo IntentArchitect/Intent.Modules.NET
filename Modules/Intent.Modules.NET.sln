@@ -245,6 +245,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.FluentValida
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.WebAssembly", "Intent.Modules.Blazor.WebAssembly\Intent.Modules.Blazor.WebAssembly.csproj", "{0400E2EB-DD1C-4F52-85C2-9EF8FC23956B}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.Server", "Intent.Modules.Blazor.Server\Intent.Modules.Blazor.Server.csproj", "{6D0D559F-7B76-4099-A2F2-3A098B81E8A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -683,6 +685,10 @@ Global
 		{0400E2EB-DD1C-4F52-85C2-9EF8FC23956B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0400E2EB-DD1C-4F52-85C2-9EF8FC23956B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0400E2EB-DD1C-4F52-85C2-9EF8FC23956B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D0D559F-7B76-4099-A2F2-3A098B81E8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0D559F-7B76-4099-A2F2-3A098B81E8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0D559F-7B76-4099-A2F2-3A098B81E8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0D559F-7B76-4099-A2F2-3A098B81E8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -803,6 +809,7 @@ Global
 		{98A21C3B-18C5-4D9C-8E22-94A186541490} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{153F48C5-96FA-437D-AC88-F17033966D4C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{573B0AB5-858F-482B-A8B0-E9C2305EAC67} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{6D0D559F-7B76-4099-A2F2-3A098B81E8A3} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
