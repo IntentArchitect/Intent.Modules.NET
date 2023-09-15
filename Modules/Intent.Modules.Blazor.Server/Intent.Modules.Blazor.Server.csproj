@@ -27,4 +27,8 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="docs\images\" />
+  </ItemGroup>
+
 </Project>
