@@ -644,14 +644,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6ce28783-f5c3-400c-a1da-898cfc932eae</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceCustomerDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceCustomerDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d0136969-4f0d-4b83-a8b0-9c8e7578a64e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceDto.cs</ApplicationRelativeFilePath>

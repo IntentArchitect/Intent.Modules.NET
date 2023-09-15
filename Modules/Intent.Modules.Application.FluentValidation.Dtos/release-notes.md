@@ -1,5 +1,6 @@
 ### Version 3.7.0
 
+- Improvement: DTO Validators will no longer be generated for DTOs which are outbound only.
 - Fixed: Nested DTO Validators introduced and will inject `IServiceProvider` to resolve Validators via DI.
 
 ### Version 3.6.4

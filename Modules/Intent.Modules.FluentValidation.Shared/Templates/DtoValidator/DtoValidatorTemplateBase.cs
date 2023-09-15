@@ -69,14 +69,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             .AddUsing("FluentValidation")
             .AddClass($"{Model.Name}Validator", @class =>
             {
-                // To prevent SF noise after the refactor of all validators into using this as a base class, we're excluding
-                // the following template ids (ideally they shouldn't be):
-                if (templateId is not (
-                    "Intent.Application.MediatR.FluentValidation.CommandValidator" or
-                    "Intent.Application.MediatR.FluentValidation.QueryValidator"))
-                {
-                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                }
+                @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
 
                 this.ConfigureForValidation(
                     @class: @class,
