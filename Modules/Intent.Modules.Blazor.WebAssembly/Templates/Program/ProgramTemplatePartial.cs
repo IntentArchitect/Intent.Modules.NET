@@ -41,7 +41,7 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
                         method.AddStatement("builder.RootComponents.Add<HeadOutlet>(\"head::after\");");
                         method.AddStatement("await LoadAppSettings(builder);");
                         method.AddStatement("builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });");
-                        method.AddStatement("await builder.Build().RunAsync();");
+                        method.AddStatement("await builder.Build().RunAsync();", stmt => stmt.AddMetadata("run-builder", "true") );
                     });
 
                     @class.AddMethod("Task", "LoadAppSettings", method =>

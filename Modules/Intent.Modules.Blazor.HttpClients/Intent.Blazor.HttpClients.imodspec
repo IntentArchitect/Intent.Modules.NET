@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients</id>
-  <version>3.0.0-pre.1</version>
+  <version>3.0.0-pre.2</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</description>
@@ -69,7 +69,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.HttpClients.WebAssemblyProgramIntegrationFactoryExtension" externalReference="a51ff2c8-8ea5-4c37-855e-3c5ec711e580" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
