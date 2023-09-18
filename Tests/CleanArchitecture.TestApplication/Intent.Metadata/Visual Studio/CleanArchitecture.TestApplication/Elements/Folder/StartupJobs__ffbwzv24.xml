@@ -4,9 +4,10 @@
   <display>StartupJobs</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
+  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>a366b3c5-c903-4942-9304-ddad54211311</parentFolderId>
+  <parentFolderId>23156ea2-5268-45cf-a247-a74d47935f62</parentFolderId>
   <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
   <packageName>CleanArchitecture.TestApplication</packageName>
   <stereotypes>

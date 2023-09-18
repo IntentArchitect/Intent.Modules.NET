@@ -4,9 +4,10 @@
   <display>Interfaces</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
+  <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>200c87e3-90dc-414e-bb27-53f91deca874</parentFolderId>
+  <parentFolderId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</parentFolderId>
   <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
   <packageName>CleanArchitecture.TestApplication</packageName>
   <stereotypes>

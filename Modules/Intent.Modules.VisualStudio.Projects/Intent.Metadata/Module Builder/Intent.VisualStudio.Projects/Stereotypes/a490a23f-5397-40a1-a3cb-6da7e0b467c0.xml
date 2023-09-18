@@ -199,5 +199,16 @@
       </valueOptions>
       <lookupTypes />
     </property>
+    <property id="575dbd4e-f038-4c92-a411-63c1e3e0d8d7">
+      <hint>Adds a [`&lt;NoWarn /&gt;`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file. See [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#the-suppress-warnings-property) for more information.</hint>
+      <name>Suppress Warnings</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>$(NoWarn)</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

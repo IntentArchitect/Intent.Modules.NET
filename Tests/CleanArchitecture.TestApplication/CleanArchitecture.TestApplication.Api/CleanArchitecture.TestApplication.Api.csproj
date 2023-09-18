@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <UserSecretsId>254b1f62-4be1-4a3a-8e4d-8b1bd2f93976</UserSecretsId>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -141,6 +141,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new ImplicitUsingsOptions(_stereotype.GetProperty<string>("Implicit Usings"));
             }
 
+            public string SuppressWarnings()
+            {
+                return _stereotype.GetProperty<string>("Suppress Warnings");
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;

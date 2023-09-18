@@ -164,10 +164,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             hasChange |= SyncProperty(doc, "RootNamespace", netCoreSettings.RootNamespace());
             hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
             hasChange |= SyncManageableBooleanProperty(doc, "ImplicitUsings", netCoreSettings.ImplicitUsings().Value);
-            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles",
-                netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
-            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile",
-                netCoreSettings.GenerateDocumentationFile().Value);
+            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
+            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
         }
 
         if (project is CSharpProjectNETModel model &&
@@ -195,10 +193,17 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             hasChange |= SyncProperty(doc, "RootNamespace", netSettings.RootNamespace());
             hasChange |= SyncProperty(doc, "AssemblyName", netSettings.AssemblyName());
             hasChange |= SyncManageableBooleanProperty(doc, "ImplicitUsings", netSettings.ImplicitUsings().Value);
-            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles",
-                netSettings.GenerateRuntimeConfigurationFiles().Value);
-            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile",
-                netSettings.GenerateDocumentationFile().Value);
+            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netSettings.GenerateRuntimeConfigurationFiles().Value);
+            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netSettings.GenerateDocumentationFile().Value);
+
+            if (netSettings.SuppressWarnings() is null or "$(NoWarn)")
+            {
+                hasChange |= SyncProperty(doc, "NoWarn", null, removeIfNullOrEmpty: true);
+            }
+            else
+            {
+                hasChange |= SyncProperty(doc, "NoWarn", netSettings.SuppressWarnings());
+            }
         }
 
         var projectOptions = project.GetCSharpProjectOptions();
