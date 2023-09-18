@@ -13,7 +13,6 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         public UpdateAggregateRootCompositeManyBDtoValidator(IServiceProvider provider)
         {
             ConfigureValidationRules(provider);
-            ConfigureValidationRules();
         }
 
         [IntentManaged(Mode.Fully)]
