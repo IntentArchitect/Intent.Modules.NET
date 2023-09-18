@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.3" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.9" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -54,5 +54,6 @@
     <application id="b8b8812c-9f81-4c14-bc3c-84779082a68d" name="MassTransit.RetryPolicy.Interval" relativePath="MassTransit.RetryPolicy.Interval/MassTransit.RetryPolicy.Interval.application.config" />
     <application id="5385b8fc-6bf9-4b2c-8268-12844932228c" name="MassTransit.RetryPolicy.Incremental" relativePath="MassTransit.RetryPolicy.Incremental/MassTransit.RetryPolicy.Incremental.application.config" />
     <application id="50d558de-c495-4ed5-b9d0-de5dfdb4b4f1" name="MassTransit.RetryPolicy.Exponential" relativePath="MassTransit.RetryPolicy.Exponential/MassTransit.RetryPolicy.Exponential.application.config" />
+    <application id="e27f2734-1034-404d-ac7d-f75f7e4c226f" name="EFCore.Lazy.Loading.Tests" relativePath="EFCore.Lazy.Loading.Tests/EFCore.Lazy.Loading.Tests.application.config" />
   </applications>
 </solution>

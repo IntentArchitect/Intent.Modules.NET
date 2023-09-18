@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="42ca37dc-769c-4726-8d57-5ac10c2f7fc5">
+  <sourceEnd id="83af2a6b-8153-41f4-86e0-983687e44a5d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="2a2c6053-50bb-438f-824a-406a141584ea">
+      <typeId>ab0cbacc-349c-41fd-92f0-6008bf9eed6b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EFCore.Lazy.Loading.Tests.Domain</typePackageName>
+      <typePackageId>e149606e-30b2-4b1d-88f7-3e4fb7fdc1a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="42ca37dc-769c-4726-8d57-5ac10c2f7fc5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address?   [1 --&gt; 0..1]</display>
+    <order>1</order>
+    <typeReference id="44e467d1-0a1a-4534-85aa-15794dff22b6">
+      <typeId>b064522f-f9e0-492e-8d44-b02acacf5f0f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EFCore.Lazy.Loading.Tests.Domain</typePackageName>
+      <typePackageId>e149606e-30b2-4b1d-88f7-3e4fb7fdc1a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
