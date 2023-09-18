@@ -7,6 +7,7 @@ using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Metadata.Models;
+using Intent.Modules.Constants;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -45,7 +46,10 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
 
             return _metadataManager.Services(application).GetDTOModels()
                 .Where(x => referencedElementIds.Contains(x.Id)  &&
-                            ValidationRulesExtensions.HasValidationRules(x.Fields))
+                            ValidationRulesExtensions.HasValidationRules(
+                                fields: x.Fields,
+                                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto))
                 .ToArray();
         }
 

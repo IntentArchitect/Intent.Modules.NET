@@ -21,7 +21,9 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: model,
+                toValidateTemplateId: DtoContractTemplate.TemplateId,
                 dtoTemplateId: DtoContractTemplate.TemplateId,
+                dtoValidatorTemplateId: TemplateId,
                 modelParameterName: "model",
                 @namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),
                 relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget))

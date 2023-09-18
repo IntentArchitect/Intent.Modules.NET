@@ -1,6 +1,7 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,7 +21,9 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: model,
-                dtoTemplateId: DtoModelTemplate.TemplateId,
+                toValidateTemplateId: DtoModelTemplate.TemplateId,
+                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "model")
         {
         }

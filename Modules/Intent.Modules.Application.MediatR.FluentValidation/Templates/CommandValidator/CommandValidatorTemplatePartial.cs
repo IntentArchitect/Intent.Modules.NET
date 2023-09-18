@@ -1,8 +1,9 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -23,7 +24,9 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: new DTOModel(model.InternalElement),
-                dtoTemplateId: CommandModelsTemplate.TemplateId,
+                toValidateTemplateId: CommandModelsTemplate.TemplateId,
+                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "command",
                 model.GetConceptName())
         {

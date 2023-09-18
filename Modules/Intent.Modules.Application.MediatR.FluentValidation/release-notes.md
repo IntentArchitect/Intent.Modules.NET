@@ -1,5 +1,6 @@
 ### Version 4.4.0
 
+- Improvement: `[IntentManaged(Mode.Fully)]` is no longer added to the `ConfigureValidationRules` method as it's redundant.
 - Fixed: Nested DTO Validators introduced and will inject `IServiceProvider` to resolve Validators via DI.
 
 ### Version 4.3.2

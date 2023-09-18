@@ -15,14 +15,18 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string templateId,
         IOutputTarget outputTarget,
         DTOModel model,
+        string toValidateTemplateId,
         string dtoTemplateId,
+        string dtoValidatorTemplateId,
         string modelParameterName,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
             model: model,
+            toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
+            dtoValidatorTemplateId: dtoValidatorTemplateId,
             modelParameterName: modelParameterName,
             @namespace: null,
             relativeLocation: null,
@@ -34,7 +38,9 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string templateId,
         IOutputTarget outputTarget,
         DTOModel model,
+        string toValidateTemplateId,
         string dtoTemplateId,
+        string dtoValidatorTemplateId,
         string modelParameterName,
         string @namespace,
         string relativeLocation)
@@ -42,7 +48,9 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             templateId: templateId,
             outputTarget: outputTarget,
             model: model,
+            toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
+            dtoValidatorTemplateId: dtoValidatorTemplateId,
             modelParameterName: modelParameterName,
             @namespace: @namespace,
             relativeLocation: relativeLocation,
@@ -54,7 +62,9 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string templateId,
         IOutputTarget outputTarget,
         DTOModel model,
+        string toValidateTemplateId,
         string dtoTemplateId,
+        string dtoValidatorTemplateId,
         string modelParameterName,
         string @namespace,
         string relativeLocation,
@@ -69,13 +79,13 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             .AddUsing("FluentValidation")
             .AddClass($"{Model.Name}Validator", @class =>
             {
-                @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-
                 this.ConfigureForValidation(
                     @class: @class,
                     properties: Model.Fields,
-                    modelTypeName: GetTypeName(dtoTemplateId, Model),
-                    modelParameterName: modelParameterName);
+                    toValidateTypeName: GetTypeName(toValidateTemplateId, Model),
+                    modelParameterName: modelParameterName,
+                    dtoTemplateId: dtoTemplateId,
+                    dtoValidatorTemplateId: dtoValidatorTemplateId);
             });
     }
 

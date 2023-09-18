@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.4.0-pre.0</version>
+  <version>4.4.0-pre.1</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -47,7 +47,7 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.0" />
+    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.1" />
     <dependency id="Intent.Application.MediatR" version="4.1.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />

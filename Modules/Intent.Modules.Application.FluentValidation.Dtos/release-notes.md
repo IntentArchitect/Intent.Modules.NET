@@ -1,6 +1,8 @@
 ### Version 3.7.0
 
 - Improvement: DTO Validators will no longer be generated for DTOs which are outbound only.
+- Improvement: `[IntentManaged(Mode.Fully)]` is no longer added to the `ConfigureValidationRules` method as it's redundant.
+- Improvement: `[IntentManaged(Mode.Merge, Signature = Mode.Fully)]` is no longer added to the class, this is to reduce noise in the file as it's rare to add custom methods and in such cases they can have `[Mode.Ignore]` added to them.
 - Fixed: Nested DTO Validators introduced and will inject `IServiceProvider` to resolve Validators via DI.
 
 ### Version 3.6.4

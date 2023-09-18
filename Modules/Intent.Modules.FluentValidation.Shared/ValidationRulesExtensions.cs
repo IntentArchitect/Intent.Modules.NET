@@ -11,26 +11,34 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Constants;
 using Intent.Utils;
 
 namespace Intent.Modules.FluentValidation.Shared;
 
 public static class ValidationRulesExtensions
 {
-    public static bool HasValidationRules(IEnumerable<DTOFieldModel> fields)
+    public static bool HasValidationRules(
+        IEnumerable<DTOFieldModel> fields,
+        string dtoTemplateId,
+        string dtoValidatorTemplateId)
     {
-        return GetValidationRulesStatements<object>(default, fields).Any();
+        return GetValidationRulesStatements<object>(
+            template: default,
+            fields: fields,
+            dtoTemplateId: dtoTemplateId,
+            dtoValidatorTemplateId: dtoValidatorTemplateId).Any();
     }
 
     public static void ConfigureForValidation<TModel>(
         this CSharpTemplateBase<TModel> template,
         CSharpClass @class,
         IList<DTOFieldModel> properties,
-        string modelTypeName,
-        string modelParameterName)
+        string toValidateTypeName,
+        string modelParameterName,
+        string dtoTemplateId,
+        string dtoValidatorTemplateId)
     {
-        @class.WithBaseType($"AbstractValidator <{modelTypeName}>");
+        @class.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         @class.AddConstructor(ctor =>
         {
             var configureValidationRulesCall = new CSharpStatement("ConfigureValidationRules();").AddMetadata("configure-validation-rules", true);
@@ -42,12 +50,16 @@ public static class ValidationRulesExtensions
         @class.AddMethod("void", "ConfigureValidationRules", method =>
         {
             method.Private();
-            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
 
-            foreach (var propertyStatement in template.GetValidationRulesStatements(properties))
+            var validationRuleStatements = template.GetValidationRulesStatements(
+                fields: properties,
+                dtoTemplateId: dtoTemplateId,
+                dtoValidatorTemplateId: dtoValidatorTemplateId);
+
+            foreach (var propertyStatement in validationRuleStatements)
             {
                 method.AddStatement(propertyStatement);
-                
+
                 AddServiceProviderIfRequired(template, @class, propertyStatement);
             }
         });
@@ -69,7 +81,7 @@ public static class ValidationRulesExtensions
                         .Private()
                         .Async();
                     method.AddParameter(template.GetTypeName(property), "value");
-                    method.AddParameter($"ValidationContext<{modelTypeName}>", "validationContext");
+                    method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                     method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
                 });
@@ -84,7 +96,7 @@ public static class ValidationRulesExtensions
                         .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
                         .Private()
                         .Async();
-                    method.AddParameter(modelTypeName, modelParameterName);
+                    method.AddParameter(toValidateTypeName, modelParameterName);
                     method.AddParameter(template.GetTypeName(property), "value");
                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                     method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
@@ -94,8 +106,10 @@ public static class ValidationRulesExtensions
     }
 
     private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(
-        this CSharpTemplateBase<TModel> template, 
-        IEnumerable<DTOFieldModel> fields)
+        this CSharpTemplateBase<TModel> template,
+        IEnumerable<DTOFieldModel> fields,
+        string dtoTemplateId,
+        string dtoValidatorTemplateId)
     {
         // If no template is present we still need a way to determine what
         // type is primitive.
@@ -115,7 +129,7 @@ public static class ValidationRulesExtensions
             {
                 validations.AddChainStatement("NotNull()");
             }
-            
+
             if (property.TypeReference.Element.IsEnumModel())
             {
                 validations.AddChainStatement(property.TypeReference.IsCollection
@@ -125,13 +139,13 @@ public static class ValidationRulesExtensions
             else if (property.TypeReference?.Element is not null &&
                      property.TypeReference.Element.IsDTOModel() &&
                      template?.TryGetTypeName(
-                         templateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                         templateId: dtoValidatorTemplateId,
                          model: property.TypeReference.Element.AsDTOModel(),
                          typeName: out _) == true &&
-                     template?.TryGetTypeName(
-                         templateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                     template.TryGetTypeName(
+                         templateId: dtoTemplateId,
                          model: property.TypeReference.Element.AsDTOModel(),
-                         typeName: out var dtoTemplateName) == true)
+                         typeName: out var dtoTemplateName))
             {
                 validations.AddChainStatement(property.TypeReference.IsCollection
                     ? $"ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<{dtoTemplateName}>>()!))"
@@ -227,7 +241,7 @@ public static class ValidationRulesExtensions
             yield return validations;
         }
     }
-    
+
     private static void AddServiceProviderIfRequired<TModel>(
         CSharpTemplateBase<TModel> template,
         CSharpClass @class,
@@ -237,22 +251,22 @@ public static class ValidationRulesExtensions
         {
             return;
         }
-            
+
         var ctor = @class.Constructors.First();
 
         if (ctor.Parameters.Any(p => p.Type.Contains("IServiceProvider")))
         {
             return;
         }
-            
+
         template.AddUsing("Microsoft.Extensions.DependencyInjection");
-            
+
         ctor.Parameters.Insert(0, new CSharpConstructorParameter(template.UseType("System.IServiceProvider"), "provider", ctor));
         ctor.FindStatement(stmt => stmt.HasMetadata("configure-validation-rules"))
             ?.Remove();
         ctor.InsertStatement(0, new CSharpStatement("ConfigureValidationRules(provider);")
             .AddMetadata("configure-validation-rules", true));
-            
+
         @class.FindMethod(p => p.Name == "ConfigureValidationRules")
             ?.AddParameter(template.UseType("System.IServiceProvider"), "provider");
     }

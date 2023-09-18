@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.FluentValidation.Shared;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Constants;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -20,7 +21,10 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
         public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             if (!application.MetadataManager.Services(application).GetDTOModels()
-                    .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(x.Fields)))
+                    .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(
+                        fields: x.Fields,
+                        dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                        dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto)))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;
