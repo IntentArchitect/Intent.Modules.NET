@@ -50,6 +50,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         }
 
         /// <summary>
+        /// Command comment
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>

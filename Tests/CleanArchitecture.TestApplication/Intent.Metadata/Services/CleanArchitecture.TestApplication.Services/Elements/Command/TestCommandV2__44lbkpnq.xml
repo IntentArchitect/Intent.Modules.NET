@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="010c053c-7f23-473f-a9b3-4506101da6b6" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <comment>Command comment</comment>
   <name>TestCommandV2</name>
   <display>TestCommandV2: void</display>
   <isAbstract>false</isAbstract>

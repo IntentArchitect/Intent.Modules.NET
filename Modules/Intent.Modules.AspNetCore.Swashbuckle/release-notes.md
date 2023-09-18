@@ -1,6 +1,6 @@
-### Version 4.1.4
+### Version 4.0.8
 
-- Update: Changed `DomainEventServiceTemplate` to be `Fully` managed from `Ignore`.
+- Improvement: XML comments if generated will be now applied, see [here](https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.AspNetCore.Swashbuckle/README.md#xml-comments) for more information.
 
 ### Version 4.0.4
 
