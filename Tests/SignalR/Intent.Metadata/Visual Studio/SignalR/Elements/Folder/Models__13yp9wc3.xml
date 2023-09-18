@@ -3,10 +3,22 @@
   <name>Models</name>
   <display>Models</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0e1340b1-2c62-4c43-8c4d-f2300f4ac661</parentFolderId>
-  <stereotypes />
+  <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+  <packageName>SignalR</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="bf1f61d9-8f60-4e82-8bdd-a0e48d8bd3f0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1fd5010-d26e-46a1-9731-8be83a6f0cf6</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1fd5010-d26e-46a1-9731-8be83a6f0cf6</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

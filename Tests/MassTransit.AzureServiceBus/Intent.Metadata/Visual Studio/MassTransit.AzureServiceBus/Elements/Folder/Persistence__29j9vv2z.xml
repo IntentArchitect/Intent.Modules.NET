@@ -3,10 +3,23 @@
   <name>Persistence</name>
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>396696ce-5af3-4f3d-97ae-dfa10e1270ec</parentFolderId>
-  <stereotypes />
+  <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+  <packageName>MassTransit.AzureServiceBus</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="920d68c4-424e-4c1e-a76a-8721a046dc29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd7b6221-ff55-44e0-8134-aa943e8f0a46</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +46,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd7b6221-ff55-44e0-8134-aa943e8f0a46</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -21,6 +21,38 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="ee623101-445c-42a7-b0e0-1a260fca3796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>50f0a7c5-8be4-4952-ab9d-8ead76c0fd10</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="55aaa8dd-da8b-4fb3-a7df-f393cb5f5b00" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>50f0a7c5-8be4-4952-ab9d-8ead76c0fd10</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="067122c3-4c62-45bf-9aa4-e26ae5c37f4a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
       <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
@@ -47,34 +79,6 @@
       <parentFolderId>50f0a7c5-8be4-4952-ab9d-8ead76c0fd10</parentFolderId>
       <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
       <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="ee623101-445c-42a7-b0e0-1a260fca3796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
-      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
-      <externalReference>Intent.Application.Identity</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>50f0a7c5-8be4-4952-ab9d-8ead76c0fd10</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="55aaa8dd-da8b-4fb3-a7df-f393cb5f5b00" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>50f0a7c5-8be4-4952-ab9d-8ead76c0fd10</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

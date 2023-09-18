@@ -30,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -44,6 +46,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

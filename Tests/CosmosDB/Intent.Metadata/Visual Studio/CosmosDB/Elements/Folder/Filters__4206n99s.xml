@@ -46,6 +46,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c234d03a-9776-4943-8095-406b851a39aa</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

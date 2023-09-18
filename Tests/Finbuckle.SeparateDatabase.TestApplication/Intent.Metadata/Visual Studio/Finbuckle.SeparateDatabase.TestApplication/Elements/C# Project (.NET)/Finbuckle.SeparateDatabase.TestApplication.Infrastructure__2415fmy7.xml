@@ -30,6 +30,7 @@
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -50,6 +51,22 @@
       <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
       <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>
       <externalReference>Intent.Infrastructure.DependencyInjection</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79aed21e-83fd-447e-8868-77d1825a25ec</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f6aa388f-f747-4b53-bddb-4faf12dbcdc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -88,20 +105,6 @@
       <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="f6aa388f-f747-4b53-bddb-4faf12dbcdc9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
-      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>79aed21e-83fd-447e-8868-77d1825a25ec</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

@@ -4,7 +4,7 @@
   <display>Repositories</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9c8b18ba-7991-49cf-8173-be72ddc4f1cf</parentFolderId>
@@ -78,6 +78,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1b2a70c3-2c8d-4c54-931f-f9f6cdb48648</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -92,6 +94,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1b2a70c3-2c8d-4c54-931f-f9f6cdb48648</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

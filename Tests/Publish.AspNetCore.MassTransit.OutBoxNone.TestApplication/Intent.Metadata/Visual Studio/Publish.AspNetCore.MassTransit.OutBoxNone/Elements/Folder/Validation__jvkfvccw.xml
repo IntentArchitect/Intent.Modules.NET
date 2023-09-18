@@ -3,7 +3,6 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cfdd2150-20dd-4a8d-a502-422abf88b38e</parentFolderId>

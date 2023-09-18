@@ -3,7 +3,6 @@
   <name>Components</name>
   <display>Components</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>09a82636-a944-43e1-8e3a-3afd843e4f5a</parentFolderId>

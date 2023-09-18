@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- Improvement: Updated dependencies.
+
 ### Version 4.0.4
 
 - Changed text of Swagger security JWT Bearer Token security scheme from:
