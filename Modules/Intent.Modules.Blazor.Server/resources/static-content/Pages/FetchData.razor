@@ -1,5 +1,7 @@
 ﻿@page "/fetchdata"
 @using <#= Namespace #>.Data
+@* Make sure the WeatherForecastService is registered with your dependency injection framework.
+(https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Blazor.Server/README.md#blazor-server-usage-example) *@
 @inject WeatherForecastService ForecastService
 
 <PageTitle>Weather forecast</PageTitle>
