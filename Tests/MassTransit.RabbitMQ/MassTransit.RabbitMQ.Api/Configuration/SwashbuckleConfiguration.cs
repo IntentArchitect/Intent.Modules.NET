@@ -17,6 +17,8 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace MassTransit.RabbitMQ.Api.Configuration
 {
+    using DependencyInjection = Application.DependencyInjection;
+
     public static class SwashbuckleConfiguration
     {
         public static IServiceCollection ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
