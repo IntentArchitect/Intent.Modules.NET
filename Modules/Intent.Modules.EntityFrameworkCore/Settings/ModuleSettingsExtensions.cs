@@ -118,6 +118,8 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             Singularized,
             None,
         }
+
+        public static bool LazyLoadingWithProxies(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("182cdc53-baee-4bb3-adbd-d2a0aa1216a1")?.Value.ToPascalCase(), out var result) && result;
     }
 
     //public static class ModuleSettingsExtensions

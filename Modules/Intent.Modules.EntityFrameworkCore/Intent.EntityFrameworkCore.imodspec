@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.11-pre.2</version>
+  <version>4.4.11-pre.3</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -55,6 +55,11 @@
         <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.0.7" />
       </install>
     </detect>
+    <detect id="Intent.Entities">
+      <install>
+        <package id="Intent.Entities" version="4.3.9-pre.0 " />
+      </install>
+    </detect>
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.2" />
@@ -98,11 +103,16 @@
             <option value="none" description="None" />
           </options>
         </setting>
+        <setting id="182cdc53-baee-4bb3-adbd-d2a0aa1216a1" title="Lazy loading with proxies" type="checkbox">
+          <isRequired>true</isRequired>
+          <defaultValue>true</defaultValue>
+        </setting>
       </settings>
     </groupExtension>
   </moduleSettingsExtensions>
   <factoryExtensions>
     <factoryExtension id="Intent.EntityFrameworkCore.DependencyInjectionExtension" externalReference="9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9" />
     <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
+    <factoryExtension id="Intent.EntityFrameworkCore.LazyLoadingProxyFactoryExtension" externalReference="5e6a2761-b883-495c-a3b9-1309933b6f43" />
   </factoryExtensions>
 </package>

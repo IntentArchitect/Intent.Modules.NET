@@ -122,7 +122,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
                     statements.Add(new CSharpInvocationStatement($@"options.UseInMemoryDatabase")
                         .AddArgument($@"{connection}", a => a.AddMetadata("is-connection-string", true)));
-                    statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
@@ -131,7 +130,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument($@"b => b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)"));
-                    statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
@@ -140,7 +138,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument($@"b => b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)"));
-                    statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                     dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
@@ -148,7 +145,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     statements.Add(new CSharpInvocationStatement($@"options.UseMySql")
                         .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument($@"ServerVersion.Parse(""8.0"")"));
-                    statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
@@ -158,12 +154,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument(@"configuration[""Cosmos:AccountEndpoint""]")
                         .AddArgument(@"configuration[""Cosmos:AccountKey""]")
                         .AddArgument(@"configuration[""Cosmos:DatabaseName""]", a => a.AddMetadata("is-connection-string", true)));
-                    statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");
             }
-
+            if (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().LazyLoadingWithProxies())
+            {
+                statements.Add($@"options.UseLazyLoadingProxies();");
+            }
             addDbContext.AddConfigOptionStatements(statements);
             return addDbContext;
         }

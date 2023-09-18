@@ -57,6 +57,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5e6a2761-b883-495c-a3b9-1309933b6f43</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/LazyLoadingProxyFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>LazyLoadingProxyFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
