@@ -58,8 +58,10 @@ public class Startup
 
 Modules create a sample working website, identical to the sample you would get through Visual Studio.
 
+The application runs off of `https://localhost:{development port}/`.
+
 > [!NOTE]
-> For `FetchData` sample to work you need to register the `WeatherForecastService` service as follows: 
+> For `FetchData` sample to work you need to register the `WeatherForecastService` service as follows:
 
 ```csharp
     public class Startup
