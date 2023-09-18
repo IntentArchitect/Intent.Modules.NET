@@ -26,9 +26,9 @@ namespace CosmosDB.Domain.Entities
 
         public string Number { get; set; }
 
-        public virtual ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
+        public ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
 
-        public virtual InvoiceLogo InvoiceLogo { get; set; }
+        public InvoiceLogo InvoiceLogo { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

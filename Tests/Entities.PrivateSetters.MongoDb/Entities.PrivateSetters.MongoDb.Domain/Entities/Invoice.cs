@@ -35,7 +35,7 @@ namespace Entities.PrivateSetters.MongoDb.Domain.Entities
             private set => _tagsIds = new List<string>(value);
         }
 
-        public virtual IReadOnlyCollection<Line> Lines
+        public IReadOnlyCollection<Line> Lines
         {
             get => _lines.AsReadOnly();
             private set => _lines = new List<Line>(value);

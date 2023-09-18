@@ -24,7 +24,7 @@ namespace CleanArchitecture.Dapr.Domain.Entities
 
         public string ClientId { get; set; }
 
-        public virtual ICollection<InvoiceLine> InvoiceLines { get; set; } = new List<InvoiceLine>();
+        public ICollection<InvoiceLine> InvoiceLines { get; set; } = new List<InvoiceLine>();
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

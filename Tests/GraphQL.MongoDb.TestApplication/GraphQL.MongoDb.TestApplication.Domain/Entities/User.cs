@@ -30,7 +30,7 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
 
         public string Email { get; set; }
 
-        public virtual ICollection<AssignedPrivilege> AssignedPrivileges { get; set; } = new List<AssignedPrivilege>();
+        public ICollection<AssignedPrivilege> AssignedPrivileges { get; set; } = new List<AssignedPrivilege>();
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
