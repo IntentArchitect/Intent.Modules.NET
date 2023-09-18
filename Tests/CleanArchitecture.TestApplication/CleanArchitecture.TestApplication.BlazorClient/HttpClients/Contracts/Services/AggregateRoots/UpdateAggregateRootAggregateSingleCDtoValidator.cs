@@ -2,14 +2,14 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.AggregateRoots
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateAggregateRootAggregateSingleCDtoValidator : AbstractValidator<UpdateAggregateRootAggregateSingleCDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public UpdateAggregateRootAggregateSingleCDtoValidator()
         {
             ConfigureValidationRules();
