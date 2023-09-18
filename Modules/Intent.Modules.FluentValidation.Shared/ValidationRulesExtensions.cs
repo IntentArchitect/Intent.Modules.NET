@@ -41,6 +41,9 @@ public static class ValidationRulesExtensions
         @class.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         @class.AddConstructor(ctor =>
         {
+            var comment = new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")").AddMetadata("configure-validation-rules", true);
+            comment.Parent = ctor;
+            ctor.AddStatement(comment);
             var configureValidationRulesCall = new CSharpStatement("ConfigureValidationRules();").AddMetadata("configure-validation-rules", true);
             configureValidationRulesCall.Parent = ctor;
             ctor.AddStatement(configureValidationRulesCall);
@@ -262,11 +265,15 @@ public static class ValidationRulesExtensions
         template.AddUsing("Microsoft.Extensions.DependencyInjection");
 
         ctor.Parameters.Insert(0, new CSharpConstructorParameter(template.UseType("System.IServiceProvider"), "provider", ctor));
-        ctor.FindStatement(stmt => stmt.HasMetadata("configure-validation-rules"))
-            ?.Remove();
+        ctor.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))
+            ?.ToList().ForEach(x => x.Remove());
+        
         ctor.InsertStatement(0, new CSharpStatement("ConfigureValidationRules(provider);")
             .AddMetadata("configure-validation-rules", true));
 
+        ctor.InsertStatement(0, new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
+            .AddMetadata("configure-validation-rules", true));
+        
         @class.FindMethod(p => p.Name == "ConfigureValidationRules")
             ?.AddParameter(template.UseType("System.IServiceProvider"), "provider");
     }
