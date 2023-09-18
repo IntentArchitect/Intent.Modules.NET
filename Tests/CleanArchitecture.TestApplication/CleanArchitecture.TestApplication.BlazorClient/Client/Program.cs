@@ -1,3 +1,4 @@
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -19,6 +20,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.Client
             //IntentIgnore
             CustomRegistrations(builder);
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClients(builder.Configuration);
             await builder.Build().RunAsync();
         }
 
