@@ -20,6 +20,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
 
         public string MapAggPeerId { get; set; }
 
-        public virtual MapCompChild MapCompChild { get; set; }
+        public MapCompChild MapCompChild { get; set; }
     }
 }

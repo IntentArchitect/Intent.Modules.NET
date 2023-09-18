@@ -14,10 +14,10 @@ namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
     {
         public string Id { get; set; }
 
-        public virtual ICollection<ToManyGuid> ToManyGuids { get; set; } = new List<ToManyGuid>();
+        public ICollection<ToManyGuid> ToManyGuids { get; set; } = new List<ToManyGuid>();
 
-        public virtual ICollection<ToManyInt> ToManyInts { get; set; } = new List<ToManyInt>();
+        public ICollection<ToManyInt> ToManyInts { get; set; } = new List<ToManyInt>();
 
-        public virtual ICollection<ToManyLong> ToManyLongs { get; set; } = new List<ToManyLong>();
+        public ICollection<ToManyLong> ToManyLongs { get; set; } = new List<ToManyLong>();
     }
 }

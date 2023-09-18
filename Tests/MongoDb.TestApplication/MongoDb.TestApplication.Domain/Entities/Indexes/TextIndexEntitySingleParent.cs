@@ -15,6 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
 
         public string SomeField { get; set; }
 
-        public virtual TextIndexEntitySingleChild TextIndexEntitySingleChild { get; set; }
+        public TextIndexEntitySingleChild TextIndexEntitySingleChild { get; set; }
     }
 }

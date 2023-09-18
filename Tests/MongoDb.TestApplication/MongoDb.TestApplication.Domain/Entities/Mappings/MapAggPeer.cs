@@ -19,6 +19,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
 
         public string MapMapMeId { get; set; }
 
-        public virtual MapPeerCompChild MapPeerCompChild { get; set; }
+        public MapPeerCompChild MapPeerCompChild { get; set; }
     }
 }

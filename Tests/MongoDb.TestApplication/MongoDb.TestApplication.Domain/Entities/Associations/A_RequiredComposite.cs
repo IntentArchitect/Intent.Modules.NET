@@ -15,6 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
 
         public string ReqCompAttribute { get; set; }
 
-        public virtual A_OptionalDependent? A_OptionalDependent { get; set; }
+        public A_OptionalDependent? A_OptionalDependent { get; set; }
     }
 }
