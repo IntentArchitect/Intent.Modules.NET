@@ -2,6 +2,7 @@
 
 - Improvement: Moving the on-load script from a class level to a package level can drastically improve loading times.
 - Fixed: When a Source-end association name is not in sync with the class name, Entity Type Configurations on a Cosmos DB setup will setup the wrong foreign key.
+- Fixed: Column names will escape quote characters.
 
 ### Version 4.4.10
 
