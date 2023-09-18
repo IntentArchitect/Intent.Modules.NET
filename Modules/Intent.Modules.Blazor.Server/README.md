@@ -53,3 +53,28 @@ public class Startup
     }
 }
 ```
+
+## Blazor Server usage example
+
+Modules create a sample working website, identical to the sample you would get through Visual Studio.
+
+> [!NOTE]
+> For `FetchData` sample to work you need to register the `WeatherForecastService` service as follows: 
+
+```csharp
+    public class Startup
+    {
+    
+        ...
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            ...
+            //IntentIgnore
+            services.AddSingleton<WeatherForecastService>();
+            ...
+        }
+        
+        ...
+    }
+```
