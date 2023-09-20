@@ -47,7 +47,7 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.2" />
+    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.3" />
     <dependency id="Intent.Application.MediatR" version="4.1.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />
