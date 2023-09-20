@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities.Folder;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -25,6 +27,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
             set => _type = value;
         }
         string IItem.PartitionKey => FolderPartitionKey;
+        [JsonIgnore]
+        public override List<DomainEvent> DomainEvents
+        {
+            get => base.DomainEvents;
+            set => base.DomainEvents = value;
+        }
 
         public FolderContainerDocument PopulateFromEntity(FolderContainer entity)
         {

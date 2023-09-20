@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
+using MultipleDocumentStores.Domain.Common;
 using MultipleDocumentStores.Domain.Entities;
 using Newtonsoft.Json;
 
@@ -22,6 +25,12 @@ namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
+        }
+        [JsonIgnore]
+        public override List<DomainEvent> DomainEvents
+        {
+            get => base.DomainEvents;
+            set => base.DomainEvents = value;
         }
 
         public CustomerCosmosDocument PopulateFromEntity(CustomerCosmos entity)

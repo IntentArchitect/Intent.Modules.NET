@@ -22,6 +22,6 @@ namespace CosmosDB.Domain.Entities
 
         public string Id { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

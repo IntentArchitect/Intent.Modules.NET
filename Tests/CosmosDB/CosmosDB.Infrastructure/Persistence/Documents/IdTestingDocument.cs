@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -29,6 +31,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             get => base.Id;
             set => base.Id = value;
+        }
+        [JsonIgnore]
+        public override List<DomainEvent> DomainEvents
+        {
+            get => base.DomainEvents;
+            set => base.DomainEvents = value;
         }
 
         public IdTestingDocument PopulateFromEntity(IdTesting entity)

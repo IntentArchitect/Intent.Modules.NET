@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -25,6 +27,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             set => _type = value;
         }
         string IItem.PartitionKey => ClassPartitionKey;
+        [JsonIgnore]
+        public override List<DomainEvent> DomainEvents
+        {
+            get => base.DomainEvents;
+            set => base.DomainEvents = value;
+        }
 
         public ClassContainerDocument PopulateFromEntity(ClassContainer entity)
         {

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using CosmosDB.Domain;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -30,6 +32,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             get => base.Type;
             set => base.Type = value;
+        }
+        [JsonIgnore]
+        public override List<DomainEvent> DomainEvents
+        {
+            get => base.DomainEvents;
+            set => base.DomainEvents = value;
         }
 
         public ClientDocument PopulateFromEntity(Client entity)

@@ -22,6 +22,6 @@ namespace CosmosDB.Domain.Entities.Folder
 
         public string FolderPartitionKey { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

@@ -24,6 +24,6 @@ namespace CosmosDB.Domain.Entities
 
         public ICollection<Country> Countries { get; set; } = new List<Country>();
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }
