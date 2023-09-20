@@ -16,7 +16,11 @@ namespace Intent.Modules.DocumentDB.Shared
 {
     internal static class EntityFactoryExtensionHelper
     {
-        public static void Execute(IApplication application, Func<ClassModel, bool> dbProviderApplies, bool initializePrimaryKeyOnAggregateRoots)
+        public static void Execute(
+            IApplication application, 
+            Func<ClassModel, bool> dbProviderApplies, 
+            bool initializePrimaryKeyOnAggregateRoots,
+            bool makeNonPersistentPropertiesVirtual)
         {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
             foreach (var template in templates)
@@ -75,7 +79,20 @@ namespace Intent.Modules.DocumentDB.Shared
                     {
                         @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
+
+                    if (makeNonPersistentPropertiesVirtual)
+                    {
+                        MakeNonPersistentPropertiesVirtual(@class);
+                    }
                 }));
+            }
+        }
+
+        private static void MakeNonPersistentPropertiesVirtual(CSharpClass @class)
+        {
+            foreach (var property in @class.Properties.Where(p => p.HasMetadata("non-persistent")))
+            {
+                property.Virtual();
             }
         }
 

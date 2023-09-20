@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;

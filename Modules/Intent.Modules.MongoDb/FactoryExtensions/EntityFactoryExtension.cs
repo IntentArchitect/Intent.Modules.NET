@@ -37,7 +37,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: MongoDbProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: false);
+                initializePrimaryKeyOnAggregateRoots: false,
+                makeNonPersistentPropertiesVirtual: false);
         }
     }
 }

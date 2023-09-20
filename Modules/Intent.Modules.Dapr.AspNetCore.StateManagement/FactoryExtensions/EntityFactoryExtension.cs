@@ -23,7 +23,8 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: DaprDbProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: true);
+                initializePrimaryKeyOnAggregateRoots: true,
+                makeNonPersistentPropertiesVirtual: false);
         }
     }
 }

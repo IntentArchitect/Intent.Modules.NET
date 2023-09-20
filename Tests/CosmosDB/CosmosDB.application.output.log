@@ -755,6 +755,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8eb41724-ff22-4f0d-b376-cefcf2290c8f</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.AggregateManager#4a82c482-de43-4131-98b6-1d7810327338</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/EventHandlers/RegionManager.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RegionManager.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#08f0a0f6-6881-4d56-80d5-0d7cd6f3b7c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1232,6 +1240,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/WithoutPartitionKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WithoutPartitionKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>89829dd7-5b29-4e22-bff4-e3929bbb4fe6</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#04e9aaf9-0703-4e74-bef8-afa127ee769f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Events/RegionChangedDomainEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RegionChangedDomainEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

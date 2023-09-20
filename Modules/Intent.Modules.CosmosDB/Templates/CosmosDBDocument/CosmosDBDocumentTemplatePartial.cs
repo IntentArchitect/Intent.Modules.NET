@@ -191,12 +191,36 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 
                         method.AddStatement("return this;", s => s.SeparatedFromPrevious());
                     });
+                })
+                .AfterBuild(file =>
+                {
+                    var entityState = EntityStateFileBuilder;
+                    var nonPersistentProperties = entityState?.CSharpFile.Classes.FirstOrDefault()
+                        ?.Properties.Where(p => p.HasMetadata("non-persistent"))
+                        .ToArray() ?? Array.Empty<CSharpProperty>();
+                    var currentClass = file.Classes.First();
+                    foreach (var @namespace in entityState.GetAllDeclareUsing().Where(p => !string.IsNullOrWhiteSpace(p)))
+                    {
+                        file.AddUsing(@namespace);
+                    }
+
+                    foreach (var property in nonPersistentProperties)
+                    {
+                        currentClass.AddProperty(UseType(property.Type), property.Name, prop =>
+                        {
+                            prop.Override();
+                            prop.AddAttribute(UseType("Newtonsoft.Json.JsonIgnore"));
+                            prop.Getter.WithExpressionImplementation($"base.{property.Name}");
+                            prop.Setter.WithExpressionImplementation($"base.{property.Name} = value");
+                        });
+                    }
                 });
         }
 
         public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
 
         public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
