@@ -2,6 +2,7 @@
 
 - Improvement: Generation of `System.ComponentModel.DataAnnotations` attributes on DTOs has now been broken out into its own `Intent.Blazor.HttpClients.Dtos.DataAnnotations` module.
 - Improvement: Updated module to work with `Intent.Blazor.WenAssembly` module.
+- Improvement: Enhanced the way the generated proxies are dealing with DTO parameters in the query to align with ASP.Net Core behaviour.
 
 ### Version 2.0.4
 

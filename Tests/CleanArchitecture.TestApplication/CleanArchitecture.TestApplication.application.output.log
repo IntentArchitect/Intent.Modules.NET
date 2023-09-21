@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b56c28f8-663f-4374-b2e1-e91a8d18ee9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/QueryDtoParameterController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameterController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#b371ea3e-5c63-479f-8546-026ff167dabd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/RequestSuffixCommandsWithoutTypeController.cs</ApplicationRelativeFilePath>
@@ -3004,6 +3012,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#1e67e885-c969-4163-9f30-afb414f9bddb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/IQueryDtoParameterService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQueryDtoParameterService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#df30d82b-dcbe-46a7-990f-906b0044d463</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ISecureServicesService.cs</ApplicationRelativeFilePath>
@@ -3024,6 +3040,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/ITestVersionedProxy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITestVersionedProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9f19c517-254c-4867-a53d-2fd61c1e5842</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Services/QueryDtoParameter/QueryDtoParameterCriteria.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/QueryDtoParameter/QueryDtoParameterCriteria.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3304,6 +3328,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/LogEntryDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/QueryDtoParameter/HasDtoParameter/HasDtoParameterQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameter/HasDtoParameter/HasDtoParameterQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/QueryDtoParameter/HasDtoParameter/HasDtoParameterQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameter/HasDtoParameter/HasDtoParameterQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/QueryDtoParameter/HasDtoParameter/HasDtoParameterQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameter/HasDtoParameter/HasDtoParameterQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9f19c517-254c-4867-a53d-2fd61c1e5842</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/QueryDtoParameter/QueryDtoParameterCriteria.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameter/QueryDtoParameterCriteria.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9f19c517-254c-4867-a53d-2fd61c1e5842</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/QueryDtoParameter/QueryDtoParameterCriteriaValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameter/QueryDtoParameterCriteriaValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5408,6 +5472,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#1e67e885-c969-4163-9f30-afb414f9bddb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/QueryDtoParameterServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryDtoParameterServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

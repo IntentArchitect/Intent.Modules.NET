@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -93,7 +94,18 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                             foreach (var queryParameter in queryParams)
                             {
-                                method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                if (queryParameter.TypeReference.Element.IsDTOModel())
+                                {
+                                    var dto = queryParameter.TypeReference.Element.AsDTOModel();
+                                    foreach (var field in dto.Fields)
+                                    {
+                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(field)});");
+                                    }
+                                }
+                                else
+                                {
+                                    method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                }
                             }
 
                             method.AddStatement($"relativeUri = {UseType("Microsoft.AspNetCore.WebUtilities.QueryHelpers")}.AddQueryString(relativeUri, queryParams);");
@@ -241,6 +253,14 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             ? "Task"
             : $"Task<{GetTypeName(endpoint.ReturnType)}>";
     }
+
+    private object GetParameterValueExpression(DTOFieldModel field)
+    {
+        return !field.TypeReference.HasStringType()
+            ? $"{field.Name.ToPascalCase()}.ToString()"
+            : field.Name.ToPascalCase();
+    }
+
 
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)
     {
