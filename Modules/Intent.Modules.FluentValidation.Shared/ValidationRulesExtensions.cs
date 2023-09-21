@@ -41,12 +41,10 @@ public static class ValidationRulesExtensions
         @class.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         @class.AddConstructor(ctor =>
         {
-            var comment = new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")").AddMetadata("configure-validation-rules", true);
-            comment.Parent = ctor;
-            ctor.AddStatement(comment);
-            var configureValidationRulesCall = new CSharpStatement("ConfigureValidationRules();").AddMetadata("configure-validation-rules", true);
-            configureValidationRulesCall.Parent = ctor;
-            ctor.AddStatement(configureValidationRulesCall);
+            ctor.AddStatement(new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
+                .AddMetadata("configure-validation-rules", true));
+            ctor.AddStatement(new CSharpStatement("ConfigureValidationRules();")
+                .AddMetadata("configure-validation-rules", true));
             ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge().WithSignatureMerge());
         });
 
@@ -218,7 +216,7 @@ public static class ValidationRulesExtensions
                 }
             }
 
-            if (!validations.Statements.Any(x => x.GetText("").StartsWith("MaximumLength")) &&
+            if (!validations.Statements.Any(x => x.GetText(string.Empty).StartsWith("MaximumLength")) &&
                 TryGetMappedAttribute(property, out var attribute))
             {
                 try
@@ -245,6 +243,11 @@ public static class ValidationRulesExtensions
         }
     }
 
+    // This approach is used for nested DTO Validation scenarios.
+    // Nested DTO Validators are required to validate nested DTOs.
+    // Instantiating nested DTO Validators will cause problems when dependencies
+    // are injected. So instead of overburdening the entire Command / Query / DTO Validator templates
+    // with dependency injection complexities, just inject the IServiceProvider.
     private static void AddServiceProviderIfRequired<TModel>(
         CSharpTemplateBase<TModel> template,
         CSharpClass @class,
