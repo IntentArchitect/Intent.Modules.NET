@@ -4,14 +4,16 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Domain.Entities;
+using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
+using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
+namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CameraRepository : RepositoryBase<Camera, Camera, ApplicationDbContext>, ICameraRepository

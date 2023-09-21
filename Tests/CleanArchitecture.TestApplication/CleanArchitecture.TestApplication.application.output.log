@@ -532,14 +532,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Cameras/CameraAssertions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Cameras/CameraAssertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/CreateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -656,6 +648,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/AccountHolders/AccountHolderAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolders/AccountHolderAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/Cameras/CameraAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/Cameras/CameraAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4796,14 +4796,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Camera.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Camera.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/CompositeKeys/WithCompositeKey.cs</ApplicationRelativeFilePath>
@@ -4936,6 +4928,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DDD/AccountHolder.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DDD/Camera.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/Camera.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5172,6 +5172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DDD/ICameraRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/ICameraRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#21cdffa0-70f5-4a71-8e25-c51d99c183b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DDD/ICustomerRepository.cs</ApplicationRelativeFilePath>
@@ -5208,14 +5216,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Enums/IClassWithEnumsRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Enums/IClassWithEnumsRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/ICameraRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICameraRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5452,14 +5452,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/CameraConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CameraConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/CompositeKeys/WithCompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
@@ -5560,6 +5552,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DDD/AccountHolderConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolderConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DDD/CameraConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/CameraConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5668,14 +5668,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/CameraRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CameraRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5842fb8d-3d99-46d9-82dc-ab450933ce38</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/CompositeKeys/WithCompositeKeyRepository.cs</ApplicationRelativeFilePath>
@@ -5736,6 +5728,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DDD/AccountHolderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/AccountHolderRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DDD/CameraRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/CameraRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -94,7 +94,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new CameraConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
@@ -109,6 +108,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
+            modelBuilder.ApplyConfiguration(new CameraConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
