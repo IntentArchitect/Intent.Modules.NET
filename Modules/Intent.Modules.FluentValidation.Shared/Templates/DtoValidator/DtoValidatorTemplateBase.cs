@@ -23,7 +23,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
-            model: model,
+            dtoModel: model,
             toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
@@ -47,7 +47,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
-            model: model,
+            dtoModel: model,
             toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
@@ -61,7 +61,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     private DtoValidatorTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
-        DTOModel model,
+        DTOModel dtoModel,
         string toValidateTemplateId,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
@@ -69,7 +69,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string @namespace,
         string relativeLocation,
         params string[] additionalFolders)
-        : base(templateId, outputTarget, model)
+        : base(templateId, outputTarget, dtoModel)
     {
         AddNugetDependency(NuGetPackages.FluentValidation);
 
@@ -80,8 +80,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             .AddClass($"{Model.Name}Validator", @class =>
             {
                 this.ConfigureForValidation(
-                    @class: @class,
-                    properties: Model.Fields,
+                    validatorClass: @class,
+                    dtoModel: dtoModel,
                     toValidateTypeName: GetTypeName(toValidateTemplateId, Model),
                     modelParameterName: modelParameterName,
                     dtoTemplateId: dtoTemplateId,

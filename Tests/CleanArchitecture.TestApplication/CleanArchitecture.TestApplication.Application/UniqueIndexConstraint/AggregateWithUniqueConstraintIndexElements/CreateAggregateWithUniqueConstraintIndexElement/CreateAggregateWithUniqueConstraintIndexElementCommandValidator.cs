@@ -41,8 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ag
 
         private async Task<bool> CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB(CreateAggregateWithUniqueConstraintIndexElementCommand model, CancellationToken cancellationToken)
         {
-            return !await _aggregateWithUniqueConstraintIndexElementRepository.AnyAsync(
-                p => p.CompUniqueFieldA == model.CompUniqueFieldA && p.CompUniqueFieldB == model.CompUniqueFieldB, cancellationToken);
+            return !await _aggregateWithUniqueConstraintIndexElementRepository.AnyAsync(p => p.CompUniqueFieldA == model.CompUniqueFieldA && p.CompUniqueFieldB == model.CompUniqueFieldB, cancellationToken);
         }
 
         private async Task<bool> CheckUniqueConstraint_SingleUniqueField(string value, CancellationToken cancellationToken)

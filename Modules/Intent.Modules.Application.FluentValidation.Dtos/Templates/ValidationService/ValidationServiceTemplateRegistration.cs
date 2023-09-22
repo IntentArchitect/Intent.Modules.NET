@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.FluentValidation.Shared;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -22,7 +26,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
         {
             if (!application.MetadataManager.Services(application).GetDTOModels()
                     .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(
-                        fields: x.Fields,
+                        dtoModel: x,
                         dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                         dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto)))
             {

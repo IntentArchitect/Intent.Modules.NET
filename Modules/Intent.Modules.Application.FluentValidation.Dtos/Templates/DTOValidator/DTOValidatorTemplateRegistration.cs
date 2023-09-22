@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.FluentValidation.Shared;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Metadata.Models;
-using Intent.Modules.Constants;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -45,9 +47,9 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             var referencedElementIds = referencedElements.Select(x => x.Id).ToHashSet();
 
             return _metadataManager.Services(application).GetDTOModels()
-                .Where(x => referencedElementIds.Contains(x.Id)  &&
+                .Where(x => referencedElementIds.Contains(x.Id) &&
                             ValidationRulesExtensions.HasValidationRules(
-                                fields: x.Fields,
+                                dtoModel: x,
                                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto))
                 .ToArray();

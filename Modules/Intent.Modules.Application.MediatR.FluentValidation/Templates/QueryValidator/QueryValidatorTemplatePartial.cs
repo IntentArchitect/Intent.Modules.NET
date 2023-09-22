@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryValidator
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Ignore)]
     public class QueryValidatorTemplate : DtoValidatorTemplateBase
     {
         [IntentManaged(Mode.Fully)]
