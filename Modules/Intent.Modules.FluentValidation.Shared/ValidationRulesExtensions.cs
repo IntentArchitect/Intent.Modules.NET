@@ -437,6 +437,15 @@ public static class ValidationRulesExtensions
 
     private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(DTOModel dtoModel)
     {
+        if (!dtoModel.Name.StartsWith("create", StringComparison.InvariantCultureIgnoreCase) &&
+            !dtoModel.Name.StartsWith("add", StringComparison.InvariantCultureIgnoreCase) &&
+            !dtoModel.Name.StartsWith("new", StringComparison.InvariantCultureIgnoreCase) &&
+            !dtoModel.Name.StartsWith("update", StringComparison.InvariantCultureIgnoreCase) &&
+            !dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase))
+        {
+            return ArraySegment<ConstraintField>.Empty;
+        }
+        
         var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass);
         if (!hasMappedClass)
         {

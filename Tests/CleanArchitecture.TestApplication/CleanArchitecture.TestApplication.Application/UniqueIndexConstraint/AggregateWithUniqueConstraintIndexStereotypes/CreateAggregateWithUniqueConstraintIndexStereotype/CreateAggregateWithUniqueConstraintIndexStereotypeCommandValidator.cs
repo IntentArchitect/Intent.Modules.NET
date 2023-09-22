@@ -25,7 +25,8 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ag
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
                 .MaximumLength(256)
-                .MustAsync(CheckUniqueConstraint_SingleUniqueField).WithMessage("SingleUniqueField already exists.");
+                .MustAsync(CheckUniqueConstraint_SingleUniqueField)
+                .WithMessage("SingleUniqueField already exists.");
 
             RuleFor(v => v.CompUniqueFieldA)
                 .NotNull()
@@ -34,15 +35,17 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ag
             RuleFor(v => v.CompUniqueFieldB)
                 .NotNull()
                 .MaximumLength(256);
-            
+
             RuleFor(v => v)
-                .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB).WithMessage("The combination of CompUniqueFieldA and CompUniqueFieldB already exists.");
+                .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)
+                .WithMessage("The combination of CompUniqueFieldA and CompUniqueFieldB already exists.");
         }
-        
-        private async Task<bool> CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB(CreateAggregateWithUniqueConstraintIndexStereotypeCommand model, CancellationToken cancellationToken)
+
+        private async Task<bool> CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB(
+            CreateAggregateWithUniqueConstraintIndexStereotypeCommand model,
+            CancellationToken cancellationToken)
         {
-            return !await _aggregateWithUniqueConstraintIndexStereotypeRepository.AnyAsync(
-                p => p.CompUniqueFieldA == model.CompUniqueFieldA && p.CompUniqueFieldB == model.CompUniqueFieldB, cancellationToken);
+            return !await _aggregateWithUniqueConstraintIndexStereotypeRepository.AnyAsync(p => p.CompUniqueFieldA == model.CompUniqueFieldA && p.CompUniqueFieldB == model.CompUniqueFieldB, cancellationToken);
         }
 
         private async Task<bool> CheckUniqueConstraint_SingleUniqueField(string value, CancellationToken cancellationToken)
