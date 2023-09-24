@@ -28,7 +28,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
             {
                 return;
             }
-            
+
             var designTimeDbContextFactoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DesignTimeDbContextFactory"));
             foreach (var template in designTimeDbContextFactoryTemplates)
             {

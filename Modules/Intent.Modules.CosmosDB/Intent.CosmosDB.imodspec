@@ -95,9 +95,15 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.CosmosDB.EntityFactoryExtension" externalReference="5632e697-26b1-4a38-9e12-6ce3d768d878" />
+    <factoryExtension id="Intent.CosmosDB.MultiTenancyFactoryExtension" externalReference="cc56c90e-b5fe-4fb3-8cfc-cb5b02526727" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
+    <detect id="Intent.Modules.AspNetCore.MultiTenancy">
+      <install>
+        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="4.1.7-pre.0" />
+      </install>
+    </detect>
     <detect id="Intent.Application.Dtos.AutoMapper">
       <install>
         <package id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.0" />

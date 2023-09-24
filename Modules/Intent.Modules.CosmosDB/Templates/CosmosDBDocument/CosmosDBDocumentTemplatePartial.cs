@@ -108,7 +108,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.Setter.WithExpressionImplementation("_type = value");
                     });
 
-                    // IItem.PartitionKey implementation:
+                    // ICosmosDBDocument.PartitionKey implementation:
                     Model.TryGetContainerSettings(out var containerName, out var partitionKey);
                     var partitionKeyAttribute = partitionKey == null
                         ? pkAttribute
@@ -116,11 +116,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     if (partitionKeyAttribute != null &&
                         partitionKeyAttribute.Id != pkAttribute?.Id)
                     {
-                        @class.AddProperty("string", "PartitionKey", p => p
-                            .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
-                            .WithoutSetter()
-                            .Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}")
-                        );
+                        @class.AddProperty("string?", "PartitionKey", property =>
+                        {
+                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}");
+                            property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)} = value!");
+                        });
                     }
                     else if (partitionKeyAttribute == null)
                     {

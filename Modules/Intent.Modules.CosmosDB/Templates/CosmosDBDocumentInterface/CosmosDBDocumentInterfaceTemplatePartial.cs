@@ -31,17 +31,29 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         .AddGenericTypeConstraint(tDocument, c => c
                             .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>"));
 
+                    @interface.ImplementsInterfaces(UseType("ICosmosDBDocument"));
+
+                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                        .AddParameter(tDomain, "entity")
+                    );
+                })
+                .AddInterface($"ICosmosDBDocument", @interface =>
+                {
+                    @interface.Internal();
                     @interface.ImplementsInterfaces(UseType("Microsoft.Azure.CosmosRepository.IItem"));
 
                     @interface.AddProperty("string", "PartitionKey", method => method
                         .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
                         .WithoutSetter()
-                        .Getter.WithExpressionImplementation("Id")
+                        .Getter.WithExpressionImplementation("PartitionKey!")
                     );
 
-                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
-                        .AddParameter(tDomain, "entity")
-                    );
+                    @interface.AddProperty("string?", "PartitionKey", property =>
+                    {
+                        property.New();
+                        property.Getter.WithExpressionImplementation("Id");
+                        property.Setter.WithExpressionImplementation("Id = value ?? throw new ArgumentNullException(nameof(value))");
+                    });
                 });
         }
 

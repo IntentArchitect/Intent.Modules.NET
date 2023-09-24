@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,6 +27,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         {
             AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
             AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
+            FulfillsRole(TemplateFulfillingRoles.Distribution.WebApi.MultiTenancyConfiguration);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

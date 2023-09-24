@@ -126,7 +126,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement(
                             "var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);")
-                        .AddStatement($"Track(({tDomain})document);")
+                        .AddStatement($"Track(document);")
                         .AddStatement("return document;", s => s.SeparatedFromPrevious())
                     );
 
@@ -163,9 +163,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                        method.AddStatement($"var pagedDocouments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);")
-                            .AddStatement("Track(pagedDocouments.Items.Cast<TDomain>());")
-                            .AddStatement("return new CosmosPagedList<TDomain, TDocument>(pagedDocouments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+                        method.AddStatement($"var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);")
+                            .AddStatement("Track(pagedDocuments.Items.Cast<TDomain>());")
+                            .AddStatement("return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
@@ -185,6 +185,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     @class.AddMethod("Expression<Func<TDocument, bool>>", "AdaptFilterPredicate", method =>
                     {
                         method
+                            .Private()
                             .Static()
                             .AddParameter("Expression<Func<TPersistence, bool>>", "expression")
                             .WithComments(new[]
