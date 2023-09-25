@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Utils;
+using Intent.Modules.Application.Shared;
 
 namespace Intent.Modules.FluentValidation.Shared;
 
@@ -78,7 +79,7 @@ public static class ValidationRulesExtensions
                 }
             }
         });
-
+        
         foreach (var field in dtoModel.Fields)
         {
             var validations = field.GetValidations();
@@ -123,9 +124,25 @@ public static class ValidationRulesExtensions
                 validatorClass.AddMethod("Task<bool>", $"CheckUniqueConstraint_{field.Name.ToPascalCase()}", method =>
                 {
                     method.Private().Async();
+                    if (IsUpdateDto(dtoModel))
+                    {
+                        method.AddParameter(toValidateTypeName, "model");
+                    }
                     method.AddParameter(template.GetTypeName(field.TypeReference), "value");
+
                     method.AddParameter("CancellationToken", "cancellationToken");
-                    method.AddStatement($@"return !await {repositoryFieldName}.AnyAsync(p => p.{field.Name.ToPascalCase()} == value, cancellationToken);");
+                    
+                    var mappedAttribute = field.Mapping.Element.AsAttributeModel();
+                    if (IsCreateDto(dtoModel))
+                    {
+                        method.AddStatement($@"return !await {repositoryFieldName}.AnyAsync(p => p.{mappedAttribute.Name.ToPascalCase()} == value, cancellationToken);");
+                    }
+                    else
+                    {
+                        TryGetMappedClass(dtoModel, out var classModel);
+                        var fieldIds = dtoModel.Fields.GetEntityIdFields(classModel, template.ExecutionContext);
+                        method.AddStatement($@"return !await {repositoryFieldName}.AnyAsync(p => {fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && p.{mappedAttribute.Name.ToPascalCase()} == model.{field.Name.ToPascalCase()}, cancellationToken);");                        
+                    }
                 });
             }
         }
@@ -137,9 +154,22 @@ public static class ValidationRulesExtensions
                 method.Private().Async();
                 method.AddParameter(toValidateTypeName, "model");
                 method.AddParameter("CancellationToken", "cancellationToken");
+
+                CSharpStatement expressionBody;
+                if (IsCreateDto(dtoModel))
+                {
+                    expressionBody = GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray());
+                }
+                else
+                {
+                    TryGetMappedClass(dtoModel, out var classModel);
+                    var fieldIds = dtoModel.Fields.GetEntityIdFields(classModel, template.ExecutionContext);
+                    expressionBody = $"{fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && " + GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray());
+                }
+                
                 method.AddInvocationStatement($@"return !await {repositoryFieldName}.AnyAsync", stmt => stmt
                     .AddArgument(new CSharpLambdaBlock("p")
-                        .WithExpressionBody(GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray())))
+                        .WithExpressionBody(expressionBody))
                     .AddArgument("cancellationToken"));
             });
         }
@@ -434,13 +464,22 @@ public static class ValidationRulesExtensions
         public int GroupCount { get; set; }
     };
 
+    private static bool IsCreateDto(DTOModel dtoModel)
+    {
+        return dtoModel.Name.StartsWith("create", StringComparison.InvariantCultureIgnoreCase) ||
+               dtoModel.Name.StartsWith("add", StringComparison.InvariantCultureIgnoreCase) ||
+               dtoModel.Name.StartsWith("new", StringComparison.InvariantCultureIgnoreCase);
+    }
+
+    private static bool IsUpdateDto(DTOModel dtoModel)
+    {
+        return dtoModel.Name.StartsWith("update", StringComparison.InvariantCultureIgnoreCase) ||
+               dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase);
+    }
+    
     private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(DTOModel dtoModel)
     {
-        if (!dtoModel.Name.StartsWith("create", StringComparison.InvariantCultureIgnoreCase) &&
-            !dtoModel.Name.StartsWith("add", StringComparison.InvariantCultureIgnoreCase) &&
-            !dtoModel.Name.StartsWith("new", StringComparison.InvariantCultureIgnoreCase) &&
-            !dtoModel.Name.StartsWith("update", StringComparison.InvariantCultureIgnoreCase) &&
-            !dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase))
+        if (!IsCreateDto(dtoModel) && !IsUpdateDto(dtoModel))
         {
             return ArraySegment<ConstraintField>.Empty;
         }

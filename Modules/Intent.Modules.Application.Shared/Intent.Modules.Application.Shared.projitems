@@ -9,6 +9,7 @@
     <Import_RootNamespace>Intent.Modules.Application.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AttributeModelExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DomainKeyExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityId.cs" />
   </ItemGroup>

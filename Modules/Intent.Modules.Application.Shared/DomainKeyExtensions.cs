@@ -5,8 +5,8 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.Shared;
 
@@ -180,6 +180,21 @@ public static class DomainKeyExtensions
                 // We give priority to mapped elements and fallback to matches by name
                 .MinBy(x => x.Mapping?.ElementId != null);
         }
+    }
+    
+    public static string GetAttributeAndFieldComparison(
+        this IList<DTOFieldModel> idFields,
+        string domainVarName,
+        string dtoVarName,
+        bool isEqualComparison)
+    {
+        string comparisonSymbols = isEqualComparison ? "==" : "!=";
+        if (idFields.Count == 1)
+        {
+            return $"{domainVarName}.{idFields.First().Name.ToPascalCase()} {comparisonSymbols} {dtoVarName}.{idFields.First().Name.ToPascalCase()}";
+        }
+
+        return $"{string.Join(" && ", idFields.Select(idField => $"{domainVarName}.{idField.Name.ToPascalCase()} {comparisonSymbols} {dtoVarName}.{idField.Name.ToPascalCase()}"))}";
     }
     
     // This is duplicated in Intent.Modules.Application.MediatR.CRUD

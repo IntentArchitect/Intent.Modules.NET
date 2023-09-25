@@ -36,5 +36,6 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems" Label="Shared" />
 
 </Project>
