@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 
@@ -6,10 +7,19 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
 {
-    internal interface ICosmosDBDocument<out TDocument, in TDomain> : IItem
+    internal interface ICosmosDBDocument<out TDocument, in TDomain> : ICosmosDBDocument
         where TDocument : ICosmosDBDocument<TDocument, TDomain>
     {
-        string IItem.PartitionKey => Id;
         TDocument PopulateFromEntity(TDomain entity);
+    }
+
+    internal interface ICosmosDBDocument : IItem
+    {
+        string IItem.PartitionKey => PartitionKey!;
+        new string? PartitionKey
+        {
+            get => Id;
+            set => Id = value ?? throw new ArgumentNullException(nameof(value));
+        }
     }
 }

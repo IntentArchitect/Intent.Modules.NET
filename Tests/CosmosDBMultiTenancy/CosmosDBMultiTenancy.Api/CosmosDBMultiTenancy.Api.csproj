@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CosmosDBMultiTenancy.Application\CosmosDBMultiTenancy.Application.csproj" />
+    <ProjectReference Include="..\CosmosDBMultiTenancy.Infrastructure\CosmosDBMultiTenancy.Infrastructure.csproj" />
+    <ProjectReference Include="..\CosmosDBMultiTenancy.Domain\CosmosDBMultiTenancy.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="7.0.0" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.CosmosDb" Version="7.0.0-rc2.5" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.0.0-rc2.7" />
+    <PackageReference Include="Finbuckle.MultiTenant" Version="6.12.0" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.12.0" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

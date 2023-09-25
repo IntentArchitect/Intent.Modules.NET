@@ -76,7 +76,7 @@ namespace CosmosDB.Infrastructure.Repositories
         public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
-            Track((TDomain)document);
+            Track(document);
 
             return document;
         }
@@ -106,10 +106,10 @@ namespace CosmosDB.Infrastructure.Repositories
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var pagedDocouments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
-            Track(pagedDocouments.Items.Cast<TDomain>());
+            var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
+            Track(pagedDocuments.Items.Cast<TDomain>());
 
-            return new CosmosPagedList<TDomain, TDocument>(pagedDocouments, pageNo, pageSize);
+            return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -128,7 +128,7 @@ namespace CosmosDB.Infrastructure.Repositories
         /// <summary>
         /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
         /// </summary>
-        public static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
+        private static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
         {
             if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.");
             var beforeParameter = expression.Parameters.Single();

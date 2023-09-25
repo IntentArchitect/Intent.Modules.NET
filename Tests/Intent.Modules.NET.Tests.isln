@@ -55,5 +55,6 @@
     <application id="5385b8fc-6bf9-4b2c-8268-12844932228c" name="MassTransit.RetryPolicy.Incremental" relativePath="MassTransit.RetryPolicy.Incremental/MassTransit.RetryPolicy.Incremental.application.config" />
     <application id="50d558de-c495-4ed5-b9d0-de5dfdb4b4f1" name="MassTransit.RetryPolicy.Exponential" relativePath="MassTransit.RetryPolicy.Exponential/MassTransit.RetryPolicy.Exponential.application.config" />
     <application id="e27f2734-1034-404d-ac7d-f75f7e4c226f" name="EFCore.Lazy.Loading.Tests" relativePath="EFCore.Lazy.Loading.Tests/EFCore.Lazy.Loading.Tests.application.config" />
+    <application id="2f4d3218-3dd2-46df-bba6-d00d7098a2b6" name="CosmosDBMultiTenancy" relativePath="CosmosDBMultiTenancy/CosmosDBMultiTenancy.application.config" />
   </applications>
 </solution>

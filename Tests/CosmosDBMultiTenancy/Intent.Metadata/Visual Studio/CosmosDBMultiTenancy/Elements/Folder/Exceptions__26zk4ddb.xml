@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="99e33220-a262-4b09-a282-a3fa4f1c97e1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9bc09738-0864-4b83-a17c-c502ff01c220</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6e97baea-a414-4a99-a6d0-2b6e0eb311c9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
+      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>99e33220-a262-4b09-a282-a3fa4f1c97e1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
