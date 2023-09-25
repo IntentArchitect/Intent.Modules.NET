@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
@@ -94,6 +92,7 @@ public static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public interface IEntityId
     {
         string IdName { get; }
@@ -101,13 +100,16 @@ public static class ImplementationStrategyTemplatesExtensions
         AttributeModel Attribute { get; }
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public record EntityIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static EntityIdAttribute GetEntityPkAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
         return GetEntityPkAttributes(entity, executionContext).FirstOrDefault();
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static IList<EntityIdAttribute> GetEntityPkAttributes(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
         while (entity != null)
@@ -131,6 +133,7 @@ public static class ImplementationStrategyTemplatesExtensions
         };
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static IList<EntityIdAttribute> GetEntityFkAttributes(
         this ClassModel composite,
         ClassModel owner,
@@ -182,13 +185,16 @@ public static class ImplementationStrategyTemplatesExtensions
             .ToList();
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public record EntityNestedCompositionalIdAttribute(string IdName, string Type, AttributeModel Attribute) : IEntityId;
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
         return GetNestedCompositionalOwnerIdAttributes(entity, owner, executionContext).FirstOrDefault();
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static IList<EntityNestedCompositionalIdAttribute> GetNestedCompositionalOwnerIdAttributes(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
         while (entity != null)
@@ -229,11 +235,13 @@ public static class ImplementationStrategyTemplatesExtensions
         };
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static DTOFieldModel GetEntityIdField(this ICollection<DTOFieldModel> fields, ClassModel entity, ISoftwareFactoryExecutionContext context)
     {
         return GetEntityIdFields(fields, entity, context).FirstOrDefault();
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static List<DTOFieldModel> GetEntityIdFields(this ICollection<DTOFieldModel> fields, ClassModel entity, ISoftwareFactoryExecutionContext context)
     {
         var primaryKeys = entity.GetEntityPkAttributes(context);
@@ -421,6 +429,7 @@ public static class ImplementationStrategyTemplatesExtensions
         };
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     private static string GetKeyTypeName(ITypeReference typeReference)
     {
         return typeReference switch
@@ -432,6 +441,7 @@ public static class ImplementationStrategyTemplatesExtensions
         };
     }
 
+    // This is duplicated in Intent.Modules.Application.Shared
     private static string GetDefaultSurrogateKeyType(ISoftwareFactoryExecutionContext executionContext)
     {
         //var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
