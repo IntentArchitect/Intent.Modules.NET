@@ -1,7 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -35,19 +34,24 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
-            UpdateRepositoryBase(application);
+            var repositoryBaseTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CosmosDBRepositoryBaseTemplate.TemplateId);
+            UpdateRepositoryBase(repositoryBaseTemplate);
             
             var repositoryTemplates = application.FindTemplateInstances(CosmosDBRepositoryTemplate.TemplateId, _ => true);
             foreach (var template in repositoryTemplates)
             {
-                UpdateRepository(application, (CosmosDBRepositoryTemplate)template);
+                UpdateRepository((CosmosDBRepositoryTemplate)template);
             }
         }
 
-        private static void UpdateRepository(IApplication application, CosmosDBRepositoryTemplate template)
+        private static void UpdateRepository(CosmosDBRepositoryTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {
+                file
+                    .AddUsing("System")
+                    .AddUsing("System.Linq.Expressions");
+
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
 
@@ -56,7 +60,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     partitionKey = template.Model.GetPrimaryKeyAttribute().Name;
                 }
 
-                constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor"), "multiTenantContextAccessor");
+                constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                 constructor.ConstructorCall.AddArgument($"\"{partitionKey.ToCamelCase()}\"");
                 constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
 
@@ -71,9 +75,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             });
         }
 
-        private static void UpdateRepositoryBase(IApplication application)
+        private static void UpdateRepositoryBase(ICSharpFileBuilderTemplate template)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CosmosDBRepositoryBaseTemplate.TemplateId);
             template.AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
 
             template.CSharpFile.OnBuild(file =>
@@ -85,103 +88,115 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                 var constructor = @class.Constructors.First();
                 constructor.AddParameter("string", "partitionKeyFieldName", p => p.IntroduceReadonlyField());
-                constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor"), "multiTenantContextAccessor");
+                constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                 constructor.AddStatement("_tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException(\"Could not resolve tenantId\");");
 
                 // Add method
                 {
                     var method = @class.FindMethod("Add");
-                    var invocationStatement = method.Statements.OfType<CSharpInvocationStatement>().First();
-                    var invocationArgument = (CSharpLambdaBlock)invocationStatement.Statements[0];
-                    invocationArgument.InsertStatements(1, new Collection<CSharpStatement>()
-                    {
+                    var enqueueStatement = method.Statements.OfType<CSharpInvocationStatement>().First(x => x.HasMetadata(MetadataNames.EnqueueStatement));
+                    var invocationArgument = (CSharpLambdaBlock)enqueueStatement.Statements[0];
+
+                    var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
+
+                    ConfigurableStatement(
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        c => c.SeparatedFromPrevious());
+
+                    documentDeclarationStatement.InsertBelow(
                         ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
                         ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
                         {
+                            @if.SeparatedFromPrevious(false);
                             @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }),
-                    });
+                        }));
                 }
 
                 // Update method
                 {
                     var method = @class.FindMethod("Update");
-                    var invocationStatement = method.Statements.OfType<CSharpInvocationStatement>().First();
-                    var invocationArgument = (CSharpLambdaBlock)invocationStatement.Statements[0];
-                    invocationArgument.InsertStatements(1, new Collection<CSharpStatement>()
-                    {
+                    var enqueueStatement = method.Statements.OfType<CSharpInvocationStatement>().First(x => x.HasMetadata(MetadataNames.EnqueueStatement));
+                    var invocationArgument = (CSharpLambdaBlock)enqueueStatement.Statements[0];
+
+                    var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
+
+                    ConfigurableStatement(
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        c => c.SeparatedFromPrevious());
+
+                    documentDeclarationStatement.InsertBelow(
                         ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
                         ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
                         {
+                            @if.SeparatedFromPrevious(false);
                             @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }),
-                    });
+                        }));
                 }
 
                 // Remove method
                 {
                     var method = @class.FindMethod("Remove");
-                    var invocationStatement = method.Statements.OfType<CSharpInvocationStatement>().First();
-                    var invocationArgument = (CSharpLambdaBlock)invocationStatement.Statements[0];
-                    invocationArgument.InsertStatements(1, new Collection<CSharpStatement>()
-                    {
+                    var enqueueStatement = method.Statements.OfType<CSharpInvocationStatement>().First(x => x.HasMetadata(MetadataNames.EnqueueStatement));
+                    var invocationArgument = (CSharpLambdaBlock)enqueueStatement.Statements[0];
+
+                    var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
+
+                    ConfigurableStatement(
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        c => c.SeparatedFromPrevious());
+
+                    documentDeclarationStatement.InsertBelow(
                         ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
                         ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
                         {
+                            @if.SeparatedFromPrevious(false);
                             @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }),
-                    });
+                        }));
                 }
 
                 // FindAllAsync(CancellationToken cancellationToken = default)
                 {
                     var method = @class.FindMethod(x => x.Name == "FindAllAsync" && x.Parameters.Count == 1);
-                    method.Statements[0].FindAndReplace("_ => true", "GetHasPartitionKeyExpression(_tenantId)");
+                    var documentsDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentsDeclarationStatement));
+                    documentsDeclarationStatement.FindAndReplace("_ => true", "GetHasPartitionKeyExpression(_tenantId)");
                 }
 
                 // FindByIdAsync
                 {
                     var method = @class.FindMethod("FindByIdAsync");
-                    method.Statements[0].FindAndReplace("id, ", "id, _tenantId, ");
+                    var documentDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
+                    documentDeclarationStatement.FindAndReplace("id, ", "id, _tenantId, ");
                 }
 
                 // FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
                 {
                     var method = @class.FindMethod(x => x.Name == "FindAllAsync" && x.Parameters.Count == 2);
-                    ConfigurableStatement(method.Statements[0], s =>
-                    {
-                        s.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
-                        s.SeparatedFromPrevious();
-                    });
 
-                    method.InsertStatements(0, new Collection<CSharpStatement>
-                    {
+                    var documentsDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentsDeclarationStatement));
+                    documentsDeclarationStatement.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
+                    documentsDeclarationStatement.SeparatedFromPrevious();
+                    documentsDeclarationStatement.InsertAbove(
                         "var predicate = AdaptFilterPredicate(filterExpression);",
-                        "predicate = GetFilteredByTenantIdPredicate(predicate);"
-                    });
+                        "predicate = GetFilteredByTenantIdPredicate(predicate);");
                 }
 
                 // FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default)
                 {
                     var method = @class.FindMethod(x => x.Name == "FindAllAsync" && x.Parameters.Count == 4);
-                    ConfigurableStatement(method.Statements[0], s =>
-                    {
-                        s.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
-                        s.SeparatedFromPrevious();
-                    });
 
-                    method.InsertStatements(0, new Collection<CSharpStatement>
-                    {
+                    var pagedDocumentsDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.PagedDocumentsDeclarationStatement));
+                    pagedDocumentsDeclarationStatement.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
+                    pagedDocumentsDeclarationStatement.SeparatedFromPrevious();
+                    pagedDocumentsDeclarationStatement.InsertAbove(
                         "var predicate = AdaptFilterPredicate(filterExpression);",
-                        "predicate = GetFilteredByTenantIdPredicate(predicate);"
-                    });
+                        "predicate = GetFilteredByTenantIdPredicate(predicate);");
                 }
 
                 // FindByIdsAsync
                 {
                     var method = @class.FindMethod("FindByIdsAsync");
-                    var queryStatement = method.Statements[0];
-                    queryStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE c.{_partitionKeyFieldName} = @tenantId AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
+                    var queryDefinitionDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
+                    queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE c.{_partitionKeyFieldName} = @tenantId AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                     .WithParameter(""@tenantId"", _tenantId)
                     .WithParameter(""@ids"", ids);");
                 }

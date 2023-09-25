@@ -22,6 +22,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
         public CosmosDBDocumentInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddInterface($"ICosmosDBDocument", @interface =>
                 {
                     @interface
