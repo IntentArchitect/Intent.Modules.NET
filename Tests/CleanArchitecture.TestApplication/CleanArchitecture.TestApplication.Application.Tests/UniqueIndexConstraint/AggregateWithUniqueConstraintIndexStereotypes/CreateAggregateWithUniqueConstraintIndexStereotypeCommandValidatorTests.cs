@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.AggregateWithUniqueConstraintIndexStereotypes.CreateAggregateWithUniqueConstraintIndexStereotype;
+using CleanArchitecture.TestApplication.Domain.Repositories.UniqueIndexConstraint;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -115,7 +116,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.UniqueIndexConstra
 
         private ValidationBehaviour<CreateAggregateWithUniqueConstraintIndexStereotypeCommand, System.Guid> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<CreateAggregateWithUniqueConstraintIndexStereotypeCommand, System.Guid>(new[] { new CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator() });
+            var aggregateWithUniqueConstraintIndexStereotypeRepository = Substitute.For<IAggregateWithUniqueConstraintIndexStereotypeRepository>();
+            return new ValidationBehaviour<CreateAggregateWithUniqueConstraintIndexStereotypeCommand, System.Guid>(new[] { new CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator(aggregateWithUniqueConstraintIndexStereotypeRepository) });
         }
     }
 }

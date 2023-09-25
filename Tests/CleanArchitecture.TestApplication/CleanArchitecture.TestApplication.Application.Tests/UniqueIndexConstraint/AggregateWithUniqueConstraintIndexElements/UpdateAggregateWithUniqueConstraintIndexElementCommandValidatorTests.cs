@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.AggregateWithUniqueConstraintIndexElements.UpdateAggregateWithUniqueConstraintIndexElement;
+using CleanArchitecture.TestApplication.Domain.Repositories.UniqueIndexConstraint;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -113,7 +114,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.UniqueIndexConstra
 
         private ValidationBehaviour<UpdateAggregateWithUniqueConstraintIndexElementCommand, Unit> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<UpdateAggregateWithUniqueConstraintIndexElementCommand, Unit>(new[] { new UpdateAggregateWithUniqueConstraintIndexElementCommandValidator() });
+            var aggregateWithUniqueConstraintIndexElementRepository = Substitute.For<IAggregateWithUniqueConstraintIndexElementRepository>();
+            return new ValidationBehaviour<UpdateAggregateWithUniqueConstraintIndexElementCommand, Unit>(new[] { new UpdateAggregateWithUniqueConstraintIndexElementCommandValidator(aggregateWithUniqueConstraintIndexElementRepository) });
         }
     }
 }

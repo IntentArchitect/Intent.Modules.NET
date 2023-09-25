@@ -453,8 +453,10 @@ public static class ValidationRulesExtensions
             return false;
         }
         
-        ctor.AddParameter(template.UseType(repositoryInterface.FullTypeName()), repositoryInterface.ClassName.Substring(1).ToParameterName(),
-            param => param.IntroduceReadonlyField());
+        ctor.AddParameter(
+            type: template.UseType(repositoryInterface.FullTypeName()), 
+            name: repositoryInterface.ClassName.Substring(1).ToParameterName(),
+            configure: param => param.IntroduceReadonlyField().AddMetadata("repository", repositoryInterface.FullTypeName()));
         repositoryFieldName = repositoryInterface.ClassName.Substring(1).ToPrivateMemberName();
         return true;
     }

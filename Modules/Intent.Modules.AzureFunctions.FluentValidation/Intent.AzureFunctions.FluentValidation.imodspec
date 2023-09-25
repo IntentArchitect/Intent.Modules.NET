@@ -21,7 +21,7 @@
     <dependency id="Intent.Application.FluentValidation.Dtos" version="3.7.0-pre.6" />
     <dependency id="Intent.AzureFunctions" version="4.0.6" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.41-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.41-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.2.5" />
     <dependency id="Intent.Modelers.Services" version="3.4.7" />

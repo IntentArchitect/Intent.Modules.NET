@@ -10,6 +10,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -172,7 +173,24 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                             mainValidatorInstantiation.AddArgument("serviceProvider");
                         }
-                        
+
+                        if (TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var validatorTemplate))
+                        {
+                            var validatorCtorParams = validatorTemplate.CSharpFile.Classes
+                                .FirstOrDefault()
+                                ?.Constructors
+                                .FirstOrDefault()
+                                ?.Parameters
+                                .Where(p => p.HasMetadata("repository"))
+                                .ToArray() ?? ArraySegment<CSharpConstructorParameter>.Empty;
+                            foreach (var parameter in validatorCtorParams)
+                            {
+                                method.AddStatement($"var {parameter.Name.ToCamelCase()} = Substitute.For<{UseType(parameter.GetMetadata<string>("repository"))}>();");
+
+                                mainValidatorInstantiation.AddArgument(parameter.Name.ToCamelCase());
+                            }
+                        }
+
                         method.AddStatement(
                             $@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ {mainValidatorInstantiation} }});");
                     });
