@@ -1,3 +1,8 @@
+### Version 4.1.7
+
+- Improvement: Upgraded Finbuckle NuGet package versions to `6.12.0`.
+- Improvement: `HTTP Remote` is now available as a store option, see [here](https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#http-remote-store) for more information.
+
 ### Version 4.1.5
 
 - Update: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.

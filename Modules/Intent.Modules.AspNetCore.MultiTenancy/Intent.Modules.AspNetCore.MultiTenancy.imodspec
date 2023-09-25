@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
   <version>4.1.7-pre.0</version>
@@ -66,9 +66,10 @@
           <hint>Store for tenant information.</hint>
           <defaultValue>in-memory</defaultValue>
           <options>
-            <option value="in-memory" description="In-Memory" />
-            <option value="efcore" description="Entity Framework Core" />
             <option value="configuration" description="Configuration" />
+            <option value="efcore" description="Entity Framework Core" />
+            <option value="http-remote" description="HTTP Remote" />
+            <option value="in-memory" description="In-Memory" />
           </options>
         </setting>
         <setting id="be7c671e-bbef-4d75-b42d-a6547de3ae82" title="Data Isolation" type="select">

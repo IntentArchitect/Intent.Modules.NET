@@ -99,9 +99,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value switch
                 {
-                    "in-memory" => StoreOptionsEnum.InMemory,
-                    "efcore" => StoreOptionsEnum.Efcore,
                     "configuration" => StoreOptionsEnum.Configuration,
+                    "efcore" => StoreOptionsEnum.Efcore,
+                    "http-remote" => StoreOptionsEnum.HttpRemote,
+                    "in-memory" => StoreOptionsEnum.InMemory,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -116,6 +117,11 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
                 return Value == "efcore";
             }
 
+            public bool IsHttpRemote()
+            {
+                return Value == "http-remote";
+            }
+
             public bool IsConfiguration()
             {
                 return Value == "configuration";
@@ -126,6 +132,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
         {
             InMemory,
             Efcore,
+            HttpRemote,
             Configuration
         }
 

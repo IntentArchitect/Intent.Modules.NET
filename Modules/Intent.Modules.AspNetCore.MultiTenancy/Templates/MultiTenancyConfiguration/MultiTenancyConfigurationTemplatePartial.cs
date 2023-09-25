@@ -53,14 +53,17 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                 switch (ExecutionContext.Settings.GetMultitenancySettings().Store().AsEnum())
                                 {
                                     case MultitenancySettings.StoreOptionsEnum.InMemory:
-                                        methodChainStatement.AddChainStatement("WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store");
+                                        methodChainStatement.AddChainStatement("WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store");
                                         break;
                                     case MultitenancySettings.StoreOptionsEnum.Efcore:
-                                        methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store", s =>
+                                        methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#efcore-store", s =>
                                             s.AddMetadata("with-ef-core-store", true));
                                         break;
                                     case MultitenancySettings.StoreOptionsEnum.Configuration:
-                                        methodChainStatement.AddChainStatement("WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#configuration-store");
+                                        methodChainStatement.AddChainStatement("WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#configuration-store");
+                                        break;
+                                    case MultitenancySettings.StoreOptionsEnum.HttpRemote:
+                                        methodChainStatement.AddChainStatement("WithHttpRemoteStore(configuration[\"Finbuckle:MultiTenant:Stores:HttpRemoteEndpointTemplate\"]!) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#http-remote-store");
                                         break;
                                     default:
                                         throw new ArgumentOutOfRangeException();
@@ -70,15 +73,15 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                 {
                                     case MultitenancySettings.StrategyOptionsEnum.Header:
                                         methodChainStatement.AddChainStatement(
-                                            "WithHeaderStrategy(\"X-Tenant-Identifier\"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy");
+                                            "WithHeaderStrategy(\"X-Tenant-Identifier\"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy");
                                         break;
                                     case MultitenancySettings.StrategyOptionsEnum.Claim:
                                         methodChainStatement.AddChainStatement(
-                                            "WithClaimStrategy(); // default claim value with type __tenant__. See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#claim-strategy");
+                                            "WithClaimStrategy(); // default claim value with type __tenant__. See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#claim-strategy");
                                         break;
                                     case MultitenancySettings.StrategyOptionsEnum.Host:
                                         methodChainStatement.AddChainStatement(
-                                            "WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#host-strategy");
+                                            "WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#host-strategy");
                                         break;
                                     default:
                                         throw new ArgumentOutOfRangeException();
@@ -135,9 +138,20 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration())
+            switch (ExecutionContext.Settings.GetMultitenancySettings().Store().AsEnum())
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Finbuckle:MultiTenant:Stores:ConfigurationStore", DefaultTenants));
+                case MultitenancySettings.StoreOptionsEnum.Configuration:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Finbuckle:MultiTenant:Stores:ConfigurationStore", DefaultTenants));
+                    break;
+                case MultitenancySettings.StoreOptionsEnum.Efcore:
+                    break;
+                case MultitenancySettings.StoreOptionsEnum.HttpRemote:
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Finbuckle:MultiTenant:Stores:HttpRemoteEndpointTemplate", "https://example.com/{__tenant__}"));
+                    break;
+                case MultitenancySettings.StoreOptionsEnum.InMemory:
+                    break;
+                default:
+                    break;
             }
         }
 

@@ -106,11 +106,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>In-Memory</name>
-          <display>In-Memory = in-memory</display>
+        <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Configuration</name>
+          <display>Configuration = configuration</display>
           <isAbstract>false</isAbstract>
-          <value>in-memory</value>
+          <value>configuration</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
@@ -134,11 +134,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Configuration</name>
-          <display>Configuration = configuration</display>
+        <childElement id="697b7c80-6e38-44b5-96bf-bbf4c7cc50b9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>HTTP Remote</name>
+          <display>HTTP Remote = http-remote</display>
           <isAbstract>false</isAbstract>
-          <value>configuration</value>
+          <value>http-remote</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>In-Memory</name>
+          <display>In-Memory = in-memory</display>
+          <isAbstract>false</isAbstract>
+          <value>in-memory</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
