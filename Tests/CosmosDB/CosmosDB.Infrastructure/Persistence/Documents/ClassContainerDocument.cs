@@ -26,11 +26,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string? ICosmosDBDocument.PartitionKey
-        {
-            get => ClassPartitionKey;
-            set => ClassPartitionKey = value!;
-        }
+        string IItem.PartitionKey => ClassPartitionKey;
         [JsonIgnore]
         public override List<DomainEvent> DomainEvents
         {

@@ -26,11 +26,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string? ICosmosDBDocument.PartitionKey
-        {
-            get => TenantId;
-            set => TenantId = value!;
-        }
+        string IItem.PartitionKey => TenantId;
         [JsonIgnore]
         public override List<DomainEvent> DomainEvents
         {

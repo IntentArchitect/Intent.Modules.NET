@@ -16,14 +16,8 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
     internal class InvoiceCosmosDBRepository : CosmosDBRepositoryBase<Invoice, Invoice, InvoiceDocument>, IInvoiceRepository
     {
         public InvoiceCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            Microsoft.Azure.CosmosRepository.IRepository<InvoiceDocument> cosmosRepository,
-            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor) : base(unitOfWork, cosmosRepository, "id", "tenantId", multiTenantContextAccessor)
+            Microsoft.Azure.CosmosRepository.IRepository<InvoiceDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
         {
-        }
-
-        protected override Expression<Func<InvoiceDocument, bool>> GetHasPartitionKeyExpression(string? partitionKey)
-        {
-            return document => document.TenantId == partitionKey;
         }
     }
 }

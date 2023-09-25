@@ -26,11 +26,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string? ICosmosDBDocument.PartitionKey
-        {
-            get => FolderPartitionKey;
-            set => FolderPartitionKey = value!;
-        }
+        string IItem.PartitionKey => FolderPartitionKey;
         [JsonIgnore]
         public override List<DomainEvent> DomainEvents
         {
