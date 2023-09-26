@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
@@ -29,7 +30,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!application.TemplateExists("Configuration.MultiTenancy"))
+            if (!application.TemplateExists(TemplateFulfillingRoles.Distribution.WebApi.MultiTenancyConfiguration))
             {
                 return;
             }
