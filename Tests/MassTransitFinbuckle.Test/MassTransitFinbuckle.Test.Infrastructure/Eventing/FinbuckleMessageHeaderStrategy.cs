@@ -16,9 +16,9 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
             return Task.FromResult(_tenantIdentifier);
         }
 
-        public void SetTenantIdentifier(string tenantIndentifier)
+        public void SetTenantIdentifier(string tenantIdentifier)
         {
-            _tenantIdentifier = tenantIndentifier;
+            _tenantIdentifier = tenantIdentifier;
         }
     }
 }

@@ -36,9 +36,9 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
 
         public async Task Send(ConsumeContext<T> context, IPipe<ConsumeContext<T>> next)
         {
-            if (context.TryGetHeader<string>(_headerName, out var tenantIndentifier))
+            if (context.TryGetHeader<string>(_headerName, out var tenantIdentifier))
             {
-                _messageHeaderStrategy.SetTenantIdentifier(tenantIndentifier);
+                _messageHeaderStrategy.SetTenantIdentifier(tenantIdentifier);
                 var multiTenantContext = await _tenantResolver.ResolveAsync(context);
                 _accessor.MultiTenantContext = multiTenantContext;
             }
