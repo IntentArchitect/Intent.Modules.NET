@@ -35,8 +35,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
                         })
                         .AddMethod("void", "SetTenantIdentifier", method =>
                         {
-                            method.AddParameter("string", "tenantIndentifier")
-                                .AddStatement("_tenantIdentifier = tenantIndentifier;");
+                            method.AddParameter("string", "tenantIdentifier")
+                                .AddStatement("_tenantIdentifier = tenantIdentifier;");
                         })
                         ;
                 });
