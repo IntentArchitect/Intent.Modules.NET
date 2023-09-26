@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,25 +12,25 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateTransaction
     public class CreateTransactionCommandValidator : AbstractValidator<CreateTransactionCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateTransactionCommandValidator(IServiceProvider provider)
+        public CreateTransactionCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Current)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<CreateMoneyDto>>()!);
+                .SetValidator(provider.GetValidator<CreateMoneyDto>()!);
 
             RuleFor(v => v.Description)
                 .NotNull();
 
             RuleFor(v => v.Account)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<CreateAccountDto>>()!);
+                .SetValidator(provider.GetValidator<CreateAccountDto>()!);
         }
     }
 }

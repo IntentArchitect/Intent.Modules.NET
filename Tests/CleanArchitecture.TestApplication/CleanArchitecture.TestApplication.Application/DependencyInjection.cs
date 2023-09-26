@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using CleanArchitecture.TestApplication.Application.Implementation.Comments;
 using CleanArchitecture.TestApplication.Application.Implementation.ServiceDispatch;
 using CleanArchitecture.TestApplication.Application.Interfaces.Comments;
@@ -36,6 +37,7 @@ namespace CleanArchitecture.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAsyncableDomainService, AsyncableDomainService>();
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();

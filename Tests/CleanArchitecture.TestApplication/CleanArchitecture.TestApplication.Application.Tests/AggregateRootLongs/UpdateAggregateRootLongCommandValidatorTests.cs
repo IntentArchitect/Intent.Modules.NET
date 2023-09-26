@@ -7,6 +7,7 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -69,9 +70,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         private ValidationBehaviour<UpdateAggregateRootLongCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootLongCompositeOfAggrLongDto>)).Returns(c => new UpdateAggregateRootLongCompositeOfAggrLongDtoValidator());
-            return new ValidationBehaviour<UpdateAggregateRootLongCommand, Unit>(new[] { new UpdateAggregateRootLongCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<UpdateAggregateRootLongCompositeOfAggrLongDto>().Returns(c => new UpdateAggregateRootLongCompositeOfAggrLongDtoValidator());
+            return new ValidationBehaviour<UpdateAggregateRootLongCommand, Unit>(new[] { new UpdateAggregateRootLongCommandValidator(validatorProvider) });
         }
     }
 }

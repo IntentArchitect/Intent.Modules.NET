@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationService;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorProvider;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorProviderInterface;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -31,6 +33,16 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates
         public static string GetValidationServiceInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(ValidationServiceInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetValidatorProviderName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ValidatorProviderTemplate.TemplateId);
+        }
+
+        public static string GetValidatorProviderInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ValidatorProviderInterfaceTemplate.TemplateId);
         }
 
     }

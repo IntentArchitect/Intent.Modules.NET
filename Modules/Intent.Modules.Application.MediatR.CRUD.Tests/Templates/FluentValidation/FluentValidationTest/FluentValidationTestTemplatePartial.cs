@@ -154,24 +154,24 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                         var mainValidatorInstantiation = new CSharpInvocationStatement($"new {this.GetCommandValidatorName(Model)}")
                             .WithoutSemicolon();
                         
-                        if (MainValidatorHasServiceProviderRequirement())
+                        if (MainValidatorHasValidatorProviderRequirement())
                         {
-                            AddUsing("Microsoft.Extensions.DependencyInjection");
                             var dtoValidators = GetValidators(Model.Properties);
+                            var validatorProviderInter = GetTypeName("Application.Common.ValidatorProviderInterface");
 
-                            method.AddStatement($"var serviceProvider = Substitute.For<{UseType("System.IServiceProvider")}>();");
+                            method.AddStatement($"var validatorProvider = Substitute.For<{validatorProviderInter}>();");
                             foreach (var validator in dtoValidators)
                             {
                                 var nestedValidatorInstantiation = new CSharpInvocationStatement($"new {validator.ValidatorName}")
                                     .WithoutSemicolon();
                                 if (validator.NeedsServiceProvider)
                                 {
-                                    nestedValidatorInstantiation.AddArgument("serviceProvider");
+                                    nestedValidatorInstantiation.AddArgument("validatorProvider");
                                 }
-                                method.AddStatement($"serviceProvider.GetService(typeof({UseType("FluentValidation.IValidator")}<{validator.DtoName}>)).Returns(c => {nestedValidatorInstantiation});");
+                                method.AddStatement($"validatorProvider.GetValidator<{validator.DtoName}>().Returns(c => {nestedValidatorInstantiation});");
                             }
 
-                            mainValidatorInstantiation.AddArgument("serviceProvider");
+                            mainValidatorInstantiation.AddArgument("validatorProvider");
                         }
 
                         if (TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var validatorTemplate))
@@ -197,10 +197,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             });
     }
 
-    private bool MainValidatorHasServiceProviderRequirement()
+    private bool MainValidatorHasValidatorProviderRequirement()
     {
         return TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var template) &&
-               template.CSharpFile.Classes.First().Constructors.First().Parameters.Any(p => p.Type.Contains("IServiceProvider"));
+               template.CSharpFile.Classes.First().Constructors.First().Parameters.Any(p => p.Type.Contains("IValidatorProvider"));
     }
 
     private IReadOnlyCollection<(string DtoName, string ValidatorName, bool NeedsServiceProvider)> GetValidators(IEnumerable<DTOFieldModel> properties)

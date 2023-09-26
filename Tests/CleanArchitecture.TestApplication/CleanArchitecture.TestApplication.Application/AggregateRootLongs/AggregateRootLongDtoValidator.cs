@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,19 +13,19 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs
     public class AggregateRootLongDtoValidator : AbstractValidator<AggregateRootLongDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public AggregateRootLongDtoValidator(IServiceProvider provider)
+        public AggregateRootLongDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
 
             RuleFor(v => v.CompositeOfAggrLong)
-                .SetValidator(provider.GetRequiredService<IValidator<AggregateRootLongCompositeOfAggrLongDto>>()!);
+                .SetValidator(provider.GetValidator<AggregateRootLongCompositeOfAggrLongDto>()!);
         }
     }
 }

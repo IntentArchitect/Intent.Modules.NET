@@ -367,10 +367,10 @@ public static class ValidationRulesExtensions
                      typeName: out var dtoTemplateName))
         {
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
-                ? $"ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<{dtoTemplateName}>>()!))"
-                : $"SetValidator(provider.GetRequiredService<IValidator<{dtoTemplateName}>>()!)");
+                ? $"ForEach(x => x.SetValidator(provider.GetValidator<{dtoTemplateName}>()!))"
+                : $"SetValidator(provider.GetValidator<{dtoTemplateName}>()!)");
 
-            validationRuleChain.Metadata["requires-service-provider"] = true;
+            validationRuleChain.Metadata["requires-validator-provider"] = true;
         }
     }
     
@@ -402,21 +402,21 @@ public static class ValidationRulesExtensions
         CSharpClass validatorClass,
         CSharpMethodChainStatement statement)
     {
-        if (!statement.TryGetMetadata("requires-service-provider", out bool requiresProvider) || !requiresProvider)
+        if (!statement.TryGetMetadata("requires-validator-provider", out bool requiresProvider) || !requiresProvider)
         {
             return;
         }
 
         var ctor = validatorClass.Constructors.First();
 
-        if (ctor.Parameters.Any(p => p.Type.Contains("IServiceProvider")))
+        if (ctor.Parameters.Any(p => p.Type.Contains("IValidatorProvider")))
         {
             return;
         }
 
-        template.AddUsing("Microsoft.Extensions.DependencyInjection");
+        var validatorProviderInter = template.GetTypeName("Application.Common.ValidatorProviderInterface");
 
-        ctor.Parameters.Insert(0, new CSharpConstructorParameter(template.UseType("System.IServiceProvider"), "provider", ctor));
+        ctor.Parameters.Insert(0, new CSharpConstructorParameter(validatorProviderInter, "provider", ctor));
         ctor.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))
             ?.ToList().ForEach(x => x.Remove());
         
@@ -427,7 +427,7 @@ public static class ValidationRulesExtensions
             .AddMetadata("configure-validation-rules", true));
         
         validatorClass.FindMethod(p => p.Name == "ConfigureValidationRules")
-            ?.AddParameter(template.UseType("System.IServiceProvider"), "provider");
+            ?.AddParameter(validatorProviderInter, "provider");
     }
     
     private static bool AddRepositoryIfRequired<TModel>(

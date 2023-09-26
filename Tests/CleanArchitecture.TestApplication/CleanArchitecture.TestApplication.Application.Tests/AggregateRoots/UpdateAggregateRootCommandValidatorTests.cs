@@ -7,6 +7,7 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRoot;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -110,15 +111,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         private ValidationBehaviour<UpdateAggregateRootCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeManyBDto>)).Returns(c => new UpdateAggregateRootCompositeManyBDtoValidator(serviceProvider));
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>)).Returns(c => new UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>)).Returns(c => new UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeSingleADto>)).Returns(c => new UpdateAggregateRootCompositeSingleADtoValidator(serviceProvider));
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeSingleACompositeSingleAADto>)).Returns(c => new UpdateAggregateRootCompositeSingleACompositeSingleAADtoValidator());
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeSingleACompositeManyAADto>)).Returns(c => new UpdateAggregateRootCompositeSingleACompositeManyAADtoValidator());
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootAggregateSingleCDto>)).Returns(c => new UpdateAggregateRootAggregateSingleCDtoValidator());
-            return new ValidationBehaviour<UpdateAggregateRootCommand, Unit>(new[] { new UpdateAggregateRootCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeManyBDto>().Returns(c => new UpdateAggregateRootCompositeManyBDtoValidator(validatorProvider));
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>().Returns(c => new UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>().Returns(c => new UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeSingleADto>().Returns(c => new UpdateAggregateRootCompositeSingleADtoValidator(validatorProvider));
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeSingleACompositeSingleAADto>().Returns(c => new UpdateAggregateRootCompositeSingleACompositeSingleAADtoValidator());
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeSingleACompositeManyAADto>().Returns(c => new UpdateAggregateRootCompositeSingleACompositeManyAADtoValidator());
+            validatorProvider.GetValidator<UpdateAggregateRootAggregateSingleCDto>().Returns(c => new UpdateAggregateRootAggregateSingleCDtoValidator());
+            return new ValidationBehaviour<UpdateAggregateRootCommand, Unit>(new[] { new UpdateAggregateRootCommandValidator(validatorProvider) });
         }
     }
 }

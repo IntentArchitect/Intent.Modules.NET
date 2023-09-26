@@ -7,6 +7,7 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRootCompositeManyB;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -74,10 +75,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
         private ValidationBehaviour<UpdateAggregateRootCompositeManyBCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>)).Returns(c => new UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
-            serviceProvider.GetService(typeof(IValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>)).Returns(c => new UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
-            return new ValidationBehaviour<UpdateAggregateRootCompositeManyBCommand, Unit>(new[] { new UpdateAggregateRootCompositeManyBCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>().Returns(c => new UpdateAggregateRootCompositeManyBCompositeSingleBBDtoValidator());
+            validatorProvider.GetValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>().Returns(c => new UpdateAggregateRootCompositeManyBCompositeManyBBDtoValidator());
+            return new ValidationBehaviour<UpdateAggregateRootCompositeManyBCommand, Unit>(new[] { new UpdateAggregateRootCompositeManyBCommandValidator(validatorProvider) });
         }
     }
 }

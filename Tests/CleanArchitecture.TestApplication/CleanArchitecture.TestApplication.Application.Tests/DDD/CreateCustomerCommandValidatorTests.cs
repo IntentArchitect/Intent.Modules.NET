@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using CleanArchitecture.TestApplication.Application.DDD;
 using CleanArchitecture.TestApplication.Application.DDD.CreateCustomer;
 using FluentAssertions;
@@ -126,9 +127,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD
 
         private ValidationBehaviour<CreateCustomerCommand, System.Guid> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<CreateCustomerAddressDto>)).Returns(c => new CreateCustomerAddressDtoValidator());
-            return new ValidationBehaviour<CreateCustomerCommand, System.Guid>(new[] { new CreateCustomerCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<CreateCustomerAddressDto>().Returns(c => new CreateCustomerAddressDtoValidator());
+            return new ValidationBehaviour<CreateCustomerCommand, System.Guid>(new[] { new CreateCustomerCommandValidator(validatorProvider) });
         }
     }
 }
