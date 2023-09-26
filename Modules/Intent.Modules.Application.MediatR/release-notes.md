@@ -1,4 +1,8 @@
-﻿### Version 4.1.0
+﻿### Version 4.1.3
+
+- Fixed: For collections of a non-DTO return types, the handler's would incorrectly generate to return `IEnumerable<T>` instead of `List<T>` in alignment with the generic type argument of their respective `Query`s and `Command`s.
+
+### Version 4.1.0
 
 - Upgrade - Breaking Changes: Upgrades MediatR package to 12.1.1, updated patterns accordingly. 
 
