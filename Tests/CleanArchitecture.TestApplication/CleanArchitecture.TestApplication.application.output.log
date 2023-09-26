@@ -3516,6 +3516,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#545fe42f-3109-4eef-9cbf-a416ab10c9d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#545fe42f-3109-4eef-9cbf-a416ab10c9d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#545fe42f-3109-4eef-9cbf-a416ab10c9d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a598b111-ce50-4d22-8378-1ea1af346389</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a598b111-ce50-4d22-8378-1ea1af346389</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a598b111-ce50-4d22-8378-1ea1af346389</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#7df138cf-8762-43d1-a344-c36a474e7e86</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/Secured/SecuredCommand.cs</ApplicationRelativeFilePath>
