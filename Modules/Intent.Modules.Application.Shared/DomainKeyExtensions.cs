@@ -10,7 +10,7 @@ using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.Shared;
 
-public static class DomainKeyExtensions
+internal static class DomainKeyExtensions
 {
     // This is duplicated in Intent.Modules.Application.MediatR.CRUD
     // Once we go through the Intent 4.1 we will need to upgrade and reconcile.
