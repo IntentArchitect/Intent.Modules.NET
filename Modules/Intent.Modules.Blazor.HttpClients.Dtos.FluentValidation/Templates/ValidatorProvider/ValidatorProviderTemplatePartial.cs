@@ -36,18 +36,19 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
                 });
         }
 
-        // public override void BeforeTemplateExecution()
-        // {
-        //     if (!TryGetTemplate<ITemplate>(ValidatorProviderInterface.ValidatorProviderInterfaceTemplate.TemplateId, out var template))
-        //     {
-        //         return;
-        //     }
-        //     ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-        //         .ToRegister(this)
-        //         .ForInterface("IValidatorProvider")
-        //         .HasDependency(template)
-        //         .WithPerServiceCallLifeTime());
-        // }
+        public override void BeforeTemplateExecution()
+        {
+            if (!TryGetTemplate<ITemplate>(ValidatorProviderInterface.ValidatorProviderInterfaceTemplate.TemplateId, out var template))
+            {
+                return;
+            }
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForConcern("BlazorClient")
+                .ForInterface("IValidatorProvider")
+                .HasDependency(template)
+                .WithPerServiceCallLifeTime());
+        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
