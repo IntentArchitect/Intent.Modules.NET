@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoValidator;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -36,12 +38,19 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
                 });
         }
 
+        // public override bool CanRunTemplate()
+        // {
+        //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);
+        //     return validatorTemplates.Any(p => p.CSharpFile.Classes.FirstOrDefault()?.Constructors.FirstOrDefault()?.Parameters.Any(q => q.Type.Contains("IValidatorProvider")) == true);
+        // }
+
         public override void BeforeTemplateExecution()
         {
             if (!TryGetTemplate<ITemplate>(ValidatorProviderInterface.ValidatorProviderInterfaceTemplate.TemplateId, out var template))
             {
                 return;
             }
+            
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(this)
                 .ForConcern("BlazorClient")

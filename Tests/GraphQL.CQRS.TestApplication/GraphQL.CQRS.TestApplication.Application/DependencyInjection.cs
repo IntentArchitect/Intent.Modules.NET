@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using GraphQL.CQRS.TestApplication.Application.Common.Behaviours;
+using GraphQL.CQRS.TestApplication.Application.Common.Validation;
 using GraphQL.CQRS.TestApplication.Application.Implementation;
 using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -29,6 +30,7 @@ namespace GraphQL.CQRS.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IProductsService, ProductsService>();
             return services;

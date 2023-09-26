@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoValidator;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -28,6 +30,12 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
                     inter.AddMethod($"IValidator<T>", "GetValidator", method => method.AddGenericParameter("T"));
                 });
         }
+        
+        // public override bool CanRunTemplate()
+        // {
+        //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);
+        //     return validatorTemplates.Any(p => p.CSharpFile.Classes.FirstOrDefault()?.Constructors.FirstOrDefault()?.Parameters.Any(q => q.Type.Contains("IValidatorProvider")) == true);
+        // }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

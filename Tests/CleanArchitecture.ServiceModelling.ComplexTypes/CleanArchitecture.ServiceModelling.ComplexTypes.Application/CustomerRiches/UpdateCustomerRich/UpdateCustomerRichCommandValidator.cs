@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,18 +12,18 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
     public class UpdateCustomerRichCommandValidator : AbstractValidator<UpdateCustomerRichCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public UpdateCustomerRichCommandValidator(IServiceProvider provider)
+        public UpdateCustomerRichCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<UpdateCustomerRichAddressDto>>()!);
+                .SetValidator(provider.GetValidator<UpdateCustomerRichAddressDto>()!);
         }
     }
 }

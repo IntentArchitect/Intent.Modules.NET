@@ -1,4 +1,5 @@
 using System;
+using Finbuckle.SharedDatabase.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,13 +13,13 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
     public class UserCreateDtoValidator : AbstractValidator<UserCreateDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public UserCreateDtoValidator(IServiceProvider provider)
+        public UserCreateDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Email)
                 .NotNull();
@@ -28,7 +29,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Users
 
             RuleFor(v => v.Roles)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<CreateUserRoleDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserRoleDto>()!));
         }
     }
 }

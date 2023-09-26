@@ -2,6 +2,7 @@ using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "2.0")]
@@ -12,13 +13,13 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Us
     public class UserUpdateDtoValidator : AbstractValidator<UserUpdateDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public UserUpdateDtoValidator(IServiceProvider provider)
+        public UserUpdateDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Email)
                 .NotNull();
@@ -28,7 +29,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Us
 
             RuleFor(v => v.Preferences)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<PreferenceDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PreferenceDto>()!));
         }
     }
 }

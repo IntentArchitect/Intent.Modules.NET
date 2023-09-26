@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,18 +12,18 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
     public class UpdatePurchaseCommandValidator : AbstractValidator<UpdatePurchaseCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public UpdatePurchaseCommandValidator(IServiceProvider provider)
+        public UpdatePurchaseCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Cost)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<UpdatePurchaseMoneyDto>>()!);
+                .SetValidator(provider.GetValidator<UpdatePurchaseMoneyDto>()!);
         }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Eventing;
+using Subscribe.MassTransit.OutboxEF.Application.Common.Validation;
 using Subscribe.MassTransit.OutboxEF.Application.IntegrationEventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +32,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application
                 cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEventHandler>();

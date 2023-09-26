@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using EFCore.Lazy.Loading.Tests.Application.Common.Behaviours;
+using EFCore.Lazy.Loading.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,7 @@ namespace EFCore.Lazy.Loading.Tests.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

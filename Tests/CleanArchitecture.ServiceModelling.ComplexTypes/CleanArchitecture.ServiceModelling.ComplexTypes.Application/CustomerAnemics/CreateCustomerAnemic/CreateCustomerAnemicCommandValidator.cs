@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,21 +12,21 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
     public class CreateCustomerAnemicCommandValidator : AbstractValidator<CreateCustomerAnemicCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateCustomerAnemicCommandValidator(IServiceProvider provider)
+        public CreateCustomerAnemicCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull();
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<CreateCustomerAnemicAddressDto>>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerAnemicAddressDto>()!);
         }
     }
 }

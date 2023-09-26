@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using AzureFunctions.TestApplication.Application.Common.Behaviours;
+using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Implementation;
 using AzureFunctions.TestApplication.Application.Implementation.CosmosDB;
 using AzureFunctions.TestApplication.Application.Implementation.Queues;
@@ -35,6 +36,7 @@ namespace AzureFunctions.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAzureBlobStorageService, AzureBlobStorageService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();

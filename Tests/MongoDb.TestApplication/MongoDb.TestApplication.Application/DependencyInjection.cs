@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDb.TestApplication.Application.Common.Validation;
 using MongoDb.TestApplication.Application.Implementation;
 using MongoDb.TestApplication.Application.Interfaces;
 
@@ -18,6 +19,7 @@ namespace MongoDb.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICompoundIndexEntitiesService, CompoundIndexEntitiesService>();
             services.AddTransient<ICompoundIndexEntityMultiParentsService, CompoundIndexEntityMultiParentsService>();
