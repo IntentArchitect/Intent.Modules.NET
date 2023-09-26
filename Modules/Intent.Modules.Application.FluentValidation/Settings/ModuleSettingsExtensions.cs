@@ -11,17 +11,17 @@ namespace Intent.Modules.Application.FluentValidation.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static ApplicationFluentValidation GetApplicationFluentValidation(this IApplicationSettingsProvider settings)
+        public static ApplicationLayerFluentValidation GetApplicationLayerFluentValidation(this IApplicationSettingsProvider settings)
         {
-            return new ApplicationFluentValidation(settings.GetGroup("459a4008-350c-42ec-b43d-9c85000babc0"));
+            return new ApplicationLayerFluentValidation(settings.GetGroup("459a4008-350c-42ec-b43d-9c85000babc0"));
         }
     }
 
-    public class ApplicationFluentValidation : IGroupSettings
+    public class ApplicationLayerFluentValidation : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public ApplicationFluentValidation(IGroupSettings groupSettings)
+        public ApplicationLayerFluentValidation(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }
@@ -38,7 +38,42 @@ namespace Intent.Modules.Application.FluentValidation.Settings
         {
             return _groupSettings.GetSetting(settingId);
         }
+        public UniqueConstraintValidationOptions UniqueConstraintValidation() => new UniqueConstraintValidationOptions(_groupSettings.GetSetting("da76a14e-3ea4-4ebb-a262-69cbb0f9889b")?.Value);
 
-        public bool ValidateUniqueConstraintsByDefault() => bool.TryParse(_groupSettings.GetSetting("45349755-ce1c-437f-87b9-686a5d6ee8f7")?.Value.ToPascalCase(), out var result) && result;
+        public class UniqueConstraintValidationOptions
+        {
+            public readonly string Value;
+
+            public UniqueConstraintValidationOptions(string value)
+            {
+                Value = value;
+            }
+
+            public UniqueConstraintValidationOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "default-enabled" => UniqueConstraintValidationOptionsEnum.DefaultEnabled,
+                    "default-disabled" => UniqueConstraintValidationOptionsEnum.DefaultDisabled,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsDefaultEnabled()
+            {
+                return Value == "default-enabled";
+            }
+
+            public bool IsDefaultDisabled()
+            {
+                return Value == "default-disabled";
+            }
+        }
+
+        public enum UniqueConstraintValidationOptionsEnum
+        {
+            DefaultEnabled,
+            DefaultDisabled,
+        }
     }
 }

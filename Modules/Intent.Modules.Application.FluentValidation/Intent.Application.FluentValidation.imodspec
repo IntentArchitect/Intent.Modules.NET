@@ -16,11 +16,15 @@
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="459a4008-350c-42ec-b43d-9c85000babc0" title="Application Fluent Validation" externalReference="459a4008-350c-42ec-b43d-9c85000babc0">
+    <group id="459a4008-350c-42ec-b43d-9c85000babc0" title="Application Layer Fluent Validation" externalReference="459a4008-350c-42ec-b43d-9c85000babc0">
       <settings>
-        <setting id="45349755-ce1c-437f-87b9-686a5d6ee8f7" title="Validate Unique Constraints by Default" type="checkbox">
-          <isRequired>false</isRequired>
-          <defaultValue>false</defaultValue>
+        <setting id="da76a14e-3ea4-4ebb-a262-69cbb0f9889b" title="Unique Constraint Validation" type="select">
+          <isRequired>true</isRequired>
+          <defaultValue>default-disabled</defaultValue>
+          <options>
+            <option value="default-enabled" description="Enabled by Default" />
+            <option value="default-disabled" description="Disabled by Default" />
+          </options>
         </setting>
       </settings>
     </group>

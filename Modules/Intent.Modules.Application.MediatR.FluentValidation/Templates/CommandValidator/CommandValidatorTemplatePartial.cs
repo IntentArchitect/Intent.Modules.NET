@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "command",
                 validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface",
-                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetApplicationFluentValidation().ValidateUniqueConstraintsByDefault(),
+                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetApplicationLayerFluentValidation().UniqueConstraintValidation().IsDefaultEnabled(),
                 model.GetConceptName())
         {
         }
