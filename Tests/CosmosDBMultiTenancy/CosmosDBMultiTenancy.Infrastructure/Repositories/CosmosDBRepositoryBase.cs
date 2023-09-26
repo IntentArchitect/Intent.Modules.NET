@@ -25,14 +25,20 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
+        private readonly string? _tenantId;
+        private readonly string _partitionKeyFieldName;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
-            string idFieldName)
+            string idFieldName,
+            string partitionKeyFieldName,
+            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
+            _partitionKeyFieldName = partitionKeyFieldName;
+            _tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException("Could not resolve tenantId");
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
@@ -44,6 +50,12 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             {
                 var document = new TDocument().PopulateFromEntity(entity);
 
+                document.PartitionKey ??= _tenantId;
+                if (document.PartitionKey != _tenantId)
+                {
+                    throw new InvalidOperationException("TenantId mismatch");
+                }
+
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -53,6 +65,12 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             _unitOfWork.Enqueue(async cancellationToken =>
             {
                 var document = new TDocument().PopulateFromEntity(entity);
+
+                document.PartitionKey ??= _tenantId;
+                if (document.PartitionKey != _tenantId)
+                {
+                    throw new InvalidOperationException("TenantId mismatch");
+                }
 
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
@@ -64,13 +82,19 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             {
                 var document = new TDocument().PopulateFromEntity(entity);
 
+                document.PartitionKey ??= _tenantId;
+                if (document.PartitionKey != _tenantId)
+                {
+                    throw new InvalidOperationException("TenantId mismatch");
+                }
+
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }
 
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(GetHasPartitionKeyExpression(_tenantId), cancellationToken);
             var results = documents.Cast<TDomain>().ToList();
             Track(results);
 
@@ -79,8 +103,8 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
 
         public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
-            var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
-            Track((TDomain)document);
+            var document = await _cosmosRepository.GetAsync(id, _tenantId, cancellationToken: cancellationToken);
+            Track(document);
 
             return document;
         }
@@ -89,8 +113,10 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             Expression<Func<TPersistence, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
+            var predicate = AdaptFilterPredicate(filterExpression);
+            predicate = GetFilteredByTenantIdPredicate(predicate);
 
-            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(predicate, cancellationToken);
             var results = documents.Cast<TDomain>().ToList();
             Track(results);
 
@@ -111,18 +137,22 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var pagedDocouments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
-            Track(pagedDocouments.Items.Cast<TDomain>());
+            var predicate = AdaptFilterPredicate(filterExpression);
+            predicate = GetFilteredByTenantIdPredicate(predicate);
 
-            return new CosmosPagedList<TDomain, TDocument>(pagedDocouments, pageNo, pageSize);
+            var pagedDocuments = await _cosmosRepository.PageAsync(predicate, pageNo, pageSize, true, cancellationToken);
+            Track(pagedDocuments.Items.Cast<TDomain>());
+
+            return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
         {
-            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
-                .WithParameter("@ids", ids);
+            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE c.{_partitionKeyFieldName} = @tenantId AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
+                    .WithParameter("@tenantId", _tenantId)
+                    .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
             var results = documents.Cast<TDomain>().ToList();
             Track(results);
@@ -131,9 +161,21 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         }
 
         /// <summary>
+        /// Returns a predicate which filters by tenantId in addition to the provided <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The existing predicate to also filter by.</param>
+        private Expression<Func<TDocument, bool>> GetFilteredByTenantIdPredicate(Expression<Func<TDocument, bool>> predicate)
+        {
+            var restrictToTenantPredicate = GetHasPartitionKeyExpression(_tenantId);
+            return Expression.Lambda<Func<TDocument, bool>>(Expression.AndAlso(predicate.Body, restrictToTenantPredicate.Body), restrictToTenantPredicate.Parameters[0]);
+        }
+
+        protected abstract Expression<Func<TDocument, bool>> GetHasPartitionKeyExpression(string? partitionKey);
+
+        /// <summary>
         /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
         /// </summary>
-        public static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
+        private static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
         {
             if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.");
             var beforeParameter = expression.Parameters.Single();
