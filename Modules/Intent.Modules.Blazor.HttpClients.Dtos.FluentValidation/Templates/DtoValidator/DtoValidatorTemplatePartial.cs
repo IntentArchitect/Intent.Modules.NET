@@ -26,7 +26,8 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 dtoValidatorTemplateId: TemplateId,
                 modelParameterName: "model",
                 @namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),
-                relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget))
+                relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget),
+                validatorProviderInterfaceTemplateName: "Blazor.HttpClient.Common.ValidatorProviderInterface")
         {
         }
     }

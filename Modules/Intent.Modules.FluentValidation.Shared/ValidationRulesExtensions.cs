@@ -42,7 +42,8 @@ public static class ValidationRulesExtensions
         string toValidateTypeName,
         string modelParameterName,
         string dtoTemplateId,
-        string dtoValidatorTemplateId)
+        string dtoValidatorTemplateId,
+        string validatorProviderInterfaceTemplateName)
     {
         validatorClass.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         validatorClass.AddConstructor(ctor =>
@@ -71,7 +72,7 @@ public static class ValidationRulesExtensions
             {
                 method.AddStatement(propertyStatement);
 
-                AddServiceProviderIfRequired(template, validatorClass, propertyStatement);
+                AddServiceProviderIfRequired(template, validatorClass, propertyStatement, validatorProviderInterfaceTemplateName);
                 if (AddRepositoryIfRequired(template, dtoModel, validatorClass, propertyStatement, out var possibleRepositoryFieldName) &&
                     string.IsNullOrWhiteSpace(repositoryFieldName))
                 {
@@ -400,7 +401,8 @@ public static class ValidationRulesExtensions
     private static void AddServiceProviderIfRequired<TModel>(
         CSharpTemplateBase<TModel> template,
         CSharpClass validatorClass,
-        CSharpMethodChainStatement statement)
+        CSharpMethodChainStatement statement,
+        string validatorProviderInterfaceTemplateName)
     {
         if (!statement.TryGetMetadata("requires-validator-provider", out bool requiresProvider) || !requiresProvider)
         {
@@ -414,7 +416,7 @@ public static class ValidationRulesExtensions
             return;
         }
 
-        var validatorProviderInter = template.GetTypeName("Application.Common.ValidatorProviderInterface");
+        var validatorProviderInter = template.GetTypeName(validatorProviderInterfaceTemplateName);
 
         ctor.Parameters.Insert(0, new CSharpConstructorParameter(validatorProviderInter, "provider", ctor));
         ctor.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))

@@ -1,3 +1,4 @@
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,23 +11,23 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
     public class UpdateAggregateRootCompositeManyBDtoValidator : AbstractValidator<UpdateAggregateRootCompositeManyBDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public UpdateAggregateRootCompositeManyBDtoValidator(IServiceProvider provider)
+        public UpdateAggregateRootCompositeManyBDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.CompositeAttr)
                 .NotNull();
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeManyBCompositeManyBBDto>()!));
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetRequiredService<IValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>>()!);
+                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeManyBCompositeSingleBBDto>()!);
         }
     }
 }

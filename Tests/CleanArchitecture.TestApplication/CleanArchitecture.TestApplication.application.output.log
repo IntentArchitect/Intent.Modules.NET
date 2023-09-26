@@ -4475,6 +4475,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.EnumContract#af000d9d-0f5e-4cfc-8a60-df6f6b30331a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

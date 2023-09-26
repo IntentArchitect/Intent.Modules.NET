@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "command",
+                validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface",
                 model.GetConceptName())
         {
         }

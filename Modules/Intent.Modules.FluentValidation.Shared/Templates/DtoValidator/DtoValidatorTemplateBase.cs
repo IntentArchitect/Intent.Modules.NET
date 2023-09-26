@@ -19,6 +19,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         string modelParameterName,
+        string validatorProviderInterfaceTemplateName,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
@@ -30,6 +31,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             modelParameterName: modelParameterName,
             @namespace: null,
             relativeLocation: null,
+            validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
             additionalFolders: additionalFolders)
     {
     }
@@ -43,7 +45,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string dtoValidatorTemplateId,
         string modelParameterName,
         string @namespace,
-        string relativeLocation)
+        string relativeLocation,
+        string validatorProviderInterfaceTemplateName)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
@@ -54,6 +57,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             modelParameterName: modelParameterName,
             @namespace: @namespace,
             relativeLocation: relativeLocation,
+            validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
             additionalFolders: Array.Empty<string>())
     {
     }
@@ -68,6 +72,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string modelParameterName,
         string @namespace,
         string relativeLocation,
+        string validatorProviderInterfaceTemplateName,
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
@@ -85,7 +90,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
                     toValidateTypeName: GetTypeName(toValidateTemplateId, Model),
                     modelParameterName: modelParameterName,
                     dtoTemplateId: dtoTemplateId,
-                    dtoValidatorTemplateId: dtoValidatorTemplateId);
+                    dtoValidatorTemplateId: dtoValidatorTemplateId,
+                    validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName);
             });
     }
 

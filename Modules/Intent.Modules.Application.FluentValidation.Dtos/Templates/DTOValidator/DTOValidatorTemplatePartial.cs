@@ -24,7 +24,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 toValidateTemplateId: DtoModelTemplate.TemplateId,
                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
-                modelParameterName: "model")
+                modelParameterName: "model",
+                validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface")
         {
         }
     }

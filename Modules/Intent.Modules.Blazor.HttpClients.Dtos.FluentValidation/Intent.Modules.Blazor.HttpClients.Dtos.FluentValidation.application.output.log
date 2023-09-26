@@ -56,5 +56,37 @@
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d2c16b2-e20a-4fe0-9279-dfcd522d7ed5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider/ValidatorProviderTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7d2c16b2-e20a-4fe0-9279-dfcd522d7ed5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider/ValidatorProviderTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a8526a8b-5b96-442e-adfb-8073e7b6f3ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a8526a8b-5b96-442e-adfb-8073e7b6f3ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>
