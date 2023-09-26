@@ -20,6 +20,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string dtoValidatorTemplateId,
         string modelParameterName,
         string validatorProviderInterfaceTemplateName,
+        bool uniqueConstraintValidationEnabled,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
@@ -32,6 +33,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             @namespace: null,
             relativeLocation: null,
             validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
+            uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             additionalFolders: additionalFolders)
     {
     }
@@ -46,7 +48,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string modelParameterName,
         string @namespace,
         string relativeLocation,
-        string validatorProviderInterfaceTemplateName)
+        string validatorProviderInterfaceTemplateName,
+        bool uniqueConstraintValidationEnabled)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
@@ -58,6 +61,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             @namespace: @namespace,
             relativeLocation: relativeLocation,
             validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
+            uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             additionalFolders: Array.Empty<string>())
     {
     }
@@ -73,6 +77,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string @namespace,
         string relativeLocation,
         string validatorProviderInterfaceTemplateName,
+        bool uniqueConstraintValidationEnabled,
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
@@ -91,7 +96,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
                     modelParameterName: modelParameterName,
                     dtoTemplateId: dtoTemplateId,
                     dtoValidatorTemplateId: dtoValidatorTemplateId,
-                    validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName);
+                    validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
+                    uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled);
             });
     }
 

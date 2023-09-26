@@ -23,9 +23,10 @@ public static class ValidationRulesExtensions
     public static bool HasValidationRules(
         DTOModel dtoModel,
         string dtoTemplateId,
-        string dtoValidatorTemplateId)
+        string dtoValidatorTemplateId,
+        bool uniqueConstraintValidationEnabled)
     {
-        var indexFields = GetUniqueConstraintFields(dtoModel);
+        var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
 
         return GetValidationRulesStatements<object>(
             template: default,
@@ -43,7 +44,8 @@ public static class ValidationRulesExtensions
         string modelParameterName,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        string validatorProviderInterfaceTemplateName)
+        string validatorProviderInterfaceTemplateName,
+        bool uniqueConstraintValidationEnabled)
     {
         validatorClass.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         validatorClass.AddConstructor(ctor =>
@@ -55,7 +57,7 @@ public static class ValidationRulesExtensions
             ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge().WithSignatureMerge());
         });
 
-        var indexFields = GetUniqueConstraintFields(dtoModel);
+        var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
         string repositoryFieldName = null;
         
         validatorClass.AddMethod("void", "ConfigureValidationRules", method =>
@@ -481,9 +483,9 @@ public static class ValidationRulesExtensions
                dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase);
     }
     
-    private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(DTOModel dtoModel)
+    private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(DTOModel dtoModel, bool enabled)
     {
-        if (!IsCreateDto(dtoModel) && !IsUpdateDto(dtoModel))
+        if (!enabled || (!IsCreateDto(dtoModel) && !IsUpdateDto(dtoModel)))
         {
             return ArraySegment<ConstraintField>.Empty;
         }

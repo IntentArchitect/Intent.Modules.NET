@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.FluentValidation.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Constants;
@@ -28,7 +29,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
                     .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(
                         dtoModel: x,
                         dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
-                        dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto)))
+                        dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                        uniqueConstraintValidationEnabled: application.Settings.GetApplicationFluentValidation().ValidateUniqueConstraintsByDefault())))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;
