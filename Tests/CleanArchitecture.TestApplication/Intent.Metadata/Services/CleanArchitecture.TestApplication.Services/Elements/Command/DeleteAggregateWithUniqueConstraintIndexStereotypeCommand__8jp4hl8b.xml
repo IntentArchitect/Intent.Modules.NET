@@ -23,7 +23,7 @@
       <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>6275636c-bba8-43c7-abf5-30bfa890bd1c</parentFolderId>
+  <parentFolderId>f1fa010b-13eb-40ee-b935-9915eb7f58b1</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
   <stereotypes>
@@ -33,7 +33,7 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
-        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/unique-index-constraint/aggregate-with-unique-constraint-index-stereotype/{id}" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/unique-index-constraint-stereotype/{id}" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
       </properties>
     </stereotype>
