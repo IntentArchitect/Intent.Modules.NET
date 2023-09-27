@@ -11,17 +11,17 @@ namespace Intent.Modules.Application.FluentValidation.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static ApplicationLayerFluentValidation GetApplicationLayerFluentValidation(this IApplicationSettingsProvider settings)
+        public static FluentValidationApplicationLayer GetFluentValidationApplicationLayer(this IApplicationSettingsProvider settings)
         {
-            return new ApplicationLayerFluentValidation(settings.GetGroup("459a4008-350c-42ec-b43d-9c85000babc0"));
+            return new FluentValidationApplicationLayer(settings.GetGroup("459a4008-350c-42ec-b43d-9c85000babc0"));
         }
     }
 
-    public class ApplicationLayerFluentValidation : IGroupSettings
+    public class FluentValidationApplicationLayer : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public ApplicationLayerFluentValidation(IGroupSettings groupSettings)
+        public FluentValidationApplicationLayer(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }

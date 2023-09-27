@@ -29,8 +29,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "command",
-                validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface",
-                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetApplicationLayerFluentValidation().UniqueConstraintValidation().IsDefaultEnabled(),
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
                 model.GetConceptName())
         {

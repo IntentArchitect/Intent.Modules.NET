@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="459a4008-350c-42ec-b43d-9c85000babc0" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>Application Layer Fluent Validation</name>
-  <display>Application Layer Fluent Validation</display>
+  <name>Fluent Validation (Application Layer)</name>
+  <display>Fluent Validation (Application Layer)</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />

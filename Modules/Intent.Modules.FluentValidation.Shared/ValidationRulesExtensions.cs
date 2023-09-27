@@ -44,11 +44,11 @@ public static class ValidationRulesExtensions
         string modelParameterName,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        string validatorProviderInterfaceTemplateName,
+        string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled)
     {
-        validatorClass.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
+        validatorClass.WithBaseType($"AbstractValidator<{toValidateTypeName}>");
         validatorClass.AddConstructor(ctor =>
         {
             ctor.AddStatement(new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
@@ -75,7 +75,7 @@ public static class ValidationRulesExtensions
             {
                 method.AddStatement(propertyStatement);
 
-                AddServiceProviderIfRequired(template, validatorClass, propertyStatement, validatorProviderInterfaceTemplateName);
+                AddValidatorProviderIfRequired(template, validatorClass, propertyStatement, validatorProviderInterfaceTemplateId);
                 if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, validatorClass, propertyStatement, out var possibleRepositoryFieldName) &&
                     string.IsNullOrWhiteSpace(repositoryFieldName))
                 {
@@ -139,6 +139,7 @@ public static class ValidationRulesExtensions
                     if (!repositoryInjectionEnabled)
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddStatement("// Implement custom unique constraint validation here");
                         method.AddStatement("return true;");
                         return;
                     }
@@ -169,6 +170,7 @@ public static class ValidationRulesExtensions
                 if (!repositoryInjectionEnabled)
                 {
                     method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                    method.AddStatement("// Implement custom unique constraint validation here");
                     method.AddStatement("return true;");
                     return;
                 }
@@ -415,11 +417,11 @@ public static class ValidationRulesExtensions
     // Instantiating nested DTO Validators will cause problems when dependencies
     // are injected. So instead of overburdening the entire Command / Query / DTO Validator templates
     // with dependency injection complexities, just inject the IServiceProvider.
-    private static void AddServiceProviderIfRequired<TModel>(
+    private static void AddValidatorProviderIfRequired<TModel>(
         CSharpTemplateBase<TModel> template,
         CSharpClass validatorClass,
         CSharpMethodChainStatement statement,
-        string validatorProviderInterfaceTemplateName)
+        string validatorProviderInterfaceTemplateId)
     {
         if (!statement.TryGetMetadata("requires-validator-provider", out bool requiresProvider) || !requiresProvider)
         {
@@ -433,7 +435,7 @@ public static class ValidationRulesExtensions
             return;
         }
 
-        var validatorProviderInter = template.GetTypeName(validatorProviderInterfaceTemplateName);
+        var validatorProviderInter = template.GetTypeName(validatorProviderInterfaceTemplateId);
 
         ctor.Parameters.Insert(0, new CSharpConstructorParameter(validatorProviderInter, "provider", ctor));
         ctor.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))

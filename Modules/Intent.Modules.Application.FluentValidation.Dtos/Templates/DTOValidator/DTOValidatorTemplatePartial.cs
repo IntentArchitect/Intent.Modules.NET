@@ -26,8 +26,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "model",
-                validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface",
-                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetApplicationLayerFluentValidation().UniqueConstraintValidation().IsDefaultEnabled(),
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true)
         {
         }

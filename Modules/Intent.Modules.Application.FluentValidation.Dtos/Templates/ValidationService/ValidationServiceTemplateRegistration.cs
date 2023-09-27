@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
                         dtoModel: x,
                         dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                         dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
-                        uniqueConstraintValidationEnabled: application.Settings.GetApplicationLayerFluentValidation().UniqueConstraintValidation().IsDefaultEnabled())))
+                        uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled())))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;
