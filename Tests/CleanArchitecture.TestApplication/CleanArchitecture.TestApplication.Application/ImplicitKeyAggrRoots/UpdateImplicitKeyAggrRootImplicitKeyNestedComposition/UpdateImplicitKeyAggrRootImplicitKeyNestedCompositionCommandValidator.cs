@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 {
     public class UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidator : AbstractValidator<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidator()
         {
             ConfigureValidationRules();

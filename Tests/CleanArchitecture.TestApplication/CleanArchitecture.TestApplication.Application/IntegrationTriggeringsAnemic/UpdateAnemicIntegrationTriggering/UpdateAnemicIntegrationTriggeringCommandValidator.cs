@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAn
 {
     public class UpdateAnemicIntegrationTriggeringCommandValidator : AbstractValidator<UpdateAnemicIntegrationTriggeringCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAnemicIntegrationTriggeringCommandValidator()
         {
             ConfigureValidationRules();

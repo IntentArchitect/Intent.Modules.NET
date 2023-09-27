@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.Create
 {
     public class CreateWithCompositeKeyCommandValidator : AbstractValidator<CreateWithCompositeKeyCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateWithCompositeKeyCommandValidator()
         {
             ConfigureValidationRules();

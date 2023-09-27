@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.Delete
 {
     public class DeleteWithCompositeKeyCommandValidator : AbstractValidator<DeleteWithCompositeKeyCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteWithCompositeKeyCommandValidator()
         {
             ConfigureValidationRules();

@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Creat
 {
     public class CreateAggregateRootLongCommandValidator : AbstractValidator<CreateAggregateRootLongCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateRootLongCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

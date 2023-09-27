@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.SecureServices.Secure
 {
     public class SecureCommandValidator : AbstractValidator<SecureCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public SecureCommandValidator()
         {
             ConfigureValidationRules();

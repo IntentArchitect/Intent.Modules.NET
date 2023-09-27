@@ -55,7 +55,7 @@ public static class ValidationRulesExtensions
                 .AddMetadata("configure-validation-rules", true));
             ctor.AddStatement(new CSharpStatement("ConfigureValidationRules();")
                 .AddMetadata("configure-validation-rules", true));
-            ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge().WithSignatureMerge());
+            ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
         });
 
         var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);

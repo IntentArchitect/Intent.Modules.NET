@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.DeleteCla
 {
     public class DeleteClassWithEnumsCommandValidator : AbstractValidator<DeleteClassWithEnumsCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteClassWithEnumsCommandValidator()
         {
             ConfigureValidationRules();

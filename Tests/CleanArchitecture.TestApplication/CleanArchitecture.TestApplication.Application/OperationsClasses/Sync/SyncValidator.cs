@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.OperationsClasses.Sync
 {
     public class SyncValidator : AbstractValidator<Sync>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public SyncValidator()
         {
             ConfigureValidationRules();

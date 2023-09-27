@@ -8,7 +8,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
 {
     public class UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator : AbstractValidator<UpdateAggregateWithUniqueConstraintIndexStereotypeCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator()
         {
             ConfigureValidationRules();

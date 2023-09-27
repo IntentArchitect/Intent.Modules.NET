@@ -10,7 +10,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootCompositeSingleADtoValidator : AbstractValidator<CreateAggregateRootCompositeSingleADto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateRootCompositeSingleADtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

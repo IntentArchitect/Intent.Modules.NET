@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
 {
     public class CreateImplicitKeyAggrRootCommandValidator : AbstractValidator<CreateImplicitKeyAggrRootCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateImplicitKeyAggrRootCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

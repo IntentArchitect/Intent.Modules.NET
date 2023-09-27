@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
 {
     public class ChangeAccountHolderNameValidator : AbstractValidator<ChangeAccountHolderName>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public ChangeAccountHolderNameValidator()
         {
             ConfigureValidationRules();

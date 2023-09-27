@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 {
     public class UpdateAggregateRootCommandValidator : AbstractValidator<UpdateAggregateRootCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateAggregateRootCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

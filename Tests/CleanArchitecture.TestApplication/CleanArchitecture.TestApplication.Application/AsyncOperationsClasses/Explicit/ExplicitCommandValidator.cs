@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.E
 {
     public class ExplicitCommandValidator : AbstractValidator<ExplicitCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public ExplicitCommandValidator()
         {
             ConfigureValidationRules();

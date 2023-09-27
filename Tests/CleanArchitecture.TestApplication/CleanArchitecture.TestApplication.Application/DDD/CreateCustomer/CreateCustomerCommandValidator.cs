@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
 {
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateCustomerCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

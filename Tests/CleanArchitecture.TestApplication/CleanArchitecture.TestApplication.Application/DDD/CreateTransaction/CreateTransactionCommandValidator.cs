@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateTransaction
 {
     public class CreateTransactionCommandValidator : AbstractValidator<CreateTransactionCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateTransactionCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Delet
 {
     public class DeleteAggregateRootLongCommandValidator : AbstractValidator<DeleteAggregateRootLongCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteAggregateRootLongCommandValidator()
         {
             ConfigureValidationRules();

@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
 {
     public class AccountTransferValidator : AbstractValidator<AccountTransfer>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public AccountTransferValidator()
         {
             ConfigureValidationRules();

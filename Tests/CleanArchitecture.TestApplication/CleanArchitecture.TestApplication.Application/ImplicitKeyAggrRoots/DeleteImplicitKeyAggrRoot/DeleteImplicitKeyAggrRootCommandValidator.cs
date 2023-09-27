@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Del
 {
     public class DeleteImplicitKeyAggrRootCommandValidator : AbstractValidator<DeleteImplicitKeyAggrRootCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteImplicitKeyAggrRootCommandValidator()
         {
             ConfigureValidationRules();

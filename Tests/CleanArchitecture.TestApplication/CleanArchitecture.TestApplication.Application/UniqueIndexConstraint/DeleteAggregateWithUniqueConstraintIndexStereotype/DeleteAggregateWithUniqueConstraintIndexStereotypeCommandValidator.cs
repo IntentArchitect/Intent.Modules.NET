@@ -8,7 +8,7 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.De
 {
     public class DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator : AbstractValidator<DeleteAggregateWithUniqueConstraintIndexStereotypeCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator()
         {
             ConfigureValidationRules();

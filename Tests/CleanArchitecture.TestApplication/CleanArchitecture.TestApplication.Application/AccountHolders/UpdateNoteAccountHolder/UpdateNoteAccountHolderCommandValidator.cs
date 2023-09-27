@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.AccountHolders.UpdateNot
 {
     public class UpdateNoteAccountHolderCommandValidator : AbstractValidator<UpdateNoteAccountHolderCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateNoteAccountHolderCommandValidator()
         {
             ConfigureValidationRules();

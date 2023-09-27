@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
 {
     public class ValidatedCommandValidator : AbstractValidator<ValidatedCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public ValidatedCommandValidator()
         {
             ConfigureValidationRules();

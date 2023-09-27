@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.OperationsClasses.SyncWi
 {
     public class SyncWithReturnValidator : AbstractValidator<SyncWithReturn>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public SyncWithReturnValidator()
         {
             ConfigureValidationRules();

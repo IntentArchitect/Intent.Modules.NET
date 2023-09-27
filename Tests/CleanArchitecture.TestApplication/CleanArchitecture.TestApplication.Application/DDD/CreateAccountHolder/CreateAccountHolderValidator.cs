@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
 {
     public class CreateAccountHolderValidator : AbstractValidator<CreateAccountHolder>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAccountHolderValidator()
         {
             ConfigureValidationRules();

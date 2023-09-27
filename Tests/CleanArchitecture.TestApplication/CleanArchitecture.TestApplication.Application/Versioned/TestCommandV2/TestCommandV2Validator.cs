@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.Versioned.TestCommandV2
 {
     public class TestCommandV2Validator : AbstractValidator<TestCommandV2>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TestCommandV2Validator()
         {
             ConfigureValidationRules();

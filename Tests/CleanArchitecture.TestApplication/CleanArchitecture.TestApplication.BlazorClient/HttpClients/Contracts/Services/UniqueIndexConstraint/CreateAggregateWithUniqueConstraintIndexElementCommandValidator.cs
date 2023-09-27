@@ -8,7 +8,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
 {
     public class CreateAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAggregateWithUniqueConstraintIndexElementCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateWithUniqueConstraintIndexElementCommandValidator()
         {
             ConfigureValidationRules();

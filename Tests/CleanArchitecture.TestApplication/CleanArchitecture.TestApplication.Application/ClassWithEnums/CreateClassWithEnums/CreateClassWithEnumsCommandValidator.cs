@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateCla
 {
     public class CreateClassWithEnumsCommandValidator : AbstractValidator<CreateClassWithEnumsCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateClassWithEnumsCommandValidator()
         {
             ConfigureValidationRules();

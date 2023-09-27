@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -131,10 +132,20 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     {
         public string Execute(string currentText)
         {
-            return currentText
-                .Replace(
-                    "[IntentManaged(Mode.Fully, Body = Mode.Ignore",
-                    "[IntentManaged(Mode.Fully, Body = Mode.Merge");
+            const string pattern = @"\[IntentManaged\((Mode\.Fully[^]]+)\)\]";
+            int counter = 0;  // Counter to keep track of replacements made
+
+            return Regex.Replace(currentText, pattern, match =>
+            {
+                // If the Mode.Fully pattern is detected and this is the first occurrence, replace it
+                if (counter == 0 && match.Groups[1].Value.Contains("Mode.Fully"))
+                {
+                    counter++;  // Increase the counter to prevent further replacements
+                    return "[IntentManaged(Mode.Merge)]";
+                }
+                // If not the first occurrence or Mode.Fully is not detected, keep the original string
+                return match.Value;
+            });
         }
 
         public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);

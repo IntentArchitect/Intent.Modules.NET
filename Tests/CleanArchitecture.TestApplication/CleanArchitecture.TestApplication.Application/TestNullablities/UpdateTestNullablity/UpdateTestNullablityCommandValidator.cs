@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
 {
     public class UpdateTestNullablityCommandValidator : AbstractValidator<UpdateTestNullablityCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateTestNullablityCommandValidator()
         {
             ConfigureValidationRules();

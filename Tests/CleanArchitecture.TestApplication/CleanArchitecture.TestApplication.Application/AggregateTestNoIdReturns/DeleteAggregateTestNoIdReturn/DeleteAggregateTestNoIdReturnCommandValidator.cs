@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 {
     public class DeleteAggregateTestNoIdReturnCommandValidator : AbstractValidator<DeleteAggregateTestNoIdReturnCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteAggregateTestNoIdReturnCommandValidator()
         {
             ConfigureValidationRules();

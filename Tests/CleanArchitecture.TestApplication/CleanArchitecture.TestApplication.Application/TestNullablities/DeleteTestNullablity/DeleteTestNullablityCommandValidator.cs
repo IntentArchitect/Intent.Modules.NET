@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.DeleteT
 {
     public class DeleteTestNullablityCommandValidator : AbstractValidator<DeleteTestNullablityCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteTestNullablityCommandValidator()
         {
             ConfigureValidationRules();

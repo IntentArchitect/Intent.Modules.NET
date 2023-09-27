@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.CreateT
 {
     public class CreateTestNullablityCommandValidator : AbstractValidator<CreateTestNullablityCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateTestNullablityCommandValidator()
         {
             ConfigureValidationRules();

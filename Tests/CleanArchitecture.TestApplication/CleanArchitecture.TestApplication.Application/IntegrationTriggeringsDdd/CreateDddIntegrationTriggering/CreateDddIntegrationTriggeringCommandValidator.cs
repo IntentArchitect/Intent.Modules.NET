@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDd
 {
     public class CreateDddIntegrationTriggeringCommandValidator : AbstractValidator<CreateDddIntegrationTriggeringCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateDddIntegrationTriggeringCommandValidator()
         {
             ConfigureValidationRules();

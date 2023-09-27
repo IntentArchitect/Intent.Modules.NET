@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 {
     public class UpdateImplicitKeyAggrRootCommandValidator : AbstractValidator<UpdateImplicitKeyAggrRootCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateImplicitKeyAggrRootCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

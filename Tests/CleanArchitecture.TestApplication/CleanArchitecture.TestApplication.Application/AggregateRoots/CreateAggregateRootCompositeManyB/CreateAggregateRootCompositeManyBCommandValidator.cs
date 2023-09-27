@@ -11,7 +11,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
 {
     public class CreateAggregateRootCompositeManyBCommandValidator : AbstractValidator<CreateAggregateRootCompositeManyBCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateRootCompositeManyBCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

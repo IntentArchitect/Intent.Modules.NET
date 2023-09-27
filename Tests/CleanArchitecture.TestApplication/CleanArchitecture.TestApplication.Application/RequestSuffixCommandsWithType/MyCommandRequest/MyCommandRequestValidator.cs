@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.Application.RequestSuffixCommandsWit
 {
     public class MyCommandRequestValidator : AbstractValidator<MyCommandRequest>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public MyCommandRequestValidator()
         {
             ConfigureValidationRules();
