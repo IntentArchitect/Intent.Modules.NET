@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Intent.Modules.CosmosDB\Templates\CosmosDBRepositoryBase\MetadataNames.cs" Link="FactoryExtensions\MetadataNames.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Identity" Version="3.5.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.4.3" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.39" />

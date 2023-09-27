@@ -32,6 +32,13 @@
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.EntityFrameworkCore.BasicAuditing">
+      <install>
+        <package id="Intent.EntityFrameworkCore.BasicAuditing" version="1.0.3-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

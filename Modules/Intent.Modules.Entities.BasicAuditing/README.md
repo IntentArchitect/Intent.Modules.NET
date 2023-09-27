@@ -62,7 +62,7 @@ public class Person : IHasDomainEvent, IAuditable
 }
 ```
 
-## Intent.EntityFrameworkCore integration.
+## Intent.EntityFrameworkCore integration
 
 If you have the `Intent.EntityFrameworkCore` module installed, your `DbContext` will also be extended to automatically populate the Entities with the `IAuditable` interface using the injected `ICurrentUserService` to resolve the "current user" at the time.  
 
