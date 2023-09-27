@@ -18,7 +18,9 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         {
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
-                .MaximumLength(256);
+                .MaximumLength(256)
+                .MustAsync(CheckUniqueConstraint_SingleUniqueField)
+                .WithMessage("SingleUniqueField already exists.");
 
             RuleFor(v => v.CompUniqueFieldA)
                 .NotNull()
@@ -27,6 +29,24 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
             RuleFor(v => v.CompUniqueFieldB)
                 .NotNull()
                 .MaximumLength(256);
+
+            RuleFor(v => v)
+                .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)
+                .WithMessage("The combination of CompUniqueFieldA and CompUniqueFieldB already exists.");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private async Task<bool> CheckUniqueConstraint_SingleUniqueField(string value, CancellationToken cancellationToken)
+        {
+            return true;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private async Task<bool> CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB(
+            CreateAggregateWithUniqueConstraintIndexElementCommand model,
+            CancellationToken cancellationToken)
+        {
+            return true;
         }
     }
 }

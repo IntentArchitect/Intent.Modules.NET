@@ -45,7 +45,8 @@ public static class ValidationRulesExtensions
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         string validatorProviderInterfaceTemplateName,
-        bool uniqueConstraintValidationEnabled)
+        bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled)
     {
         validatorClass.WithBaseType($"AbstractValidator <{toValidateTypeName}>");
         validatorClass.AddConstructor(ctor =>
@@ -75,7 +76,7 @@ public static class ValidationRulesExtensions
                 method.AddStatement(propertyStatement);
 
                 AddServiceProviderIfRequired(template, validatorClass, propertyStatement, validatorProviderInterfaceTemplateName);
-                if (AddRepositoryIfRequired(template, dtoModel, validatorClass, propertyStatement, out var possibleRepositoryFieldName) &&
+                if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, validatorClass, propertyStatement, out var possibleRepositoryFieldName) &&
                     string.IsNullOrWhiteSpace(repositoryFieldName))
                 {
                     repositoryFieldName = possibleRepositoryFieldName;
@@ -134,6 +135,13 @@ public static class ValidationRulesExtensions
                     method.AddParameter(template.GetTypeName(field.TypeReference), "value");
 
                     method.AddParameter("CancellationToken", "cancellationToken");
+
+                    if (!repositoryInjectionEnabled)
+                    {
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddStatement("return true;");
+                        return;
+                    }
                     
                     var mappedAttribute = field.Mapping.Element.AsAttributeModel();
                     if (IsCreateDto(dtoModel))
@@ -158,6 +166,13 @@ public static class ValidationRulesExtensions
                 method.AddParameter(toValidateTypeName, "model");
                 method.AddParameter("CancellationToken", "cancellationToken");
 
+                if (!repositoryInjectionEnabled)
+                {
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                    method.AddStatement("return true;");
+                    return;
+                }
+                
                 CSharpStatement expressionBody;
                 if (IsCreateDto(dtoModel))
                 {

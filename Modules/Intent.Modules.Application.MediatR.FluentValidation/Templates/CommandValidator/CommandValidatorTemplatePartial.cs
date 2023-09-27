@@ -31,6 +31,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 modelParameterName: "command",
                 validatorProviderInterfaceTemplateName: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetApplicationLayerFluentValidation().UniqueConstraintValidation().IsDefaultEnabled(),
+                repositoryInjectionEnabled: true,
                 model.GetConceptName())
         {
         }

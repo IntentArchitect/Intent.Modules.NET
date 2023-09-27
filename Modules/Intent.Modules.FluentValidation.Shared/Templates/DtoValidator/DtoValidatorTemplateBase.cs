@@ -21,6 +21,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string modelParameterName,
         string validatorProviderInterfaceTemplateName,
         bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
@@ -34,6 +35,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             relativeLocation: null,
             validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+            repositoryInjectionEnabled: repositoryInjectionEnabled,
             additionalFolders: additionalFolders)
     {
     }
@@ -49,7 +51,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string @namespace,
         string relativeLocation,
         string validatorProviderInterfaceTemplateName,
-        bool uniqueConstraintValidationEnabled)
+        bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
@@ -62,6 +65,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             relativeLocation: relativeLocation,
             validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+            repositoryInjectionEnabled: repositoryInjectionEnabled,
             additionalFolders: Array.Empty<string>())
     {
     }
@@ -78,6 +82,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string relativeLocation,
         string validatorProviderInterfaceTemplateName,
         bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled,
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
@@ -97,7 +102,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
                     dtoTemplateId: dtoTemplateId,
                     dtoValidatorTemplateId: dtoValidatorTemplateId,
                     validatorProviderInterfaceTemplateName: validatorProviderInterfaceTemplateName,
-                    uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled);
+                    uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+                    repositoryInjectionEnabled: repositoryInjectionEnabled);
             });
     }
 

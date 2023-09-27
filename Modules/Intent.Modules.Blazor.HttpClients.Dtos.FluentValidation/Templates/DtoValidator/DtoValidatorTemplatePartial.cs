@@ -28,7 +28,8 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 @namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),
                 relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget),
                 validatorProviderInterfaceTemplateName: "Blazor.HttpClient.Common.ValidatorProviderInterface",
-                uniqueConstraintValidationEnabled: false)
+                uniqueConstraintValidationEnabled: true,
+                repositoryInjectionEnabled: false)
         {
         }
     }
