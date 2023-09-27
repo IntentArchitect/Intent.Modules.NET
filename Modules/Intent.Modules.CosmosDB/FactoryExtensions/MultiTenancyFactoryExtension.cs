@@ -37,7 +37,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
             var repositoryBaseTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CosmosDBRepositoryBaseTemplate.TemplateId);
             UpdateRepositoryBase(repositoryBaseTemplate);
-            
+
             var repositoryTemplates = application.FindTemplateInstances(CosmosDBRepositoryTemplate.TemplateId, _ => true);
             foreach (var template in repositoryTemplates)
             {

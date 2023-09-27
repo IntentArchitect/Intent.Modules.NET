@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c36f89e9-ec42-4f86-a871-8397ad4c8fec" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EnsureParameterlessConstructorsExtension</name>
+  <display>EnsureParameterlessConstructorsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</parentFolderId>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.CosmosDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

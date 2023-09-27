@@ -34,6 +34,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b47e67c9-fe2e-48f8-b9ac-fbb3c4d889dd</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c36f89e9-ec42-4f86-a871-8397ad4c8fec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EnsureParameterlessConstructorsExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnsureParameterlessConstructorsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47e67c9-fe2e-48f8-b9ac-fbb3c4d889dd</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5632e697-26b1-4a38-9e12-6ce3d768d878</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>

@@ -37,7 +37,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 initializePrimaryKeyOnAggregateRoots: true,
                 makeNonPersistentPropertiesVirtual: true);
             RegisterServices(application);
-            
+
         }
 
         private static void RegisterServices(IApplication application)
