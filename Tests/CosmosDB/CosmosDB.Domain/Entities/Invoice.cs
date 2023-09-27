@@ -41,6 +41,14 @@ namespace CosmosDB.Domain.Entities
 
         public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public void Update(DateTime date, string number, string clientIdentifier)
+        {
+            Date = date;
+            Number = number;
+            ClientIdentifier = clientIdentifier;
+        }
+
         void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedBy, CreatedDate) = (createdBy, createdDate);
 
         void IAuditable.SetUpdated(string updatedBy, DateTimeOffset updatedDate) => (UpdatedBy, UpdatedDate) = (updatedBy, updatedDate);

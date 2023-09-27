@@ -1028,6 +1028,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#328c19d7-c0e9-4e04-ac40-43b4a59ec66d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#328c19d7-c0e9-4e04-ac40-43b4a59ec66d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#328c19d7-c0e9-4e04-ac40-43b4a59ec66d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#595a929b-0271-4e48-9ae1-2e1c05728c6f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommand.cs</ApplicationRelativeFilePath>

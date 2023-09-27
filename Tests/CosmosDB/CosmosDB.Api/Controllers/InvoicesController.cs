@@ -14,6 +14,7 @@ using CosmosDB.Application.Invoices.GetInvoiceLineItemById;
 using CosmosDB.Application.Invoices.GetInvoiceLineItems;
 using CosmosDB.Application.Invoices.GetInvoices;
 using CosmosDB.Application.Invoices.UpdateInvoice;
+using CosmosDB.Application.Invoices.UpdateInvoiceByOp;
 using CosmosDB.Application.Invoices.UpdateInvoiceLineItem;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -113,6 +114,30 @@ namespace CosmosDB.Api.Controllers
         {
             await _mediator.Send(new DeleteInvoiceLineItemCommand(invoiceId: invoiceId, id: id), cancellationToken);
             return Ok();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPut("api/invoice/{id}/by-op")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> UpdateInvoiceByOp(
+            [FromRoute] string id,
+            [FromBody] UpdateInvoiceByOpCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
         }
 
         /// <summary>
