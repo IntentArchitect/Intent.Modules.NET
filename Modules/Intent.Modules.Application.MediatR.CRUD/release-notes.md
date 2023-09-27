@@ -1,3 +1,7 @@
+### Version 5.2.6
+
+- Fixed: When calling domain operations for Document DB aggregate entities, an uncompilable `_<entityName>Repository.Update(aggregateRoot)` statement would be generated.
+
 ### Version 5.2.5
 
 - Fixed: GetNestedCompositionalOwner detects owner classes more accurately to not throw exceptions unnecessarily.

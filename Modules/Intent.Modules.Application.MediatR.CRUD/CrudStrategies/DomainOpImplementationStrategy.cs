@@ -131,7 +131,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             if (RepositoryRequiresExplicitUpdate())
             {
-                codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
+                codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update({entityVariableName});").SeparatedFromPrevious());
             }
 
             return codeLines.ToList();
