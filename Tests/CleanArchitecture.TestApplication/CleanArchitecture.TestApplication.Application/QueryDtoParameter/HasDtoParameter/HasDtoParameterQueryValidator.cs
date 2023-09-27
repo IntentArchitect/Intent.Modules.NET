@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,16 +12,16 @@ namespace CleanArchitecture.TestApplication.Application.QueryDtoParameter.HasDto
     public class HasDtoParameterQueryValidator : AbstractValidator<HasDtoParameterQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public HasDtoParameterQueryValidator(IServiceProvider provider)
+        public HasDtoParameterQueryValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Arg)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<QueryDtoParameterCriteria>>()!);
+                .SetValidator(provider.GetValidator<QueryDtoParameterCriteria>()!);
         }
     }
 }
