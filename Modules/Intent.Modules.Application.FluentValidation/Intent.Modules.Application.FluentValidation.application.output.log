@@ -64,5 +64,13 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>32e3b9f3-0e84-4479-ac0d-62648b893905</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#55856e5d-8217-4c17-8fbb-082ac75baaf5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

@@ -32,6 +32,12 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 });
 
             services
+                .AddHttpClient<IUniqueIndexConstraintService, UniqueIndexConstraintServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");
+                });
+
+            services
                 .AddHttpClient<IValidationService, ValidationServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");

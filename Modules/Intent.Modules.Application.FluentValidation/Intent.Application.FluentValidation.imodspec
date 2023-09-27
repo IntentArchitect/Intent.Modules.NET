@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.8.0-pre.3</version>
+  <version>3.8.0-pre.4</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -15,7 +15,20 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="459a4008-350c-42ec-b43d-9c85000babc0" title="Fluent Validation (Application Layer)" externalReference="459a4008-350c-42ec-b43d-9c85000babc0">
+      <settings>
+        <setting id="da76a14e-3ea4-4ebb-a262-69cbb0f9889b" title="Unique Constraint Validation" type="select">
+          <isRequired>true</isRequired>
+          <defaultValue>default-disabled</defaultValue>
+          <options>
+            <option value="default-enabled" description="Enabled by Default" />
+            <option value="default-disabled" description="Disabled by Default" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
       <install>
@@ -53,7 +66,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36" />
+    <dependency id="Intent.Common.CSharp" version="3.3.41-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0-pre.2" />

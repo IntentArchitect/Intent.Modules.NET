@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,27 +12,27 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
     public class CreateAggregateRootCommandValidator : AbstractValidator<CreateAggregateRootCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateAggregateRootCommandValidator(IServiceProvider provider)
+        public CreateAggregateRootCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.AggregateAttr)
                 .NotNull();
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<CreateAggregateRootCompositeManyBDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBDto>()!));
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetRequiredService<IValidator<CreateAggregateRootCompositeSingleADto>>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeSingleADto>()!);
 
             RuleFor(v => v.Aggregate)
-                .SetValidator(provider.GetRequiredService<IValidator<CreateAggregateRootAggregateSingleCDto>>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootAggregateSingleCDto>()!);
 
             RuleFor(v => v.LimitedDomain)
                 .NotNull()

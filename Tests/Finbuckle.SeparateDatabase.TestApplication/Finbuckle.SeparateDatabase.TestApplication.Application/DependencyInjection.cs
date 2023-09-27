@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using Finbuckle.SeparateDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Implementation;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using FluentValidation;
@@ -18,6 +19,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IUsersService, UsersService>();
             return services;

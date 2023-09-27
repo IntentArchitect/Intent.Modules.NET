@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="459a4008-350c-42ec-b43d-9c85000babc0" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Fluent Validation (Application Layer)</name>
+  <display>Fluent Validation (Application Layer)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>55856e5d-8217-4c17-8fbb-082ac75baaf5</parentFolderId>
+  <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
+  <packageName>Intent.Application.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="da76a14e-3ea4-4ebb-a262-69cbb0f9889b" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Unique Constraint Validation</name>
+      <display>Unique Constraint Validation</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>459a4008-350c-42ec-b43d-9c85000babc0</parentFolderId>
+      <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
+      <packageName>Intent.Application.FluentValidation</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="default-disabled" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b4f27c80-7da3-4d7c-a55b-2ad41ab97dad" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Enabled by Default</name>
+          <display>Enabled by Default = default-enabled</display>
+          <isAbstract>false</isAbstract>
+          <value>default-enabled</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>da76a14e-3ea4-4ebb-a262-69cbb0f9889b</parentFolderId>
+          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
+          <packageName>Intent.Application.FluentValidation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="87c140ca-4c92-43ca-8865-723f972013a7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Disabled by Default</name>
+          <display>Disabled by Default = default-disabled</display>
+          <isAbstract>false</isAbstract>
+          <value>default-disabled</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>da76a14e-3ea4-4ebb-a262-69cbb0f9889b</parentFolderId>
+          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
+          <packageName>Intent.Application.FluentValidation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

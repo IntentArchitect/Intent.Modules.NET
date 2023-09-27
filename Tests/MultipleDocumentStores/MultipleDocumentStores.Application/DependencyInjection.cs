@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MultipleDocumentStores.Application.Common.Behaviours;
+using MultipleDocumentStores.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -29,6 +30,7 @@ namespace MultipleDocumentStores.Application
                 cfg.AddOpenBehavior(typeof(DaprStateStoreUnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

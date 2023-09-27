@@ -2,6 +2,7 @@ using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDb.TestApplication.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "2.0")]
@@ -12,14 +13,14 @@ namespace MongoDb.TestApplication.Application.MapperRoots
     public class MapperRootDtoValidator : AbstractValidator<MapperRootDto>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public MapperRootDtoValidator(IServiceProvider provider)
+        public MapperRootDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Id)
                 .NotNull();
@@ -59,11 +60,11 @@ namespace MongoDb.TestApplication.Application.MapperRoots
 
             RuleFor(v => v.MapAggChildren)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<MapAggChildDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<MapAggChildDto>()!));
 
             RuleFor(v => v.MapMapMe)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<MapMapMeDto>>()!);
+                .SetValidator(provider.GetValidator<MapMapMeDto>()!);
         }
     }
 }

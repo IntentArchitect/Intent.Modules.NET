@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation.Dtos</id>
-  <version>3.7.0-pre.4</version>
+  <version>3.7.0-pre.6</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on DTOs</summary>
   <description>Provides support for specifying fluent validation on DTOs</description>
@@ -24,7 +24,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Common.ValidatonService</role>
-      <location></location>
+      <location>Common/Validation</location>
     </template>
     <template id="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" externalReference="ec377675-a58c-4832-9750-516dff096da2">
       <config>
@@ -32,7 +32,23 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Common.ValidatonServiceInterface</role>
-      <location></location>
+      <location>Common/Validation</location>
+    </template>
+    <template id="Intent.Application.FluentValidation.Dtos.ValidatorProvider" externalReference="8a46cd5f-e7b3-4c07-892e-d94c1cb77a59">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.ValidatorProvider</role>
+      <location>Common/Validation</location>
+    </template>
+    <template id="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" externalReference="09d2e05c-6de1-41f6-b0a3-0e82657cfbb8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.ValidatorProviderInterface</role>
+      <location>Common/Validation</location>
     </template>
   </templates>
   <decorators></decorators>
@@ -41,9 +57,9 @@
   <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="4.0.2" />
-    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.3" />
+    <dependency id="Intent.Application.FluentValidation" version="3.8.0-pre.4" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36" />
+    <dependency id="Intent.Common.CSharp" version="3.3.41-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0-pre.1" />

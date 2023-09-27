@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using Finbuckle.SharedDatabase.TestApplication.Application.Common.Validation;
 using Finbuckle.SharedDatabase.TestApplication.Application.Implementation;
 using Finbuckle.SharedDatabase.TestApplication.Application.Interfaces;
 using FluentValidation;
@@ -23,6 +24,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IUsersService, UsersService>();
             return services;

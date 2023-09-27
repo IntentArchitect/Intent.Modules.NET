@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,14 +12,14 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateCustomerCommandValidator(IServiceProvider provider)
+        public CreateCustomerCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull()
@@ -34,7 +35,7 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetRequiredService<IValidator<CreateCustomerAddressDto>>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>()!);
         }
     }
 }

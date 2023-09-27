@@ -1,8 +1,8 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,7 +26,10 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 dtoValidatorTemplateId: TemplateId,
                 modelParameterName: "model",
                 @namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),
-                relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget))
+                relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget),
+                validatorProviderInterfaceTemplateId: "Blazor.HttpClient.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: true,
+                repositoryInjectionEnabled: false)
         {
         }
     }

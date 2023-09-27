@@ -1,3 +1,4 @@
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,23 +11,23 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
     public class CreateAggregateRootCompositeManyBCommandValidator : AbstractValidator<CreateAggregateRootCompositeManyBCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateAggregateRootCompositeManyBCommandValidator(IServiceProvider provider)
+        public CreateAggregateRootCompositeManyBCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.CompositeAttr)
                 .NotNull();
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetRequiredService<IValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto>>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto>()!);
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>()!));
         }
     }
 }

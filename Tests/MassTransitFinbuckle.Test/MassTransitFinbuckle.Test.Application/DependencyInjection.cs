@@ -3,6 +3,7 @@ using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransitFinbuckle.Test.Application.Common.Behaviours;
+using MassTransitFinbuckle.Test.Application.Common.Validation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ namespace MassTransitFinbuckle.Test.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.UpdateImplicitKeyAggrRoot;
 using FluentAssertions;
@@ -74,9 +75,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
         private ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto>)).Returns(c => new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator());
-            return new ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit>(new[] { new UpdateImplicitKeyAggrRootCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto>().Returns(c => new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator());
+            return new ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit>(new[] { new UpdateImplicitKeyAggrRootCommandValidator(validatorProvider) });
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using CleanArchitecture.TestApplication.Application.DDD;
 using CleanArchitecture.TestApplication.Application.DDD.CreateTransaction;
 using FluentAssertions;
@@ -79,10 +80,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD
 
         private ValidationBehaviour<CreateTransactionCommand, Unit> GetValidationBehaviour()
         {
-            var serviceProvider = Substitute.For<IServiceProvider>();
-            serviceProvider.GetService(typeof(IValidator<CreateMoneyDto>)).Returns(c => new CreateMoneyDtoValidator());
-            serviceProvider.GetService(typeof(IValidator<CreateAccountDto>)).Returns(c => new CreateAccountDtoValidator());
-            return new ValidationBehaviour<CreateTransactionCommand, Unit>(new[] { new CreateTransactionCommandValidator(serviceProvider) });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<CreateMoneyDto>().Returns(c => new CreateMoneyDtoValidator());
+            validatorProvider.GetValidator<CreateAccountDto>().Returns(c => new CreateAccountDtoValidator());
+            return new ValidationBehaviour<CreateTransactionCommand, Unit>(new[] { new CreateTransactionCommandValidator(validatorProvider) });
         }
     }
 }

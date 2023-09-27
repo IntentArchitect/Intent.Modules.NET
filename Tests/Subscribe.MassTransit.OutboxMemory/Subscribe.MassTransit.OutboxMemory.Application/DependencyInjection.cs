@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
+using Subscribe.MassTransit.OutboxMemory.Application.Common.Validation;
 using Subscribe.MassTransit.OutboxMemory.Application.IntegrationEventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +32,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEventHandler>();

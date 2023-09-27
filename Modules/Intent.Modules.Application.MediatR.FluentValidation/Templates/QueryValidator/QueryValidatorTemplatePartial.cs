@@ -1,6 +1,7 @@
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.FluentValidation.Settings;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
@@ -12,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryValidator
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Ignore)]
     public class QueryValidatorTemplate : DtoValidatorTemplateBase
     {
         [IntentManaged(Mode.Fully)]
@@ -28,6 +29,9 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
                 dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
                 modelParameterName: "command",
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                repositoryInjectionEnabled: true,
                 model.GetConceptName())
         {
         }

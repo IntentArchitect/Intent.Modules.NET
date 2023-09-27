@@ -1,4 +1,5 @@
 using System.Reflection;
+using Application.Identity.Jwt.TestApplication.Application.Common.Validation;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -16,6 +17,7 @@ namespace Application.Identity.Jwt.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

@@ -275,6 +275,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d64ee424-f9e1-429f-8a5a-b04dcc19ed28</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d64ee424-f9e1-429f-8a5a-b04dcc19ed28</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3ef2501d-6029-44d2-8641-083478fdeec4</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -19,5 +19,34 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="9da56a7b-dc14-4bd5-ad25-943b9261b02e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d4fd47bc-d17b-4434-a4d9-aae2c17c1515</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9eb296cf-bae5-49e4-9090-b23f33618e6d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d4fd47bc-d17b-4434-a4d9-aae2c17c1515</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

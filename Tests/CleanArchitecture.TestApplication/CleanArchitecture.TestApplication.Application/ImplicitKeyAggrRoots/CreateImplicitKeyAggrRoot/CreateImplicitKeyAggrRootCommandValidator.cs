@@ -1,4 +1,5 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,21 +12,21 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
     public class CreateImplicitKeyAggrRootCommandValidator : AbstractValidator<CreateImplicitKeyAggrRootCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateImplicitKeyAggrRootCommandValidator(IServiceProvider provider)
+        public CreateImplicitKeyAggrRootCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
 
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules(IServiceProvider provider)
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
 
             RuleFor(v => v.ImplicitKeyNestedCompositions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetRequiredService<IValidator<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto>>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto>()!));
         }
     }
 }

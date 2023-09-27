@@ -5,6 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
+using Subscribe.GooglePubSub.TestApplication.Application.Common.Validation;
 using Subscribe.GooglePubSub.TestApplication.Application.IntegrationEventHandlers;
 using Subscribe.GooglePubSub.TestApplication.Application.IntegrationEvents;
 using Subscribe.GooglePubSub.TestApplication.Eventing.Messages;
@@ -20,6 +21,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Application
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<GenericMessage>, GenericEventHandler>();
             services.AddTransient<IIntegrationEventHandler<EventStartedEvent>, EventStartedEventHandler>();
             return services;

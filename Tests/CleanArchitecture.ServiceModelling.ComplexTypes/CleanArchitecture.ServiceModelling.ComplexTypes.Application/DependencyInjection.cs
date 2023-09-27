@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Behaviours;
+using CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             return services;
         }

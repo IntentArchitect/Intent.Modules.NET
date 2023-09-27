@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SignalR.Application.Common.Behaviours;
+using SignalR.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -27,6 +28,7 @@ namespace SignalR.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             return services;
         }

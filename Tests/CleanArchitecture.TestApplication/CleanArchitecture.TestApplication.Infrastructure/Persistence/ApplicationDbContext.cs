@@ -16,6 +16,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
+using CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CompositeKeys;
@@ -28,6 +29,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Pagination;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.UniqueIndexConstraint;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -73,6 +75,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<LogEntry> LogEntries { get; set; }
+        public DbSet<AggregateWithUniqueConstraintIndexElement> AggregateWithUniqueConstraintIndexElements { get; set; }
+        public DbSet<AggregateWithUniqueConstraintIndexStereotype> AggregateWithUniqueConstraintIndexStereotypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -120,6 +124,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new LogEntryConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexElementConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexStereotypeConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

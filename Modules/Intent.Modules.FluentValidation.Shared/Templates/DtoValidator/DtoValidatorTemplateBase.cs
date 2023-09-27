@@ -19,17 +19,23 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         string modelParameterName,
+        string validatorProviderInterfaceTemplateId,
+        bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
-            model: model,
+            dtoModel: model,
             toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
             modelParameterName: modelParameterName,
             @namespace: null,
             relativeLocation: null,
+            validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
+            uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+            repositoryInjectionEnabled: repositoryInjectionEnabled,
             additionalFolders: additionalFolders)
     {
     }
@@ -43,17 +49,23 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string dtoValidatorTemplateId,
         string modelParameterName,
         string @namespace,
-        string relativeLocation)
+        string relativeLocation,
+        string validatorProviderInterfaceTemplateId,
+        bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
-            model: model,
+            dtoModel: model,
             toValidateTemplateId: toValidateTemplateId,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
             modelParameterName: modelParameterName,
             @namespace: @namespace,
             relativeLocation: relativeLocation,
+            validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
+            uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+            repositoryInjectionEnabled: repositoryInjectionEnabled,
             additionalFolders: Array.Empty<string>())
     {
     }
@@ -61,15 +73,18 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     private DtoValidatorTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
-        DTOModel model,
+        DTOModel dtoModel,
         string toValidateTemplateId,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         string modelParameterName,
         string @namespace,
         string relativeLocation,
+        string validatorProviderInterfaceTemplateId,
+        bool uniqueConstraintValidationEnabled,
+        bool repositoryInjectionEnabled,
         params string[] additionalFolders)
-        : base(templateId, outputTarget, model)
+        : base(templateId, outputTarget, dtoModel)
     {
         AddNugetDependency(NuGetPackages.FluentValidation);
 
@@ -80,12 +95,15 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             .AddClass($"{Model.Name}Validator", @class =>
             {
                 this.ConfigureForValidation(
-                    @class: @class,
-                    properties: Model.Fields,
+                    validatorClass: @class,
+                    dtoModel: dtoModel,
                     toValidateTypeName: GetTypeName(toValidateTemplateId, Model),
                     modelParameterName: modelParameterName,
                     dtoTemplateId: dtoTemplateId,
-                    dtoValidatorTemplateId: dtoValidatorTemplateId);
+                    dtoValidatorTemplateId: dtoValidatorTemplateId,
+                    validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
+                    uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+                    repositoryInjectionEnabled: repositoryInjectionEnabled);
             });
     }
 
