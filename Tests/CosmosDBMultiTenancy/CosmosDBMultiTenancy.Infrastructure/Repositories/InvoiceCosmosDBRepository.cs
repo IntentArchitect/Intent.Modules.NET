@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using CosmosDBMultiTenancy.Application.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Entities;
 using CosmosDBMultiTenancy.Domain.Repositories;
 using CosmosDBMultiTenancy.Infrastructure.Persistence;
@@ -17,7 +18,8 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
     {
         public InvoiceCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<InvoiceDocument> cosmosRepository,
-            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor) : base(unitOfWork, cosmosRepository, "id", "tenantId", multiTenantContextAccessor)
+            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", "tenantId", multiTenantContextAccessor, currentUserService)
         {
         }
 

@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f3af9cde-762a-4f94-a1cd-907eb4db0353</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>

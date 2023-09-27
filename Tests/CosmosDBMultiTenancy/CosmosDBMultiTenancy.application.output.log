@@ -340,6 +340,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ed87c57-f5ce-485a-96f5-7fb945fa6690</ProjectId>
+      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5ed87c57-f5ce-485a-96f5-7fb945fa6690</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>

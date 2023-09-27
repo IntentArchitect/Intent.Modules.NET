@@ -1,3 +1,4 @@
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -13,7 +14,8 @@ namespace CosmosDB.Infrastructure.Repositories
     internal class ClientCosmosDBRepository : CosmosDBRepositoryBase<Client, Client, ClientDocument>, IClientRepository
     {
         public ClientCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            Microsoft.Azure.CosmosRepository.IRepository<ClientDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "identifier")
+            Microsoft.Azure.CosmosRepository.IRepository<ClientDocument> cosmosRepository,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "identifier", currentUserService)
         {
         }
     }

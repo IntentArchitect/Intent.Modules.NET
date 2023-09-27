@@ -53,10 +53,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8fac0120-018d-43e2-95f6-1773b5ba29fa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</name>
-      <display>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.BasicAuditing</externalReference>
+    <childElement id="426c1a77-69a2-435f-9920-304dd259ab58" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</name>
+      <display>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.SoftDelete</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -69,16 +69,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="426c1a77-69a2-435f-9920-304dd259ab58" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</name>
-      <display>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.SoftDelete</externalReference>
+    <childElement id="c865124f-2ff1-49e2-a4a7-81b9e20c8107" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.BasicAuditing.AuditableInterface</name>
+      <display>Intent.Entities.BasicAuditing.AuditableInterface</display>
+      <externalReference>Intent.Entities.BasicAuditing</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c2adcba4-ab05-4a92-a25f-a5768e12a669</parentFolderId>
-      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
-      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

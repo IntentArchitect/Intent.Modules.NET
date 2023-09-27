@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDBMultiTenancy.Application.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Repositories;
 using CosmosDBMultiTenancy.Infrastructure.Persistence;
@@ -27,18 +28,23 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         private readonly string _idFieldName;
         private readonly string? _tenantId;
         private readonly string _partitionKeyFieldName;
+        private readonly Lazy<(string UserName, DateTimeOffset TimeStamp)> _auditDetails;
+        private readonly ICurrentUserService _currentUserService;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
             string idFieldName,
             string partitionKeyFieldName,
-            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor)
+            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor,
+            ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
             _partitionKeyFieldName = partitionKeyFieldName;
             _tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException("Could not resolve tenantId");
+            _currentUserService = currentUserService;
+            _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
@@ -48,6 +54,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetCreated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
 
                 document.PartitionKey ??= _tenantId;
@@ -64,6 +71,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
 
                 document.PartitionKey ??= _tenantId;
@@ -195,6 +203,14 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         public void Track(TDomain item)
         {
             _unitOfWork.Track(item);
+        }
+
+        private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()
+        {
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var timestamp = DateTimeOffset.UtcNow;
+
+            return (userName, timestamp);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

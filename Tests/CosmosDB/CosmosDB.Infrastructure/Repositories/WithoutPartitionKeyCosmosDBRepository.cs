@@ -1,3 +1,4 @@
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -13,7 +14,8 @@ namespace CosmosDB.Infrastructure.Repositories
     internal class WithoutPartitionKeyCosmosDBRepository : CosmosDBRepositoryBase<WithoutPartitionKey, WithoutPartitionKey, WithoutPartitionKeyDocument>, IWithoutPartitionKeyRepository
     {
         public WithoutPartitionKeyCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            Microsoft.Azure.CosmosRepository.IRepository<WithoutPartitionKeyDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
+            Microsoft.Azure.CosmosRepository.IRepository<WithoutPartitionKeyDocument> cosmosRepository,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
     }

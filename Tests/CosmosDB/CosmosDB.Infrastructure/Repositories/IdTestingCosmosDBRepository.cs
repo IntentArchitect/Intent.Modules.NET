@@ -1,3 +1,4 @@
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -13,7 +14,8 @@ namespace CosmosDB.Infrastructure.Repositories
     internal class IdTestingCosmosDBRepository : CosmosDBRepositoryBase<IdTesting, IdTesting, IdTestingDocument>, IIdTestingRepository
     {
         public IdTestingCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            Microsoft.Azure.CosmosRepository.IRepository<IdTestingDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "identifier")
+            Microsoft.Azure.CosmosRepository.IRepository<IdTestingDocument> cosmosRepository,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "identifier", currentUserService)
         {
         }
     }

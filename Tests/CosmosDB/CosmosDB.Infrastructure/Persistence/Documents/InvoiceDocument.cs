@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CosmosDB.Domain.Common;
+using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -39,6 +40,10 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             ClientIdentifier = entity.ClientIdentifier;
             Date = entity.Date;
             Number = entity.Number;
+            CreatedBy = entity.CreatedBy;
+            CreatedDate = entity.CreatedDate;
+            UpdatedBy = entity.UpdatedBy;
+            UpdatedDate = entity.UpdatedDate;
             LineItems = entity.LineItems;
             InvoiceLogo = entity.InvoiceLogo;
 

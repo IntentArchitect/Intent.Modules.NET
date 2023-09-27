@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -24,14 +25,19 @@ namespace CosmosDB.Infrastructure.Repositories
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
+        private readonly Lazy<(string UserName, DateTimeOffset TimeStamp)> _auditDetails;
+        private readonly ICurrentUserService _currentUserService;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
-            string idFieldName)
+            string idFieldName,
+            ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
+            _currentUserService = currentUserService;
+            _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
@@ -41,6 +47,7 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetCreated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
@@ -50,6 +57,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
@@ -148,6 +156,14 @@ namespace CosmosDB.Infrastructure.Repositories
         public void Track(TDomain item)
         {
             _unitOfWork.Track(item);
+        }
+
+        private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()
+        {
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var timestamp = DateTimeOffset.UtcNow;
+
+            return (userName, timestamp);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

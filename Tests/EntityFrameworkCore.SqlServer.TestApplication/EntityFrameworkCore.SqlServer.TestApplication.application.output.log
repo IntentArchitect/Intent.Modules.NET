@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>95bae7a6-0c46-40ac-9c52-d49839194d3f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>

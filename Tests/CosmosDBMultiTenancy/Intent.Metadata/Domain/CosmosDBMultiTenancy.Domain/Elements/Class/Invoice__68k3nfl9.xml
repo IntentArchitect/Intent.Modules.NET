@@ -9,7 +9,14 @@
   <parentFolderId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</parentFolderId>
   <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
   <packageName>CosmosDBMultiTenancy.Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.BasicAuditing</definitionPackageName>
+      <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="defe6b73-b039-4f83-ae31-8964897847ce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
@@ -89,6 +96,110 @@
       <packageName>CosmosDBMultiTenancy.Domain</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="69a45d88-45fb-4c97-9542-0ec1310e01f8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedBy</name>
+      <display>CreatedBy: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="afb012a2-2fde-44dd-a2fc-5a06de5a93e9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>db7bce5a-2ef8-4993-b8ac-d7a7f04e5460</parentFolderId>
+      <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
+      <packageName>CosmosDBMultiTenancy.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3f077501-90a6-41d5-9c5f-86c538b08c0e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedDate</name>
+      <display>CreatedDate: datetimeoffset</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="008551b6-5f0b-4b2f-aea3-a702a43d6a72">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>db7bce5a-2ef8-4993-b8ac-d7a7f04e5460</parentFolderId>
+      <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
+      <packageName>CosmosDBMultiTenancy.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bbd5d6c2-af6b-4128-a212-6b2de6deec52" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedBy</name>
+      <display>UpdatedBy: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6c5f1765-2e22-49ae-85e1-6229ef97fef4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>db7bce5a-2ef8-4993-b8ac-d7a7f04e5460</parentFolderId>
+      <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
+      <packageName>CosmosDBMultiTenancy.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4337461a-5386-40dd-9532-eab46c7e59ce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedDate</name>
+      <display>UpdatedDate: datetimeoffset?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fed6e91f-0ff7-46fd-9ef4-455f3b490473">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>db7bce5a-2ef8-4993-b8ac-d7a7f04e5460</parentFolderId>
+      <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
+      <packageName>CosmosDBMultiTenancy.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

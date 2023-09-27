@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="67a83180-bd89-44df-8fcd-10a067e0c050" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.BasicAuditing.AuditableInterface</name>
+      <display>Intent.Entities.BasicAuditing.AuditableInterface</display>
+      <externalReference>Intent.Entities.BasicAuditing</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5ed87c57-f5ce-485a-96f5-7fb945fa6690</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

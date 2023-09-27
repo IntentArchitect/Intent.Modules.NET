@@ -1,3 +1,4 @@
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities.Folder;
 using CosmosDB.Domain.Repositories.Folder;
 using CosmosDB.Infrastructure.Persistence;
@@ -13,7 +14,8 @@ namespace CosmosDB.Infrastructure.Repositories.Folder
     internal class FolderContainerCosmosDBRepository : CosmosDBRepositoryBase<FolderContainer, FolderContainer, FolderContainerDocument>, IFolderContainerRepository
     {
         public FolderContainerCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            IRepository<FolderContainerDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
+            IRepository<FolderContainerDocument> cosmosRepository,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
     }

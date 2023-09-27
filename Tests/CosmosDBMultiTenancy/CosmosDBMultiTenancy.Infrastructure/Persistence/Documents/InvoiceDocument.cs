@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CosmosDBMultiTenancy.Domain.Common;
+using CosmosDBMultiTenancy.Domain.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -43,6 +44,10 @@ namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
             Id = entity.Id;
             Number = entity.Number;
             TenantId = entity.TenantId;
+            CreatedBy = entity.CreatedBy;
+            CreatedDate = entity.CreatedDate;
+            UpdatedBy = entity.UpdatedBy;
+            UpdatedDate = entity.UpdatedDate;
 
             return this;
         }
