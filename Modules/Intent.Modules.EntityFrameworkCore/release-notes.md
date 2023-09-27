@@ -1,4 +1,8 @@
-﻿### Version 4.4.11
+﻿### Version 4.4.12
+
+- Fixed: Protected constructors required by EF would be generated for entities to be used with alternative persistence technologies.
+
+### Version 4.4.11
 
 - Improvement: Made EF Core lazy loading proxies a configurable option, which is `true` be default for backwards compatibility.
 - Improvement: Moving the on-load script from a class level to a package level can drastically improve loading times.
