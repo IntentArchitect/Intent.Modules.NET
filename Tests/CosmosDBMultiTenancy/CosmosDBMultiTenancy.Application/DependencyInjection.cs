@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CosmosDBMultiTenancy.Application.Common.Behaviours;
+using CosmosDBMultiTenancy.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,7 @@ namespace CosmosDBMultiTenancy.Application
                 cfg.AddOpenBehavior(typeof(CosmosDBUnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }
