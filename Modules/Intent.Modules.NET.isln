@@ -121,5 +121,6 @@
     <application id="1778123f-6740-4552-9120-d21452253f32" name="Intent.Modules.Blazor.WebAssembly" relativePath="Intent.Modules.Blazor.WebAssembly/Intent.Modules.Blazor.WebAssembly.application.config" />
     <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Intent.Modules.Blazor.WebAssembly.Metadata" relativePath="Intent.Modules.Blazor.WebAssembly.Metadata/Intent.Modules.Blazor.WebAssembly.Metadata.application.config" />
     <application id="007bc5e4-978a-4a04-8c15-a206673a3b4f" name="Intent.Modules.Blazor.Server" relativePath="Intent.Modules.Blazor.Server/Intent.Modules.Blazor.Server.application.config" />
+    <application id="7951a529-b874-48dc-bed9-7fa0bdd418f4" name="Intent.Modules.Entities.BasicAuditing" relativePath="Intent.Modules.Entities.BasicAuditing/Intent.Modules.Entities.BasicAuditing.application.config" />
   </applications>
 </solution>
