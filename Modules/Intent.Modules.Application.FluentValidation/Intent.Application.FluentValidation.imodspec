@@ -22,8 +22,8 @@
           <isRequired>true</isRequired>
           <defaultValue>default-disabled</defaultValue>
           <options>
-            <option value="default-enabled" description="Enabled by Default" />
-            <option value="default-disabled" description="Disabled by Default" />
+            <option value="default-enabled" description="Enabled by default" />
+            <option value="default-disabled" description="Disabled by default" />
           </options>
         </setting>
       </settings>
