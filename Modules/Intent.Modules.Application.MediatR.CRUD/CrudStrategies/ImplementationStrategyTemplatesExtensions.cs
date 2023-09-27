@@ -86,10 +86,13 @@ public static class ImplementationStrategyTemplatesExtensions
 
     public static ClassModel GetNestedCompositionalOwner(this ClassModel entity)
     {
-        var aggregateRootAssociation = entity.AssociatedClasses
-            .SingleOrDefault(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
-                                  p.IsSourceEnd() && !p.IsCollection && !p.IsNullable);
-        return aggregateRootAssociation?.Class;
+        var aggregateRootClass = entity.AssociatedClasses
+            .Where(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
+                        p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
+            .Select(s => s.Class)
+            .Distinct()
+            .SingleOrDefault();
+        return aggregateRootClass;
     }
 
     // This is duplicated in Intent.Modules.Application.Shared
@@ -380,7 +383,7 @@ public static class ImplementationStrategyTemplatesExtensions
                     var pkAttributeName = ownerPkAttribute.IdName.ToLowerInvariant();
                     var fieldName = $"{entityName}{pkAttributeName.RemoveSuffix(entityName)}";
 
-                    return fields.SingleOrDefault(field =>
+                    return fields.FirstOrDefault(field =>
                         string.Equals(field.Name, fieldName, StringComparison.OrdinalIgnoreCase));
                 })
                 .Where(x => x != null)

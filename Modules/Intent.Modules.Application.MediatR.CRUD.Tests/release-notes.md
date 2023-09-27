@@ -3,6 +3,7 @@
 - Improvement: Fluent Validation tests updated to accomodate the `IServiceProvider` injection scenarios.
 - Improvement: Fluent Validation that receives Repositories, will also be stubbed.
 - Fixed: Entities with Interfaces are now supported.
+- Fixed: GetNestedCompositionalOwner detects owner classes more accurately to not throw exceptions unnecessarily.
 
 ### Version 1.3.0
 

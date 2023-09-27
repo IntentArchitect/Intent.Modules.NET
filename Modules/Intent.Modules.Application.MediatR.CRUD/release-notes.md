@@ -1,3 +1,7 @@
+### Version 5.2.5
+
+- Fixed: GetNestedCompositionalOwner detects owner classes more accurately to not throw exceptions unnecessarily.
+
 ### Version 5.2.4
 
 - Improvement: Will now automatically add necessary fields for primary keys for command and queries mapped to owned composite entities and implementations will properly recognize them.
