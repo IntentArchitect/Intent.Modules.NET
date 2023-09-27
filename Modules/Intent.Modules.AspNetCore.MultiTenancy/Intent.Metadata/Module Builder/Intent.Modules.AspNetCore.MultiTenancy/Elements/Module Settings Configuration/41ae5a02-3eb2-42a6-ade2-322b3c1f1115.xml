@@ -220,5 +220,60 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="d299a5bb-db30-474b-8bac-fa879151a1a3" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Multi Tenancy to Aggregates(For Shared Database)</name>
+      <display>Multi Tenancy to Aggregates(For Shared Database)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Automatically configure Aggregate entities for Multi Tenancy." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="automatically" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6c5155b4-881f-409d-840f-1af25db14c25" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Automatically</name>
+          <display>Automatically = automatically</display>
+          <isAbstract>false</isAbstract>
+          <value>automatically</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d299a5bb-db30-474b-8bac-fa879151a1a3</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4e526f89-c350-449c-b03a-256bfb8a76e1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Manually</name>
+          <display>Manually = manually</display>
+          <isAbstract>false</isAbstract>
+          <value>manually</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d299a5bb-db30-474b-8bac-fa879151a1a3</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
