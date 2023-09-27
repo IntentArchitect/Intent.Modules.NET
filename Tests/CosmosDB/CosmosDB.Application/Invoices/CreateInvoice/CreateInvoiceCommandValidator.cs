@@ -18,7 +18,7 @@ namespace CosmosDB.Application.Invoices.CreateInvoice
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
-            RuleFor(v => v.ClientId)
+            RuleFor(v => v.ClientIdentifier)
                 .NotNull();
 
             RuleFor(v => v.Number)

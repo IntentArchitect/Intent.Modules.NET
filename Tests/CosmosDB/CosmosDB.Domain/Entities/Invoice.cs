@@ -15,6 +15,26 @@ namespace CosmosDB.Domain.Entities
     public class Invoice : IHasDomainEvent, IAuditable
     {
         private string? _id;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public Invoice(string clientIdentifier, DateTime date, string number)
+        {
+            ClientIdentifier = clientIdentifier;
+            Date = date;
+            Number = number;
+        }
+
+        /// <summary>
+        /// Required for derived Cosmos DB documents.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected Invoice()
+        {
+            Id = null!;
+            ClientIdentifier = null!;
+            Number = null!;
+            CreatedBy = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

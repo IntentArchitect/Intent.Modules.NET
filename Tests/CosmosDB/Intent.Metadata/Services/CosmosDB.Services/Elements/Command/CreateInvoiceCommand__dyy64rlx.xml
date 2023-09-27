@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="08f0a0f6-6881-4d56-80d5-0d7cd6f3b7c6" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+<class id="26e29abb-d35e-4719-95d9-8171c6c70958" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateInvoiceCommand</name>
   <display>CreateInvoiceCommand: string</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="d02eeb5f-68ab-4401-b32d-9d3eeda2646f">
+  <typeReference id="8922a5ff-70f2-4634-8f0e-ee65e8492197">
     <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -20,10 +20,11 @@
   <mappedClass>
     <applicationId>b0cfe26a-d338-4d6d-a8df-a97c4e78f647</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>false</autoSyncTypeReference>
+    <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
       <target id="95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a" name="Invoice" type="element" specialization="Class" />
+      <target id="ee4499b3-afa1-4abc-9d03-8eb22f8133be" name="Constructor" type="element" specialization="Class Constructor" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>36254441-1c68-40a7-ad6c-cec8f051ae63</parentFolderId>
@@ -41,16 +42,14 @@
       </properties>
     </stereotype>
   </stereotypes>
-  <metadata>
-    <entry key="baseName" value="Invoice" />
-  </metadata>
+  <metadata />
   <childElements>
-    <childElement id="cb5698d7-aa96-45da-a5d4-00de25ff7a35" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>ClientId</name>
-      <display>ClientId: string</display>
+    <childElement id="1f7d0e38-f762-445f-bcf3-a53136aaa164" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ClientIdentifier</name>
+      <display>ClientIdentifier: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="2f191e3f-5844-4c03-96eb-ea90894bbb3d">
+      <typeReference id="0bcd0dcc-475d-48b1-9d69-ac0e6d123e3a">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -63,13 +62,13 @@
       </typeReference>
       <isMapped>true</isMapped>
       <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d717cf47-0147-44b6-a4f9-3351ac629bc3" name="ClientIdentifier" type="element" specialization="Attribute" />
+          <target id="2a3ae0a7-cde7-4351-966f-119ae2a3f13d" name="clientIdentifier" type="element" specialization="Parameter" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>08f0a0f6-6881-4d56-80d5-0d7cd6f3b7c6</parentFolderId>
+      <parentFolderId>26e29abb-d35e-4719-95d9-8171c6c70958</parentFolderId>
       <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
       <packageName>CosmosDB.Services</packageName>
       <stereotypes>
@@ -96,12 +95,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="826c0f5e-275b-401c-bfad-da0a8e71a2bf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="37d32261-09bd-4772-af24-555e3ddeba8c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Date</name>
       <display>Date: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="ccb5c3fa-1a17-4613-af35-499cb52afc8b">
+      <typeReference id="e6b7b047-accb-4dbb-94f5-12f616c5ca54">
         <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -114,13 +113,13 @@
       </typeReference>
       <isMapped>true</isMapped>
       <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="78acc1bf-23e5-42ad-82d6-564c090d55f7" name="Date" type="element" specialization="Attribute" />
+          <target id="f9ac1ad9-e4ea-4719-a218-dc3f6eaf07aa" name="date" type="element" specialization="Parameter" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>08f0a0f6-6881-4d56-80d5-0d7cd6f3b7c6</parentFolderId>
+      <parentFolderId>26e29abb-d35e-4719-95d9-8171c6c70958</parentFolderId>
       <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
       <packageName>CosmosDB.Services</packageName>
       <stereotypes>
@@ -147,12 +146,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="62b18979-3034-4b0d-b24d-90f7772763ab" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="f371e73c-e20a-4eb8-aa1e-140c2346868c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Number</name>
       <display>Number: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="88a55ae7-e8f3-44fe-bb09-39320c640766">
+      <typeReference id="1c83151c-a5a1-4ae7-833c-2eed74d6d85c">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -165,13 +164,13 @@
       </typeReference>
       <isMapped>true</isMapped>
       <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="850b7fa1-2be7-4d4b-bd89-9b975e26e102" name="Number" type="element" specialization="Attribute" />
+          <target id="f5219615-1382-42c3-b63d-9f5a2b5a75a7" name="number" type="element" specialization="Parameter" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>08f0a0f6-6881-4d56-80d5-0d7cd6f3b7c6</parentFolderId>
+      <parentFolderId>26e29abb-d35e-4719-95d9-8171c6c70958</parentFolderId>
       <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
       <packageName>CosmosDB.Services</packageName>
       <stereotypes>
