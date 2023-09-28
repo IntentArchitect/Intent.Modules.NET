@@ -1,7 +1,9 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -13,6 +15,7 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using CSharpStatement = Intent.Modules.Common.CSharp.Builder.CSharpStatement;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -63,16 +66,26 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                 constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                 constructor.ConstructorCall.AddArgument($"\"{partitionKey.ToCamelCase()}\"");
-                constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
+                if (RequiresMultiTenancy(template.Model))
+                {
+                    constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
+                }
+                else
+                {
+                    constructor.ConstructorCall.AddArgument($"default({template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>")})");
+                }
 
-                @class.AddMethod($"Expression<Func<{template.GetCosmosDBDocumentName()}, bool>>",
-                    "GetHasPartitionKeyExpression",
-                    method =>
-                    {
-                        method.Protected().Override();
-                        method.AddParameter("string?", "partitionKey");
-                        method.AddStatement($"return document => document.{partitionKey.ToPascalCase()} == partitionKey;");
-                    });
+                if (RequiresMultiTenancy(template.Model))
+                {
+                    @class.AddMethod($"Expression<Func<{template.GetCosmosDBDocumentName()}, bool>>",
+                        "GetHasPartitionKeyExpression",
+                        method =>
+                        {
+                            method.Protected().Override();
+                            method.AddParameter("string?", "partitionKey");
+                            method.AddStatement($"return document => document.{partitionKey.ToPascalCase()} == partitionKey;");
+                        });
+                }
             });
         }
 
@@ -90,7 +103,10 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 var constructor = @class.Constructors.First();
                 constructor.AddParameter("string", "partitionKeyFieldName", p => p.IntroduceReadonlyField());
                 constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
-                constructor.AddStatement("_tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException(\"Could not resolve tenantId\");");
+
+                constructor.AddIfStatement("multiTenantContextAccessor != null", stmt => {
+                    stmt.AddStatement("_tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException(\"Could not resolve tenantId\");");
+                });
 
                 // Add method
                 {
@@ -105,12 +121,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
-                        ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
-                        ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
-                        {
-                            @if.SeparatedFromPrevious(false);
-                            @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }));
+                        ConfigurableStatement("CheckTenancy(document);", c => c.SeparatedFromPrevious()));
                 }
 
                 // Update method
@@ -126,12 +137,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
-                        ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
-                        ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
-                        {
-                            @if.SeparatedFromPrevious(false);
-                            @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }));
+                        ConfigurableStatement("CheckTenancy(document);", c => c.SeparatedFromPrevious()));
                 }
 
                 // Remove method
@@ -147,12 +153,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
-                        ConfigurableStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious()),
-                        ConfigurableStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
-                        {
-                            @if.SeparatedFromPrevious(false);
-                            @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
-                        }));
+                        ConfigurableStatement("CheckTenancy(document);", c => c.SeparatedFromPrevious()));
                 }
 
                 // FindAllAsync(CancellationToken cancellationToken = default)
@@ -197,7 +198,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var method = @class.FindMethod("FindByIdsAsync");
                     var queryDefinitionDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
-                    queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE c.{_partitionKeyFieldName} = @tenantId AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
+                    queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE  (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                     .WithParameter(""@tenantId"", _tenantId)
                     .WithParameter(""@ids"", ids);");
                 }
@@ -208,11 +209,26 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     name: "GetHasPartitionKeyExpression",
                     configure: method =>
                     {
-                        method.Protected().Abstract();
+                        method.Protected().Virtual();
                         method.AddParameter("string?", "partitionKey");
-
-
+                        method.AddStatement("return _ => true;");
                     });
+                @class.InsertMethod(
+                    index: @class.Methods.IndexOf(@class.FindMethod("GetHasPartitionKeyExpression")),
+                    returnType: "void",
+                    name: "CheckTenancy",
+                    configure: method =>
+                    {
+                        method.AddParameter("TDocument", "document");
+                        method.AddIfStatement("_tenantId == null", c => c.AddStatement("return;"));
+                        method.AddStatement("document.PartitionKey ??= _tenantId;", c => c.SeparatedFromPrevious());
+                        method.AddStatement(new CSharpIfStatement("document.PartitionKey != _tenantId"), @if =>
+                        {
+                            @if.SeparatedFromPrevious(false);
+                            @if.AddStatement("throw new InvalidOperationException(\"TenantId mismatch\");");
+                        });
+                    });
+
 
                 @class.InsertMethod(
                     index: @class.Methods.IndexOf(@class.FindMethod("AdaptFilterPredicate")) - 1,
@@ -231,11 +247,17 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         method.AddParameter("Expression<Func<TDocument, bool>>", "predicate");
                         method.AddStatements(new[]
                         {
+                            "if (_tenantId == null) return predicate;",
                             "var restrictToTenantPredicate = GetHasPartitionKeyExpression(_tenantId);",
                             "return Expression.Lambda<Func<TDocument, bool>>(Expression.AndAlso(predicate.Body, restrictToTenantPredicate.Body), restrictToTenantPredicate.Parameters[0]);"
                         });
                     });
             });
+        }
+
+        private static bool RequiresMultiTenancy(ClassModel model)
+        {
+            return model.HasStereotype("Multi Tenant");
         }
 
         private static TStatement ConfigurableStatement<TStatement>(TStatement statement, Action<TStatement> configure)

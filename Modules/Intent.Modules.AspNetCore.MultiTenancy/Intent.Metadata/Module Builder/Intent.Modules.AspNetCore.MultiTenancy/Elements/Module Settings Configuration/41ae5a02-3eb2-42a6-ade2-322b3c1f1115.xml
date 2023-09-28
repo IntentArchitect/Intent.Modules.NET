@@ -221,8 +221,8 @@
       </childElements>
     </childElement>
     <childElement id="d299a5bb-db30-474b-8bac-fa879151a1a3" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Multi Tenancy to Aggregates(For Shared Database)</name>
-      <display>Multi Tenancy to Aggregates(For Shared Database)</display>
+      <name>Apply Multi Tenancy to Aggregates</name>
+      <display>Apply Multi Tenancy to Aggregates</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />
@@ -238,7 +238,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Automatically configure Aggregate entities for Multi Tenancy." isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Automatically configure Aggregate entities for Multi Tenancy. Only applicable when &quot;Data Isolation&quot; is set to &quot;Shared Database&quot;." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="automatically" isActive="true" />
           </properties>
         </stereotype>

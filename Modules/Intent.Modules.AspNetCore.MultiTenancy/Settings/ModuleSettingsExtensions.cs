@@ -173,5 +173,42 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             SeparateDatabase,
             SharedDatabase,
         }
+        public ApplyMultiTenancyToAggregatesOptions ApplyMultiTenancyToAggregates() => new ApplyMultiTenancyToAggregatesOptions(_groupSettings.GetSetting("d299a5bb-db30-474b-8bac-fa879151a1a3")?.Value);
+
+        public class ApplyMultiTenancyToAggregatesOptions
+        {
+            public readonly string Value;
+
+            public ApplyMultiTenancyToAggregatesOptions(string value)
+            {
+                Value = value;
+            }
+
+            public ApplyMultiTenancyToAggregatesOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "automatically" => ApplyMultiTenancyToAggregatesOptionsEnum.Automatically,
+                    "manually" => ApplyMultiTenancyToAggregatesOptionsEnum.Manually,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsAutomatically()
+            {
+                return Value == "automatically";
+            }
+
+            public bool IsManually()
+            {
+                return Value == "manually";
+            }
+        }
+
+        public enum ApplyMultiTenancyToAggregatesOptionsEnum
+        {
+            Automatically,
+            Manually,
+        }
     }
 }

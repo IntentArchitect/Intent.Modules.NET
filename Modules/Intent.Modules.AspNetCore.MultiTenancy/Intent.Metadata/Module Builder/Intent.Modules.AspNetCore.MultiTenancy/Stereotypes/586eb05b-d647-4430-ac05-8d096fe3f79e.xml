@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="586eb05b-d647-4430-ac05-8d096fe3f79e" version="3.1.0">
-  <name>MultiTenant</name>
+  <name>Multi Tenant</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>

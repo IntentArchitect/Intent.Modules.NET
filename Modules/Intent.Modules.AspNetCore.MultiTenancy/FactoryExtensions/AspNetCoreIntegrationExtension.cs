@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.AspNetCore.MultiTenancy.Api;
 using Intent.Modules.AspNetCore.MultiTenancy.Settings;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext;
@@ -156,7 +160,16 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
 
                 var priClass = file.Classes.First();
-                priClass.FindMethod("Configure").AddStatement("builder.IsMultiTenant();");
+                var configMethod = priClass.FindMethod("Configure");
+                if (!configMethod.HasMetadata("model"))
+                {
+                    return;
+                }
+                var classModel = configMethod.GetMetadata<IElement>("model").AsClassModel();
+                if (classModel.HasMultiTenant())
+                {
+                    configMethod.AddStatement("builder.IsMultiTenant();");
+                }
             });
         }
     }

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>4.1.7</version>
+  <version>4.1.8-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -81,6 +81,15 @@
             <option value="shared-database" description="Shared Database" />
           </options>
         </setting>
+        <setting id="d299a5bb-db30-474b-8bac-fa879151a1a3" title="Apply Multi Tenancy to Aggregates" type="select">
+          <isRequired>false</isRequired>
+          <hint>Automatically configure Aggregate entities for Multi Tenancy. Only applicable when "Data Isolation" is set to "Shared Database".</hint>
+          <defaultValue>automatically</defaultValue>
+          <options>
+            <option value="automatically" description="Automatically" />
+            <option value="manually" description="Manually" />
+          </options>
+        </setting>
       </settings>
     </group>
   </moduleSettings>
@@ -96,12 +105,16 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install src="modelers/Multi Tenancy Extensions.designer.settings" externalReference="c5d6a7a4-8ca7-42d0-b3d4-392d2a0c4628" target="Domain" />
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Modules.AspNetCore.MultiTenancy/Intent.Modules.AspNetCore.MultiTenancy.pkg.config" externalReference="9d4225f4-5ab3-49e8-9fe1-073ad8df3453" />
+  </metadata>
   <moduleSettingsExtensions />
 </package>
