@@ -8,6 +8,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
+using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -40,51 +41,51 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
 
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        Facade = new QueryHandlerFacade(this, model);
-
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
             {
+                var facade = new QueryHandlerFacade(this, model);
+                
                 AddUsingDirectives(file);
-                Facade.AddHandlerConstructorMockUsings();
+                facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
                 priClass.AddConstructor(ctor =>
                 {
-                    ctor.AddStatements(Facade.GetAutoMapperProfilesAndAddBackendField(priClass));
+                    ctor.AddStatements(facade.GetAutoMapperProfilesAndAddBackendField(priClass));
                 });
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
 
-                    method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                    method.AddStatements(facade.Get_InitialAutoFixture_TestDataStatements(
                         includeVarKeyword: true));
-                    method.AddStatements(Facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
+                    method.AddStatements(facade.Get_ProduceEntityOwnerAndCompositeAndQuery_TestDataStatements());
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.TargetDomainTypeName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{facade.TargetDomainTypeName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter(Facade.QueryTypeName, "testQuery");
-                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
-                    method.AddParameter(Facade.TargetDomainTypeName, "existingEntity");
+                    method.AddParameter(facade.QueryTypeName, "testQuery");
+                    method.AddParameter(facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
+                    method.AddParameter(facade.TargetDomainTypeName, "existingEntity");
 
                     method.AddStatement("// Arrange");
-                    method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
+                    method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+                    method.AddStatements(facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
-                    method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
+                    method.AddStatements(facade.GetSutHandleInvocationStatement("testQuery"));
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingEntity"));
+                    method.AddStatements(facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingEntity"));
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
@@ -93,26 +94,50 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.AddAttribute("Fact");
 
                     method.AddStatements("// Arrange");
-                    method.AddStatements(Facade.GetNewAggregateOwnerWithoutCompositesStatements());
-                    method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
+                    method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+                    method.AddStatements(facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                     method.AddStatement(string.Empty);
-                    method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
+                    method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);
                     method.AddStatements("// Act");
-                    method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
+                    method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
+                    method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
 
                 AddAssertionMethods();
             });
     }
+    
+    private bool? _canRunTemplate;
 
-    private QueryHandlerFacade Facade { get; }
+    public override bool CanRunTemplate()
+    {
+        if (_canRunTemplate.HasValue)
+        {
+            return _canRunTemplate.Value;
+        }
+
+        var template = ExecutionContext.FindTemplateInstance<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, Model);
+        if (template is null)
+        {
+            _canRunTemplate = false;
+        }
+        else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetByIdImplementationStrategy strategy && strategy.IsMatch())
+        {
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+        }
+        else
+        {
+            _canRunTemplate = false;
+        }
+
+        return _canRunTemplate.Value;
+    }
 
     private static void AddUsingDirectives(CSharpFile file)
     {

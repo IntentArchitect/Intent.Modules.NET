@@ -40,11 +40,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQ
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(query => query.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase) &&
-                                query.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase) &&
-                                query.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.Id == query.Mapping?.Element?.Id &&
-                                query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true &&
-                                query.HasIdentityKeys(application))
+                // .Where(query => query.Name.StartsWith("get", StringComparison.InvariantCultureIgnoreCase) &&
+                //                 query.Name.Contains("ById", StringComparison.InvariantCultureIgnoreCase) &&
+                //                 query.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.Id == query.Mapping?.Element?.Id &&
+                //                 query.Mapping?.Element.AsClassModel().IsAggregateRoot() == true &&
+                //                 query.HasIdentityKeys(application))
                 .ToList();
         }
     }

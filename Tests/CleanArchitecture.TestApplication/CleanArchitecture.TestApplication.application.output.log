@@ -308,14 +308,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#c61374f8-c9af-4b8a-8db9-3d956a26e44e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountHolderCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#cc7186ab-1267-40a7-94f1-d3612d5abc90</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/CreateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -676,14 +668,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#7bd45b8d-4efd-4c7b-8b66-838e686febd8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/CreateAccountHolderHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DDD/CreateAccountHolderHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#85a85fd8-323f-40f4-948a-0ca3cd11d947</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/DDD/CreateCustomerCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -900,22 +884,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#eb13d010-5b89-40ff-b35f-9a730c76c89b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/CreateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#11c76da5-7766-448e-85dc-b35af494ce8f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsDdd/UpdateDddIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c18ee638-36a2-4082-a9cb-763fdbb6ef1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
@@ -944,14 +912,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Pagination/LogEntries/LogEntryAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntries/LogEntryAssertions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestNullablities/CreateTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

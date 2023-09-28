@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
-  <version>5.2.6-pre.0</version>
+  <version>5.2.6-pre.1</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>CRUD conventions for Commands and Queries.</summary>
   <description>CRUD conventions for Commands and Queries.</description>

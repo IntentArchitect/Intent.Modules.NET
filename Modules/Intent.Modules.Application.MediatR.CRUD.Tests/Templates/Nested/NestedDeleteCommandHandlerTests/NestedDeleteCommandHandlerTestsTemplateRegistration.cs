@@ -40,9 +40,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedD
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(command => command.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
-                            && command.GetClassModel()?.IsAggregateRoot() == false
-                            && command.HasIdentityKeys(application))
+                // .Where(command => command.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
+                //             && command.GetClassModel()?.IsAggregateRoot() == false
+                //             && command.HasIdentityKeys(application))
                 .ToList();
         }
     }

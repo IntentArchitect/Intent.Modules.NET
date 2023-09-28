@@ -39,10 +39,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQu
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(query =>
-                    query.TypeReference.IsCollection &&
-                    query.TypeReference.Element.IsDTOModel() &&
-                    query.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
+                // .Where(query =>
+                //     query.TypeReference.IsCollection &&
+                //     query.TypeReference.Element.IsDTOModel() &&
+                //     query.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
     }

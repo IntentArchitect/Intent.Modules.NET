@@ -1,3 +1,7 @@
+### Version 1.3.2
+
+- Fixed: All tests will now use the exact same logic to detect whether a given Command/Query has a CRUD Handler for it to have a Unit Test.
+
 ### Version 1.3.1
 
 - Improvement: Fluent Validation tests updated to accomodate the `IServiceProvider` injection scenarios.
