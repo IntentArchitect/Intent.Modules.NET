@@ -492,6 +492,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>96c43ba2-1dee-4ac1-b705-fafc65bac74a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96c43ba2-1dee-4ac1-b705-fafc65bac74a</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>

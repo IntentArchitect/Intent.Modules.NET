@@ -67,36 +67,64 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
         private static void UpdateEntities(IApplication application)
         {
             var entityStateClasses = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
-            foreach (var entity in entityStateClasses)
+            foreach (var entityTemplate in entityStateClasses)
             {
                 // This needs to be an AfterBuild because DomainEntityTemplate automatically adds [IntentManaged(Mode.Fully, Body = Mode.Merge)] to
                 // all methods in its own AfterBuild which we don't want for the ones we're adding here.
-                entity.CSharpFile.AfterBuild(file =>
+                entityTemplate.CSharpFile.AfterBuild(file =>
                 {
-                    var @class = file.Classes.First();
-                    var model = @class.GetMetadata<ClassModel>("model");
-                    if (!model.HasBasicAuditing()) { return; }
-
-                    var auditableInterfaceName = entity.GetAuditableInterfaceName();
-                    @class.ImplementsInterface(auditableInterfaceName);
-
-                    @class.AddMethod("void", "SetCreated", method =>
+                    if (file.Interfaces.Any())
                     {
-                        method.AddParameter("string", "createdBy");
-                        method.AddParameter("DateTimeOffset", "createdDate");
-                        method.IsExplicitImplementationFor(auditableInterfaceName);
-                        method.WithExpressionBody("(CreatedBy, CreatedDate) = (createdBy, createdDate)");
-                    });
-
-                    @class.AddMethod("void", "SetUpdated", method =>
+                        UpdateEntityInterface(file.Interfaces.First(), entityTemplate);
+                        var model = file.Interfaces.First().GetMetadata<ClassModel>("model");
+                        if (entityTemplate.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var relatedTemplate))
+                        {
+                            UpdateEntityClass(relatedTemplate.CSharpFile.Classes.First(), relatedTemplate, false);
+                        }
+                    }
+                    else if (file.Classes.Any())
                     {
-                        method.AddParameter("string", "updatedBy");
-                        method.AddParameter("DateTimeOffset", "updatedDate");
-                        method.IsExplicitImplementationFor(auditableInterfaceName);
-                        method.WithExpressionBody("(UpdatedBy, UpdatedDate) = (updatedBy, updatedDate)");
-                    });
+                        UpdateEntityClass(file.Classes.First(), entityTemplate, true);
+                    }
                 }, 100);
             }
+        }
+
+        private static void UpdateEntityInterface(CSharpInterface @interface, ICSharpFileBuilderTemplate entityTemplate)
+        {
+            var model = @interface.GetMetadata<ClassModel>("model");
+            if (!model.HasBasicAuditing()) { return; }
+
+            var auditableInterfaceName = entityTemplate.GetAuditableInterfaceName();
+            @interface.ImplementsInterfaces(auditableInterfaceName);
+        }
+        
+        private static void UpdateEntityClass(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, bool includeAuditInterface)
+        {
+            var model = @class.GetMetadata<ClassModel>("model");
+            if (!model.HasBasicAuditing()) { return; }
+
+            var auditableInterfaceName = entityTemplate.GetAuditableInterfaceName();
+            if (includeAuditInterface)
+            {
+                @class.ImplementsInterface(auditableInterfaceName);
+            }
+
+            @class.AddMethod("void", "SetCreated", method =>
+            {
+                method.AddParameter("string", "createdBy");
+                method.AddParameter("DateTimeOffset", "createdDate");
+                method.IsExplicitImplementationFor(auditableInterfaceName);
+                method.WithExpressionBody("(CreatedBy, CreatedDate) = (createdBy, createdDate)");
+            });
+
+            @class.AddMethod("void", "SetUpdated", method =>
+            {
+                method.AddParameter("string", "updatedBy");
+                method.AddParameter("DateTimeOffset", "updatedDate");
+                method.IsExplicitImplementationFor(auditableInterfaceName);
+                method.WithExpressionBody("(UpdatedBy, UpdatedDate) = (updatedBy, updatedDate)");
+            });
         }
 
         private static void AddSetAuditableFieldsMethod(

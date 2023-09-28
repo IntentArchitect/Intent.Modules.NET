@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
@@ -50,5 +50,5 @@
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Entities.BasicAuditing/Intent.Entities.BasicAuditing.pkg.config" externalReference="bed6bd70-2214-4a74-a437-dfb3b68dd198" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Entities.BasicAuditing/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Entities.BasicAuditing/README.md</projectUrl>
 </package>
