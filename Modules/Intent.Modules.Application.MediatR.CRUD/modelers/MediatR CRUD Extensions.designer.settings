@@ -736,20 +736,23 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
     const complexFields = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c;
-        return x.typeReference.getType() == null &amp;&amp;
-            isComplexType((_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType());
+        var _a, _b, _c, _d;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp;
+            isComplexType((_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType());
     });
     complexFields.forEach(cf =&gt; {
         getOrCreateCommandCrudDto(element, cf, false, projectMappingSettingId);
     });
     function isComplexType(element) {
+        if (element == null) {
+            console.warn("isComplexType element parameter received null");
+        }
         return (element === null || element === void 0 ? void 0 : element.specialization) === "Data Contract" ||
             (element === null || element === void 0 ? void 0 : element.specialization) === "Value Object";
     }
@@ -772,18 +775,19 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
     }
 }
 /// &lt;reference path="./onMapFunctions.ts" /&gt;
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 function onMapDto(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return x.typeReference.getType() == null &amp;&amp; ((_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.specialization) === "Association"; });
+        .filter(x =&gt; { var _a, _b, _c; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.specialization.startsWith("Association")); });
     fields.forEach(f =&gt; {
         getOrCreateDtoCrudDto(element, f, true);
     });
     let complexAttributes = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c, _d;
-        return x.typeReference.getType() == null
-            &amp;&amp; (complexTypes.includes((_d = (_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType()) === null || _d === void 0 ? void 0 : _d.specialization));
+        var _a, _b, _c, _d, _e;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO"
+            &amp;&amp; (complexTypes.includes((_e = (_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType()) === null || _e === void 0 ? void 0 : _e.specialization));
     });
     complexAttributes.forEach(f =&gt; {
         getOrCreateDtoCrudDto(element, f, false);
@@ -822,15 +826,15 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
     let complexAttributes = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c, _d;
-        return x.typeReference.getType() == null
-            &amp;&amp; (complexTypes.includes((_d = (_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType()) === null || _d === void 0 ? void 0 : _d.specialization));
+        var _a, _b, _c, _d, _e;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO"
+            &amp;&amp; (complexTypes.includes((_e = (_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType()) === null || _e === void 0 ? void 0 : _e.specialization));
     });
     complexAttributes.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
@@ -1109,14 +1113,16 @@ async function execute(element) {
                 .getAssociations("Association")
                 .filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable &amp;&amp; x.typeReference.isNavigable &amp;&amp;
                 !x.getOtherEnd().typeReference.isCollection &amp;&amp; !x.getOtherEnd().typeReference.isNullable)
-                .forEach(association =&gt; results.push({
-                id: association.id,
-                name: association.getName(),
-                typeId: null,
-                mapPath: generalizationStack.concat([association.id]),
-                isNullable: false,
-                isCollection: false
-            }));
+                .forEach(association =&gt; {
+                return results.push({
+                    id: association.id,
+                    name: association.getName(),
+                    typeId: null,
+                    mapPath: generalizationStack.concat([association.id]),
+                    isNullable: false,
+                    isCollection: false
+                });
+            });
             let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
             if (generalizations.length == 0) {
                 return results;
@@ -1873,20 +1879,23 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
     const complexFields = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c;
-        return x.typeReference.getType() == null &amp;&amp;
-            isComplexType((_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType());
+        var _a, _b, _c, _d;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp;
+            isComplexType((_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType());
     });
     complexFields.forEach(cf =&gt; {
         getOrCreateCommandCrudDto(element, cf, false, projectMappingSettingId);
     });
     function isComplexType(element) {
+        if (element == null) {
+            console.warn("isComplexType element parameter received null");
+        }
         return (element === null || element === void 0 ? void 0 : element.specialization) === "Data Contract" ||
             (element === null || element === void 0 ? void 0 : element.specialization) === "Value Object";
     }
@@ -1915,8 +1924,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
  * Source code here:
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/services-cqrs-crud/command-on-map/command-on-map.ts
  */
-onMapCommand(element, false);
-</script>
+onMapCommand(element, false);</script>
         </macro>
       </macros>
     </elementExtension>
@@ -2650,20 +2658,23 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
     const complexFields = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c;
-        return x.typeReference.getType() == null &amp;&amp;
-            isComplexType((_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType());
+        var _a, _b, _c, _d;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp;
+            isComplexType((_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType());
     });
     complexFields.forEach(cf =&gt; {
         getOrCreateCommandCrudDto(element, cf, false, projectMappingSettingId);
     });
     function isComplexType(element) {
+        if (element == null) {
+            console.warn("isComplexType element parameter received null");
+        }
         return (element === null || element === void 0 ? void 0 : element.specialization) === "Data Contract" ||
             (element === null || element === void 0 ? void 0 : element.specialization) === "Value Object";
     }
@@ -2686,18 +2697,19 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
     }
 }
 /// &lt;reference path="./onMapFunctions.ts" /&gt;
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 function onMapDto(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return x.typeReference.getType() == null &amp;&amp; ((_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.specialization) === "Association"; });
+        .filter(x =&gt; { var _a, _b, _c; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.specialization.startsWith("Association")); });
     fields.forEach(f =&gt; {
         getOrCreateDtoCrudDto(element, f, true);
     });
     let complexAttributes = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c, _d;
-        return x.typeReference.getType() == null
-            &amp;&amp; (complexTypes.includes((_d = (_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType()) === null || _d === void 0 ? void 0 : _d.specialization));
+        var _a, _b, _c, _d, _e;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO"
+            &amp;&amp; (complexTypes.includes((_e = (_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType()) === null || _e === void 0 ? void 0 : _e.specialization));
     });
     complexAttributes.forEach(f =&gt; {
         getOrCreateDtoCrudDto(element, f, false);
@@ -2736,15 +2748,15 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
     let complexAttributes = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c, _d;
-        return x.typeReference.getType() == null
-            &amp;&amp; (complexTypes.includes((_d = (_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType()) === null || _d === void 0 ? void 0 : _d.specialization));
+        var _a, _b, _c, _d, _e;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO"
+            &amp;&amp; (complexTypes.includes((_e = (_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType()) === null || _e === void 0 ? void 0 : _e.specialization));
     });
     complexAttributes.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
@@ -3023,14 +3035,16 @@ async function execute(element) {
                 .getAssociations("Association")
                 .filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable &amp;&amp; x.typeReference.isNavigable &amp;&amp;
                 !x.getOtherEnd().typeReference.isCollection &amp;&amp; !x.getOtherEnd().typeReference.isNullable)
-                .forEach(association =&gt; results.push({
-                id: association.id,
-                name: association.getName(),
-                typeId: null,
-                mapPath: generalizationStack.concat([association.id]),
-                isNullable: false,
-                isCollection: false
-            }));
+                .forEach(association =&gt; {
+                return results.push({
+                    id: association.id,
+                    name: association.getName(),
+                    typeId: null,
+                    mapPath: generalizationStack.concat([association.id]),
+                    isNullable: false,
+                    isCollection: false
+                });
+            });
             let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
             if (generalizations.length == 0) {
                 return results;
@@ -3284,15 +3298,15 @@ function legacyPartitionKey(attribute) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
     let complexAttributes = element.getChildren("DTO-Field")
         .filter(x =&gt; {
-        var _a, _b, _c, _d;
-        return x.typeReference.getType() == null
-            &amp;&amp; (complexTypes.includes((_d = (_c = (_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.typeReference) === null || _c === void 0 ? void 0 : _c.getType()) === null || _d === void 0 ? void 0 : _d.specialization));
+        var _a, _b, _c, _d, _e;
+        return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO"
+            &amp;&amp; (complexTypes.includes((_e = (_d = (_c = (_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement()) === null || _c === void 0 ? void 0 : _c.typeReference) === null || _d === void 0 ? void 0 : _d.getType()) === null || _e === void 0 ? void 0 : _e.specialization));
     });
     complexAttributes.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
