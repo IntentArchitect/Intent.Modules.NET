@@ -29,9 +29,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         {
         }
 
+        public bool IncludeStartupProjectArguments { get; set; } = true;
+        public bool IncludeDbContextArguments { get; set; } = false;
+        public List<string> ExtraArguments { get; } = new();
+        public string ExtraComments { get; set; } = string.Empty;
+        
         public string BoundedContextName => OutputTarget.ApplicationName();
         public string MigrationProject => OutputTarget.GetProject().Name;
         public string StartupProject => ExecutionContext.OutputTargets.FirstOrDefault(x => x.Type == VisualStudioProjectTypeIds.CoreWebApp)?.Name ?? "UNKNOWN";
+        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN"; 
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+            ExecutionContext.EventDispatcher.Publish(new DbMigrationsReadMeCreatedEvent(this));
+        }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override ITemplateFileConfig GetTemplateFileConfig()
@@ -49,10 +61,56 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             return new[]
             {
                 NugetPackages.EntityFrameworkCoreDesign(OutputTarget),
-                NugetPackages.EntityFrameworkCoreTools(OutputTarget),
-            }
-            .ToArray();
+                NugetPackages.EntityFrameworkCoreTools(OutputTarget)
+            };
         }
 
+        private string GetVsStartupProjectArgument()
+        {
+            return IncludeStartupProjectArguments
+                ? $@"-StartupProject ""{StartupProject}"" "
+                : string.Empty;
+        }
+        
+        private string GetCliStartupProjectArgument()
+        {
+            return IncludeStartupProjectArguments
+                ? $@"--startup-project ""{StartupProject}"" "
+                : string.Empty;
+        }
+
+        private string GetVsDbContextArgument()
+        {
+            return IncludeDbContextArguments
+                ? $@" -Context ""{DbContext}"" "
+                : string.Empty;
+        }
+        
+        private string GetCliDbContextArgument()
+        {
+            return IncludeDbContextArguments
+                ? $@" --context ""{DbContext}"""
+                : string.Empty;
+        }
+
+        private string GetExtraArguments()
+        {
+            if (!ExtraArguments.Any())
+            {
+                return string.Empty;
+            }
+
+            return " -- " + string.Join(" ", ExtraArguments);
+        }
+
+        private string GetExtraComments()
+        {
+            if (string.IsNullOrWhiteSpace(ExtraComments))
+            {
+                return string.Empty;
+            }
+
+            return Environment.NewLine + ExtraComments + Environment.NewLine;
+        }
     }
 }

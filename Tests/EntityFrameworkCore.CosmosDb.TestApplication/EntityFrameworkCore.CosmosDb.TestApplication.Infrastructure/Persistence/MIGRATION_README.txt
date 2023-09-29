@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "EntityFrameworkCore.CosmosDb.TestApplication.Api" -Project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "EntityFrameworkCore.CosmosDb.TestApplication.Api" --project "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

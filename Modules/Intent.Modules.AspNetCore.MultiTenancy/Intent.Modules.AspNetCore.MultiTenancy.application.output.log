@@ -33,14 +33,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>183131c2-6fd6-45e8-88b1-0768d1205165</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f08b611f-f304-4f92-89a6-6dd659e7b328</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DesignTimeDbContextFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbContextFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>4faf05b4-370f-4929-9631-c0dd42a63c8b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4faf05b4-370f-4929-9631-c0dd42a63c8b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -70,21 +70,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6f0487d0-ea2f-4763-b31b-55034fe80db2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</display>
-      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fe9b651a-889b-46db-8aa9-f637faad84b9</parentFolderId>
-      <packageId>7f5bb63d-0822-4d6a-bdd1-590ed03e253c</packageId>
-      <packageName>Finbuckle.SharedDatabase.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

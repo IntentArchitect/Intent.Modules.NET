@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>46907bdf-0955-4e2e-90bf-f9e8ff91a8d3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#736805ee-9057-4b8c-89c4-2d0762801923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MigrationsReadMeExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MigrationsReadMeExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>660cb137-92bc-425b-8adb-b29cf80291b3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,38 +70,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DesignTimeDbContextFactory/DesignTimeDbContextFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DesignTimeDbContextFactory/DesignTimeDbContextFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9c73c69-8618-4d7f-8403-c136be397162</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#b442a6c9-a9aa-4c4b-870d-912a7fd11185</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9c73c69-8618-4d7f-8403-c136be397162</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateT4#b442a6c9-a9aa-4c4b-870d-912a7fd11185</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9c73c69-8618-4d7f-8403-c136be397162</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#b442a6c9-a9aa-4c4b-870d-912a7fd11185</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9c73c69-8618-4d7f-8403-c136be397162</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b442a6c9-a9aa-4c4b-870d-912a7fd11185</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbMigrationsReadMe/DesignTimeDbMigrationsReadMeTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

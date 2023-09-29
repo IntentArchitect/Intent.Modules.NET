@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "EFCore.Lazy.Loading.Tests.Api" -Project "EFCore.Lazy.Loading.Tests.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "EFCore.Lazy.Loading.Tests.Api" --project "EFCore.Lazy.Loading.Tests.Infrastructure" 
+dotnet ef database update --startup-project "EFCore.Lazy.Loading.Tests.Api" --project "EFCore.Lazy.Loading.Tests.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

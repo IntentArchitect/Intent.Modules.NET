@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "CleanArchitecture.ServiceModelling.ComplexTypes.Api" -Project "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "CleanArchitecture.ServiceModelling.ComplexTypes.Api" --project "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure" 
+dotnet ef database update --startup-project "CleanArchitecture.ServiceModelling.ComplexTypes.Api" --project "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

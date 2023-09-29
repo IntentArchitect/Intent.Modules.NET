@@ -1236,14 +1236,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e0e95e6-5032-4cc1-87be-e30908cabac1</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/DESIGN_TIME_MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DESIGN_TIME_MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8e0e95e6-5032-4cc1-87be-e30908cabac1</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>

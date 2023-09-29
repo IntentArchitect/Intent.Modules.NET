@@ -1,3 +1,8 @@
+### Version 4.0.6
+
+- Improvement: Now listens for `DbMigrationsReadMeCreatedEvent` and mutates the MIGRATION_README file instead of generating its own DESIGN_TIME_MIGRATION_README.
+- Improvement: Automatically adds `null` parameters to instantiating the `ApplicationDbContext` where the constructor expects arguments to be supplied which got introduced by Intent Architect modules.
+
 ### Version 4.0.5
 
 - Improvement: Module updates.

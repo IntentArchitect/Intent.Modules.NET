@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</id>
-  <version>4.0.5</version>
+  <version>4.0.6-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</summary>
   <description>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</description>
@@ -22,19 +22,17 @@
       <role>Infrastructure.Data.DesignTimeDbContextFactory</role>
       <location>Persistence</location>
     </template>
-    <template id="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe" externalReference="b442a6c9-a9aa-4c4b-870d-912a7fd11185">
-      <role>Infrastructure.Data</role>
-      <location>Persistence</location>
-    </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.MigrationsReadMeExtension" externalReference="736805ee-9057-4b8c-89c4-2d0762801923" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.3" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.EntityFrameworkCore" version="4.4.10" />
+    <dependency id="Intent.EntityFrameworkCore" version="4.4.12-pre.1" />
     <dependency id="Intent.Metadata.RDBMS" version="3.5.8" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Publish.CleanArch.GooglePubSub.TestApplication.Api" -Project "Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Publish.CleanArch.GooglePubSub.TestApplication.Api" --project "Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Publish.CleanArch.GooglePubSub.TestApplication.Api" --project "Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

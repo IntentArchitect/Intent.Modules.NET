@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "EntityFrameworkCore.SqlServer.TestApplication.Api" -Project "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "EntityFrameworkCore.SqlServer.TestApplication.Api" --project "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "EntityFrameworkCore.SqlServer.TestApplication.Api" --project "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

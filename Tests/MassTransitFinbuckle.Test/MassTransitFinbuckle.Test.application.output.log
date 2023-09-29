@@ -492,14 +492,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcd30218-b805-432d-9240-beb0d235ad61</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Persistence/DESIGN_TIME_MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DESIGN_TIME_MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bcd30218-b805-432d-9240-beb0d235ad61</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>

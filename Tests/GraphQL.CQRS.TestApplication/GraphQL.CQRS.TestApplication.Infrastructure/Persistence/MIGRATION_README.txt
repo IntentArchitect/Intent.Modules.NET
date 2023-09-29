@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "GraphQL.CQRS.TestApplication.Api" -Project "GraphQL.CQRS.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "GraphQL.CQRS.TestApplication.Api" --project "GraphQL.CQRS.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "GraphQL.CQRS.TestApplication.Api" --project "GraphQL.CQRS.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "RichDomain.Api" -Project "RichDomain.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "RichDomain.Api" --project "RichDomain.Infrastructure" 
+dotnet ef database update --startup-project "RichDomain.Api" --project "RichDomain.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

@@ -30,7 +30,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DomainEventsDbContextDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventsDbContextDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
@@ -38,15 +38,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DomainEventsDbContextDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventsDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7364596f-fd76-44b4-983d-ecb376388566</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#bfc65889-d5a2-409c-8aa7-edf702502270</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DomainEventsDecoratorExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsDecoratorExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0ece1fc5-4ac8-4a07-bf27-b756e8809992</ProjectId>
