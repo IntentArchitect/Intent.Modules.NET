@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -50,20 +52,13 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
 /// in a local appsettings.json file. By default this will use ""DefaultConnection"".
 /// </param>");
                     method.AddStatement($@"var optionsBuilder = new DbContextOptionsBuilder<{GetDbContextName()}>();");
-                    method.AddStatements(new[]
-                    {
-                        new CSharpStatement(@"IConfigurationRoot configuration = new ConfigurationBuilder()"),
-                        new CSharpStatement(@".SetBasePath(Directory.GetCurrentDirectory())").Indent(),
-                        new CSharpStatement(@".AddJsonFile(""appsettings.json"")").Indent(),
-                        new CSharpStatement(@".Build();").Indent()
-                    });
+                    method.AddMethodChainStatement("IConfigurationRoot configuration = new ConfigurationBuilder()", chain => chain
+                        .AddChainStatement("SetBasePath(Directory.GetCurrentDirectory())")
+                        .AddChainStatement(@"AddJsonFile(""appsettings.json"")")
+                        .AddChainStatement("Build()"));
                     method.AddStatement("var connStringName = args.FirstOrDefault();");
-                    method.AddStatements(new[]
-                    {
-                        new CSharpStatement(@"if (string.IsNullOrEmpty(connStringName))"),
-                        new CSharpStatementBlock()
-                            .AddStatement(@"connStringName = ""DefaultConnection"";")
-                    });
+                    method.AddIfStatement("string.IsNullOrEmpty(connStringName)", stmt => stmt
+                        .AddStatement(@"connStringName = ""DefaultConnection"";"));
 
                     const string connectionStringStatement = "var connectionString = configuration.GetConnectionString(connStringName);";
 
@@ -97,6 +92,32 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                         stmt.AddArgument("optionsBuilder.Options", arg => arg.AddMetadata("options", true));
                     });
                 });
+            })
+            .AfterBuild(file =>
+            {
+                if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+                {
+                    return;
+                }
+
+                var dbContextCtor = dbContextTemplate.CSharpFile.Classes.FirstOrDefault()?.Constructors.FirstOrDefault();
+                if (dbContextCtor is null)
+                {
+                    return;
+                }
+                
+                var @class = file.Classes.First();
+                var method = @class.FindMethod("CreateDbContext");
+                var returnStatement = (CSharpInvocationStatement)method.Statements.LastOrDefault(p => p.HasMetadata("return-statement"));
+                if (returnStatement is null)
+                {
+                    return;
+                }
+
+                for (var i = 0; i < dbContextCtor.Parameters.Count - returnStatement.Statements.Count; i++)
+                {
+                    returnStatement.AddArgument("null");
+                }
             });
     }
 
