@@ -4,7 +4,7 @@ This modules brings in support for Multi Tenancy through the use of FinBuckle.
 
 ## What is Finbuckle?
 
-Finbuckle.MultiTenant is open source multitenancy middleware library for .NET. It enables tenant resolution, per-tenant app behavior, and per-tenant data isolation. 
+Finbuckle.MultiTenant is open source multitenancy middleware library for .NET. It enables tenant resolution, per-tenant app behavior, and per-tenant data isolation.
 For more details check out the official [documentation](https://www.finbuckle.com/multitenant).
 
 ## What's in this module?
@@ -78,7 +78,6 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     app.UseMultiTenancy();
     ...
 }
-
 
 ```
 

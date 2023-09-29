@@ -16,6 +16,7 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 using CSharpStatement = Intent.Modules.Common.CSharp.Builder.CSharpStatement;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -38,6 +39,12 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
+            if (IsSeperateDatabaseMultiTenancy(application) )
+            {
+                Logging.Log.Warning($@"CosmosDB Module does not currently support MultiTenancy Data Isolation setting of `IsSeparateDatabase`.Please contact support@intentarchitect.com, to discuss adding this feature if you require it.");
+                return;
+            }
+
             var repositoryBaseTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CosmosDBRepositoryBaseTemplate.TemplateId);
             UpdateRepositoryBase(repositoryBaseTemplate);
 
@@ -46,6 +53,13 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             {
                 UpdateRepository((CosmosDBRepositoryTemplate)template);
             }
+        }
+
+        private bool IsSeperateDatabaseMultiTenancy(IApplication application)
+        {
+            string multitenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+            string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+            return application.Settings.GetGroup(multitenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
         }
 
         private static void UpdateRepository(CosmosDBRepositoryTemplate template)
