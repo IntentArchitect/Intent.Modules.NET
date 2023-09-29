@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Publish.AspNetCore.MassTransit.OutBoxNone.Api" -Project "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Publish.AspNetCore.MassTransit.OutBoxNone.Api" --project "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure" 
+dotnet ef database update --startup-project "Publish.AspNetCore.MassTransit.OutBoxNone.Api" --project "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Application.Identity.MSAL.TestApplication.Api" -Project "Application.Identity.MSAL.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Application.Identity.MSAL.TestApplication.Api" --project "Application.Identity.MSAL.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Application.Identity.MSAL.TestApplication.Api" --project "Application.Identity.MSAL.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

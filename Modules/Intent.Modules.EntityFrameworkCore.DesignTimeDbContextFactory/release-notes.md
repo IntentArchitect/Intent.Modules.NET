@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Improvement: Now listens for `DbMigrationsReadMeCreatedEvent` and mutates the MIGRATION_README file instead of generating its own DESIGN_TIME_MIGRATION_README.
+
 ### Version 4.0.5
 
 - Improvement: Module updates.

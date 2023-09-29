@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.3" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.39" />
-    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.4.12-pre.0" />
+    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.4.12-pre.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,21 +16,6 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\DesignTimeDbMigrationsReadMe\DesignTimeDbMigrationsReadMeTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DesignTimeDbMigrationsReadMeTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\DesignTimeDbMigrationsReadMe\DesignTimeDbMigrationsReadMeTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DesignTimeDbMigrationsReadMeTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

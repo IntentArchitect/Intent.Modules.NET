@@ -4,59 +4,61 @@ Package Manager Console (View > Other Windows > Package Manager Console) or usin
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
 
+A separate "appsettings.json" file is used in this project for managing connection strings.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Add-Migration -Name {ChangeName} -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations add {ChangeName} --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure"
+dotnet ef migrations add {ChangeName} --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Remove-Migration -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Remove-Migration -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations remove --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure"
+dotnet ef migrations remove --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Update-Database -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure" 
+dotnet ef database update --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -Migration {Target} -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Update-Database -Migration {Target} -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update {Target} --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure"
+dotnet ef database update {Target} --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration -Idempotent -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Script-Migration -Idempotent -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script --idempotent --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure"
+dotnet ef migrations script --idempotent --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration {Source} {Target} -StartupProject "MassTransitFinbuckle.Test.Api" -Project "MassTransitFinbuckle.Test.Infrastructure"
+Script-Migration {Source} {Target} -Project "MassTransitFinbuckle.Test.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script {Source} {Target} --startup-project "MassTransitFinbuckle.Test.Api" --project "MassTransitFinbuckle.Test.Infrastructure"
+dotnet ef migrations script {Source} {Target} --project "MassTransitFinbuckle.Test.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Drop all tables in schema:

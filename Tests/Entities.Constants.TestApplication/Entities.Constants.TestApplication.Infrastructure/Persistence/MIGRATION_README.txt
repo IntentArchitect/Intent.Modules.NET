@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Entities.Constants.TestApplication.Api" -Project "Entities.Constants.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Entities.Constants.TestApplication.Api" --project "Entities.Constants.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Entities.Constants.TestApplication.Api" --project "Entities.Constants.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

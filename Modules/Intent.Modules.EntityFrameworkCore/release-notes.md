@@ -1,6 +1,7 @@
 ﻿### Version 4.4.12
 
 - Fixed: Protected constructors required by EF would be generated for entities to be used with alternative persistence technologies.
+- Improvement: The MIGRATION_README file can now be configurable and mutable by subscribing to the `DbMigrationsReadMeCreatedEvent` event.
 
 ### Version 4.4.11
 

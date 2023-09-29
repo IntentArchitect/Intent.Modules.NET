@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Subscribe.MassTransit.OutboxMemory.Api" -Project "Subscribe.MassTransit.OutboxMemory.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Subscribe.MassTransit.OutboxMemory.Api" --project "Subscribe.MassTransit.OutboxMemory.Infrastructure" 
+dotnet ef database update --startup-project "Subscribe.MassTransit.OutboxMemory.Api" --project "Subscribe.MassTransit.OutboxMemory.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

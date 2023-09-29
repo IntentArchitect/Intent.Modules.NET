@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "CleanArchitecture.Dapr.Api" -Project "CleanArchitecture.Dapr.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "CleanArchitecture.Dapr.Api" --project "CleanArchitecture.Dapr.Infrastructure" 
+dotnet ef database update --startup-project "CleanArchitecture.Dapr.Api" --project "CleanArchitecture.Dapr.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

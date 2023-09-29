@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "SignalR.Api" -Project "SignalR.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "SignalR.Api" --project "SignalR.Infrastructure" 
+dotnet ef database update --startup-project "SignalR.Api" --project "SignalR.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

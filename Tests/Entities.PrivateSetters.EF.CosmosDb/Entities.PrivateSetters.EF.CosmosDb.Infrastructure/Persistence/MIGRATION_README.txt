@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Entities.PrivateSetters.EF.CosmosDb.Api" -Project "Entities.PrivateSetters.EF.CosmosDb.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Entities.PrivateSetters.EF.CosmosDb.Api" --project "Entities.PrivateSetters.EF.CosmosDb.Infrastructure" 
+dotnet ef database update --startup-project "Entities.PrivateSetters.EF.CosmosDb.Api" --project "Entities.PrivateSetters.EF.CosmosDb.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
