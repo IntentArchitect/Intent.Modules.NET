@@ -1,6 +1,7 @@
 ### Version 4.0.8
 
 - Improvement: Removed code to inject a `null` parameter value when the `Intent.EntityFrameworkCore.DesignTimeDbContextFactory` is present.
+- Improvement: Domain Events being published now accepts cancellation token and code slightly reformatted.
 
 ### Version 4.0.7
 

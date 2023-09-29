@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
@@ -42,21 +43,17 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 @class.AddMethod("Task", "DispatchEventsAsync", method =>
                 {
                     method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                    method.Private().Async()
-                        .AddStatement($@"
-                while (true)
-                {{
-                    var domainEventEntity = ChangeTracker
-                        .Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
-                        .Select(x => x.Entity.DomainEvents)
-                        .SelectMany(x => x)
-                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
-
-                    if (domainEventEntity == null) break;
-
-                    domainEventEntity.IsPublished = true;
-                    await _domainEventService.Publish(domainEventEntity, cancellationToken);
-                }}");
+                    method.Private().Async();
+                    method.AddWhileStatement("true", @while => @while
+                        .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
+                            .AddChainStatement($"Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()")
+                            .AddChainStatement("Select(x => x.Entity.DomainEvents)")
+                            .AddChainStatement("SelectMany(x => x)")
+                            .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
+                        .AddIfStatement("domainEventEntity is null", @if => @if
+                            .AddStatement("break;"))
+                        .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
+                        .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
                 });
             });
         }

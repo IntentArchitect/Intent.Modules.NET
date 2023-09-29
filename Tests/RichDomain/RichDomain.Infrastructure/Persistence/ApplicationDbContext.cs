@@ -81,12 +81,15 @@ namespace RichDomain.Infrastructure.Persistence
             while (true)
             {
                 var domainEventEntity = ChangeTracker
-                        .Entries<IHasDomainEvent>()
-                        .Select(x => x.Entity.DomainEvents)
-                        .SelectMany(x => x)
-                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+                    .Entries<IHasDomainEvent>()
+                    .Select(x => x.Entity.DomainEvents)
+                    .SelectMany(x => x)
+                    .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);

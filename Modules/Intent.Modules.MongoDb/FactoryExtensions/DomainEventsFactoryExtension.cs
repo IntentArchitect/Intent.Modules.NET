@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -42,7 +43,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 return;
 
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
-            if (template == null)
+            if (template is null)
             {
                 return;
             }
@@ -58,7 +59,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
                 if (saveMethod != null)
                 {
-                    saveMethod.InsertStatement(0, $"await DispatchEvents();");
+                    saveMethod.InsertStatement(0, $"await DispatchEvents(cancellationToken);");
                 }
                 else
                 {
@@ -70,7 +71,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                                 {
                                     param.WithDefaultValue("default(CancellationToken)");
                                 })
-                            .AddStatement("await DispatchEvents();")
+                            .AddStatement("await DispatchEvents(cancellationToken);")
                             .AddStatement("await base.SaveChangesAsync(cancellationToken);")
                             .AddStatement("return default;");
                     });
@@ -78,23 +79,21 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
                 @class.AddMethod("Task", "DispatchEvents", method =>
                 {
+                    method.Async().AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
+                    
                     string hasDomainEventsInterface = template.GetTypeName(HasDomainEventInterfaceTemplateId);
-                    method.Private().Async()
-                        .AddStatement($@"
-                while (true)
-                {{
-                    var domainEventEntity = ChangeTracker
-                        .Entries()
-                        .Select(x => x.Entity)
-                        .OfType<{hasDomainEventsInterface}>()
-                        .SelectMany(x => x.DomainEvents)
-                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
-
-                    if (domainEventEntity == null) break;
-
-                    domainEventEntity.IsPublished = true;
-                    await _domainEventService.Publish(domainEventEntity);
-                }}");
+                    method.Private().Async();
+                    method.AddWhileStatement("true", @while => @while
+                        .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
+                            .AddChainStatement("Entries()")
+                            .AddChainStatement("Select(x => x.Entity)")
+                            .AddChainStatement($"OfType<{hasDomainEventsInterface}>()")
+                            .AddChainStatement("SelectMany(x => x.DomainEvents)")
+                            .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
+                        .AddIfStatement("domainEventEntity is null", @if => @if
+                            .AddStatement("break;"))
+                        .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
+                        .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
                 });
             });
         }

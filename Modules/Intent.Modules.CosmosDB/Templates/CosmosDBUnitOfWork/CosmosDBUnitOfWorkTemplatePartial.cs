@@ -67,14 +67,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork
                         )
                         .AddMethod("Task", "SaveChangesAsync", method =>
                         {
-                            method
-                                .Async()
-                                .AddParameter("CancellationToken", "cancellationToken",
-                                    parameter => parameter.WithDefaultValue("default"));
+                            method.Async().AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
 
                             if (domainEventServiceTemplate != null)
                             {
-                                method.AddStatement("await DispatchEvents();");
+                                method.AddStatement("await DispatchEvents(cancellationToken);");
                             }
 
                             method
@@ -88,21 +85,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork
                     {
                         @class.AddMethod("Task", "DispatchEvents", method =>
                         {
-                            method.Private().Async()
-                                .AddStatement($@"
-                while (true)
-                {{
-                    var domainEventEntity = _trackedEntities
-                        .Keys
-                        .OfType<{GetTypeName("Intent.DomainEvents.HasDomainEventInterface")}>()
-                        .SelectMany(x => x.DomainEvents)
-                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
-
-                    if (domainEventEntity == null) break;
-
-                    domainEventEntity.IsPublished = true;
-                    await _domainEventService.Publish(domainEventEntity);
-                }}");
+                            method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                            method.Private().Async();
+                            method.AddWhileStatement("true", @while => @while
+                                .AddMethodChainStatement("var domainEventEntity = _trackedEntities", chain => chain
+                                    .AddChainStatement("Keys")
+                                    .AddChainStatement($"OfType<{GetTypeName("Intent.DomainEvents.HasDomainEventInterface")}>()")
+                                    .AddChainStatement("SelectMany(x => x.DomainEvents)")
+                                    .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
+                                .AddIfStatement("domainEventEntity is null", @if => @if
+                                    .AddStatement("break;"))
+                                .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
+                                .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
                         });
                     }
                 });

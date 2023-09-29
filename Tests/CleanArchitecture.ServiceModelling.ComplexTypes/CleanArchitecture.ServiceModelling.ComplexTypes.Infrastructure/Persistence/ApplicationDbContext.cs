@@ -77,7 +77,10 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
                     .SelectMany(x => x)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);

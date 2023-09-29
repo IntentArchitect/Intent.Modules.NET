@@ -1,7 +1,10 @@
+### Version 1.0.6
+
+- Improvement: Domain Events being published now accepts cancellation token and code slightly reformatted.
+
 ### Version 1.0.4
 
 - Fixed: Addressed an issue where in certain scenarios nullable id's resulted in uncompilable code.
-
 
 ### Version 1.0.3
 
