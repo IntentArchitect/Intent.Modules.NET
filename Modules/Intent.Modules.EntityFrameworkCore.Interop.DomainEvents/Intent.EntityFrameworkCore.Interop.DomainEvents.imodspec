@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
   <version>4.0.7</version>
@@ -15,9 +15,7 @@
     <decorator id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDbContextDecorator" externalReference="b5514200-bd04-4f58-b300-743e5b2aac2a" />
     <decorator id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsEntityStateDecorator" />
   </decorators>
-  <factoryExtensions>
-    <factoryExtension id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDecoratorExtension" externalReference="bfc65889-d5a2-409c-8aa7-edf702502270" />
-  </factoryExtensions>
+  <factoryExtensions />
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.34" />
