@@ -16,6 +16,12 @@
       <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
       <properties />
     </stereotype>
+    <stereotype stereotypeDefinitionId="586eb05b-d647-4430-ac05-8d096fe3f79e" name="Multi Tenant">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.AspNetCore.MultiTenancy</definitionPackageName>
+      <definitionPackageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</definitionPackageId>
+      <properties />
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>

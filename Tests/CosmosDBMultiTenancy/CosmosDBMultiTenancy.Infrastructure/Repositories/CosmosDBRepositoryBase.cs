@@ -42,7 +42,11 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
             _partitionKeyFieldName = partitionKeyFieldName;
-            _tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException("Could not resolve tenantId");
+
+            if (multiTenantContextAccessor != null)
+            {
+                _tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException("Could not resolve tenantId");
+            }
             _currentUserService = currentUserService;
             _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
@@ -57,11 +61,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
                 (entity as IAuditable)?.SetCreated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
 
-                document.PartitionKey ??= _tenantId;
-                if (document.PartitionKey != _tenantId)
-                {
-                    throw new InvalidOperationException("TenantId mismatch");
-                }
+                CheckTenancy(document);
 
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
@@ -74,11 +74,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
                 (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
 
-                document.PartitionKey ??= _tenantId;
-                if (document.PartitionKey != _tenantId)
-                {
-                    throw new InvalidOperationException("TenantId mismatch");
-                }
+                CheckTenancy(document);
 
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
@@ -90,11 +86,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             {
                 var document = new TDocument().PopulateFromEntity(entity);
 
-                document.PartitionKey ??= _tenantId;
-                if (document.PartitionKey != _tenantId)
-                {
-                    throw new InvalidOperationException("TenantId mismatch");
-                }
+                CheckTenancy(document);
 
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
@@ -158,7 +150,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
         {
-            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE c.{_partitionKeyFieldName} = @tenantId AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
+            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE  (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                     .WithParameter("@tenantId", _tenantId)
                     .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
@@ -168,17 +160,35 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             return results;
         }
 
+        public void CheckTenancy(TDocument document)
+        {
+            if (_tenantId == null)
+            {
+                return;
+            }
+
+            document.PartitionKey ??= _tenantId;
+            if (document.PartitionKey != _tenantId)
+            {
+                throw new InvalidOperationException("TenantId mismatch");
+            }
+        }
+
         /// <summary>
         /// Returns a predicate which filters by tenantId in addition to the provided <paramref name="predicate"/>.
         /// </summary>
         /// <param name="predicate">The existing predicate to also filter by.</param>
         private Expression<Func<TDocument, bool>> GetFilteredByTenantIdPredicate(Expression<Func<TDocument, bool>> predicate)
         {
+            if (_tenantId == null) return predicate;
             var restrictToTenantPredicate = GetHasPartitionKeyExpression(_tenantId);
             return Expression.Lambda<Func<TDocument, bool>>(Expression.AndAlso(predicate.Body, restrictToTenantPredicate.Body), restrictToTenantPredicate.Parameters[0]);
         }
 
-        protected abstract Expression<Func<TDocument, bool>> GetHasPartitionKeyExpression(string? partitionKey);
+        protected virtual Expression<Func<TDocument, bool>> GetHasPartitionKeyExpression(string? partitionKey)
+        {
+            return _ => true;
+        }
 
         /// <summary>
         /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
