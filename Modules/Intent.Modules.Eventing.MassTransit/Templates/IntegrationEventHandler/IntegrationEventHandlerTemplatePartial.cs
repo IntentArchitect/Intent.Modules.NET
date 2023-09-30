@@ -13,6 +13,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using MessageModelExtensions = Intent.Modelers.Eventing.Api.MessageModelExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -35,46 +36,50 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddClass($"{Model.TypeReference.Element.Name.RemoveSuffix("Event").ToPascalCase()}EventHandler", @class =>
+                .AddClass($"{Model.Name.ToPascalCase()}", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
-                    @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{this.GetIntegrationEventMessageName(Model.TypeReference.Element.AsMessageModel())}>");
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
 
-                    @class.AddMethod("Task", "HandleAsync", method =>
+                    foreach (var subscription in Model.IntegrationEventsSubscriptions())
                     {
-                        method.Async();
-                        method.AddParameter(this.GetIntegrationEventMessageName(Model.TypeReference.Element.AsMessageModel()), "message");
-                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-
-
-                        if (model.SentCommandDestinations().Any())
+                        @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{this.GetIntegrationEventMessageName(MessageModelExtensions.AsMessageModel(subscription.TypeReference.Element))}>");
+                        @class.AddMethod("Task", "HandleAsync", method =>
                         {
-                            var ctor = @class.Constructors.First();
-                            ctor.AddParameter(UseType("MediatR.ISender"), "mediator", param =>
+                            method.Async();
+                            method.AddParameter(this.GetIntegrationEventMessageName(MessageModelExtensions.AsMessageModel(subscription.TypeReference.Element)), "message");
+                            method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+
+                            if (subscription.SentCommandDestinations().Any())
                             {
-                                param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
-                            });
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                            var mappingManager = new CSharpClassMappingManager(this);
-                            mappingManager.AddMappingResolver(new CreateCommandMappingResolver(this));
-                            mappingManager.SetFromReplacement(Model, "message");
-                            foreach (var sendCommand in model.SentCommandDestinations())
-                            {
-                                method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
-                                method.AddStatement(string.Empty);
-                                method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
+                                var ctor = @class.Constructors.First();
+                                ctor.AddParameter(UseType("MediatR.ISender"), "mediator", param =>
+                                {
+                                    param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
+                                });
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                                var mappingManager = new CSharpClassMappingManager(this);
+                                mappingManager.AddMappingResolver(new CreateCommandMappingResolver(this));
+                                mappingManager.SetFromReplacement(subscription, "message");
+                                foreach (var sendCommand in subscription.SentCommandDestinations().Where(x => x.Mappings.Any()))
+                                {
+                                    method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
+                                    method.AddStatement(string.Empty);
+                                    method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
+                                }
                             }
-                        }
-                        else
-                        {
-                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                            method.AddStatement("throw new NotImplementedException();");
-                        }
-                    });
+                            else
+                            {
+                                method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                                method.AddStatement("throw new NotImplementedException();");
+                            }
+                        });
+                    }
+
                 });
         }
 
@@ -107,7 +112,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
         {
             if (mappingModel.Model.SpecializationType == "Command")
             {
-                return new ImplicitConstructorMapping(mappingModel, _template);
+                return new ConstructorMapping(mappingModel, _template);
             }
             if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
             {

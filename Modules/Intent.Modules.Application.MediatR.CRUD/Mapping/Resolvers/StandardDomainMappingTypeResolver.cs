@@ -20,18 +20,23 @@ public class StandardDomainMappingTypeResolver : IMappingTypeResolver
     {
         var model = mappingModel.Model;
 
-        if (mappingModel.Mapping?.SourceElement.TypeReference?.IsCollection == true && mappingModel.Model.SpecializationType == "Operation")
+        if (mappingModel.Mapping?.SourceElement?.TypeReference?.IsCollection == true && mappingModel.Model.SpecializationType == "Operation")
         {
             return new ForLoopMethodInvocationMapping(mappingModel, _template);
         }
 
         if (model.SpecializationType == "Class Constructor")
         {
-            return new ImplicitConstructorMapping(mappingModel, _template);
+            return new ConstructorMapping(mappingModel, _template);
         }
         if (model.SpecializationType == "Operation")
         {
             return new MethodInvocationMapping(mappingModel, _template);
+        }
+
+        if (mappingModel.Model.SpecializationType == "Class")
+        {
+            return new MapChildrenMapping(mappingModel, _template);
         }
 
         if (mappingModel.Model.SpecializationType == "Create Entity Action Target End")

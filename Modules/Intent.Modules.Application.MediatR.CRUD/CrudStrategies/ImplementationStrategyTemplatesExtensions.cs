@@ -211,6 +211,14 @@ public static class ImplementationStrategyTemplatesExtensions
             return $"{{request.{idFields.First().Name.ToPascalCase()}}}";
         return $"({string.Join(", ", idFields.Select(idField => $"{{request.{idField.Name.ToPascalCase()}}}"))})";
     }
+
+    public static string AsSingleOrTuple(this IEnumerable<CSharpStatement> idFields)
+    {
+        if (idFields.Count() == 1)
+            return $"{idFields.Single()}";
+        return $"({string.Join(", ", idFields.Select(idField => $"{idField}"))})";
+    }
+
     public static DTOFieldModel GetNestedCompositionalOwnerIdField(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
         return GetNestedCompositionalOwnerIdFields(properties, owner).FirstOrDefault();

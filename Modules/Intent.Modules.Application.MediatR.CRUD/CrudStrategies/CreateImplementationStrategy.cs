@@ -107,18 +107,18 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         continue;
                     }
 
-                    if (mapping.ToElement.IsClassModel())
+                    if (mapping.TargetElement.IsClassModel())
                     {
                         codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
                         csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
                     }
-                    else if (mapping.ToElement.IsClassConstructorModel())
+                    else if (mapping.TargetElement.IsClassConstructorModel())
                     {
                         codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
                         csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
                     }
 
-                    else if (mapping.ToElement.SpecializationType == "Message")
+                    else if (mapping.TargetElement.SpecializationType == "Message")
                     {
                         codeLines.Add(new CSharpAssignmentStatement($"var message", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
                     }

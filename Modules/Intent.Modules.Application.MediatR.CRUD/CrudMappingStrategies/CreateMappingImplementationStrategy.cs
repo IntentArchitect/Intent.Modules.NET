@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
@@ -20,6 +19,7 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateFulfillingRoles.Domain;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _template.Model.CreateEntityActions().Any() || _template.Model.UpdateEntityActions().Any();
+            return _template.Model.CreateEntityActions().Any() || _template.Model.UpdateEntityActions().Any() || _template.Model.DeleteEntityActions().Any();
         }
 
         public void ApplyStrategy()
@@ -63,19 +63,19 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             var entitiesToAdd = new HashSet<EntityDetails>();
             foreach (var createAction in _template.Model.CreateEntityActions())
             {
-                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(createAction.Element.AsClassModel());
+                var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel()?.ParentClass;
+                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(entity);
                 var repositoryFieldName = default(string);
                 ctor.AddParameter(repositoryInterface, repositoryInterface.Substring(1).ToParameterName(),
                     param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
-                var entity = createAction.Element.AsClassModel();
 
                 entitiesToAdd.Add(new EntityDetails(entity, entity.GetNewVariableName(), repositoryFieldName));
 
                 handleMethod.AddStatements(GetImplementation(createAction));
-                handleMethod.AddStatement(string.Empty);
 
                 foreach (var actions in createAction.ProcessingActions)
                 {
+                    handleMethod.AddStatement(string.Empty);
                     handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
                     handleMethod.AddStatement(string.Empty);
                 }
@@ -83,8 +83,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             foreach (var updateAction in _template.Model.UpdateEntityActions())
             {
-                var foundEntity = updateAction.Element.AsClassModel() ?? ((IElement)updateAction.Element).ParentElement.AsClassModel();
-                if (foundEntity != null)
+                var foundEntity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel()?.ParentClass;
+                var mapping = updateAction.Mappings.SingleOrDefault();
+                if (foundEntity != null && mapping != null)
                 {
                     var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
                     var repositoryName = repositoryInterface.Substring(1).ToCamelCase();
@@ -96,29 +97,63 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                     var entityVariableName = foundEntity.GetExistingVariableName();
                     _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
                     _csharpMapping.SetFromReplacement(updateAction, entityVariableName);
+                    _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
                     _csharpMapping.SetToReplacement(updateAction, entityVariableName);
 
-                    var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
-                    handleMethod.AddStatement($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+                    var idFields = mapping.MappedEnds
+                        .Where(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
+                        .Select(x => _csharpMapping.GenerateSourceStatementForMapping(mapping, x))
+                        .ToList();
+                    handleMethod.AddStatement($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.AsSingleOrTuple()}, cancellationToken);");
+
                     handleMethod.AddStatement(_template.CreateThrowNotFoundIfNullStatement(
                         variable: entityVariableName,
-                        message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
-                }
-                handleMethod.AddStatement(string.Empty);
-                handleMethod.AddStatements(GetImplementation(updateAction));
-                handleMethod.AddStatement(string.Empty);
+                        message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.Select(x => new CSharpStatement($"{{{x}}}")).AsSingleOrTuple()}'"));
 
-                foreach (var actions in updateAction.ProcessingActions)
-                {
-                    handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
                     handleMethod.AddStatement(string.Empty);
+
+
+                    handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(mapping));
+
+                    foreach (var actions in updateAction.ProcessingActions)
+                    {
+                        handleMethod.AddStatement(string.Empty);
+                        handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
+                        handleMethod.AddStatement(string.Empty);
+                    }
                 }
             }
 
-            foreach (var processingAction in new CommandExtensionModel(_template.Model.InternalElement).ProcessingActions)
+            foreach (var deleteAction in _template.Model.DeleteEntityActions())
             {
-                handleMethod.AddStatements(_csharpMapping.GenerateUpdateStatements(processingAction.InternalElement.Mappings.Single()));
-                handleMethod.AddStatement(string.Empty);
+                var foundEntity = deleteAction.Element.AsClassModel();
+                if (foundEntity != null)
+                {
+                    var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+                    var repositoryName = repositoryInterface.Substring(1).ToCamelCase();
+                    var repositoryFieldName = default(string);
+
+                    ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
+                        param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
+
+                    var entityVariableName = deleteAction.Name;
+                    _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+
+                    var mapping = deleteAction.Mappings.SingleOrDefault();
+                    if (mapping?.MappedEnds.All(x => x.TargetElement.AsAttributeModel().IsPrimaryKey()) == true)
+                    {
+                        var idFields = mapping.MappedEnds.Select(x => _csharpMapping.GenerateSourceStatementForMapping(mapping, x)).ToList();
+                        handleMethod.AddStatement($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.AsSingleOrTuple()}, cancellationToken);");
+
+                        handleMethod.AddStatement(_template.CreateThrowNotFoundIfNullStatement(
+                            variable: entityVariableName,
+                            message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.Select(x => new CSharpStatement($"{{{x}}}")).AsSingleOrTuple()}'"));
+
+                        handleMethod.AddStatement(string.Empty);
+                        handleMethod.AddStatement(new CSharpInvocationStatement(repositoryFieldName, "Remove").AddArgument(entityVariableName));
+                    }
+                    //var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+                }
             }
 
             foreach (var entity in entitiesToAdd)
@@ -146,30 +181,25 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public IEnumerable<CSharpStatement> GetImplementation(CreateEntityActionTargetEndModel createAction)
         {
+            var mapping = createAction.Mappings.SingleOrDefault();
+            if (mapping == null)
+            {
+                return Array.Empty<CSharpStatement>();
+            }
             var codeLines = new CSharpStatementAggregator();
 
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
 
-
             _csharpMapping.SetFromReplacement(model, "request");
-            if (model.CreateEntityActions().Any())
+
+            var foundEntity = mapping.TargetElement.AsClassModel();
+            if (foundEntity != null)
             {
-
-                var foundEntity = createAction.Element.AsClassModel();
                 var entityVariableName = foundEntity.GetNewVariableName();
-                var mapping = createAction.Mappings.SingleOrDefault();
-                if (mapping == null)
-                {
-                    return Array.Empty<CSharpStatement>();
-                }
-
-                if (mapping.ToElement.IsClassModel())
-                {
-                    codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-                    _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
-                    _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
-                    _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
-                }
+                codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
+                _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
+                _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+                _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
             }
 
             return codeLines.ToList();
@@ -177,22 +207,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public IEnumerable<CSharpStatement> GetImplementation(UpdateEntityActionTargetEndModel updateAction)
         {
-            var codeLines = new CSharpStatementAggregator();
-
-            var foundEntity = updateAction.Element.AsClassModel();
-            if (foundEntity != null)
-            {
-                _csharpMapping.SetToReplacement(foundEntity.InternalElement, foundEntity.GetExistingVariableName());
-            }
-
             var mapping = updateAction.Mappings.SingleOrDefault();
             if (mapping == null)
             {
                 return Array.Empty<CSharpStatement>();
             }
 
-            codeLines.AddRange(_csharpMapping.GenerateUpdateStatements(mapping));
+            var codeLines = new CSharpStatementAggregator();
+            var foundEntity = mapping.TargetElement.AsClassModel();
+            if (foundEntity != null)
+            {
+                _csharpMapping.SetToReplacement(foundEntity.InternalElement, foundEntity.GetExistingVariableName());
+            }
 
+            codeLines.AddRange(_csharpMapping.GenerateUpdateStatements(mapping));
 
             return codeLines.ToList();
         }

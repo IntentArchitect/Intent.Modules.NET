@@ -17,7 +17,7 @@ public class DomainEventMappingTypeResolver : IMappingTypeResolver
         var model = mappingModel.Model;
         if (model.SpecializationType == "Domain Event")
         {
-            return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
+            return new ConstructorMapping(mappingModel, _sourceTemplate);
         }
 
         return null;

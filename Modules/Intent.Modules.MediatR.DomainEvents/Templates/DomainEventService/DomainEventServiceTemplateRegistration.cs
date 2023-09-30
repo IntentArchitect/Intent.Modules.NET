@@ -18,6 +18,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
     {
         public override string TemplateId => DomainEventServiceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DomainEventServiceTemplate(outputTarget);

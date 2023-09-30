@@ -64,7 +64,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                     var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
                                     if (mapping != null)
                                     {
-                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())));
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
                                     }
                                     else
                                     {
@@ -85,7 +85,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                     var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
                                     if (mapping != null)
                                     {
-                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, mapping, publishedDomainEvent.Element.AsDomainEventModel())));
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
                                     }
                                     else
                                     {
@@ -114,14 +114,14 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
         }
 
         private CSharpStatement ConstructDomainEvent(ICSharpFileBuilderTemplate template,
-            IElementToElementMapping mapping,
-            DomainEventModel model)
+            DomainEventOriginAssociationTargetEndModel model)
         {
+            var mapping = model.Mappings.Single();
             var manager = new CSharpClassMappingManager(template);
             manager.AddMappingResolver(new ValueObjectMappingTypeResolver(template));
             manager.AddMappingResolver(new DomainEventMappingTypeResolver(template));
             manager.SetFromReplacement((IMetadataModel)((ITemplateWithModel)template).Model, "this");
-            manager.SetFromReplacement(mapping.FromElement, null);
+            manager.SetFromReplacement(model.OtherEnd().Element, null); // the constructor element
 
             return manager.GenerateCreationStatement(mapping);
         }

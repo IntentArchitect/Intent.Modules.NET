@@ -18,7 +18,7 @@ public class ValueObjectMappingTypeResolver : IMappingTypeResolver
         var model = mappingModel.Model;
         if (model.TypeReference?.Element?.SpecializationType == "Value Object")
         {
-            return new ImplicitConstructorMapping(mappingModel, _sourceTemplate);
+            return new ConstructorMapping(mappingModel, _sourceTemplate);
         }
 
         return null;
