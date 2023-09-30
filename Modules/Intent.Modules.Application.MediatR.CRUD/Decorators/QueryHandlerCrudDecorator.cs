@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
@@ -36,6 +37,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
             var strategies = new ICrudImplementationStrategy[]
             {
+                new QueryMappingImplementationStrategy(template),
+
                 new GetAllImplementationStrategy(_template, _application),
                 new GetByIdImplementationStrategy(_template, _application),
                 new GetAllPaginationImplementationStrategy(_template)

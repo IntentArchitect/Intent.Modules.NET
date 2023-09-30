@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                         var constructor = @class.Constructors.First();
                         constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", ctor => ctor.IntroduceReadonlyField());
 
-                        if (!@class.TryGetMetadata<CSharpClassMappingManager>("mapping-manager", out var csharpMapping))
+                        if (!file.TryGetMetadata<CSharpClassMappingManager>("mapping-manager", out var csharpMapping))
                         {
                             csharpMapping = new CSharpClassMappingManager(template);
                         }

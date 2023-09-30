@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
             var strategies = new ICrudImplementationStrategy[]
             {
-                new CreateMappingImplementationStrategy(template),
+                new CommandMappingImplementationStrategy(template),
 
                 new CreateImplementationStrategy(template),
                 new UpdateImplementationStrategy(template),

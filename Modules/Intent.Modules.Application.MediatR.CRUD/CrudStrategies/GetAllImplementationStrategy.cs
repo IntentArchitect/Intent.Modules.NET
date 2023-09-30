@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -89,6 +90,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
+            if (_template.Model.QueryEntityActions().Any())
+            {
+                return NoMatch;
+            }
+
             if (!_template.Model.TypeReference?.IsCollection == true)
             {
                 return NoMatch;

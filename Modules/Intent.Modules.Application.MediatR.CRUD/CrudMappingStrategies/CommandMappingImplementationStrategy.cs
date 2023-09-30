@@ -20,11 +20,10 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Templates;
-using static Intent.Modules.Constants.TemplateFulfillingRoles.Domain;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
-    public class CreateMappingImplementationStrategy : ICrudImplementationStrategy
+    public class CommandMappingImplementationStrategy : ICrudImplementationStrategy
     {
         private readonly CommandHandlerTemplate _template;
         private readonly CSharpClassMappingManager _csharpMapping;
@@ -32,19 +31,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
         private CSharpClassMethod _handleMethod;
 
 
-        public CreateMappingImplementationStrategy(CommandHandlerTemplate template)
+        public CommandMappingImplementationStrategy(CommandHandlerTemplate template)
         {
             _template = template;
             var model = (_template as ITemplateWithModel)?.Model as CommandModel;
             var commandTemplate = _template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Command, model);
-            _csharpMapping = new CSharpClassMappingManager(commandTemplate);
+            // commandTemplate needs to be passed in so that the DefaultMapping can correctly resolve the mappings (e.g. pascal-casing for properties, even if the mapping is to a camel-case element)
+            _csharpMapping = new CSharpClassMappingManager(commandTemplate); // TODO: Improve this template resolution system - it's not clear which template should be passed in initially.
             _csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             _csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             _csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
             _csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
 
             _csharpMapping.SetFromReplacement(model.InternalElement, "request");
-            _template.CSharpFile.Classes.First().AddMetadata("mapping-manager", _csharpMapping);
+            _template.CSharpFile.AddMetadata("mapping-manager", _csharpMapping);
 
         }
 
