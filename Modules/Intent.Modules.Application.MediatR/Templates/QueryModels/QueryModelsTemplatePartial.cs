@@ -48,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                         {
                             ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
                             {
-                                p.IntroduceProperty();
+                                p.IntroduceProperty(prop => prop.RepresentsModel(property));
                             });
                         }
                     });

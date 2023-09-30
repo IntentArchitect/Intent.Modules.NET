@@ -8,12 +8,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 public class StandardDomainMappingTypeResolver : IMappingTypeResolver
 {
     private readonly ICSharpFileBuilderTemplate _template;
-    private readonly CommandModel _command;
 
-    public StandardDomainMappingTypeResolver(ICSharpFileBuilderTemplate template, CommandModel command)
+    public StandardDomainMappingTypeResolver(ICSharpFileBuilderTemplate template)
     {
         _template = template;
-        _command = command;
     }
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
