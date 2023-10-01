@@ -1,7 +1,5 @@
 using System;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -39,9 +37,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
-            if (IsSeperateDatabaseMultiTenancy(application) )
+            if (IsSeparateDatabaseMultiTenancy(application) )
             {
-                Logging.Log.Warning($@"CosmosDB Module does not currently support MultiTenancy Data Isolation setting of `IsSeparateDatabase`.Please contact support@intentarchitect.com, to discuss adding this feature if you require it.");
+                Logging.Log.Warning("The Intent.CosmosDB Module does not currently support the MultiTenancy Settings' \"Data Isolation\" setting of \"Separate Databases\". Please either change the \"Data Isolation\" setting or contact support@intentarchitect.com should you require \"Separate Databases\" isolation.");
                 return;
             }
 
@@ -55,11 +53,12 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             }
         }
 
-        private bool IsSeperateDatabaseMultiTenancy(IApplication application)
+        private static bool IsSeparateDatabaseMultiTenancy(IApplication application)
         {
-            string multitenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
-            string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
-            return application.Settings.GetGroup(multitenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
+            const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+            const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+
+            return application.Settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
         }
 
         private static void UpdateRepository(CosmosDBRepositoryTemplate template)
@@ -78,10 +77,10 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     partitionKey = template.Model.GetPrimaryKeyAttribute().Name;
                 }
 
-                constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                 constructor.ConstructorCall.AddArgument($"\"{partitionKey.ToCamelCase()}\"");
                 if (RequiresMultiTenancy(template.Model))
                 {
+                    constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
                     constructor.ConstructorCall.AddArgument("multiTenantContextAccessor");
                 }
                 else
@@ -212,7 +211,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var method = @class.FindMethod("FindByIdsAsync");
                     var queryDefinitionDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
-                    queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE  (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
+                    queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                     .WithParameter(""@tenantId"", _tenantId)
                     .WithParameter(""@ids"", ids);");
                 }
