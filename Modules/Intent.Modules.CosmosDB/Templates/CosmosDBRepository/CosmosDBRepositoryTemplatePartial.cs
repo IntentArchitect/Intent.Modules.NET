@@ -34,11 +34,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                 {
                     var pkAttribute = Model.GetPrimaryKeyAttribute();
                     var pkFieldName = pkAttribute.Name.ToCamelCase();
-                    var entityDocumentName = this.GetCosmosDBDocumentName();
+                    var genericTypeParameters = Model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", Model.GenericTypes)}>"
+                        : string.Empty;
+                    var entityDocumentName = $"{this.GetCosmosDBDocumentName()}{genericTypeParameters}";
 
                     @class.Internal();
+                    foreach (var genericType in Model.GenericTypes)
+                    {
+                        @class.AddGenericParameter(genericType);
+                    }
                     @class.ExtendsClass($"{this.GetCosmosDBRepositoryBaseName()}<{EntityInterfaceName}, {EntityStateName}, {entityDocumentName}>");
-                    @class.ImplementsInterface(this.GetEntityRepositoryInterfaceName());
+                    @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}{genericTypeParameters}");
 
                     @class.AddConstructor(ctor =>
                     {
@@ -75,8 +82,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                 });
         }
 
-        public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
-        public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public string GenericTypeParameters => Model.GenericTypes.Any()
+            ? $"<{string.Join(", ", Model.GenericTypes)}>"
+            : string.Empty;
+
+        public string EntityInterfaceName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{GenericTypeParameters}";
+        public string EntityStateName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model)}{GenericTypeParameters}";
 
         public override void AfterTemplateRegistration()
         {

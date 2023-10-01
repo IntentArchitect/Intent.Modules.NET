@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
@@ -9,11 +10,12 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosPagedList;
+using Intent.Modules.CosmosDB.Templates.ReflectionHelper;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
 namespace Intent.Modules.CosmosDB.Templates
@@ -74,9 +76,24 @@ namespace Intent.Modules.CosmosDB.Templates
             return template.GetTypeName(CosmosDBUnitOfWorkInterfaceTemplate.TemplateId);
         }
 
+        public static string GetCosmosDBValueObjectDocumentName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(CosmosDBValueObjectDocumentTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetCosmosDBValueObjectDocumentName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(CosmosDBValueObjectDocumentTemplate.TemplateId, model);
+        }
+
         public static string GetCosmosPagedListName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosPagedListTemplate.TemplateId);
+        }
+
+        public static string GetReflectionHelperName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ReflectionHelperTemplate.TemplateId);
         }
 
     }

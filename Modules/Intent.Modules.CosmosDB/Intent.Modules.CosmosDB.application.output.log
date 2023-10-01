@@ -10,6 +10,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0a66489f-30aa-417b-a75d-b945863366fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AssociationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssociationTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0090fb93-483e-41af-a11d-5ad2dc796adf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AttributeModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AttributeModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -226,6 +242,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e439202a-d1f7-4115-87bf-76e3ac4195ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e439202a-d1f7-4115-87bf-76e3ac4195ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBValueObjectDocument/CosmosDBValueObjectDocumentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d6e7abd-cc1f-4a55-b04f-e9b7355bd390</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CosmosPagedList/CosmosPagedListTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -238,6 +270,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CosmosPagedList/CosmosPagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosPagedList/CosmosPagedListTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e8f0d58b-b368-4ffb-982b-a5a085ab692c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e8f0d58b-b368-4ffb-982b-a5a085ab692c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

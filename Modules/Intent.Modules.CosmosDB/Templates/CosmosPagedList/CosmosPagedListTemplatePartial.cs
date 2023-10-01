@@ -26,7 +26,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Microsoft.Azure.CosmosRepository")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Paging")
-                .AddClass($"CosmosPagedList", @class =>
+                .AddClass("CosmosPagedList", @class =>
                 {
                     @class
                         .Internal()
@@ -34,29 +34,30 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
                         .AddGenericParameter("TDocument", out var tDocument)
                         .WithBaseType($"List<{tDomain}>")
                         .ImplementsInterface($"{this.GetPagedResultInterfaceName()}<{tDomain}>")
+                        .AddGenericTypeConstraint(tDomain, c => c
+                            .AddType("class"))
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType(tDomain)
-                            .AddType("IItem"))
+                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDomain}, {tDocument}>"))
                         ;
 
-                    @class.AddProperty("int", "TotalCount", prop => prop.PrivateSetter());
-                    @class.AddProperty("int", "PageCount", prop => prop.PrivateSetter());
-                    @class.AddProperty("int", "PageNo", prop => prop.PrivateSetter());
-                    @class.AddProperty("int", "PageSize", prop => prop.PrivateSetter());
+                    @class.AddProperty("int", "TotalCount", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageCount", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageNo", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageSize", prop => prop.WithoutSetter());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter($"IPageQueryResult<{tDocument}>", "pagedResult")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize");
 
-                        ctor.AddStatement($"TotalCount = pagedResult.Total ?? 0;");
-                        ctor.AddStatement($"PageCount = pagedResult.TotalPages ?? 0;");
-                        ctor.AddStatement($"PageNo = pageNo;");
-                        ctor.AddStatement($"PageSize = pageSize;");
+                        ctor.AddStatement("TotalCount = pagedResult.Total ?? 0;");
+                        ctor.AddStatement("PageCount = pagedResult.TotalPages ?? 0;");
+                        ctor.AddStatement("PageNo = pageNo;");
+                        ctor.AddStatement("PageSize = pageSize;");
 
                         ctor.AddForEachStatement("result", "pagedResult.Items", stmt =>
                         {
-                            stmt.AddStatement("Add(result);");
+                            stmt.AddStatement("Add(result.ToEntity());");
                         });
                     });
                 });

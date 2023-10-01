@@ -3,17 +3,17 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Constants;
-using Intent.Plugins.FactoryExtensions;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

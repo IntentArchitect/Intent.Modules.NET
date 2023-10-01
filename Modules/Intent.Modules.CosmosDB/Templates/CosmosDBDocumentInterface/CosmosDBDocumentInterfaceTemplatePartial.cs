@@ -27,16 +27,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                 {
                     @interface
                         .Internal()
+                        .AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TDocument", out var tDocument, g => g.Covariant())
-                        .AddGenericParameter("TDomain", out var tDomain, g => g.Contravariant())
+                        .AddGenericTypeConstraint(tDomain, c => c
+                            .AddType("class"))
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>"));
+                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDomain}, {tDocument}>"));
 
                     @interface.ImplementsInterfaces(UseType("ICosmosDBDocument"));
 
                     @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
-                        .AddParameter(tDomain, "entity")
-                    );
+                        .AddParameter(tDomain, "entity"));
+
+                    @interface.AddMethod(tDomain, "ToEntity", c => c
+                        .AddParameter($"{tDomain}?", "entity", p => p.WithDefaultValue("null")));
                 })
                 .AddInterface($"ICosmosDBDocument", @interface =>
                 {

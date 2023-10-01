@@ -35,7 +35,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 application: application,
                 dbProviderApplies: CosmosDbProvider.FilterDbProvider,
                 initializePrimaryKeyOnAggregateRoots: true,
-                makeNonPersistentPropertiesVirtual: true);
+                makeNonPersistentPropertiesVirtual: false);
             RegisterServices(application);
 
         }

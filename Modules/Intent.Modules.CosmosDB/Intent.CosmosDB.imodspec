@@ -83,6 +83,14 @@
       <role>Domain.UnitOfWork.CosmosDB</role>
       <location>Common/Interfaces</location>
     </template>
+    <template id="Intent.CosmosDB.CosmosDBValueObjectDocument" externalReference="e439202a-d1f7-4115-87bf-76e3ac4195ab">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.CosmosDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
     <template id="Intent.CosmosDB.CosmosPagedList" externalReference="3d6e7abd-cc1f-4a55-b04f-e9b7355bd390">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -90,6 +98,14 @@
       </config>
       <role>Repository.Implementation.CosmosDB</role>
       <location>Repositories</location>
+    </template>
+    <template id="Intent.CosmosDB.ReflectionHelper" externalReference="e8f0d58b-b368-4ffb-982b-a5a085ab692c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.CosmosDB.Document</role>
+      <location>Persistence/Documents</location>
     </template>
   </templates>
   <decorators></decorators>
@@ -118,7 +134,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.42-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.42-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.2" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.4" />
