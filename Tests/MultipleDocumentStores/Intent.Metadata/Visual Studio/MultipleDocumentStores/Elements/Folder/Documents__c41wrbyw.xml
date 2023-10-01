@@ -69,5 +69,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="104fa2c0-19dd-4e94-9088-88b628e40343" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBValueObjectDocument</name>
+      <display>Intent.CosmosDB.CosmosDBValueObjectDocument</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2c858dac-1f73-4353-b04d-04b2385ab134" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.ReflectionHelper</name>
+      <display>Intent.CosmosDB.ReflectionHelper</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

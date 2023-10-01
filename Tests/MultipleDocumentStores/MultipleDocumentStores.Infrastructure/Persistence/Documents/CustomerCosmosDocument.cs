@@ -11,26 +11,26 @@ using Newtonsoft.Json;
 
 namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
 {
-    internal class CustomerCosmosDocument : CustomerCosmos, ICosmosDBDocument<CustomerCosmosDocument, CustomerCosmos>
+    internal class CustomerCosmosDocument : ICosmosDBDocument<CustomerCosmos, CustomerCosmosDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string Name { get; set; } = default!;
+
+        public CustomerCosmos ToEntity(CustomerCosmos? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new CustomerCosmos();
+
+            entity.Id = Id;
+            entity.Name = Name;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
-        }
-        [JsonIgnore]
-        public override List<DomainEvent> DomainEvents
-        {
-            get => base.DomainEvents;
-            set => base.DomainEvents = value;
         }
 
         public CustomerCosmosDocument PopulateFromEntity(CustomerCosmos entity)
@@ -39,6 +39,16 @@ namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
             Name = entity.Name;
 
             return this;
+        }
+
+        public static CustomerCosmosDocument? FromEntity(CustomerCosmos? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new CustomerCosmosDocument().PopulateFromEntity(entity);
         }
     }
 }

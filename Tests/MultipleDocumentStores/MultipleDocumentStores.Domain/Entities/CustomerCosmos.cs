@@ -23,6 +23,6 @@ namespace MultipleDocumentStores.Domain.Entities
 
         public string Name { get; set; }
 
-        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

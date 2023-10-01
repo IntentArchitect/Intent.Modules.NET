@@ -59,7 +59,7 @@ namespace CosmosDB.Domain.Entities
 
         public InvoiceLogo InvoiceLogo { get; set; }
 
-        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Update(DateTime date, string number, string clientIdentifier)

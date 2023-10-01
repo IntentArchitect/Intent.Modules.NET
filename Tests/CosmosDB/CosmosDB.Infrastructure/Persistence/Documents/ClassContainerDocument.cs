@@ -11,14 +11,20 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClassContainerDocument : ClassContainer, ICosmosDBDocument<ClassContainerDocument, ClassContainer>
+    internal class ClassContainerDocument : ICosmosDBDocument<ClassContainer, ClassContainerDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string ClassPartitionKey { get; set; } = default!;
+
+        public ClassContainer ToEntity(ClassContainer? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new ClassContainer();
+
+            entity.Id = Id;
+            entity.ClassPartitionKey = ClassPartitionKey;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -31,12 +37,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => ClassPartitionKey;
             set => ClassPartitionKey = value!;
         }
-        [JsonIgnore]
-        public override List<DomainEvent> DomainEvents
-        {
-            get => base.DomainEvents;
-            set => base.DomainEvents = value;
-        }
 
         public ClassContainerDocument PopulateFromEntity(ClassContainer entity)
         {
@@ -44,6 +44,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             ClassPartitionKey = entity.ClassPartitionKey;
 
             return this;
+        }
+
+        public static ClassContainerDocument? FromEntity(ClassContainer? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new ClassContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

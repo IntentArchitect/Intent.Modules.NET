@@ -3,6 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Microsoft.Azure.CosmosRepository.Paging;
 using MultipleDocumentStores.Domain.Repositories;
+using MultipleDocumentStores.Infrastructure.Persistence.Documents;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosPagedList", Version = "1.0")]
@@ -10,7 +11,8 @@ using MultipleDocumentStores.Domain.Repositories;
 namespace MultipleDocumentStores.Infrastructure.Repositories
 {
     internal class CosmosPagedList<TDomain, TDocument> : List<TDomain>, IPagedResult<TDomain>
-        where TDocument : TDomain, IItem
+        where TDomain : class
+        where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
         public CosmosPagedList(IPageQueryResult<TDocument> pagedResult, int pageNo, int pageSize)
         {
@@ -21,13 +23,13 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
 
             foreach (var result in pagedResult.Items)
             {
-                Add(result);
+                Add(result.ToEntity());
             }
         }
 
-        public int TotalCount { get; private set; }
-        public int PageCount { get; private set; }
-        public int PageNo { get; private set; }
-        public int PageSize { get; private set; }
+        public int TotalCount { get; }
+        public int PageCount { get; }
+        public int PageNo { get; }
+        public int PageSize { get; }
     }
 }

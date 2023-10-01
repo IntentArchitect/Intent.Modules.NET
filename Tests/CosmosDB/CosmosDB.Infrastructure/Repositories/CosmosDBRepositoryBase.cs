@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Application.Common.Interfaces;
@@ -20,7 +21,8 @@ namespace CosmosDB.Infrastructure.Repositories
 {
     internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
         where TPersistence : TDomain
-        where TDocument : TPersistence, ICosmosDBDocument<TDocument, TDomain>, new()
+        where TDomain : class
+        where TDocument : ICosmosDBDocument<TDomain, TDocument>, new()
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
@@ -75,7 +77,7 @@ namespace CosmosDB.Infrastructure.Repositories
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
-            var results = documents.Cast<TDomain>().ToList();
+            var results = documents.Select(document => document.ToEntity()).ToList();
             Track(results);
 
             return results;
@@ -83,10 +85,18 @@ namespace CosmosDB.Infrastructure.Repositories
 
         public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
-            var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
-            Track(document);
+            try
+            {
+                var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
+                var entity = document.ToEntity();
+                Track(entity);
 
-            return document;
+                return entity;
+            }
+            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
@@ -94,7 +104,7 @@ namespace CosmosDB.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
-            var results = documents.Cast<TDomain>().ToList();
+            var results = documents.Select(document => document.ToEntity()).ToList();
             Track(results);
 
             return results;
@@ -115,7 +125,7 @@ namespace CosmosDB.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
-            Track(pagedDocuments.Items.Cast<TDomain>());
+            Track(pagedDocuments.Items.Select(document => document.ToEntity()));
 
             return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
         }
@@ -127,7 +137,7 @@ namespace CosmosDB.Infrastructure.Repositories
             var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                 .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
-            var results = documents.Cast<TDomain>().ToList();
+            var results = documents.Select(document => document.ToEntity()).ToList();
             Track(results);
 
             return results;

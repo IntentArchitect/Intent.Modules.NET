@@ -125,7 +125,7 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified PagedResult&lt;ClientDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpGet("api//clients/paged")]
+        [HttpGet("api/clients/paged")]
         [ProducesResponseType(typeof(PagedResult<ClientDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

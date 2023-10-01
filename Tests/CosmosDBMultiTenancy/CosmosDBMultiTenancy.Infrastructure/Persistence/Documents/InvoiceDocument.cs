@@ -12,14 +12,30 @@ using Newtonsoft.Json;
 
 namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
 {
-    internal class InvoiceDocument : Invoice, ICosmosDBDocument<InvoiceDocument, Invoice>
+    internal class InvoiceDocument : ICosmosDBDocument<Invoice, InvoiceDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string Number { get; set; } = default!;
+        public string TenantId { get; set; } = default!;
+        public string CreatedBy { get; set; } = default!;
+        public DateTimeOffset CreatedDate { get; set; }
+        public string? UpdatedBy { get; set; }
+        public DateTimeOffset? UpdatedDate { get; set; }
+
+        public Invoice ToEntity(Invoice? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new Invoice();
+
+            entity.Id = Id;
+            entity.Number = Number;
+            entity.TenantId = TenantId;
+            entity.CreatedBy = CreatedBy;
+            entity.CreatedDate = CreatedDate;
+            entity.UpdatedBy = UpdatedBy;
+            entity.UpdatedDate = UpdatedDate;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -31,12 +47,6 @@ namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
         {
             get => TenantId;
             set => TenantId = value!;
-        }
-        [JsonIgnore]
-        public override List<DomainEvent> DomainEvents
-        {
-            get => base.DomainEvents;
-            set => base.DomainEvents = value;
         }
 
         public InvoiceDocument PopulateFromEntity(Invoice entity)
@@ -50,6 +60,16 @@ namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
             UpdatedDate = entity.UpdatedDate;
 
             return this;
+        }
+
+        public static InvoiceDocument? FromEntity(Invoice? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new InvoiceDocument().PopulateFromEntity(entity);
         }
     }
 }

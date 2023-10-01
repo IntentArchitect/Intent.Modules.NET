@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClientDocument : Client, ICosmosDBDocument<ClientDocument, Client>
+    internal class ClientDocument : ICosmosDBDocument<Client, ClientDocument>
     {
         private string? _type;
         [JsonProperty("id")]
@@ -27,17 +27,20 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        public string Identifier { get; set; } = default!;
         [JsonProperty("@type")]
-        public new ClientType Type
+        public ClientType Type { get; set; }
+        public string Name { get; set; } = default!;
+
+        public Client ToEntity(Client? entity = default)
         {
-            get => base.Type;
-            set => base.Type = value;
-        }
-        [JsonIgnore]
-        public override List<DomainEvent> DomainEvents
-        {
-            get => base.DomainEvents;
-            set => base.DomainEvents = value;
+            entity ??= new Client();
+
+            entity.Identifier = Identifier;
+            entity.Type = Type;
+            entity.Name = Name;
+
+            return entity;
         }
 
         public ClientDocument PopulateFromEntity(Client entity)
@@ -47,6 +50,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Name = entity.Name;
 
             return this;
+        }
+
+        public static ClientDocument? FromEntity(Client? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new ClientDocument().PopulateFromEntity(entity);
         }
     }
 }

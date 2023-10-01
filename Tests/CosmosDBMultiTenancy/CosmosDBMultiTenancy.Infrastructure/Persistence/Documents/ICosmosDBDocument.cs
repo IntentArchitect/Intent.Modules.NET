@@ -7,10 +7,12 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
 {
-    internal interface ICosmosDBDocument<out TDocument, in TDomain> : ICosmosDBDocument
-        where TDocument : ICosmosDBDocument<TDocument, TDomain>
+    internal interface ICosmosDBDocument<TDomain, out TDocument> : ICosmosDBDocument
+        where TDomain : class
+        where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
         TDocument PopulateFromEntity(TDomain entity);
+        TDomain ToEntity(TDomain? entity = null);
     }
 
     internal interface ICosmosDBDocument : IItem

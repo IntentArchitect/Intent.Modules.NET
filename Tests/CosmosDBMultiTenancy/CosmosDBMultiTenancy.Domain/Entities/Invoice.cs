@@ -34,7 +34,7 @@ namespace CosmosDBMultiTenancy.Domain.Entities
 
         public DateTimeOffset? UpdatedDate { get; set; }
 
-        public virtual List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
         void IAuditable.SetCreated(string createdBy, DateTimeOffset createdDate) => (CreatedBy, CreatedDate) = (createdBy, createdDate);
 

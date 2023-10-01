@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -11,51 +8,44 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class IdTestingDocument : ICosmosDBDocument<IdTesting, IdTestingDocument>
+    internal class EntityOfTDocument<T> : ICosmosDBDocument<EntityOfT<T>, EntityOfTDocument<T>>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
-        {
-            get => Identifier;
-            set => Identifier = value;
-        }
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        public string Identifier { get; set; } = default!;
-        [JsonProperty("@id")]
         public string Id { get; set; } = default!;
+        public T GenericAttribute { get; set; } = default!;
 
-        public IdTesting ToEntity(IdTesting? entity = default)
+        public EntityOfT<T> ToEntity(EntityOfT<T>? entity = default)
         {
-            entity ??= new IdTesting();
+            entity ??= new EntityOfT<T>();
 
-            entity.Identifier = Identifier;
             entity.Id = Id;
+            entity.GenericAttribute = GenericAttribute;
 
             return entity;
         }
 
-        public IdTestingDocument PopulateFromEntity(IdTesting entity)
+        public EntityOfTDocument<T> PopulateFromEntity(EntityOfT<T> entity)
         {
-            Identifier = entity.Identifier;
             Id = entity.Id;
+            GenericAttribute = entity.GenericAttribute;
 
             return this;
         }
 
-        public static IdTestingDocument? FromEntity(IdTesting? entity)
+        public static EntityOfTDocument<T>? FromEntity(EntityOfT<T>? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new IdTestingDocument().PopulateFromEntity(entity);
+            return new EntityOfTDocument<T>().PopulateFromEntity(entity);
         }
     }
 }
