@@ -150,7 +150,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
         {
-            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE  (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
+            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                     .WithParameter("@tenantId", _tenantId)
                     .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
