@@ -29,6 +29,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "System.Collections.Generic.List<{0}>");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto, "System.Collections.Generic.List<{0}>");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum, "System.Collections.Generic.List<{0}>");
+            AddTypeSource(TemplateFulfillingRoles.Application.Query);
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
                 .AddUsing("System")
