@@ -37,6 +37,10 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                     @interface.AddMetadata("model", model);
                     @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @interface.ExtendsInterface($"{RepositoryInterfaceName}<{EntityInterfaceName}, {EntityStateName}>");
+                    foreach (var genericType in Model.GenericTypes)
+                    {
+                        @interface.AddGenericParameter(genericType);
+                    }
 
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))
                     {
@@ -82,11 +86,15 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 
         public CSharpFile CSharpFile { get; }
 
+        public string GenericTypeParameters => Model.GenericTypes.Any()
+            ? $"<{string.Join(", ", Model.GenericTypes)}>"
+            : string.Empty;
+
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
 
-        public string EntityStateName => GetTypeName("Domain.Entity", Model);
+        public string EntityStateName => $"{GetTypeName("Domain.Entity", Model)}{GenericTypeParameters}";
 
-        public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
+        public string EntityInterfaceName => $"{GetTypeName("Domain.Entity.Interface", Model)}{GenericTypeParameters}";
 
         public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 

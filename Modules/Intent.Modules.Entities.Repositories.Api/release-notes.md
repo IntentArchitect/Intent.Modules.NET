@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Improvement: Added support for entities with generic type parameters.
+
 ### Version 4.1.2
 
 - Improvement: Added Document DB Provider support, allowing this module to be used in conjunction with other Document DB technologies within the same application.
