@@ -103,7 +103,7 @@ public static class ValidationRulesExtensions
                     method.AddParameter(template.GetTypeName(field), "value");
                     method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                    method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
+                    method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                 });
             }
 
@@ -119,13 +119,13 @@ public static class ValidationRulesExtensions
                     method.AddParameter(toValidateTypeName, modelParameterName);
                     method.AddParameter(template.GetTypeName(field), "value");
                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                    method.AddStatement("throw new NotImplementedException(\"Your custom validation rules here...\");");
+                    method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                 });
             }
 
             if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
             {
-                validatorClass.AddMethod("Task<bool>", $"CheckUniqueConstraint_{field.Name.ToPascalCase()}", method =>
+                validatorClass.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"CheckUniqueConstraint_{field.Name.ToPascalCase()}", method =>
                 {
                     method.Private().Async();
                     if (IsUpdateDto(dtoModel))
@@ -134,7 +134,7 @@ public static class ValidationRulesExtensions
                     }
                     method.AddParameter(template.GetTypeName(field.TypeReference), "value");
 
-                    method.AddParameter("CancellationToken", "cancellationToken");
+                    method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                     if (!repositoryInjectionEnabled)
                     {
@@ -161,11 +161,11 @@ public static class ValidationRulesExtensions
         
         foreach (var indexGroup in indexFields.Where(p => p.GroupCount > 1).GroupBy(g => g.CompositeGroupName))
         {
-            validatorClass.AddMethod("Task<bool>", $"CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))}", method =>
+            validatorClass.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))}", method =>
             {
                 method.Private().Async();
                 method.AddParameter(toValidateTypeName, "model");
-                method.AddParameter("CancellationToken", "cancellationToken");
+                method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                 if (!repositoryInjectionEnabled)
                 {
@@ -404,7 +404,7 @@ public static class ValidationRulesExtensions
             var indexGroups = indexFields.Where(p => p.GroupCount > 1).GroupBy(g => g.CompositeGroupName).ToArray();
             foreach (var indexGroup in indexGroups)
             {
-                validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))})");
+                validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))})", stmt => stmt.AddMetadata("requires-repository", true));
                 validationRuleChain.AddChainStatement($@"WithMessage(""The combination of {string.Join(" and ", indexGroup.Select(s => s.FieldName))} already exists."")");
             }
 

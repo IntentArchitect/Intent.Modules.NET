@@ -1,3 +1,7 @@
+### Version 3.8.1
+
+- Fixed: Using composite Index unique constraint validation didn't use the correct using directives or indicate that a repository was needed.
+
 ### Version 3.8.0
 
 - Improvement: Further consolidated/generalized logic with other FluentValidation modules.
