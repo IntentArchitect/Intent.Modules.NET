@@ -1,3 +1,7 @@
+### Version 4.1.6
+
+- Fixed: Updated dependencies to introduce latest fixes.
+
 ### Version 4.1.3
 
 - Update: Adds cancellation tokens where appropriate.
