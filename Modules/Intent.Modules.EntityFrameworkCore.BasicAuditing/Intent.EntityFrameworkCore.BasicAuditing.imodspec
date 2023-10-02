@@ -3,8 +3,8 @@
   <id>Intent.EntityFrameworkCore.BasicAuditing</id>
   <version>1.0.4-pre.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
-  <summary>Obsolete. This module can be uninstalled as its functionality has been moved to a new "Intent.Entities.BasicAuditing" module which is automatically installed when updating to the latest version of the "EntityFrameworkCore.BasicAuditing" module.</summary>
-  <description>Obsolete. This module can be uninstalled as its functionality has been moved to a new "Intent.Entities.BasicAuditing" module which is automatically installed when updating to the latest version of the "EntityFrameworkCore.BasicAuditing" module.</description>
+  <summary>Obsolete. Use the "Intent.Entities.BasicAuditing" module instead. This module can be uninstalled as its functionality has been moved to a new module which was automatically installed.</summary>
+  <description>Obsolete. Use the "Intent.Entities.BasicAuditing" module instead. This module can be uninstalled as its functionality has been moved to a new module which was automatically installed.</description>
   <authors>Intent Architect</authors>
   <releaseNotes>release-notes.md</releaseNotes>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore.BasicAuditing/README.md</projectUrl>
