@@ -8,6 +8,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudit;
+using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.FolderContainer;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedComposition;
@@ -17,6 +18,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.BasicAudit;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.FolderContainer;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Configurations.NestedComposition;
@@ -85,6 +87,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
         public DbSet<ImplicitKeyClass> ImplicitKeyClasses { get; set; }
+        public DbSet<NormalEntity> NormalEntities { get; set; }
+        public DbSet<SelfContainedEntity> SelfContainedEntities { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
@@ -98,6 +102,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<R_SourceNameDiff> R_SourceNameDiffs { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
+        public DbSet<FolderEntity> FolderEntities { get; set; }
         public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
         public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
@@ -132,6 +137,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new ExplicitKeyClassConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyClassConfiguration());
+            modelBuilder.ApplyConfiguration(new NormalEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SelfContainedEntityConfiguration());
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
@@ -157,6 +164,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new R_SourceNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
+            modelBuilder.ApplyConfiguration(new FolderEntityConfiguration());
             modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new BaseConfiguration());
             modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());

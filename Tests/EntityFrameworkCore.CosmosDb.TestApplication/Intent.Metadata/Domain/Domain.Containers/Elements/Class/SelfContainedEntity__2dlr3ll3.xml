@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="344dd222-a413-41c5-9639-45196176be5a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>SelfContainedEntity</name>
+  <display>SelfContainedEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4be0065f-38c8-4a70-beec-100fd5926566</parentFolderId>
+  <packageId>4be0065f-38c8-4a70-beec-100fd5926566</packageId>
+  <packageName>Domain.Containers</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4995259-b47b-405a-a332-fd3dc69cd3a5" name="Cosmos DB Container Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.EntityFrameworkCore</definitionPackageName>
+      <definitionPackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</definitionPackageId>
+      <properties>
+        <property name="cd0e18dc-769e-4894-afc8-dda4cb3b2cba" display="Container Name" value="SelfContained" isActive="true" />
+        <property name="7b55a191-1bd5-483c-a7e5-182c93cd6af6" display="Partition Key" value="SelfPartKey" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ecad3108-0d72-4ce4-b100-3767dd9c0b83" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="99e85854-ae14-4a46-a680-a28098df78da">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>344dd222-a413-41c5-9639-45196176be5a</parentFolderId>
+      <packageId>4be0065f-38c8-4a70-beec-100fd5926566</packageId>
+      <packageName>Domain.Containers</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a1eefbe8-4e80-4a91-920e-daf6a37c31df" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SelfPartKey</name>
+      <display>SelfPartKey: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ad076344-7a61-48e0-949d-367b7ef09eda">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>344dd222-a413-41c5-9639-45196176be5a</parentFolderId>
+      <packageId>4be0065f-38c8-4a70-beec-100fd5926566</packageId>
+      <packageName>Domain.Containers</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="3a203a3e-116e-4a7c-b375-e690570efc3f" name="Partition Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore</definitionPackageName>
+          <definitionPackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</definitionPackageId>
+          <properties />
+        </stereotype>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
