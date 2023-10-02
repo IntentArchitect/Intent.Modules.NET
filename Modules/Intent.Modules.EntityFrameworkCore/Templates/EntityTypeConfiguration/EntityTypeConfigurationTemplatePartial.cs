@@ -385,14 +385,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<CSharpStatement> GetCosmosContainerMapping(ClassModel model)
         {
             // Is there an easier way to get this?
-            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
-            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+            var cosmosContainerName = GetNearestCosmosDbContainerName(model);
 
             if (!IsInheriting(model) || !ParentConfigurationExists(model))
             {
-                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                var containerName = string.IsNullOrWhiteSpace(cosmosContainerName)
                     ? ExecutionContext.GetApplicationConfig().Name
-                    : cosmosSettings.ContainerName();
+                    : cosmosContainerName;
 
                 yield return $@"builder.ToContainer(""{containerName}"");";
             }
@@ -410,6 +409,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return $@"builder.HasPartitionKey(x => x.Id);";
             }
+        }
+
+        private static string GetNearestCosmosDbContainerName(ClassModel model)
+        {
+            if (model.GetCosmosDBContainerSettings() is not null)
+            {
+                return model.GetCosmosDBContainerSettings().ContainerName();
+            }
+
+            var stereotype = model.GetStereotypeInFolders("Cosmos DB Container Settings");
+            if (stereotype is not null)
+            {
+                return stereotype.GetProperty<string>("Container Name");
+            }
+
+            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
+            return domainPackage.GetCosmosDBContainerSettings()?.ContainerName();
         }
 
         private CSharpStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
