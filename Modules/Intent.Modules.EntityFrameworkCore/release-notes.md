@@ -2,6 +2,7 @@
 
 - Fixed: Protected constructors required by EF would be generated for entities to be used with alternative persistence technologies.
 - Improvement: The MIGRATION_README file can now be configurable and mutable by subscribing to the `DbMigrationsReadMeCreatedEvent` event.
+- Improvement: `Cosmos DB Container Settings` stereotype can be added to Folders and Entities in order to manage the finely grained Container and Partition Key management.
 
 ### Version 4.4.11
 
