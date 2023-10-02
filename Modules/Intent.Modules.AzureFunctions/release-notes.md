@@ -1,3 +1,7 @@
+### Version 4.0.11
+
+- Fixed: Queue Trigger handler parameter name clashes with inline variable name.
+
 ### Version 4.0.9
 
 - New Feature: Added support for CosmosDB Trigger Azure Functions.
@@ -16,7 +20,7 @@
 
 ### Version 4.0.5
 
-- Improvement Interop dependencies for App Services and MediatR dispatch.
+- Improvement: Interop dependencies for App Services and MediatR dispatch.
 
 ### Version 4.0.3
 
