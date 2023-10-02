@@ -33,11 +33,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         public bool IncludeDbContextArguments { get; set; } = false;
         public List<string> ExtraArguments { get; } = new();
         public string ExtraComments { get; set; } = string.Empty;
-        
+
         public string BoundedContextName => OutputTarget.ApplicationName();
         public string MigrationProject => OutputTarget.GetProject().Name;
         public string StartupProject => ExecutionContext.OutputTargets.FirstOrDefault(x => x.Type == VisualStudioProjectTypeIds.CoreWebApp)?.Name ?? "UNKNOWN";
-        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN"; 
+        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN";
 
         public override void BeforeTemplateExecution()
         {
@@ -71,7 +71,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 ? $@"-StartupProject ""{StartupProject}"" "
                 : string.Empty;
         }
-        
+
         private string GetCliStartupProjectArgument()
         {
             return IncludeStartupProjectArguments
@@ -85,7 +85,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 ? $@" -Context ""{DbContext}"" "
                 : string.Empty;
         }
-        
+
         private string GetCliDbContextArgument()
         {
             return IncludeDbContextArguments

@@ -1,21 +1,21 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Threading;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Reflection;
-using Intent.Modelers.Domain.Api;
-using System.Linq;
-using System.Threading;
-using Intent.Metadata.RDBMS.Api;
-using Intent.Modules.Common.Templates;
-using System;
-using System.Reflection.Metadata;
-using Intent.Metadata.Models;
-using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Modules.EntityFrameworkCore.Settings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             foreach (var model in rdbmsModels)
             {
                 ICSharpFileBuilderTemplate entityTetmplate = GetEntityTemplate(application, model);
-                entityTetmplate.CSharpFile.OnBuild(file => 
+                entityTetmplate.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
                     foreach (var property in @class.Properties)
@@ -60,7 +60,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         {
                             var model = property.GetMetadata("model");
                             ITypeReference typeReference;
-                            if (model is AttributeModel attributeModel) 
+                            if (model is AttributeModel attributeModel)
                             {
                                 typeReference = attributeModel.TypeReference;
                             }
@@ -72,7 +72,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                             {
                                 continue;
                             }
-                            if (typeReference.Element.IsClassModel()) 
+                            if (typeReference.Element.IsClassModel())
                             {
                                 property.Virtual();
                             }

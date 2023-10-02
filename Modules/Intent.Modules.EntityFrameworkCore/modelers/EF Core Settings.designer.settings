@@ -27,29 +27,71 @@ if (!isCosmosDbProvider()) {
     return;
 }
 
-lookupTypesOf("Class")?.filter(x =&gt; isAggregateRoot(x) &amp;&amp; !hasSuperClass(x)).forEach(element =&gt; {
-    let partitionKey = element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
+lookupTypesOf("Class")?.filter(x =&gt; isAggregateRoot(x) &amp;&amp; !hasSuperClass(x)).forEach(clazz =&gt; {
+    let partitionKey = getNearestCosmosDbContainerSettings(clazz)?.getProperty("Partition Key")?.value?.trim();
     if (partitionKey == "") { partitionKey = null; }
 
-    let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
+    let primaryKeyAttr = clazz.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
     if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { 
+        element.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
         primaryKeyAttr.addStereotype(partitionKeyStereotypeId);
         return;
     }
 
     if (!partitionKey) { return; }
 
-    let partitionKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))[0];
-    if (!partitionKeyAttr) {
-        partitionKeyAttr = createElement("Attribute", partitionKey, element.id);
-        partitionKeyAttr.typeReference.setType(stringTypeId);
-        partitionKeyAttr.addStereotype(partitionKeyStereotypeId);
-    } else if (partitionKey != partitionKeyAttr.getName()) {
-        partitionKeyAttr.setName(partitionKey);
-    }
+    managePartitionKey(clazz, partitionKey);
 });
 
 // === FUNCTIONS ===
+
+function managePartitionKey(clazz, partitionKey) {
+    let possiblePartKeyAttrs = clazz.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId) || x.getName().toLowerCase() == partitionKey.toLowerCase())
+    if (possiblePartKeyAttrs.length == 0) {
+        let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+        pkAttr.setOrder(1);
+        pkAttr.typeReference.setType(stringTypeId);
+        // Attribute events will add Part Key stereotype
+    } else if (
+        possiblePartKeyAttrs.length == 1 &amp;&amp; 
+        possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId) &amp;&amp;
+        ! possiblePartKeyAttrs[0].hasStereotype("Primary Key")
+        ) {
+            possiblePartKeyAttrs[0].setName(partitionKey);
+    } else {
+        clazz.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
+        let possiblePartKeyAttrs = clazz.getChildren("Attribute").filter(x =&gt; x.getName().toLowerCase() == partitionKey.toLowerCase());
+        if (possiblePartKeyAttrs.length == 0) {
+            let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+            pkAttr.setOrder(1);
+            pkAttr.typeReference.setType(stringTypeId);
+            // Attribute events will add Part Key stereotype
+        } else if (! possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
+            possiblePartKeyAttrs[0].addStereotype(partitionKeyStereotypeId);
+        }
+    }
+}
+
+function getNearestCosmosDbContainerSettings(clazz) {
+    let stereotype;
+    let current = clazz;
+    do
+    {
+        stereotype = current.getStereotype("Cosmos DB Container Settings");
+        if (stereotype) {
+            return stereotype;
+        }
+        current = current.getParent();
+    } while (current);
+
+    stereotype = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings");
+    if (stereotype) {
+        return stereotype;
+    }
+
+    return null;
+}
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -92,7 +134,9 @@ function isCosmosDbProvider() {
 }</script>
         </macro>
         <macro trigger="on-loaded">
-          <script>if (element.specialization !== "Domain Package") {
+          <script>const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+if (element.specialization !== "Domain Package") {
     return;
 }
 
@@ -104,6 +148,54 @@ ensureCosmosDbContainer(element);
 ensureClassesHavePartitionKey();
 
 // === FUNCTIONS ===
+
+function managePartitionKey(clazz, partitionKey) {
+    let possiblePartKeyAttrs = clazz.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId) || x.getName().toLowerCase() == partitionKey.toLowerCase())
+    if (possiblePartKeyAttrs.length == 0) {
+        let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+        pkAttr.setOrder(1);
+        pkAttr.typeReference.setType(stringTypeId);
+        // Attribute events will add Part Key stereotype
+    } else if (
+        possiblePartKeyAttrs.length == 1 &amp;&amp; 
+        possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId) &amp;&amp;
+        ! possiblePartKeyAttrs[0].hasStereotype("Primary Key")
+        ) {
+            possiblePartKeyAttrs[0].setName(partitionKey);
+    } else {
+        clazz.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
+        let possiblePartKeyAttrs = clazz.getChildren("Attribute").filter(x =&gt; x.getName().toLowerCase() == partitionKey.toLowerCase());
+        if (possiblePartKeyAttrs.length == 0) {
+            let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+            pkAttr.setOrder(1);
+            pkAttr.typeReference.setType(stringTypeId);
+            // Attribute events will add Part Key stereotype
+        } else if (! possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
+            possiblePartKeyAttrs[0].addStereotype(partitionKeyStereotypeId);
+        }
+    }
+}
+
+function getNearestCosmosDbContainerSettings(clazz) {
+    let stereotype;
+    let current = clazz;
+    do
+    {
+        stereotype = current.getStereotype("Cosmos DB Container Settings");
+        if (stereotype) {
+            return stereotype;
+        }
+        current = current.getParent();
+    } while (current);
+
+    stereotype = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings");
+    if (stereotype) {
+        return stereotype;
+    }
+
+    return null;
+}
 
 function ensureCosmosDbContainer(element) {
     const cosmosDbContainerStereotypeId = "b4995259-b47b-405a-a332-fd3dc69cd3a5";
@@ -132,11 +224,11 @@ function processSingleClassForPartitionKey(clazz) {
         return; 
     }
 
-    let partitionKey = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
+    let partitionKey = getNearestCosmosDbContainerSettings(clazz)?.getProperty("Partition Key")?.value?.trim();
     if (partitionKey == "") { partitionKey = null; }
 
     let partitionKeyAttributes = clazz.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId));
-    console.log(`partitionKeyAttributes.length = ${partitionKeyAttributes}`);
+    
     if (partitionKeyAttributes.length &gt; 1) {
         partitionKeyAttributes.forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
     }
@@ -149,14 +241,7 @@ function processSingleClassForPartitionKey(clazz) {
 
     if (!partitionKey) { return; }
 
-    let possiblePkAttrs = clazz.getChildren("Attribute").filter(x =&gt; x.getName().toLowerCase() == partitionKey.toLowerCase())
-    if (possiblePkAttrs.length == 0) {
-        let pkAttr = createElement("Attribute", partitionKey, clazz.id);
-        pkAttr.setOrder(1);
-        pkAttr.typeReference.setType(stringTypeId);
-    } else if (! possiblePkAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
-        possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
-    }
+    managePartitionKey(clazz, partitionKey);
 }
 
 function isCosmosDbProvider() {
@@ -248,7 +333,7 @@ if (!isCosmosDbProvider() || (!isAggregateRoot(element.getParent()) &amp;&amp; !
     return; 
 }
 
-let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value?.trim();
+let partitionKey = getNearestCosmosDbContainerSettings(element.getParent())?.getProperty("Partition Key").value?.trim();
 if (partitionKey == "") { partitionKey = null; }
 
 if (!partitionKey &amp;&amp; element.hasStereotype("Primary Key")) { 
@@ -263,6 +348,26 @@ if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitio
 }
 
 // === FUNCTIONS ===
+
+function getNearestCosmosDbContainerSettings(clazz) {
+    let stereotype;
+    let current = clazz;
+    do
+    {
+        stereotype = current.getStereotype("Cosmos DB Container Settings");
+        if (stereotype) {
+            return stereotype;
+        }
+        current = current.getParent();
+    } while (current);
+
+    stereotype = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings");
+    if (stereotype) {
+        return stereotype;
+    }
+
+    return null;
+}
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -314,27 +419,70 @@ if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasS
     return; 
 }
 
-let partitionKey = element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
+let partitionKey = getNearestCosmosDbContainerSettings(element)?.getProperty("Partition Key")?.value?.trim();
+console.log(`partitionKey = ${partitionKey}`);
 if (partitionKey == "") { partitionKey = null; }
 
 let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
 if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { 
+    element.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
     primaryKeyAttr.addStereotype(partitionKeyStereotypeId);
     return;
 }
 
 if (!partitionKey) { return; }
 
-let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName().toLowerCase() == partitionKey.toLowerCase())
-if (possiblePkAttrs.length == 0) {
-    let pkAttr = createElement("Attribute", partitionKey, element.id);
-    pkAttr.setOrder(1);
-    pkAttr.typeReference.setType(stringTypeId);
-} else if (! possiblePkAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
-    possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
-}
+managePartitionKey(element, partitionKey);
 
 // === FUNCTIONS ===
+
+function managePartitionKey(clazz, partitionKey) {
+    let possiblePartKeyAttrs = clazz.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId) || x.getName().toLowerCase() == partitionKey.toLowerCase())
+    if (possiblePartKeyAttrs.length == 0) {
+        let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+        pkAttr.setOrder(1);
+        pkAttr.typeReference.setType(stringTypeId);
+        // Attribute events will add Part Key stereotype
+    } else if (
+        possiblePartKeyAttrs.length == 1 &amp;&amp; 
+        possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId) &amp;&amp;
+        ! possiblePartKeyAttrs[0].hasStereotype("Primary Key")
+        ) {
+            possiblePartKeyAttrs[0].setName(partitionKey);
+    } else {
+        clazz.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
+        let possiblePartKeyAttrs = clazz.getChildren("Attribute").filter(x =&gt; x.getName().toLowerCase() == partitionKey.toLowerCase());
+        if (possiblePartKeyAttrs.length == 0) {
+            let pkAttr = createElement("Attribute", partitionKey, clazz.id);
+            pkAttr.setOrder(1);
+            pkAttr.typeReference.setType(stringTypeId);
+            // Attribute events will add Part Key stereotype
+        } else if (! possiblePartKeyAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
+            possiblePartKeyAttrs[0].addStereotype(partitionKeyStereotypeId);
+        }
+    }
+}
+
+function getNearestCosmosDbContainerSettings(clazz) {
+    let stereotype;
+    let current = clazz;
+    do
+    {
+        stereotype = current.getStereotype("Cosmos DB Container Settings");
+        if (stereotype) {
+            return stereotype;
+        }
+        current = current.getParent();
+    } while (current);
+
+    stereotype = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings");
+    if (stereotype) {
+        return stereotype;
+    }
+
+    return null;
+}
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -381,9 +529,10 @@ if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasS
     return; 
 }
 
-if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
+let cosmosDbContainerSettingsStereotype = getNearestCosmosDbContainerSettings();
+if (! (cosmosDbContainerSettingsStereotype?.getProperty("Partition Key"))) { return; }
 
-let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value?.trim();
+let partitionKey = cosmosDbContainerSettingsStereotype.getProperty("Partition Key").value?.trim();
 if (partitionKey == "") { partitionKey = null; }
 
 let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
@@ -404,6 +553,26 @@ if (possiblePkAttrs.length == 0) {
 }
 
 // === FUNCTIONS ===
+
+function getNearestCosmosDbContainerSettings(clazz) {
+    let stereotype;
+    let current = clazz;
+    do
+    {
+        stereotype = current.getStereotype("Cosmos DB Container Settings");
+        if (stereotype) {
+            return stereotype;
+        }
+        current = current.getParent();
+    } while (current);
+
+    stereotype = clazz.getPackage()?.getStereotype("Cosmos DB Container Settings");
+    if (stereotype) {
+        return stereotype;
+    }
+
+    return null;
+}
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -450,78 +619,6 @@ function getNamingConvention() {
           <allowIsCollection>inherit</allowIsCollection>
         </typeReferenceExtension>
       </targetEndExtension>
-      <macros>
-        <macro trigger="on-created">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
-const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
-return;
-if (!association.isTargetEnd()) { return; } 
-
-let element = association?.typeReference?.getType(); 
-
-if (!element) { return; } 
-
-// console.log(`Association (${element.getName()}) :: On Created
-//     isCosmosDbProvider() = ${isCosmosDbProvider()}
-//     isAggregateRoot(element) = ${isAggregateRoot(element)}
-//     hasSuperClass(element) = ${hasSuperClass(element)}`);
-
-let sourceEnd = association.getOtherEnd().typeReference;
-if (sourceEnd.getType().getPackage().specialization !== "Domain Package") {
-    return;
-}
-
-if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
-    element.getChildren("Attribute")
-        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
-        .forEach(x =&gt; {
-            x.removeStereotype(partitionKeyStereotypeId);
-            x.delete();
-        });
-    return; 
-}
-
-let partitionKey = element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
-if (partitionKey == "") { partitionKey = null; }
-
-let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
-if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { 
-    primaryKeyAttr.addStereotype(partitionKeyStereotypeId);
-    return;
-}
-
-if (!partitionKey) { return; }
-
-let attributePartitionKeys = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey);
-if (attributePartitionKeys.length == 0) { return; }
-if (! attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
-    attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
-}
-
-// === FUNCTIONS ===
-
-function isCosmosDbProvider() {
-    return application.getSettings(dbSettingsId)
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
-}
-
-function isAggregateRoot(element) {
-    return ! element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function hasSuperClass(element) {
-    return element.getAssociations("Generalization")
-        .some(x =&gt; x.isSourceEnd());
-}
-
-function getNamingConvention() {
-    return application.getSettings(dbSettingsId)
-        .getField("Key Naming Convention")?.value ?? "pascal-case";
-}</script>
-        </macro>
-      </macros>
     </associationExtension>
     <associationExtension type="Generalization" typeId="5de35973-3ac7-4e65-b48c-385605aec561">
       <sourceEndExtension>
@@ -542,79 +639,6 @@ function getNamingConvention() {
           <allowIsCollection>inherit</allowIsCollection>
         </typeReferenceExtension>
       </targetEndExtension>
-      <macros>
-        <macro trigger="on-changed">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
-const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
-return;
-
-if (!association.isTargetEnd()) { return; } 
-
-let element = association?.typeReference?.getType(); 
-
-if (!element) { return; } 
-
-// console.log(`Generalization (${element.getName()}) :: On Changed
-//     isCosmosDbProvider() = ${isCosmosDbProvider()}
-//     isAggregateRoot(element) = ${isAggregateRoot(element)}
-//     hasSuperClass(element) = ${hasSuperClass(element)}`);
-
-let sourceEnd = association.getOtherEnd().typeReference;
-if (sourceEnd.getType().getPackage().specialization !== "Domain Package") {
-    return;
-}
-
-if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
-    element.getChildren("Attribute")
-        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
-        .forEach(x =&gt; {
-            x.removeStereotype(partitionKeyStereotypeId);
-            x.delete();
-        });
-    return; 
-}
-
-let partitionKey = element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
-if (partitionKey == "") { partitionKey = null; }
-
-let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
-if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { 
-    primaryKeyAttr.addStereotype(partitionKeyStereotypeId);
-    return;
-}
-
-if (!partitionKey) { return; }
-
-let attributePartitionKeys = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey);
-if (attributePartitionKeys.length == 0) { return; }
-if (! attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
-    attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
-}
-
-// === FUNCTIONS ===
-
-function isCosmosDbProvider() {
-    return application.getSettings(dbSettingsId)
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
-}
-
-function isAggregateRoot(element) {
-    return ! element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function hasSuperClass(element) {
-    return element.getAssociations("Generalization")
-        .some(x =&gt; x.isTargetEnd());
-}
-
-function getNamingConvention() {
-    return application.getSettings(dbSettingsId)
-        .getField("Key Naming Convention")?.value ?? "pascal-case";
-}</script>
-        </macro>
-      </macros>
     </associationExtension>
   </associationExtensions>
 </settings>
