@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -26,6 +27,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
+            if (operationModel.CreateEntityActions().Any()
+                || operationModel.UpdateEntityActions().Any()
+                || operationModel.DeleteEntityActions().Any()
+                || operationModel.QueryEntityActions().Any())
+            {
+                return false;
+            }
+
             if (operationModel.Parameters.Count > 2)
             {
                 return false;

@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
@@ -28,6 +29,14 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
     public bool IsMatch(OperationModel operationModel)
     {
+        if (operationModel.CreateEntityActions().Any()
+            || operationModel.UpdateEntityActions().Any()
+            || operationModel.DeleteEntityActions().Any()
+            || operationModel.QueryEntityActions().Any())
+        {
+            return false;
+        }
+
         if ((!operationModel.Parameters.Any(IsPageNumberParam)
              && !operationModel.Parameters.Any(IsPageIndexParam))
              || !operationModel.Parameters.Any(IsPageSizeParam)

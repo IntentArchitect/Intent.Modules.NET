@@ -46,7 +46,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
-            var ctor = @class.Constructors.First();
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
@@ -84,21 +83,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 var returnStatement = domainInteractionManager.GetReturnStatements(_template.Model.TypeReference);
                 handleMethod.AddStatements(returnStatement);
             }
-        }
-    }
-
-    public record EntityDetails(ClassModel Model, string VariableName, string RepositoryFieldName, bool IsNew, bool IsCollection = false);
-
-    public static class MappingExtensions
-    {
-        public static IElementToElementMapping GetQueryEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
-        {
-            return mappings.SingleOrDefault(x => x.MappingType == "Query Entity Mapping");
-        }
-
-        public static IElementToElementMapping GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
-        {
-            return mappings.SingleOrDefault(x => x.MappingType == "Update Entity Mapping");
         }
     }
 }

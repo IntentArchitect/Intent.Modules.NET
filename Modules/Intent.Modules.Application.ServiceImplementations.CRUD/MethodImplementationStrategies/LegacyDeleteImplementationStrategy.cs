@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
@@ -25,6 +26,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
+            if (operationModel.CreateEntityActions().Any()
+                || operationModel.UpdateEntityActions().Any()
+                || operationModel.DeleteEntityActions().Any()
+                || operationModel.QueryEntityActions().Any())
+            {
+                return false;
+            }
+
             var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);
             if (domainModel == null)
             {

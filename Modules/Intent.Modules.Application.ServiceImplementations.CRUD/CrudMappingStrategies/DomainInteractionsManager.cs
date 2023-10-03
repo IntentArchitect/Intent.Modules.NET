@@ -6,8 +6,8 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -19,28 +19,17 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies;
+namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.CrudMappingStrategies;
 
 public class DomainInteractionsManager
 {
     private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _csharpMapping;
 
-    public DomainInteractionsManager(ICSharpFileBuilderTemplate template)
+    public DomainInteractionsManager(ICSharpFileBuilderTemplate template, CSharpClassMappingManager csharpMapping)
     {
         _template = template;
-        var model = (_template as ITemplateWithModel)?.Model as IElementWrapper;
-        //var queryTemplate = _template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Query, model);
-        var queryTemplate = _template.GetTypeInfo(model.InternalElement.AsTypeReference()).Template as ICSharpFileBuilderTemplate ?? throw new Exception("Model template could not be determined for " + _template.Id);
-        // commandTemplate needs to be passed in so that the DefaultMapping can correctly resolve the mappings (e.g. pascal-casing for properties, even if the mapping is to a camel-case element)
-        _csharpMapping = new CSharpClassMappingManager(queryTemplate); // TODO: Improve this template resolution system - it's not clear which template should be passed in initially.
-        _csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
-        _csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
-        _csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
-        _csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
-
-        _csharpMapping.SetFromReplacement(model.InternalElement, "request");
-        _template.CSharpFile.AddMetadata("mapping-manager", _csharpMapping);
+        _csharpMapping = csharpMapping;
     }
 
     public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
@@ -102,15 +91,27 @@ public class DomainInteractionsManager
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
                 .ToList();
-
-            statements.Add(_template.CreateThrowNotFoundIfNullStatement(
+            statements.Add(CreateThrowNotFoundIfNullStatement(
+                template: _template,
                 variable: entityVariableName,
-                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{(queryFields.Any() ? queryFields.AsSingleOrTuple() : "No filter criteria applied")}'"));
+                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
 
         }
         TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, repositoryFieldName, false, associationEnd.TypeReference.IsCollection));
 
         return statements;
+    }
+
+    public CSharpStatement CreateThrowNotFoundIfNullStatement(
+        ICSharpTemplate template,
+        string variable,
+        string message)
+    {
+        var ifStatement = new CSharpIfStatement($"{variable} is null");
+        ifStatement.SeparatedFromPrevious(false);
+        ifStatement.AddStatement($@"throw new {template.GetNotFoundExceptionName()}($""{message}"");");
+
+        return ifStatement;
     }
 
     public void InjectRepositoryForEntity(ClassModel foundEntity, out string repositoryFieldName)
@@ -120,10 +121,32 @@ public class DomainInteractionsManager
         var temp = default(string);
 
         var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-        ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
-            param => param.IntroduceReadonlyField(field => temp = field.Name));
+        if (ctor.Parameters.All(x => x.Type != repositoryInterface))
+        {
+            ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
+                param => param.IntroduceReadonlyField(field => temp = field.Name));
+            repositoryFieldName = temp;
+        }
+        else
+        {
+            repositoryFieldName = ctor.Parameters.First(x => x.Type == repositoryInterface).Name.ToPrivateMemberName();
+        }
+    }
 
-        repositoryFieldName = temp;
+    private void InjectAutoMapper(out string fieldName)
+    {
+        var temp = default(string);
+        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+        if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
+        {
+            ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", 
+                param => param.IntroduceReadonlyField(field => temp = field.Name));
+            fieldName = temp;
+        }
+        else
+        {
+            fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
+        }
     }
 
     public IEnumerable<CSharpStatement> GetReturnStatements(ITypeReference returnType)
@@ -144,9 +167,8 @@ public class DomainInteractionsManager
         if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
         {
             var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
-            var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-            ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
-            statements.Add($"return {entityDetails.VariableName}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}(_mapper);");
+            InjectAutoMapper(out var autoMapperFieldName);
+            statements.Add($"return {entityDetails.VariableName}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
         }
         else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
         {
@@ -194,7 +216,7 @@ public class DomainInteractionsManager
     public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
     {
         var entityDetails = TrackedEntities[updateAction.Id];
-        var foundEntity = entityDetails.Model;
+        var entity = entityDetails.Model;
         var queryMapping = updateAction.Mappings.GetQueryEntityMapping();
         var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
 
@@ -203,10 +225,10 @@ public class DomainInteractionsManager
         {
             if (entityDetails.IsCollection)
             {
-                _csharpMapping.SetToReplacement(foundEntity, entityDetails.VariableName.Singularize());
+                _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
                 statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
                     .AddStatements(_csharpMapping.GenerateUpdateStatements(updateMapping)));
-                if (RepositoryRequiresExplicitUpdate(foundEntity))
+                if (RepositoryRequiresExplicitUpdate(entity))
                 {
                     statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName.Singularize()));
                 }
@@ -214,7 +236,7 @@ public class DomainInteractionsManager
             else
             {
                 statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
-                if (RepositoryRequiresExplicitUpdate(foundEntity))
+                if (RepositoryRequiresExplicitUpdate(entity))
                 {
                     statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName));
                 }
@@ -270,5 +292,30 @@ public static class MappingExtensions
     public static IElementToElementMapping GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
     {
         return mappings.SingleOrDefault(x => x.MappingType == "Update Entity Mapping");
+    }
+}
+
+internal static class AttributeModelExtensions
+{
+    public static bool IsPrimaryKey(this AttributeModel attribute)
+    {
+        return attribute.HasStereotype("Primary Key");
+    }
+
+    public static bool IsForeignKey(this AttributeModel attribute)
+    {
+        return attribute.HasStereotype("Foreign Key");
+    }
+
+    public static AssociationTargetEndModel GetForeignKeyAssociation(this AttributeModel attribute)
+    {
+        return attribute.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();
+    }
+
+    public static string AsSingleOrTuple(this IEnumerable<CSharpStatement> idFields)
+    {
+        if (idFields.Count() <= 1)
+            return $"{idFields.Single()}";
+        return $"({string.Join(", ", idFields.Select(idField => $"{idField}"))})";
     }
 }

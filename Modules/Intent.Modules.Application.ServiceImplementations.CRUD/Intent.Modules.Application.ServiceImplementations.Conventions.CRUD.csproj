@@ -6,19 +6,20 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.ServiceImplementations" Version="4.1.1" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.19" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.0-pre.0" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.1.0" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.4.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.9" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.DomainInteractions" Version="1.0.0-pre.0" />
 	<PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0-pre.1" />
   </ItemGroup>
 
   <ItemGroup>
