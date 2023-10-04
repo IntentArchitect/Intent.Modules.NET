@@ -1,3 +1,7 @@
+### Version 5.2.6
+
+- Improvement : Upgraded CRUD Scripts to be forward compatible with Intent Architect v4.1.
+
 ### Version 5.2.5
 
 - Fixed: GetNestedCompositionalOwner detects owner classes more accurately to not throw exceptions unnecessarily.
