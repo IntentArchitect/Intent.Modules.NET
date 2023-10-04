@@ -38,17 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             var matchedStrategy = StrategyFactory.GetMatchedQueryStrategy(template, application);
             if (matchedStrategy is not null)
             {
-                new QueryMappingImplementationStrategy(template),
-
-                new GetAllImplementationStrategy(_template, _application),
-                new GetByIdImplementationStrategy(_template, _application),
-                new GetAllPaginationImplementationStrategy(_template)
-            };
-
-            var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
-            if (matchedStrategies.Length == 1)
-            {
-                template.CSharpFile.AfterBuild(file => matchedStrategies[0].ApplyStrategy());
+                template.CSharpFile.AfterBuild(file => matchedStrategy.ApplyStrategy());
             }
         }
     }

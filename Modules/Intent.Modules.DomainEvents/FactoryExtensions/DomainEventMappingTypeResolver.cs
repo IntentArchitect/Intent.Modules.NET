@@ -20,6 +20,11 @@ public class DomainEventMappingTypeResolver : IMappingTypeResolver
             return new ConstructorMapping(mappingModel, _sourceTemplate);
         }
 
+        if (model.TypeReference?.Element?.SpecializationType == "Value Object")
+        {
+            return new ConstructorMapping(mappingModel, _sourceTemplate);
+        }
+
         return null;
     }
 }
