@@ -7,16 +7,11 @@ using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
-using Intent.Modules.Application.MediatR.CRUD.Mapping;
-using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -115,43 +110,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
             codeLines.Add(string.Empty);
 
-            var model = (_template as ITemplateWithModel)?.Model as CommandModel;
-            var csharpMapping = new CSharpClassMappingManager(_template);
-            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
-            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
-            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
-            csharpMapping.SetFromReplacement(model.InternalElement, "request");
-            csharpMapping.SetToReplacement(foundEntity.InternalElement, entityVariableName);
-            foreach (var createAction in model.CreateEntityActions())
-            {
-                var mapping = createAction.Mappings.SingleOrDefault();
-                if (mapping == null)
-                {
-                    continue;
-                }
 
-                const string variableName = "newEntity";
-                csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, variableName);
-                codeLines.Add(new CSharpAssignmentStatement($"var {variableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-            }
-
-            if (model.UpdateEntityActions().Any())
-            {
-                foreach (var updateAction in model.UpdateEntityActions())
-                {
-                    var mapping = updateAction.Mappings.SingleOrDefault();
-                    if (mapping == null)
-                    {
-                        continue;
-                    }
-
-                    codeLines.AddRange(csharpMapping.GenerateUpdateStatements(mapping));
-                }
-            }
-            else
-            {
-                codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
-            }
+            codeLines.AddRange(GetDtoPropertyAssignments(entityVarName: entityVariableName, dtoVarName: "request", domainAttributes: foundEntity.Attributes, dtoFields: _template.Model.Properties, skipIdField: true));
 
             if (RepositoryRequiresExplicitUpdate())
             {

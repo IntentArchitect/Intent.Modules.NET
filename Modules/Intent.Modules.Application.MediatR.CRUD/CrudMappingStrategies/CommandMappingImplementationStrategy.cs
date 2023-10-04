@@ -1,25 +1,13 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
-using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
-using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
-using Intent.Modules.Entities.Settings;
-using Intent.Modules.Modelers.Domain.Settings;
-using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
@@ -49,8 +37,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-            var domainInteractionManager = new DomainInteractionsManager(_template);
+            var csharpMapping = new CSharpClassMappingManager(_template); // TODO: Improve this template resolution system - it's not clear which template should be passed in initially.
+            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
+            var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
+            csharpMapping.SetFromReplacement(_template.Model, "request");
+            _template.CSharpFile.AddMetadata("mapping-manager", csharpMapping);
+            
             foreach (var createAction in _template.Model.CreateEntityActions())
             {
                 handleMethod.AddStatements(domainInteractionManager.CreateEntity(createAction));

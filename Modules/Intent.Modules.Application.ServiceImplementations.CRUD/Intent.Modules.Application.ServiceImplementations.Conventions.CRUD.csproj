@@ -26,4 +26,6 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <Import Project="..\Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.projitems" Label="Shared" />
+
 </Project>

@@ -2,7 +2,7 @@
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modelers.Services.DomainInteractions.Api;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
+namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
 public class EntityCreationMappingTypeResolver : IMappingTypeResolver
 {

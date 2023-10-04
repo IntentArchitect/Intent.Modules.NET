@@ -8,8 +8,6 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
-using Intent.Modules.Application.MediatR.CRUD.Mapping;
-using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
@@ -91,51 +89,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add(string.Empty);
             }
 
-            var model = (_template as ITemplateWithModel)?.Model as CommandModel;
-            var csharpMapping = new CSharpClassMappingManager(_template);
-            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
-            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
-
-            csharpMapping.SetFromReplacement(model.InternalElement, "request");
-            if (model.CreateEntityActions().Any())
+            var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
+                dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
+                skipIdField: true);
+            codeLines.Add($"var {entityVariableName} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
+            if (assignmentStatements.Any())
             {
-                foreach (var createAction in model.CreateEntityActions())
-                {
-                    var mapping = createAction.Mappings.SingleOrDefault();
-                    if (mapping == null)
-                    {
-                        continue;
-                    }
-
-                    if (mapping.TargetElement.IsClassModel())
-                    {
-                        codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-                        csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
-                    }
-                    else if (mapping.TargetElement.IsClassConstructorModel())
-                    {
-                        codeLines.Add(new CSharpAssignmentStatement($"var {entityVariableName}", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-                        csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
-                    }
-
-                    else if (mapping.TargetElement.SpecializationType == "Message")
-                    {
-                        codeLines.Add(new CSharpAssignmentStatement($"var message", csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-                    }
-                }
-            }
-            else
-            {
-                var assignmentStatements = GetDTOPropertyAssignments(entityVarName: "", dtoVarName: "request", domainAttributes: foundEntity.Attributes,
-                    dtoFields: _template.Model.Properties.Where(FilterForAnaemicMapping).ToList(),
-                    skipIdField: true);
-                codeLines.Add($"var {entityVariableName} = new {entityName}{(assignmentStatements.Any() ? "" : "();")}");
-                if (assignmentStatements.Any())
-                {
-                    codeLines.Add(new CSharpStatementBlock()
-                        .AddStatements(assignmentStatements)
-                        .WithSemicolon());
-                }
+                codeLines.Add(new CSharpStatementBlock()
+                    .AddStatements(assignmentStatements)
+                    .WithSemicolon());
             }
 
 

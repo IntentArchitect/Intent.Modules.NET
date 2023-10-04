@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
+using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
@@ -66,7 +68,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             foreach (var updateAction in operationModel.UpdateEntityActions())
             {
                 var entity = updateAction.Element.AsClassModel() 
-                             ?? updateAction.Element.AsOperationModel().ParentClass;
+                             ?? updateAction.Element.AsOperationModel()?.ParentClass
+                             ?? throw new ElementException(updateAction.InternalAssociationEnd, "Target could not be cast to a Domain Class or Operation");
 
                 method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
 

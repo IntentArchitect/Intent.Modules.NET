@@ -3,7 +3,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Mapping.Resolvers;
+namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
 public class StandardDomainMappingTypeResolver : IMappingTypeResolver
 {
