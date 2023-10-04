@@ -47,7 +47,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRoot(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateImplicitKeyAggrRoot(
             [FromBody] CreateImplicitKeyAggrRootCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -59,12 +59,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPost("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateImplicitKeyAggrRootImplicitKeyNestedComposition(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
             [FromBody] CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
             CancellationToken cancellationToken = default)
@@ -75,16 +77,18 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetImplicitKeyAggrRootById), new { id = result }, new JsonResponse<Guid>(result));
+            return CreatedAtAction(nameof(GetImplicitKeyAggrRootImplicitKeyNestedCompositionById), new { implicitKeyAggrRootId = implicitKeyAggrRootId, id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/implicit-key-aggr-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteImplicitKeyAggrRoot(
             [FromRoute] Guid id,
@@ -98,9 +102,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
@@ -115,9 +121,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/implicit-key-aggr-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateImplicitKeyAggrRoot(
             [FromRoute] Guid id,
@@ -137,9 +145,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateImplicitKeyAggrRootImplicitKeyNestedComposition(
             [FromRoute] Guid implicitKeyAggrRootId,
@@ -164,7 +174,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified ImplicitKeyAggrRootDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an ImplicitKeyAggrRootDto with the parameters provided.</response>
+        /// <response code="404">No ImplicitKeyAggrRootDto could be found with the provided parameters.</response>
         [HttpGet("api/implicit-key-aggr-roots/{id}")]
         [ProducesResponseType(typeof(ImplicitKeyAggrRootDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -175,14 +185,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified ImplicitKeyAggrRootImplicitKeyNestedCompositionDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an ImplicitKeyAggrRootImplicitKeyNestedCompositionDto with the parameters provided.</response>
+        /// <response code="404">No ImplicitKeyAggrRootImplicitKeyNestedCompositionDto could be found with the provided parameters.</response>
         [HttpGet("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}")]
         [ProducesResponseType(typeof(ImplicitKeyAggrRootImplicitKeyNestedCompositionDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -194,23 +204,25 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery(implicitKeyAggrRootId: implicitKeyAggrRootId, id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;ImplicitKeyAggrRootImplicitKeyNestedCompositionDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;ImplicitKeyAggrRootImplicitKeyNestedCompositionDto&gt; could be found with the provided parameters.</response>
         [HttpGet("api/implicit-key-aggr-roots/{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions")]
         [ProducesResponseType(typeof(List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>>> GetImplicitKeyAggrRootImplicitKeyNestedCompositions(
             [FromRoute] Guid implicitKeyAggrRootId,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery(implicitKeyAggrRootId: implicitKeyAggrRootId), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

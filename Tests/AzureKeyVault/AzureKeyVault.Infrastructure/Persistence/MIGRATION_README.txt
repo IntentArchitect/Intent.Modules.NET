@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "AzureKeyVault.Api" -Project "AzureKeyVault.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "AzureKeyVault.Api" --project "AzureKeyVault.Infrastructure" 
+dotnet ef database update --startup-project "AzureKeyVault.Api" --project "AzureKeyVault.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

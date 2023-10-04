@@ -120,5 +120,37 @@
       <ProjectRelativeFilePath>ValidationServiceInterface/ValidationServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a46cd5f-e7b3-4c07-892e-d94c1cb77a59</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProvider/ValidatorProviderTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider/ValidatorProviderTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8a46cd5f-e7b3-4c07-892e-d94c1cb77a59</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProvider/ValidatorProviderTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider/ValidatorProviderTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09d2e05c-6de1-41f6-b0a3-0e82657cfbb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProviderInterface/ValidatorProviderInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#09d2e05c-6de1-41f6-b0a3-0e82657cfbb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProviderInterface/ValidatorProviderInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

@@ -39,7 +39,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
                     opt.Filters.Add<ExceptionFilter>();
                 });
             services.AddOptions();
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);

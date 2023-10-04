@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using CleanArchitecture.TestApplication.Api.Filters;
+using CleanArchitecture.TestApplication.Application;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -30,6 +31,18 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
                 options =>
                 {
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                    if (File.Exists(apiXmlFile))
+                    {
+                        options.IncludeXmlComments(apiXmlFile);
+                    }
+
+                    var applicationXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(DependencyInjection).Assembly.GetName().Name}.xml");
+                    if (File.Exists(applicationXmlFile))
+                    {
+                        options.IncludeXmlComments(applicationXmlFile);
+                    }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
@@ -54,6 +67,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
                             { securityScheme, Array.Empty<string>() }
                         });
                 });
+
             return services;
         }
 

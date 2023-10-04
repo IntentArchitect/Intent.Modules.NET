@@ -1,12 +1,15 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
@@ -91,20 +94,31 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                             foreach (var queryParameter in queryParams)
                             {
-                                method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                if (queryParameter.TypeReference.Element.IsDTOModel())
+                                {
+                                    var dto = queryParameter.TypeReference.Element.AsDTOModel();
+                                    foreach (var field in dto.Fields)
+                                    {
+                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(field)});");
+                                    }
+                                }
+                                else
+                                {
+                                    method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                }
                             }
 
                             method.AddStatement($"relativeUri = {UseType("Microsoft.AspNetCore.WebUtilities.QueryHelpers")}.AddQueryString(relativeUri, queryParams);");
                         }
 
-                        method.AddStatement($"var request = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
-                        method.AddStatement("request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
+                        method.AddStatement($"var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
+                        method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
 
                         foreach (var headerParameter in inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams)
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            method.AddStatement($"request.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
+                            method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
                         }
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
@@ -112,7 +126,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             var bodyParam = bodyParams.Single();
 
                             method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
-                            method.AddStatement("request.Content = new StringContent(content, Encoding.Default, \"application/json\");");
+                            //Changed to UTF8 as Default can be sketchy..https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
+                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , \"application/json\");");
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
                         {
@@ -124,15 +139,15 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             }
 
                             method.AddStatement("var content = new FormUrlEncodedContent(formVariables);");
-                            method.AddStatement("request.Content = content;");
+                            method.AddStatement("httpRequest.Content = content;");
                         }
 
-                        method.AddStatementBlock("using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))", usingResponseBlock =>
+                        method.AddStatementBlock("using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))", usingResponseBlock =>
                         {
                             usingResponseBlock.SeparatedFromPrevious();
 
                             usingResponseBlock.AddStatementBlock("if (!response.IsSuccessStatusCode)", s => s
-                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);")
+                                .AddStatement($"throw await {GetTypeName(httpClientRequestExceptionTemplateId)}.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);")
                             );
 
                             if (endpoint.ReturnType?.Element == null)
@@ -142,12 +157,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                             if (endpoint.ReturnType.IsNullable)
                             {
-                                usingResponseBlock.AddStatementBlock("if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)", s => s
+                                usingResponseBlock.AddStatementBlock($"if (response.StatusCode == {UseType("System.Net.HttpStatusCode")}.NoContent || response.Content.Headers.ContentLength == 0)", s => s
                                     .AddStatement("return default;")
                                 );
                             }
 
-                            usingResponseBlock.AddStatementBlock("using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))", usingContentStreamBlock =>
+                            usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
                             {
                                 var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
                                 var returnsCollection = endpoint.ReturnType.IsCollection;
@@ -166,14 +181,20 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 }
                                 else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                 {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    {
+                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                    });
                                     usingContentStreamBlock.AddStatement("return str;");
                                 }
                                 else if (!isWrappedReturnType && returnsPrimitive)
                                 {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddStatement("if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); };");
+                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    {
+                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                    });
                                     usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                 }
                                 else
@@ -187,6 +208,26 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                 @class.AddMethod("void", "Dispose");
             });
+    }
+
+    private string GetReadToEndMethodCall()
+    {
+        return OutputTarget switch
+        {
+            _ when OutputTarget.GetProject().IsNetApp(5) => "ReadToEndAsync()",
+            _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
+            _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadToEndAsync()",
+            _ => "ReadToEndAsync(cancellationToken)"
+        }; 
+    }
+
+    private string GetReadAsStreamAsyncMethodCall()
+    {
+        return OutputTarget switch
+        {
+            _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadAsStreamAsync()",
+            _ => "ReadAsStreamAsync(cancellationToken)"
+        };
     }
 
     [IntentManaged(Mode.Fully)]
@@ -212,6 +253,14 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             ? "Task"
             : $"Task<{GetTypeName(endpoint.ReturnType)}>";
     }
+
+    private object GetParameterValueExpression(DTOFieldModel field)
+    {
+        return !field.TypeReference.HasStringType()
+            ? $"{field.Name.ToPascalCase()}.ToString()"
+            : field.Name.ToPascalCase();
+    }
+
 
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)
     {

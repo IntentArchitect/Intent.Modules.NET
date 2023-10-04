@@ -39,20 +39,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ae27d309-db9a-4bfc-8b47-904d6dfaf1fb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application.Validation</name>
-      <display>Application.Validation</display>
-      <externalReference>99b752ee-b2c1-49ca-a5f0-03e743b9000e</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="80db367e-b8be-4220-bf18-a7dc1718fc26" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.FluentValidation.CommandValidator</name>
       <display>Intent.Application.MediatR.FluentValidation.CommandValidator</display>
@@ -61,6 +47,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -75,10 +63,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ae27d309-db9a-4bfc-8b47-904d6dfaf1fb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application.Validation</name>
+      <display>Application.Validation</display>
+      <externalReference>99b752ee-b2c1-49ca-a5f0-03e743b9000e</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2b391219-1a2a-4f12-8db8-727f546537bc</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

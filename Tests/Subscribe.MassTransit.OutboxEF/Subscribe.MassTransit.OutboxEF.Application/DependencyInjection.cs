@@ -4,9 +4,11 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Eventing;
+using Subscribe.MassTransit.OutboxEF.Application.Common.Validation;
 using Subscribe.MassTransit.OutboxEF.Application.IntegrationEventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -16,9 +18,9 @@ namespace Subscribe.MassTransit.OutboxEF.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
@@ -30,6 +32,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application
                 cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEventHandler>();

@@ -1,4 +1,21 @@
-﻿### Version 4.4.9
+﻿### Version 4.4.12
+
+- Fixed: Protected constructors required by EF would be generated for entities to be used with alternative persistence technologies.
+- Improvement: The MIGRATION_README file can now be configurable and mutable by subscribing to the `DbMigrationsReadMeCreatedEvent` event.
+- Improvement: `Cosmos DB Container Settings` stereotype can be added to Folders and Entities in order to manage the finely grained Container and Partition Key management.
+
+### Version 4.4.11
+
+- Improvement: Made EF Core lazy loading proxies a configurable option, which is `true` be default for backwards compatibility.
+- Improvement: Moving the on-load script from a class level to a package level can drastically improve loading times.
+- Fixed: When a Source-end association name is not in sync with the class name, Entity Type Configurations on a Cosmos DB setup will setup the wrong foreign key.
+- Fixed: Column names will escape quote characters.
+
+### Version 4.4.10
+
+- Fixed: Composite Entities will now also have Index columns rendered.
+
+### Version 4.4.9
 
 - New Feature: Setting for decimal default Precision and Scale.
 - Fixed: Parameterless `protected` constructors were not being generated as required for EF for owned entities.

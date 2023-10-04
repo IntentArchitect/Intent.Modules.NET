@@ -79,53 +79,5 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="a9a4b2b3-fc30-4214-8fa4-cce714f41aff" type="Association Event Settings" typeId="1bdee938-8569-4fbf-84b4-8522d2cbee32">
-      <name>[events]</name>
-      <display>[events]</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fbc02ea2-ce05-401f-ba34-39194114a3f8</parentFolderId>
-      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-      <packageName>Intent.EntityFrameworkCore</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements>
-        <childElement id="dea29751-5061-429b-968f-6134050612b7" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
-          <name>On Created</name>
-          <display>On Created: Script</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="5bc3e289-ed24-4953-883c-b2923f9f99f0">
-            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.ModuleBuilder</typePackageName>
-            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>a9a4b2b3-fc30-4214-8fa4-cce714f41aff</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-              <properties>
-                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;return;&#xD;&#xA;if (!association.isTargetEnd()) { return; } &#xD;&#xA;&#xD;&#xA;let element = association?.typeReference?.getType(); &#xD;&#xA;&#xD;&#xA;if (!element) { return; } &#xD;&#xA;&#xD;&#xA;// console.log(`Association (${element.getName()}) :: On Created&#xD;&#xA;//     isCosmosDbProvider() = ${isCosmosDbProvider()}&#xD;&#xA;//     isAggregateRoot(element) = ${isAggregateRoot(element)}&#xD;&#xA;//     hasSuperClass(element) = ${hasSuperClass(element)}`);&#xD;&#xA;&#xD;&#xA;let sourceEnd = association.getOtherEnd().typeReference;&#xD;&#xA;if (sourceEnd.getType().getPackage().specialization !== &quot;Domain Package&quot;) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype(&quot;Table&quot;)) || hasSuperClass(element)) { &#xD;&#xA;    element.getChildren(&quot;Attribute&quot;)&#xD;&#xA;        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))&#xD;&#xA;        .forEach(x =&gt; {&#xD;&#xA;            x.removeStereotype(partitionKeyStereotypeId);&#xD;&#xA;            x.delete();&#xD;&#xA;        });&#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let partitionKey = element.getPackage()?.getStereotype(&quot;Cosmos DB Container Settings&quot;)?.getProperty(&quot;Partition Key&quot;)?.value?.trim();&#xD;&#xA;if (partitionKey == &quot;&quot;) { partitionKey = null; }&#xD;&#xA;&#xD;&#xA;let primaryKeyAttr = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasStereotype(&quot;Primary Key&quot;))[0];&#xD;&#xA;if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { &#xD;&#xA;    primaryKeyAttr.addStereotype(partitionKeyStereotypeId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!partitionKey) { return; }&#xD;&#xA;&#xD;&#xA;let attributePartitionKeys = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.getName() == partitionKey);&#xD;&#xA;if (attributePartitionKeys.length == 0) { return; }&#xD;&#xA;if (! attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {&#xD;&#xA;    attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function hasSuperClass(element) {&#xD;&#xA;    return element.getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
   </childElements>
 </class>

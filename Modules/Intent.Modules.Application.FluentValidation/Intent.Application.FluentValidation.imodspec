@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.7.2</version>
+  <version>3.8.1</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -10,52 +10,66 @@
   <templates />
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet validation</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md</projectUrl>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="459a4008-350c-42ec-b43d-9c85000babc0" title="Fluent Validation (Application Layer)" externalReference="459a4008-350c-42ec-b43d-9c85000babc0">
+      <settings>
+        <setting id="da76a14e-3ea4-4ebb-a262-69cbb0f9889b" title="Unique Constraint Validation" type="select">
+          <isRequired>true</isRequired>
+          <defaultValue>default-disabled</defaultValue>
+          <options>
+            <option value="default-enabled" description="Enabled by default" />
+            <option value="default-disabled" description="Disabled by default" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
       <install>
-        <package id="Intent.Application.FluentValidation.Dtos" version="3.6.1" />
+        <package id="Intent.Application.FluentValidation.Dtos" version="3.7.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.3.0" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.4.0" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions.Interop.Contracts">
       <install>
-        <package id="Intent.Application.FluentValidation.Dtos" version="3.6.1" />
-        <package id="Intent.AzureFunctions.FluentValidation" version="4.1.0" />
+        <package id="Intent.Application.FluentValidation.Dtos" version="3.7.0" />
+        <package id="Intent.AzureFunctions.FluentValidation" version="4.1.5" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.3.0" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.4.0" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.FluentValidation.Dtos">
       <install>
-        <package id="Intent.Application.FluentValidation.Dtos" version="3.6.1" />
+        <package id="Intent.Application.FluentValidation.Dtos" version="3.7.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.3.0" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.4.0" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.36" />
+    <dependency id="Intent.Common.CSharp" version="3.3.41" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

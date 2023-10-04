@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,10 +18,14 @@ namespace RichDomain.Infrastructure.Persistence
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            ICurrentUserService currentUserService) : base(options)
         {
             _domainEventService = domainEventService;
+            _currentUserService = currentUserService;
         }
 
         public DbSet<BaseClass> BaseClasses { get; set; }
@@ -34,12 +39,14 @@ namespace RichDomain.Infrastructure.Persistence
             CancellationToken cancellationToken = default)
         {
             await DispatchEventsAsync(cancellationToken);
+            SetAuditableFields();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             DispatchEventsAsync().GetAwaiter().GetResult();
+            SetAuditableFields();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -74,15 +81,54 @@ namespace RichDomain.Infrastructure.Persistence
             while (true)
             {
                 var domainEventEntity = ChangeTracker
-                        .Entries<IHasDomainEvent>()
-                        .Select(x => x.Entity.DomainEvents)
-                        .SelectMany(x => x)
-                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+                    .Entries<IHasDomainEvent>()
+                    .Select(x => x.Entity.DomainEvents)
+                    .SelectMany(x => x)
+                    .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);
+            }
+        }
+
+        private void SetAuditableFields()
+        {
+            var auditableEntries = ChangeTracker.Entries()
+                .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
+                                entry.Entity is IAuditable)
+                .Select(entry => new
+                {
+                    entry.State,
+                    Auditable = (IAuditable)entry.Entity
+                })
+                .ToArray();
+
+            if (!auditableEntries.Any())
+            {
+                return;
+            }
+
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var timestamp = DateTimeOffset.UtcNow;
+
+            foreach (var entry in auditableEntries)
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Auditable.SetCreated(userName, timestamp);
+                        break;
+                    case EntityState.Modified or EntityState.Deleted:
+                        entry.Auditable.SetUpdated(userName, timestamp);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -13,7 +14,8 @@ namespace CosmosDB.Infrastructure.Repositories
     internal class DerivedTypeCosmosDBRepository : CosmosDBRepositoryBase<DerivedType, DerivedType, DerivedTypeDocument>, IDerivedTypeRepository
     {
         public DerivedTypeCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
-            Microsoft.Azure.CosmosRepository.IRepository<DerivedTypeDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
+            Microsoft.Azure.CosmosRepository.IRepository<DerivedTypeDocument> cosmosRepository,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
     }

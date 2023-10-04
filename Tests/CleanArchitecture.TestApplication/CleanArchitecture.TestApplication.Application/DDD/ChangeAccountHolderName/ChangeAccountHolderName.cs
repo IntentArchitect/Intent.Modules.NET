@@ -1,3 +1,4 @@
+using System;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -9,10 +10,13 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
 {
     public class ChangeAccountHolderName : IRequest, ICommand
     {
-        public ChangeAccountHolderName(string name)
+        public ChangeAccountHolderName(Guid id, string name)
         {
+            Id = id;
             Name = name;
         }
+
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }

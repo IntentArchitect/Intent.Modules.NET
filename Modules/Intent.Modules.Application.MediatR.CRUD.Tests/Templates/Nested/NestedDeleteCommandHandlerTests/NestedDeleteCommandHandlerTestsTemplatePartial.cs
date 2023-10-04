@@ -6,6 +6,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
+using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -37,89 +38,113 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-
-        Facade = new CommandHandlerFacade(this, model);
-
+        
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
             {
+                var facade = new CommandHandlerFacade(this, model);
+                
                 AddUsingDirectives(file);
-                Facade.AddHandlerConstructorMockUsings();
+                facade.AddHandlerConstructorMockUsings();
 
                 var priClass = file.Classes.First();
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
-                    method.AddStatements(Facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
+                    method.AddStatements(facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
                         CommandTargetDomain.NestedEntity,
                         CommandTestDataReturn.CommandAndAggregateDomain));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{Facade.TargetDomainTypeName}From{Facade.SingularAggregateOwnerDomainName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{facade.TargetDomainTypeName}From{facade.SingularAggregateOwnerDomainName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter(Facade.CommandTypeName, "testCommand");
-                    method.AddParameter(Facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
+                    method.AddParameter(facade.CommandTypeName, "testCommand");
+                    method.AddParameter(facade.AggregateOwnerDomainTypeName, "existingOwnerEntity");
 
                     method.AddStatement($@"// Arrange");
-                    method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
+                    method.AddStatements(facade.GetCommandHandlerConstructorParameterMockStatements());
+                    method.AddStatements(facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(facade.GetCommandHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
-                    method.AddStatements(Facade.GetSutHandleInvocationStatement("testCommand"));
+                    method.AddStatements(facade.GetSutHandleInvocationStatement("testCommand"));
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetNestedEntityRemovedFromOwningAggregateAssertionStatements("existingOwnerEntity", "testCommand"));
+                    method.AddStatements(facade.GetNestedEntityRemovedFromOwningAggregateAssertionStatements("existingOwnerEntity", "testCommand"));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularAggregateOwnerDomainName}Id_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{facade.SingularAggregateOwnerDomainName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
 
                     method.AddStatement("// Arrange");
-                    method.AddStatements(Facade.GetNewCommandAutoFixtureInlineStatements("testCommand"));
-                    method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
-                    method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
+                    method.AddStatements(facade.GetNewCommandAutoFixtureInlineStatements("testCommand"));
+                    method.AddStatements(facade.GetCommandHandlerConstructorParameterMockStatements());
+                    method.AddStatements(facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "", CommandHandlerFacade.MockRepositoryResponse.ReturnDefault));
+                    method.AddStatements(facade.GetCommandHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
-                    method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
+                    method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
+                    method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithInvalid{Facade.SingularTargetDomainName}Id_ReturnsNotFound", method =>
+                priClass.AddMethod("Task", $"Handle_WithInvalid{facade.SingularTargetDomainName}Id_ReturnsNotFound", method =>
                 {
                     method.Async();
                     method.AddAttribute("Fact");
-                    method.AddStatements(Facade.GetNewAggregateOwnerWithoutCompositesStatements());
-                    method.AddStatements(Facade.GetCommandHandlerConstructorParameterMockStatements());
-                    method.AddStatements(Facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatements(Facade.GetCommandHandlerConstructorSutStatement());
+                    method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
+                    method.AddStatements(facade.GetCommandHandlerConstructorParameterMockStatements());
+                    method.AddStatements(facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                    method.AddStatements(facade.GetCommandHandlerConstructorSutStatement());
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Act");
-                    method.AddStatements(Facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
+                    method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("testCommand"));
 
                     method.AddStatement(string.Empty);
                     method.AddStatement("// Assert");
-                    method.AddStatements(Facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
+                    method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
             });
     }
+    
+    private bool? _canRunTemplate;
 
-    private CommandHandlerFacade Facade { get; }
+    public override bool CanRunTemplate()
+    {
+        if (_canRunTemplate.HasValue)
+        {
+            return _canRunTemplate.Value;
+        }
+
+        var template = ExecutionContext.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, Model);
+        if (template is null)
+        {
+            _canRunTemplate = false;
+        }
+        else if (StrategyFactory.GetMatchedCommandStrategy(template) is DeleteImplementationStrategy strategy && strategy.IsMatch())
+        {
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+        }
+        else
+        {
+            _canRunTemplate = false;
+        }
+
+        return _canRunTemplate.Value;
+    }
 
     private static void AddUsingDirectives(CSharpFile file)
     {

@@ -95,6 +95,21 @@ if (element.typeReference == null || element.typeReference.getType() == null ){
 }
 </script>
         </macro>
+        <macro trigger="on-changed">
+          <script>let azureFunctionId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"; // from AzureFunctions (this) module
+let azureFunctionTriggerId = "a6411e1f-8199-4b18-b1a1-fd2aa73b1da6";
+let comsmosDBTriggerId = "78edaf9d-bc43-4792-b483-408fcd630261";//from AzureFunctions (this) module
+
+if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== "Cosmos DB Trigger") {
+    element.removeStereotype(comsmosDBTriggerId);
+    return;
+}
+
+if (element.getStereotype(comsmosDBTriggerId) == null) {
+    element.addStereotype(comsmosDBTriggerId);
+}
+</script>
+        </macro>
       </macros>
     </elementExtension>
     <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">

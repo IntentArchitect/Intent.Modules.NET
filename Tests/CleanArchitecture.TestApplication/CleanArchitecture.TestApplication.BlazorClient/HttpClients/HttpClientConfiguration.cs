@@ -1,4 +1,5 @@
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
@@ -28,6 +29,12 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                     return sp.GetRequiredService<AuthorizationMessageHandler>()
                         .ConfigureHandler(
                             authorizedUrls: new[] { GetUrl(configuration, "CleanArchitectureTestApplication").AbsoluteUri });
+                });
+
+            services
+                .AddHttpClient<IUniqueIndexConstraintService, UniqueIndexConstraintServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");
                 });
 
             services

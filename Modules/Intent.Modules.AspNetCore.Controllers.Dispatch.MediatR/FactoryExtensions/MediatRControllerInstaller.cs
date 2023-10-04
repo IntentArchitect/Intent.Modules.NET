@@ -8,7 +8,6 @@ using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControllers;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,7 +17,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -36,7 +34,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
             foreach (var template in templates)
             {
                 if (template.Model is not CqrsControllerModel)
@@ -66,7 +64,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                         {
                             method.AddStatements(GetValidations(model));
                             method.AddStatement(GetDispatchViaMediatorStatement(template, model), s => s.SeparatedFromPrevious());
-                            method.AddStatement(GetReturnStatement(template, model));
+                            method.AddStatement(template.GetReturnStatement(model));
                         }
                     }
                 });
@@ -100,45 +98,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
             return operationModel.ReturnType != null
                 ? $"var result = await _mediator.Send({payload}, cancellationToken);"
-                : $@"await _mediator.Send({payload}, cancellationToken);";
-        }
-
-        private CSharpStatement GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
-        {
-            switch (operationModel.Verb)
-            {
-                case HttpVerb.Get:
-                    if (operationModel.ReturnType == null)
-                    {
-                        return "return NoContent();";
-                    }
-
-                    if (operationModel.ReturnType.IsCollection)
-                    {
-                        return "return Ok(result);";
-                    }
-
-                    return @"return result != null ? Ok(result) : NotFound();";
-                case HttpVerb.Post:
-                    var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
-                        x.ReturnType != null &&
-                        !x.ReturnType.IsCollection &&
-                        x.Parameters.Count() == 1 &&
-                        x.Parameters.FirstOrDefault()?.Name == "id");
-                    if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int")
-                    {
-                        var value = $"new {template.GetJsonResponseName()}<{template.GetTypeName(operationModel)}>(result)";
-                        return $@"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {value});";
-                    }
-                    return operationModel.ReturnType == null ? @"return Created(string.Empty, null);" : @"return Created(string.Empty, result);";
-                case HttpVerb.Put:
-                case HttpVerb.Patch:
-                    return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
-                case HttpVerb.Delete:
-                    return operationModel.ReturnType == null ? @"return Ok();" : @"return Ok(result);";
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                : $"await _mediator.Send({payload}, cancellationToken);";
         }
 
         private static IControllerParameterModel GetPayloadParameter(IControllerOperationModel operation)

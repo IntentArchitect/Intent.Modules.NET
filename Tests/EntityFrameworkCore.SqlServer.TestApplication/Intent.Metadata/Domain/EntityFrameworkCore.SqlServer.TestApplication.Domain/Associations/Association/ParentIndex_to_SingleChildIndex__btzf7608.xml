@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9a77d19c-7bed-4d18-a277-08577617fd50">
+  <sourceEnd id="a1a52e84-3716-4c47-8956-c24ec0c8b07b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ParentIndex</name>
+    <display>ParentIndex: ParentIndex</display>
+    <order>0</order>
+    <typeReference id="560a05cc-32ea-4cce-8eb0-25a61fe58847">
+      <typeId>356ce581-a646-4080-9453-14685da73b8d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9a77d19c-7bed-4d18-a277-08577617fd50" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>SingleChildIndex</name>
+    <display>SingleChildIndex: SingleChildIndex?   [1 --&gt; 0..1]</display>
+    <order>3</order>
+    <typeReference id="c49aad80-91b7-48a7-b563-66119d0eabf5">
+      <typeId>31b5e481-aea5-4bbb-9511-4f798d15ab7d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

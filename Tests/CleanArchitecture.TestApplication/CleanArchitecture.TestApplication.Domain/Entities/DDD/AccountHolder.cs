@@ -39,7 +39,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
 
         public void Transfer(string description, IAccountingDomainService service, decimal amount, string currency)
         {
-            throw new NotImplementedException("Replace with your implementation...");
+
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]

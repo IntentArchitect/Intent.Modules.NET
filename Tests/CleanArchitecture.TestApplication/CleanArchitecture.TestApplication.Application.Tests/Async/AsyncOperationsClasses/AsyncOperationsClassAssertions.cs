@@ -1,5 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.Explicit;
+using CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.ExplicitWithReturn;
+using CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.ImplicitAsync;
+using CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.ImplicitAsyncWithReturn;
+using CleanArchitecture.TestApplication.Domain.Entities.Async;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 

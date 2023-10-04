@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -9,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class IdTestingDocument : IdTesting, ICosmosDBDocument<IdTestingDocument, IdTesting>
+    internal class IdTestingDocument : ICosmosDBDocument<IdTesting, IdTestingDocument>
     {
         private string? _type;
         [JsonProperty("id")]
@@ -24,11 +26,18 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        public string Identifier { get; set; } = default!;
         [JsonProperty("@id")]
-        public new string Id
+        public string Id { get; set; } = default!;
+
+        public IdTesting ToEntity(IdTesting? entity = default)
         {
-            get => base.Id;
-            set => base.Id = value;
+            entity ??= new IdTesting();
+
+            entity.Identifier = Identifier;
+            entity.Id = Id;
+
+            return entity;
         }
 
         public IdTestingDocument PopulateFromEntity(IdTesting entity)
@@ -37,6 +46,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Id = entity.Id;
 
             return this;
+        }
+
+        public static IdTestingDocument? FromEntity(IdTesting? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new IdTestingDocument().PopulateFromEntity(entity);
         }
     }
 }

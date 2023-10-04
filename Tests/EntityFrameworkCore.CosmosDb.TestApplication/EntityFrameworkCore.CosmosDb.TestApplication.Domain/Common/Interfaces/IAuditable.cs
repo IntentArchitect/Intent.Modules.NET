@@ -2,7 +2,7 @@ using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.BasicAuditing.AuditableInterface", Version = "1.0")]
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces
 {

@@ -8,6 +8,10 @@ namespace MassTransit.Messages.Shared
 {
     public record RoleDeletedEvent
     {
+        public RoleDeletedEvent()
+        {
+            Name = null!;
+        }
         public Guid Id { get; init; }
         public string Name { get; init; }
     }

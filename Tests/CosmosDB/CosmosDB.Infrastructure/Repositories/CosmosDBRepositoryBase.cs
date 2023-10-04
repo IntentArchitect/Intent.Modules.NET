@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Repositories;
 using CosmosDB.Infrastructure.Persistence;
@@ -19,19 +21,25 @@ namespace CosmosDB.Infrastructure.Repositories
 {
     internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
         where TPersistence : TDomain
-        where TDocument : TPersistence, ICosmosDBDocument<TDocument, TDomain>, new()
+        where TDomain : class
+        where TDocument : ICosmosDBDocument<TDomain, TDocument>, new()
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
+        private readonly Lazy<(string UserName, DateTimeOffset TimeStamp)> _auditDetails;
+        private readonly ICurrentUserService _currentUserService;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
-            string idFieldName)
+            string idFieldName,
+            ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
+            _currentUserService = currentUserService;
+            _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
@@ -41,6 +49,7 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetCreated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
@@ -50,6 +59,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
+                (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
                 var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
@@ -67,21 +77,26 @@ namespace CosmosDB.Infrastructure.Repositories
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
-            var results = documents.Cast<TDomain>().ToList();
-
-            foreach (var result in results)
-            {
-                _unitOfWork.Track(result);
-            }
+            var results = documents.Select(document => document.ToEntity()).ToList();
+            Track(results);
 
             return results;
         }
 
         public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
-            var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
+            try
+            {
+                var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
+                var entity = document.ToEntity();
+                Track(entity);
 
-            return document;
+                return entity;
+            }
+            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
@@ -89,7 +104,30 @@ namespace CosmosDB.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
-            return documents.Cast<TDomain>().ToList();
+            var results = documents.Select(document => document.ToEntity()).ToList();
+            Track(results);
+
+            return results;
+        }
+
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);
+        }
+
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
+            Track(pagedDocuments.Items.Select(document => document.ToEntity()));
+
+            return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -99,12 +137,8 @@ namespace CosmosDB.Infrastructure.Repositories
             var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                 .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
-            var results = documents.Cast<TDomain>().ToList();
-
-            foreach (var result in results)
-            {
-                _unitOfWork.Track(result);
-            }
+            var results = documents.Select(document => document.ToEntity()).ToList();
+            Track(results);
 
             return results;
         }
@@ -112,13 +146,34 @@ namespace CosmosDB.Infrastructure.Repositories
         /// <summary>
         /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
         /// </summary>
-        public static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
+        private static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
         {
             if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.");
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
             return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
+        }
+
+        public void Track(IEnumerable<TDomain> items)
+        {
+            foreach (var item in items)
+            {
+                _unitOfWork.Track(item);
+            }
+        }
+
+        public void Track(TDomain item)
+        {
+            _unitOfWork.Track(item);
+        }
+
+        private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()
+        {
+            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var timestamp = DateTimeOffset.UtcNow;
+
+            return (userName, timestamp);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

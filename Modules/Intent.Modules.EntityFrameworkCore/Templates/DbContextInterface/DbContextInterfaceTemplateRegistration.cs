@@ -37,6 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             base.DoRegistration(registry, application);
         }
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {
             return new DbContextInterfaceTemplate(outputTarget, model);

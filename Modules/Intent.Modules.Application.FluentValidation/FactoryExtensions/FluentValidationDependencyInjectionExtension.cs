@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -33,7 +34,7 @@ namespace Intent.Modules.Application.FluentValidation.FactoryExtensions
             {
                 file.AddUsing("FluentValidation");
                 var @class = file.Classes.First();
-                @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());");
+                @class.FindMethod("AddApplication").InsertStatement(0, "services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);");
             });
         }
     }

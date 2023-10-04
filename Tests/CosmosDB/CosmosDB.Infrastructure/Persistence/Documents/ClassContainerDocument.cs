@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -9,14 +11,20 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClassContainerDocument : ClassContainer, ICosmosDBDocument<ClassContainerDocument, ClassContainer>
+    internal class ClassContainerDocument : ICosmosDBDocument<ClassContainer, ClassContainerDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string ClassPartitionKey { get; set; } = default!;
+
+        public ClassContainer ToEntity(ClassContainer? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new ClassContainer();
+
+            entity.Id = Id;
+            entity.ClassPartitionKey = ClassPartitionKey;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -24,7 +32,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string IItem.PartitionKey => ClassPartitionKey;
+        string? ICosmosDBDocument.PartitionKey
+        {
+            get => ClassPartitionKey;
+            set => ClassPartitionKey = value!;
+        }
 
         public ClassContainerDocument PopulateFromEntity(ClassContainer entity)
         {
@@ -32,6 +44,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             ClassPartitionKey = entity.ClassPartitionKey;
 
             return this;
+        }
+
+        public static ClassContainerDocument? FromEntity(ClassContainer? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new ClassContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

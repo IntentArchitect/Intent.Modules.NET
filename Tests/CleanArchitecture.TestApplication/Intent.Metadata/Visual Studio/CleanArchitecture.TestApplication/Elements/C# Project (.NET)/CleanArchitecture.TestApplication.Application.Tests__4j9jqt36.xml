@@ -30,6 +30,7 @@
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -238,6 +239,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="558b0d86-1078-4495-b9c7-330442d044ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="3e884ecf-8673-4d87-9ad9-f439c727e5a8" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Application.Test</name>
       <display>Application.Test</display>
@@ -250,20 +267,6 @@
       <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="558b0d86-1078-4495-b9c7-330442d044ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllPaginationQueryHandlerTests</display>
-      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

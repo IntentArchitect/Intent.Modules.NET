@@ -5,11 +5,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
+using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots;
 using CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.UpdateImplicitKeyAggrRoot;
 using FluentAssertions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 
@@ -72,7 +75,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
         private ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit> GetValidationBehaviour()
         {
-            return new ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit>(new[] { new UpdateImplicitKeyAggrRootCommandValidator() });
+            var validatorProvider = Substitute.For<IValidatorProvider>();
+            validatorProvider.GetValidator<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto>().Returns(c => new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator());
+            return new ValidationBehaviour<UpdateImplicitKeyAggrRootCommand, Unit>(new[] { new UpdateImplicitKeyAggrRootCommandValidator(validatorProvider) });
         }
     }
 }

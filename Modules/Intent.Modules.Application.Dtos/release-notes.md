@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
+
 ### Version 4.0.6
 
 - Fixed: DTO static factory methods didn't have generic type parameters.

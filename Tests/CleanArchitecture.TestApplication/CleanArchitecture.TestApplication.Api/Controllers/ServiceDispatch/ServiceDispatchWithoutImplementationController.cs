@@ -100,7 +100,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         /// </summary>
         /// <response code="200">Returns the specified string.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an string with the parameters provided.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpGet("query-param")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -112,44 +112,40 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
             result = _appService.Query(param);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified string.</response>
-        /// <response code="404">Can't find an string with the parameters provided.</response>
         [HttpGet("query")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> Query(CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = _appService.Query();
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified string.</response>
-        /// <response code="404">Can't find an string with the parameters provided.</response>
         [HttpGet("query-async")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<string>> QueryAsync(CancellationToken cancellationToken = default)
         {
             var result = default(string);
             result = await _appService.QueryAsync(cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified string.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an string with the parameters provided.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpGet("query-async-param")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -161,7 +157,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
             result = await _appService.QueryAsync(param, cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

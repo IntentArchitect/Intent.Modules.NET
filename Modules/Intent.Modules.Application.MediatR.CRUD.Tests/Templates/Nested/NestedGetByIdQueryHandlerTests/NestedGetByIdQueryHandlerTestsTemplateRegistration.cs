@@ -39,9 +39,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                .Where(query => query.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase) &&
-                            query.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false &&
-                            !query.TypeReference.IsCollection)
+                // .Where(query => query.Name.StartsWith("get", StringComparison.OrdinalIgnoreCase) &&
+                //                 query.TypeReference?.Element?.AsDTOModel()?.Mapping?.Element?.Id == query.Mapping?.Element?.Id &&
+                //                 query.Mapping?.Element.AsClassModel()?.IsAggregateRoot() == false &&
+                //                 !query.TypeReference.IsCollection &&
+                //                 query.HasIdentityKeys(application))
                 .ToList();
         }
     }

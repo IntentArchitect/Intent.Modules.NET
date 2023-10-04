@@ -14,16 +14,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
 {
     public static class TestNullablityAssertions
     {
-        public static void AssertEquivalent(CreateTestNullablityCommand expectedDto, TestNullablity actualEntity)
-        {
-            if (expectedDto == null)
-            {
-                actualEntity.Should().BeNull();
-                return;
-            }
-
-            actualEntity.Should().NotBeNull();
-        }
 
         public static void AssertEquivalent(
             IEnumerable<TestNullablityDto> actualDtos,

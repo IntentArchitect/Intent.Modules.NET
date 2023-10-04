@@ -38,7 +38,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

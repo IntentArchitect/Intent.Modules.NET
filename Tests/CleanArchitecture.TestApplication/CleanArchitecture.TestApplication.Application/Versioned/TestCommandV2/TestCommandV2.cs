@@ -7,6 +7,9 @@ using MediatR;
 
 namespace CleanArchitecture.TestApplication.Application.Versioned.TestCommandV2
 {
+    /// <summary>
+    /// Command comment
+    /// </summary>
     public class TestCommandV2 : IRequest, ICommand
     {
         public TestCommandV2(string value)

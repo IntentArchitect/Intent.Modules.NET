@@ -30,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f51d760a-09eb-4635-972e-62706694321d</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -22,26 +22,43 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
         public CosmosDBDocumentInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddInterface($"ICosmosDBDocument", @interface =>
                 {
                     @interface
                         .Internal()
+                        .AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TDocument", out var tDocument, g => g.Covariant())
-                        .AddGenericParameter("TDomain", out var tDomain, g => g.Contravariant())
+                        .AddGenericTypeConstraint(tDomain, c => c
+                            .AddType("class"))
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDocument}, {tDomain}>"));
+                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDomain}, {tDocument}>"));
 
+                    @interface.ImplementsInterfaces(UseType("ICosmosDBDocument"));
+
+                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                        .AddParameter(tDomain, "entity"));
+
+                    @interface.AddMethod(tDomain, "ToEntity", c => c
+                        .AddParameter($"{tDomain}?", "entity", p => p.WithDefaultValue("null")));
+                })
+                .AddInterface($"ICosmosDBDocument", @interface =>
+                {
+                    @interface.Internal();
                     @interface.ImplementsInterfaces(UseType("Microsoft.Azure.CosmosRepository.IItem"));
 
                     @interface.AddProperty("string", "PartitionKey", method => method
                         .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
                         .WithoutSetter()
-                        .Getter.WithExpressionImplementation("Id")
+                        .Getter.WithExpressionImplementation("PartitionKey!")
                     );
 
-                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
-                        .AddParameter(tDomain, "entity")
-                    );
+                    @interface.AddProperty("string?", "PartitionKey", property =>
+                    {
+                        property.New();
+                        property.Getter.WithExpressionImplementation("Id");
+                        property.Setter.WithExpressionImplementation("Id = value ?? throw new ArgumentNullException(nameof(value))");
+                    });
                 });
         }
 

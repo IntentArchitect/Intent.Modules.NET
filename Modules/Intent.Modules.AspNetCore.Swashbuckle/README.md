@@ -11,6 +11,10 @@ This modules specifically deals with
 
 For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
 
+## XML comments
+
+To enable XML comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for both the `<ApplicationName>.Api` and `<ApplicationName>.Application` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
+
 ## Related Modules
 
 ### Intent.Intent.AspNetCore.Swashbuckle.Security

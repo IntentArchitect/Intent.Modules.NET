@@ -8,27 +8,31 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class DerivedTypeDocument : DerivedType, ICosmosDBDocument<DerivedTypeDocument, DerivedType>
+    internal class DerivedTypeDocument : BaseTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
     {
-        private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public DerivedType ToEntity(DerivedType? entity = default)
         {
-            get => Id;
-            set => Id = value;
-        }
-        [JsonProperty("type")]
-        string IItem.Type
-        {
-            get => _type ??= GetType().GetNameForDocument();
-            set => _type = value;
+            entity ??= new DerivedType();
+            base.ToEntity(entity);
+
+            return entity;
         }
 
         public DerivedTypeDocument PopulateFromEntity(DerivedType entity)
         {
-            Id = entity.Id;
+            base.PopulateFromEntity(entity);
 
             return this;
+        }
+
+        public static DerivedTypeDocument? FromEntity(DerivedType? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new DerivedTypeDocument().PopulateFromEntity(entity);
         }
     }
 }

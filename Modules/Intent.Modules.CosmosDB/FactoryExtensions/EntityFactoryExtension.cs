@@ -34,8 +34,10 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: CosmosDbProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: true);
+                initializePrimaryKeyOnAggregateRoots: true,
+                makeNonPersistentPropertiesVirtual: false);
             RegisterServices(application);
+
         }
 
         private static void RegisterServices(IApplication application)
@@ -55,7 +57,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var classes = application.MetadataManager.Domain(application).GetClassModels()
                         .Where(x => CosmosDbProvider.FilterDbProvider(x) &&
-                                    x.IsAggregateRoot() && 
+                                    x.IsAggregateRoot() &&
                                     !x.IsAbstract)
                         .ToArray();
 

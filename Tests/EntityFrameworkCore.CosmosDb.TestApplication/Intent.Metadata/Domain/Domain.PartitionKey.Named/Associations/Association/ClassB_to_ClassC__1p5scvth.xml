@@ -22,7 +22,7 @@
   <targetEnd id="78a25b18-c66e-41fe-a884-88c96becafcb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ClassC</name>
     <display>ClassC: ClassC   [1 --&gt; 1]</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="6afac25b-4d9b-4235-985d-10204ccdb956">
       <typeId>322ab6a2-4ab3-4e13-9e44-354dcc333c92</typeId>
       <isNavigable>true</isNavigable>

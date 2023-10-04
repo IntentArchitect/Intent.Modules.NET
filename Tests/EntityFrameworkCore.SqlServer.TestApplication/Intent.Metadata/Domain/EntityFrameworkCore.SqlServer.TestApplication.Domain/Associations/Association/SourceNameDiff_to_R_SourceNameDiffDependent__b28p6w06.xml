@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9175c191-e106-419d-803b-e07021d61f26">
+  <sourceEnd id="6ae8b816-c7c7-4e66-aad7-956d14a9f4a9" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SourceNameDiff</name>
+    <display>SourceNameDiff: R_SourceNameDiff</display>
+    <order>0</order>
+    <typeReference id="03369dd2-2173-4219-90df-c52a2969fe1a">
+      <typeId>eafe8700-c3fa-4648-ad94-9abaed451b2d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9175c191-e106-419d-803b-e07021d61f26" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>R_SourceNameDiffDependent</name>
+    <display>R_SourceNameDiffDependent: R_SourceNameDiffDependent   [1 --&gt; 1]</display>
+    <order>1</order>
+    <typeReference id="2776779e-daf5-4400-94d6-ef8ba55b7418">
+      <typeId>2cfc6448-e59c-47ba-8b45-576067093632</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

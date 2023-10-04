@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Repositories;
@@ -10,6 +11,8 @@ using CosmosDB.Infrastructure.Repositories;
 using CosmosDB.Infrastructure.Repositories.Folder;
 using CosmosDB.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Builders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -45,6 +48,10 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<DerivedTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    // Cosmos Repository does not support open generics at this time, but it's good
+                    // to test everything else is still correct:
+                    // .Configure(typeof(EntityOfTDocument<>), c => c
+                    //     .WithContainer(defaultContainerId))
                     .Configure<FolderContainerDocument>(c => c
                         .WithContainer("Folder")
                         .WithPartitionKey("/folderPartitionKey"))
@@ -65,6 +72,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
             services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
+            services.AddScoped(typeof(IEntityOfTRepository<>), typeof(EntityOfTCosmosDBRepository<>));
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();

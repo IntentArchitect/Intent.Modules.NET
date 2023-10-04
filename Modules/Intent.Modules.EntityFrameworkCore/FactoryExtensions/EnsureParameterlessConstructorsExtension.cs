@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -28,7 +29,11 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            foreach (var model in application.MetadataManager.Domain(application).GetClassModels())
+            var classModels = application.MetadataManager.Domain(application).GetClassModels()
+                .Where(x => x.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
+                .ToArray();
+
+            foreach (var model in classModels)
             {
                 var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.EntityImplementation, model.Id);
 
@@ -39,12 +44,12 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     var entityImplCtors = file.Classes.First().Constructors;
                     var stateCtors = stateTemplate?.CSharpFile.Classes.First().Constructors ?? ArraySegment<CSharpConstructor>.Empty;
                     var collectiveCtors = entityImplCtors.Concat(stateCtors).ToArray();
-                    
+
                     if (collectiveCtors.Length == 0 || collectiveCtors.Any(x => !x.Parameters.Any()))
                     {
                         return;
                     }
-                    
+
                     if (stateTemplate is null)
                     {
                         var entityClass = file.Classes.First();

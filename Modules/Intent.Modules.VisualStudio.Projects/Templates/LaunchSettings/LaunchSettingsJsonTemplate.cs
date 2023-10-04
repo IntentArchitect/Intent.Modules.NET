@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
@@ -52,7 +53,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         {
             Profiles.Add(@event.GetValue(LaunchProfileRegistrationEvent.ProfileNameKey), new Profile
             {
-                CommandName = Enum.Parse<CommandName>(@event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey)),
+                CommandName = Enum.Parse<CommandName>(@event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey), true),
                 LaunchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey),
                     out var launchBrowser) && launchBrowser,
                 LaunchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
@@ -72,12 +73,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             Profiles.Add(request.Name, new Profile
             {
-                CommandName = Enum.Parse<CommandName>(request.CommandName),
+                CommandName = Enum.Parse<CommandName>(request.CommandName, true),
                 LaunchBrowser = request.LaunchBrowser,
                 ApplicationUrl = request.ApplicationUrl,
                 LaunchUrl = request.LaunchUrl,
                 PublishAllPorts = request.PublishAllPorts ? null : false, // default value is true
                 UseSsl = request.UseSsl ? null : false, // default value is true
+                InspectUri = request.InspectUri,
+                DotnetRunMessages = request.DotnetRunMessages,
             });
 
             if (request.EnvironmentVariables?.Count > 0)
@@ -172,16 +175,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     Profiles = new Dictionary<string, Profile>
                     {
 
-                        [Project.Name] = new()
-                        {
-                            CommandName = CommandName.Project,
-                            LaunchBrowser = true,
-                            ApplicationUrl = $"https://localhost:{_randomSslPort}/",
-                            LaunchUrl = _defaultLaunchUrlPath == null
-                                ? null
-                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
-                        },
-                        ["IIS Express"] = new()
+                        [Project.Name] = Profiles.ContainsKey(Project.Name) ?
+                            ReplacePorts(Profiles[Project.Name])
+                            :  new()
+                            {
+                                CommandName = CommandName.Project,
+                                LaunchBrowser = true,
+                                ApplicationUrl = $"https://localhost:{_randomSslPort}/",
+                                LaunchUrl = _defaultLaunchUrlPath == null
+                                    ? null
+                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
+                            },
+                        ["IIS Express"] = Profiles.ContainsKey("IIS Express") ?
+                            ReplacePorts(Profiles["IIS Express"])
+                            : new()
                         {
                             CommandName = CommandName.IisExpress,
                             LaunchBrowser = true,
@@ -189,7 +196,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                                 ? null
                                 : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
                         }
-
                     }
                 };
 
@@ -244,6 +250,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             }
 
             return launchSettings.ToJson();
+        }
+
+        private Profile ReplacePorts(Profile profile)
+        {
+            if (profile.LaunchUrl != null)
+            {
+                profile.LaunchUrl = profile.LaunchUrl.Replace("{HttpPort}", _randomPort.ToString()).Replace("{HttpsPort}", _randomSslPort.ToString());
+            }
+            if (profile.ApplicationUrl != null)
+            {
+                profile.ApplicationUrl = profile.ApplicationUrl.Replace("{HttpPort}", _randomPort.ToString()).Replace("{HttpsPort}", _randomSslPort.ToString());
+            }
+            return profile;
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()

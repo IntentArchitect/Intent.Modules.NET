@@ -50,6 +50,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                         .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                     )
+                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddParameter($"int", "pageNo")
+                        .AddParameter($"int", "pageSize")
+                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                    )
+                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        .AddParameter($"int", "pageNo")
+                        .AddParameter($"int", "pageSize")
+                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                    )
                     .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
                         .AddParameter($"IEnumerable<string>", "ids")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))

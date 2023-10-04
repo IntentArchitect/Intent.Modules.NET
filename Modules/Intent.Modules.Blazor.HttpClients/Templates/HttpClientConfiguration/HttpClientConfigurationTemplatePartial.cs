@@ -13,6 +13,7 @@ using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.Roles;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -45,11 +46,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                         method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
                         method.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
+                        var uniqueApplicationNames = new HashSet<string>();
                         foreach (var proxy in Model)
                         {
                             method.AddMethodChainStatement("services", chain =>
                             {
                                 var applicationName = GetApplicationName(proxy);
+
+                                if (uniqueApplicationNames.Add(applicationName))
+                                {
+                                    this.ApplyAppSetting($"Urls:{applicationName}", "", null, Frontend.Blazor);
+                                }
 
                                 chain.AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{this.GetServiceContractName(proxy)}, {this.GetHttpClientName(proxy)}>")
                                     .AddArgument(new CSharpLambdaBlock("http")

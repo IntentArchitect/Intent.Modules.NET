@@ -38,21 +38,23 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateDddIntegrationTriggering(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateDddIntegrationTriggering(
             [FromBody] CreateDddIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return Created(string.Empty, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/integration-triggerings-ddd/{id}/")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateDddIntegrationTriggering(
             [FromRoute] Guid id,

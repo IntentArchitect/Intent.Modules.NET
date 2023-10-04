@@ -30,6 +30,7 @@
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -110,20 +111,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="12696ff3-22c8-4869-a14b-9e912a8c0823" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="0ecc3824-8588-4ffa-a7ab-b348abb7bef6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.ContractEnumModel</name>
       <display>Intent.Application.Dtos.ContractEnumModel</display>
@@ -132,6 +119,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -146,6 +135,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -160,10 +151,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="12696ff3-22c8-4869-a14b-9e912a8c0823" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7f36e5e6-d090-449e-9fc4-ba224e32c459</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

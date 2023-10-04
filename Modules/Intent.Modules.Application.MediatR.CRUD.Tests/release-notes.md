@@ -1,3 +1,36 @@
+### Version 1.3.2
+
+- Fixed: All tests will now use the exact same logic to detect whether a given Command/Query has a CRUD Handler for it to have a Unit Test.
+
+### Version 1.3.1
+
+- Improvement: Fluent Validation tests updated to accomodate the `IServiceProvider` injection scenarios.
+- Improvement: Fluent Validation that receives Repositories, will also be stubbed.
+- Fixed: Entities with Interfaces are now supported.
+- Fixed: GetNestedCompositionalOwner detects owner classes more accurately to not throw exceptions unnecessarily.
+
+### Version 1.3.0
+
+- Improvement: Updated based on improvements made in MediatR.CRUD module.
+- Fixed: Software Factory `MethodNotFound` exception would occur when run with `Intent.Application.MediatR.CRUD` version `5.2.4` and newer.
+ 
+### Version 1.2.4
+
+- Fixed: Limiting field mapping types for Assertion Class content generation.
+- Fixed: GetByIdQuery handlers will only be targeted if the mapped type matches the return DTO mapped type.
+
+### Version 1.2.3
+
+- Fixed: When Private Setters on the Domain designer is switched on, the CRUD Test implementations won't generate to match the lookup criteria for the Auto-CRUD Implementation.
+
+### Version 1.2.2
+
+- Fixed: Generated tests targeted Command / Query handlers that aren't auto-implemented by CRUD auto-implementation system.
+
+### Version 1.2.1
+
+- Fixed: Value Objects are now supported that are embedded or associated with Classes.
+
 ### Version 1.2.0
 
 - Improvement: Refactored module completely for better internal maintainability.

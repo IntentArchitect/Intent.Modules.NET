@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,53 +13,53 @@ public static class ExtensionMethods
 {
     public static string GetPackageBasedRelativeLocation(this CSharpTemplateBase<EnumModel> template)
     {
-        return GetPackageBasedRelativeLocation<EnumModel>(template);
+        return GetPackageBasedRelativeLocation(template.Model, template.OutputTarget);
     }
 
     public static string GetPackageBasedRelativeLocation(this CSharpTemplateBase<DTOModel> template)
     {
-        return GetPackageBasedRelativeLocation<DTOModel>(template);
+        return GetPackageBasedRelativeLocation(template.Model, template.OutputTarget);
     }
 
     public static string GetPackageBasedNamespace(this CSharpTemplateBase<EnumModel> template)
     {
-        return GetPackageBasedNamespace<EnumModel>(template);
+        return GetPackageBasedNamespace(template.Model, template.OutputTarget);
     }
 
     public static string GetPackageBasedNamespace(this CSharpTemplateBase<DTOModel> template)
     {
-        return GetPackageBasedNamespace<DTOModel>(template);
+        return GetPackageBasedNamespace(template.Model, template.OutputTarget);
     }
 
-    private static string GetPackageBasedRelativeLocation<T>(CSharpTemplateBase<T> template)
+    public static string GetPackageBasedRelativeLocation<T>(T model, IOutputTarget outputTarget)
         where T : IHasFolder
     {
         return string.Join('/', Enumerable.Empty<string>()
-            .Concat(GetElementPackageParts(template))
-            .Concat(GetParentFolders(template.Model))
+            .Concat(GetElementPackageParts(model, outputTarget))
+            .Concat(GetParentFolders(model))
         );
     }
 
-    private static string GetPackageBasedNamespace<T>(CSharpTemplateBase<T> template)
+    public static string GetPackageBasedNamespace<T>(T model, IOutputTarget outputTarget)
         where T : IHasFolder
     {
         return string.Join('.', Enumerable.Empty<string>()
-            .Concat(template.OutputTarget.GetNamespace().Split('.'))
-            .Concat(GetElementPackageParts(template))
-            .Concat(GetParentFolders(template.Model))
+            .Concat(outputTarget.GetNamespace().Split('.'))
+            .Concat(GetElementPackageParts(model, outputTarget))
+            .Concat(GetParentFolders(model))
         );
     }
 
-    private static IEnumerable<string> GetElementPackageParts<T>(CSharpTemplateBase<T> template)
+    private static IEnumerable<string> GetElementPackageParts<T>(T model, IOutputTarget outputTarget)
     {
-        var element = template.Model switch
+        var element = model switch
         {
-            EnumModel model => model.InternalElement,
-            DTOModel model => model.InternalElement,
+            EnumModel enumModel => enumModel.InternalElement,
+            DTOModel dtoModel => dtoModel.InternalElement,
             _ => throw new InvalidOperationException()
         };
 
-        var outputTargetParts = new Queue<string>(template.OutputTarget.GetNamespace().Split('.'));
+        var outputTargetParts = new Queue<string>(outputTarget.GetNamespace().Split('.'));
         var packageParts = new Queue<string>(element.Package.Name.Split("."));
 
         while (outputTargetParts.TryPeek(out var outputTargetPart) &&

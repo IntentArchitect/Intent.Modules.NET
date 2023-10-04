@@ -36,12 +36,19 @@ This setting allows you to configure a convention for your SQL table name. The a
 
 ### Database Settings - `Decimal precision and scale`
 
-This setting allows you to configure a a default Precision and Scale for your SQL decimal types.
+This setting allows you to configure a default Precision and Scale for your SQL decimal types.
 The value of this setting is a string as follows : {Precision},{Scale}
 
 For example 18,4 would be 18 precision, 4 scale.
 
 For more info on decimal types check out [SQL Server decimal](https://learn.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql).
+
+### Database Settings - `Lazy loading with proxies`
+
+This setting allows you to configure whether or not you would like like to use Entity Frameworks, Lazy loading with proxies feature.
+This setting is on by default, but can be turned off if you don't want this behaviour.
+
+For more info on lazy loading with proxies check out [the official documentation](https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy#lazy-loading-with-proxies).
 
 ## Domain Designer modeling
 

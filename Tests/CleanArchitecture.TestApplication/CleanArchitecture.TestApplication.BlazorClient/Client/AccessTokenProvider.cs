@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using System.Threading.Tasks;
+using System;
 
 namespace CleanArchitecture.TestApplication.BlazorClient.Client
 {

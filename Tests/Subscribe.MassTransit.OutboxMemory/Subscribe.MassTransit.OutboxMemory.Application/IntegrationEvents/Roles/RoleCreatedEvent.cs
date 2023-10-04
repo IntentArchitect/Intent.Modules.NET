@@ -9,6 +9,11 @@ namespace MassTransit.Messages.Shared
 {
     public record RoleCreatedEvent
     {
+        public RoleCreatedEvent()
+        {
+            Name = null!;
+            Priviledges = null!;
+        }
         public Guid Id { get; init; }
         public string Name { get; init; }
         public List<PriviledgeDto> Priviledges { get; init; }

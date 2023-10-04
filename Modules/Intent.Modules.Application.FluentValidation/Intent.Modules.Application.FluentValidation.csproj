@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>3.7.2</Version>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>3.8.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.36" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.41" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -34,5 +34,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems" Label="Shared" />
 
 </Project>

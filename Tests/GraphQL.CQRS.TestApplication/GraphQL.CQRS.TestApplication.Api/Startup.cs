@@ -38,7 +38,7 @@ namespace GraphQL.CQRS.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureCors(Configuration);
             services.ConfigureProblemDetails();

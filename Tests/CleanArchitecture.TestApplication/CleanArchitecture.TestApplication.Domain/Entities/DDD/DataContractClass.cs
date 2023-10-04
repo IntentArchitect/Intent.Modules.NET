@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
 
         public void Change(DataContractObject obj)
         {
-            throw new NotImplementedException("Replace with your implementation...");
+
         }
     }
 }

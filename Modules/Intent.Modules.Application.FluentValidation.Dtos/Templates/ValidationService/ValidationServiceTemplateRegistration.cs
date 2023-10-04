@@ -4,9 +4,11 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.FluentValidation.Templates;
+using Intent.Modules.Application.FluentValidation.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -24,7 +26,11 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
         public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             if (!application.MetadataManager.Services(application).GetDTOModels()
-                    .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(x.Fields)))
+                    .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(
+                        dtoModel: x,
+                        dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                        dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                        uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled())))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;

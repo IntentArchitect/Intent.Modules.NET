@@ -6,6 +6,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -26,10 +27,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "System.Collections.Generic.List<{0}>");
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto, "System.Collections.Generic.List<{0}>");
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum, "System.Collections.Generic.List<{0}>");
             AddTypeSource(TemplateFulfillingRoles.Application.Command);
+
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
                 .AddUsing("System")

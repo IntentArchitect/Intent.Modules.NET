@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api" -Project "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api" --project "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api" --project "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "MassTransit.AzureServiceBus.Api" -Project "MassTransit.AzureServiceBus.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "MassTransit.AzureServiceBus.Api" --project "MassTransit.AzureServiceBus.Infrastructure" 
+dotnet ef database update --startup-project "MassTransit.AzureServiceBus.Api" --project "MassTransit.AzureServiceBus.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

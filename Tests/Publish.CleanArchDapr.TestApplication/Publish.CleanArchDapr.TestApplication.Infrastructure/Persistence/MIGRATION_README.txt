@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Publish.CleanArchDapr.TestApplication.Api" -Project "Publish.CleanArchDapr.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Publish.CleanArchDapr.TestApplication.Api" --project "Publish.CleanArchDapr.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Publish.CleanArchDapr.TestApplication.Api" --project "Publish.CleanArchDapr.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

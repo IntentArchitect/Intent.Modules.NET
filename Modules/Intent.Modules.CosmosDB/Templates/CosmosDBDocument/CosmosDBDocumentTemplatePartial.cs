@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Security.AccessControl;
 using System.Xml.Linq;
+using Intent.CosmosDB.Api;
 using Intent.Engine;
-using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -14,8 +11,9 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -35,6 +33,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
             AddTypeSource(TemplateId);
+            AddTypeSource(CosmosDBValueObjectDocumentTemplate.TemplateId);
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
             AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
@@ -49,154 +48,178 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         @class.Abstract();
                     }
 
-                    @class
-                        .ExtendsClass(EntityStateName)
-                        .ImplementsInterface($"{this.GetCosmosDBDocumentInterfaceName()}<{@class.Name}, {EntityInterfaceName}>");
-
-                    @class.AddField("string?", "_type");
-
-                    // IItem.Id implementation:
-                    var pkAttribute = Model.GetPrimaryKeyAttribute();
-                    if (pkAttribute != null)
+                    foreach (var genericType in model.GenericTypes)
                     {
-                        var pkPropertyName = pkAttribute.Name.ToPascalCase();
-                        var pkTypeName = pkAttribute.TypeReference.Element?.Name.ToLowerInvariant();
-                        @class.AddProperty("string", "Id", property =>
-                        {
-                            property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
-                            property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
-
-                            switch (pkTypeName)
-                            {
-                                case "int" or "long":
-                                    {
-                                        var invariantCulture = $"{UseType("System.Globalization.CultureInfo")}.InvariantCulture";
-                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}.ToString({invariantCulture})");
-                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = {pkTypeName}.Parse(value, {invariantCulture})");
-
-                                        break;
-                                    }
-                                case "string":
-                                    {
-                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}");
-                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
-                                        break;
-                                    }
-                                case "guid":
-                                    {
-                                        property.Getter.WithExpressionImplementation($"{pkPropertyName}.ToString()");
-                                        property.Setter.WithExpressionImplementation($"{pkPropertyName} = {UseType("System.Guid")}.Parse(value)");
-                                        break;
-                                    }
-                                default:
-                                    throw new Exception(
-                                        $"Unsupported primary key type \"{pkTypeName}\" [{pkAttribute.TypeReference.Element?.Id}] for attribute " +
-                                        $"\"{pkAttribute.Name}\" [{pkAttribute.Id}] on Class \"{Model.Name}\" [{Model.Id}]");
-                            }
-                        });
+                        @class.AddGenericParameter(genericType);
                     }
 
-                    // IItem.Type implementation:
-                    @class.AddProperty("string", "Type", property =>
+                    if (model.ParentClass != null)
                     {
-                        property
-                            .AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"type\")")
-                            .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+                        var genericTypeArguments = model.ParentClass.GenericTypes.Any()
+                            ? $"<{string.Join(", ", model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>"
+                            : string.Empty;
+                        @class.WithBaseType($"{this.GetCosmosDBDocumentName(model.ParentClass)}{genericTypeArguments}");
+                    }
+                })
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var entityPropertyIds = EntityStateFileBuilder.CSharpFile.Classes.First().Properties
+                        .Select(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel
+                                ? metadataModel.Id
+                                : null)
+                        .Where(x => x != null)
+                        .ToHashSet();
 
-                        this.GetCosmosDBDocumentTypeExtensionMethodsName(); // Ensure using is added for extension method
-                        property.Getter.WithExpressionImplementation("_type ??= GetType().GetNameForDocument()");
-                        property.Setter.WithExpressionImplementation("_type = value");
+                    var attributes = Model.Attributes
+                        .Where(x => entityPropertyIds.Contains(x.Id))
+                        .ToList();
+                    var associationEnds = Model.AssociatedClasses
+                        .Where(x => entityPropertyIds.Contains(x.Id) && x.IsNavigable)
+                        .ToList();
+
+                    if (model.IsAggregateRoot())
+                    {
+                        AddPropertiesForAggregate(@class);
+                    }
+                    else
+                    {
+                        this.AddCosmosDBDocumentProperties(
+                            @class: @class,
+                            attributes: attributes,
+                            associationEnds: associationEnds);
+                    }
+
+                    this.AddCosmosDBMappingMethods(
+                        @class: @class,
+                        attributes: attributes,
+                        associationEnds: associationEnds,
+                        entityInterfaceTypeName: EntityInterfaceName,
+                        entityStateTypeName: EntityStateName,
+                        entityRequiresReflectionConstruction: Model.Constructors.Any() &&
+                                                              Model.Constructors.All(x => x.Parameters.Count != 0),
+                        entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
+                        isAggregate: model.IsAggregateRoot(),
+                        hasBaseType: model.ParentClass != null);
+                }, 1000);
+        }
+
+        private void AddPropertiesForAggregate(CSharpClass @class)
+        {
+            var genericTypeArguments = Model.GenericTypes.Any()
+                ? $"<{string.Join(", ", Model.GenericTypes)}>"
+                : string.Empty;
+            @class.ImplementsInterface(
+                $"{this.GetCosmosDBDocumentInterfaceName()}<{EntityInterfaceName}{genericTypeArguments}, {@class.Name}{genericTypeArguments}>");
+
+            var pkAttribute = Model.GetPrimaryKeyAttribute();
+            var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
+                .Properties.Where(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
+                .ToArray();
+
+            // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for IItem.Id:
+            if (!string.Equals(pkAttribute.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
+                entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pkAttribute.Id))
+            {
+                var pkPropertyName = pkAttribute.Name.ToPascalCase();
+                @class.AddProperty("string", "Id", property =>
+                {
+                    property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+                    property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
+                    property.Getter.WithExpressionImplementation($"{pkPropertyName}");
+                    property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
+                });
+            }
+
+            // IItem.Type implementation:
+            if (Model.ParentClass == null)
+            {
+                @class.AddField("string?", "_type");
+                @class.AddProperty("string", "Type", property =>
+                {
+                    property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"type\")")
+                        .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+
+                    this.GetCosmosDBDocumentTypeExtensionMethodsName(); // Ensure using is added for extension method
+                    property.Getter.WithExpressionImplementation("_type ??= GetType().GetNameForDocument()");
+                    property.Setter.WithExpressionImplementation("_type = value");
+                });
+            }
+
+            // ICosmosDBDocument.PartitionKey implementation:
+            {
+                Model.TryGetContainerSettings(out var containerName, out var partitionKey);
+                var partitionKeyAttribute = partitionKey == null
+                    ? pkAttribute
+                    : Model.GetAttributeOrDerivedWithName(partitionKey);
+                if (partitionKeyAttribute != null && partitionKeyAttribute.Id != pkAttribute.Id)
+                {
+                    @class.AddProperty("string?", "PartitionKey", property =>
+                    {
+                        property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                        property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}");
+                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)} = value!");
                     });
+                }
+                else if (partitionKeyAttribute == null)
+                {
+                    Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have an attribute with name matching " + $"partition key " +
+                                        $"\"{partitionKey}\" for \"{containerName}\" container.");
+                }
+            }
 
-                    // IItem.PartitionKey implementation:
-                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
-                    var partitionKeyAttribute = partitionKey == null
-                        ? pkAttribute
-                        : model.GetAttributeOrDerivedWithName(partitionKey);
-                    if (partitionKeyAttribute != null &&
-                        partitionKeyAttribute.Id != pkAttribute?.Id)
+            foreach (var entityProperty in entityProperties)
+            {
+                var metadataModel = entityProperty.GetMetadata<IMetadataModel>("model");
+                var typeReference = metadataModel switch
+                {
+                    AttributeModel attribute => attribute.TypeReference,
+                    AssociationEndModel associationEnd => associationEnd,
+                    _ => throw new InvalidOperationException()
+                };
+
+                var typeName = GetTypeName(typeReference);
+
+                // PK must always be a string
+                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, "string", StringComparison.OrdinalIgnoreCase))
+                {
+                    typeName = "string";
+                }
+
+                @class.AddProperty(typeName, entityProperty.Name, property =>
+                {
+                    if (IsNonNullableReferenceType(typeReference))
                     {
-                        @class.AddProperty("string", "PartitionKey", p => p
-                            .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
-                            .WithoutSetter()
-                            .Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}")
-                        );
-                    }
-                    else if (partitionKeyAttribute == null)
-                    {
-                        Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have an attribute with name matching " +
-                                            $"partition key \"{partitionKey}\" for \"{containerName}\" container.");
+                        property.WithInitialValue("default!");
                     }
 
+                    if (metadataModel is AttributeModel attributeModel && attributeModel.HasFieldSetting())
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{attributeModel.GetFieldSetting().Name()}\")");
+                    }
+                    else if (metadataModel is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
+                    }
                     // Add "Id" property with JsonProperty attribute if not the PK
-                    var idAttribute = Model.GetAttributeOrDerivedWithName("id");
-                    if (idAttribute?.HasPrimaryKey() == false)
+                    else if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pkAttribute.Id)
                     {
-                        @class.AddProperty(GetTypeName(idAttribute), "Id", property =>
-                        {
-                            property.New();
-                            property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
-                            property.Getter.WithExpressionImplementation("base.Id");
-                            property.Setter.WithExpressionImplementation("base.Id = value");
-                        });
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
                     }
 
                     // Add "Type" property with JsonProperty attribute so as to not conflict with the IItem.Type property
-                    var typeAttribute = Model.GetAttributeOrDerivedWithName("type");
-                    if (typeAttribute != null)
+                    else if (string.Equals(entityProperty.Name, "Type", StringComparison.OrdinalIgnoreCase))
                     {
-                        @class.AddProperty(GetTypeName(typeAttribute), "Type", property =>
-                        {
-                            property.New();
-                            property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
-                            property.Getter.WithExpressionImplementation("base.Type");
-                            property.Setter.WithExpressionImplementation("base.Type = value");
-                        });
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
                     }
-
-                    @class.AddMethod(@class.Name, "PopulateFromEntity", method =>
-                    {
-                        method.AddParameter(EntityInterfaceName, "entity");
-
-                        var currentClass = Model;
-                        var alreadyHandledProperties = new HashSet<string>();
-
-                        while (currentClass != null)
-                        {
-                            foreach (var attribute in currentClass.Attributes)
-                            {
-                                var name = attribute.Name.ToPascalCase();
-                                if (!alreadyHandledProperties.Add(name))
-                                {
-                                    continue;
-                                }
-
-                                method.AddStatement($"{name} = entity.{name};");
-                            }
-
-                            foreach (var association in currentClass.AssociatedToClasses())
-                            {
-                                var name = association.Name.ToPascalCase();
-                                if (association.Element.AsClassModel()?.IsAggregateRoot() == true ||
-                                    !alreadyHandledProperties.Add(name))
-                                {
-                                    continue;
-                                }
-
-                                method.AddStatement($"{name} = entity.{name};");
-                            }
-
-                            currentClass = currentClass.ParentClass;
-                        }
-
-                        method.AddStatement("return this;", s => s.SeparatedFromPrevious());
-                    });
                 });
+            }
         }
 
         public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
 
         public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

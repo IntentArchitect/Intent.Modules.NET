@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9df03dcb-628a-4376-80af-8efef6dcd3e9" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</parentFolderId>
+  <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
+  <packageName>CosmosDBMultiTenancy.Domain</packageName>
+  <diagram>
+    <targetPackageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

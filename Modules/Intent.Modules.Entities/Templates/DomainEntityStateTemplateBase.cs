@@ -33,11 +33,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
     protected void AddProperties(CSharpClass @class)
     {
-        bool isBaseClasss = Model.ChildClasses.Any();
+        var isBaseClass = Model.ChildClasses.Any();
 
         foreach (var attribute in Model.Attributes)
         {
-            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement, isBaseClasss);
+            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement, isBaseClass);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
@@ -49,7 +49,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
         {
-            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd, isBaseClasss);
+            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd, isBaseClass);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !GetTypeName(associationEnd).Equals(InterfaceTemplate.GetTypeName(associationEnd)))
@@ -72,10 +72,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             property.TryAddXmlDocComments(element);
             property.AddMetadata("model", model);
             property.RepresentsModel(model);
+            /*
             if (typeReference.Element.IsClassModel()) // not the most robust. Needed for lazy loading proxies (so should move to EF).
             {
                 property.Virtual();
-            }
+            }*/
 
             if (isPrivateSetterCollection)
             {

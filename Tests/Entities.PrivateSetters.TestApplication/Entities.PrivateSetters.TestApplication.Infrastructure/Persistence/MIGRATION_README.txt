@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Entities.PrivateSetters.TestApplication.Api" -Project "Entities.PrivateSetters.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Entities.PrivateSetters.TestApplication.Api" --project "Entities.PrivateSetters.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Entities.PrivateSetters.TestApplication.Api" --project "Entities.PrivateSetters.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

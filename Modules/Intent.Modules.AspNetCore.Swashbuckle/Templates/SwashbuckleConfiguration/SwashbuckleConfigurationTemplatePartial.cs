@@ -25,6 +25,8 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
         AddUsing("System");
         AddUsing("System.Collections.Generic");
+        AddUsing("System.IO");
+        AddUsing("System.Reflection");
         AddUsing("Microsoft.AspNetCore.Builder");
         AddUsing("Microsoft.Extensions.Configuration");
         AddUsing("Microsoft.Extensions.DependencyInjection");
@@ -43,18 +45,45 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                         method.AddParameter("IConfiguration", "configuration");
 
                         method.AddStatement(new CSharpInvocationStatement("services.AddSwaggerGen")
-                            .AddArgument(new CSharpLambdaBlock("options")
-                                .AddStatement(new CSharpInvocationStatement("options.SwaggerDoc")
-                                    .AddArgument(@"""v1""")
-                                    .AddArgument(new CSharpObjectInitializerBlock("new OpenApiInfo")
-                                        .AddInitStatement("Version", @"""v1""")
-                                        .AddInitStatement("Title", $@"""{OutputTarget.ApplicationName()} API""")
-                                    )
-                                    .WithArgumentsOnNewLines()
-                                )
-                                .AddStatement(
-                                    $@"options.CustomSchemaIds(x => x.FullName);")
-                            )
+                            .AddArgument(new CSharpLambdaBlock("options"), argument =>
+                            {
+                                var lambdaBlock = (CSharpLambdaBlock)argument;
+
+                                lambdaBlock.AddStatement(new CSharpInvocationStatement("options.SwaggerDoc")
+                                        .AddArgument(@"""v1""")
+                                        .AddArgument(new CSharpObjectInitializerBlock("new OpenApiInfo")
+                                            .AddInitStatement("Version", @"""v1""")
+                                            .AddInitStatement("Title", $@"""{OutputTarget.ApplicationName()} API""")
+                                        )
+                                        .WithArgumentsOnNewLines()
+                                    );
+
+                                lambdaBlock.AddStatement("options.CustomSchemaIds(x => x.FullName);");
+
+                                lambdaBlock.AddStatement(
+                                    "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",
+                                    s => s.SeparatedFromPrevious());
+                                lambdaBlock.AddIfStatement("File.Exists(apiXmlFile)", @if =>
+                                {
+                                    @if
+                                        .AddStatement("options.IncludeXmlComments(apiXmlFile);")
+                                        .SeparatedFromPrevious(false);
+                                });
+
+                                if (TryGetTemplate<ICSharpTemplate>("Intent.Application.DependencyInjection.DependencyInjection", out _))
+                                {
+                                    lambdaBlock.AddStatement(
+                                        $"var applicationXmlFile = Path.Combine(AppContext.BaseDirectory," +
+                                        $" $\"{{typeof({GetTypeName("Intent.Application.DependencyInjection.DependencyInjection")}).Assembly.GetName().Name}}.xml\");",
+                                        s => s.SeparatedFromPrevious());
+                                    lambdaBlock.AddIfStatement("File.Exists(applicationXmlFile)", @if =>
+                                    {
+                                        @if
+                                            .AddStatement("options.IncludeXmlComments(applicationXmlFile);")
+                                            .SeparatedFromPrevious(false);
+                                    });
+                                }
+                            })
                             .WithArgumentsOnNewLines()
                             .AddMetadata("AddSwaggerGen", true)
                         );

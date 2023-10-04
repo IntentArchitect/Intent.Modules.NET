@@ -156,6 +156,17 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         }
         return this;
     }
+    
+    public bool HasDefaultAssociationSourceName()
+    {
+        var relevantAssociation = _associationEnd.IsSourceEnd() ? _associationEnd : _associationEnd.OtherEnd();
+        var associationName = relevantAssociation.Name.ToPascalCase();
+        var sourceClass = relevantAssociation.Class;
+        var sourceClassName = relevantAssociation.IsCollection
+            ? sourceClass.Name.Pluralize().ToPascalCase()
+            : sourceClass.Name.ToPascalCase();
+        return string.Equals(associationName, sourceClassName, StringComparison.InvariantCultureIgnoreCase);
+    }
 
     private EfCoreAssociationConfigStatement AddForeignKey(params RequiredEntityProperty[] columns)
     {
@@ -288,5 +299,4 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 {indentation}    ", AdditionalStatements.Select(x => x.GetText(string.Empty)))}" : string.Empty)};";
         return x;
     }
-
 }

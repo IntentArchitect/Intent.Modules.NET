@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "MassTransit.RabbitMQ.Api" -Project "MassTransit.RabbitMQ.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "MassTransit.RabbitMQ.Api" --project "MassTransit.RabbitMQ.Infrastructure" 
+dotnet ef database update --startup-project "MassTransit.RabbitMQ.Api" --project "MassTransit.RabbitMQ.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

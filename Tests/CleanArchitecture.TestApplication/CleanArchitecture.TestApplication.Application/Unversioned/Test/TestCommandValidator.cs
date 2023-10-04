@@ -5,16 +5,17 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.Unversioned.Test
 {
     public class TestCommandValidator : AbstractValidator<TestCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TestCommandValidator()
         {
             ConfigureValidationRules();
+
         }
 
         [IntentManaged(Mode.Fully)]

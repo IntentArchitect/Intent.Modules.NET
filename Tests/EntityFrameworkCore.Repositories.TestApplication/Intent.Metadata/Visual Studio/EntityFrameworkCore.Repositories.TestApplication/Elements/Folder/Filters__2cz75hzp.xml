@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9158722-462b-442e-9d0a-5abcf4ff151a</parentFolderId>
+      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -43,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9158722-462b-442e-9d0a-5abcf4ff151a</parentFolderId>
+      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

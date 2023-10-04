@@ -45,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9241132c-9878-40de-9522-a97d00020f91</parentFolderId>
+      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

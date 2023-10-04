@@ -6,17 +6,49 @@ namespace Intent.Modules.Application.DependencyInjection
 {
     public static class NugetPackages
     {
-        public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget) => new("Microsoft.Extensions.DependencyInjection", GetVersion(outputTarget.GetProject()));
-
-        private static string GetVersion(ICSharpProject project)
+        public static INugetPackageInfo MicrosoftExtensionsConfigurationAbstractions(IOutputTarget outputTarget)
         {
-            return project switch
+            var project = outputTarget.GetProject();
+            var version = project switch
+            {
+                _ when project.IsNetApp(5) => "5.0.0",
+                _ when project.IsNetApp(6) => "6.0.0",
+                _ when project.IsNetApp(7) => "7.0.0",
+                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
+                _ => "6.0.0"
+            };
+
+            return new NugetPackageInfo("Microsoft.Extensions.Configuration.Abstractions", version);
+        }
+
+        public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget)
+        {
+            var project = outputTarget.GetProject();
+            var version = project switch
             {
                 _ when project.IsNetApp(5) => "5.0.2",
                 _ when project.IsNetApp(6) => "6.0.1",
                 _ when project.IsNetApp(7) => "7.0.0",
+                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
                 _ => "6.0.1"
             };
+
+            return new NugetPackageInfo("Microsoft.Extensions.DependencyInjection", version);
+        }
+        
+        public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget)
+        {
+            var project = outputTarget.GetProject();
+            var version = project switch
+            {
+                _ when project.IsNetApp(5) => "5.0.0",
+                _ when project.IsNetApp(6) => "6.0.0",
+                _ when project.IsNetApp(7) => "7.0.0",
+                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
+                _ => "6.0.0"
+            };
+
+            return new NugetPackageInfo("Microsoft.Extensions.Configuration.Binder", version);
         }
     }
 }

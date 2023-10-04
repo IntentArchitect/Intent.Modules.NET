@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Application.Identity.AccountController.Api" -Project "Application.Identity.AccountController.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Application.Identity.AccountController.Api" --project "Application.Identity.AccountController.Infrastructure" 
+dotnet ef database update --startup-project "Application.Identity.AccountController.Api" --project "Application.Identity.AccountController.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

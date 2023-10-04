@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Fixed: `Identifier` was incorrectly spelled as `Indentifier` in a couple of templates.
+
 ### Version 5.2.0
 
 - New Feature: Finbuckle multi-tenancy support for MassTransit messaging.

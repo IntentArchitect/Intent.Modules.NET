@@ -1,4 +1,21 @@
-﻿### Version 5.0.1
+﻿### Version 5.0.5
+
+- Improvement: Enhanced the way the generated proxies are dealing with DTO parameters in the query to align with ASP.Net Core behaviour.
+
+### Version 5.0.4
+
+- Improvement: Changed default proxy encoding to UTF8 as Default can be inconsistent(https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default).
+- Improvement: Added better out the box support for generating proxies into `netstandard` projects.
+
+### Version 5.0.3
+
+- Improvement: Renamed the `request` variable as it would conflict with developers who would use that name for their service parameters.
+
+### Version 5.0.2
+
+- Fixed: `ReadToEndAsync` doesn't have a parameter in .NET 6 to receive a `CancellationToken`.
+
+### Version 5.0.1
 
 - Fixed: Nullability related compiler warnings.
 - Fixed: Dependency on `Intent.Application.Contracts.Clients` was not for version `.5.0.0`.

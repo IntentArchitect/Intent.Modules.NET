@@ -8,4 +8,5 @@ public enum TriggerType
     TimerTrigger,
     EventHubTrigger,
     ManualTrigger,
+    CosmosDBTrigger
 }

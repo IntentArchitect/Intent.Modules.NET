@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be4b3f9b-a7f8-4317-8782-a301eea378d5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BlazorHttpClientDataAnnotations</name>
+  <display>BlazorHttpClientDataAnnotations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e6b83bf2-1b25-44a1-99f8-ffa41aca0789</parentFolderId>
+  <packageId>e6b83bf2-1b25-44a1-99f8-ffa41aca0789</packageId>
+  <packageName>Intent.Blazor.HttpClients.Dtos.DataAnnotations</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

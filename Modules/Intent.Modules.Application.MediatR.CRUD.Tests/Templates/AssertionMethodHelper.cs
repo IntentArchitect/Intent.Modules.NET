@@ -75,7 +75,7 @@ internal static class AssertionMethodHelper
             method.Static();
             method.AddParameter(template.GetTypeName(CommandModelsTemplate.TemplateId, commandModel), "expectedDto");
             method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel), "actualEntity");
-            method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
+            method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel.InternalElement, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
         });
 
         bool FilterForAnaemicMapping(DTOFieldModel field)
@@ -129,7 +129,7 @@ internal static class AssertionMethodHelper
         ICSharpFileBuilderTemplate template, 
         string actualEntityVarName, 
         string expectedDtoVarName, 
-        ClassModel domainModel,
+        IElement genericModel, // We need it to be generic to work with types that aren't directly referenced in this module
         IList<DTOFieldModel> dtoFields,
         bool skipIdFields,
         bool isInCollection)
@@ -144,6 +144,8 @@ internal static class AssertionMethodHelper
         codeLines.Add(string.Empty);
         
         codeLines.Add($"{actualEntityVarName}.Should().NotBeNull();");
+
+        var domainModel = genericModel.AsClassModel();
         
         foreach (var field in dtoFields)
         {
@@ -159,6 +161,7 @@ internal static class AssertionMethodHelper
             // Implicit Owner ID case check
             ClassModel ownerEntity;
             if (field.Mapping?.Element == null &&
+                domainModel is not null &&
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
@@ -167,6 +170,7 @@ internal static class AssertionMethodHelper
             }
 
             if (field.Mapping?.Element == null && 
+                domainModel is not null &&
                 domainModel.Attributes.All(p => p.Name != field.Name))
             {
                 continue;
@@ -177,10 +181,10 @@ internal static class AssertionMethodHelper
                 default:
                 case AttributeModel.SpecializationTypeId:
                     var attribute = field.Mapping?.Element?.AsAttributeModel()
-                                    ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                    if (!skipIdFields || !attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                                    ?? domainModel?.Attributes.First(p => p.Name == field.Name);
+                    if (!skipIdFields || (attribute is not null && !attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase)))
                     {
-                        codeLines.Add($"{actualEntityVarName}.{attribute.Name.ToPascalCase()}.Should().{(attribute.TypeReference.IsCollection ? "BeEquivalentTo" : "Be")}({expectedDtoVarName}.{field.Name.ToPascalCase()});");
+                        codeLines.Add($"{actualEntityVarName}.{attribute.Name.ToPascalCase()}.Should().{(IsEquivalentType(attribute, field) ? "BeEquivalentTo" : "Be")}({expectedDtoVarName}.{field.Name.ToPascalCase()});");
                         break;
                     }
 
@@ -193,8 +197,9 @@ internal static class AssertionMethodHelper
                         codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
                         break;
                     }
+
+                    var targetType = (IElement)association.Element;
                     
-                    var targetType = association.Element.AsClassModel();
                     var attributeName = association.Name.ToPascalCase();
                     var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
@@ -211,7 +216,7 @@ internal static class AssertionMethodHelper
 
                     if (field.TypeReference.IsCollection)
                     {
-                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                        @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
                             method => method.Static()
                                 .AddParameter(dtoParamType, "expectedDtos")
                                 .AddParameter(entityParamType, "actualEntities")
@@ -230,7 +235,7 @@ internal static class AssertionMethodHelper
                     }
                     else
                     {
-                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                        @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
                             method => method.Static()
                                 .AddParameter(dtoParamType, "expectedDto")
                                 .AddParameter(entityParamType, "actualEntity")
@@ -243,8 +248,14 @@ internal static class AssertionMethodHelper
 
         return codeLines;
     }
-    
-   private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
+
+    private static bool IsEquivalentType(IHasTypeReference attribute, IHasTypeReference dtoFieldModel)
+    {
+        return attribute.TypeReference.Element.SpecializationTypeId != dtoFieldModel.TypeReference.Element.SpecializationTypeId 
+               || attribute.TypeReference.IsCollection;
+    }
+
+    private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
         ICSharpFileBuilderTemplate template, 
         string actualDtoVarName, 
         string expectedEntityVarName, 
@@ -291,7 +302,6 @@ internal static class AssertionMethodHelper
             
             switch (field.Mapping?.Element?.SpecializationTypeId)
             {
-                default:
                 case AttributeModel.SpecializationTypeId:
                     var attribute = field.Mapping?.Element?.AsAttributeModel()
                                     ?? domainModel.Attributes.First(p => p.Name == field.Name);
@@ -344,6 +354,8 @@ internal static class AssertionMethodHelper
                                 .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType, false)));
                     }
                 }
+                    break;
+                default:
                     break;
             }
         }

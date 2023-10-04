@@ -1,13 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationServiceInterface;
-using Intent.Modules.Application.FluentValidation.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

@@ -38,6 +38,9 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.ClassBAttr)
                 .IsRequired();
 
+            builder.Property(x => x.ClassAId)
+                .IsRequired();
+
             builder.OwnsOne(x => x.ClassC, ConfigureClassC)
                 .Navigation(x => x.ClassC).IsRequired();
 

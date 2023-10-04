@@ -1,6 +1,14 @@
+### Version 3.3.32
+
+- Fixed: Folder Options no longer targets `Folder`s from `Intent.Common.Types` which causes conflicts with the `Folder` type in the Visual Studio module.
+
 ### Version 3.3.30
 
-- Improvement: `launchsettings.json` now listens for an event named `LaunchProfileHttpPortRequired` and if received will add a regular `http://…` entry to a profile's `applicationUrl` when it only contains a single `https://…` item.
+- Improvement : Added Blazor WebAssembly configuration options for `launchsettings.json`.
+
+### Version 3.3.30
+
+- Improvement: `launchsettings.json` now listens for an event named `LaunchProfileHttpPortRequired` and if received will add a regular `http://...` entry to a profile's `applicationUrl` when it only contains a single `https://...` item.
 
 ### Version 3.3.29
 

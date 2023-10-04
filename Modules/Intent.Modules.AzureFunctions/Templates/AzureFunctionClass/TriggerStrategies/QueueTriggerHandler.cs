@@ -42,7 +42,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
         if (_azureFunctionModel.IncludeMessageEnvelope)
         {
             messageType = _template.UseType("Azure.Storage.Queues.Models.QueueMessage");
-            parameterName = "message";
+            parameterName = "rawMessage";
         }
 
         method.AddParameter(
@@ -108,7 +108,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
         if (_azureFunctionModel.IncludeMessageEnvelope)
         {
-            method.AddStatement($"var {parameterName} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{messageType}>(message.Body.ToString(), new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
+            method.AddStatement($"var {parameterName} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{messageType}>(rawMessage.Body.ToString(), new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
         }
     }
 

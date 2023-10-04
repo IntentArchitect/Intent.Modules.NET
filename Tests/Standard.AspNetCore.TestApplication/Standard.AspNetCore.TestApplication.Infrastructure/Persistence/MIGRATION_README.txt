@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Standard.AspNetCore.TestApplication.Api" -Project "Standard.AspNetCore.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Standard.AspNetCore.TestApplication.Api" --project "Standard.AspNetCore.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Standard.AspNetCore.TestApplication.Api" --project "Standard.AspNetCore.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

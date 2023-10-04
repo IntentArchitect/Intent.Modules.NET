@@ -22,10 +22,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="315278eb-8467-428b-8c3f-b0eed817753f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
-      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="9c4effc1-7905-49db-8148-9e0f86af9fc8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -38,14 +38,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9c4effc1-7905-49db-8148-9e0f86af9fc8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-      <externalReference>Intent.AspNetCore</externalReference>
+    <childElement id="315278eb-8467-428b-8c3f-b0eed817753f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>268a8682-6587-4b03-8690-f5e766f4d8b9</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

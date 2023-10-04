@@ -5,7 +5,9 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
+using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -36,63 +38,87 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
 
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-            Facade = new QueryHandlerFacade(this, model);
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}HandlerTests")
                 .AfterBuild(file =>
                 {
-                    AddUsingDirectives(file);
-                    Facade.AddHandlerConstructorMockUsings();
+                    var facade = new QueryHandlerFacade(this, model);
                     
+                    AddUsingDirectives(file);
+                    facade.AddHandlerConstructorMockUsings();
+
                     var priClass = file.Classes.First();
                     priClass.AddConstructor(ctor =>
                     {
-                        ctor.AddStatements(Facade.GetAutoMapperProfilesAndAddBackendField(priClass));
+                        ctor.AddStatements(facade.GetAutoMapperProfilesAndAddBackendField(priClass));
                     });
 
                     priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                     {
                         method.Static();
-                        method.AddStatements(Facade.Get_InitialAutoFixture_TestDataStatements(
+                        method.AddStatements(facade.Get_InitialAutoFixture_TestDataStatements(
                             includeVarKeyword: true));
-                        method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(5));
-                        method.AddStatements(Facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
+                        method.AddStatements(facade.Get_ManyAggregateDomainEntities_TestDataStatements(5));
+                        method.AddStatements(facade.Get_ManyAggregateDomainEntities_TestDataStatements(0));
                     });
-                    
-                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{Facade.PluralTargetDomainName}", method =>
+
+                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{facade.PluralTargetDomainName}", method =>
                     {
                         method.Async();
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                        method.AddParameter($"List<{Facade.TargetDomainTypeName}>", "testEntities");
+                        method.AddParameter($"List<{facade.TargetDomainTypeName}>", "testEntities");
 
                         method.AddStatement("// Arrange");
-                        method.AddStatements(Facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
-                        method.AddStatements(Facade.GetPaginationQuerySetup("testQuery", pageNo: 1, pageSize: 5));
-                        method.AddStatements(Facade.GetQueryHandlerConstructorParameterMockStatements());
-                        method.AddStatements(Facade.GetMockedPaginatedResults("fetchedResults", "testEntities"));
-                        method.AddStatements(Facade.GetDomainRepositoryFindAllMockingStatements(
-                            entitiesVarName: "fetchedResults", 
-                            repositoryVarName: Facade.DomainAggregateRepositoryVarName, 
-                            pageNo: 1, 
+                        method.AddStatements(facade.GetNewQueryAutoFixtureInlineStatements("testQuery"));
+                        method.AddStatements(facade.GetPaginationQuerySetup("testQuery", pageNo: 1, pageSize: 5));
+                        method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+                        method.AddStatements(facade.GetMockedPaginatedResults("fetchedResults", "testEntities"));
+                        method.AddStatements(facade.GetDomainRepositoryFindAllMockingStatements(
+                            entitiesVarName: "fetchedResults",
+                            repositoryVarName: facade.DomainAggregateRepositoryVarName,
+                            pageNo: 1,
                             pageSize: 5));
-                        method.AddStatements(Facade.GetQueryHandlerConstructorSutStatement());
+                        method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
 
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Act");
-                        method.AddStatements(Facade.GetSutHandleInvocationStatement("testQuery"));
+                        method.AddStatements(facade.GetSutHandleInvocationStatement("testQuery"));
 
                         method.AddStatement(string.Empty);
                         method.AddStatement("// Assert");
-                        method.AddStatements(Facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("fetchedResults"));
+                        method.AddStatements(facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("fetchedResults"));
                     });
-                    
+
                     AddAssertionMethods();
                 });
         }
+        
+        private bool? _canRunTemplate;
 
-        private QueryHandlerFacade Facade { get; }
+        public override bool CanRunTemplate()
+        {
+            if (_canRunTemplate.HasValue)
+            {
+                return _canRunTemplate.Value;
+            }
+
+            var template = ExecutionContext.FindTemplateInstance<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, Model);
+            if (template is null)
+            {
+                _canRunTemplate = false;
+            }
+            else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetAllPaginationImplementationStrategy strategy && strategy.IsMatch())
+            {
+                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true;
+            }
+            else
+            {
+                _canRunTemplate = false;
+            }
+
+            return _canRunTemplate.Value;
+        }
 
         private static void AddUsingDirectives(CSharpFile file)
         {
@@ -114,7 +140,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
             {
                 return;
             }
-            
+
             var domainModel = Model.GetPaginatedClassModel();
             var templateInstance = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));

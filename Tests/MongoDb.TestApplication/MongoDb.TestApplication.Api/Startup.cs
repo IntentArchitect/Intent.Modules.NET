@@ -38,7 +38,7 @@ namespace MongoDb.TestApplication.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);

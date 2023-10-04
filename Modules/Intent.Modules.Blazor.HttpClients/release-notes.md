@@ -1,4 +1,23 @@
-﻿### Version 2.0.1
+﻿### Version 3.0.0
+
+- Improvement: Generation of `System.ComponentModel.DataAnnotations` attributes on DTOs has now been broken out into its own `Intent.Blazor.HttpClients.Dtos.DataAnnotations` module.
+- Improvement: Updated module to work with `Intent.Blazor.WenAssembly` module.
+- Improvement: Enhanced the way the generated proxies are dealing with DTO parameters in the query to align with ASP.Net Core behaviour.
+
+### Version 2.0.4
+
+- Improvement: Changed default proxy encoding to UTF8 as Default can be inconsistent (https://learn.microsoft.com/dotnet/api/system.text.encoding.default).
+- Improvement: Added better out the box support for generating proxies into `netstandard` projects.
+
+### Version 2.0.3
+
+- Improvement: Renamed the `request` variable as it would conflict with developers who would use that name for their service parameters.
+
+### Version 2.0.2
+
+- Fixed: `ReadToEndAsync` doesn't have a parameter in .NET 6 to receive a `CancellationToken`.
+
+### Version 2.0.1
 
 - Fixed: Nullability related compiler warnings.
 

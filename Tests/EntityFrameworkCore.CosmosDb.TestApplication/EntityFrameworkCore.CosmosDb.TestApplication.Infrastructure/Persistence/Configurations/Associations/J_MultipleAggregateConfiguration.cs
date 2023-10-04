@@ -24,9 +24,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.MultipleAggrAttr)
                 .IsRequired();
 
+            builder.Property(x => x.JRequireddependentId)
+                .IsRequired();
+
             builder.HasOne(x => x.J_RequiredDependent)
                 .WithMany()
-                .HasForeignKey(x => x.J_RequiredDependentId)
+                .HasForeignKey(x => x.JRequireddependentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Ignore(e => e.DomainEvents);

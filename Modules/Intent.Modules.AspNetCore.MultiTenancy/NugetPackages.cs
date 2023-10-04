@@ -8,9 +8,9 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
     public static class NugetPackages
     {
         public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
-        public static readonly NugetPackageInfo FinbuckleMultiTenant = new NugetPackageInfo("Finbuckle.MultiTenant", "6.5.1");
-        public static readonly NugetPackageInfo FinbuckleMultiTenantAspNetCore = new NugetPackageInfo("Finbuckle.MultiTenant.AspNetCore", "6.5.1");
-        public static readonly NugetPackageInfo FinbuckleMultiTenantEntityFrameworkCore = new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
+        public static readonly NugetPackageInfo FinbuckleMultiTenant = new NugetPackageInfo("Finbuckle.MultiTenant", "6.12.0");
+        public static readonly NugetPackageInfo FinbuckleMultiTenantAspNetCore = new NugetPackageInfo("Finbuckle.MultiTenant.AspNetCore", "6.12.0");
+        public static readonly NugetPackageInfo FinbuckleMultiTenantEntityFrameworkCore = new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.12.0");
 
         private static string GetVersion(ICSharpProject project)
         {

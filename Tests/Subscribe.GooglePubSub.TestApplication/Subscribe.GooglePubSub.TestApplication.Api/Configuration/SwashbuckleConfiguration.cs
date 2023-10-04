@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Subscribe.GooglePubSub.TestApplication.Api.Filters;
+using Subscribe.GooglePubSub.TestApplication.Application;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,6 +31,18 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Configuration
                             Title = "Subscribe.GooglePubSub.TestApplication API"
                         });
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                    if (File.Exists(apiXmlFile))
+                    {
+                        options.IncludeXmlComments(apiXmlFile);
+                    }
+
+                    var applicationXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(DependencyInjection).Assembly.GetName().Name}.xml");
+                    if (File.Exists(applicationXmlFile))
+                    {
+                        options.IncludeXmlComments(applicationXmlFile);
+                    }
                 });
             return services;
         }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04dbb899-54b8-4e9d-9d54-36dda861bf3c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CosmosDbExtension</name>
+  <display>CosmosDbExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bed6bd70-2214-4a74-a437-dfb3b68dd198</parentFolderId>
+  <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+  <packageName>Intent.Entities.BasicAuditing</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

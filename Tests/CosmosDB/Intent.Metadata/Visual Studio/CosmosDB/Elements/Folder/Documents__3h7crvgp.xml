@@ -61,6 +61,36 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="412a5893-89db-4496-b20d-af5adc61e6e5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBValueObjectDocument</name>
+      <display>Intent.CosmosDB.CosmosDBValueObjectDocument</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5c275093-5a7a-48fa-9055-ae3c1b50e36f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.ReflectionHelper</name>
+      <display>Intent.CosmosDB.ReflectionHelper</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

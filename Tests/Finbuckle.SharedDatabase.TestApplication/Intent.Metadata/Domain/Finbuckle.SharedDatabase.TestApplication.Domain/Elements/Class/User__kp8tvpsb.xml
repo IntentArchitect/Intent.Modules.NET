@@ -9,7 +9,14 @@
   <parentFolderId>d5f94e5b-8913-40e7-8182-8478b74e5592</parentFolderId>
   <packageId>d5f94e5b-8913-40e7-8182-8478b74e5592</packageId>
   <packageName>Finbuckle.SharedDatabase.TestApplication.Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="586eb05b-d647-4430-ac05-8d096fe3f79e" name="Multi Tenant">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.AspNetCore.MultiTenancy</definitionPackageName>
+      <definitionPackageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="bd54a8e4-c477-4cfe-ad25-b2e79d476737" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

@@ -1,28 +1,38 @@
 using System;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRoot
 {
     public class UpdateAggregateRootCommandValidator : AbstractValidator<UpdateAggregateRootCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public UpdateAggregateRootCommandValidator()
+        [IntentManaged(Mode.Merge)]
+        public UpdateAggregateRootCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
+
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.AggregateAttr)
                 .NotNull();
 
             RuleFor(v => v.Composites)
-                .NotNull();
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeManyBDto>()!));
+
+            RuleFor(v => v.Composite)
+                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleADto>()!);
+
+            RuleFor(v => v.Aggregate)
+                .SetValidator(provider.GetValidator<UpdateAggregateRootAggregateSingleCDto>()!);
 
             RuleFor(v => v.LimitedDomain)
                 .NotNull()

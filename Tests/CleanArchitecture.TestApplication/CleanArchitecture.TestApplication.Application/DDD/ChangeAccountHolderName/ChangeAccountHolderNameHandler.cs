@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common.Exceptions;
+using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,15 +15,23 @@ namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderN
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ChangeAccountHolderNameHandler : IRequestHandler<ChangeAccountHolderName>
     {
+        private readonly IAccountHolderRepository _accountHolderRepository;
         [IntentManaged(Mode.Merge)]
-        public ChangeAccountHolderNameHandler()
+        public ChangeAccountHolderNameHandler(IAccountHolderRepository accountHolderRepository)
         {
+            _accountHolderRepository = accountHolderRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(ChangeAccountHolderName request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            var existingAccountHolder = await _accountHolderRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingAccountHolder is null)
+            {
+                throw new NotFoundException($"Could not find AccountHolder '{request.Id}'");
+            }
+
+            existingAccountHolder.ChangeName(request.Name);
         }
     }
 }

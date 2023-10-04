@@ -37,10 +37,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c30e57d6-047b-4bb5-a82c-c7aa5c9aafd8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</name>
-      <display>Intent.EntityFrameworkCore.BasicAuditing.AuditableInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.BasicAuditing</externalReference>
+    <childElement id="9a2c1d42-7f7e-42a0-8937-f4d01dfce18b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.BasicAuditing.AuditableInterface</name>
+      <display>Intent.Entities.BasicAuditing.AuditableInterface</display>
+      <externalReference>Intent.Entities.BasicAuditing</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

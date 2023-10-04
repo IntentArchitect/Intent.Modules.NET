@@ -184,7 +184,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         var columnName = attribute.GetColumn()?.Name();
         if (!string.IsNullOrWhiteSpace(columnName))
         {
-            statements.Add($".HasColumnName(\"{columnName}\")");
+            statements.Add($".HasColumnName(\"{EscapeHelper.EscapeName(columnName)}\")");
         }
 
         var computedValueSql = attribute.GetComputedValue()?.SQL();
@@ -192,7 +192,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         {
 
             statements.Add(
-                $".HasComputedColumnSql(\"{Escape(computedValueSql)}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+                $".HasComputedColumnSql(\"{EscapeComputed(computedValueSql)}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
         }
 
         if (attribute.HasRowVersion())
@@ -202,15 +202,15 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 
         if (!string.IsNullOrEmpty(attribute.InternalElement?.Comment))
         {
-            statements.Add($".HasComment(\"{Escape(attribute.InternalElement?.Comment)}\")");
+            statements.Add($".HasComment(\"{EscapeComputed(attribute.InternalElement?.Comment)}\")");
         }
 
         return statements;
     }
 
-    private string Escape(string computedValueSql)
+    private static string EscapeComputed(string computedValueSql)
     {
-        string result = computedValueSql.Trim('"');
+        var result = computedValueSql.Trim('"');
         return result.Replace("\"", "\\\"");
     }
 }

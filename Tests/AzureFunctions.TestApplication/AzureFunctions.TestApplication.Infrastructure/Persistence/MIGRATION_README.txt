@@ -4,59 +4,61 @@ Package Manager Console (View > Other Windows > Package Manager Console) or usin
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
 
+A separate "appsettings.json" file is used in this project for managing connection strings.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Add-Migration -Name {ChangeName} -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations add {ChangeName} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
+dotnet ef migrations add {ChangeName} --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Remove-Migration -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Remove-Migration -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations remove --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
+dotnet ef migrations remove --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Update-Database -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure" 
+dotnet ef database update --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Update-Database -Migration {Target} -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update {Target} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
+dotnet ef database update {Target} --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration -Idempotent -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Script-Migration -Idempotent -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script --idempotent --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
+dotnet ef migrations script --idempotent --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+Script-Migration {Source} {Target} -Project "AzureFunctions.TestApplication.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script {Source} {Target} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
+dotnet ef migrations script {Source} {Target} --project "AzureFunctions.TestApplication.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Drop all tables in schema:

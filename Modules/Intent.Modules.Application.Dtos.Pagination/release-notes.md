@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Improvement: Added `C#` stereotype to `PagedResult` and set its `Is Collection` property to `true`.
+
 ### Version 4.0.5
 
 - Stop generating code for `PagedResult` which causes non-nullable data compilation warnings.

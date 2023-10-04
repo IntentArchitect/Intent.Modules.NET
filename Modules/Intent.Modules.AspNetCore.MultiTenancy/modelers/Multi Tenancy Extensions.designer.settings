@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>c5d6a7a4-8ca7-42d0-b3d4-392d2a0c4628</id>
+  <name>Multi Tenancy Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>const multiTenancySettingGroupId = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+
+let settingsGroup = application.getSettings(multiTenancySettingGroupId);
+if (!settingsGroup) { return; }
+
+let field = settingsGroup.getField("Data Isolation");
+if (!field) { return }
+
+if (field.value != "shared-database") { return }
+
+field = settingsGroup.getField("Apply Multi Tenancy to Aggregates");
+if (!field) { return }
+
+if (field.value != "automatically") { return }
+
+let multiTenantId = "586eb05b-d647-4430-ac05-8d096fe3f79e";
+
+if (element.getStereotype(multiTenantId) == null) {
+    element.addStereotype(multiTenantId);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

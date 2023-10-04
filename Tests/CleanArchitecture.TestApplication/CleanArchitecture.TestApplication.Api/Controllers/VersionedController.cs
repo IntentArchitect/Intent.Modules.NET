@@ -50,6 +50,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         }
 
         /// <summary>
+        /// Command comment
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
@@ -70,7 +71,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified int.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an int with the parameters provided.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpGet("api/v{version:apiVersion}/versioned/test-query")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -82,14 +83,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new TestQueryV1(value: value), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified int.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an int with the parameters provided.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpGet("api/v{version:apiVersion}/versioned/test-query")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -101,7 +102,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new TestQueryV2(value: value), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
     }
 }

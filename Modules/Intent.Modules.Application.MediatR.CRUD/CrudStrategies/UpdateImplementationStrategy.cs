@@ -80,7 +80,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
-                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest()}, cancellationToken);");
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
                     message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
@@ -104,7 +104,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines;
             }
 
-            codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest()}, cancellationToken);");
+            codeLines.Add($"var {entityVariableName} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
             codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
@@ -162,7 +162,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             var foundEntity = _template.Model.Mapping.Element.AsClassModel();
 
-            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity);
+            var idFields = _template.Model.Properties.GetEntityIdFields(foundEntity, _template.ExecutionContext);
             if (!idFields.Any())
             {
                 return NoMatch;
@@ -275,7 +275,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             else
                             {
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, {DomainToDtoMatch(targetDto.Fields.GetEntityIdFields(targetEntity))}, {updateMethodName});");
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, {DomainToDtoMatch(targetDto.Fields.GetEntityIdFields(targetEntity, _template.ExecutionContext))}, {updateMethodName});");
                             }
                             AddCreateOrUpdateMethod(updateMethodName, targetEntity.InternalElement, field);
                         }

@@ -27,20 +27,23 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
     public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(OutputTarget));
+        AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(OutputTarget));
+        AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(OutputTarget));
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            .AddUsing("System.Reflection")
+            .AddUsing("Microsoft.Extensions.Configuration")
+            .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddClass($"DependencyInjection")
             .OnBuild(file =>
             {
-                file.AddUsing("System.Reflection");
-                file.AddUsing("Microsoft.Extensions.DependencyInjection");
-                
                 var priClass = file.Classes.First();
                 priClass.Static();
                 priClass.AddMethod("IServiceCollection", "AddApplication", method =>
                 {
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
+                    method.AddParameter("IConfiguration", "configuration");
                 });
             })
             .AfterBuild(file =>
@@ -73,9 +76,8 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
         ExecutionContext.EventDispatcher.Publish(
             ServiceConfigurationRequest
                 .ToRegister(
-                    "AddApplication")
-                // Do we want to have Configuration as part of the Application registration?
-                // , ServiceConfigurationRequest.ParameterType.Configuration)
+                    extensionMethodName: "AddApplication", 
+                    extensionMethodParameterList: ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
     }
 

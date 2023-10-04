@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -43,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

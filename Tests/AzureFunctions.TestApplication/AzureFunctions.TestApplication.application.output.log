@@ -36,6 +36,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#decd7cea-fd44-47c9-a93f-04e90b998e60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CosmosDB/ChangeHandlerService/AcceptChanges.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/ChangeHandlerService/AcceptChanges.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CosmosDB/CosmosChange.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4dbd7f9c-7bf2-4541-8ff4-fffb6bbb2d5b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/CosmosDB/NewAzureFunction.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/NewAzureFunction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Customers/CreateCustomer.cs</ApplicationRelativeFilePath>
@@ -120,6 +144,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/MappedAzureFunction.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappedAzureFunction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/NullableResult/GetCustomerNullable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -435,6 +467,46 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4375edd1-df12-4255-aea8-c2fa07e483d8</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4375edd1-df12-4255-aea8-c2fa07e483d8</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#478fb450-2a2d-462b-98c5-92ec09dd418e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChangeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChangeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -580,6 +652,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6078c0c2-19ff-4cb4-af21-c1cf0672fda3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/CosmosDB/ChangeHandlerService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/ChangeHandlerService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#4b2b5e97-94de-4c02-969f-4f2c754315f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/ListedUnlistedServicesService.cs</ApplicationRelativeFilePath>
@@ -608,6 +688,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/SampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#6078c0c2-19ff-4cb4-af21-c1cf0672fda3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/CosmosDB/IChangeHandlerService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/IChangeHandlerService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -656,6 +744,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullableHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullableHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -812,6 +916,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/CosmosDB/CosmosChange/CosmosChangeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChange/CosmosChangeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#478fb450-2a2d-462b-98c5-92ec09dd418e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/CosmosDB/CosmosChangeDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDB/CosmosChangeDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
@@ -872,6 +992,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/NullableResult/GetCustomerNullable/GetCustomerNullableValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResult/GetCustomerNullable/GetCustomerNullableValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1052,6 +1180,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>af96acde-b300-436c-a446-7e38fce728f3</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/appsettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af96acde-b300-436c-a446-7e38fce728f3</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#af96acde-b300-436c-a446-7e38fce728f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/AzureFunctions.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
@@ -1096,6 +1232,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/Configurations/SampleDomainConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8e0e95e6-5032-4cc1-87be-e30908cabac1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DesignTimeDbContextFactory.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

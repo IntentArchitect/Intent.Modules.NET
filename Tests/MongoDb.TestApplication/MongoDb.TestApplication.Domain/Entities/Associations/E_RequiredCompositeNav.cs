@@ -15,6 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
 
         public string Attribute { get; set; }
 
-        public virtual E_RequiredDependent E_RequiredDependent { get; set; }
+        public E_RequiredDependent E_RequiredDependent { get; set; }
     }
 }

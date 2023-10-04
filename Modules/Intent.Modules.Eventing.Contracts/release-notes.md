@@ -1,3 +1,7 @@
+### Version 4.0.9
+
+- Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
+
 ### Version 4.0.8
 
 - Fixed: Enums generated for Integration purposes will only be done when the corresponding Domain Enum is not present in the application which is publishing / subscribing. This will ensure that if an application subscribes to its own Enums or other applications that share domain elements via packages won't have Integration Enums generated.

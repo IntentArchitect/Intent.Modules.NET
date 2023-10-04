@@ -9,6 +9,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modelers.WebClient.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
 using Intent.RoslynWeaver.Attributes;
@@ -39,6 +40,12 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
+            DtoContractTemplateBase.SetOutboundDtoElementIds(_metadataManager
+                .WebClient(application)
+                .GetMappedServiceProxyInboundDTOModels()
+                .Select(x => x.Id)
+                .ToHashSet());
+
             return _metadataManager.WebClient(application).GetMappedServiceProxyDTOModels()
                 .Where(x =>
                 {

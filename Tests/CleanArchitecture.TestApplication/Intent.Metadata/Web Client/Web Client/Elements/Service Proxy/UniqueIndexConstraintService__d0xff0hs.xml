@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3cce0eae-b211-4e49-bdde-6393094e3809" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>UniqueIndexConstraintService</name>
+  <display>UniqueIndexConstraintService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="f1fa010b-13eb-40ee-b935-9915eb7f58b1" name="UniqueIndexConstraint" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
+  <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+  <packageName>Web Client</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="17cd60b4-04af-4792-9ba0-be4f2850bb80" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateAggregateWithUniqueConstraintIndexElement</name>
+      <display>CreateAggregateWithUniqueConstraintIndexElement(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="eb51d385-18c6-4be6-9b3d-d6cbe453afae">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="69d61e32-bf2d-46cf-a935-077fefc3f915" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="63439c94-55fa-4983-b1ee-0eddc1ea1497" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateAggregateWithUniqueConstraintIndexStereotype</name>
+      <display>CreateAggregateWithUniqueConstraintIndexStereotype(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="915dcedf-c70e-443b-b3e6-cd8c716514b5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9ba8d096-3b46-417a-a5b7-7f95ff633b91" name="CreateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1c535243-aa2d-4756-8eec-c13ceea30862" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteAggregateWithUniqueConstraintIndexElement</name>
+      <display>DeleteAggregateWithUniqueConstraintIndexElement(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7881e583-71c6-466d-91a0-103df3fdf783">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="e5283055-7005-406d-8855-f15199b473c7" name="DeleteAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fb6503b8-16e5-466f-9a5f-eee9543b37ce" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteAggregateWithUniqueConstraintIndexStereotype</name>
+      <display>DeleteAggregateWithUniqueConstraintIndexStereotype(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b48d9b21-c0db-4a71-a622-7124e23c4151">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="0c1b8a7b-da6d-4c29-861e-9ccaefdc8142" name="DeleteAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cb31f036-20e6-4179-9f62-1c516ad22c5b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateAggregateWithUniqueConstraintIndexElement</name>
+      <display>UpdateAggregateWithUniqueConstraintIndexElement(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7218d588-eedd-4f49-a798-50cc27fc76a2">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="dd47e7a2-128e-40ec-ba33-a766abf7d997" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2ece60ac-3c77-4e46-9b09-e0899ba1fa2c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateAggregateWithUniqueConstraintIndexStereotype</name>
+      <display>UpdateAggregateWithUniqueConstraintIndexStereotype(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="629f13c7-1847-4b16-a5f2-18b5dd42436e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fbb88488-dde6-4690-ae31-708ca29e0409" name="UpdateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3a4400e7-a155-4070-bcac-92e423562bfb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateWithUniqueConstraintIndexElementById</name>
+      <display>GetAggregateWithUniqueConstraintIndexElementById(): AggregateWithUniqueConstraintIndexElementDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="caccc104-33b1-4f58-a404-10c3a6abe526">
+        <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="6c419e97-8e0b-4858-83e0-49fdba2f2eab" name="GetAggregateWithUniqueConstraintIndexElementByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ad53f77c-5e35-42a4-9ae1-39f5c6d04c35" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateWithUniqueConstraintIndexElements</name>
+      <display>GetAggregateWithUniqueConstraintIndexElements(): AggregateWithUniqueConstraintIndexElementDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4d021b18-2991-43de-b2ff-efd458dcc950">
+        <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="cdd8812d-2745-4235-99e2-79dff68518e8" name="GetAggregateWithUniqueConstraintIndexElementsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7c6f963e-34e6-432f-a0c2-752dba0a7154" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateWithUniqueConstraintIndexStereotypeById</name>
+      <display>GetAggregateWithUniqueConstraintIndexStereotypeById(): AggregateWithUniqueConstraintIndexStereotypeDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="eb278b6c-88b8-44dd-a9c6-e563429de5d7">
+        <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ccf16d4a-8840-44b7-bda0-ecac859e9c24" name="GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8b706f6d-a0a7-4bf8-b1dd-be582347b785" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAggregateWithUniqueConstraintIndexStereotypes</name>
+      <display>GetAggregateWithUniqueConstraintIndexStereotypes(): AggregateWithUniqueConstraintIndexStereotypeDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="88c7621a-2c70-4950-8db8-244f003f3e69">
+        <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="be0703dc-25d8-4f01-8e0f-3056e10dc014" name="GetAggregateWithUniqueConstraintIndexStereotypesQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

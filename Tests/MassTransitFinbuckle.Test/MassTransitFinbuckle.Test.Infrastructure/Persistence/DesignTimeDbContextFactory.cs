@@ -36,7 +36,7 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Persistence
             }
             var connectionString = configuration.GetConnectionString(connStringName);
             optionsBuilder.UseInMemoryDatabase(connStringName);
-            return new ApplicationDbContext(optionsBuilder.Options, null);
+            return new ApplicationDbContext(optionsBuilder.Options, null!);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
     {
         public override string TemplateId => ApplicationSettingsJsonTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ApplicationSettingsJsonTemplate(outputTarget);

@@ -35,7 +35,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             _template = template;
             _application = application;
 
-            var strategies = new ICrudImplementationStrategy[]
+            var matchedStrategy = StrategyFactory.GetMatchedQueryStrategy(template, application);
+            if (matchedStrategy is not null)
             {
                 new QueryMappingImplementationStrategy(template),
 
@@ -48,11 +49,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             if (matchedStrategies.Length == 1)
             {
                 template.CSharpFile.AfterBuild(file => matchedStrategies[0].ApplyStrategy());
-            }
-            else if (matchedStrategies.Length > 1)
-            {
-                Logging.Log.Warning($@"Multiple CRUD implementation strategies were found that can implement this Query [{template.Model.Name}]");
-                Logging.Log.Debug($@"Strategies: {string.Join(", ", matchedStrategies.Select(s => s.GetType().Name))}");
             }
         }
     }

@@ -16,6 +16,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
 
         public string SomeField { get; set; }
 
-        public virtual ICollection<SingleIndexEntityMultiChild> SingleIndexEntityMultiChild { get; set; } = new List<SingleIndexEntityMultiChild>();
+        public ICollection<SingleIndexEntityMultiChild> SingleIndexEntityMultiChild { get; set; } = new List<SingleIndexEntityMultiChild>();
     }
 }

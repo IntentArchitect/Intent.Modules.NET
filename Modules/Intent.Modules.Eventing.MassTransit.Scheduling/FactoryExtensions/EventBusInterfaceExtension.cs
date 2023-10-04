@@ -33,14 +33,14 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                         method.AddGenericParameter("T", out var T)
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
-                            .AddParameter("DateTime", "scheduled");
+                            .AddParameter(template.UseType("System.DateTime"), "scheduled");
                     });
                     iface.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.AddGenericParameter("T", out var T)
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
-                            .AddParameter("TimeSpan", "delay");
+                            .AddParameter(template.UseType("System.TimeSpan"), "delay");
                     });
                 });
             }

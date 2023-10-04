@@ -15,6 +15,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string MultipleDepAttr { get; set; }
 
+        public Guid GRequiredcompositenavId { get; set; }
+
         public virtual G_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
     }
 }

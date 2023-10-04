@@ -26,12 +26,7 @@ namespace CosmosDB.Application.Invoices.CreateInvoice
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<string> Handle(CreateInvoiceCommand request, CancellationToken cancellationToken)
         {
-            var newInvoice = new Invoice
-            {
-                ClientIdentifier = request.ClientId,
-                Date = request.Date,
-                Number = request.Number,
-            };
+            var newInvoice = new Invoice(request.ClientIdentifier, request.Date, request.Number);
 
             _invoiceRepository.Add(newInvoice);
             await _invoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

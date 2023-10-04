@@ -9,6 +9,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -61,9 +63,9 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 file.AddUsing("FluentValidation");
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
-                var domainIdAttr = domainElement.GetEntityIdAttribute(ExecutionContext);
+                var domainIdAttr = domainElement.GetEntityPkAttribute(ExecutionContext);
                 var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
-                    && Model.TypeReference.Element != null;
+                                            && Model.TypeReference.Element != null;
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
@@ -89,6 +91,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
                     }
+
                     method.AddStatements($@"
         // Act
         var result = await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
@@ -118,6 +121,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     {
                         method.AddStatement($@"var expectedId = new Fixture().Create<{domainIdAttr.Type}>();");
                     }
+
                     method.AddStatements($@"
         // Act
         var act = async () => await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
@@ -133,14 +137,92 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     priClass.Methods.Remove(priClass.FindMethod("GetFailedResultTestData"));
                     priClass.Methods.Remove(priClass.FindMethod("Validate_WithInvalidCommand_FailsValidation"));
                 }
-
+            })
+            .AfterBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var domainElement = Model.Mapping.Element.AsClassModel();
+                var domainIdAttr = domainElement.GetEntityPkAttribute(ExecutionContext);
+                var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                                            && Model.TypeReference.Element != null;
+                
                 priClass.AddMethod($"{this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>",
                     "GetValidationBehaviour", method =>
                     {
                         method.Private();
-                        method.AddStatement($@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ new {this.GetCommandValidatorName(Model)}() }});");
+
+                        var mainValidatorInstantiation = new CSharpInvocationStatement($"new {this.GetCommandValidatorName(Model)}")
+                            .WithoutSemicolon();
+                        
+                        if (MainValidatorHasValidatorProviderRequirement())
+                        {
+                            var dtoValidators = GetValidators(Model.Properties);
+                            var validatorProviderInter = GetTypeName("Application.Common.ValidatorProviderInterface");
+
+                            method.AddStatement($"var validatorProvider = Substitute.For<{validatorProviderInter}>();");
+                            foreach (var validator in dtoValidators)
+                            {
+                                var nestedValidatorInstantiation = new CSharpInvocationStatement($"new {validator.ValidatorName}")
+                                    .WithoutSemicolon();
+                                if (validator.NeedsServiceProvider)
+                                {
+                                    nestedValidatorInstantiation.AddArgument("validatorProvider");
+                                }
+                                method.AddStatement($"validatorProvider.GetValidator<{validator.DtoName}>().Returns(c => {nestedValidatorInstantiation});");
+                            }
+
+                            mainValidatorInstantiation.AddArgument("validatorProvider");
+                        }
+
+                        if (TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var validatorTemplate))
+                        {
+                            var validatorCtorParams = validatorTemplate.CSharpFile.Classes
+                                .FirstOrDefault()
+                                ?.Constructors
+                                .FirstOrDefault()
+                                ?.Parameters
+                                .Where(p => p.HasMetadata("repository"))
+                                .ToArray() ?? ArraySegment<CSharpConstructorParameter>.Empty;
+                            foreach (var parameter in validatorCtorParams)
+                            {
+                                method.AddStatement($"var {parameter.Name.ToCamelCase()} = Substitute.For<{UseType(parameter.GetMetadata<string>("repository"))}>();");
+
+                                mainValidatorInstantiation.AddArgument(parameter.Name.ToCamelCase());
+                            }
+                        }
+
+                        method.AddStatement(
+                            $@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ {mainValidatorInstantiation} }});");
                     });
             });
+    }
+
+    private bool MainValidatorHasValidatorProviderRequirement()
+    {
+        return TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var template) &&
+               template.CSharpFile.Classes.First().Constructors.First().Parameters.Any(p => p.Type.Contains("IValidatorProvider"));
+    }
+
+    private IReadOnlyCollection<(string DtoName, string ValidatorName, bool NeedsServiceProvider)> GetValidators(IEnumerable<DTOFieldModel> properties)
+    {
+        var list = new List<(string DtoName, string ValidatorName, bool NeedsServiceProvider)>();
+        
+        foreach (var property in properties)
+        {
+            var dtoModel = property.TypeReference?.Element?.AsDTOModel();
+            if (dtoModel is null ||
+                !TryGetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel, out var dtoTemplate) ||
+                !TryGetTypeName(TemplateFulfillingRoles.Application.Validation.Dto, dtoModel, out var dtoValidatorTemplate))
+            {
+                continue;
+            }
+            
+            var more = GetValidators(dtoModel.Fields);
+            list.Add((dtoTemplate, dtoValidatorTemplate, more.Any()));
+            list.AddRange(more);
+        }
+
+        return list;
     }
 
     private void AddSuccessTestDataFields(CSharpClassMethod method)
@@ -179,7 +261,11 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 !IsEnum(property.TypeReference) &&
                 !property.TypeReference.IsNullable)
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
+
                 AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
@@ -187,14 +273,21 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             if (property.GetValidations()?.NotEmpty() == true &&
                 !IsEnum(property.TypeReference))
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
+
                 AddNegativeTestCaseStatements(method, property, first, "default", "not be empty");
                 first = false;
             }
 
             if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
 
                 var minLen = property.GetValidations().MinLength().Value;
                 var maxLen = property.GetValidations().MaxLength().Value;
@@ -207,7 +300,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             }
             else if (property.GetValidations()?.MaxLength() != null)
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
 
                 var maxLen = property.GetValidations().MaxLength().Value;
                 AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
@@ -215,7 +311,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             }
             else if (property.GetValidations()?.MinLength() != null)
             {
-                if (!first) { method.AddStatement(string.Empty); }
+                if (!first)
+                {
+                    method.AddStatement(string.Empty);
+                }
 
                 var minLen = property.GetValidations().MinLength().Value;
                 AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(minLen - 1)}""", $@"must be at least {minLen} characters");
@@ -228,7 +327,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 if (attribute != null && attribute.HasStereotype("Text Constraints") &&
                     attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
                 {
-                    if (!first) { method.AddStatement(string.Empty); }
+                    if (!first)
+                    {
+                        method.AddStatement(string.Empty);
+                    }
 
                     var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
                     AddNegativeTestCaseStatements(method, property, first, $@"$""{GetStringWithLen(maxLen + 1)}""", $@"must be {maxLen} characters or fewer");
@@ -242,22 +344,38 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
     private void HandleEnumCases(CSharpClassMethod method, DTOFieldModel property, ref bool first)
     {
-        if (!IsEnum(property.TypeReference)) { return; }
+        if (!IsEnum(property.TypeReference))
+        {
+            return;
+        }
+
         var enumModel = property.TypeReference.Element.AsEnumModel();
-        if (enumModel.Literals.Count < 1) { return; }
+        if (enumModel.Literals.Count < 1)
+        {
+            return;
+        }
 
         var enumLiteralsWithOrdinals = GetConceptualEnumWithOrdinalValues(enumModel);
         if (!string.IsNullOrWhiteSpace(enumModel.Literals.First().Value) && enumLiteralsWithOrdinals.First() != 0)
         {
-            if (!first) { method.AddStatement(string.Empty); }
+            if (!first)
+            {
+                method.AddStatement(string.Empty);
+            }
+
             AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, "0"), "has a range of values which does not include");
             first = false;
         }
 
-        if (!first) { method.AddStatement(string.Empty); }
+        if (!first)
+        {
+            method.AddStatement(string.Empty);
+        }
+
         var lastOrdinalValue = enumLiteralsWithOrdinals.Last();
         var invalidOrdinalValueForTest = lastOrdinalValue + 1;
-        AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, invalidOrdinalValueForTest.ToString()), "has a range of values which does not include");
+        AddNegativeTestCaseStatements(method, property, first, GetInvalidEnumExpression(property, invalidOrdinalValueForTest.ToString()),
+            "has a range of values which does not include");
         first = false;
     }
 
@@ -265,7 +383,8 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
     {
         if (property.TypeReference.IsCollection)
         {
-            return $"new {UseType($"System.Collections.Generic.List<{GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}>")} {{ ({GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}){invalidOrdinalValueForTest} }}";
+            return
+                $"new {UseType($"System.Collections.Generic.List<{GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}>")} {{ ({GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}){invalidOrdinalValueForTest} }}";
         }
 
         return $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}";
@@ -309,6 +428,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             {
                 chain.AddChainStatement(statement);
             }
+
             customLambdaBody.WithExpressionBody(chain);
         }
         else

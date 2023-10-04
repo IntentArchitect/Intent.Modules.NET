@@ -5,6 +5,15 @@ trigger:
     - master
     - development
 
+resources:
+  pipelines:
+  - pipeline: 'intent'
+    source: 'Intent Architect'
+    trigger: 
+      branches:
+        include:
+        - 'refs/tags/publish/client/*'
+
 variables:
 - name: 'vstsFeed'
   value: '4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/intentarchitect-feed'
@@ -34,6 +43,56 @@ steps:
   persistCredentials: 'true'
   fetchDepth: '1'
   submodules: 'recursive'
+
+- task: PowerShell@2
+  displayName: 'Imodspec validation'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: |
+      $hasError = $false
+
+      Get-ChildItem -Path . -Filter *.imodspec -Recurse -Depth 2 | ForEach-Object {
+          $file = $_.FullName
+          
+          [xml] $content = Get-Content $file
+          
+          $authors = $content.package.authors
+          $summary = $content.package.summary
+          $description = $content.package.description
+      
+          $reportedFileName = $false
+      
+          if ($authors -eq "Intent.Modules.NET") {
+              if ($reportedFileName -eq $false) {
+                  Write-Host "$($file)"
+                  $reportedFileName = $true
+              }
+              Write-Host "Authors not set"
+              $hasError = $true
+          }
+          if ($summary -eq "A custom module for Intent.Modules.NET.") {
+              if ($reportedFileName -eq $false) {
+                  Write-Host "$($file)"
+                  $reportedFileName = $true
+              }
+              Write-Host "Summary not set"
+              $hasError = $true
+          }
+          if ($description -eq "A custom module for Intent.Modules.NET.") {
+              if ($reportedFileName -eq $false) {
+                  Write-Host "$($file)"
+                  $reportedFileName = $true
+              }
+              Write-Host "Description not set"
+              $hasError = $true
+          }
+      }
+      
+      if ($hasError -eq $true) {
+          Write-Error "Imodspec validation failed."
+          exit 1;
+      }
 
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
@@ -70,6 +129,19 @@ steps:
     feedsToUse: 'select'
     vstsFeed: $(vstsFeed)
     projects: $(targetsToBuild)
+
+- task: PowerShell@2
+  displayName: 'Update Project URLs in imodspecs'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: |
+      $isMaster = '$(Build.SourceBranch)' -eq 'refs/heads/master'
+      if ($isMaster -eq $true) {
+        Get-ChildItem -Recurse -Filter "*.imodspec" | ForEach-Object {
+          (Get-Content $_.FullName) -replace '/development/', '/master/' | Set-Content $_.FullName
+        }
+      }
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
@@ -135,7 +207,7 @@ steps:
       Write-Host "All files:"
       Get-ChildItem "./Modules/Intent.Modules/" | ForEach-Object { Write-Host $_.Name }
 
-      $imodFilesToRemove = Get-ChildItem "./Modules/Intent.Modules/*.imod" | Where-Object { If ($isMaster) { ($_.Name -Match $isPreReleaseRegex) } Else { $_.Name -NotMatch $isPreReleaseRegex } }
+      $imodFilesToRemove = Get-ChildItem "./Modules/Intent.Modules/*.imod" | Where-Object { -Not $isMaster -And ($_.Name -NotMatch $isPreReleaseRegex) }
       # Client has no way to filter pre-release application templates so they are never published from development
       $iatFilesToRemove = Get-ChildItem "./Modules/Intent.Modules/*.iat" | Where-Object { -Not $isMaster -Or ($_.Name -Match $isPreReleaseRegex) }
 

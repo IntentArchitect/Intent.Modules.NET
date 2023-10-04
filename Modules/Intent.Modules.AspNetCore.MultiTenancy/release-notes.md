@@ -1,19 +1,28 @@
+### Version 4.1.8
+
+- Improvement: Removed code to inject a `null` parameter value when the `Intent.EntityFrameworkCore.DesignTimeDbContextFactory` is present. 
+
+### Version 4.1.7
+
+- Improvement: Upgraded Finbuckle NuGet package versions to `6.12.0`.
+- Improvement: `HTTP Remote` is now available as a store option, see [here](https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#http-remote-store) for more information.
+
 ### Version 4.1.5
 
-- Update: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.
+- Improvement: Fix up based on change made in `Intent.EntityFrameworkCore.DesignTimeDbContextFactory`.
 
 ### Version 4.1.3
 
-- Update: All EF Core nuget packages are now updated to use the latest versions to date.
+- Improvement: All EF Core nuget packages are now updated to use the latest versions to date.
 
 ### Version 4.1.2
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 4.1.0
 
-- New: Integration with Swagger to add the Tentant Id HTTP Header if that Strategy is chosen.
-- New: Multi-tenancy now supports Shared Database isolation.
+- New Feature: Integration with Swagger to add the Tentant Id HTTP Header if that Strategy is chosen.
+- New Feature: Multi-tenancy now supports Shared Database isolation.
 
 ### Version 4.0.1
 
@@ -21,4 +30,4 @@
 
 ### Version 4.0.0
 
-- New: Upgraded Templates to use new Builder Pattern paradigm.
+- New Feature: Upgraded Templates to use new Builder Pattern paradigm.

@@ -3,20 +3,35 @@
   <name>IntegrationEvents</name>
   <display>IntegrationEvents</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>48f82faa-76ce-4e02-b346-66d8841391e7</parentFolderId>
-  <stereotypes />
+  <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="573f3ef6-28b6-403a-810b-96c4ab1aa604" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
-      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
-      <externalReference>Intent.Eventing.Contracts</externalReference>
+    <childElement id="2ea95d98-e7aa-4a44-b03a-8dbd30f9dfb5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</name>
+      <display>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</display>
+      <externalReference>Intent.Eventing.Contracts.DomainMapping</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +46,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +62,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,20 +78,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2ea95d98-e7aa-4a44-b03a-8dbd30f9dfb5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</name>
-      <display>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</display>
-      <externalReference>Intent.Eventing.Contracts.DomainMapping</externalReference>
+    <childElement id="573f3ef6-28b6-403a-810b-96c4ab1aa604" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

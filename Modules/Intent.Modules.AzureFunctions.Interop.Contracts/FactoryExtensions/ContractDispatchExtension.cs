@@ -48,8 +48,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                         param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                     });
 
-                    var runMethod = @class.FindMethod("Run");
-                    ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod)?
+                    var runMethod = FindServiceInvokePoint(@class)?
                         .AddInvocationStatement($"{(template.Model.ReturnType != null ? "var result = " : "")}await _appService.{mappedOperation.Name.ToPascalCase()}",
                             dispatch =>
                             {
@@ -64,7 +63,15 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                 });
             }
         }
-        
+
+        private IHasCSharpStatements FindServiceInvokePoint(CSharpClass @class)
+        {
+            var runMethod = @class.FindMethod("Run");
+            var explicitPoint = runMethod.FindStatement(s => s.HasMetadata("service-invoke")) as IHasCSharpStatements;
+            if (explicitPoint != null) return explicitPoint;
+            return ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod);
+        }
+
         private static CSharpStatement GetReturnStatement(AzureFunctionClassTemplate template)
         {
             var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(template.Model.InternalElement, "");
@@ -83,7 +90,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                         ? $"return new OkResult();"
                         : $"return new OkObjectResult({GetResultExpression(template)});",
                 null => template.Model.ReturnType == null
-                    ? $"return;"
+                    ? string.Empty
                     : $"return result;",
                 _ => throw new ArgumentOutOfRangeException()
             };

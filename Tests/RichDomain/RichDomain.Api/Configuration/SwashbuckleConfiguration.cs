@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
@@ -9,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using RichDomain.Application;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -26,6 +29,18 @@ namespace RichDomain.Api.Configuration
                 options =>
                 {
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                    if (File.Exists(apiXmlFile))
+                    {
+                        options.IncludeXmlComments(apiXmlFile);
+                    }
+
+                    var applicationXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(DependencyInjection).Assembly.GetName().Name}.xml");
+                    if (File.Exists(applicationXmlFile))
+                    {
+                        options.IncludeXmlComments(applicationXmlFile);
+                    }
                 });
             return services;
         }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="736805ee-9057-4b8c-89c4-2d0762801923" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MigrationsReadMeExtension</name>
+  <display>MigrationsReadMeExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</parentFolderId>
+  <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
+  <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

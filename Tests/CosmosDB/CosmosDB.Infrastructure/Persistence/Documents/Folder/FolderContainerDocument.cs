@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities.Folder;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -9,14 +11,20 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
 {
-    internal class FolderContainerDocument : FolderContainer, ICosmosDBDocument<FolderContainerDocument, FolderContainer>
+    internal class FolderContainerDocument : ICosmosDBDocument<FolderContainer, FolderContainerDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string FolderPartitionKey { get; set; } = default!;
+
+        public FolderContainer ToEntity(FolderContainer? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new FolderContainer();
+
+            entity.Id = Id;
+            entity.FolderPartitionKey = FolderPartitionKey;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -24,7 +32,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string IItem.PartitionKey => FolderPartitionKey;
+        string? ICosmosDBDocument.PartitionKey
+        {
+            get => FolderPartitionKey;
+            set => FolderPartitionKey = value!;
+        }
 
         public FolderContainerDocument PopulateFromEntity(FolderContainer entity)
         {
@@ -32,6 +44,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
             FolderPartitionKey = entity.FolderPartitionKey;
 
             return this;
+        }
+
+        public static FolderContainerDocument? FromEntity(FolderContainer? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new FolderContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

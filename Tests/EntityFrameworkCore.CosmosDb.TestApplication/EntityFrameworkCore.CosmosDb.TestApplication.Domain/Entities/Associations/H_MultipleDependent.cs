@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string MultipleDepAttr { get; set; }
 
-        public Guid? H_OptionalAggregateNavId { get; set; }
+        public Guid? HOptionalaggregatenavId { get; set; }
 
         public virtual H_OptionalAggregateNav? H_OptionalAggregateNav { get; set; }
 

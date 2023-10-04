@@ -9,19 +9,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>563f042e-a72b-44b0-bd0d-699916ea8adf</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>563f042e-a72b-44b0-bd0d-699916ea8adf</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#60e48d1f-446c-4bf0-96f2-438fc9169c33</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ClassMultiTenantExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassMultiTenantExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>183131c2-6fd6-45e8-88b1-0768d1205165</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#51668d76-10ce-4ae5-9725-650808a9dcd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/AspNetCoreIntegrationExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AspNetCoreIntegrationExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>183131c2-6fd6-45e8-88b1-0768d1205165</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f08b611f-f304-4f92-89a6-6dd659e7b328</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DesignTimeDbContextFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DesignTimeDbContextFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -38,6 +46,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.MultiTenancy.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.MultiTenancy.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5b7ee929-12f8-46cc-8607-a1ff1bc3604a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#c5d6a7a4-8ca7-42d0-b3d4-392d2a0c4628</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Multi Tenancy Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Multi Tenancy Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

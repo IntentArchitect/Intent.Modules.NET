@@ -1,36 +1,42 @@
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
-using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosDBDocument", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class DerivedOfTDocument : DerivedOfT, ICosmosDBDocument<DerivedOfTDocument, DerivedOfT>
+    internal class DerivedOfTDocument : BaseOfTDocument<int>, ICosmosDBDocument<DerivedOfT, DerivedOfTDocument>
     {
-        private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string DerivedAttribute { get; set; } = default!;
+
+        public DerivedOfT ToEntity(DerivedOfT? entity = default)
         {
-            get => Id;
-            set => Id = value;
-        }
-        [JsonProperty("type")]
-        string IItem.Type
-        {
-            get => _type ??= GetType().GetNameForDocument();
-            set => _type = value;
+            entity ??= new DerivedOfT();
+
+            entity.DerivedAttribute = DerivedAttribute;
+            base.ToEntity(entity);
+
+            return entity;
         }
 
         public DerivedOfTDocument PopulateFromEntity(DerivedOfT entity)
         {
             DerivedAttribute = entity.DerivedAttribute;
-            Id = entity.Id;
-            GenericAttribute = entity.GenericAttribute;
+            base.PopulateFromEntity(entity);
 
             return this;
+        }
+
+        public static DerivedOfTDocument? FromEntity(DerivedOfT? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new DerivedOfTDocument().PopulateFromEntity(entity);
         }
     }
 }

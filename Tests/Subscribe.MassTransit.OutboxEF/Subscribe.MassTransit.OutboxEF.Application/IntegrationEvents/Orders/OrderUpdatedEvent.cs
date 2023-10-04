@@ -9,6 +9,11 @@ namespace MassTransit.Messages.Shared
 {
     public record OrderUpdatedEvent
     {
+        public OrderUpdatedEvent()
+        {
+            Number = null!;
+            OrderItems = null!;
+        }
         public Guid Id { get; init; }
         public string Number { get; init; }
         public List<OrderItemDto> OrderItems { get; init; }

@@ -291,6 +291,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6ecc4e2a-dc20-458e-93f7-364e79792685</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6ecc4e2a-dc20-458e-93f7-364e79792685</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#e4e4084f-ca94-4e2c-9991-acaa75acc1cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -348,14 +364,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#31282c89-bcf9-4843-8d22-c8113354683a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicAddressDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerAnemics/CustomerAnemicAddressDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#2cd4cee0-d8f9-44d4-a148-2aa2b88b0291</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDto.cs</ApplicationRelativeFilePath>
@@ -368,14 +376,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerAnemics/CustomerAnemicDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2cd4cee0-d8f9-44d4-a148-2aa2b88b0291</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerAnemics/CustomerAnemicDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -548,14 +548,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#09671592-ce3a-44b1-9436-d142ee540229</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/CheckAddressDCDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#73902ee1-d636-4ca9-8fa6-fce61f05b5d2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommand.cs</ApplicationRelativeFilePath>
@@ -636,14 +628,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f2ff03d7-92e6-4e5c-b11c-0aa21ad3690c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichAddressDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/CustomerRichAddressDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#84fb8571-e9e9-4c6c-8be3-e68d2fd8288a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDto.cs</ApplicationRelativeFilePath>
@@ -656,14 +640,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRiches/CustomerRichDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#84fb8571-e9e9-4c6c-8be3-e68d2fd8288a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerRiches/CustomerRichDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -924,14 +900,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8a45aa09-0224-4d65-ab82-6ef8a24b544a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Purchases/PurchaseDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#421ca5ae-2af3-4023-ac9f-c72bf815f5e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDto.cs</ApplicationRelativeFilePath>
@@ -944,14 +912,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Purchases/PurchaseMoneyDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ebbc2452-3082-4897-8067-36e2dcec0731</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#421ca5ae-2af3-4023-ac9f-c72bf815f5e8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Purchases/PurchaseMoneyDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

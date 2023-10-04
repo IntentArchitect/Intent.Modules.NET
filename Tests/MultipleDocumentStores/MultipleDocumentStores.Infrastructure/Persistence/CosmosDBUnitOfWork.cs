@@ -40,14 +40,14 @@ namespace MultipleDocumentStores.Infrastructure.Persistence
 
         public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            await DispatchEvents();
+            await DispatchEvents(cancellationToken);
             while (_actions.TryDequeue(out var action))
             {
                 await action(cancellationToken);
             }
         }
 
-        private async Task DispatchEvents()
+        private async Task DispatchEvents(CancellationToken cancellationToken = default)
         {
             while (true)
             {
@@ -57,10 +57,13 @@ namespace MultipleDocumentStores.Infrastructure.Persistence
                     .SelectMany(x => x.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
-                await _domainEventService.Publish(domainEventEntity);
+                await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
         }
     }

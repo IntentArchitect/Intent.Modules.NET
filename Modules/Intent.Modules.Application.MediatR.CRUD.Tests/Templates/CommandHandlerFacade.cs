@@ -38,11 +38,9 @@ internal class CommandHandlerFacade
         _activeTemplate = activeTemplate;
         _model = model;
 
-        TargetDomainModel = model.Mapping.Element.AsClassModel()
-                            ?? ClassConstructorModelExtensions.AsClassConstructorModel(model.Mapping.Element)?.ParentClass
-                            ?? OperationModelExtensions.AsOperationModel(model.Mapping.Element)?.ParentClass;
-        CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel);
-        TargetDomainIdAttributes = TargetDomainModel.GetEntityIdAttributes(activeTemplate.ExecutionContext).ToList();
+        TargetDomainModel = model.GetClassModel();
+        CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
+        TargetDomainIdAttributes = TargetDomainModel.GetEntityPkAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
         SingularCommandName = model.Name.ToPascalCase();
     }
@@ -163,21 +161,21 @@ internal class CommandHandlerFacade
     }
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(
-        CommandTargetDomain commandTargetDomain, 
+        CommandTargetDomain commandTargetDomain,
         CommandTestDataReturn dataReturn)
     {
         var statements = new List<CSharpStatement>();
 
         var targetDomainClassType = commandTargetDomain switch
-            {
-                CommandTargetDomain.Aggregate => TargetDomainTypeName,
-                CommandTargetDomain.NestedEntity => AggregateOwnerDomainTypeName,
-                _ => throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null)
-            };
+        {
+            CommandTargetDomain.Aggregate => TargetDomainTypeName,
+            CommandTargetDomain.NestedEntity => AggregateOwnerDomainTypeName,
+            _ => throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null)
+        };
 
         statements.Add("var fixture = new Fixture();");
         statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
-        
+
         AddAggregateDomainTestData();
         AddCommandWithIdentityTestData();
 
@@ -186,14 +184,14 @@ internal class CommandHandlerFacade
             case CommandTestDataReturn.CommandAndAggregateDomain:
                 var varName = commandTargetDomain switch
                 {
-                    CommandTargetDomain.Aggregate => "existingEntity", 
+                    CommandTargetDomain.Aggregate => "existingEntity",
                     CommandTargetDomain.NestedEntity => "existingOwnerEntity"
                 };
                 statements.Add(
                     $"yield return new object[] {{ testCommand, {varName} }};");
                 break;
             case CommandTestDataReturn.CommandAndAggregateWithNestedEntityDomain:
-                statements.Add($"yield return new object[] {{ testCommand, existingOwnerEntity, existingEntity }};");    
+                statements.Add($"yield return new object[] {{ testCommand, existingOwnerEntity, existingEntity }};");
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(dataReturn), dataReturn, null);
@@ -204,14 +202,14 @@ internal class CommandHandlerFacade
         void AddAggregateDomainTestData()
         {
             var variableName = commandTargetDomain switch { CommandTargetDomain.Aggregate => "existingEntity", CommandTargetDomain.NestedEntity => "existingOwnerEntity" };
-            
+
             statements.Add($"var {variableName} = fixture.Create<{targetDomainClassType}>();");
 
             if (commandTargetDomain is not CommandTargetDomain.NestedEntity)
             {
                 return;
             }
-            
+
             statements.Add($"var existingEntity = existingOwnerEntity.{OwnerToCompositeNavigationPropertyName}.First();");
             for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
             {
@@ -220,7 +218,7 @@ internal class CommandHandlerFacade
                 statements.Add($"existingEntity.{ownerIdAttribute.IdName.ToCSharpIdentifier()} = existingOwnerEntity.{nestedIdAttribute.IdName.ToCSharpIdentifier()};");
             }
         }
-        
+
         void AddCommandWithIdentityTestData()
         {
             switch (commandTargetDomain)
@@ -236,7 +234,7 @@ internal class CommandHandlerFacade
                         var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
                         statements.Add(new CSharpInvocationStatement($"fixture.Customize<{CommandTypeName}>")
                             .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
-                        
+
                         for (var i = 0; i < CommandIdFields.Count; i++)
                         {
                             var commandIdField = CommandIdFields[i];
@@ -244,6 +242,7 @@ internal class CommandHandlerFacade
                             fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                         }
                     }
+
                     break;
                 case CommandTargetDomain.NestedEntity:
                 {
@@ -270,7 +269,7 @@ internal class CommandHandlerFacade
                 default:
                     throw new ArgumentOutOfRangeException(nameof(commandTargetDomain), commandTargetDomain, null);
             }
-            
+
             statements.Add($"var testCommand = fixture.Create<{CommandTypeName}>();");
         }
     }
@@ -296,9 +295,9 @@ internal class CommandHandlerFacade
             statements.Add("fixture = new Fixture();");
             statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
-            
+
             AddCommandWithIdentityTestData(property);
-            
+
             statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
         }
 
@@ -327,7 +326,7 @@ internal class CommandHandlerFacade
                             .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
                         fluent.AddChainStatement($"Without(x => x.{property.Name})");
-                        
+
                         for (var i = 0; i < CommandIdFields.Count; i++)
                         {
                             var commandIdField = CommandIdFields[i];
@@ -335,6 +334,7 @@ internal class CommandHandlerFacade
                             fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                         }
                     }
+
                     break;
                 case CommandTargetDomain.NestedEntity:
                 {
@@ -343,14 +343,14 @@ internal class CommandHandlerFacade
                         .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
                     fluent.AddChainStatement($"Without(x => x.{property.Name})");
-                    
+
                     for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
                     {
                         var idAttribute = TargetDomainIdAttributes[index];
                         var idField = CommandFieldsForOwnerId[index];
                         fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
                     }
-                    
+
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
@@ -395,7 +395,8 @@ internal class CommandHandlerFacade
             var block = new CSharpLambdaBlock("_");
             foreach (var idAttribute in TargetDomainIdAttributes)
             {
-                block.AddStatements($"added{SingularTargetDomainName}.{idAttribute.IdName.ToPascalCase()} = expected{SingularTargetDomainName}{idAttribute.IdName.ToPascalCase()};");
+                block.AddStatements(
+                    $"added{SingularTargetDomainName}.{idAttribute.IdName.ToPascalCase()} = expected{SingularTargetDomainName}{idAttribute.IdName.ToPascalCase()};");
             }
 
             return block;
@@ -584,24 +585,45 @@ internal class CommandHandlerFacade
 
     public IReadOnlyCollection<CSharpStatement> GetAggregateDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response)
     {
-        return GetDomainRepositoryFindByIdMockingStatements(commandVarName, entityVarName, response, TargetDomainTypeName, DomainAggregateRepositoryVarName, CommandIdFields);
+        return GetDomainRepositoryFindByIdMockingStatements(
+            commandVarName,
+            entityVarName,
+            response,
+            TargetDomainTypeName,
+            TargetDomainModel,
+            DomainAggregateRepositoryVarName,
+            CommandIdFields);
     }
 
     public IReadOnlyCollection<CSharpStatement> GetAggregateOwnerDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName,
         MockRepositoryResponse response)
     {
-        return GetDomainRepositoryFindByIdMockingStatements(commandVarName, entityVarName, response, AggregateOwnerDomainTypeName, DomainAggregateOwnerRepositoryVarName,
+        return GetDomainRepositoryFindByIdMockingStatements(
+            commandVarName,
+            entityVarName,
+            response,
+            AggregateOwnerDomainTypeName,
+            AggregateOwnerDomain,
+            DomainAggregateOwnerRepositoryVarName,
             CommandFieldsForOwnerId);
     }
 
-    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(string commandVarName, string entityVarName, MockRepositoryResponse response,
-        string targetType, string repositoryVarName, IReadOnlyList<DTOFieldModel> commandIdFields)
+    private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryFindByIdMockingStatements(
+        string commandVarName,
+        string entityVarName,
+        MockRepositoryResponse response,
+        string targetType,
+        ClassModel domainModel,
+        string repositoryVarName,
+        IReadOnlyList<DTOFieldModel> commandIdFields)
     {
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
-            MockRepositoryResponse.ReturnDomainVariable => $".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
-            MockRepositoryResponse.ReturnDefault => $".Returns(Task.FromResult<{targetType}>(default))",
+            MockRepositoryResponse.ReturnDomainVariable => //$".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
+                $".Returns({GetFromResultExpression(entityVarName ?? throw new ArgumentNullException(nameof(entityVarName)), targetType, domainModel, true, false)})",
+            MockRepositoryResponse.ReturnDefault => //$".Returns(Task.FromResult<{targetType}>(default))",
+                $".Returns({GetFromResultExpression("default", targetType, domainModel, false, false)})",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
         statements.Add($"{repositoryVarName}.FindByIdAsync({GetCommandIdKeysList(commandVarName, commandIdFields)}, CancellationToken.None)!{returns};");
@@ -685,5 +707,28 @@ internal class CommandHandlerFacade
                 var domainIdField = TargetDomainIdAttributes[index];
                 return $"{entityVarName}.{domainIdField.IdName.ToCSharpIdentifier()} == {expressionToCompareTo}";
             }));
+    }
+
+    private string GetFromResultExpression(string returnExpression, string domainTypeName, ClassModel domainModel, bool preferImplicitGenerics, bool isList)
+    {
+        var entityTypeName = domainTypeName;
+        if (_activeTemplate.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, domainModel, out var interfaceTypeName))
+        {
+            entityTypeName = interfaceTypeName;
+        }
+
+        var performCast = entityTypeName != domainTypeName;
+        if (performCast && isList)
+        {
+            _activeTemplate.AddUsing("System.Linq");
+            return $"Task.FromResult({returnExpression}.Cast<{entityTypeName}>().ToList())";
+        }
+
+        if (performCast || !preferImplicitGenerics)
+        {
+            return $"Task.FromResult<{entityTypeName}>({returnExpression})";
+        }
+
+        return $"Task.FromResult({returnExpression})";
     }
 }

@@ -76,5 +76,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
             Secured,
             Unsecured,
         }
+
+        public string DefaultAPIRoutePrefix() => _groupSettings.GetSetting("07c796c5-ff1c-4fb4-b9a4-bc9000439fec")?.Value;
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -9,14 +11,20 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class PackageContainerDocument : PackageContainer, ICosmosDBDocument<PackageContainerDocument, PackageContainer>
+    internal class PackageContainerDocument : ICosmosDBDocument<PackageContainer, PackageContainerDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+        public string PackagePartitionKey { get; set; } = default!;
+
+        public PackageContainer ToEntity(PackageContainer? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new PackageContainer();
+
+            entity.Id = Id;
+            entity.PackagePartitionKey = PackagePartitionKey;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -24,7 +32,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string IItem.PartitionKey => PackagePartitionKey;
+        string? ICosmosDBDocument.PartitionKey
+        {
+            get => PackagePartitionKey;
+            set => PackagePartitionKey = value!;
+        }
 
         public PackageContainerDocument PopulateFromEntity(PackageContainer entity)
         {
@@ -32,6 +44,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             PackagePartitionKey = entity.PackagePartitionKey;
 
             return this;
+        }
+
+        public static PackageContainerDocument? FromEntity(PackageContainer? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new PackageContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

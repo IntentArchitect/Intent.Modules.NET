@@ -42,12 +42,14 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPost("api/baskets/{basketId}/basket-items")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateBasketBasketItem(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateBasketBasketItem(
             [FromRoute] Guid basketId,
             [FromBody] CreateBasketBasketItemCommand command,
             CancellationToken cancellationToken = default)
@@ -58,7 +60,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetBasketById), new { id = result }, new JsonResponse<Guid>(result));
+            return CreatedAtAction(nameof(GetBasketBasketItemById), new { basketId = basketId, id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
@@ -70,7 +72,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateBasket(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateBasket(
             [FromBody] CreateBasketCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -82,9 +84,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/baskets/{basketId}/basket-items/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteBasketBasketItem(
             [FromRoute] Guid basketId,
@@ -99,9 +103,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/baskets/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteBasket([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
@@ -113,9 +119,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/baskets/{basketId}/basket-items/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateBasketBasketItem(
             [FromRoute] Guid basketId,
@@ -140,9 +148,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/baskets/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateBasket(
             [FromRoute] Guid id,
@@ -162,7 +172,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         /// </summary>
         /// <response code="200">Returns the specified BasketBasketItemDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an BasketBasketItemDto with the parameters provided.</response>
+        /// <response code="404">No BasketBasketItemDto could be found with the provided parameters.</response>
         [HttpGet("api/baskets/{basketId}/basket-items/{id}")]
         [ProducesResponseType(typeof(BasketBasketItemDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -174,30 +184,32 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketBasketItemByIdQuery(basketId: basketId, id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;BasketBasketItemDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;BasketBasketItemDto&gt; could be found with the provided parameters.</response>
         [HttpGet("api/baskets/{basketId}/basket-items")]
         [ProducesResponseType(typeof(List<BasketBasketItemDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<BasketBasketItemDto>>> GetBasketBasketItems(
             [FromRoute] Guid basketId,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketBasketItemsQuery(basketId: basketId), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified BasketDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an BasketDto with the parameters provided.</response>
+        /// <response code="404">No BasketDto could be found with the provided parameters.</response>
         [HttpGet("api/baskets/{id}")]
         [ProducesResponseType(typeof(BasketDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -208,7 +220,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasketByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

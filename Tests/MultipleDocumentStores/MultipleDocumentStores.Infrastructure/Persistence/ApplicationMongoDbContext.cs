@@ -27,7 +27,7 @@ namespace MultipleDocumentStores.Infrastructure.Persistence
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            await DispatchEvents();
+            await DispatchEvents(cancellationToken);
             await base.SaveChangesAsync(cancellationToken);
             return default;
         }
@@ -37,7 +37,7 @@ namespace MultipleDocumentStores.Infrastructure.Persistence
             // Don't call the base's dispose as it disposes the connection which is not recommended as per https://www.mongodb.com/docs/manual/administration/connection-pool-overview/
         }
 
-        private async Task DispatchEvents()
+        private async Task DispatchEvents(CancellationToken cancellationToken = default)
         {
             while (true)
             {
@@ -48,10 +48,13 @@ namespace MultipleDocumentStores.Infrastructure.Persistence
                     .SelectMany(x => x.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
-                await _domainEventService.Publish(domainEventEntity);
+                await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
         }
 

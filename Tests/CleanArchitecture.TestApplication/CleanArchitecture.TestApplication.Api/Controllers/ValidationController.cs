@@ -47,15 +47,13 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified ValidatedResultDto.</response>
-        /// <response code="404">Can't find an ValidatedResultDto with the parameters provided.</response>
         [HttpGet("api/validation/result-validations")]
         [ProducesResponseType(typeof(ValidatedResultDto), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ValidatedResultDto>> ResultValidations(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new ResultValidationsQuery(), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return Ok(result);
         }
     }
 }

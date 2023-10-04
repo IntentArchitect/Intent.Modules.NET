@@ -16,6 +16,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
+using CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CompositeKeys;
@@ -28,6 +29,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Pagination;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.UniqueIndexConstraint;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,10 +47,13 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Camera> Cameras { get; set; }
+
         public DbSet<WithCompositeKey> WithCompositeKeys { get; set; }
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountHolder> AccountHolders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public DbSet<AggregateRoot> AggregateRoots { get; set; }
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
@@ -70,6 +75,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<LogEntry> LogEntries { get; set; }
+        public DbSet<AggregateWithUniqueConstraintIndexElement> AggregateWithUniqueConstraintIndexElements { get; set; }
+        public DbSet<AggregateWithUniqueConstraintIndexStereotype> AggregateWithUniqueConstraintIndexStereotypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -105,6 +112,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
+            modelBuilder.ApplyConfiguration(new CameraConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DataContractClassConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
@@ -115,6 +124,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new LogEntryConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexElementConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexStereotypeConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
@@ -141,7 +152,10 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
                     .SelectMany(x => x)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-                if (domainEventEntity == null) break;
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
 
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);

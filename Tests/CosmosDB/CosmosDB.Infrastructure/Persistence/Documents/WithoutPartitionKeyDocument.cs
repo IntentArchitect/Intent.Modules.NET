@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
@@ -9,14 +11,18 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class WithoutPartitionKeyDocument : WithoutPartitionKey, ICosmosDBDocument<WithoutPartitionKeyDocument, WithoutPartitionKey>
+    internal class WithoutPartitionKeyDocument : ICosmosDBDocument<WithoutPartitionKey, WithoutPartitionKeyDocument>
     {
         private string? _type;
-        [JsonProperty("id")]
-        string IItem.Id
+        public string Id { get; set; } = default!;
+
+        public WithoutPartitionKey ToEntity(WithoutPartitionKey? entity = default)
         {
-            get => Id;
-            set => Id = value;
+            entity ??= new WithoutPartitionKey();
+
+            entity.Id = Id;
+
+            return entity;
         }
         [JsonProperty("type")]
         string IItem.Type
@@ -30,6 +36,16 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Id = entity.Id;
 
             return this;
+        }
+
+        public static WithoutPartitionKeyDocument? FromEntity(WithoutPartitionKey? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new WithoutPartitionKeyDocument().PopulateFromEntity(entity);
         }
     }
 }

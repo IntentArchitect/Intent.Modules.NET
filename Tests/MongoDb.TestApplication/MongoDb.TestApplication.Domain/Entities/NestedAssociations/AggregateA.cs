@@ -15,6 +15,6 @@ namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
 
         public string Attribute { get; set; }
 
-        public virtual NestedCompositionA NestedCompositionA { get; set; }
+        public NestedCompositionA NestedCompositionA { get; set; }
     }
 }

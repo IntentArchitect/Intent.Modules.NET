@@ -38,6 +38,7 @@
         <option>Timer Trigger</option>
         <option>EventHub Trigger</option>
         <option>Manual Trigger</option>
+        <option>Cosmos DB Trigger</option>
       </valueOptions>
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>

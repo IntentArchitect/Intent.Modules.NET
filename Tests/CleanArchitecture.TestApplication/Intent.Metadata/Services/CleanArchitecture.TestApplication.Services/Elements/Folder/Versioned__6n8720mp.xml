@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="25104660-627e-4d28-ba72-ff403ea7e24f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <comment>Folder comment.</comment>
   <name>Versioned</name>
   <display>Versioned</display>
   <isAbstract>false</isAbstract>

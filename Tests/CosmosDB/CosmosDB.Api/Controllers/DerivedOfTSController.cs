@@ -42,21 +42,23 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateDerivedOfT(
+        public async Task<ActionResult<JsonResponse<string>>> CreateDerivedOfT(
             [FromBody] CreateDerivedOfTCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(GetDerivedOfTById), new { id = result }, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/derived-of-t-s/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteDerivedOfT(
             [FromRoute] string id,
@@ -70,9 +72,11 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/derived-of-t-s/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateDerivedOfT(
             [FromRoute] string id,
@@ -92,7 +96,7 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified DerivedOfTDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an DerivedOfTDto with the parameters provided.</response>
+        /// <response code="404">No DerivedOfTDto could be found with the provided parameters.</response>
         [HttpGet("api/derived-of-t-s/{id}")]
         [ProducesResponseType(typeof(DerivedOfTDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -103,7 +107,7 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetDerivedOfTByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

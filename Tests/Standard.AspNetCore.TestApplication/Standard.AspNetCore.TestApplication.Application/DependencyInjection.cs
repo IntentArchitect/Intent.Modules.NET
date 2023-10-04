@@ -2,7 +2,9 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Standard.AspNetCore.TestApplication.Application.Common.Validation;
 using Standard.AspNetCore.TestApplication.Application.Implementation;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 
@@ -13,10 +15,11 @@ namespace Standard.AspNetCore.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
             services.AddTransient<IInvoicesService, InvoicesService>();

@@ -30,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cb9fd874-9e6b-4b7d-8e55-d088b495399b</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

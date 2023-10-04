@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
+using CleanArchitecture.TestApplication.Application.Common.Validation;
 using CleanArchitecture.TestApplication.Application.Implementation.Comments;
 using CleanArchitecture.TestApplication.Application.Implementation.ServiceDispatch;
 using CleanArchitecture.TestApplication.Application.Interfaces.Comments;
@@ -12,6 +13,7 @@ using CleanArchitecture.TestApplication.Domain.Services.DefaultDiagram;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -21,9 +23,9 @@ namespace CleanArchitecture.TestApplication.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
@@ -35,6 +37,7 @@ namespace CleanArchitecture.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAsyncableDomainService, AsyncableDomainService>();
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();

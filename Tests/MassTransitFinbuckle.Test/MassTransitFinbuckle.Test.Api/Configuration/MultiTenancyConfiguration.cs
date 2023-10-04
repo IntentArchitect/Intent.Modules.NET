@@ -19,9 +19,9 @@ namespace MassTransitFinbuckle.Test.Api.Configuration
             IConfiguration configuration)
         {
             services.AddMultiTenant<TenantInfo>()
-                .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store
+                .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
                 .WithStrategy<FinbuckleMessageHeaderStrategy>(ServiceLifetime.Scoped)
-                .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy
+                .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
             return services;
         }
 

@@ -4,7 +4,7 @@
   <display>Entities</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>53578dc0-8c9b-437b-ba07-cb83cf2c42ce</parentFolderId>

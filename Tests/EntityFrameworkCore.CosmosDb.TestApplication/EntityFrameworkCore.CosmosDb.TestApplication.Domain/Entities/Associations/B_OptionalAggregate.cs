@@ -19,6 +19,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string PartitionKey { get; set; }
 
+        public Guid? BOptionaldependentId { get; set; }
+
         public Guid? B_OptionalDependentId { get; set; }
 
         public virtual B_OptionalDependent? B_OptionalDependent { get; set; }

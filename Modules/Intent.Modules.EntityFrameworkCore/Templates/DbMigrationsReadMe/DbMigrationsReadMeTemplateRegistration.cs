@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
     {
         public override string TemplateId => DbMigrationsReadMeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DbMigrationsReadMeTemplate(outputTarget);

@@ -29,7 +29,7 @@ From the Visual Studio Package Manager Console:
 Update-Database -StartupProject "Application.Identity.Jwt.TestApplication.Api" -Project "Application.Identity.Jwt.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "Application.Identity.Jwt.TestApplication.Api" --project "Application.Identity.Jwt.TestApplication.Infrastructure" 
+dotnet ef database update --startup-project "Application.Identity.Jwt.TestApplication.Api" --project "Application.Identity.Jwt.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:

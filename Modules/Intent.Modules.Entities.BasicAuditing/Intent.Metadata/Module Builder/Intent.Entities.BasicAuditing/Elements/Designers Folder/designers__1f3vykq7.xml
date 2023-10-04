@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="33599814-f20e-4205-beaf-9d49f6ded01d" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bed6bd70-2214-4a74-a437-dfb3b68dd198</parentFolderId>
+  <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+  <packageName>Intent.Entities.BasicAuditing</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using EntityFrameworkCore.Repositories.TestApplication.Api.Filters;
+using EntityFrameworkCore.Repositories.TestApplication.Application;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +32,18 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Api.Configuration
                             Title = "EntityFrameworkCore.Repositories.TestApplication API"
                         });
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                    if (File.Exists(apiXmlFile))
+                    {
+                        options.IncludeXmlComments(apiXmlFile);
+                    }
+
+                    var applicationXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(DependencyInjection).Assembly.GetName().Name}.xml");
+                    if (File.Exists(applicationXmlFile))
+                    {
+                        options.IncludeXmlComments(applicationXmlFile);
+                    }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

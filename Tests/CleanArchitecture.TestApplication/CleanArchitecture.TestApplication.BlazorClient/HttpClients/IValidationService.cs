@@ -1,4 +1,4 @@
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.Validation;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.Validation;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

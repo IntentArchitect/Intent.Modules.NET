@@ -33,6 +33,7 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
         IsMapped = operationModel.InternalElement.IsMapped;
         Mapping = operationModel.InternalElement.MappedElement;
         Folder = operationModel.ParentService.ToFolder();
+        Stereotypes = operationModel.InternalElement.Stereotypes;
     }
 
     public string Id { get; }
@@ -61,4 +62,5 @@ public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
 
     public IElementMapping Mapping { get; }
     public IFolder Folder { get; }
+    public IEnumerable<IStereotype> Stereotypes { get; }
 }

@@ -29,9 +29,9 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("CreateCustomerOpWrapped")]
-        public async Task Run([QueueTrigger("customers")] QueueMessage message, CancellationToken cancellationToken)
+        public async Task Run([QueueTrigger("customers")] QueueMessage rawMessage, CancellationToken cancellationToken)
         {
-            var dto = JsonSerializer.Deserialize<CustomerDto>(message.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+            var dto = JsonSerializer.Deserialize<CustomerDto>(rawMessage.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
 
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
@@ -39,7 +39,7 @@ namespace AzureFunctions.TestApplication.Api
                 await _appService.CreateCustomerOpWrapped(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
-                return;
+
             }
         }
     }

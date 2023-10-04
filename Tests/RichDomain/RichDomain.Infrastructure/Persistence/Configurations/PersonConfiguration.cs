@@ -20,6 +20,16 @@ namespace RichDomain.Infrastructure.Persistence.Configurations
             builder.Property(x => x.DepartmentId)
                 .IsRequired();
 
+            builder.Property(x => x.CreatedBy)
+                .IsRequired();
+
+            builder.Property(x => x.CreatedDate)
+                .IsRequired();
+
+            builder.Property(x => x.UpdatedBy);
+
+            builder.Property(x => x.UpdatedDate);
+
             builder.HasOne(x => x.Department)
                 .WithMany()
                 .HasForeignKey(x => x.DepartmentId)

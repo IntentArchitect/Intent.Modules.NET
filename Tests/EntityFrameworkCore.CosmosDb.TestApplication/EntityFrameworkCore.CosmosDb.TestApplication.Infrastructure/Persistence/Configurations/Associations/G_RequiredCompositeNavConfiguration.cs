@@ -37,6 +37,9 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             builder.Property(x => x.MultipleDepAttr)
                 .IsRequired();
+
+            builder.Property(x => x.GRequiredcompositenavId)
+                .IsRequired();
         }
     }
 }

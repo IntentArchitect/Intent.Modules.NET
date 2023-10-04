@@ -13,6 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     {
         public string Attribute { get; set; }
 
-        public virtual E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }
+        public E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }
     }
 }

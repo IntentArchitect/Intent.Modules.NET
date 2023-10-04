@@ -1,23 +1,25 @@
 using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.DTOValidator", Version = "2.0")]
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Users
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UserDtoValidator : AbstractValidator<UserDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
-        public UserDtoValidator()
+        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        public UserDtoValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Email)
                 .NotNull();
@@ -26,7 +28,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Us
                 .NotNull();
 
             RuleFor(v => v.Preferences)
-                .NotNull();
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<PreferenceDto>()!));
         }
     }
 }

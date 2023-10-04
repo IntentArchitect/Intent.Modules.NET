@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="27cceb86-fa3a-4272-8f91-39f2c9c96bf7">
+  <sourceEnd id="296cf903-2ad3-4c1a-9975-143b10ddf714" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>N_ComplexRoot</name>
+    <display>N_ComplexRoot: N_ComplexRoot</display>
+    <order>0</order>
+    <typeReference id="447a13ff-0832-4e3f-b974-4b67259f2291">
+      <typeId>6d5cd3dd-1d75-4823-ab95-7d2f5b60f2c0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="27cceb86-fa3a-4272-8f91-39f2c9c96bf7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>N_CompositeManies</name>
+    <display>N_CompositeManies: N_CompositeMany[*]   [1 --&gt; *]</display>
+    <order>5</order>
+    <typeReference id="498278e2-34ea-4b9a-93c3-d9975ebcaa91">
+      <typeId>e92d9629-a9a5-4fef-ad56-c4f3df7cd4bf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

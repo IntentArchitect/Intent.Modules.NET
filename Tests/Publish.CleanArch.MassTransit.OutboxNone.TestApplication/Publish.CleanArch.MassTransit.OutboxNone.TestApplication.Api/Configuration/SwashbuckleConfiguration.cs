@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Filters;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -29,6 +32,18 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Configura
                             Title = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication API"
                         });
                     options.CustomSchemaIds(x => x.FullName);
+
+                    var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                    if (File.Exists(apiXmlFile))
+                    {
+                        options.IncludeXmlComments(apiXmlFile);
+                    }
+
+                    var applicationXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(DependencyInjection).Assembly.GetName().Name}.xml");
+                    if (File.Exists(applicationXmlFile))
+                    {
+                        options.IncludeXmlComments(applicationXmlFile);
+                    }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

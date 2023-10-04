@@ -18,7 +18,7 @@ public class EfCoreKeyColumnPropertyStatement : CSharpStatement
     {
         var name = !string.IsNullOrWhiteSpace(_model.GetColumn().Name())
             ? $@"
-{indentation}    .HasColumnName(""{_model.GetColumn().Name()}"")"
+{indentation}    .HasColumnName(""{EscapeHelper.EscapeName(_model.GetColumn().Name())}"")"
             : string.Empty;
 
         var type = !string.IsNullOrWhiteSpace(_model.GetColumn().Type())

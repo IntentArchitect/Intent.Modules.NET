@@ -61,14 +61,14 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
-            return Created(string.Empty, result);
+            return CreatedAtAction(nameof(FindUserById), new { id = result }, result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified UserDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an UserDto with the parameters provided.</response>
+        /// <response code="404">No UserDto could be found with the provided parameters.</response>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -80,7 +80,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
         {
             var result = default(UserDto);
             result = await _appService.FindUserById(id, cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -100,9 +100,11 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateUser(
             [FromRoute] Guid id,
@@ -125,9 +127,11 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteUser([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {

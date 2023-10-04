@@ -83,7 +83,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
             return new TemplateFileConfig(
                 fileName: $"appsettings{runtimeEnvironment}",
-                fileExtension: "json")
+                fileExtension: "json",
+                relativeLocation: Model.Location)
                     .WithDependsOn(dependsOn);
         }
 
@@ -94,7 +95,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 return;
             }
 
-            if (!@event.IsApplicableTo(this))
+            if (!@event.IsApplicableTo(this, requiresSpecifiedRole: Model.RequiresSpecifiedRole))
             {
                 return;
             }
@@ -116,7 +117,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 return;
             }
 
-            if (!@event.IsApplicableTo(this))
+            if (!@event.IsApplicableTo(this, requiresSpecifiedRole: Model.RequiresSpecifiedRole))
             {
                 return;
             }

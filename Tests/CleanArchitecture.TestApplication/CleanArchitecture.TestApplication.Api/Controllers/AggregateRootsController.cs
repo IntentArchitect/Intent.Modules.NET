@@ -47,7 +47,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateAggregateRoot(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateAggregateRoot(
             [FromBody] CreateAggregateRootCommand command,
             CancellationToken cancellationToken = default)
         {
@@ -59,12 +59,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPost("api/aggregate-roots/{aggregateRootId}/CompositeManyBS")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Guid>> CreateAggregateRootCompositeManyB(
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
@@ -75,16 +77,18 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             }
 
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetAggregateRootById), new { id = result }, new JsonResponse<Guid>(result));
+            return CreatedAtAction(nameof(GetAggregateRootCompositeManyBById), new { aggregateRootId = aggregateRootId, id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/aggregate-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateRoot(
             [FromRoute] Guid id,
@@ -98,9 +102,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/aggregate-roots/{aggregateRootId}/CompositeManyBS/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
@@ -115,9 +121,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/aggregate-roots/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateAggregateRoot(
             [FromRoute] Guid id,
@@ -137,9 +145,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/aggregate-roots/{aggregateRootId}/CompositeManyBS/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateAggregateRootCompositeManyB(
             [FromRoute] Guid aggregateRootId,
@@ -164,7 +174,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified AggregateRootDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an AggregateRootDto with the parameters provided.</response>
+        /// <response code="404">No AggregateRootDto could be found with the provided parameters.</response>
         [HttpGet("api/aggregate-roots/{id}")]
         [ProducesResponseType(typeof(AggregateRootDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -175,14 +185,14 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified AggregateRootCompositeManyBDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an AggregateRootCompositeManyBDto with the parameters provided.</response>
+        /// <response code="404">No AggregateRootCompositeManyBDto could be found with the provided parameters.</response>
         [HttpGet("api/aggregate-roots/{aggregateRootId}/CompositeManyBS/{id}")]
         [ProducesResponseType(typeof(AggregateRootCompositeManyBDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -194,23 +204,25 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootCompositeManyBByIdQuery(aggregateRootId: aggregateRootId, id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;AggregateRootCompositeManyBDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;AggregateRootCompositeManyBDto&gt; could be found with the provided parameters.</response>
         [HttpGet("api/aggregate-roots/{aggregateRootId}/CompositeManyBS")]
         [ProducesResponseType(typeof(List<AggregateRootCompositeManyBDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<AggregateRootCompositeManyBDto>>> GetAggregateRootCompositeManyBS(
             [FromRoute] Guid aggregateRootId,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetAggregateRootCompositeManyBSQuery(aggregateRootId: aggregateRootId), cancellationToken);
-            return Ok(result);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

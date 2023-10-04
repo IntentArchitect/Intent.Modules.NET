@@ -1,4 +1,4 @@
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Services.AggregateRoots;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.AggregateRoots;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

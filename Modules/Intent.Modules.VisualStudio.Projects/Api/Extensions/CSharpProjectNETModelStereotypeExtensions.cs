@@ -141,6 +141,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new ImplicitUsingsOptions(_stereotype.GetProperty<string>("Implicit Usings"));
             }
 
+            public string SuppressWarnings()
+            {
+                return _stereotype.GetProperty<string>("Suppress Warnings");
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;
@@ -160,6 +165,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return SDKOptionsEnum.MicrosoftNETSdkWeb;
                         case "Microsoft.NET.Sdk.BlazorWebAssembly":
                             return SDKOptionsEnum.MicrosoftNETSdkBlazorWebAssembly;
+                        case "Microsoft.NET.Sdk.Razor":
+                            return SDKOptionsEnum.MicrosoftNETSdkRazor;
+                        case "Microsoft.NET.Sdk.Worker":
+                            return SDKOptionsEnum.MicrosoftNETSdkWorker;
+                        case "Microsoft.NET.Sdk.WindowsDesktop":
+                            return SDKOptionsEnum.MicrosoftNETSdkWindowsDesktop;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -177,13 +188,28 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "Microsoft.NET.Sdk.BlazorWebAssembly";
                 }
+                public bool IsMicrosoftNETSdkRazor()
+                {
+                    return Value == "Microsoft.NET.Sdk.Razor";
+                }
+                public bool IsMicrosoftNETSdkWorker()
+                {
+                    return Value == "Microsoft.NET.Sdk.Worker";
+                }
+                public bool IsMicrosoftNETSdkWindowsDesktop()
+                {
+                    return Value == "Microsoft.NET.Sdk.WindowsDesktop";
+                }
             }
 
             public enum SDKOptionsEnum
             {
                 MicrosoftNETSdk,
                 MicrosoftNETSdkWeb,
-                MicrosoftNETSdkBlazorWebAssembly
+                MicrosoftNETSdkBlazorWebAssembly,
+                MicrosoftNETSdkRazor,
+                MicrosoftNETSdkWorker,
+                MicrosoftNETSdkWindowsDesktop
             }
             public class OutputTypeOptions
             {

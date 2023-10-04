@@ -53,9 +53,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/purchases/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeletePurchase([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
@@ -67,9 +69,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/purchases/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdatePurchase(
             [FromRoute] Guid id,
@@ -89,7 +93,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified PurchaseDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an PurchaseDto with the parameters provided.</response>
+        /// <response code="404">No PurchaseDto could be found with the provided parameters.</response>
         [HttpGet("api/purchases/{id}")]
         [ProducesResponseType(typeof(PurchaseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -100,7 +104,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetPurchaseByIdQuery(id: id), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

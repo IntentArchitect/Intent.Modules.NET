@@ -10,7 +10,9 @@ using CosmosDB.Application.Clients.DeleteClient;
 using CosmosDB.Application.Clients.GetClientById;
 using CosmosDB.Application.Clients.GetClientByName;
 using CosmosDB.Application.Clients.GetClients;
+using CosmosDB.Application.Clients.GetClientsPaged;
 using CosmosDB.Application.Clients.UpdateClient;
+using CosmosDB.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -43,21 +45,23 @@ namespace CosmosDB.Api.Controllers
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> CreateClient(
+        public async Task<ActionResult<JsonResponse<string>>> CreateClient(
             [FromBody] CreateClientCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
+            return Created(string.Empty, new JsonResponse<string>(result));
         }
 
         /// <summary>
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/clients")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClient(
             [FromQuery] string identifier,
@@ -87,7 +91,7 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified ClientDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">Can't find an ClientDto with the parameters provided.</response>
+        /// <response code="404">No ClientDto could be found with the provided parameters.</response>
         [HttpGet("api/clients/by-id")]
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -98,7 +102,7 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByIdQuery(identifier: identifier), cancellationToken);
-            return result != null ? Ok(result) : NotFound();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -114,6 +118,23 @@ namespace CosmosDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByNameQuery(searchText: searchText), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ClientDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/clients/paged")]
+        [ProducesResponseType(typeof(PagedResult<ClientDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ClientDto>>> GetClientsPaged(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetClientsPagedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
             return Ok(result);
         }
 
