@@ -59,9 +59,15 @@ namespace Intent.Modules.OpenTelemetry.Settings
             {
                 return Value switch
                 {
+                    "console" => ExportOptionsEnum.Console,
                     "azure-application-insights" => ExportOptionsEnum.AzureApplicationInsights,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
+            }
+
+            public bool IsConsole()
+            {
+                return Value == "console";
             }
 
             public bool IsAzureApplicationInsights()
@@ -72,6 +78,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
 
         public enum ExportOptionsEnum
         {
+            Console,
             AzureApplicationInsights,
         }
     }

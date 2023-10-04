@@ -76,9 +76,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                                         .WithoutSemicolon()
                                         .AddChainStatement("CreateDefault()")
                                         .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")))
-                                .AddInvocationStatement("options.AddAzureMonitorLogExporter", logExporter => logExporter
-                                    .AddArgument(new CSharpLambdaBlock("x")
-                                        .AddStatement($@"x.ConnectionString = context.Configuration[""ApplicationInsights:ConnectionString""];")))
+                                .AddStatements(GetLoggingExporterStatements(file))
                                 .AddStatements($@"
                                     options.IncludeFormattedMessage = true;
                                     options.IncludeScopes = true;
@@ -125,11 +123,34 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                     .AddArgument(new CSharpLambdaBlock("options")
                         .AddStatement(@"options.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];")));
                 break;
+            case Settings.OpenTelemetry.ExportOptionsEnum.Console:
+                AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole);
+                file.AddUsing("OpenTelemetry.Trace");
+                traceChain.AddChainStatement(new CSharpInvocationStatement("AddConsoleExporter").WithoutSemicolon());
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
         return new CSharpLambdaBlock("trace").WithExpressionBody(traceChain);
+    }
+    
+    private IEnumerable<CSharpStatement> GetLoggingExporterStatements(CSharpFile file)
+    {
+        switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
+        {
+            case Settings.OpenTelemetry.ExportOptionsEnum.Console:
+                file.AddUsing("OpenTelemetry.Logs");
+                yield return new CSharpInvocationStatement("options.AddConsoleExporter");
+                break;
+            case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
+                yield return new CSharpInvocationStatement("options.AddAzureMonitorLogExporter")
+                    .AddArgument(new CSharpLambdaBlock("x")
+                        .AddStatement($@"x.ConnectionString = context.Configuration[""ApplicationInsights:ConnectionString""];"));
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public override void BeforeTemplateExecution()
@@ -143,6 +164,9 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
                 this.ApplyAppSetting("ApplicationInsights:ConnectionString",
                     "Insert Application Insights Connection String Here");
+                break;
+            case Settings.OpenTelemetry.ExportOptionsEnum.Console:
+                // NOOP
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
