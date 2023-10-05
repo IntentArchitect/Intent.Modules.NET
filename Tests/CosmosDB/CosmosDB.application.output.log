@@ -1212,6 +1212,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/DerivedTypeAggregate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f089acd-cfc1-4912-8d4e-9959a10f4ea5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/EntityOfT.cs</ApplicationRelativeFilePath>
@@ -1336,6 +1344,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IDerivedOfTRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDerivedOfTRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IDerivedTypeAggregateRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedTypeAggregateRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1492,6 +1508,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregateDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#563dcec1-bab5-4069-8042-6267fe16522d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs</ApplicationRelativeFilePath>
@@ -1640,6 +1664,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/DerivedOfTCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedOfTCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/DerivedTypeAggregateCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregateCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

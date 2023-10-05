@@ -48,6 +48,8 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<DerivedTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<DerivedTypeAggregateDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     // Cosmos Repository does not support open generics at this time, but it's good
                     // to test everything else is still correct:
                     // .Configure(typeof(EntityOfTDocument<>), c => c
@@ -72,6 +74,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
             services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
+            services.AddScoped<IDerivedTypeAggregateRepository, DerivedTypeAggregateCosmosDBRepository>();
             services.AddScoped(typeof(IEntityOfTRepository<>), typeof(EntityOfTCosmosDBRepository<>));
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();

@@ -10,9 +10,12 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 {
     internal class DerivedTypeDocument : BaseTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
     {
+        public string DerivedTypeAggregateId { get; set; } = default!;
         public DerivedType ToEntity(DerivedType? entity = default)
         {
             entity ??= new DerivedType();
+
+            entity.DerivedTypeAggregateId = DerivedTypeAggregateId;
             base.ToEntity(entity);
 
             return entity;
@@ -20,6 +23,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 
         public DerivedTypeDocument PopulateFromEntity(DerivedType entity)
         {
+            DerivedTypeAggregateId = entity.DerivedTypeAggregateId;
             base.PopulateFromEntity(entity);
 
             return this;
