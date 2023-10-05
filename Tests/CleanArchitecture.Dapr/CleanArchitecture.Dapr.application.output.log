@@ -332,14 +332,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>621c534e-3839-44cb-ac9e-e093dcd379ee</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Common/Behaviours/DaprStateStoreUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>621c534e-3839-44cb-ac9e-e093dcd379ee</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>

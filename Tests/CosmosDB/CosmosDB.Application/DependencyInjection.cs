@@ -24,7 +24,7 @@ namespace CosmosDB.Application
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(CosmosDBUnitOfWorkBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

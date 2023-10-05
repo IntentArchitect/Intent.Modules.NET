@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="cc70829a-2dc0-4b59-9c69-6a68a4e0eef6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5ea2c9eb-52af-4255-b314-5efae2134bdd</parentFolderId>
-      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
-      <packageName>CosmosDB</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="5fb66ead-49b3-4d25-a7ad-0d668130d0b7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
@@ -137,22 +121,6 @@
       <name>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</name>
       <display>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</display>
       <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5ea2c9eb-52af-4255-b314-5efae2134bdd</parentFolderId>
-      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
-      <packageName>CosmosDB</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="9d85637c-453e-4569-99e8-3a575a097f4a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</name>
-      <display>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</display>
-      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

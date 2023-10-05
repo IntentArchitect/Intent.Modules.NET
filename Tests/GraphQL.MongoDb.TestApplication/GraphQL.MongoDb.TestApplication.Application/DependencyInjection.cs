@@ -23,8 +23,8 @@ namespace GraphQL.MongoDb.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(MongoDbUnitOfWorkBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

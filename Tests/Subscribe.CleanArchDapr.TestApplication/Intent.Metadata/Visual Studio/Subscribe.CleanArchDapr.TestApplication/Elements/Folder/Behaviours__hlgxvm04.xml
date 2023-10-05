@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4fbba5a5-ba2d-48ba-bf6a-4f9284888d61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</parentFolderId>
-      <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
-      <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="60a7a1f7-cc7b-4168-af7c-5f83a0082de7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
@@ -137,22 +121,6 @@
       <name>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</name>
       <display>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</display>
       <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</parentFolderId>
-      <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
-      <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="5abe6366-f43f-470e-9847-d1a899794a2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkBehaviour</name>
-      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
