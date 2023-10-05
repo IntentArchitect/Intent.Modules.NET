@@ -130,22 +130,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6afdbc46-649f-4ed1-887b-eb61698526d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#6afdbc46-649f-4ed1-887b-eb61698526d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PerformanceBehaviour/PerformanceBehaviourTemplate.cs</ApplicationRelativeFilePath>
@@ -214,22 +198,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

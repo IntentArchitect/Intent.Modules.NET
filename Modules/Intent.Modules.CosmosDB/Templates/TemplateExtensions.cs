@@ -8,7 +8,6 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork;
-using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosPagedList;
@@ -64,11 +63,6 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosDBUnitOfWorkName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBUnitOfWorkTemplate.TemplateId);
-        }
-
-        public static string GetCosmosDBUnitOfWorkBehaviourName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(CosmosDBUnitOfWorkBehaviourTemplate.TemplateId);
         }
 
         public static string GetCosmosDBUnitOfWorkInterfaceName(this IIntentTemplate template)

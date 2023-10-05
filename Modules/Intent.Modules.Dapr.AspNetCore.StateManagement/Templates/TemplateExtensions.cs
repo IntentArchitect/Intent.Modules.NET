@@ -6,7 +6,6 @@ using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRep
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRepositoryBase;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreRepositoryInterface;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWork;
-using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWorkBehaviour;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
@@ -51,11 +50,6 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates
         public static string GetDaprStateStoreUnitOfWorkName(this IIntentTemplate template)
         {
             return template.GetTypeName(DaprStateStoreUnitOfWorkTemplate.TemplateId);
-        }
-
-        public static string GetDaprStateStoreUnitOfWorkBehaviourName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(DaprStateStoreUnitOfWorkBehaviourTemplate.TemplateId);
         }
 
         public static string GetDaprStateStoreUnitOfWorkInterfaceName(this IIntentTemplate template)

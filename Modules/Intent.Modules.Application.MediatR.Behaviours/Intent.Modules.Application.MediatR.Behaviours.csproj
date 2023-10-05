@@ -25,10 +25,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UnitOfWorkBehaviourTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
@@ -65,11 +61,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UnitOfWorkBehaviourTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -83,6 +74,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.21" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.39" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -91,13 +83,14 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
-    <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

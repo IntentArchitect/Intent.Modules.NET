@@ -1,3 +1,11 @@
+### Version 5.2.4
+
+- Improvement: `ConsumerWrapper` will now universally save changes for all of the following modules:
+  - `Intent.EntityFrameworkCore`
+  - `Intent.CosmosDB`
+  - `Intent.Dapr.AspNetCore.StateManagement`
+  - `Intent.MongoDb`
+
 ### Version 5.2.2
 
 - Fixed: `Identifier` was incorrectly spelled as `Indentifier` in a couple of templates.

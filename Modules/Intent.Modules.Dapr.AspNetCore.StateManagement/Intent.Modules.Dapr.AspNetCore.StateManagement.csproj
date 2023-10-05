@@ -63,4 +63,6 @@
 
   <Import Project="..\Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems" Label="Shared" />
 
+  <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
+
 </Project>

@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
+using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using OutboxPatternType = Intent.Modules.Eventing.MassTransit.Settings.EventingSettings.OutboxPatternOptionsEnum;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -61,6 +65,11 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
                         stmt => stmt.AddMetadata("handler", "execute"));
                     method.AddStatement($"await eventBus.FlushAllAsync(context.CancellationToken);",
                         stmt => stmt.AddMetadata("event-bus-flush", true));
+
+                    if (this.SystemUsesPersistenceUnitOfWork())
+                    {
+                        ApplyUnitOfWorkSaves(@class, method);
+                    }
                 });
             })
             .AddClass($"WrapperConsumerDefinition", @class =>
@@ -79,17 +88,67 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
                     method.Protected().Override();
                     method.AddParameter("IReceiveEndpointConfigurator", "endpointConfigurator");
                     method.AddParameter($"IConsumerConfigurator<WrapperConsumer<{tHandler}, {tMessage}>>", "consumerConfigurator");
-                    if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+
+                    switch (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().AsEnum())
                     {
-                        method.AddStatement("endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);");
+                        case OutboxPatternType.InMemory:
+                            method.AddStatement("endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);");
+                            break;
+                        case OutboxPatternType.EntityFramework when EfIsPresent():
+                            method.AddStatement($"endpointConfigurator.UseEntityFrameworkOutbox<{GetTypeName("Infrastructure.Data.DbContext")}>(_serviceProvider);");
+                            break;
+                        default:
+                            // Do nothing
+                            break;
                     }
                 });
             });
     }
 
+    private bool EfIsPresent()
+    {
+        return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _) ||
+               TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _);
+    }
+
+    private void ApplyUnitOfWorkSaves(CSharpClass @class, CSharpClassMethod method)
+    {
+        var executeHandler = method.FindStatement(x => x.TryGetMetadata("handler", out string value) && value == "execute");
+        executeHandler.Remove();
+
+        var flushAll = method.FindStatement(p => p.HasMetadata("event-bus-flush"));
+        flushAll.Remove();
+
+        var outboxPatternType = ExecutionContext.Settings.GetEventingSettings().OutboxPattern().AsEnum();
+
+        // When we're using EF's outbox pattern, then MassTransit itself creates a transaction and saves the changes
+        var allowTransactionScope = outboxPatternType != OutboxPatternType.EntityFramework;
+
+        method.ApplyUnitOfWorkImplementations(
+            template: this,
+            constructor: @class.Constructors.First(),
+            invocationStatement: executeHandler,
+            allowTransactionScope: allowTransactionScope,
+            cancellationTokenExpression: "context.CancellationToken");
+
+        switch (outboxPatternType)
+        {
+            case OutboxPatternType.None:
+                method.AddStatement(flushAll);
+                break;
+            case OutboxPatternType.EntityFramework:
+            case OutboxPatternType.InMemory:
+                method.FindStatement(p => p.TryGetMetadata("transaction", out string transaction) && transaction == "save-changes")?.InsertAbove(flushAll);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
     private bool UseExplicitNullSymbol => Project.GetProject().NullableEnabled;
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

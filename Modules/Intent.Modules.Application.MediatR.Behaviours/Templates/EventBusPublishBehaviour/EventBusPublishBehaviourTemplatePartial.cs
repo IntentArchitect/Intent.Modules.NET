@@ -48,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
             {
                 return;
             }
-            
+
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(4)

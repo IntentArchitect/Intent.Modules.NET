@@ -37,7 +37,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
-            if (IsSeparateDatabaseMultiTenancy(application) )
+            if (IsSeparateDatabaseMultiTenancy(application))
             {
                 Logging.Log.Warning("The Intent.CosmosDB Module does not currently support the MultiTenancy Settings' \"Data Isolation\" setting of \"Separate Databases\". Please either change the \"Data Isolation\" setting or contact support@intentarchitect.com should you require \"Separate Databases\" isolation.");
                 return;
@@ -117,7 +117,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 constructor.AddParameter("string", "partitionKeyFieldName", p => p.IntroduceReadonlyField());
                 constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
 
-                constructor.AddIfStatement("multiTenantContextAccessor != null", stmt => {
+                constructor.AddIfStatement("multiTenantContextAccessor != null", stmt =>
+                {
                     stmt.AddStatement("_tenantId = multiTenantContextAccessor.MultiTenantContext?.TenantInfo?.Id ?? throw new InvalidOperationException(\"Could not resolve tenantId\");");
                 });
 
