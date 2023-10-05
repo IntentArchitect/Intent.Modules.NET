@@ -24,7 +24,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class UnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\nusing System.Transactions" +
                     ";\r\nusing MediatR;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -52,7 +52,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
     /// </summary>
     public class ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -60,28 +60,28 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
                     "quest : notnull, ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCommandInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private readonly ");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetUnitOfWorkTypeName()));
             
             #line default
             #line hidden
             this.Write(" _dataSource;\r\n\r\n        public ");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetUnitOfWorkTypeName()));
             
             #line default
@@ -89,25 +89,25 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             this.Write(" dataSource)\r\n        {\r\n            _dataSource = dataSource;\r\n        }\r\n\r\n    " +
                     "    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate" +
                     "<TResponse> next, CancellationToken cancellationToken)\r\n        {\r\n            /" +
-                    "/ The pipeline execution is wrapped in a transaction scope to ensure that if any" +
-                    " other\r\n            // SaveChanges calls to the data source (e.g. EF Core) are c" +
-                    "alled, that they are\r\n            // transacted atomically. The isolation is set" +
-                    " to ReadCommitted by default (i.e. read-\r\n            // locks are released, whi" +
-                    "le write-locks are maintained for the duration of the\r\n            // transactio" +
-                    "n). Learn more on this approach for EF Core:\r\n            // https://docs.micros" +
-                    "oft.com/en-us/ef/core/saving/transactions#using-systemtransactions\r\n            " +
-                    "using (var transaction = new TransactionScope(TransactionScopeOption.Required, \r" +
-                    "\n                new TransactionOptions() { IsolationLevel = IsolationLevel.Read" +
-                    "Committed }, TransactionScopeAsyncFlowOption.Enabled))\r\n            {\r\n         " +
-                    "       var response = await next();\r\n\r\n                // By calling SaveChanges" +
-                    " at the last point in the transaction ensures that write-\r\n                // lo" +
-                    "cks in the database are created and then released as quickly as possible. This\r\n" +
-                    "                // helps optimize the application to handle a higher degree of c" +
-                    "oncurrency.\r\n                await _dataSource.SaveChangesAsync(cancellationToke" +
-                    "n);\r\n\r\n                // Commit transaction if all commands succeed, transactio" +
-                    "n will auto-rollback when\r\n                // disposed if anything failed.\r\n    " +
-                    "            transaction.Complete();\r\n                return response;\r\n         " +
-                    "   }\r\n        }\r\n    }\r\n}");
+                    "/ The execution is wrapped in a transaction scope to ensure that if any other\r\n " +
+                    "           // SaveChanges calls to the data source (e.g. EF Core) are called, th" +
+                    "at they are\r\n            // transacted atomically. The isolation is set to ReadC" +
+                    "ommitted by default (i.e. read-\r\n            // locks are released, while write-" +
+                    "locks are maintained for the duration of the\r\n            // transaction). Learn" +
+                    " more on this approach for EF Core:\r\n            // https://docs.microsoft.com/e" +
+                    "n-us/ef/core/saving/transactions#using-systemtransactions\r\n            using (va" +
+                    "r transaction = new TransactionScope(TransactionScopeOption.Required, \r\n        " +
+                    "        new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted" +
+                    " }, TransactionScopeAsyncFlowOption.Enabled))\r\n            {\r\n                va" +
+                    "r response = await next();\r\n\r\n                // By calling SaveChanges at the l" +
+                    "ast point in the transaction ensures that write-\r\n                // locks in th" +
+                    "e database are created and then released as quickly as possible. This\r\n         " +
+                    "       // helps optimize the application to handle a higher degree of concurrenc" +
+                    "y.\r\n                await _dataSource.SaveChangesAsync(cancellationToken);\r\n\r\n  " +
+                    "              // Commit transaction if all commands succeed, transaction will au" +
+                    "to-rollback when\r\n                // disposed if anything failed.\r\n             " +
+                    "   transaction.Complete();\r\n                return response;\r\n            }\r\n   " +
+                    "     }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

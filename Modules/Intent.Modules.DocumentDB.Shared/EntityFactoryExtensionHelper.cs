@@ -42,11 +42,13 @@ namespace Intent.Modules.DocumentDB.Shared
                     {
                         //Remove the "Entity" Properties and backing fields
                         var property = @class.GetAllProperties()
-                            .FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
+                            .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                                 metadataModel.Id == navigation.Id);
                         @class.Properties.Remove(property);
 
                         var field = @class.Fields
-                            .FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
+                            .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                                 metadataModel.Id == navigation.Id);
                         if (field != null)
                         {
                             @class.Fields.Remove(field);

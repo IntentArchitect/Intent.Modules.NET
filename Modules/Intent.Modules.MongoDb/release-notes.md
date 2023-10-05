@@ -1,6 +1,7 @@
 ### Version 1.0.6
 
 - Improvement: Domain Events being published now accepts cancellation token and code slightly reformatted.
+- Fixed: An error would occur during Software Factory execution when a derived Class in the domain designer had an aggregational association to another class.
 
 ### Version 1.0.4
 
