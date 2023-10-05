@@ -13,27 +13,57 @@ namespace Intent.Modules.DomainEvents.Templates
 {
     public static class TemplateExtensions
     {
+        [IntentIgnore]
         public static string GetDomainEventName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Events.Api.DomainEventModel
         {
             return template.GetTypeName(DomainEventTemplate.TemplateId, template.Model);
         }
 
+        [IntentIgnore]
         public static string GetDomainEventName(this IntentTemplateBase template, Intent.Modelers.Domain.Events.Api.DomainEventModel model)
         {
             return template.GetTypeName(DomainEventTemplate.TemplateId, model);
         }
 
+        [IntentIgnore]
         public static string GetDomainEventBaseName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(DomainEventBaseTemplate.TemplateId);
         }
 
+        [IntentIgnore]
         public static string GetDomainEventServiceInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId);
         }
 
+        [IntentIgnore]
         public static string GetHasDomainEventInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetDomainEventName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Events.Api.DomainEventModel
+        {
+            return template.GetTypeName(DomainEventTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDomainEventName(this IIntentTemplate template, Intent.Modelers.Domain.Events.Api.DomainEventModel model)
+        {
+            return template.GetTypeName(DomainEventTemplate.TemplateId, model);
+        }
+
+        public static string GetDomainEventBaseName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(DomainEventBaseTemplate.TemplateId);
+        }
+
+        public static string GetDomainEventServiceInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetHasDomainEventInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId);
         }

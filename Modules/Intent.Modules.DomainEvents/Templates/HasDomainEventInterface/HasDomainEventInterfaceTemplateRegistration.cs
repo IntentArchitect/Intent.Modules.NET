@@ -18,9 +18,10 @@ namespace Intent.Modules.DomainEvents.Templates.HasDomainEventInterface
     {
         public override string TemplateId => HasDomainEventInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new HasDomainEventInterfaceTemplate(outputTarget, null);
+            return new HasDomainEventInterfaceTemplate(outputTarget);
         }
     }
 }

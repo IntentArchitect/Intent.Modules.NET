@@ -1,10 +1,14 @@
+### 4.1.2
+
+- Improvement: Entity Domain Eventing infrastructure can now be configured to be on all aggregates or only aggregates with modeled domain events.
+
 ### 4.1.1
 
-- `Publish` method on the service interface now accepts a `CancellationToken`.
+- Improvement:`Publish` method on the service interface now accepts a `CancellationToken`.
 
 ### 4.1.0
 
-- Added auto-implementation of Domain Events being published from class constructors and methods.
+- Improvement: Added auto-implementation of Domain Events being published from class constructors and methods.
 - Fixed: Enum namespaces not being automatically added to Domain Event classes.
 
 ### 4.0.4

@@ -23,7 +23,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.DomainEvents.DomainEvent";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEventTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
@@ -42,13 +42,13 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
                     var @class = file.Classes.First();
                     @class.WithBaseType(GetBaseClass());
                     @class.TryAddXmlDocComments(Model.InternalElement);
-                    @class.AddConstructor(ctor => 
+                    @class.AddConstructor(ctor =>
                     {
                         foreach (var propertyModel in Model.Properties)
                         {
-                            ctor.AddParameter(base.GetTypeName(propertyModel.TypeReference), propertyModel.Name.ToParameterName(), arg => 
+                            ctor.AddParameter(base.GetTypeName(propertyModel.TypeReference), propertyModel.Name.ToParameterName(), arg =>
                             {
-                                arg.IntroduceProperty(property => 
+                                arg.IntroduceProperty(property =>
                                 {
                                     property.TryAddXmlDocComments(propertyModel.InternalElement);
                                     property.ReadOnly();

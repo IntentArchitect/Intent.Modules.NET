@@ -11,10 +11,12 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.DomainEvents.Settings;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -41,7 +43,10 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 {
                     var @class = file.Classes.FirstOrDefault();
                     if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
-                        model.IsAggregateRoot() && model.ParentClass == null)
+                        model.IsAggregateRoot() && 
+                        model.ParentClass == null &&
+                        AggregateGetsDomainEventing(application, model)
+                        )
                     {
                         @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
                         @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
@@ -94,8 +99,19 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             }
         }
 
-        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
-            IList<string> availableParameters, 
+        private bool AggregateGetsDomainEventing(IApplication application, ClassModel model)
+        {
+            if (application.Settings.GetDomainSettings().ImplementDomainEventingOn().IsModelledEvents())
+            {
+                return model.Constructors.Where(x => x.PublishedDomainEvents().Any()).Any() ||
+                    model.Operations.Where(x => x.PublishedDomainEvents().Any()).Any();
+            }
+            //Default is they all get
+            return true;
+        }
+
+        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
+            IList<string> availableParameters,
             DomainEventModel model)
         {
             var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;

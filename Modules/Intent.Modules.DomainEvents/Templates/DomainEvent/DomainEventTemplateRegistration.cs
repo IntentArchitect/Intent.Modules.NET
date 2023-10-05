@@ -27,6 +27,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
 
         public override string TemplateId => DomainEventTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainEventModel model)
         {
             return new DomainEventTemplate(outputTarget, model);
