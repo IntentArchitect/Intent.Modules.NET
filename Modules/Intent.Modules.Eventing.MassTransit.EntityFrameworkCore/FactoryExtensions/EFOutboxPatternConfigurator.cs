@@ -83,10 +83,10 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
             {
                 var priClass = file.Classes.First();
                 var method = priClass.FindMethod("AddMassTransitConfiguration");
-                
+
                 if (method.FindStatement(p => p.HasMetadata("configure-masstransit")) is not CSharpInvocationStatement configMassTransit) { return; }
                 if (configMassTransit.Statements.First() is not CSharpLambdaBlock configMassTransitBlock) { return; }
-                
+
                 CSharpLambdaBlock outboxConfigLambda;
                 if (configMassTransitBlock.FindStatement(p => p.HasMetadata("outbox-config")) is not CSharpInvocationStatement outboxConfigInvocation)
                 {
@@ -104,7 +104,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
                 if (outboxConfigLambda is not null)
                 {
                     outboxConfigBlock(outboxConfigLambda);
-                } 
+                }
             });
         }
     }

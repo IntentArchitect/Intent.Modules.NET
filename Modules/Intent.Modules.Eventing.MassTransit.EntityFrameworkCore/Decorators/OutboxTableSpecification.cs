@@ -20,8 +20,10 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.OutboxTableSpecification";
 
-        [IntentManaged(Mode.Fully)] private readonly DbContextTemplate _template;
-        [IntentManaged(Mode.Fully)] private readonly IApplication _application;
+        [IntentManaged(Mode.Fully)]
+        private readonly DbContextTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public OutboxTableSpecification(DbContextTemplate template, IApplication application)
