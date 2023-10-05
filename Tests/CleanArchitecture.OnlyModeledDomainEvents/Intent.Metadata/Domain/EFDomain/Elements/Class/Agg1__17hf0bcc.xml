@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f1f1f711-b258-47bc-a842-1eb6fe3079a9" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Agg1</name>
+  <display>Agg1</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</parentFolderId>
+  <packageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</packageId>
+  <packageName>EFDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="00599a6d-0eff-4f8d-9bc7-f2a3804ba77f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8f749052-ac12-446c-8c6c-1e91e738d31f">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1f1f711-b258-47bc-a842-1eb6fe3079a9</parentFolderId>
+      <packageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</packageId>
+      <packageName>EFDomain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e075727f-a6ee-4f63-b9da-3e427d06807b" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation</name>
+      <display>Operation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="08e14160-5d71-432d-98a0-f52b03c77c11">
+        <typeName>void</typeName>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1f1f711-b258-47bc-a842-1eb6fe3079a9</parentFolderId>
+      <packageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</packageId>
+      <packageName>EFDomain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

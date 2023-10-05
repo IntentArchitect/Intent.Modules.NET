@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="26ca65e9-89c6-43f7-875b-3c17c00ccc64" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>CustomerCreated</name>
+  <display>CustomerCreated</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>94c23035-695e-4e5a-a8d0-979cc1e8d2e1</parentFolderId>
+  <packageId>94c23035-695e-4e5a-a8d0-979cc1e8d2e1</packageId>
+  <packageName>CleanArchitecture.OnlyModeledDomainEvents.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
