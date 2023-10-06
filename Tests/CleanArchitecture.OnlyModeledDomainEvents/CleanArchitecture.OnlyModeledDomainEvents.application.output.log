@@ -132,14 +132,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/CosmosDBUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDBUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>

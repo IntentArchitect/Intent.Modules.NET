@@ -26,7 +26,6 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Application
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(CosmosDBUnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();

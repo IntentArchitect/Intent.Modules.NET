@@ -51,20 +51,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="40983e2e-b77d-4c1a-925c-eed5e87c8ef5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="3c3d299e-14aa-40a7-8218-219a8a2e6c1e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
@@ -111,20 +97,6 @@
       <name>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</name>
       <display>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</display>
       <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="325d3ea4-e251-4f26-83dd-895cf053b018" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</name>
-      <display>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</display>
-      <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
