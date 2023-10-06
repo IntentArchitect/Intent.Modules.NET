@@ -1,16 +1,11 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
-using Intent.Modules.Application.MediatR.Templates;
+using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
-using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -34,10 +29,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             _template = template;
             _application = application;
 
-            var matchedStrategy = StrategyFactory.GetMatchedQueryStrategy(template, application);
+            CSharpTemplateBase<QueryModel> targetTemplate = template.ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile()
+                ? template.GetTemplate<QueryModelsTemplate>(QueryModelsTemplate.TemplateId, template.Model)
+                : template;
+
+            var matchedStrategy = StrategyFactory.GetMatchedQueryStrategy(targetTemplate, application);
             if (matchedStrategy is not null)
             {
-                template.CSharpFile.AfterBuild(file => matchedStrategy.ApplyStrategy());
+                ((ICSharpFileBuilderTemplate)targetTemplate).CSharpFile.AfterBuild(_ => matchedStrategy.ApplyStrategy());
             }
         }
     }

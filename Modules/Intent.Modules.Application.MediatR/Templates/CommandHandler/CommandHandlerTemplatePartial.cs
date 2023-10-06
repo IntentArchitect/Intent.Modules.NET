@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -26,33 +27,45 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
-
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "");
+            Configure(this, model);
+        }
 
-            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile();
+        }
+
+        internal static void Configure(ICSharpFileBuilderTemplate template, CommandModel model)
+        {
+            template.AddNugetDependency(NuGetPackages.MediatR);
+
+            template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+
+            template.CSharpFile
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MediatR")
-                .AddClass($"{Model.Name}Handler", @class =>
+                .AddClass($"{model.Name}Handler", @class =>
                 {
-                    @class.AddMetadata("model", Model);
-                    @class.WithBaseType(GetRequestHandlerInterface());
+                    @class.AddMetadata("handler", true);
+                    @class.AddMetadata("model", model);
+                    @class.WithBaseType(GetRequestHandlerInterface(template, model));
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute("IntentManaged(Mode.Merge)");
                     });
-                    @class.AddMethod(GetReturnType(), "Handle", method =>
+                    @class.AddMethod(GetReturnType(template, model), "Handle", method =>
                     {
-                        method.TryAddXmlDocComments(Model.InternalElement);
+                        method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                        method.AddParameter(GetCommandModelName(), "request");
+                        method.AddParameter(GetCommandModelName(template, model), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
@@ -77,22 +90,22 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return CSharpFile.ToString();
         }
 
-        private string GetRequestHandlerInterface()
+        private static string GetRequestHandlerInterface(ICSharpTemplate template, CommandModel model)
         {
-            return Model.TypeReference.Element != null
-                ? $"IRequestHandler<{GetCommandModelName()}, {GetTypeName(Model.TypeReference)}>"
-                : $"IRequestHandler<{GetCommandModelName()}>";
+            return model.TypeReference.Element != null
+                ? $"IRequestHandler<{GetCommandModelName(template, model)}, {template.GetTypeName(model.TypeReference)}>"
+                : $"IRequestHandler<{GetCommandModelName(template, model)}>";
         }
 
-        private string GetCommandModelName()
+        private static string GetCommandModelName(ICSharpTemplate template, CommandModel model)
         {
-            return GetTypeName(CommandModelsTemplate.TemplateId, Model);
+            return template.GetTypeName(CommandModelsTemplate.TemplateId, model);
         }
 
-        private string GetReturnType()
+        private static string GetReturnType(ICSharpTemplate template, CommandModel model)
         {
-            return Model.TypeReference.Element != null
-                ? $"Task<{GetTypeName(Model.TypeReference)}>"
+            return model.TypeReference.Element != null
+                ? $"Task<{template.GetTypeName(model.TypeReference)}>"
                 : "Task";
         }
 

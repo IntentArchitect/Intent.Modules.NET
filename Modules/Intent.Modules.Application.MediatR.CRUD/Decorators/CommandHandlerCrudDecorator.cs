@@ -1,17 +1,11 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
-using Intent.Modules.Application.MediatR.Templates;
+using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
-using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -29,16 +23,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
+
         [IntentManaged(Mode.Merge)]
         public CommandHandlerCrudDecorator(CommandHandlerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
 
-            var matchedStrategy = StrategyFactory.GetMatchedCommandStrategy(template);
+            CSharpTemplateBase<CommandModel> targetTemplate = template.ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile()
+                ? template.GetTemplate<CommandModelsTemplate>(CommandModelsTemplate.TemplateId, template.Model)
+                : template;
+
+            var matchedStrategy = StrategyFactory.GetMatchedCommandStrategy(targetTemplate);
             if (matchedStrategy is not null)
             {
-                template.CSharpFile.AfterBuild(file => matchedStrategy.ApplyStrategy());
+                ((ICSharpFileBuilderTemplate)targetTemplate).CSharpFile.AfterBuild(_ => matchedStrategy.ApplyStrategy());
             }
         }
     }

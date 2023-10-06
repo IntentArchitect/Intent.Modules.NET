@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -18,11 +19,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class DomainCtorImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly CSharpTemplateBase<CommandModel> _template;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public DomainCtorImplementationStrategy(CommandHandlerTemplate template)
+        public DomainCtorImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
             _template = template;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
@@ -42,7 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
@@ -188,7 +189,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private void AddMappingMethod(string mappingMethodName, DTOFieldModel field, IElement element)
         {
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var targetDto = field.TypeReference.Element.AsDTOModel();
             if (!MethodExists(mappingMethodName, @class, targetDto))
             {

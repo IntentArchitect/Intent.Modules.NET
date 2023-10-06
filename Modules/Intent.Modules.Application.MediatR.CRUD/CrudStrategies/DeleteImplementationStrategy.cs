@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -18,11 +19,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class DeleteImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly CSharpTemplateBase<CommandModel> _template;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public DeleteImplementationStrategy(CommandHandlerTemplate template)
+        public DeleteImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
             _template = template;
 
@@ -38,7 +39,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),

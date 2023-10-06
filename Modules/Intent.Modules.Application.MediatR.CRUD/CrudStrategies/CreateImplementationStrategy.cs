@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -19,11 +20,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class CreateImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly CSharpTemplateBase<CommandModel> _template;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public CreateImplementationStrategy(CommandHandlerTemplate template)
+        public CreateImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
             _template = template;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
@@ -42,7 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
@@ -179,7 +180,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()}),");
                             }
-                            _template.AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
+                            ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -206,7 +207,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 {
                                     codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList()),");
                                 }
-                                _template.AddValueObjectFactoryMethod(updateMethodName, targetValueObject, field);
+                                ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(updateMethodName, targetValueObject, field);
                                 break;
                             }
                             var targetEntity = association.Element.AsClassModel();
@@ -235,7 +236,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({createMethodName}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetEntity.Name.ToPascalCase()}>()" : "")},");
                             }
 
-                            var @class = _template.CSharpFile.Classes.First();
+                            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
                             var existingMethod = @class.FindMethod(x => x.Name == createMethodName &&
                                                                         x.ReturnType == _template.GetTypeName(targetEntity.InternalElement) &&
                                                                         x.Parameters.FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));

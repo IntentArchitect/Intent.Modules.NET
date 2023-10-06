@@ -4,6 +4,8 @@ using System.Linq;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -55,6 +57,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                         }
                     });
                 });
+
+            if (ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
+            {
+                FulfillsRole("Application.Command.Handler");
+                CommandHandlerTemplate.Configure(this, model);
+            }
         }
 
         [IntentManaged(Mode.Fully)]

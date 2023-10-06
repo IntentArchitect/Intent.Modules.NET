@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
   <version>4.1.4-pre.0</version>
@@ -136,7 +136,15 @@
   <metadata>
     <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="2392c046-0aa7-4ee5-a77a-e954c4a7aab5" title="CQRS Settings" externalReference="2392c046-0aa7-4ee5-a77a-e954c4a7aab5">
+      <settings>
+        <setting id="02413035-08e9-47b2-8b89-798f38388243" title="Group Commands/Queries, Handlers and Validators into single file" type="checkbox">
+          <isRequired>false</isRequired>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
   <factoryExtensions />
 </package>

@@ -44,9 +44,9 @@ public static class ImplementationStrategyTemplatesExtensions
         return dtoTemplate.ClassName;
     }
 
-    public static void AddValueObjectFactoryMethod(this CommandHandlerTemplate template, string mappingMethodName, IElement domain, DTOFieldModel field)
+    public static void AddValueObjectFactoryMethod(this ICSharpFileBuilderTemplate template, string mappingMethodName, IElement domain, DTOFieldModel field)
     {
-        var @class = template.CSharpFile.Classes.First();
+        var @class = template.CSharpFile.Classes.First(x => x.HasMetadata("handler"));
         var targetDto = field.TypeReference.Element.AsDTOModel();
         if (!template.MethodExists(mappingMethodName, @class, targetDto))
         {
@@ -70,7 +70,7 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
-    public static bool MethodExists(this CommandHandlerTemplate template, string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+    public static bool MethodExists(this ICSharpFileBuilderTemplate template, string mappingMethodName, CSharpClass @class, DTOModel targetDto)
     {
         return @class.FindMethod((method) =>
                                     method.Name == mappingMethodName
