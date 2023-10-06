@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>4.3.9</version>
+  <version>4.4.0-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>A simple and extensible Entities pattern in C#.</summary>
   <description>A simple and extensible Entities pattern in C#.</description>
@@ -77,7 +77,7 @@
   <decorators></decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.39" />
+    <dependency id="Intent.Common.CSharp" version="3.3.42-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

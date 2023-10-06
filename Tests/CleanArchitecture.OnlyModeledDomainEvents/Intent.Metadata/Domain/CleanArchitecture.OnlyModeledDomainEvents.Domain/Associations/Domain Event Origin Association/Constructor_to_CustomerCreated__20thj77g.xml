@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="c598ecb2-24fe-4291-baf4-bd0387d53a4a">
       <typeId>936b2938-70d5-492c-b5ac-2f986c766169</typeId>
-      <typeName>Constructor</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>0</order>
     <typeReference id="b44c540e-b27c-4e34-bd39-3620dfc59377">
       <typeId>26ca65e9-89c6-43f7-875b-3c17c00ccc64</typeId>
-      <typeName>CustomerCreated</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

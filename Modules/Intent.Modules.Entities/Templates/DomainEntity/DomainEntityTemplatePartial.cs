@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -53,6 +52,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddAssemblyAttribute(CSharpIntentTagModeAttribute.Implicit())
                 .AddClass(Model.Name, (Action<CSharpClass>)(@class =>
                 {
                     foreach (var genericType in Model.GenericTypes)
@@ -98,7 +98,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         @class.ImplementsInterface(domainEntityInterfaceName);
                     }
 
-                    @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)")
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully())
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
 
@@ -168,59 +168,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         }, 100);
                     }
                 }))
-                .OnBuild(file =>
-                {
-                    // This is actually all pointless since by default we have the following above the class:
-                    // [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
-                    //                            ^^^^^                                      ^^^^^^^^^^^^
-                    return;
-
-                    if (Model.Constructors.Any())
-                    {
-                        return;
-                    }
-
-                    var @class = file.Classes.First();
-                    var nullabilityStatements = new List<string>();
-
-                    foreach (var attribute in model.Attributes)
-                    {
-                        if (!string.IsNullOrWhiteSpace(attribute.Value))
-                        {
-                            continue;
-                        }
-
-                        var typeInfo = base.GetTypeInfo(attribute.TypeReference);
-                        if (NeedsNullabilityAssignment(typeInfo))
-                        {
-                            nullabilityStatements.Add($"{attribute.Name.ToPascalCase()} = null!;");
-                        }
-                    }
-
-                    foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
-                    {
-                        if (associationEnd.IsCollection || associationEnd.IsNullable)
-                        {
-                            continue;
-                        }
-
-                        var property = @class.GetAllProperties().FirstOrDefault(x => x.HasMetadata("model") && x.GetMetadata<IMetadataModel>("model").Id == associationEnd.Id);
-                        if (property != null)
-                        {
-                            nullabilityStatements.Add($"{associationEnd.Name.ToPascalCase()} = null!;");
-                        }
-                    }
-
-                    if (nullabilityStatements.Any())
-                    {
-                        @class.AddConstructor(ctor =>
-                        {
-                            ctor.AddAttribute("[IntentInitialGen]");
-                            ctor.AddStatements(nullabilityStatements);
-                        });
-                    }
-                }
-                , 1000).AfterBuild(file =>
+                .AfterBuild(file =>
                 {
                     foreach (var method in file.Classes.First().Methods)
                     {

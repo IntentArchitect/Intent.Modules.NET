@@ -1,7 +1,8 @@
-### Version 4.3.8
+### Version 4.4.0
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
 - Improvement: Added code documentation for all helper code.
+- Improvement: Entity classes have the Intent Tag Mode set to `Implicit` to reduce the noise caused by the Intent Managed Attributes.
 
 ### Version 4.3.7
 

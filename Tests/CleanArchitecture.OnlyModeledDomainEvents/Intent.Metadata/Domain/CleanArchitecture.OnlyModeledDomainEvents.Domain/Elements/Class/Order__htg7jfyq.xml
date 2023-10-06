@@ -19,7 +19,6 @@
       <genericTypes />
       <typeReference id="43c4ce6e-c975-4fba-a318-527f11f94486">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
