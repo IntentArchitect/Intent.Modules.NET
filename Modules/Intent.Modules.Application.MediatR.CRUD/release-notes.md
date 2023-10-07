@@ -1,6 +1,6 @@
 ### Version 5.3.0
 
-- Improvement: Update Commands will now allow the `Id` of the Command to be omitted in order to make the `Id` route parameter the primary source. This should make calls more convenient for users.
+- Improvement: When Controller parameters match with Update Command fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command that are already populated via a Route parameter.
 
 ### Version 5.2.7
 
@@ -8,7 +8,7 @@
 
 ### Version 5.2.6
 
-- Improvement : Upgraded CRUD Scripts to be forward compatible with Intent Architect v4.1.
+- Improvement: Upgraded CRUD Scripts to be forward compatible with Intent Architect v4.1.
 
 ### Version 5.2.5
 

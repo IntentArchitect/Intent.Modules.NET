@@ -26,12 +26,20 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             Composites = composites;
         }
 
-        public Guid AggregateRootId { get; set; }
+        public Guid AggregateRootId { get; private set; }
         public Guid Id { get; private set; }
         public string CompositeAttr { get; set; }
         public DateTime? SomeDate { get; set; }
         public UpdateAggregateRootCompositeManyBCompositeSingleBBDto? Composite { get; set; }
         public List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> Composites { get; set; }
+
+        public void SetAggregateRootId(Guid aggregateRootId)
+        {
+            if (AggregateRootId == default)
+            {
+                AggregateRootId = aggregateRootId;
+            }
+        }
 
         public void SetId(Guid id)
         {

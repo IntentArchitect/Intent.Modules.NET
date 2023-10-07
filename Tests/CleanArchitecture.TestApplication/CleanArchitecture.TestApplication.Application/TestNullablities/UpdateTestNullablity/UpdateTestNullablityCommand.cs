@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
             DefaultLiteralEnum = defaultLiteralEnum;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public NoDefaultLiteralEnum SampleEnum { get; set; }
         public string Str { get; set; }
         public DateTime Date { get; set; }
@@ -41,13 +41,5 @@ namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateT
         public NoDefaultLiteralEnum? NullableEnum { get; set; }
         public Guid NullabilityPeerId { get; set; }
         public DefaultLiteralEnum DefaultLiteralEnum { get; set; }
-
-        public void SetId(Guid id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
     }
 }

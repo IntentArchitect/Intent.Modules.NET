@@ -17,19 +17,11 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.UpdatePrivilege
             Name = name;
             Description = description;
         }
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
         public string? Description { get; set; }
-
-        public void SetId(string id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
 
     }
 }

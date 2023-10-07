@@ -158,6 +158,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetImplicitKeyAggrRootId(implicitKeyAggrRootId);
             command.SetId(id);
             if (implicitKeyAggrRootId != command.ImplicitKeyAggrRootId)
             {

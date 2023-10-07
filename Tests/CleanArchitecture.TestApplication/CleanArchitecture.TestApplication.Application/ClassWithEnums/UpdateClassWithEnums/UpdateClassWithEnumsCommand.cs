@@ -28,20 +28,12 @@ namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.UpdateCla
             NullibleEnumWithoutValues = nullibleEnumWithoutValues;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public EnumWithDefaultLiteral EnumWithDefaultLiteral { get; set; }
         public EnumWithoutDefaultLiteral EnumWithoutDefaultLiteral { get; set; }
         public EnumWithoutValues EnumWithoutValues { get; set; }
         public EnumWithDefaultLiteral? NullibleEnumWithDefaultLiteral { get; set; }
         public EnumWithoutDefaultLiteral? NullibleEnumWithoutDefaultLiteral { get; set; }
         public EnumWithoutValues? NullibleEnumWithoutValues { get; set; }
-
-        public void SetId(Guid id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
     }
 }

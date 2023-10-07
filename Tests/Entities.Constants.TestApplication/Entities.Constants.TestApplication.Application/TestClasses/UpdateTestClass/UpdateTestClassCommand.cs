@@ -27,7 +27,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
             VarCharMax = varCharMax;
             NVarCharMax = nVarCharMax;
         }
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         public string Att100 { get; set; }
 
@@ -40,14 +40,6 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
         public string VarCharMax { get; set; }
 
         public string NVarCharMax { get; set; }
-
-        public void SetId(Guid id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
 
     }
 }

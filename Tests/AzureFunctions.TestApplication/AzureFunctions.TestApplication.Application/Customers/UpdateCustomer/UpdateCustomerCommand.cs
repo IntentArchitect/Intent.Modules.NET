@@ -16,15 +16,7 @@ namespace AzureFunctions.TestApplication.Application.Customers.UpdateCustomer
             Name = name;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
-
-        public void SetId(Guid id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
     }
 }

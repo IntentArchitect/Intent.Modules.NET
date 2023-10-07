@@ -17,16 +17,8 @@ namespace CosmosDB.Application.Clients.UpdateClient
             Name = name;
         }
 
-        public string Identifier { get; private set; }
+        public string Identifier { get; set; }
         public ClientType Type { get; set; }
         public string Name { get; set; }
-
-        public void SetId(string identifier)
-        {
-            if (Identifier == default)
-            {
-                Identifier = identifier;
-            }
-        }
     }
 }

@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
@@ -22,8 +26,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
     {
         public override string Id => "Intent.Application.MediatR.CRUD.UpdateCommandIdExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -33,65 +36,94 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 return;
             }
 
-            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller)).ToArray();
+            var controllerTemplates = application
+                .FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller)).ToArray();
             foreach (var commandTemplate in commandTemplates)
             {
-                var commandHandler = application.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, commandTemplate.Model);
-                if (commandHandler is null ||
-                    StrategyFactory.GetMatchedCommandStrategy(commandHandler) is not UpdateImplementationStrategy strategy)
+                if (IsUpdateCrudCommand(commandTemplate, application))
                 {
                     continue;
                 }
 
-                var entity = strategy.GetStrategyData().FoundEntity;
-                var ids = commandTemplate.Model.Properties.GetEntityIdFields(entity, commandTemplate.ExecutionContext);
-                
                 commandTemplate.CSharpFile.OnBuild(commandFile =>
                 {
-                    var commandClass = commandFile.Classes.First();
-                    foreach (var field in commandClass.Properties.Where(p => ids.Any(q => q.Name == p.Name)))
-                    {
-                        field.Setter.Private();
-                    }
-
-                    commandClass.AddMethod("void", "SetId", method =>
-                    {
-                        foreach (var id in ids)
-                        {
-                            method.AddParameter(commandTemplate.GetTypeName(id.TypeReference), id.Name.ToParameterName());
-                            
-                            method.AddIfStatement($"{id.Name.ToPropertyName()} == default", stmt =>
-                            {
-                                stmt.AddStatement($"{id.Name.ToPropertyName()} = {id.Name.ToParameterName()};");
-                            });
-                        }
-                    });
-                    
-                    var controllerTemplate = controllerTemplates.FirstOrDefault(p => p.CSharpFile.Classes.First().TryGetMetadata<string>("modelId", out var classModelId) && classModelId == commandTemplate.Model.InternalElement.ParentElement?.Id);
+                    var controllerTemplate = controllerTemplates.FirstOrDefault(p =>
+                        p.CSharpFile.Classes.First().TryGetMetadata<string>("modelId", out var classModelId) &&
+                        classModelId == commandTemplate.Model.InternalElement.ParentElement?.Id);
                     if (controllerTemplate is null)
                     {
                         return;
                     }
 
+                    var commandClass = commandTemplate.CSharpFile.Classes.First();
+                    var controllerClass = controllerTemplate.CSharpFile.Classes.First();
+
                     controllerTemplate.CSharpFile.OnBuild(controllerFile =>
                     {
-                        var controllerClass = controllerFile.Classes.First();
-                        controllerClass.FindMethod(method => 
-                                method.TryGetMetadata<string>("modelId", out var operationModelId) && 
-                                operationModelId == commandTemplate.Model.Id &&
-                                (!method.TryGetMetadata<string>("route", out var route) || ids.Any(id => route.ToLowerInvariant().Contains(id.Name.ToParameterName().ToLowerInvariant()))) &&
-                                method.Parameters.Any(param => param.Name == "command"))
-                            ?.InsertStatement(0, new CSharpInvocationStatement("command.SetId"), stmt =>
+                        var controllerMethod = controllerClass.FindMethod(method =>
+                            method.TryGetMetadata<string>("modelId", out var operationModelId) &&
+                            operationModelId == commandTemplate.Model.Id &&
+                            method.Parameters.Any(param => param.Type.Contains(commandTemplate.ClassName, StringComparison.InvariantCulture)));
+                        if (controllerMethod is null)
+                        {
+                            return;
+                        }
+
+                        var commandFieldsLookup = commandTemplate.Model.Properties.ToDictionary(k => k.Id);
+                        var matches = GetControllerParamWithCommandPropertyMatch(controllerMethod, commandClass, commandFieldsLookup);
+                        var commandParameter = controllerMethod.Parameters.First(param => param.Type.Contains(commandTemplate.ClassName, StringComparison.InvariantCulture));
+
+                        int insertIndex = -1;
+                        foreach (var match in matches)
+                        {
+                            insertIndex++;
+                            match.CommandProperty.Setter.Private();
+                            commandClass.AddMethod("void", $"Set{match.CommandProperty.Name}", method =>
                             {
-                                var invokeStmt = (CSharpInvocationStatement)stmt;
-                                foreach (var id in ids)
+                                method.AddParameter(commandTemplate.GetTypeName(match.DtoFieldModel.TypeReference), match.CommandProperty.Name.ToParameterName());
+                            
+                                method.AddIfStatement($"{match.CommandProperty.Name} == default", stmt =>
                                 {
-                                    invokeStmt.AddArgument(id.Name.ToParameterName());
-                                }
+                                    stmt.AddStatement($"{match.CommandProperty.Name} = {match.CommandProperty.Name.ToParameterName()};");
+                                });
                             });
+                            controllerMethod.InsertStatement(insertIndex, $"{commandParameter.Name}.Set{match.CommandProperty.Name}({match.MethodParameter.Name});");
+                        }
                     }, 10);
                 }, 10);
             }
         }
+
+        private bool IsUpdateCrudCommand(CommandModelsTemplate commandTemplate, IApplication application)
+        {
+            var commandHandler = application.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, commandTemplate.Model);
+            return commandHandler is null || StrategyFactory.GetMatchedCommandStrategy(commandHandler) is not UpdateImplementationStrategy strategy;
+        }
+        
+        private static List<MatchEntry> GetControllerParamWithCommandPropertyMatch(CSharpClassMethod method, CSharpClass commandClass, Dictionary<string, DTOFieldModel> commandFieldsLookup)
+        {
+            var matches = new List<MatchEntry>();
+            foreach (var methodParameter in method.Parameters)
+            {
+                if (!methodParameter.TryGetMetadata<string>("modelId", out var paramModelId))
+                {
+                    continue;
+                }
+
+                var commandProp = commandClass.Properties.FirstOrDefault(prop =>
+                    prop.TryGetMetadata<DTOFieldModel>("model", out var propModel) &&
+                    propModel?.Id == paramModelId);
+                if (commandProp is null)
+                {
+                    continue;
+                }
+
+                matches.Add(new MatchEntry(methodParameter, commandProp, commandFieldsLookup[paramModelId]));
+            }
+
+            return matches;
+        }
+
+        private record MatchEntry(CSharpParameter MethodParameter, CSharpProperty CommandProperty, DTOFieldModel DtoFieldModel);
     }
 }

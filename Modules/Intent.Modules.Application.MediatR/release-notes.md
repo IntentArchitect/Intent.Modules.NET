@@ -1,4 +1,8 @@
-﻿### Version 4.1.3
+﻿### Version 4.1.4
+
+- Improvement: Internal model update for better identifying Command / Query Templates during Software Factory Execution.
+
+### Version 4.1.3
 
 - Fixed: For collections of a non-DTO return types, the handler's would incorrectly generate to return `IEnumerable<T>` instead of `List<T>` in alignment with the generic type argument of their respective `Query`s and `Command`s.
 

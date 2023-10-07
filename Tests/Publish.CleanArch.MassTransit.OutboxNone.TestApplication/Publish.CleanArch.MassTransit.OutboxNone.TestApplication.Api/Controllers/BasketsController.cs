@@ -131,6 +131,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             [FromBody] UpdateBasketBasketItemCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetBasketId(basketId);
             command.SetId(id);
             if (basketId != command.BasketId)
             {

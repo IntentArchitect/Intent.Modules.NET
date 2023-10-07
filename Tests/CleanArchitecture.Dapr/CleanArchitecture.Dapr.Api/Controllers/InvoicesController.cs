@@ -156,6 +156,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             [FromBody] UpdateInvoiceInvoiceLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetInvoiceId(invoiceId);
             command.SetId(id);
             if (invoiceId != command.InvoiceId)
             {

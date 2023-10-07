@@ -158,6 +158,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetAggregateRootId(aggregateRootId);
             command.SetId(id);
             if (aggregateRootId != command.AggregateRootId)
             {

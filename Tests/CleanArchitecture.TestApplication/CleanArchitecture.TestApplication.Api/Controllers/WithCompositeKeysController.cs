@@ -85,7 +85,8 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateWithCompositeKeyCommand command,
             CancellationToken cancellationToken = default)
         {
-            command.SetId(key1Id, key2Id);
+            command.SetKey1Id(key1Id);
+            command.SetKey2Id(key2Id);
             if (key1Id != command.Key1Id)
             {
                 return BadRequest();

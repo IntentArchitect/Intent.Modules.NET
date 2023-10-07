@@ -67,6 +67,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
+                                    param.AddMetadata("model", parameter);
+                                    param.AddMetadata("modelId", parameter.Id);
+                                    param.AddMetadata("mappedPayloadProperty", parameter.MappedPayloadProperty);
+                                    
                                     param.WithDefaultValue(parameter.Value);
                                     var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))

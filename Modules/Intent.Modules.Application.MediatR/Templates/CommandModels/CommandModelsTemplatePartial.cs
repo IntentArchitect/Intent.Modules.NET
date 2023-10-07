@@ -49,6 +49,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                         {
                             ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
                             {
+                                p.AddMetadata("model", property);
                                 p.IntroduceProperty();
                             });
                         }

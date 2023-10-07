@@ -18,21 +18,13 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
             Created = created;
             CustomerId = customerId;
         }
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         public int No { get; set; }
 
         public DateTime Created { get; set; }
 
         public Guid CustomerId { get; set; }
-
-        public void SetId(Guid id)
-        {
-            if (Id == default)
-            {
-                Id = id;
-            }
-        }
 
     }
 }

@@ -181,6 +181,7 @@ namespace CosmosDB.Api.Controllers
             [FromBody] UpdateInvoiceLineItemCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetInvoiceId(invoiceId);
             command.SetId(id);
             if (invoiceId != command.InvoiceId)
             {

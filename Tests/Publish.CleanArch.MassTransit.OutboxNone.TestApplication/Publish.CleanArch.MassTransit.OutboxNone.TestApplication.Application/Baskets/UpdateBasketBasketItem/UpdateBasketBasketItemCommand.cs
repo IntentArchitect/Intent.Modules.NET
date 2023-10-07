@@ -18,10 +18,18 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             Amount = amount;
         }
 
-        public Guid BasketId { get; set; }
+        public Guid BasketId { get; private set; }
         public Guid Id { get; private set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
+
+        public void SetBasketId(Guid basketId)
+        {
+            if (BasketId == default)
+            {
+                BasketId = basketId;
+            }
+        }
 
         public void SetId(Guid id)
         {

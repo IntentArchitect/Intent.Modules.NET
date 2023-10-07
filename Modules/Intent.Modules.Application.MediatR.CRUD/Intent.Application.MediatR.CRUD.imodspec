@@ -19,9 +19,9 @@
     <factoryExtension id="Intent.Application.MediatR.CRUD.UpdateCommandIdExtension" externalReference="1d72157f-6390-4c55-bc74-d8824893cd75" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.1.3" />
+    <dependency id="Intent.Application.MediatR" version="4.1.4-pre.0" />
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.39" />
+    <dependency id="Intent.Common.CSharp" version="3.3.42-pre.4" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.2" />
     <dependency id="Intent.Metadata.WebApi" version="4.2.4" />
@@ -38,7 +38,7 @@
     </detect>&gt;
     <detect id="Intent.Application.MediatR.CRUD.Tests">
       <install>
-        <package id="Intent.Application.MediatR.CRUD.Tests" version="1.3.1" />
+        <package id="Intent.Application.MediatR.CRUD.Tests" version="1.4.0-pre.0" />
       </install>
     </detect>
   </interoperability>
