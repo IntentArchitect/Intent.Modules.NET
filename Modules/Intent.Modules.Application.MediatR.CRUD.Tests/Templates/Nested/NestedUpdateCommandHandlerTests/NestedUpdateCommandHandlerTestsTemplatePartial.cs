@@ -106,7 +106,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                         method.Async();
                         method.AddAttribute("Fact");
 
-                        method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
+                        method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements(true));
                         method.AddStatements(facade.GetCommandHandlerConstructorParameterMockStatements());
                         method.AddStatements(facade.GetAggregateOwnerDomainRepositoryFindByIdMockingStatements("testCommand", "existingOwnerEntity", CommandHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
                         method.AddStatements(facade.GetCommandHandlerConstructorSutStatement());

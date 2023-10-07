@@ -82,7 +82,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.With(p => p.ImplicitKeyNestedCompositions, new List<ImplicitKeyNestedComposition>()));
             var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
             fixture.Customize<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
-                .With(p => p.ImplicitKeyAggrRootId, existingOwnerEntity.Id));
+                .Do(p => p.SetImplicitKeyAggrRootId(existingOwnerEntity.Id)));
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
             var implicitKeyAggrRootRepository = Substitute.For<IImplicitKeyAggrRootRepository>();
             implicitKeyAggrRootRepository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));

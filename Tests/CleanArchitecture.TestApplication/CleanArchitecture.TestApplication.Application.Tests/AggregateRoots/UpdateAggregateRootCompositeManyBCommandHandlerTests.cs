@@ -83,7 +83,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Customize<AggregateRoot>(comp => comp.With(p => p.Composites, new List<CompositeManyB>()));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
-                .With(p => p.AggregateRootId, existingOwnerEntity.Id));
+                .Do(p => p.SetAggregateRootId(existingOwnerEntity.Id)));
             var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
             aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));

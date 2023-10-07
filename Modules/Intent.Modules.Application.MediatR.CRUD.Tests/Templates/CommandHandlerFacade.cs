@@ -140,7 +140,7 @@ internal class CommandHandlerFacade
         return statements;
     }
 
-    public IReadOnlyCollection<CSharpStatement> GetNewAggregateOwnerWithoutCompositesStatements()
+    public IReadOnlyCollection<CSharpStatement> GetNewAggregateOwnerWithoutCompositesStatements(bool specialCrudUpdateCondition)
     {
         var statements = new List<CSharpStatement>();
 
@@ -158,7 +158,14 @@ internal class CommandHandlerFacade
         {
             var idAttribute = TargetDomainIdAttributes[index];
             var idField = CommandFieldsForOwnerId[index];
-            fluent.AddChainStatement($"With(p => p.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+            if (specialCrudUpdateCondition && HasSetterForCommandField(idField))
+            {
+                fluent.AddChainStatement($"Do(p => p.Set{idField.Name.ToPascalCase()}(existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()}))");
+            }
+            else
+            {
+                fluent.AddChainStatement($"With(p => p.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+            }
         }
 
         statements.Add($"var testCommand = fixture.Create<{CommandTypeName}>();");
@@ -714,9 +721,9 @@ internal class CommandHandlerFacade
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
-            MockRepositoryResponse.ReturnDomainVariable => //$".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
+            MockRepositoryResponse.ReturnDomainVariable =>
                 $".Returns({GetFromResultExpression(entityVarName ?? throw new ArgumentNullException(nameof(entityVarName)), targetType, domainModel, true, false)})",
-            MockRepositoryResponse.ReturnDefault => //$".Returns(Task.FromResult<{targetType}>(default))",
+            MockRepositoryResponse.ReturnDefault =>
                 $".Returns({GetFromResultExpression("default", targetType, domainModel, false, false)})",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
