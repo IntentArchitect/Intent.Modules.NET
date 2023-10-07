@@ -18,8 +18,16 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
             CompositeOfAggrLong = compositeOfAggrLong;
         }
 
-        public long Id { get; set; }
+        public long Id { get; private set; }
         public string Attribute { get; set; }
         public UpdateAggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
+
+        public void SetId(long id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

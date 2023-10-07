@@ -16,9 +16,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class IntegrationFactoryExtension : FactoryExtensionBase
+    public class MongoDbRepositoryUpdateExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Application.MediatR.CRUD.IntegrationFactoryExtension";
+        public override string Id => "Intent.Application.MediatR.CRUD.MongoDbRepositoryUpdateExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

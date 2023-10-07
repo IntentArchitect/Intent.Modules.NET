@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Update Commands will now allow the `Id` of the Command to be omitted in order to make the `Id` route parameter the primary source. This should make calls more convenient for users.
+
 ### Version 5.2.7
 
 - Fixed: When calling domain operations for Document DB aggregate entities, an uncompilable `_<entityName>Repository.Update(aggregateRoot)` statement would be generated.

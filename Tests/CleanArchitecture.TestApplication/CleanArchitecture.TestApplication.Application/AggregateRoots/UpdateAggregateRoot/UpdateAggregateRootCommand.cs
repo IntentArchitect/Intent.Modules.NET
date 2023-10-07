@@ -28,12 +28,20 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             LimitedService = limitedService;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public string AggregateAttr { get; set; }
         public List<UpdateAggregateRootCompositeManyBDto> Composites { get; set; }
         public UpdateAggregateRootCompositeSingleADto? Composite { get; set; }
         public UpdateAggregateRootAggregateSingleCDto? Aggregate { get; set; }
         public string LimitedDomain { get; set; }
         public string LimitedService { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

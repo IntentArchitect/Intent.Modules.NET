@@ -259,6 +259,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#dd5e822d-d453-422e-99b2-bd2b1b953f68</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/WithCompositeKeysController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithCompositeKeysController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

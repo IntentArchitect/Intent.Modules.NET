@@ -123,6 +123,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateWithUniqueConstraintIndexElementCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();
@@ -147,6 +148,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateWithUniqueConstraintIndexStereotypeCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

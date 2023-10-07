@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="6c06fe9e-d240-49c9-b664-cca3bbabad1a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>MongoDbRepositoryUpdateExtension</name>
-  <display>MongoDbRepositoryUpdateExtension</display>
+<class id="1d72157f-6390-4c55-bc74-d8824893cd75" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>UpdateCommandIdExtension</name>
+  <display>UpdateCommandIdExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

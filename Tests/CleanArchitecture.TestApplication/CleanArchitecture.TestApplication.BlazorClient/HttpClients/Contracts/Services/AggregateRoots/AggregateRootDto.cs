@@ -13,6 +13,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         {
             AggregateAttr = null!;
             Composites = null!;
+            LimitedDomain = null!;
+            LimitedService = null!;
         }
 
         public Guid Id { get; set; }
@@ -23,6 +25,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         public EnumWithoutValues EnumType1 { get; set; }
         public EnumWithDefaultLiteral EnumType2 { get; set; }
         public EnumWithoutDefaultLiteral EnumType3 { get; set; }
+        public string LimitedDomain { get; set; }
+        public string LimitedService { get; set; }
 
         public static AggregateRootDto Create(
             Guid id,
@@ -32,7 +36,9 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
             AggregateRootAggregateSingleCDto? aggregate,
             EnumWithoutValues enumType1,
             EnumWithDefaultLiteral enumType2,
-            EnumWithoutDefaultLiteral enumType3)
+            EnumWithoutDefaultLiteral enumType3,
+            string limitedDomain,
+            string limitedService)
         {
             return new AggregateRootDto
             {
@@ -43,7 +49,9 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
                 Aggregate = aggregate,
                 EnumType1 = enumType1,
                 EnumType2 = enumType2,
-                EnumType3 = enumType3
+                EnumType3 = enumType3,
+                LimitedDomain = limitedDomain,
+                LimitedService = limitedService
             };
         }
     }

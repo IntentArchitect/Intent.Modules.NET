@@ -80,6 +80,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAnemicIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

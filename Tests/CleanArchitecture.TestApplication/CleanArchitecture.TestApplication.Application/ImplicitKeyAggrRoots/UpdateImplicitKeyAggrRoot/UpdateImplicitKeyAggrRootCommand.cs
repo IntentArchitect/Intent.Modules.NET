@@ -20,8 +20,16 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
             ImplicitKeyNestedCompositions = implicitKeyNestedCompositions;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public string Attribute { get; set; }
         public List<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

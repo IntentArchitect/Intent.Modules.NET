@@ -45,6 +45,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     @class.WithBaseType("ControllerBase");
                     @class.AddConstructor();
                     @class.AddMetadata("model", Model);
+                    @class.AddMetadata("modelId", Model.Id);
                     foreach (var attribute in GetControllerAttributes())
                     {
                         @class.AddAttribute(attribute);
@@ -54,6 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                         @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", operation);
+                            method.AddMetadata("modelId", operation.Id);
                             method.Async();
                             method.WithComments(GetOperationComments(operation));
                             foreach (var attribute in GetOperationAttributes(operation))

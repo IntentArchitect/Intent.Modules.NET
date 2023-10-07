@@ -361,6 +361,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 dto.EnumType1.Should().Be(entity.EnumType1);
                 dto.EnumType2.Should().Be(entity.EnumType2);
                 dto.EnumType3.Should().Be(entity.EnumType3);
+                dto.LimitedDomain.Should().Be(entity.LimitedDomain);
+                dto.LimitedService.Should().Be(entity.LimitedService);
             }
         }
 
@@ -452,6 +454,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             actualDto.EnumType1.Should().Be(expectedEntity.EnumType1);
             actualDto.EnumType2.Should().Be(expectedEntity.EnumType2);
             actualDto.EnumType3.Should().Be(expectedEntity.EnumType3);
+            actualDto.LimitedDomain.Should().Be(expectedEntity.LimitedDomain);
+            actualDto.LimitedService.Should().Be(expectedEntity.LimitedService);
         }
 
         public static void AssertEquivalent(UpdateAggregateRootCommand expectedDto, AggregateRoot actualEntity)

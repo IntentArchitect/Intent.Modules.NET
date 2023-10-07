@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -17,8 +14,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
-using ParameterModelExtensions = Intent.Modelers.Domain.Api.ParameterModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -47,6 +42,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
+            
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField());

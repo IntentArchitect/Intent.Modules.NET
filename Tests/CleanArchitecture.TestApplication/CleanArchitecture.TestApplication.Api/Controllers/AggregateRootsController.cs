@@ -132,6 +132,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateRootCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();
@@ -157,6 +158,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();
