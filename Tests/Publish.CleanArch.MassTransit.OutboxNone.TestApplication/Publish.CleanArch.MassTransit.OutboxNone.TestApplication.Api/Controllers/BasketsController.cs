@@ -131,6 +131,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             [FromBody] UpdateBasketBasketItemCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (basketId != command.BasketId)
             {
                 return BadRequest();
@@ -159,6 +160,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             [FromBody] UpdateBasketCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

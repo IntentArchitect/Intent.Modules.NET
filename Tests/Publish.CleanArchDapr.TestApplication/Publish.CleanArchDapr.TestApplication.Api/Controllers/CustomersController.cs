@@ -74,6 +74,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
+
             await _mediator.Send(new UpdateCustomerCommand(id: id), cancellationToken);
             return NoContent();
         }

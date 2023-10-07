@@ -15,7 +15,15 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
         {
             Id = id;
         }
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
 
     }
 }

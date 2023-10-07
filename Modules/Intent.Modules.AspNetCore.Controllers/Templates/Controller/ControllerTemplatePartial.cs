@@ -56,6 +56,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                         {
                             method.AddMetadata("model", operation);
                             method.AddMetadata("modelId", operation.Id);
+                            method.AddMetadata("route", operation.Route);
                             method.Async();
                             method.WithComments(GetOperationComments(operation));
                             foreach (var attribute in GetOperationAttributes(operation))

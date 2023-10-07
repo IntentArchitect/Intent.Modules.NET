@@ -83,6 +83,7 @@ namespace CosmosDB.Api.Controllers
             [FromBody] UpdateClientCommand command,
             CancellationToken cancellationToken = default)
         {
+
             await _mediator.Send(command, cancellationToken);
             return NoContent();
         }

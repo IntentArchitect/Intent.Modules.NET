@@ -128,6 +128,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             [FromBody] UpdateCustomerRichCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

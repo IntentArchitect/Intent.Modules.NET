@@ -106,6 +106,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
             [FromBody] UpdateOrderCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

@@ -15,7 +15,15 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
             ClassPartitionKey = classPartitionKey;
         }
 
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public string ClassPartitionKey { get; set; }
+
+        public void SetId(string id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

@@ -18,13 +18,21 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer
             Surname = surname;
             Email = email;
         }
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public string Name { get; set; }
 
         public string Surname { get; set; }
 
         public string Email { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
 
     }
 }

@@ -76,7 +76,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                     controllerTemplate.CSharpFile.OnBuild(controllerFile =>
                     {
                         var controllerClass = controllerFile.Classes.First();
-                        controllerClass.FindMethod(p => p.TryGetMetadata("modelId", out var operationModelId) && operationModelId == commandTemplate.Model.Id)
+                        controllerClass.FindMethod(method => 
+                                method.TryGetMetadata<string>("modelId", out var operationModelId) && 
+                                operationModelId == commandTemplate.Model.Id &&
+                                (!method.TryGetMetadata<string>("route", out var route) || ids.Any(id => route.ToLowerInvariant().Contains(id.Name.ToParameterName().ToLowerInvariant()))) &&
+                                method.Parameters.Any(param => param.Name == "command"))
                             ?.InsertStatement(0, new CSharpInvocationStatement("command.SetId"), stmt =>
                             {
                                 var invokeStmt = (CSharpInvocationStatement)stmt;

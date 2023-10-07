@@ -16,8 +16,16 @@ namespace CleanArchitecture.Dapr.Application.Invoices.UpdateInvoice
             ClientId = clientId;
         }
 
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public int Number { get; set; }
         public string ClientId { get; set; }
+
+        public void SetId(string id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

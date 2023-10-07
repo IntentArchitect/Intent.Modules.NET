@@ -83,6 +83,7 @@ namespace CosmosDB.Api.Controllers
             [FromBody] UpdateClassContainerCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();

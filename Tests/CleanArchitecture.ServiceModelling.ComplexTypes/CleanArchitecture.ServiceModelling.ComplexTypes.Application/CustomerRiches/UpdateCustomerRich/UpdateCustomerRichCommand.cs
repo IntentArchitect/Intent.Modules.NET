@@ -16,7 +16,15 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
             Address = address;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public UpdateCustomerRichAddressDto Address { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

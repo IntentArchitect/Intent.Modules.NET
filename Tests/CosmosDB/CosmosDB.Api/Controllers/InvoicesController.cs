@@ -155,6 +155,7 @@ namespace CosmosDB.Api.Controllers
             [FromBody] UpdateInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();
@@ -180,6 +181,7 @@ namespace CosmosDB.Api.Controllers
             [FromBody] UpdateInvoiceLineItemCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (invoiceId != command.InvoiceId)
             {
                 return BadRequest();

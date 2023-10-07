@@ -18,13 +18,21 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
             Surname = surname;
             Email = email;
         }
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
         public string Name { get; set; }
 
         public string Surname { get; set; }
 
         public string Email { get; set; }
+
+        public void SetId(string id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
 
     }
 }

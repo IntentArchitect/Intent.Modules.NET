@@ -16,8 +16,16 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
             GenericAttribute = genericAttribute;
         }
 
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public string DerivedAttribute { get; set; }
         public int GenericAttribute { get; set; }
+
+        public void SetId(string id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

@@ -16,7 +16,15 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             Number = number;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public string Number { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

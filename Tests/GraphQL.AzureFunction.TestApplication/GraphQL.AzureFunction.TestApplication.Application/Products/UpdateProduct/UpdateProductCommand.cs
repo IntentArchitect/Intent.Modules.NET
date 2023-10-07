@@ -16,9 +16,17 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.UpdateProdu
             Id = id;
             Name = name;
         }
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public string Name { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
 
     }
 }

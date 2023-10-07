@@ -18,9 +18,17 @@ namespace CosmosDB.Application.Invoices.UpdateInvoice
             Number = number;
         }
 
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public string ClientId { get; set; }
         public DateTime Date { get; set; }
         public string Number { get; set; }
+
+        public void SetId(string id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }

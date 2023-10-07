@@ -16,9 +16,17 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
             Id = id;
             CustomerId = customerId;
         }
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public Guid CustomerId { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
 
     }
 }

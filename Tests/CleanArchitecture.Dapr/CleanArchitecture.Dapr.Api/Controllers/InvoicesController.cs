@@ -130,6 +130,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             [FromBody] UpdateInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (id != command.Id)
             {
                 return BadRequest();
@@ -155,6 +156,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             [FromBody] UpdateInvoiceInvoiceLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            command.SetId(id);
             if (invoiceId != command.InvoiceId)
             {
                 return BadRequest();

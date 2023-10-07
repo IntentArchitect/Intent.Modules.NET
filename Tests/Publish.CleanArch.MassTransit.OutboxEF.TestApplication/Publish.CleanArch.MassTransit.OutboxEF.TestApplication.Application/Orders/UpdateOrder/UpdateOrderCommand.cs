@@ -18,8 +18,16 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             OrderItems = orderItems;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public string Number { get; set; }
         public List<UpdateOrderOrderItemDto> OrderItems { get; set; }
+
+        public void SetId(Guid id)
+        {
+            if (Id == default)
+            {
+                Id = id;
+            }
+        }
     }
 }
