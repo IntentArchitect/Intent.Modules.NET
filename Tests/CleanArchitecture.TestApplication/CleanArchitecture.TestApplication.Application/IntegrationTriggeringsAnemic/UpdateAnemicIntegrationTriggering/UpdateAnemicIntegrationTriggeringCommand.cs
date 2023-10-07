@@ -21,10 +21,7 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAn
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

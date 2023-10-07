@@ -35,18 +35,12 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
         public void SetAggregateRootId(Guid aggregateRootId)
         {
-            if (AggregateRootId == default)
-            {
-                AggregateRootId = aggregateRootId;
-            }
+            AggregateRootId = aggregateRootId;
         }
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

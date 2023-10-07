@@ -132,7 +132,10 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateImplicitKeyAggrRootCommand command,
             CancellationToken cancellationToken = default)
         {
-            command.SetId(id);
+            if (command.Id == default)
+            {
+                command.SetId(id);
+            }
             if (id != command.Id)
             {
                 return BadRequest();
@@ -158,8 +161,15 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command,
             CancellationToken cancellationToken = default)
         {
-            command.SetImplicitKeyAggrRootId(implicitKeyAggrRootId);
-            command.SetId(id);
+            if (command.ImplicitKeyAggrRootId == default)
+            {
+                command.SetImplicitKeyAggrRootId(implicitKeyAggrRootId);
+            }
+
+            if (command.Id == default)
+            {
+                command.SetId(id);
+            }
             if (implicitKeyAggrRootId != command.ImplicitKeyAggrRootId)
             {
                 return BadRequest();

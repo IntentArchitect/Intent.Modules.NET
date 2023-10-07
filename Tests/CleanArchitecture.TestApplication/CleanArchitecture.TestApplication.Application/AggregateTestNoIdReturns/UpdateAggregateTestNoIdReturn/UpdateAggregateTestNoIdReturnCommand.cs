@@ -21,10 +21,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

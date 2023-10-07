@@ -28,10 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Up
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

@@ -81,13 +81,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                             commandClass.AddMethod("void", $"Set{match.CommandProperty.Name}", method =>
                             {
                                 method.AddParameter(commandTemplate.GetTypeName(match.DtoFieldModel.TypeReference), match.CommandProperty.Name.ToParameterName());
-                            
-                                method.AddIfStatement($"{match.CommandProperty.Name} == default", stmt =>
-                                {
-                                    stmt.AddStatement($"{match.CommandProperty.Name} = {match.CommandProperty.Name.ToParameterName()};");
-                                });
+
+                                method.AddStatement($"{match.CommandProperty.Name} = {match.CommandProperty.Name.ToParameterName()};");
                             });
-                            controllerMethod.InsertStatement(insertIndex, $"{commandParameter.Name}.Set{match.CommandProperty.Name}({match.MethodParameter.Name});");
+                            controllerMethod.InsertStatement(insertIndex, new CSharpIfStatement($"{commandParameter.Name}.{match.CommandProperty.Name} == default")
+                                .AddStatement($"{commandParameter.Name}.Set{match.CommandProperty.Name}({match.MethodParameter.Name});"));
                         }
                     }, 10);
                 }, 10);

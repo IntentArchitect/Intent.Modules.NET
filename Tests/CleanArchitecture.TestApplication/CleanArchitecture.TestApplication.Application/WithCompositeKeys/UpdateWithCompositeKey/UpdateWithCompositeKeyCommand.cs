@@ -23,18 +23,12 @@ namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.Update
 
         public void SetKey1Id(Guid key1Id)
         {
-            if (Key1Id == default)
-            {
-                Key1Id = key1Id;
-            }
+            Key1Id = key1Id;
         }
 
         public void SetKey2Id(Guid key2Id)
         {
-            if (Key2Id == default)
-            {
-                Key2Id = key2Id;
-            }
+            Key2Id = key2Id;
         }
     }
 }

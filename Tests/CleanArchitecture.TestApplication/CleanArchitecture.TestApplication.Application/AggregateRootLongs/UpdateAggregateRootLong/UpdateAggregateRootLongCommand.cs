@@ -24,10 +24,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
 
         public void SetId(long id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }
