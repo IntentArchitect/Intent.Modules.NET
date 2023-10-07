@@ -24,18 +24,12 @@ namespace CosmosDB.Application.Invoices.UpdateInvoiceLineItem
 
         public void SetInvoiceId(string invoiceId)
         {
-            if (InvoiceId == default)
-            {
-                InvoiceId = invoiceId;
-            }
+            InvoiceId = invoiceId;
         }
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

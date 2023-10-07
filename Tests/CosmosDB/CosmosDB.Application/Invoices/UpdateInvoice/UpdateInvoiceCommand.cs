@@ -25,10 +25,7 @@ namespace CosmosDB.Application.Invoices.UpdateInvoice
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

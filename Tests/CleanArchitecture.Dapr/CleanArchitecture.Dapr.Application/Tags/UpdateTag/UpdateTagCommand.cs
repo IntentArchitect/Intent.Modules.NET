@@ -20,10 +20,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.UpdateTag
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

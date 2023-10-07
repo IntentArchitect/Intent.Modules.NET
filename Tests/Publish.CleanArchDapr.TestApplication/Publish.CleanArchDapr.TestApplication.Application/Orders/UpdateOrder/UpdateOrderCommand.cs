@@ -22,10 +22,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
 
     }

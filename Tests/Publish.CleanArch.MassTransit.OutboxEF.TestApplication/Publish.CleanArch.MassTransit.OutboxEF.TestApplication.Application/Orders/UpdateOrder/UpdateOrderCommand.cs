@@ -24,10 +24,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

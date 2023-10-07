@@ -25,18 +25,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
 
         public void SetBasketId(Guid basketId)
         {
-            if (BasketId == default)
-            {
-                BasketId = basketId;
-            }
+            BasketId = basketId;
         }
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

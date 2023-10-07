@@ -22,10 +22,7 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

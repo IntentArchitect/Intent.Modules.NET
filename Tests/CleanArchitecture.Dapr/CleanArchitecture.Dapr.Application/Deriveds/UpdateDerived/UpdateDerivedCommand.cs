@@ -22,10 +22,7 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.UpdateDerived
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

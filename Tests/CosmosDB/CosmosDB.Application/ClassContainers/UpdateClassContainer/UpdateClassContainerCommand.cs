@@ -20,10 +20,7 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

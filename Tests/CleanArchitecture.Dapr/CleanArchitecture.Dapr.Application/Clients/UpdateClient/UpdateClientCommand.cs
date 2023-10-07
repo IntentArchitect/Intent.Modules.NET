@@ -23,10 +23,7 @@ namespace CleanArchitecture.Dapr.Application.Clients.UpdateClient
 
         public void SetId(string id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

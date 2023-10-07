@@ -23,10 +23,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

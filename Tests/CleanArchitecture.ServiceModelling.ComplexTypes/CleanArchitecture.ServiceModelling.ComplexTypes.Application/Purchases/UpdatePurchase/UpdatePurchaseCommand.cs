@@ -21,10 +21,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
 
         public void SetId(Guid id)
         {
-            if (Id == default)
-            {
-                Id = id;
-            }
+            Id = id;
         }
     }
 }

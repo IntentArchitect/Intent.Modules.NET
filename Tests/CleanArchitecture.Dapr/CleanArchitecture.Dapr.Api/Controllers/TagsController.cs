@@ -81,7 +81,10 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             [FromBody] UpdateTagCommand command,
             CancellationToken cancellationToken = default)
         {
-            command.SetId(id);
+            if (command.Id == default)
+            {
+                command.SetId(id);
+            }
             if (id != command.Id)
             {
                 return BadRequest();
