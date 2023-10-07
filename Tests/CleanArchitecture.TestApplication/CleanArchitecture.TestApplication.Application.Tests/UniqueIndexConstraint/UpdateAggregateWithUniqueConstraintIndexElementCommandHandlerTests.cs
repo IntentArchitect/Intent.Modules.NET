@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.UniqueIndexConstra
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateWithUniqueConstraintIndexElement>();
-            fixture.Customize<UpdateAggregateWithUniqueConstraintIndexElementCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            fixture.Customize<UpdateAggregateWithUniqueConstraintIndexElementCommand>(comp => comp.Do(x => x.SetId(existingEntity.Id)));
             var testCommand = fixture.Create<UpdateAggregateWithUniqueConstraintIndexElementCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

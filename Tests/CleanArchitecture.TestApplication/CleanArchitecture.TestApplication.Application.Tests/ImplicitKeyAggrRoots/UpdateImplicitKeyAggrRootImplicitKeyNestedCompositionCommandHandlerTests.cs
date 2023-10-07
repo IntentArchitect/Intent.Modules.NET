@@ -30,8 +30,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var existingEntity = existingOwnerEntity.ImplicitKeyNestedCompositions.First();
             existingEntity.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
             fixture.Customize<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
-                .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id)
-                .With(x => x.Id, existingEntity.Id));
+                .Do(x => x.SetImplicitKeyAggrRootId(existingOwnerEntity.Id))
+                .Do(x => x.SetId(existingEntity.Id)));
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
             yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
         }

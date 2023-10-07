@@ -28,14 +28,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateRoot>();
-            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Do(x => x.SetId(existingEntity.Id)));
             var testCommand = fixture.Create<UpdateAggregateRootCommand>();
             yield return new object[] { testCommand, existingEntity };
 
             fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             existingEntity = fixture.Create<AggregateRoot>();
-            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Without(x => x.Composite).With(x => x.Id, existingEntity.Id));
+            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Without(x => x.Composite).Do(x => x.SetId(existingEntity.Id)));
             testCommand = fixture.Create<UpdateAggregateRootCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

@@ -67,6 +67,27 @@ internal class CommandHandlerFacade
         }
     }
 
+    private CommandModelsTemplate _commandModelsTemplate;
+    public CommandModelsTemplate CommandModelsTemplate
+    {
+        get
+        {
+            if (_commandModelsTemplate is not null)
+            {
+                return _commandModelsTemplate;
+            }
+
+            if (!_activeTemplate.TryGetTemplate<CommandModelsTemplate>(CommandModelsTemplate.TemplateId, _model, out var foundCommandModelsTemplate))
+            {
+                throw new Exception($"Could not find {nameof(CommandModelsTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
+            }
+
+            _commandModelsTemplate = foundCommandModelsTemplate;
+
+            return _commandModelsTemplate;
+        }
+    }
+
     public ClassModel TargetDomainModel { get; }
     public string SingularCommandName { get; }
     public string SingularTargetDomainName { get; }
@@ -162,7 +183,8 @@ internal class CommandHandlerFacade
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceSingleCommandAndEntity_TestDataStatements(
         CommandTargetDomain commandTargetDomain,
-        CommandTestDataReturn dataReturn)
+        CommandTestDataReturn dataReturn,
+        bool specialCrudUpdateCondition)
     {
         var statements = new List<CSharpStatement>();
 
@@ -177,7 +199,7 @@ internal class CommandHandlerFacade
         statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
 
         AddAggregateDomainTestData();
-        AddCommandWithIdentityTestData();
+        AddCommandWithIdentityTestData(specialCrudUpdateCondition);
 
         switch (dataReturn)
         {
@@ -219,15 +241,23 @@ internal class CommandHandlerFacade
             }
         }
 
-        void AddCommandWithIdentityTestData()
+        void AddCommandWithIdentityTestData(bool crudUpdateCondition)
         {
             switch (commandTargetDomain)
             {
                 case CommandTargetDomain.Aggregate:
                     if (CommandIdFields.Count == 1)
                     {
-                        statements.Add(
-                            $"fixture.Customize<{CommandTypeName}>(comp => comp.With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, existingEntity.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                        if (crudUpdateCondition && HasSetterForCommandField(CommandIdFields[0]))
+                        {
+                            statements.Add(
+                                $"fixture.Customize<{CommandTypeName}>(comp => comp.Do(x => x.Set{CommandIdFields[0].Name.ToPascalCase()}(existingEntity.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()})));");
+                        }
+                        else
+                        {
+                            statements.Add(
+                                $"fixture.Customize<{CommandTypeName}>(comp => comp.With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, existingEntity.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                        }
                     }
                     else
                     {
@@ -239,7 +269,15 @@ internal class CommandHandlerFacade
                         {
                             var commandIdField = CommandIdFields[i];
                             var domainIdAttribute = TargetDomainIdAttributes[i];
-                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            if (crudUpdateCondition && HasSetterForCommandField(commandIdField))
+                            {
+                                fluent.AddChainStatement($"Do(x => x.Set{commandIdField.Name.ToPascalCase()}(existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()}))");
+                            }
+                            else
+                            {
+                                fluent.AddChainStatement(
+                                    $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            }
                         }
                     }
 
@@ -254,15 +292,30 @@ internal class CommandHandlerFacade
                     {
                         var idAttribute = TargetDomainIdAttributes[index];
                         var idField = CommandFieldsForOwnerId[index];
-                        fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+                        if (crudUpdateCondition && HasSetterForCommandField(idField))
+                        {
+                            fluent.AddChainStatement($"Do(x => x.Set{idField.Name.ToPascalCase()}(existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()}))");
+                        }
+                        else
+                        {
+                            fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
+                        }
                     }
 
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
                         var domainIdAttribute = TargetDomainIdAttributes[i];
-                        fluent.AddChainStatement(
-                            $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        if (crudUpdateCondition && HasSetterForCommandField(commandIdField))
+                        {
+                            fluent.AddChainStatement(
+                                $"Do(x => x.Set{commandIdField.Name.ToPascalCase()}(existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()}))");
+                        }
+                        else
+                        {
+                            fluent.AddChainStatement(
+                                $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        }
                     }
                 }
                     break;
@@ -275,7 +328,8 @@ internal class CommandHandlerFacade
     }
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
-        CommandTargetDomain commandTargetDomain)
+        CommandTargetDomain commandTargetDomain,
+        bool specialCrudUpdateCondition)
     {
         var statements = new List<CSharpStatement>();
         var entityVarName = commandTargetDomain switch
@@ -296,7 +350,7 @@ internal class CommandHandlerFacade
             statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
 
-            AddCommandWithIdentityTestData(property);
+            AddCommandWithIdentityTestData(property, specialCrudUpdateCondition);
 
             statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
         }
@@ -309,15 +363,23 @@ internal class CommandHandlerFacade
                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
         }
 
-        void AddCommandWithIdentityTestData(DTOFieldModel property)
+        void AddCommandWithIdentityTestData(DTOFieldModel property, bool crudUpdateCondition)
         {
             switch (commandTargetDomain)
             {
                 case CommandTargetDomain.Aggregate:
                     if (CommandIdFields.Count == 1)
                     {
-                        statements.Add(
-                            $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                        if (crudUpdateCondition && HasSetterForCommandField(CommandIdFields[0]))
+                        {
+                            statements.Add(
+                                $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).Do(x => x.Set{CommandIdFields[0].Name.ToPascalCase()}({entityVarName}.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()})));");
+                        }
+                        else
+                        {
+                            statements.Add(
+                                $"fixture.Customize<{CommandTypeName}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{CommandIdFields[0].Name.ToCSharpIdentifier()}, {entityVarName}.{TargetDomainIdAttributes[0].IdName.ToCSharpIdentifier()}));");
+                        }
                     }
                     else
                     {
@@ -331,7 +393,15 @@ internal class CommandHandlerFacade
                         {
                             var commandIdField = CommandIdFields[i];
                             var domainIdAttribute = TargetDomainIdAttributes[i];
-                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            if (crudUpdateCondition && HasSetterForCommandField(commandIdField))
+                            {
+                                fluent.AddChainStatement($"Do(x => x.Set{commandIdField.Name.ToPascalCase()}({entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()}))");
+                            }
+                            else
+                            {
+                                fluent.AddChainStatement(
+                                    $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            }
                         }
                     }
 
@@ -348,14 +418,28 @@ internal class CommandHandlerFacade
                     {
                         var idAttribute = TargetDomainIdAttributes[index];
                         var idField = CommandFieldsForOwnerId[index];
-                        fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
+                        if (crudUpdateCondition && HasSetterForCommandField(idField))
+                        {
+                            fluent.AddChainStatement($"Do(x => x.Set{idField.Name.ToPascalCase()}({entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()}))");
+                        }
+                        else
+                        {
+                            fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
+                        }
                     }
 
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
                         var domainIdAttribute = TargetDomainIdAttributes[i];
-                        fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        if (crudUpdateCondition && HasSetterForCommandField(commandIdField))
+                        {
+                            fluent.AddChainStatement($"Do(x => x.Set{commandIdField.Name.ToPascalCase()}({entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()}))");
+                        }
+                        else
+                        {
+                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        }
                     }
                 }
                     break;
@@ -437,7 +521,17 @@ internal class CommandHandlerFacade
             return block;
         }
     }
-
+    
+    private bool HasSetterForCommandField(DTOFieldModel dtoField)
+    {
+        var @class = CommandModelsTemplate.CSharpFile.Classes.First();
+        var result = @class.Properties.Any(property =>
+            property.TryGetMetadata<DTOFieldModel>("model", out var fieldModel) &&
+            fieldModel.Id == dtoField.Id &&
+            @class.Methods.Any(method => method.Name.Equals($"Set{property.Name}", StringComparison.InvariantCultureIgnoreCase)));
+        return result;
+    }
+    
     private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements(
         Func<ImplementationStrategyTemplatesExtensions.IEntityId, string> expectedDomainVarName,
         IReadOnlyList<ImplementationStrategyTemplatesExtensions.IEntityId> entityIdList,

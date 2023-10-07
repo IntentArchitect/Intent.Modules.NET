@@ -31,8 +31,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var existingEntity = existingOwnerEntity.Composites.First();
             existingEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
-                .With(x => x.Id, existingEntity.Id));
+                .Do(x => x.SetAggregateRootId(existingOwnerEntity.Id))
+                .Do(x => x.SetId(existingEntity.Id)));
             var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
         }
