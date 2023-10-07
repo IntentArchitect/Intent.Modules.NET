@@ -137,7 +137,7 @@ public class DomainInteractionsManager
         var ctor = _template.CSharpFile.Classes.First().Constructors.First();
         if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
         {
-            ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", 
+            ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
                 param => param.IntroduceReadonlyField(field => temp = field.Name));
             fieldName = temp;
         }
@@ -185,18 +185,24 @@ public class DomainInteractionsManager
 
     public IEnumerable<CSharpStatement> CreateEntity(CreateEntityActionTargetEndModel createAction)
     {
-        var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel()?.ParentClass;
+        var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
 
         InjectRepositoryForEntity(entity, out var repositoryFieldName);
 
         TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, repositoryFieldName, true));
 
-        var mapping = createAction.Mappings.SingleOrDefault();
         var entityVariableName = createAction.Name;
-        var statements = new List<CSharpStatement>
+        var statements = new List<CSharpStatement>();
+
+        var mapping = createAction.Mappings.SingleOrDefault();
+        if (mapping != null)
         {
-            new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon()
-        };
+            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
+        }
+        else
+        {
+            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", $"new {entity.Name}();"));
+        }
 
         _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
         _csharpMapping.SetFromReplacement(entity, entityVariableName);
@@ -215,37 +221,42 @@ public class DomainInteractionsManager
     {
         var entityDetails = TrackedEntities[updateAction.Id];
         var entity = entityDetails.Model;
-        var queryMapping = updateAction.Mappings.GetQueryEntityMapping();
         var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
 
         var statements = new List<CSharpStatement>();
-        if (queryMapping != null)
+
+        if (entityDetails.IsCollection)
         {
-            if (entityDetails.IsCollection)
+            _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
+            if (updateMapping != null)
             {
-                _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
                 statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
                     .AddStatements(_csharpMapping.GenerateUpdateStatements(updateMapping)));
-                if (RepositoryRequiresExplicitUpdate(entity))
-                {
-                    statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName.Singularize()));
-                }
-            }
-            else
-            {
-                statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
-                if (RepositoryRequiresExplicitUpdate(entity))
-                {
-                    statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName));
-                }
             }
 
-            foreach (var actions in updateAction.ProcessingActions)
+            if (RepositoryRequiresExplicitUpdate(entity))
             {
-                statements.Add(string.Empty);
-                statements.AddRange(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
-                statements.Add(string.Empty);
+                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName.Singularize()));
             }
+        }
+        else
+        {
+            if (updateMapping != null)
+            {
+                statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
+            }
+
+            if (RepositoryRequiresExplicitUpdate(entity))
+            {
+                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName));
+            }
+        }
+
+        foreach (var actions in updateAction.ProcessingActions)
+        {
+            statements.Add(string.Empty);
+            statements.AddRange(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
+            statements.Add(string.Empty);
         }
 
         return statements;
