@@ -39,13 +39,13 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
             {
                 var facade = new CommandHandlerFacade(this, model);
-                
+
                 AddUsingDirectives(file);
                 facade.AddHandlerConstructorMockUsings();
 
@@ -108,7 +108,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 this.AddCommandAssertionMethods(Model);
             });
     }
-    
+
     private bool? _canRunTemplate;
 
     public override bool CanRunTemplate()
@@ -118,7 +118,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             return _canRunTemplate.Value;
         }
 
-        var template = ExecutionContext.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, Model);
+        var template = this.GetCommandHandlerTemplate(Model, trackDependency: false);
         if (template is null)
         {
             _canRunTemplate = false;

@@ -46,9 +46,9 @@ internal class QueryHandlerFacade
         PluralTargetDomainName = SingularTargetDomainName.Pluralize();
     }
 
-    private QueryHandlerTemplate _queryHandlerTemplate;
+    private CSharpTemplateBase<QueryModel> _queryHandlerTemplate;
 
-    public QueryHandlerTemplate QueryHandlerTemplate
+    public CSharpTemplateBase<QueryModel> QueryHandlerTemplate
     {
         get
         {
@@ -57,12 +57,8 @@ internal class QueryHandlerFacade
                 return _queryHandlerTemplate;
             }
 
-            if (!_activeTemplate.TryGetTemplate<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, _model, out var foundQueryHandlerTemplate))
-            {
-                throw new Exception($"Could not find {nameof(QueryHandlerTemplate)} for QueryModel Id = {_model.Id} / Name = {_model.Name}");
-            }
-
-            _queryHandlerTemplate = foundQueryHandlerTemplate;
+            _queryHandlerTemplate = _activeTemplate.GetQueryHandlerTemplate(_model, trackDependency: true)
+                                    ?? throw new Exception($"Could not find {nameof(QueryHandlerTemplate)} for QueryModel Id = {_model.Id} / Name = {_model.Name}");
 
             return _queryHandlerTemplate;
         }
@@ -197,31 +193,31 @@ internal class QueryHandlerFacade
 
                     break;
                 case QueryTargetDomain.NestedEntity:
-                {
-                    var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
-                    statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
-                        .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
-
-                    for (var index = 0; index < DomainIdAttributes.Count; index++)
                     {
-                        var idAttribute = DomainIdAttributes[index];
-                        var idField = QueryFieldsForOwnerId[index];
-                        fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
-                    }
+                        var fluent = new CSharpMethodChainStatement("comp").WithoutSemicolon();
+                        statements.Add(new CSharpInvocationStatement($"fixture.Customize<{QueryTypeName}>")
+                            .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
-                    if (nestedEntitiesAreEmpty)
-                    {
-                        statements.Add(
-                            $"fixture.Customize<{AggregateOwnerDomainTypeName}>(comp => comp.With(p => p.{OwnerToCompositeNavigationPropertyName}, new List<{TargetDomainTypeName}>()));");
-                    }
+                        for (var index = 0; index < DomainIdAttributes.Count; index++)
+                        {
+                            var idAttribute = DomainIdAttributes[index];
+                            var idField = QueryFieldsForOwnerId[index];
+                            fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
+                        }
 
-                    for (var i = 0; i < QueryIdFields.Count; i++)
-                    {
-                        var queryIdField = QueryIdFields[i];
-                        var domainIdAttribute = DomainIdAttributes[i];
-                        fluent.AddChainStatement($"With(x => x.{queryIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        if (nestedEntitiesAreEmpty)
+                        {
+                            statements.Add(
+                                $"fixture.Customize<{AggregateOwnerDomainTypeName}>(comp => comp.With(p => p.{OwnerToCompositeNavigationPropertyName}, new List<{TargetDomainTypeName}>()));");
+                        }
+
+                        for (var i = 0; i < QueryIdFields.Count; i++)
+                        {
+                            var queryIdField = QueryIdFields[i];
+                            var domainIdAttribute = DomainIdAttributes[i];
+                            fluent.AddChainStatement($"With(x => x.{queryIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                        }
                     }
-                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(queryTargetDomain), queryTargetDomain, null);
@@ -466,7 +462,7 @@ internal class QueryHandlerFacade
 
     private IReadOnlyCollection<(string Type, string Name)> GetHandlerConstructorParameters()
     {
-        var ctor = QueryHandlerTemplate.CSharpFile.Classes.First().Constructors.First();
+        var ctor = ((ICSharpFileBuilderTemplate)QueryHandlerTemplate).CSharpFile.Classes.First(x => x.HasMetadata("handler")).Constructors.First();
         return ctor.Parameters
             .Select(param => (param.Type, param.Name.ToLocalVariableName()))
             .ToArray();

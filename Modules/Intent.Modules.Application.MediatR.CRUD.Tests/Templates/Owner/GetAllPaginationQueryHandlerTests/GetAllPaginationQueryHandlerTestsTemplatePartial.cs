@@ -43,7 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                 .AfterBuild(file =>
                 {
                     var facade = new QueryHandlerFacade(this, model);
-                    
+
                     AddUsingDirectives(file);
                     facade.AddHandlerConstructorMockUsings();
 
@@ -93,7 +93,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                     AddAssertionMethods();
                 });
         }
-        
+
         private bool? _canRunTemplate;
 
         public override bool CanRunTemplate()
@@ -103,7 +103,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
                 return _canRunTemplate.Value;
             }
 
-            var template = ExecutionContext.FindTemplateInstance<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, Model);
+            var template = this.GetQueryHandlerTemplate(Model, trackDependency: false);
             if (template is null)
             {
                 _canRunTemplate = false;

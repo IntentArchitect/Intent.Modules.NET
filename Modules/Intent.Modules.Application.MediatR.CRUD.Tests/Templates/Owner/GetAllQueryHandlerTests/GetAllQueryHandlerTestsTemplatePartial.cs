@@ -46,7 +46,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
             .AfterBuild(file =>
             {
                 var facade = new QueryHandlerFacade(this, model);
-                
+
                 AddUsingDirectives(file);
                 facade.AddHandlerConstructorMockUsings();
 
@@ -90,7 +90,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 AddAssertionMethods();
             });
     }
-    
+
     private bool? _canRunTemplate;
 
     public override bool CanRunTemplate()
@@ -100,7 +100,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
             return _canRunTemplate.Value;
         }
 
-        var template = ExecutionContext.FindTemplateInstance<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, Model);
+        var template = this.GetQueryHandlerTemplate(Model, trackDependency: false);
         if (template is null)
         {
             _canRunTemplate = false;

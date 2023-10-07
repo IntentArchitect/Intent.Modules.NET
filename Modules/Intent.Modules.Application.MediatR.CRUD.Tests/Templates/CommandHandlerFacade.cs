@@ -8,6 +8,7 @@ using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -45,9 +46,9 @@ internal class CommandHandlerFacade
         SingularCommandName = model.Name.ToPascalCase();
     }
 
-    private CommandHandlerTemplate _commandHandlerTemplate;
+    private CSharpTemplateBase<CommandModel> _commandHandlerTemplate;
 
-    public CommandHandlerTemplate CommandHandlerTemplate
+    public CSharpTemplateBase<CommandModel> CommandHandlerTemplate
     {
         get
         {
@@ -56,12 +57,8 @@ internal class CommandHandlerFacade
                 return _commandHandlerTemplate;
             }
 
-            if (!_activeTemplate.TryGetTemplate<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, _model, out var foundCommandHandlerTemplate))
-            {
-                throw new Exception($"Could not find {nameof(CommandHandlerTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
-            }
-
-            _commandHandlerTemplate = foundCommandHandlerTemplate;
+            _commandHandlerTemplate = _activeTemplate.GetCommandHandlerTemplate(_model, trackDependency: true)
+                                      ?? throw new Exception($"Could not find {nameof(CommandHandlerTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
 
             return _commandHandlerTemplate;
         }
@@ -775,7 +772,7 @@ internal class CommandHandlerFacade
 
     private IReadOnlyCollection<(string Type, string Name)> GetHandlerConstructorParameters()
     {
-        var ctor = CommandHandlerTemplate.CSharpFile.Classes.First().Constructors.First();
+        var ctor = ((ICSharpFileBuilderTemplate)CommandHandlerTemplate).CSharpFile.Classes.First(x => x.HasMetadata("handler")).Constructors.First();
         return ctor.Parameters
             .Select(param => (param.Type, param.Name.ToLocalVariableName()))
             .ToArray();
