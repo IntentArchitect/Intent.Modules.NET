@@ -1,8 +1,8 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
-using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -38,7 +38,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 
         private void InstallOnNestedCompositeCreateCommandHandlers(IApplication application)
         {
-            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            var templates = application.FindTemplateInstances<CSharpTemplateBase<CommandModel>>(TemplateDependency.OnTemplate("Application.Command.Handler"))
+                .Where(x => x.CanRunTemplate());
             foreach (var template in templates)
             {
                 var strategy = new CreateImplementationStrategy(template);
@@ -47,9 +48,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                     continue;
                 }
 
-                template.CSharpFile.AfterBuild(file =>
+                ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
-                    var priClass = file.Classes.First();
+                    var priClass = file.Classes.First(x => x.HasMetadata("handler"));
                     var method = priClass.FindMethod("Handle");
                     var strategyData = strategy.GetStrategyData();
                     if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
@@ -64,7 +65,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 
         private void InstallOnNestedCompositeDeleteCommandHandlers(IApplication application)
         {
-            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            var templates = application.FindTemplateInstances<CSharpTemplateBase<CommandModel>>(TemplateDependency.OnTemplate("Application.Command.Handler"))
+                .Where(x => x.CanRunTemplate());
             foreach (var template in templates)
             {
                 var strategy = new DeleteImplementationStrategy(template);
@@ -73,9 +75,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                     continue;
                 }
 
-                template.CSharpFile.AfterBuild(file =>
+                ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
-                    var priClass = file.Classes.First();
+                    var priClass = file.Classes.First(x => x.HasMetadata("handler"));
                     var method = priClass.FindMethod("Handle");
                     var strategyData = strategy.GetStrategyData();
                     if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
@@ -90,7 +92,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 
         private void InstallOnNestedCompositeUpdateCommandHandlers(IApplication application)
         {
-            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            var templates = application.FindTemplateInstances<CSharpTemplateBase<CommandModel>>(TemplateDependency.OnTemplate("Application.Command.Handler"))
+                .Where(x => x.CanRunTemplate());
             foreach (var template in templates)
             {
                 var strategy = new UpdateImplementationStrategy(template);
@@ -99,9 +102,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                     continue;
                 }
 
-                template.CSharpFile.AfterBuild(file =>
+                ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
-                    var priClass = file.Classes.First();
+                    var priClass = file.Classes.First(x => x.HasMetadata("handler"));
                     var method = priClass.FindMethod("Handle");
                     var strategyData = strategy.GetStrategyData();
                     if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
@@ -116,7 +119,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 
         private void InstallOnUpdateAggregateCommandHandlers(IApplication application)
         {
-            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            var templates = application.FindTemplateInstances<CSharpTemplateBase<CommandModel>>(TemplateDependency.OnTemplate("Application.Command.Handler"))
+                .Where(x => x.CanRunTemplate());
             foreach (var template in templates)
             {
                 var strategy = new UpdateImplementationStrategy(template);
@@ -125,9 +129,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                     continue;
                 }
 
-                template.CSharpFile.AfterBuild(file =>
+                ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
-                    var priClass = file.Classes.First();
+                    var priClass = file.Classes.First(x => x.HasMetadata("handler"));
                     var method = priClass.FindMethod("Handle");
                     var strategyData = strategy.GetStrategyData();
                     if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
