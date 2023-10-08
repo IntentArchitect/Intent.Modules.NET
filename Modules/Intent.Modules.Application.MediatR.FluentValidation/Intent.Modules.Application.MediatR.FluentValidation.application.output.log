@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>91b1d222-ecf9-40b0-ae7d-399e6f72567a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e259f7b4-2fe3-4a54-ab1d-419981c73524</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/CombineWithModelsTemplateFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CombineWithModelsTemplateFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

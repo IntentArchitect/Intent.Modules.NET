@@ -81,6 +81,8 @@ namespace Intent.Modules.Constants
             public static class Validation
             {
                 public const string Dto = "Application.Validation.Dto";
+                public const string Command = "Application.Validation.Command";
+                public const string Query = "Application.Validation.Query";
             }
 
             public const string Mappings = "Application.Mappings";

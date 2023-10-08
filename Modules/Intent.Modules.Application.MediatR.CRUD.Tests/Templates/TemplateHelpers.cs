@@ -1,5 +1,8 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
+using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -30,6 +33,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates
             return ((IntentTemplateBase)template).GetTemplate<CSharpTemplateBase<QueryModel>>(
                 dependency: new TemplateDependency<QueryModel>("Application.Query.Handler", model),
                 options: trackDependency ? TemplateDiscoveryOptions : TemplateDiscoveryOptionsNoTracking);
+        }
+
+        public static bool TryGetCommandValidatorTemplate<T>(
+            this CSharpTemplateBase<T> template,
+            CommandModel model,
+            out ICSharpFileBuilderTemplate validatorTemplate)
+        {
+            return template.ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile()
+                ? template.TryGetTemplate(CommandModelsTemplate.TemplateId, model, out validatorTemplate)
+                : template.TryGetTemplate(CommandValidatorTemplate.TemplateId, model, out validatorTemplate);
         }
 
         private class TemplateDependency<TModel> : ITemplateDependency

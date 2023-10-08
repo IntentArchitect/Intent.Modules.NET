@@ -61,6 +61,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             if (ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
             {
                 FulfillsRole("Application.Command.Handler");
+                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Command);
                 CommandHandlerTemplate.Configure(this, model);
             }
         }

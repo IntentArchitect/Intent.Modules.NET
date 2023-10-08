@@ -60,6 +60,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             if (ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
             {
                 FulfillsRole("Application.Query.Handler");
+                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
                 QueryHandlerTemplate.Configure(this, model);
             }
         }

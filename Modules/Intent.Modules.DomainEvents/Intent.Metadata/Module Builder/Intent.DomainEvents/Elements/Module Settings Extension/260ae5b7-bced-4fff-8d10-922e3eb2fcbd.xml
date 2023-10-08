@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="5134fd1e-cca4-4435-a4cb-b281935aa1e3">
     <typeId>c4d1e35c-7c0d-4926-afe0-18f17563ce17</typeId>
-    <typeName>Domain Settings</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
