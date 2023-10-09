@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="15779474-f02a-48cb-925b-eb46020660c5">
     <typeId>0ad87afb-a8ee-4a64-99a4-a902cca00e59</typeId>
-    <typeName>MongoInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="ff74a2fc-19e8-4cec-87e7-3e539522e9ed">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="0d9112e5-251d-4f70-a1e2-3de047e42260">
       <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
-      <typeName>CombinedAllTechs</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>5</order>
     <typeReference id="9524dc00-d76d-4bfc-b995-956c998d609a">
       <typeId>7ad0a7a7-100d-4c04-9106-4feb25e8a53e</typeId>
-      <typeName>EfInvoiceCreated</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

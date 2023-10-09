@@ -85,7 +85,7 @@ namespace CosmosDB.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {

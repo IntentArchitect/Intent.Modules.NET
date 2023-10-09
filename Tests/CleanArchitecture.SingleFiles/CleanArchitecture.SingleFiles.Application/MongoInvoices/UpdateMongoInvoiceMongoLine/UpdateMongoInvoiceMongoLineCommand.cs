@@ -24,19 +24,9 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices.UpdateMongoInv
             Name = name;
         }
 
-        public string MongoInvoiceId { get; private set; }
-        public string Id { get; private set; }
+        public string MongoInvoiceId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-
-        public void SetMongoInvoiceId(string mongoInvoiceId)
-        {
-            MongoInvoiceId = mongoInvoiceId;
-        }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

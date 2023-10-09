@@ -24,13 +24,8 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices.UpdateEfInvoice
             Description = description;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Description { get; set; }
-
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

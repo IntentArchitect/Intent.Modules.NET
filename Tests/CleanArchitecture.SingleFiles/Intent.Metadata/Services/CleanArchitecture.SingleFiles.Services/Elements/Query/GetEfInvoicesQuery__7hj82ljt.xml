@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="c26b843d-7d12-44c8-b976-e720bed68ec0">
     <typeId>47f90053-acf5-4bf3-83e9-baba893bae35</typeId>
-    <typeName>EfInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

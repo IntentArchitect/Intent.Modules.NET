@@ -54,6 +54,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
             [FromBody] CreateBasketBasketItemCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.BasketId == default)
+            {
+                command.BasketId = basketId;
+            }
+
             if (basketId != command.BasketId)
             {
                 return BadRequest();
@@ -133,12 +138,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         {
             if (command.BasketId == default)
             {
-                command.SetBasketId(basketId);
+                command.BasketId = basketId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (basketId != command.BasketId)
             {
@@ -170,7 +175,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {

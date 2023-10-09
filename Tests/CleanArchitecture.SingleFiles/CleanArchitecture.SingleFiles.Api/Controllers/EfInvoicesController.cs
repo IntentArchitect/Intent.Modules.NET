@@ -71,6 +71,11 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] CreateEfInvoiceEfLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.EfInvoicesId == default)
+            {
+                command.EfInvoicesId = efInvoicesId;
+            }
+
             if (efInvoicesId != command.EfInvoicesId)
             {
                 return BadRequest();
@@ -132,7 +137,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -161,12 +166,12 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.EfInvoicesId == default)
             {
-                command.SetEfInvoicesId(efInvoicesId);
+                command.EfInvoicesId = efInvoicesId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (efInvoicesId != command.EfInvoicesId)
             {

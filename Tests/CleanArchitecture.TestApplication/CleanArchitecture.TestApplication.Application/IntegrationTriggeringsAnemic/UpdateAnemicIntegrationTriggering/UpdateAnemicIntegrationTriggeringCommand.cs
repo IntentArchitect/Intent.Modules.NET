@@ -16,12 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAn
             Value = value;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Value { get; set; }
-
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
     }
 }

@@ -24,19 +24,9 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices.UpdateCosmosI
             Name = name;
         }
 
-        public string CosmosInvoiceId { get; private set; }
-        public string Id { get; private set; }
+        public string CosmosInvoiceId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-
-        public void SetCosmosInvoiceId(string cosmosInvoiceId)
-        {
-            CosmosInvoiceId = cosmosInvoiceId;
-        }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

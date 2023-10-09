@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="d991d39c-682a-4d4c-889c-7d899ac4446c">
     <typeId>47f90053-acf5-4bf3-83e9-baba893bae35</typeId>
-    <typeName>EfInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="71e595c5-cb16-4f7d-9e81-1745668b6b7c">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

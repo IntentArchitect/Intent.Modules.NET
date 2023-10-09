@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="511b01cf-d68f-4573-adec-48e67b5c3923">
     <typeId>d3bcb5c4-d294-4390-a01f-5685317e127e</typeId>
-    <typeName>DaprInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="5ac17a88-c158-42c1-84df-899660750714">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

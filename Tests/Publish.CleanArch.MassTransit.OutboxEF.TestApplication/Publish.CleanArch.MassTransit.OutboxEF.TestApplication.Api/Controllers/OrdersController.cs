@@ -83,7 +83,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {

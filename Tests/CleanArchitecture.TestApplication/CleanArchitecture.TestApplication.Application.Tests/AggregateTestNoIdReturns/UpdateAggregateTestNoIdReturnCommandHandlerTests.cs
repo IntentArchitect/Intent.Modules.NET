@@ -27,7 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateTestNoIdR
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<AggregateTestNoIdReturn>();
-            fixture.Customize<UpdateAggregateTestNoIdReturnCommand>(comp => comp.Do(x => x.SetId(existingEntity.Id)));
+            fixture.Customize<UpdateAggregateTestNoIdReturnCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateTestNoIdReturnCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="3d5ac6a4-6581-44b5-9614-35706ed4c9d7">
       <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
-      <typeName>CombinedAllTechs</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>0</order>
     <typeReference id="83b4f350-1a60-4f3b-b657-af7c9d63da27">
       <typeId>a835180b-d003-4096-8f3b-21c88fba18fc</typeId>
-      <typeName>CosmosInvoiceUpdated</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

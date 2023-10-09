@@ -28,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.IntegrationTrigger
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<IntegrationTriggering>();
-            fixture.Customize<UpdateAnemicIntegrationTriggeringCommand>(comp => comp.Do(x => x.SetId(existingEntity.Id)));
+            fixture.Customize<UpdateAnemicIntegrationTriggeringCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAnemicIntegrationTriggeringCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

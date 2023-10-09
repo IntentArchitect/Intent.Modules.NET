@@ -28,8 +28,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<WithCompositeKey>();
             fixture.Customize<UpdateWithCompositeKeyCommand>(comp => comp
-                .Do(x => x.SetKey1Id(existingEntity.Key1Id))
-                .Do(x => x.SetKey2Id(existingEntity.Key2Id)));
+                .With(x => x.Key1Id, existingEntity.Key1Id)
+                .With(x => x.Key2Id, existingEntity.Key2Id));
             var testCommand = fixture.Create<UpdateWithCompositeKeyCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

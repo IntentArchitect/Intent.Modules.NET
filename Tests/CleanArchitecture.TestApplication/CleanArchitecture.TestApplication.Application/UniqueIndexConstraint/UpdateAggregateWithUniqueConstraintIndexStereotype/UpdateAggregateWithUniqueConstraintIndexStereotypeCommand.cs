@@ -21,14 +21,9 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Up
             CompUniqueFieldB = compUniqueFieldB;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string SingleUniqueField { get; set; }
         public string CompUniqueFieldA { get; set; }
         public string CompUniqueFieldB { get; set; }
-
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
     }
 }

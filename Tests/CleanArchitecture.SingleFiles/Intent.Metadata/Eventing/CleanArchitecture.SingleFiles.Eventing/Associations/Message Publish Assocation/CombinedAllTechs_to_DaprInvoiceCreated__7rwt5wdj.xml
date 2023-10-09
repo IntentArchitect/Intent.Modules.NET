@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="d8055f69-9651-4e6d-9a4b-098468cba13a">
       <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
-      <typeName>CombinedAllTechs</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>4</order>
     <typeReference id="6e47e5ea-1eeb-47f6-b710-007e6ef9af63">
       <typeId>f92041e4-f3e7-4450-87c3-59408e696e5e</typeId>
-      <typeName>DaprInvoiceCreated</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="e44ecf31-73cb-4430-8868-ebe6cf716f52">
     <typeId>6896a1d5-ef4c-4cc1-8cbe-8746968e8f9f</typeId>
-    <typeName>CosmosInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

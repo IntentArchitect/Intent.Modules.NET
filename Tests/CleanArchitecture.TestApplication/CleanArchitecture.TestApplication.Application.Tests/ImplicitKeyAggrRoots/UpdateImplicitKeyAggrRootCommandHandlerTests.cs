@@ -28,7 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null!);
             var existingEntity = fixture.Create<ImplicitKeyAggrRoot>();
-            fixture.Customize<UpdateImplicitKeyAggrRootCommand>(comp => comp.Do(x => x.SetId(existingEntity.Id)));
+            fixture.Customize<UpdateImplicitKeyAggrRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
             yield return new object[] { testCommand, existingEntity };
         }

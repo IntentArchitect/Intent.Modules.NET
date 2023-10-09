@@ -71,6 +71,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.AggregateRootId == default)
+            {
+                command.AggregateRootId = aggregateRootId;
+            }
+
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();
@@ -134,7 +139,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -163,12 +168,12 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         {
             if (command.AggregateRootId == default)
             {
-                command.SetAggregateRootId(aggregateRootId);
+                command.AggregateRootId = aggregateRootId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (aggregateRootId != command.AggregateRootId)
             {

@@ -16,13 +16,8 @@ namespace CleanArchitecture.Dapr.Application.Deriveds.UpdateDerived
             BaseAttribute = baseAttribute;
         }
 
-        public string Id { get; private set; }
+        public string Id { get; set; }
         public string Attribute { get; set; }
         public string BaseAttribute { get; set; }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 }

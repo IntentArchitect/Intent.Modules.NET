@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="67804943-7b88-48c8-9e67-4fe8a0294a4a">
     <typeId>2cc74486-b30a-4830-97b7-b5d6f493ef6c</typeId>
-    <typeName>CosmosInvoiceCosmosLineDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="79bde812-3bfe-4a71-8340-ce66f6692a39">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

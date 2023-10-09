@@ -16,12 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateTestNoIdReturns
             Attribute = attribute;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Attribute { get; set; }
-
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
     }
 }

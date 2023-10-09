@@ -85,7 +85,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {

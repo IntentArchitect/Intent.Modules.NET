@@ -15,12 +15,7 @@ namespace CleanArchitecture.Dapr.Application.Tags.UpdateTag
             Name = name;
         }
 
-        public string Id { get; private set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 }

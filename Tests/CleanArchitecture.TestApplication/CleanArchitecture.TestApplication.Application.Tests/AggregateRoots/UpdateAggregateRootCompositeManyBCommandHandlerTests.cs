@@ -31,8 +31,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var existingEntity = existingOwnerEntity.Composites.First();
             existingEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
-                .Do(x => x.SetAggregateRootId(existingOwnerEntity.Id))
-                .Do(x => x.SetId(existingEntity.Id)));
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
+                .With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
         }
@@ -83,7 +83,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Customize<AggregateRoot>(comp => comp.With(p => p.Composites, new List<CompositeManyB>()));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
-                .Do(p => p.SetAggregateRootId(existingOwnerEntity.Id)));
+                .With(p => p.AggregateRootId, existingOwnerEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
             var aggregateRootRepository = Substitute.For<IAggregateRootRepository>();
             aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));

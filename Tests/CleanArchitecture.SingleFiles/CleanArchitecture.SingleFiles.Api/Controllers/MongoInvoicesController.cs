@@ -71,6 +71,11 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] CreateMongoInvoiceMongoLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.MongoInvoiceId == default)
+            {
+                command.MongoInvoiceId = mongoInvoiceId;
+            }
+
             if (mongoInvoiceId != command.MongoInvoiceId)
             {
                 return BadRequest();
@@ -134,7 +139,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -163,12 +168,12 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.MongoInvoiceId == default)
             {
-                command.SetMongoInvoiceId(mongoInvoiceId);
+                command.MongoInvoiceId = mongoInvoiceId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (mongoInvoiceId != command.MongoInvoiceId)
             {

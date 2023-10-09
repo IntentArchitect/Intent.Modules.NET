@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="367c81c8-3878-40f1-8476-a83db361cd46">
     <typeId>0ad87afb-a8ee-4a64-99a4-a902cca00e59</typeId>
-    <typeName>MongoInvoiceDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

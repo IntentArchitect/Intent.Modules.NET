@@ -16,13 +16,8 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.UpdateDerivedOfT
             GenericTypeAttribute = genericTypeAttribute;
         }
 
-        public string Id { get; private set; }
+        public string Id { get; set; }
         public string DerivedAttribute { get; set; }
         public int GenericTypeAttribute { get; set; }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 }

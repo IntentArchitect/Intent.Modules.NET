@@ -87,12 +87,12 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         {
             if (command.Key1Id == default)
             {
-                command.SetKey1Id(key1Id);
+                command.Key1Id = key1Id;
             }
 
             if (command.Key2Id == default)
             {
-                command.SetKey2Id(key2Id);
+                command.Key2Id = key2Id;
             }
             if (key1Id != command.Key1Id)
             {

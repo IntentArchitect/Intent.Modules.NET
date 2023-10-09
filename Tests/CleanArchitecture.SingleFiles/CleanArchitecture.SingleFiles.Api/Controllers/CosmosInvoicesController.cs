@@ -71,6 +71,11 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] CreateCosmosInvoiceCosmosLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.CosmosInvoiceId == default)
+            {
+                command.CosmosInvoiceId = cosmosInvoiceId;
+            }
+
             if (cosmosInvoiceId != command.CosmosInvoiceId)
             {
                 return BadRequest();
@@ -134,7 +139,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -163,12 +168,12 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.CosmosInvoiceId == default)
             {
-                command.SetCosmosInvoiceId(cosmosInvoiceId);
+                command.CosmosInvoiceId = cosmosInvoiceId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (cosmosInvoiceId != command.CosmosInvoiceId)
             {

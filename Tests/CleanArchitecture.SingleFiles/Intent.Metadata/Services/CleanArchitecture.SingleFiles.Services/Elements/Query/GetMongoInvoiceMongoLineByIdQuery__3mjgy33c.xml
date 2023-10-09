@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="7138cb4f-fd6d-4b76-9415-7c35decead27">
     <typeId>ff0d4b5a-6e20-4a22-bdc1-0ea608ea8a48</typeId>
-    <typeName>MongoInvoiceMongoLineDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="1646f9c6-3e2a-40c7-aed6-17ddfc6bc933">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -98,7 +96,6 @@
       <genericTypes />
       <typeReference id="44e3ddf7-c9c3-41ea-bf9d-564eca7fe25f">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

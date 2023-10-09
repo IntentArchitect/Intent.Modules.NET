@@ -71,6 +71,11 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] CreateDaprInvoiceDaprLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.DaprInvoiceId == default)
+            {
+                command.DaprInvoiceId = daprInvoiceId;
+            }
+
             if (daprInvoiceId != command.DaprInvoiceId)
             {
                 return BadRequest();
@@ -134,7 +139,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -163,12 +168,12 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
         {
             if (command.DaprInvoiceId == default)
             {
-                command.SetDaprInvoiceId(daprInvoiceId);
+                command.DaprInvoiceId = daprInvoiceId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (daprInvoiceId != command.DaprInvoiceId)
             {

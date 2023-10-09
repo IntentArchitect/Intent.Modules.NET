@@ -71,6 +71,11 @@ namespace CleanArchitecture.Dapr.Api.Controllers
             [FromBody] CreateInvoiceInvoiceLineCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.InvoiceId == default)
+            {
+                command.InvoiceId = invoiceId;
+            }
+
             if (invoiceId != command.InvoiceId)
             {
                 return BadRequest();
@@ -132,7 +137,7 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         {
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (id != command.Id)
             {
@@ -161,12 +166,12 @@ namespace CleanArchitecture.Dapr.Api.Controllers
         {
             if (command.InvoiceId == default)
             {
-                command.SetInvoiceId(invoiceId);
+                command.InvoiceId = invoiceId;
             }
 
             if (command.Id == default)
             {
-                command.SetId(id);
+                command.Id = id;
             }
             if (invoiceId != command.InvoiceId)
             {

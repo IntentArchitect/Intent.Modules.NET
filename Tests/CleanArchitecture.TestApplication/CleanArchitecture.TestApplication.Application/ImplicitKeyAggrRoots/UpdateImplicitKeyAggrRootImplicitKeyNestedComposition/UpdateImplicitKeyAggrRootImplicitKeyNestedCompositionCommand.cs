@@ -19,18 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
             Attribute = attribute;
         }
 
-        public Guid ImplicitKeyAggrRootId { get; private set; }
-        public Guid Id { get; private set; }
+        public Guid ImplicitKeyAggrRootId { get; set; }
+        public Guid Id { get; set; }
         public string Attribute { get; set; }
-
-        public void SetImplicitKeyAggrRootId(Guid implicitKeyAggrRootId)
-        {
-            ImplicitKeyAggrRootId = implicitKeyAggrRootId;
-        }
-
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
     }
 }

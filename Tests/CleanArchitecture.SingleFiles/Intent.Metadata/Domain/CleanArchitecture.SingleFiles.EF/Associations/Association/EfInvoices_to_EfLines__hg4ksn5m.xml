@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="0e618bc1-31ff-409f-9715-61b5e649b071">
       <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
-      <typeName>EfInvoice</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>2</order>
     <typeReference id="aacb1177-a27e-4497-9e3a-eefbabc19d92">
       <typeId>b498eca6-fb81-4a0a-abd5-29e816201fe7</typeId>
-      <typeName>EfLine</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>true</isCollection>

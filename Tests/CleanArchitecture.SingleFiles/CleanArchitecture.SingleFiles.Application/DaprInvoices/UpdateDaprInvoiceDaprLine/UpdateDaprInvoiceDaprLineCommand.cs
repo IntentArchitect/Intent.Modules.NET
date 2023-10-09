@@ -24,19 +24,9 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices.UpdateDaprInvoi
             Name = name;
         }
 
-        public string DaprInvoiceId { get; private set; }
-        public string Id { get; private set; }
+        public string DaprInvoiceId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-
-        public void SetDaprInvoiceId(string daprInvoiceId)
-        {
-            DaprInvoiceId = daprInvoiceId;
-        }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

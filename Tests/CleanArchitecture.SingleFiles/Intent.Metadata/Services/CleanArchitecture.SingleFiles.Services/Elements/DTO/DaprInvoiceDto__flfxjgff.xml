@@ -30,7 +30,6 @@
       <genericTypes />
       <typeReference id="f5a99528-4f75-4775-9917-58c8636190bf">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -82,7 +81,6 @@
       <genericTypes />
       <typeReference id="4f120f47-258a-4635-bcdf-bb23e9639c94">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

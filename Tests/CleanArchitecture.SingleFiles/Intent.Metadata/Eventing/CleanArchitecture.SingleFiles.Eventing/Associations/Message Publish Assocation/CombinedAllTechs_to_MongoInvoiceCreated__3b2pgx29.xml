@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="5438f6ba-294f-422e-beef-1b96f8e72133">
       <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
-      <typeName>CombinedAllTechs</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>6</order>
     <typeReference id="5f8b6e42-830f-4153-be44-f8fabd926adb">
       <typeId>1a96190d-6c42-4ec1-abcc-7039ba2247d6</typeId>
-      <typeName>MongoInvoiceCreated</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

@@ -18,17 +18,7 @@ namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.Update
         }
 
         public string Name { get; set; }
-        public Guid Key1Id { get; private set; }
-        public Guid Key2Id { get; private set; }
-
-        public void SetKey1Id(Guid key1Id)
-        {
-            Key1Id = key1Id;
-        }
-
-        public void SetKey2Id(Guid key2Id)
-        {
-            Key2Id = key2Id;
-        }
+        public Guid Key1Id { get; set; }
+        public Guid Key2Id { get; set; }
     }
 }
