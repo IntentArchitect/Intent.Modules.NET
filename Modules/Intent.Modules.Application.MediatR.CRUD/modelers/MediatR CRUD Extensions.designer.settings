@@ -736,7 +736,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
@@ -826,7 +826,7 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
@@ -1879,7 +1879,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
@@ -1924,7 +1924,8 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
  * Source code here:
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/services-cqrs-crud/command-on-map/command-on-map.ts
  */
-onMapCommand(element, false);</script>
+onMapCommand(element, false);
+</script>
         </macro>
       </macros>
     </elementExtension>
@@ -2658,7 +2659,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
@@ -2748,7 +2749,7 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
@@ -3298,7 +3299,7 @@ function legacyPartitionKey(attribute) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
@@ -3363,4 +3364,5 @@ onMapQuery(element);
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
 </settings>

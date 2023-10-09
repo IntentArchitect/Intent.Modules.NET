@@ -6,6 +6,7 @@
   <genericTypes />
   <typeReference id="ed30912a-2251-4a53-a8a3-415da9b70015">
     <typeId>745ca135-d095-4fa8-9fa3-8fc4d700c6c5</typeId>
+    <typeName>QueryHandlerDecorator</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>

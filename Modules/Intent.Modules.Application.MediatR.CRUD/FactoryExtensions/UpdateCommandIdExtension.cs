@@ -97,7 +97,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
             var commandHandler = application.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, commandTemplate.Model);
             return commandHandler is null || StrategyFactory.GetMatchedCommandStrategy(commandHandler) is not UpdateImplementationStrategy strategy;
         }
-        
+
         private static List<MatchEntry> GetControllerParamWithCommandPropertyMatch(CSharpClassMethod method, CSharpClass commandClass, Dictionary<string, DTOFieldModel> commandFieldsLookup)
         {
             var matches = new List<MatchEntry>();
