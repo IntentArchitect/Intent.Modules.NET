@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     });
                 });
 
-            if (ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
+            if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
             {
                 FulfillsRole("Application.Query.Handler");
                 FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);

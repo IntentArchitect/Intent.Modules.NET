@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates
             CommandModel model,
             out ICSharpFileBuilderTemplate validatorTemplate)
         {
-            return template.ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile()
+            return template.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
                 ? template.TryGetTemplate(CommandModelsTemplate.TemplateId, model, out validatorTemplate)
                 : template.TryGetTemplate(CommandValidatorTemplate.TemplateId, model, out validatorTemplate);
         }

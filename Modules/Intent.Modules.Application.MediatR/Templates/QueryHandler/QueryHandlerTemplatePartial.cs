@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile();
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile();
         }
 
         public static void Configure(ICSharpFileBuilderTemplate template, QueryModel model)

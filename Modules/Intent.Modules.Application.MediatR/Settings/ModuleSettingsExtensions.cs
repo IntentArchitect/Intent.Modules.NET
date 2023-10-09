@@ -39,6 +39,6 @@ namespace Intent.Modules.Application.MediatR.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
-        public bool GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile() => bool.TryParse(_groupSettings.GetSetting("02413035-08e9-47b2-8b89-798f38388243")?.Value.ToPascalCase(), out var result) && result;
+        public bool ConsolidateCommandQueryAssociatedFilesIntoSingleFile() => bool.TryParse(_groupSettings.GetSetting("02413035-08e9-47b2-8b89-798f38388243")?.Value.ToPascalCase(), out var result) && result;
     }
 }

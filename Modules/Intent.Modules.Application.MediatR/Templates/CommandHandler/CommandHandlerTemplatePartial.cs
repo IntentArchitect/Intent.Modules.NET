@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile();
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile();
         }
 
         internal static void Configure(ICSharpFileBuilderTemplate template, CommandModel model)

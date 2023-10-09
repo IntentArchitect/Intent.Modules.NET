@@ -104,7 +104,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD" version="5.3.0-pre.1" />
+        <package id="Intent.Application.MediatR.CRUD" version="5.3.0-pre.2" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
@@ -139,9 +139,9 @@
   <moduleSettings>
     <group id="2392c046-0aa7-4ee5-a77a-e954c4a7aab5" title="CQRS Settings" externalReference="2392c046-0aa7-4ee5-a77a-e954c4a7aab5">
       <settings>
-        <setting id="02413035-08e9-47b2-8b89-798f38388243" title="Group Commands/Queries, Handlers and Validators into single file" type="switch">
+        <setting id="02413035-08e9-47b2-8b89-798f38388243" title="Consolidate Command/Query associated files into single file" type="switch">
           <isRequired>false</isRequired>
-          <hint>Have Commands and Queries have their handlers and validators generated into a single combined file.</hint>
+          <hint>Generate Commands and Queries' associated files (e.g. handlers, validators, etc) into the Command/Query file itself.</hint>
         </setting>
       </settings>
     </group>

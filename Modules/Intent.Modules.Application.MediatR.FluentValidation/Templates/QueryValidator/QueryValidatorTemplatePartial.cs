@@ -42,13 +42,6 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
 
         public static void Configure(CSharpTemplateBase<QueryModel> template)
         {
-            //if (!ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
-            //{
-            //    return;
-            //}
-
-            //var template = GetTemplate<QueryModelsTemplate>(QueryModelsTemplate.TemplateId, Model.Id);
-
             template.ConfigureForValidation(
                 dtoModel: new DTOModel(template.Model.InternalElement),
                 toValidateTemplateId: QueryModelsTemplate.TemplateId,
@@ -62,7 +55,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile();
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile();
         }
     }
 }

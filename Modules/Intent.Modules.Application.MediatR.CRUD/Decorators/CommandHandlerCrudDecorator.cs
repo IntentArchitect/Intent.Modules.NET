@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             _template = template;
             _application = application;
 
-            CSharpTemplateBase<CommandModel> targetTemplate = template.ExecutionContext.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile()
+            CSharpTemplateBase<CommandModel> targetTemplate = template.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
                 ? template.GetTemplate<CommandModelsTemplate>(CommandModelsTemplate.TemplateId, template.Model)
                 : template;
 

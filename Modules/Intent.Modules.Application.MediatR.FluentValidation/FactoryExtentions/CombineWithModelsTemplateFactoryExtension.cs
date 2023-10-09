@@ -27,7 +27,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!application.Settings.GetCQRSSettings().GroupCommandsQueriesHandlersAndValidatorsIntoSingleFile())
+            if (!application.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
             {
                 return;
             }
