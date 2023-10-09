@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="023eacf1-f9d4-4a66-b475-8aa88b833aae">
     <typeId>9c8ff153-4dca-4d95-8136-043ed779abd1</typeId>
-    <typeName>CommandHandlerDecorator</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>

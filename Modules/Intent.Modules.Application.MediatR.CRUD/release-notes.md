@@ -1,6 +1,5 @@
 ### Version 5.3.0
 
-- Improvement: When Controller parameters match with Update Command fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command that are already populated via a Route parameter.
 - Fixed: Addressed an issue where the CRUD Conventions script would fail when generating for Composites.
 
 ### Version 5.2.7

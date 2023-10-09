@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="3e4481d2-83a0-4dba-9528-eaf8dbf6e0f8">
     <typeId>e71b0662-e29d-4db2-868b-8a12464b25d0</typeId>
-    <typeName>Query</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -68,7 +67,6 @@
           <genericTypes />
           <typeReference id="163b4d3f-cde3-47fe-96ad-37e602180d05">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <typeName>Script</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

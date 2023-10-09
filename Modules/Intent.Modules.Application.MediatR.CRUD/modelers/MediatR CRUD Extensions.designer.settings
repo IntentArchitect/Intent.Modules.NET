@@ -3364,5 +3364,4 @@ onMapQuery(element);
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
-  <mappingSettings />
 </settings>

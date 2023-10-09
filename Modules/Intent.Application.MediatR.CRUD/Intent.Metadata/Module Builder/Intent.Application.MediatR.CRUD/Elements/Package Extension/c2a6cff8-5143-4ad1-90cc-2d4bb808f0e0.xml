@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="254649e1-f199-44e1-a1ea-12dc64370280">
     <typeId>df45eaf6-9202-4c25-8dd5-677e9ba1e906</typeId>
-    <typeName>Services Package</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -44,7 +43,6 @@
           <genericTypes />
           <typeReference id="30b41c7d-f906-4c48-be15-f8ab507e32ef">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <typeName>Script</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
