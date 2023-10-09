@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a984d92f-3482-470f-a4e1-4ef23478945a" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <externalReference>2bfb79a1-b955-402d-9e62-3e2f76c1b655</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca8e7db5-54da-4f00-aa50-68c424acf855</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a49821f5-9898-400e-b474-0584ba538b0a" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+      <name>dapr</name>
+      <display>dapr</display>
+      <externalReference>52897f11-e9e6-4b4b-a769-a0853e5bf7f2</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a984d92f-3482-470f-a4e1-4ef23478945a</parentFolderId>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b5cbceef-a9f4-4281-a74e-378e99c854de" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>Dapr</name>
+          <display>Dapr</display>
+          <externalReference>a47ae6b9-d22d-4fb1-bf8b-7c4793acffcf</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a49821f5-9898-400e-b474-0584ba538b0a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d9148b9c-18d6-4500-9d16-6dd96f9d8dc5" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+          <name>components</name>
+          <display>components</display>
+          <externalReference>77d88443-1226-49d0-a4d3-42ea01ba8a64</externalReference>
+          <isAbstract>false</isAbstract>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a49821f5-9898-400e-b474-0584ba538b0a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="fca230d6-c7ba-4e13-844c-b1ce47217c15" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>Dapr.Components</name>
+              <display>Dapr.Components</display>
+              <externalReference>224e47c9-c2e5-484e-b95c-e1e090478167</externalReference>
+              <isAbstract>false</isAbstract>
+              <order>1</order>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>d9148b9c-18d6-4500-9d16-6dd96f9d8dc5</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="68700680-da69-4e7e-a317-75455290777f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</name>
+              <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration</display>
+              <externalReference>Intent.Dapr.AspNetCore</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>d9148b9c-18d6-4500-9d16-6dd96f9d8dc5</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="5b9c7082-f041-45db-b90a-719026b3491b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</name>
+          <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</display>
+          <externalReference>Intent.Dapr.AspNetCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a49821f5-9898-400e-b474-0584ba538b0a</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

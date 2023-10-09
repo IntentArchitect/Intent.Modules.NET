@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e171efd8-7f6c-4a28-bab5-6f8034f1837e" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ae010739-d7b2-4951-9c20-b50c0900adb8</parentFolderId>
+  <packageId>ae010739-d7b2-4951-9c20-b50c0900adb8</packageId>
+  <packageName>CleanArchitecture.SingleFiles.Mongo</packageName>
+  <diagram>
+    <targetPackageId>ae010739-d7b2-4951-9c20-b50c0900adb8</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

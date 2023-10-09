@@ -57,5 +57,6 @@
     <application id="e27f2734-1034-404d-ac7d-f75f7e4c226f" name="EFCore.Lazy.Loading.Tests" relativePath="EFCore.Lazy.Loading.Tests/EFCore.Lazy.Loading.Tests.application.config" />
     <application id="2f4d3218-3dd2-46df-bba6-d00d7098a2b6" name="CosmosDBMultiTenancy" relativePath="CosmosDBMultiTenancy/CosmosDBMultiTenancy.application.config" />
     <application id="aaf53608-ca0b-4cc7-a2ea-8e8a19c7fd67" name="CleanArchitecture.OnlyModeledDomainEvents" relativePath="CleanArchitecture.OnlyModeledDomainEvents/CleanArchitecture.OnlyModeledDomainEvents.application.config" />
+    <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" relativePath="CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
   </applications>
 </solution>

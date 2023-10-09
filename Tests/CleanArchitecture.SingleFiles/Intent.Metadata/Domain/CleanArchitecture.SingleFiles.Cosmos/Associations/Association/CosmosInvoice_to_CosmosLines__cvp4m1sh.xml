@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4f4b9dab-de8c-4ec2-bdd2-735057b74a01">
+  <sourceEnd id="c310bb1a-da5a-49c0-96f7-7bc61d600f19" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CosmosInvoice</name>
+    <display>CosmosInvoice: CosmosInvoice</display>
+    <order>0</order>
+    <typeReference id="66f2ae8c-4254-447c-9ada-f798b8a750e8">
+      <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
+      <typeName>CosmosInvoice</typeName>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4f4b9dab-de8c-4ec2-bdd2-735057b74a01" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>CosmosLines</name>
+    <display>CosmosLines: CosmosLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="ac582743-7c89-4e18-9b97-40abacfedbd4">
+      <typeId>55214b6c-f1eb-4ead-9151-99883b4f9a63</typeId>
+      <typeName>CosmosLine</typeName>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

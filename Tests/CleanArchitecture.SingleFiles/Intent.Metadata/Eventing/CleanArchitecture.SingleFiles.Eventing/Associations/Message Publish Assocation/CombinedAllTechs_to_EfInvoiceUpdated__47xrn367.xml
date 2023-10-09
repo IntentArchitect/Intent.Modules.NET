@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b4ad933d-dbc2-4e95-b2e8-7aea6db83f03">
+  <sourceEnd id="0474d46b-2b46-418d-97e1-0d25e7305263" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>CombinedAllTechs</name>
+    <display>publisher: CombinedAllTechs</display>
+    <order>0</order>
+    <typeReference id="50ff5d7e-2381-4a68-93f4-4a70f2c27893">
+      <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
+      <typeName>CombinedAllTechs</typeName>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Eventing</typePackageName>
+      <typePackageId>f7975c06-f0bb-4941-ae2a-da74412e4408</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b4ad933d-dbc2-4e95-b2e8-7aea6db83f03" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EfInvoiceUpdated</name>
+    <display>publish: EfInvoiceUpdated</display>
+    <order>2</order>
+    <typeReference id="35e3f1a0-1a5a-4981-a8b0-73ed204a9f1e">
+      <typeId>e0796af3-4276-4bbf-a97b-f4f9052e0874</typeId>
+      <typeName>EfInvoiceUpdated</typeName>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Messages</typePackageName>
+      <typePackageId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

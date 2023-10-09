@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9fa4ade5-cc7e-4c32-b788-f8bb7236aaee">
+  <sourceEnd id="aa7fb4b0-85f7-49a7-ae4e-4ea02f5ea647" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DaprInvoice</name>
+    <display>DaprInvoice: DaprInvoice</display>
+    <order>0</order>
+    <typeReference id="90ddfed2-aeec-4ffc-b3ba-9e35c28f16dc">
+      <typeId>47198a38-4f68-4a44-852b-e3b12186852a</typeId>
+      <typeName>DaprInvoice</typeName>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CombinedAllTechs.Domain.DaprState</typePackageName>
+      <typePackageId>023085ed-1b46-448a-b8ba-f9430708cc10</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9fa4ade5-cc7e-4c32-b788-f8bb7236aaee" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DaprLines</name>
+    <display>DaprLines: DaprLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="acf68741-4a87-4378-9b1c-0164c9e68664">
+      <typeId>6c807d48-696a-4a34-9e65-90a3d4a1139c</typeId>
+      <typeName>DaprLine</typeName>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CombinedAllTechs.Domain.DaprState</typePackageName>
+      <typePackageId>023085ed-1b46-448a-b8ba-f9430708cc10</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
