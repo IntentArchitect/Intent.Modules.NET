@@ -56,8 +56,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.Static();
                     method.AddStatements(facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
                         CommandTargetDomain.Aggregate,
-                        CommandTestDataReturn.CommandAndAggregateDomain,
-                        true));
+                        CommandTestDataReturn.CommandAndAggregateDomain));
                     method.AddStatements(facade.Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
                         CommandTargetDomain.Aggregate,
                         true));

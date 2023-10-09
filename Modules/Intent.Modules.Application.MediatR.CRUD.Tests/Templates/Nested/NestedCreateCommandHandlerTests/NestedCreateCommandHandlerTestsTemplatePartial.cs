@@ -57,8 +57,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.Static();
                     method.AddStatements(facade.Get_ProduceSingleCommandAndEntity_TestDataStatements(
                         CommandTargetDomain.NestedEntity,
-                        CommandTestDataReturn.CommandAndAggregateDomain,
-                        false));
+                        CommandTestDataReturn.CommandAndAggregateDomain));
                     method.AddStatements(facade.Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
                         CommandTargetDomain.NestedEntity,
                         false));

@@ -1,7 +1,3 @@
-### Version 1.4.0
-
-- Improvement: Update Command Handler tests will make use of the Setter methods on Commands based on the MediatR CRUD changes.
-
 ### Version 1.3.2
 
 - Fixed: All tests will now use the exact same logic to detect whether a given Command/Query has a CRUD Handler for it to have a Unit Test.
