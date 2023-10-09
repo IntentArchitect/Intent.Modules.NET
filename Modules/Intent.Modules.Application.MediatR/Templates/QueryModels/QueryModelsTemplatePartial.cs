@@ -44,17 +44,17 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     AddAuthorization(@class);
                     @class.ImplementsInterface($"IRequest<{GetTypeName(Model.TypeReference)}>");
                     @class.ImplementsInterface(this.GetQueryInterfaceName());
-                    @class.AddConstructor(ctor =>
+                    
+                    @class.AddConstructor();
+                    var ctor = @class.Constructors.First();
+                    foreach (var property in Model.Properties)
                     {
-                        foreach (var property in Model.Properties)
+                        ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
-                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
-                            {
-                                p.AddMetadata("model", property);
-                                p.IntroduceProperty();
-                            });
-                        }
-                    });
+                            param.AddMetadata("model", property);
+                            param.IntroduceProperty();
+                        });
+                    }
                 });
 
             if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())

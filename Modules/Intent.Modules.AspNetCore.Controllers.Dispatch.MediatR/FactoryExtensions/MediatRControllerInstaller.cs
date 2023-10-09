@@ -61,40 +61,55 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                         continue;
                     }
 
-                    actionMethod.AddStatements(GetCqrsParameterToFieldAssignments(application, actionMethod, operationModel));
+                    AddCqrsParameterToFieldAssignments(application, actionMethod, operationModel);
                     actionMethod.AddStatements(GetValidations(operationModel));
                     actionMethod.AddStatement(GetDispatchViaMediatorStatement(controllerTemplate, operationModel), s => s.SeparatedFromPrevious());
                     actionMethod.AddStatement(controllerTemplate.GetReturnStatement(operationModel));
                 }
-            });
+            }, 10);
         }
     }
 
-    private static IEnumerable<CSharpStatement> GetCqrsParameterToFieldAssignments(
+    private static void AddCqrsParameterToFieldAssignments(
         IApplication application, 
         CSharpClassMethod actionMethod, 
         IControllerOperationModel operationModel)
     {
-        var statements = new List<CSharpStatement>();
         var payloadParameter = GetPayloadParameter(operationModel);
         if (payloadParameter == null)
         {
-            return statements;
+            return;
         }
         
         var commandModelTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CommandModelsTemplate.TemplateId, operationModel.InternalElement.Id);
         if (commandModelTemplate is not null)
         {
-            statements.AddRange(GetGenericParameterToFieldStatements(actionMethod, commandModelTemplate, payloadParameter));
+            commandModelTemplate.CSharpFile.OnBuild(file =>
+            {
+                var statements = GetGenericParameterToFieldStatements(actionMethod, commandModelTemplate, payloadParameter);
+                var index = -1;
+                foreach (var statement in statements)
+                {
+                    index++;
+                    actionMethod.InsertStatement(index, statement);
+                }
+            }, 10);
         }
         
         var queryModelTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(QueryModelsTemplate.TemplateId, operationModel.InternalElement.Id);
         if (queryModelTemplate is not null)
         {
-            statements.AddRange(GetGenericParameterToFieldStatements(actionMethod, queryModelTemplate, payloadParameter));
+            queryModelTemplate.CSharpFile.OnBuild(file =>
+            {
+                var statements = GetGenericParameterToFieldStatements(actionMethod, queryModelTemplate, payloadParameter);
+                var index = -1;
+                foreach (var statement in statements)
+                {
+                    index++;
+                    actionMethod.InsertStatement(index, statement);
+                }
+            }, 10);
         }
-
-        return statements;
     }
 
     private static IReadOnlyCollection<CSharpStatement> GetGenericParameterToFieldStatements(
