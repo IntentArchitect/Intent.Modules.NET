@@ -63,12 +63,12 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.CosmosDB">
       <install>
-        <package id="Intent.CosmosDB" version="1.0.0-alpha.32" />
+        <package id="Intent.CosmosDB" version="1.0.0" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
-        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-alpha.22" />
+        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-beta.0" />
       </install>
     </detect>
     <detect id="Intent.MongoDb">
