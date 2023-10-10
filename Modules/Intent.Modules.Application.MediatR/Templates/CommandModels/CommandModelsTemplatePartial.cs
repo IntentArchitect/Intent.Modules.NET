@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             FulfillsRole("Application.Contract.Command");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-            CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+            CSharpFile = new CSharpFile($"{this.GetCommandNamespace()}", $"{this.GetCommandFolderPath()}")
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {

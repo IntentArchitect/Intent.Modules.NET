@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "");
+            CSharpFile = new CSharpFile($"{this.GetCommandNamespace()}", $"{this.GetCommandFolderPath()}");
             Configure(this, model);
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
@@ -36,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             FulfillsRole("Application.Contract.Query");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-            CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+            CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}")
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {

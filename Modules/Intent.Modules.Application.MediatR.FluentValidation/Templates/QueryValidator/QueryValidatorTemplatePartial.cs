@@ -1,3 +1,4 @@
+using System;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -35,7 +36,9 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
-                model.GetConceptName())
+                additionalFolders: outputTarget.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
+                    ? Array.Empty<string>()
+                    : new[] { model.GetConceptName() })
         {
             FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
         }

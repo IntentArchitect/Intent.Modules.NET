@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "");
+            CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}");
             Configure(this, model);
         }
 
