@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -91,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>102af2d5-fc0b-4ecd-bbb2-07e9e8e42326</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>46e2ff3c-680e-4e71-9175-dcfec1d3ec64</parentFolderId>
+      <packageId>489b1e83-2218-49d8-9ace-52b8f2903134</packageId>
+      <packageName>Subscribe.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>46e2ff3c-680e-4e71-9175-dcfec1d3ec64</parentFolderId>
+      <packageId>489b1e83-2218-49d8-9ace-52b8f2903134</packageId>
+      <packageName>Subscribe.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

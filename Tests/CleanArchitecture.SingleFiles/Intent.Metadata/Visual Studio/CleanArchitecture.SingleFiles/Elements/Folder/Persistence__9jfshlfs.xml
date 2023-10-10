@@ -4,7 +4,7 @@
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f0db48f6-7aa9-4e05-91ea-04cc31380034</parentFolderId>
@@ -26,6 +26,22 @@
       <name>Intent.CosmosDB.CosmosDBUnitOfWork</name>
       <display>Intent.CosmosDB.CosmosDBUnitOfWork</display>
       <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c8346911-7b2a-4f42-88bb-82c5947700a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -80,20 +96,6 @@
       <parentFolderId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</parentFolderId>
       <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
       <packageName>CleanArchitecture.SingleFiles</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="c8346911-7b2a-4f42-88bb-82c5947700a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</name>
-      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</display>
-      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

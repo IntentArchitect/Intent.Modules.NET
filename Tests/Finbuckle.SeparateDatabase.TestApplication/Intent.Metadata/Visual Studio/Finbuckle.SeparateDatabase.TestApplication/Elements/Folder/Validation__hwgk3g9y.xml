@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ea7d5e93-5ff3-4580-9819-c4d06734984c</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>30c2dbe5-7ec2-4e4e-b226-e3ee12ad3a20</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>30c2dbe5-7ec2-4e4e-b226-e3ee12ad3a20</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>00f70cbb-ac4b-4d79-bf03-b9e4983b15ec</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>425f8034-e538-4313-ad3d-b825d60e43d6</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>425f8034-e538-4313-ad3d-b825d60e43d6</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

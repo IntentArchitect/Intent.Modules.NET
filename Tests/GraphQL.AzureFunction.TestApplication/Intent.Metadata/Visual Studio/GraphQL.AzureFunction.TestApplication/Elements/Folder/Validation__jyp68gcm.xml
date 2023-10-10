@@ -21,6 +21,38 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="d59e0dff-923c-4681-a9da-442e9e99a757" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d775cf5-fb6a-474f-916b-b7e241cab127</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="33039d67-7f8a-40c1-b71c-b6a44b666501" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d775cf5-fb6a-474f-916b-b7e241cab127</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="5556e233-547d-4391-b925-6b89dd9dd22f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AzureFunctions.FluentValidation.ValidationService</name>
       <display>Intent.AzureFunctions.FluentValidation.ValidationService</display>
@@ -47,34 +79,6 @@
       <parentFolderId>9d775cf5-fb6a-474f-916b-b7e241cab127</parentFolderId>
       <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
       <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="d59e0dff-923c-4681-a9da-442e9e99a757" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9d775cf5-fb6a-474f-916b-b7e241cab127</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="33039d67-7f8a-40c1-b71c-b6a44b666501" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9d775cf5-fb6a-474f-916b-b7e241cab127</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>606c7b0a-45ca-4ea3-a80b-ce18380e9863</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9bff7a65-c05b-4a11-ad34-0f7b7d7dff7c</parentFolderId>
+      <packageId>d66fae3e-ac05-4fe9-a4c5-7a1a9766365f</packageId>
+      <packageName>Publish.AspNetCore.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9bff7a65-c05b-4a11-ad34-0f7b7d7dff7c</parentFolderId>
+      <packageId>d66fae3e-ac05-4fe9-a4c5-7a1a9766365f</packageId>
+      <packageName>Publish.AspNetCore.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
