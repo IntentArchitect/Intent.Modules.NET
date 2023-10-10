@@ -6,14 +6,11 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
-using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
-using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -43,6 +40,7 @@ internal class CommandHandlerFacade
         CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
         TargetDomainIdAttributes = TargetDomainModel.GetEntityPkAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
+        PluralTargetDomainName = TargetDomainModel.Name.Pluralize().ToPascalCase();
         SingularCommandName = model.Name.ToPascalCase();
     }
 
@@ -88,6 +86,7 @@ internal class CommandHandlerFacade
     public ClassModel TargetDomainModel { get; }
     public string SingularCommandName { get; }
     public string SingularTargetDomainName { get; }
+    public string PluralTargetDomainName { get; }
     public IReadOnlyList<DTOFieldModel> CommandIdFields { get; }
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityIdAttribute> TargetDomainIdAttributes { get; }
 
@@ -222,19 +221,13 @@ internal class CommandHandlerFacade
             var variableName = commandTargetDomain switch { CommandTargetDomain.Aggregate => "existingEntity", CommandTargetDomain.NestedEntity => "existingOwnerEntity" };
 
             statements.Add($"var {variableName} = fixture.Create<{targetDomainClassType}>();");
-
+            
             if (commandTargetDomain is not CommandTargetDomain.NestedEntity)
             {
                 return;
             }
-
+            
             statements.Add($"var existingEntity = existingOwnerEntity.{OwnerToCompositeNavigationPropertyName}.First();");
-            for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
-            {
-                var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
-                var nestedIdAttribute = TargetDomainIdAttributes[index];
-                statements.Add($"existingEntity.{ownerIdAttribute.IdName.ToCSharpIdentifier()} = existingOwnerEntity.{nestedIdAttribute.IdName.ToCSharpIdentifier()};");
-            }
         }
 
         void AddCommandWithIdentityTestData()
@@ -275,7 +268,7 @@ internal class CommandHandlerFacade
                         var idField = CommandFieldsForOwnerId[index];
                         fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
                     }
-
+                    
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
@@ -294,8 +287,7 @@ internal class CommandHandlerFacade
     }
 
     public IReadOnlyCollection<CSharpStatement> Get_ProduceCommandWithNullableFields_ProduceSingleEntity_TestDataStatements(
-        CommandTargetDomain commandTargetDomain,
-        bool specialCrudUpdateCondition)
+        CommandTargetDomain commandTargetDomain)
     {
         var statements = new List<CSharpStatement>();
         var entityVarName = commandTargetDomain switch
@@ -316,7 +308,7 @@ internal class CommandHandlerFacade
             statements.AddRange(GetDomainEventBaseAutoFixtureRegistrationStatements());
             statements.Add($"{entityVarName} = fixture.Create<{targetDomainClassType}>();");
 
-            AddCommandWithIdentityTestData(property, specialCrudUpdateCondition);
+            AddCommandWithIdentityTestData(property);
 
             statements.Add($"yield return new object[] {{ testCommand, {entityVarName} }};");
         }
@@ -329,7 +321,7 @@ internal class CommandHandlerFacade
                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
         }
 
-        void AddCommandWithIdentityTestData(DTOFieldModel property, bool crudUpdateCondition)
+        void AddCommandWithIdentityTestData(DTOFieldModel property)
         {
             switch (commandTargetDomain)
             {
@@ -365,13 +357,6 @@ internal class CommandHandlerFacade
 
                     fluent.AddChainStatement($"Without(x => x.{property.Name})");
 
-                    for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
-                    {
-                        var idAttribute = TargetDomainIdAttributes[index];
-                        var idField = CommandFieldsForOwnerId[index];
-                        fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
-                    }
-
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
@@ -401,6 +386,7 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttribute => $"expected{SingularTargetDomainName}{idAttribute.IdName.ToPascalCase()}",
             TargetDomainIdAttributes,
+            null,
             GetDoExpressionForAggregate(),
             DomainAggregateRepositoryVarName,
             true);
@@ -430,29 +416,31 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttr => $"expected{idAttr.IdName.ToPascalCase()}",
             CompositeToOwnerIdAttributes,
+            GetInitializationStatements(),
             GetDoExpressionForAggregateOwner(),
             DomainAggregateOwnerRepositoryVarName,
             false);
+
+        IReadOnlyCollection<CSharpStatement> GetInitializationStatements()
+        {
+            var associationPropertyName = AggregateOwnerDomain.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
+            return new CSharpStatement[]
+            {
+                $"var {PluralTargetDomainName.ToCamelCase()}Snapshot = {aggregateOwnerEntityVarName}.{associationPropertyName}.ToArray();"
+            };
+        }
 
         CSharpStatement GetDoExpressionForAggregateOwner()
         {
             var block = new CSharpLambdaBlock("_");
             var associationPropertyName = AggregateOwnerDomain.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
-            block.AddStatement(
-                $@"added{SingularTargetDomainName} = {aggregateOwnerEntityVarName}.{associationPropertyName}.Single(p => {GetDomainIdKeyComparisonExpression("p", "default")});");
+            block.AddStatement($@"added{SingularTargetDomainName} = {aggregateOwnerEntityVarName}.{associationPropertyName}.Except({PluralTargetDomainName.ToCamelCase()}Snapshot).Single();");
 
             for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
             {
                 var idAttribute = TargetDomainIdAttributes[index];
                 var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
                 block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName.ToCSharpIdentifier()} = expected{ownerIdAttribute.IdName.ToPascalCase()};");
-            }
-
-            for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
-            {
-                var idAttribute = CompositeToOwnerIdAttributes[index];
-                var idField = CommandFieldsForOwnerId[index];
-                block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName} = {commandVarName}.{idField.Name.ToPascalCase()};");
             }
 
             return block;
@@ -462,6 +450,7 @@ internal class CommandHandlerFacade
     private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements(
         Func<ImplementationStrategyTemplatesExtensions.IEntityId, string> expectedDomainVarName,
         IReadOnlyList<ImplementationStrategyTemplatesExtensions.IEntityId> entityIdList,
+        IReadOnlyCollection<CSharpStatement> initializationStatements,
         CSharpStatement doExpression,
         string repositoryVarName,
         bool includeOnAddAssignment)
@@ -476,6 +465,12 @@ internal class CommandHandlerFacade
         }
 
         statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, TargetDomainModel)} added{SingularTargetDomainName} = null;");
+
+        if (initializationStatements is not null)
+        {
+            statements.AddRange(initializationStatements);
+        }
+
         if (includeOnAddAssignment)
         {
             statements.Add($"{repositoryVarName}.OnAdd(ent => added{SingularTargetDomainName} = ent);");

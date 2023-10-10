@@ -22,8 +22,10 @@ namespace CosmosDB.Api.Services
             _authorizationService = authorizationService;
         }
 
-        public string? UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
-        public string? UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+        [IntentIgnore]
+        public string? UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value ?? "Unknown";
+        [IntentIgnore]
+        public string? UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value ?? "Unknown";
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
