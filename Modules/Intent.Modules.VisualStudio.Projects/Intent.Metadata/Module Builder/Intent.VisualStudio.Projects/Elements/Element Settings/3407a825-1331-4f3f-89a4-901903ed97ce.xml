@@ -68,6 +68,7 @@
           <genericTypes />
           <typeReference id="45f4a576-6b80-4c6a-9a91-136af6073d1b">
             <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
+            <typeName>Folder</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -107,6 +108,7 @@
           <genericTypes />
           <typeReference id="3c3061bb-e4f5-4c17-bc84-907b7e0d4b21">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
+            <typeName>Template Output</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -146,6 +148,7 @@
           <genericTypes />
           <typeReference id="c8d51240-8fe7-476b-b0ff-a7dfb54ceec3">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
+            <typeName>Role</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

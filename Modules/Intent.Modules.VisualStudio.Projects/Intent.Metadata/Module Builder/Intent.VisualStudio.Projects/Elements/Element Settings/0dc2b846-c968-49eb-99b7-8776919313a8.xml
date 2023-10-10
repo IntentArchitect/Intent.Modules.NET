@@ -68,6 +68,7 @@
           <genericTypes />
           <typeReference id="9e2c991f-6951-4342-94f2-c94a3cdf72d5">
             <typeId>0dc2b846-c968-49eb-99b7-8776919313a8</typeId>
+            <typeName>Solution Folder</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -107,6 +108,7 @@
           <genericTypes />
           <typeReference id="3740f362-7be5-4d59-8c50-7a227ccc7d8c">
             <typeId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</typeId>
+            <typeName>Azure Functions Project</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -146,6 +148,7 @@
           <genericTypes />
           <typeReference id="a40b9704-7a89-4f3b-9b74-6f1ba4cab5a7">
             <typeId>8e9e6693-2888-4f48-a0d6-0f163baab740</typeId>
+            <typeName>C# Project (.NET)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -185,6 +188,7 @@
           <genericTypes />
           <typeReference id="b47625b6-5005-475b-9c23-6b45976ab45e">
             <typeId>52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</typeId>
+            <typeName>Class Library (.NET Core)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -224,6 +228,7 @@
           <genericTypes />
           <typeReference id="4af95c65-a638-4ee4-8eb4-44b336754984">
             <typeId>0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</typeId>
+            <typeName>Class Library (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -263,6 +268,7 @@
           <genericTypes />
           <typeReference id="3b7d2adc-a7f0-46de-8a59-59764a69aaea">
             <typeId>FFD54A85-9362-48AC-B646-C93AB9AC63D2</typeId>
+            <typeName>ASP.NET Core Web Application</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -302,6 +308,7 @@
           <genericTypes />
           <typeReference id="c7c4965d-6146-4a1d-9018-f458464787b9">
             <typeId>8AF747CF-58F0-449C-8B95-46080FEFC8C0</typeId>
+            <typeName>ASP.NET Web Application (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -341,6 +348,7 @@
           <genericTypes />
           <typeReference id="8efbe19e-8b51-4a1c-bd9b-4f71069019bc">
             <typeId>3CDFF513-03D8-4BAB-9435-160108A086A3</typeId>
+            <typeName>WCF Service Application</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -380,6 +388,7 @@
           <genericTypes />
           <typeReference id="82231939-428a-415e-8315-75bcc9895113">
             <typeId>673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</typeId>
+            <typeName>Console App (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -419,6 +428,7 @@
           <genericTypes />
           <typeReference id="e1192699-f697-47c7-a052-662764a79f59">
             <typeId>27b265c8-e185-4c33-9908-8d23d5e945d1</typeId>
+            <typeName>Console App (.NET Core)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -458,6 +468,7 @@
           <genericTypes />
           <typeReference id="858c465c-1022-4735-940f-7428cdba3185">
             <typeId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</typeId>
+            <typeName>SQL Server Database Project</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -497,6 +508,7 @@
           <genericTypes />
           <typeReference id="93e424ee-b0c7-4905-9fe1-2aee7853300f">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
+            <typeName>Role</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -536,6 +548,7 @@
           <genericTypes />
           <typeReference id="3bc3b49c-cb9b-4bfb-8e7a-b40cdddc639a">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
+            <typeName>Template Output</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

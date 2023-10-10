@@ -68,6 +68,7 @@
           <genericTypes />
           <typeReference id="a18c7887-cc5a-4213-9553-793c72b710f9">
             <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
+            <typeName>Folder</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -107,6 +108,7 @@
           <genericTypes />
           <typeReference id="6789f6fb-3cd6-42a2-8ad6-c4bcb56c0d84">
             <typeId>9edf270e-3f38-406c-ac94-07b9737bb531</typeId>
+            <typeName>Runtime Environment</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -146,6 +148,7 @@
           <genericTypes />
           <typeReference id="f1068d76-c270-4ea8-a237-e2d59b64b5da">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
+            <typeName>Template Output</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -185,6 +188,7 @@
           <genericTypes />
           <typeReference id="7acadf70-4b69-4e8c-9300-903107b9b007">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
+            <typeName>Role</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

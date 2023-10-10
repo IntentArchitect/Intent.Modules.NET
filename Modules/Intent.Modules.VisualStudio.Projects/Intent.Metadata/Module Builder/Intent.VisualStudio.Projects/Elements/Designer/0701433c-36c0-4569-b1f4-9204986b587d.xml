@@ -40,6 +40,7 @@
       <genericTypes />
       <typeReference id="d291c67e-7be8-43d5-9df7-2dc258bc17ab">
         <typeId>2ef69545-61ca-42b7-89bd-4ae3d5970280</typeId>
+        <typeName>Visual Studio Types</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
