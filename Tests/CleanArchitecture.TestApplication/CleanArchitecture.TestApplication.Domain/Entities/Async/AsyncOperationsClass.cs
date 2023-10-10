@@ -10,9 +10,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.Async
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AsyncOperationsClass : IHasDomainEvent
     {
-        public AsyncOperationsClass()
-        {
-        }
 
         public Guid Id { get; set; }
 

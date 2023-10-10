@@ -9,10 +9,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class DataContractClass : IHasDomainEvent
     {
-        public DataContractClass()
-        {
-            Name = null!;
-        }
 
         public Guid Id { get; set; }
 

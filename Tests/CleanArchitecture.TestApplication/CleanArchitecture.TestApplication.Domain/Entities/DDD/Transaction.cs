@@ -9,12 +9,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Transaction : IHasDomainEvent
     {
-        public Transaction()
-        {
-            Current = null!;
-            Description = null!;
-            Account = null!;
-        }
 
         public Guid Id { get; set; }
 

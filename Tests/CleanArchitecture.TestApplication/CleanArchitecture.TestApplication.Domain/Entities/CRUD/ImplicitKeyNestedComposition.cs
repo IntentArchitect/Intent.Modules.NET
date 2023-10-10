@@ -6,10 +6,6 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ImplicitKeyNestedComposition
     {
-        public ImplicitKeyNestedComposition()
-        {
-            Attribute = null!;
-        }
 
         public Guid Id { get; set; }
 
