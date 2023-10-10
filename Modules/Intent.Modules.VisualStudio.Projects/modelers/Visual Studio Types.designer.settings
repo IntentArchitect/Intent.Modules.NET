@@ -490,6 +490,22 @@ return libraryIcon;</iconFunction>
       <scriptOptions />
       <mappingOptions />
       <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>let stereotype = element.getStereotype("C# Project Options");
+if (stereotype == null) {
+    return;
+}
+
+var property = stereotype.getProperty("Nullable");
+if (property == null) {
+    return;
+}
+
+property.setValue("enable");
+</script>
+        </macro>
+      </macros>
       <childElementSettings />
     </elementSetting>
     <elementSetting type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
