@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4d21edc9-1c51-48fa-a261-426721a8b01e" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>PaginationForProxiesService</name>
+  <display>PaginationForProxiesService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="c078f360-0073-495a-bd69-d9e4a9712bb8" name="PaginationForProxies" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</parentFolderId>
+  <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+  <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8a0b3848-f54e-49b8-a043-316c8f7e83fa" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>PaginatedResult</name>
+      <display>PaginatedResult(): PagedResult&lt;string&gt;</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ddbdd88a-b680-464e-a50b-563eb4edf2e0">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <typeName>PagedResult</typeName>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services</typePackageName>
+        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="fc7f212d-58eb-4d3a-93da-d3fd2075c3fa">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fec03c78-aea1-42b0-b54e-446173ac7b6e" name="PaginatedResultQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>4d21edc9-1c51-48fa-a261-426721a8b01e</parentFolderId>
+      <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+      <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
