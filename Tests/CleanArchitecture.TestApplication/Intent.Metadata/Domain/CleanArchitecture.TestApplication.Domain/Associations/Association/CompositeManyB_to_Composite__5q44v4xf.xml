@@ -6,6 +6,7 @@
     <order>0</order>
     <typeReference id="7711f610-3eb1-45a6-a9ab-2600747f0f31">
       <typeId>ef7b22c0-fe8f-4782-9aeb-9fa810eb158a</typeId>
+      <typeName>CompositeManyB</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>4</order>
     <typeReference id="9a5cc462-cf93-49f6-a7de-82e036ed6df0">
       <typeId>856d711f-0890-4d0f-9e3f-013b053052dd</typeId>
+      <typeName>CompositeSingleBB</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>true</isNullable>
       <isCollection>false</isCollection>

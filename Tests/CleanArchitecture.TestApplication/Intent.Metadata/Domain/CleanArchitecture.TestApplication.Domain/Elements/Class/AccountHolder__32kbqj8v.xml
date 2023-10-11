@@ -19,6 +19,7 @@
       <genericTypes />
       <typeReference id="310620d4-724d-47a8-a72d-358c85dca94a">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -54,6 +55,7 @@
       <genericTypes />
       <typeReference id="8edfd14c-9366-4213-912d-feed7b7cb902">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -111,6 +113,7 @@
           <genericTypes />
           <typeReference id="2523c081-d278-42e8-b1bd-a9ab2cc9bfc0">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -144,6 +147,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="56f2439d-b5af-4ff6-afb2-5e8ff713800b">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -165,6 +169,7 @@
           <genericTypes />
           <typeReference id="7807a230-d560-4d20-9155-b765bdacf0c6">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -189,6 +194,7 @@
           <genericTypes />
           <typeReference id="9eb250c9-4997-4d06-8ed6-f048c1a2a1d4">
             <typeId>f17d084f-2ad9-4343-a6d2-d4b35e491a83</typeId>
+            <typeName>AccountingDomainService</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -213,6 +219,7 @@
           <genericTypes />
           <typeReference id="183bb5b9-e3f8-48f4-8104-0450a9acc35d">
             <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <typeName>decimal</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -237,6 +244,7 @@
           <genericTypes />
           <typeReference id="dbca69c9-b168-48ad-bfda-5a7d6fd667c1">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -263,6 +271,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="873d139c-59df-419b-9848-4c69e8dbceaf">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -293,6 +302,7 @@
           <genericTypes />
           <typeReference id="25fb37ff-cf0e-4cec-a9bf-eec1c0ca2e30">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

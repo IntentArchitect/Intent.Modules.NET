@@ -29,6 +29,7 @@
       <genericTypes />
       <typeReference id="991623b9-0b02-4aa6-adbf-881b375f996a">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

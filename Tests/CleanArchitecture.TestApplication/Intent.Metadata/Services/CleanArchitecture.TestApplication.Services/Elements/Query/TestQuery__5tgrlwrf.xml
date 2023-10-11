@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="19abfe06-7a78-4b29-99bd-be7f12490680">
     <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+    <typeName>int</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -41,6 +42,7 @@
       <genericTypes />
       <typeReference id="95f71329-fdd6-4d76-8061-7646710e8c4e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -6,6 +6,7 @@
     <order>6</order>
     <typeReference id="c4d4d872-ccd1-4d3a-872c-7065e228d162">
       <typeId>bc8005a7-7ed3-4835-8e9a-3f1a7cb6afd4</typeId>
+      <typeName>AccountTransferStarted</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>3</order>
     <typeReference id="372594e3-2616-4854-9c7a-be2e2c618726">
       <typeId>ef229a2c-3961-4466-ab21-99aae3e3bf58</typeId>
+      <typeName>AccountHolder</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="e90d4f34-245b-4ff4-95e1-b7326ab8bb8b">
     <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <typeName>guid</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -41,6 +42,7 @@
       <genericTypes />
       <typeReference id="ed0eb35c-90c6-4d1b-b7e1-9503763eb9df">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -92,6 +94,7 @@
       <genericTypes />
       <typeReference id="020ef97c-f59c-4739-90a4-1ec07a354442">
         <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
+        <typeName>EnumWithoutDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -143,6 +146,7 @@
       <genericTypes />
       <typeReference id="e534326a-3594-4b02-a3bc-33ee2d84525d">
         <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
+        <typeName>EnumWithoutValues</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -194,6 +198,7 @@
       <genericTypes />
       <typeReference id="62398f4b-16fe-4dee-80ae-33ecbc637943">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -245,6 +250,7 @@
       <genericTypes />
       <typeReference id="d4c8bb59-5671-4468-8822-b644b59feb21">
         <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
+        <typeName>EnumWithoutDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -296,6 +302,7 @@
       <genericTypes />
       <typeReference id="37d88ce1-3d6a-4947-b4f7-61918c382a5b">
         <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
+        <typeName>EnumWithoutValues</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -347,6 +354,7 @@
       <genericTypes />
       <typeReference id="882b189d-1e02-4a1f-b553-66c6c7c8ac7b">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -391,6 +399,7 @@
       <genericTypes />
       <typeReference id="774c4427-4429-4e35-9b89-02c3e35bdcb0">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

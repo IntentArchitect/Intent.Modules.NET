@@ -6,6 +6,7 @@
   <genericTypes />
   <typeReference id="5a1ba6ad-4979-46f0-ac5c-9634e0b939e6">
     <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+    <typeName>string</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

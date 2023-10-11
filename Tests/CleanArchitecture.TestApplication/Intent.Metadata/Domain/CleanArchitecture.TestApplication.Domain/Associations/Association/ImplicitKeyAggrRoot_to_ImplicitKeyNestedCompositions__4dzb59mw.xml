@@ -6,6 +6,7 @@
     <order>0</order>
     <typeReference id="383e3b18-f4f8-486d-9f42-1c31aad156dd">
       <typeId>70197f0a-1b57-43ba-8d05-67a3c955772b</typeId>
+      <typeName>ImplicitKeyAggrRoot</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>1</order>
     <typeReference id="76933f3e-fe85-4190-80be-7d3accae7c25">
       <typeId>63711bd5-e375-4318-be8e-ccd531a3bb12</typeId>
+      <typeName>ImplicitKeyNestedComposition</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>true</isCollection>

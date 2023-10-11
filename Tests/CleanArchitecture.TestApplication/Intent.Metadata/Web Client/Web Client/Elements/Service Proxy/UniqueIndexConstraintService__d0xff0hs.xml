@@ -29,6 +29,7 @@
       <genericTypes />
       <typeReference id="eb51d385-18c6-4be6-9b3d-d6cbe453afae">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -60,6 +61,7 @@
       <genericTypes />
       <typeReference id="915dcedf-c70e-443b-b3e6-cd8c716514b5">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -90,6 +92,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="7881e583-71c6-466d-91a0-103df3fdf783">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -118,6 +121,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b48d9b21-c0db-4a71-a622-7124e23c4151">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -146,6 +150,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="7218d588-eedd-4f49-a798-50cc27fc76a2">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -174,6 +179,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="629f13c7-1847-4b16-a5f2-18b5dd42436e">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -203,6 +209,7 @@
       <genericTypes />
       <typeReference id="caccc104-33b1-4f58-a404-10c3a6abe526">
         <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
+        <typeName>AggregateWithUniqueConstraintIndexElementDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -234,6 +241,7 @@
       <genericTypes />
       <typeReference id="4d021b18-2991-43de-b2ff-efd458dcc950">
         <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
+        <typeName>AggregateWithUniqueConstraintIndexElementDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -265,6 +273,7 @@
       <genericTypes />
       <typeReference id="eb278b6c-88b8-44dd-a9c6-e563429de5d7">
         <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
+        <typeName>AggregateWithUniqueConstraintIndexStereotypeDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -296,6 +305,7 @@
       <genericTypes />
       <typeReference id="88c7621a-2c70-4950-8db8-244f003f3e69">
         <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
+        <typeName>AggregateWithUniqueConstraintIndexStereotypeDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

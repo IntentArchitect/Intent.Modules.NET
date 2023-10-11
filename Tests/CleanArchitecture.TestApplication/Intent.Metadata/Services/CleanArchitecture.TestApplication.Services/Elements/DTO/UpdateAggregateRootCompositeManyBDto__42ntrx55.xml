@@ -31,6 +31,7 @@
       <genericTypes />
       <typeReference id="709d9d38-143a-4267-b667-af3627324629">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -82,6 +83,7 @@
       <genericTypes />
       <typeReference id="4deddc5f-5b45-4fc8-9aea-2c5edc96357c">
         <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeName>date</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -133,6 +135,7 @@
       <genericTypes />
       <typeReference id="dff00f15-5bca-4d69-bcca-b24f5c36b070">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -184,6 +187,7 @@
       <genericTypes />
       <typeReference id="033743ff-b753-424c-8952-69b3120a373a">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -235,6 +239,7 @@
       <genericTypes />
       <typeReference id="abbf0c8f-32a7-48e4-b6d2-b011c0769642">
         <typeId>5e79f290-4090-46d2-b024-705058178c6a</typeId>
+        <typeName>UpdateAggregateRootCompositeManyBCompositeManyBBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -286,6 +291,7 @@
       <genericTypes />
       <typeReference id="1a17a145-dab1-4e82-a0d1-b819e827e6eb">
         <typeId>fc4d0e39-67dc-4c4a-8a94-0999e87e6f32</typeId>
+        <typeName>UpdateAggregateRootCompositeManyBCompositeSingleBBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>

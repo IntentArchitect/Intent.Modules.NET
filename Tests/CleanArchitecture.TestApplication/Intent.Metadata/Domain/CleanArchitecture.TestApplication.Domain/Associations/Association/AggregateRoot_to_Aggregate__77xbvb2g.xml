@@ -6,6 +6,7 @@
     <order>0</order>
     <typeReference id="0bf464cd-e7e8-48cd-a353-e50ac704bab0">
       <typeId>d4caf10c-064e-41ff-9202-7ba1c44d40c4</typeId>
+      <typeName>AggregateRoot</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>true</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>9</order>
     <typeReference id="0aade2b5-ae5f-46a4-8c02-ecdbaeb65474">
       <typeId>06e86189-1b74-443d-94b8-8fb9d94c097a</typeId>
+      <typeName>AggregateSingleC</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>true</isNullable>
       <isCollection>false</isCollection>

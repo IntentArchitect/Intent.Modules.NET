@@ -30,6 +30,7 @@
       <genericTypes />
       <typeReference id="af1889e4-ca2f-46a7-8c2d-2b2ca403a634">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -81,6 +82,7 @@
       <genericTypes />
       <typeReference id="984bb112-c71b-4a13-8351-d9faa2529910">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -132,6 +134,7 @@
       <genericTypes />
       <typeReference id="6eae71f3-031c-4f11-bdbe-47bfc77e6c10">
         <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
+        <typeName>EnumWithoutDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -183,6 +186,7 @@
       <genericTypes />
       <typeReference id="6cfd82f7-0642-4c08-82b3-5c4ecbc5533e">
         <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
+        <typeName>EnumWithoutValues</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -234,6 +238,7 @@
       <genericTypes />
       <typeReference id="f0805462-49c6-4dab-9390-e8c98dfac749">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
+        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -285,6 +290,7 @@
       <genericTypes />
       <typeReference id="33945d89-60d4-4151-9851-e3b4a44812fd">
         <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
+        <typeName>EnumWithoutDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -336,6 +342,7 @@
       <genericTypes />
       <typeReference id="c86c208a-7e50-4b73-af52-05f44b282add">
         <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
+        <typeName>EnumWithoutValues</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>

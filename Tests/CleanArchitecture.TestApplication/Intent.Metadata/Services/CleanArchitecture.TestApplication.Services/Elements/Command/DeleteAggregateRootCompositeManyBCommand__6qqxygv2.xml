@@ -6,6 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="0274dbbe-43e0-4fdb-a2da-4539d40a8c61">
+    <typeName>void</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -49,6 +50,7 @@
       <genericTypes />
       <typeReference id="6eb471be-bc12-4bd5-99e9-528e03d9ed8e">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -100,6 +102,7 @@
       <genericTypes />
       <typeReference id="5cda53ae-d67c-4501-afee-9d85c14ecbf5">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="ae67fa1e-18bd-466c-8934-2f345360ffd1">
     <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
+    <typeName>AggregateRootCompositeManyBDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,6 +53,7 @@
       <genericTypes />
       <typeReference id="ed655b9b-6e55-4b60-8b1c-609c65b62088">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -103,6 +105,7 @@
       <genericTypes />
       <typeReference id="41bbc181-04e5-49c9-a963-25217fc334ee">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

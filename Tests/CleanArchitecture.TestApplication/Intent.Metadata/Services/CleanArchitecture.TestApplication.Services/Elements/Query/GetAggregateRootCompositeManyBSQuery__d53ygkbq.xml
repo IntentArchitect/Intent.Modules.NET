@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="be52c2ab-0fa2-41cb-bc14-446976cf9f08">
     <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
+    <typeName>AggregateRootCompositeManyBDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>
@@ -43,6 +44,7 @@
       <genericTypes />
       <typeReference id="406e76aa-838e-4228-82e5-faed4c203a69">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

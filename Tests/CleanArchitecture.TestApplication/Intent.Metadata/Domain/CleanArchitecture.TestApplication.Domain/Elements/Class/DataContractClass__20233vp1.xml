@@ -19,6 +19,7 @@
       <genericTypes />
       <typeReference id="82410ff3-44fe-4db4-8f08-254e7ab811ae">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -54,6 +55,7 @@
       <genericTypes />
       <typeReference id="8a95b4e3-4553-4a30-8411-9cfa3a173259">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -89,6 +91,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="edc3c90a-6e3f-4676-8764-ab09ea1d1aec">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -110,6 +113,7 @@
           <genericTypes />
           <typeReference id="0dcf82b0-bf10-4c15-80bd-9a38cc43e30d">
             <typeId>5a353cd6-cd4b-428f-91b7-617c431e60df</typeId>
+            <typeName>DataContractObject</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

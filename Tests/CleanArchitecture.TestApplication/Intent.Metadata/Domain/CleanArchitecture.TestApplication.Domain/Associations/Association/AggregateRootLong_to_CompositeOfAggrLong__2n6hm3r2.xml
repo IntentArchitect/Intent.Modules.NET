@@ -6,6 +6,7 @@
     <order>0</order>
     <typeReference id="97c50879-0187-4a51-80d9-589e157c5654">
       <typeId>872ef1b0-8331-41c5-a76f-42269498b2eb</typeId>
+      <typeName>AggregateRootLong</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>2</order>
     <typeReference id="fab30f2f-8d5c-4555-b17c-37727d5fedff">
       <typeId>4d6e639d-9521-4ee3-a805-7c1f84208030</typeId>
+      <typeName>CompositeOfAggrLong</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>true</isNullable>
       <isCollection>false</isCollection>

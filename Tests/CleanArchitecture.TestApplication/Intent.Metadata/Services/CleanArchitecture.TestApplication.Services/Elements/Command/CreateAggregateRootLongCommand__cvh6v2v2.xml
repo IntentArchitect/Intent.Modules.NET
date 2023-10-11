@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="b4daf68c-0b89-4d49-be09-86ba02c0c41a">
     <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+    <typeName>long</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,6 +53,7 @@
       <genericTypes />
       <typeReference id="abd85862-a523-4944-949c-41340ffa5c22">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -103,6 +105,7 @@
       <genericTypes />
       <typeReference id="1c49beb3-c956-4d76-9061-ad1ff9a4b62c">
         <typeId>5dc20893-32fd-4f92-b42c-99b3d8645d33</typeId>
+        <typeName>CreateAggregateRootLongCompositeOfAggrLongDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>

@@ -6,6 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="07878420-7101-4d37-88e9-1c061cfddefd">
+    <typeName>void</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -49,6 +50,7 @@
       <genericTypes />
       <typeReference id="81043fc2-576c-49d8-a0e0-665e50b2d858">
         <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <typeName>long</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -100,6 +102,7 @@
       <genericTypes />
       <typeReference id="06b6e10d-f59b-40b1-9b19-bac166cec859">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -151,6 +154,7 @@
       <genericTypes />
       <typeReference id="6721e3f3-a7bd-473f-a50d-24c5ec1fd101">
         <typeId>d82577c4-694e-4206-b692-aeb3079d9f1d</typeId>
+        <typeName>UpdateAggregateRootLongCompositeOfAggrLongDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>

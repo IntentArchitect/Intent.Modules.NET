@@ -6,6 +6,7 @@
     <order>0</order>
     <typeReference id="a384089c-9a4b-45a8-9901-5f638f8e137f">
       <typeId>64005771-f36f-4127-b15c-e2267c4bd933</typeId>
+      <typeName>CleanArchitecture.TestApplication</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -25,6 +26,7 @@
     <order>2</order>
     <typeReference id="9b77d881-d940-4b25-9c1b-29c3a7926d02">
       <typeId>81ebe2ea-a0c6-4934-af3a-a8a4558936bf</typeId>
+      <typeName>IntegrationTriggeringDeleted</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

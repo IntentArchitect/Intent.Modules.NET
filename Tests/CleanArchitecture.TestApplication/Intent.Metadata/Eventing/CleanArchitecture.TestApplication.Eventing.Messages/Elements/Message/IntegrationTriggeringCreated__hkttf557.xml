@@ -28,6 +28,7 @@
       <genericTypes />
       <typeReference id="8d5f7693-e695-4682-9268-ab36152f21d9">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

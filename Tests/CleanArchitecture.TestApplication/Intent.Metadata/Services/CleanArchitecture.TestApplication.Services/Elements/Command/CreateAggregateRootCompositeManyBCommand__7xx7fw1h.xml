@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="be4f0afd-fb04-4f56-b6cb-053b154d5c49">
     <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <typeName>guid</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,6 +53,7 @@
       <genericTypes />
       <typeReference id="c754b34c-88d9-410d-9b63-61e745657664">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -103,6 +105,7 @@
       <genericTypes />
       <typeReference id="651c6749-cc94-4f99-ace9-aa36df9dc661">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -154,6 +157,7 @@
       <genericTypes />
       <typeReference id="291c7cdc-9913-42ec-873c-5f6f7f236bb5">
         <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeName>date</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -205,6 +209,7 @@
       <genericTypes />
       <typeReference id="060b0888-6de6-43bc-87ae-cabafe161250">
         <typeId>f93fa513-6288-4e17-8fac-4cef0b6fb4e9</typeId>
+        <typeName>CreateAggregateRootCompositeManyBCompositeSingleBBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -256,6 +261,7 @@
       <genericTypes />
       <typeReference id="872db9a5-2977-4a3c-a32f-0826c30fb8e9">
         <typeId>6fb403ca-5147-47bd-b8e5-d9d034361096</typeId>
+        <typeName>CreateAggregateRootCompositeManyBCompositeManyBBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

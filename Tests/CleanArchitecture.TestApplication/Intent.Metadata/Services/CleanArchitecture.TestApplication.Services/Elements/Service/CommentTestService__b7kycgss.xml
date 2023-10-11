@@ -21,6 +21,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="326fc2f9-7f15-4410-bb79-934a20a8d711">
+        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -43,6 +44,7 @@
           <genericTypes />
           <typeReference id="67f6c987-1c87-4630-a4c3-3379afbecd01">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

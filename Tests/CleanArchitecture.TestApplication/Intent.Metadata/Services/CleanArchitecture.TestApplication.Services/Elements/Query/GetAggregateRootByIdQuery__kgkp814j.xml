@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="415ddb15-ab45-4663-8765-d719dc58585f">
     <typeId>a733e81e-070d-4219-9158-e2fbe7d98400</typeId>
+    <typeName>AggregateRootDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,6 +53,7 @@
       <genericTypes />
       <typeReference id="12e8447d-0f33-4eb5-89e4-5d3328a8ad7d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

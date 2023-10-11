@@ -6,6 +6,7 @@
   <genericTypes />
   <typeReference id="38eb77d2-59b8-48a9-b94e-6c2d7dd301b6">
     <typeId>692b9881-11a4-4e0d-b793-0b956e07bdb4</typeId>
+    <typeName>ImplicitKeyAggrRootDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

@@ -6,6 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="d23e260a-3789-41a6-a7ca-0edbccb17561">
+    <typeName>void</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -49,6 +50,7 @@
       <genericTypes />
       <typeReference id="924bf6a8-7c89-4d38-9d60-0507cabd2113">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -100,6 +102,7 @@
       <genericTypes />
       <typeReference id="a5ae7808-1f04-4993-a952-872bc065c8c0">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -151,6 +154,7 @@
       <genericTypes />
       <typeReference id="8ad918b4-7d79-4c32-b454-feda7f898cf5">
         <typeId>e2ab1f3b-917e-414a-aca7-1f3ff5022ad9</typeId>
+        <typeName>UpdateAggregateRootCompositeManyBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -202,6 +206,7 @@
       <genericTypes />
       <typeReference id="652ebce9-e9c7-4a1c-a232-b1d03340c717">
         <typeId>56717f98-efb6-4aec-ab3e-f3f854b64a0f</typeId>
+        <typeName>UpdateAggregateRootCompositeSingleADto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -253,6 +258,7 @@
       <genericTypes />
       <typeReference id="642ba66e-73f1-449d-8f4b-3ba858598470">
         <typeId>a654d5ee-08a9-4f71-918b-610623fd3575</typeId>
+        <typeName>UpdateAggregateRootAggregateSingleCDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -304,6 +310,7 @@
       <genericTypes />
       <typeReference id="8f47cc18-01a8-463d-9be7-4e2d6fd11736">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -355,6 +362,7 @@
       <genericTypes />
       <typeReference id="7b969f92-e3a0-4440-bfe5-432b2a92ce5b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

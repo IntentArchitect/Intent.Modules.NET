@@ -6,6 +6,7 @@
   <genericTypes />
   <typeReference id="69935af6-a1b3-4a29-8dd0-ddb835b07fd5">
     <typeId>f8d71765-f689-4881-9880-97a976daec48</typeId>
+    <typeName>WithCompositeKeyDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

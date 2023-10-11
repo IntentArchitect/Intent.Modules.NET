@@ -7,6 +7,7 @@
   <genericTypes />
   <typeReference id="8c929eb2-a683-47bd-b6f3-905218cd35e2">
     <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
+    <typeName>AggregateWithUniqueConstraintIndexElementDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,6 +53,7 @@
       <genericTypes />
       <typeReference id="4cadc9c2-bfea-4aef-8495-549d973fa47c">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

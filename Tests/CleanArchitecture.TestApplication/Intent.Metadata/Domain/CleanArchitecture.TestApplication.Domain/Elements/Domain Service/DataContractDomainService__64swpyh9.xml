@@ -19,6 +19,7 @@
       <genericTypes />
       <typeReference id="d61bdb50-5634-46d1-926d-1a913e517fd4">
         <typeId>5a353cd6-cd4b-428f-91b7-617c431e60df</typeId>
+        <typeName>DataContractObject</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
