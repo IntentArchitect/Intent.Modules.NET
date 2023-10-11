@@ -139,14 +139,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>079b7672-7566-4746-a6a8-47c01fa6bd32</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#079b7672-7566-4746-a6a8-47c01fa6bd32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Application.Tests/CosmosDB.Application.Tests.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDB.Application.Tests.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#44764a3b-8a8d-4e7b-b34e-76b6bc6f2f2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
