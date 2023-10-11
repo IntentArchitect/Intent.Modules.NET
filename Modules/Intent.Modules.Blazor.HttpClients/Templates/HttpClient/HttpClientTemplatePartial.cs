@@ -6,6 +6,7 @@ using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Blazor.HttpClients.Templates.EnumContract;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Blazor.HttpClients.Templates.JsonResponse;
+using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
 using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -35,7 +36,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
                 jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
                 serviceContractTemplateId: ServiceContractTemplate.TemplateId,
                 dtoContractTemplateId: DtoContractTemplate.TemplateId,
-                enumContractTemplateId: EnumContractTemplate.TemplateId)
+                enumContractTemplateId: EnumContractTemplate.TemplateId,
+                pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
         }
     }

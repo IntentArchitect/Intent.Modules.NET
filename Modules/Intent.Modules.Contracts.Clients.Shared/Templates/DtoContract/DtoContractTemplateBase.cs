@@ -11,8 +11,9 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 
-namespace Intent.Modules.Contracts.Clients.Shared
+namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
 {
     public abstract class DtoContractTemplateBase : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
     {
@@ -22,12 +23,14 @@ namespace Intent.Modules.Contracts.Clients.Shared
             string templateId,
             IOutputTarget outputTarget,
             DTOModel model,
-            string enumContractTemplateId)
+            string enumContractTemplateId,
+            string pagedResultTemplateId)
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
 
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
             AddTypeSource(templateId);
             AddTypeSource(enumContractTemplateId);
 

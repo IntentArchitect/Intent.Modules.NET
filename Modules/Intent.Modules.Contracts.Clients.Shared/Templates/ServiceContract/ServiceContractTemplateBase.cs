@@ -6,9 +6,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Metadata.WebApi.Models;
 
-namespace Intent.Modules.Contracts.Clients.Shared
+namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
 {
     public abstract class ServiceContractTemplateBase : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
     {
@@ -17,10 +18,12 @@ namespace Intent.Modules.Contracts.Clients.Shared
             IOutputTarget outputTarget,
             ServiceProxyModel model,
             string dtoContractTemplateId,
-            string enumContractTemplateId)
+            string enumContractTemplateId,
+            string pagedResultTemplateId)
             : base(templateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
             AddTypeSource(dtoContractTemplateId);
             AddTypeSource(enumContractTemplateId);
 

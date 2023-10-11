@@ -146,6 +146,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0da9ce-a23d-4c7b-8d80-40957e6378cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult/PagedResultTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2b0da9ce-a23d-4c7b-8d80-40957e6378cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult/PagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#25beaf48-777a-4ccd-bd1c-7c64df00b41d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ServiceContract/ServiceContractTemplatePartial.cs</ApplicationRelativeFilePath>

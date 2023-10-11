@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Improvement: `PagedResult<TData>` Type-Definition moved to version `3.4.9` of the `Intent.Modelers.Services` module.
+
 ### Version 4.0.6
 
 - Improvement: Added `C#` stereotype to `PagedResult` and set its `Is Collection` property to `true`.
