@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>5.3.0-pre.4</Version>
+    <Version>5.3.0-pre.5</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -36,7 +36,7 @@
       <_Parameter1>Intent.Modules.Application.MediatR.CRUD.Eventing</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-  
+
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />

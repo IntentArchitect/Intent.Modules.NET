@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.BasicAuditing</id>
-  <version>1.0.4-pre.0</version>
+  <version>1.0.4-pre.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Obsolete. Use the "Intent.Entities.BasicAuditing" module instead. This module can be uninstalled as its functionality has been moved to a new module which was automatically installed.</summary>
   <description>Obsolete. Use the "Intent.Entities.BasicAuditing" module instead. This module can be uninstalled as its functionality has been moved to a new module which was automatically installed.</description>
@@ -17,7 +17,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.39" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Entities.BasicAuditing" version="1.0.0-pre.1" />
+    <dependency id="Intent.Entities.BasicAuditing" version="1.0.0-pre.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

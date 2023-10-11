@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="4fda2cef-7bfc-414b-8955-452fbe31f1de">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
-    <typeName>Single File</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
