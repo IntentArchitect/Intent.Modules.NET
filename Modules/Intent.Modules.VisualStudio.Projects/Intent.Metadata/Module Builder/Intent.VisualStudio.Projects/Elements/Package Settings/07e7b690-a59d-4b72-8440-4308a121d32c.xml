@@ -43,7 +43,6 @@
           <genericTypes />
           <typeReference id="8a1443c4-307f-4d0c-8fe8-f7c8bf257b12">
             <typeId>0dc2b846-c968-49eb-99b7-8776919313a8</typeId>
-            <typeName>Solution Folder</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -83,7 +82,6 @@
           <genericTypes />
           <typeReference id="4c5d428d-70da-485d-91c4-e9a4dd865526">
             <typeId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</typeId>
-            <typeName>Azure Functions Project</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -123,7 +121,6 @@
           <genericTypes />
           <typeReference id="99e1d182-1f7d-4848-b70c-e548d4caffa1">
             <typeId>8e9e6693-2888-4f48-a0d6-0f163baab740</typeId>
-            <typeName>C# Project (.NET)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -163,7 +160,6 @@
           <genericTypes />
           <typeReference id="8c87f5a9-09de-4e58-8fd1-121289ac24d7">
             <typeId>52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</typeId>
-            <typeName>Class Library (.NET Core)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -203,7 +199,6 @@
           <genericTypes />
           <typeReference id="16a3d883-1621-445a-868a-a41243496d7f">
             <typeId>0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</typeId>
-            <typeName>Class Library (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -243,7 +238,6 @@
           <genericTypes />
           <typeReference id="0d251450-78f7-4bd2-ad22-c4937b07b263">
             <typeId>FFD54A85-9362-48AC-B646-C93AB9AC63D2</typeId>
-            <typeName>ASP.NET Core Web Application</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -283,7 +277,6 @@
           <genericTypes />
           <typeReference id="344adcd3-d00a-42ef-be3b-7f21e076f513">
             <typeId>8AF747CF-58F0-449C-8B95-46080FEFC8C0</typeId>
-            <typeName>ASP.NET Web Application (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -323,7 +316,6 @@
           <genericTypes />
           <typeReference id="eeb23b50-6fb3-4886-aa8c-2eb41683291e">
             <typeId>3CDFF513-03D8-4BAB-9435-160108A086A3</typeId>
-            <typeName>WCF Service Application</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -363,7 +355,6 @@
           <genericTypes />
           <typeReference id="adc6669b-052c-4c14-a5e2-a647d2fd215a">
             <typeId>673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</typeId>
-            <typeName>Console App (.NET Framework)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -403,7 +394,6 @@
           <genericTypes />
           <typeReference id="f63930eb-93a5-410a-8342-534f17465384">
             <typeId>27b265c8-e185-4c33-9908-8d23d5e945d1</typeId>
-            <typeName>Console App (.NET Core)</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -443,7 +433,6 @@
           <genericTypes />
           <typeReference id="1a692b4d-6e51-4deb-b5f3-2ee5f35b3c9a">
             <typeId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</typeId>
-            <typeName>SQL Server Database Project</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -483,7 +472,6 @@
           <genericTypes />
           <typeReference id="a56c2534-0be0-474f-8381-83c54c4c4c69">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
-            <typeName>Role</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -523,7 +511,6 @@
           <genericTypes />
           <typeReference id="8a01f9c0-5ecf-4aab-be33-e42ba49bd8be">
             <typeId>65fb2757-ce97-41a8-9c53-b03d53c2c03f</typeId>
-            <typeName>.NET Core Version</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -563,7 +550,6 @@
           <genericTypes />
           <typeReference id="e2337432-1dc8-4a82-a6ef-e0d6eaf27a78">
             <typeId>6453c4bd-78b8-4589-a223-9f57a348a1a1</typeId>
-            <typeName>.NET Framework Version</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -603,7 +589,6 @@
           <genericTypes />
           <typeReference id="6fca0a3e-5c0b-4c26-a739-c304e2c9218a">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
-            <typeName>Template Output</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -643,7 +628,6 @@
           <genericTypes />
           <typeReference id="991a5e13-c114-4268-ad2a-3dfdb789897b">
             <typeId>54eff27b-2dfc-4853-8498-1a2c4700e385</typeId>
-            <typeName>Stereotype-Definition</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -698,7 +682,6 @@
           <genericTypes />
           <typeReference id="7d190e6c-3aaf-4be7-8dd9-5ed93db153c0">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <typeName>Script</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

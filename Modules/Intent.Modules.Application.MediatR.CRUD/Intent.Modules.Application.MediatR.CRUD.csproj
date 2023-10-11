@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>5.3.0-pre.5</Version>
+    <Version>5.3.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.1.4-pre.1" />
+    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.1.4" />
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.42-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.42" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.0" />

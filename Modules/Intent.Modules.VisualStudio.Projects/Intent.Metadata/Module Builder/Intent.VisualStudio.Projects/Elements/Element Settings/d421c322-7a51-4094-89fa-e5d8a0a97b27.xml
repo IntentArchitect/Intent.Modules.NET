@@ -81,7 +81,6 @@
           <genericTypes />
           <typeReference id="1c53830c-514d-415b-8750-3ecb3ad6f2f8">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <typeName>Script</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
