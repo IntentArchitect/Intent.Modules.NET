@@ -28,6 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
             var existingEntity = existingOwnerEntity.ImplicitKeyNestedCompositions.First();
+            existingEntity.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
             fixture.Customize<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
                 .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id));
             var testCommand = fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
@@ -52,6 +53,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                 {
                     addedImplicitKeyNestedComposition = existingOwnerEntity.ImplicitKeyNestedCompositions.Except(implicitKeyNestedCompositionsSnapshot).Single();
                     addedImplicitKeyNestedComposition.Id = expectedImplicitKeyAggrRootId;
+                    addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = testCommand.ImplicitKeyAggrRootId;
                 });
 
             var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(implicitKeyAggrRootRepository);

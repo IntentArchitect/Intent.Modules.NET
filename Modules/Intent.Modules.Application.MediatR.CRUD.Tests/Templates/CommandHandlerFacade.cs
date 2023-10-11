@@ -228,6 +228,16 @@ internal class CommandHandlerFacade
             }
             
             statements.Add($"var existingEntity = existingOwnerEntity.{OwnerToCompositeNavigationPropertyName}.First();");
+            for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
+            {
+                var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
+                if (ownerIdAttribute.Attribute is not null)
+                {
+                    continue;
+                }
+                var nestedIdAttribute = TargetDomainIdAttributes[index];
+                statements.Add($"existingEntity.{ownerIdAttribute.IdName.ToCSharpIdentifier()} = existingOwnerEntity.{nestedIdAttribute.IdName.ToCSharpIdentifier()};");
+            }
         }
 
         void AddCommandWithIdentityTestData()
@@ -441,6 +451,17 @@ internal class CommandHandlerFacade
                 var idAttribute = TargetDomainIdAttributes[index];
                 var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
                 block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName.ToCSharpIdentifier()} = expected{ownerIdAttribute.IdName.ToPascalCase()};");
+            }
+            
+            for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
+            {
+                var idAttribute = CompositeToOwnerIdAttributes[index];
+                if (idAttribute.Attribute is not null)
+                {
+                    continue;
+                }
+                var idField = CommandFieldsForOwnerId[index];
+                block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName} = {commandVarName}.{idField.Name.ToPascalCase()};");
             }
 
             return block;
