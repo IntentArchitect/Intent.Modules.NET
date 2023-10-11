@@ -106,7 +106,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is CreateImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

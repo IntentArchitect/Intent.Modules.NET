@@ -27,7 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             var existingEntity = existingOwnerEntity.Composites.First();
-            existingEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<DeleteAggregateRootCompositeManyBCommand>(comp => comp
                 .With(x => x.AggregateRootId, existingOwnerEntity.Id)
                 .With(x => x.Id, existingEntity.Id));

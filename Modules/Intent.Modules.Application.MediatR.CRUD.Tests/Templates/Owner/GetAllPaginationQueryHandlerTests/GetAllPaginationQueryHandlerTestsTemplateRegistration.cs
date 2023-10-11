@@ -39,7 +39,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
         {
             return _metadataManager.Services(application)
                 .GetQueryModels()
-                // .Where(query => query.IsPaginationQueryMapping())
                 .ToList();
         }
     }

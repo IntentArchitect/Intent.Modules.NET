@@ -47,9 +47,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
 
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                // .Where(command => command.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
-                //             && command.GetClassModel()?.IsAggregateRoot() == false
-                //             && command.HasIdentityKeys(application))
                 .ToList();
         }
     }

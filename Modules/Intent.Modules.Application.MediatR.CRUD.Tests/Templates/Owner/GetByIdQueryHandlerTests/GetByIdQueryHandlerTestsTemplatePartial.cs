@@ -133,7 +133,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         }
         else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetByIdImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

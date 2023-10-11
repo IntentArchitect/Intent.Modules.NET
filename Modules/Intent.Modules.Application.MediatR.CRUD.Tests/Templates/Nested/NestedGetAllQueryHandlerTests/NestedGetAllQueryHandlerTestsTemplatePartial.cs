@@ -118,7 +118,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
             }
             else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetAllImplementationStrategy strategy && strategy.IsMatch())
             {
-                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
             }
             else
             {

@@ -105,51 +105,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 dto.SomeDate.Should().Be(entity.SomeDate);
                 dto.AggregateRootId.Should().Be(entity.AggregateRootId);
                 dto.Id.Should().Be(entity.Id);
-                AssertEquivalent(dto.Composite, entity.Composite);
-                AssertEquivalent(dto.Composites, entity.Composites);
-            }
-        }
-
-        public static void AssertEquivalent(
-            AggregateRootCompositeManyBCompositeSingleBBDto actualDto,
-            CompositeSingleBB expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.CompositeAttr.Should().Be(expectedEntity.CompositeAttr);
-            actualDto.Id.Should().Be(expectedEntity.Id);
-        }
-
-        public static void AssertEquivalent(
-            IEnumerable<AggregateRootCompositeManyBCompositeManyBBDto> actualDtos,
-            IEnumerable<CompositeManyBB> expectedEntities)
-        {
-            if (expectedEntities == null)
-            {
-                actualDtos.Should().BeNullOrEmpty();
-                return;
-            }
-
-            actualDtos.Should().HaveSameCount(expectedEntities);
-            for (int i = 0; i < expectedEntities.Count(); i++)
-            {
-                var entity = expectedEntities.ElementAt(i);
-                var dto = actualDtos.ElementAt(i);
-                if (entity == null)
-                {
-                    dto.Should().BeNull();
-                    continue;
-                }
-
-                dto.Should().NotBeNull();
-                dto.CompositeAttr.Should().Be(entity.CompositeAttr);
-                dto.CompositeManyBId.Should().Be(entity.CompositeManyBId);
-                dto.Id.Should().Be(entity.Id);
             }
         }
 
@@ -166,8 +121,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             actualDto.SomeDate.Should().Be(expectedEntity.SomeDate);
             actualDto.AggregateRootId.Should().Be(expectedEntity.AggregateRootId);
             actualDto.Id.Should().Be(expectedEntity.Id);
-            AssertEquivalent(actualDto.Composite, expectedEntity.Composite);
-            AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
         }
 
         public static void AssertEquivalent(
@@ -355,86 +308,12 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 dto.Should().NotBeNull();
                 dto.Id.Should().Be(entity.Id);
                 dto.AggregateAttr.Should().Be(entity.AggregateAttr);
-                AssertEquivalent(dto.Composites, entity.Composites);
-                AssertEquivalent(dto.Composite, entity.Composite);
-                AssertEquivalent(dto.Aggregate, entity.Aggregate);
                 dto.EnumType1.Should().Be(entity.EnumType1);
                 dto.EnumType2.Should().Be(entity.EnumType2);
                 dto.EnumType3.Should().Be(entity.EnumType3);
                 dto.LimitedDomain.Should().Be(entity.LimitedDomain);
                 dto.LimitedService.Should().Be(entity.LimitedService);
             }
-        }
-
-        public static void AssertEquivalent(AggregateRootCompositeSingleADto actualDto, CompositeSingleA expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.CompositeAttr.Should().Be(expectedEntity.CompositeAttr);
-            actualDto.Id.Should().Be(expectedEntity.Id);
-            AssertEquivalent(actualDto.Composite, expectedEntity.Composite);
-            AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
-        }
-
-        public static void AssertEquivalent(
-            AggregateRootCompositeSingleACompositeSingleAADto actualDto,
-            CompositeSingleAA expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.CompositeAttr.Should().Be(expectedEntity.CompositeAttr);
-            actualDto.Id.Should().Be(expectedEntity.Id);
-        }
-
-        public static void AssertEquivalent(
-            IEnumerable<AggregateRootCompositeSingleACompositeManyAADto> actualDtos,
-            IEnumerable<CompositeManyAA> expectedEntities)
-        {
-            if (expectedEntities == null)
-            {
-                actualDtos.Should().BeNullOrEmpty();
-                return;
-            }
-
-            actualDtos.Should().HaveSameCount(expectedEntities);
-            for (int i = 0; i < expectedEntities.Count(); i++)
-            {
-                var entity = expectedEntities.ElementAt(i);
-                var dto = actualDtos.ElementAt(i);
-                if (entity == null)
-                {
-                    dto.Should().BeNull();
-                    continue;
-                }
-
-                dto.Should().NotBeNull();
-                dto.CompositeAttr.Should().Be(entity.CompositeAttr);
-                dto.CompositeSingleAId.Should().Be(entity.CompositeSingleAId);
-                dto.Id.Should().Be(entity.Id);
-            }
-        }
-
-        public static void AssertEquivalent(AggregateRootAggregateSingleCDto actualDto, AggregateSingleC expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.AggregationAttr.Should().Be(expectedEntity.AggregationAttr);
-            actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
         public static void AssertEquivalent(AggregateRootDto actualDto, AggregateRoot expectedEntity)
@@ -448,9 +327,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             actualDto.Should().NotBeNull();
             actualDto.Id.Should().Be(expectedEntity.Id);
             actualDto.AggregateAttr.Should().Be(expectedEntity.AggregateAttr);
-            AssertEquivalent(actualDto.Composites, expectedEntity.Composites);
-            AssertEquivalent(actualDto.Composite, expectedEntity.Composite);
-            AssertEquivalent(actualDto.Aggregate, expectedEntity.Aggregate);
             actualDto.EnumType1.Should().Be(expectedEntity.EnumType1);
             actualDto.EnumType2.Should().Be(expectedEntity.EnumType2);
             actualDto.EnumType3.Should().Be(expectedEntity.EnumType3);

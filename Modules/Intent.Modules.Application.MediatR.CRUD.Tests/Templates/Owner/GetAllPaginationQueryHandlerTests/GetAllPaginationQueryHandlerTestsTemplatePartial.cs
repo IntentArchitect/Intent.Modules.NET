@@ -110,7 +110,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
             }
             else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetAllPaginationImplementationStrategy strategy && strategy.IsMatch())
             {
-                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true;
+                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
             }
             else
             {

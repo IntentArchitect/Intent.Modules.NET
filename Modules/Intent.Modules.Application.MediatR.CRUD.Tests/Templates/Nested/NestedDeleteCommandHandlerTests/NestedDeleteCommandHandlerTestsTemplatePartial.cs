@@ -136,7 +136,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is DeleteImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

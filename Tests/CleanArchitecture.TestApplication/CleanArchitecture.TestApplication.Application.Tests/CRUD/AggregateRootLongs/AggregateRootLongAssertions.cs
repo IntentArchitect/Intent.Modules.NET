@@ -70,7 +70,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
                 dto.Should().NotBeNull();
                 dto.Id.Should().Be(entity.Id);
                 dto.Attribute.Should().Be(entity.Attribute);
-                AssertEquivalent(dto.CompositeOfAggrLong, entity.CompositeOfAggrLong);
             }
         }
 
@@ -85,22 +84,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
             actualDto.Should().NotBeNull();
             actualDto.Id.Should().Be(expectedEntity.Id);
             actualDto.Attribute.Should().Be(expectedEntity.Attribute);
-            AssertEquivalent(actualDto.CompositeOfAggrLong, expectedEntity.CompositeOfAggrLong);
-        }
-
-        public static void AssertEquivalent(
-            AggregateRootLongCompositeOfAggrLongDto actualDto,
-            CompositeOfAggrLong expectedEntity)
-        {
-            if (expectedEntity == null)
-            {
-                actualDto.Should().BeNull();
-                return;
-            }
-
-            actualDto.Should().NotBeNull();
-            actualDto.Attribute.Should().Be(expectedEntity.Attribute);
-            actualDto.Id.Should().Be(expectedEntity.Id);
         }
 
         public static void AssertEquivalent(UpdateAggregateRootLongCommand expectedDto, AggregateRootLong actualEntity)

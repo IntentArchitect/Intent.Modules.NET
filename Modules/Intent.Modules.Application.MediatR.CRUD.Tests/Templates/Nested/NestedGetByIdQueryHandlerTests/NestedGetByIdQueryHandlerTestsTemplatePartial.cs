@@ -129,7 +129,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         }
         else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetByIdImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

@@ -74,7 +74,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is CreateImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

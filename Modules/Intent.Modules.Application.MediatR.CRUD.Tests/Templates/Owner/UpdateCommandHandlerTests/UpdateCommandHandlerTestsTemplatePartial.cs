@@ -123,7 +123,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is UpdateImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == true && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

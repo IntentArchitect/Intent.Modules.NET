@@ -29,7 +29,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             var existingEntity = existingOwnerEntity.Composites.First();
-            existingEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp
                 .With(x => x.AggregateRootId, existingOwnerEntity.Id));
             var testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
@@ -39,8 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Register<DomainEvent>(() => null!);
             existingOwnerEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp
-                .Without(x => x.Composite)
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+                .Without(x => x.Composite));
             testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, existingOwnerEntity };
         }
@@ -56,13 +54,13 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             aggregateRootRepository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
             var expectedAggregateRootId = new Fixture().Create<System.Guid>();
             CompositeManyB addedCompositeManyB = null;
+            var compositeManyBsSnapshot = existingOwnerEntity.Composites.ToArray();
             aggregateRootRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ =>
                 {
-                    addedCompositeManyB = existingOwnerEntity.Composites.Single(p => p.Id == default);
+                    addedCompositeManyB = existingOwnerEntity.Composites.Except(compositeManyBsSnapshot).Single();
                     addedCompositeManyB.Id = expectedAggregateRootId;
-                    addedCompositeManyB.AggregateRootId = testCommand.AggregateRootId;
                 });
 
             var sut = new CreateAggregateRootCompositeManyBCommandHandler(aggregateRootRepository);

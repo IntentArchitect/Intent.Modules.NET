@@ -27,7 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             fixture.Register<DomainEvent>(() => null!);
             var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
             var existingEntity = existingOwnerEntity.ImplicitKeyNestedCompositions.First();
-            existingEntity.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
             fixture.Customize<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
                 .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id)
                 .With(x => x.Id, existingEntity.Id));
