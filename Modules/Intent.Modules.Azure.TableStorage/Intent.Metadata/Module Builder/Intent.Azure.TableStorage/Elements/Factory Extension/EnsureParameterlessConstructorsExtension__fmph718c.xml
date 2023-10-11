@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ec674ac5-f083-409f-8f27-3de0a2897a28" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EnsureParameterlessConstructorsExtension</name>
+  <display>EnsureParameterlessConstructorsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>17a7166d-9245-4414-82bf-0c32c64a7c45</parentFolderId>
+  <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+  <packageName>Intent.Azure.TableStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="feabfbed-0502-42c1-9681-099c9c9b0aa8" version="3.1.0">
+  <name>TableSettings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="table" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>81cdcff1-8bd7-4cd2-ab5c-4e6832d25e4c</parentFolderId>
+  <order>0</order>
+  <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+  <packageName>Intent.Azure.TableStorage</packageName>
+  <properties>
+    <property id="63ea9f62-aca0-46c4-a5c1-040a341409bc">
+      <name>PartitionKey</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="56c59778-b5e2-4f01-babd-8105254d21bb">
+      <name>ETag</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <defaultValue />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>
