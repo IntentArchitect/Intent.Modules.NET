@@ -16,7 +16,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEventHandler
     {
         private readonly ILogger<RoleUpdatedEventHandler> _logger;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public RoleUpdatedEventHandler(ILogger<RoleUpdatedEventHandler> logger)
         {
             _logger = logger;

@@ -5,6 +5,7 @@
   - `Intent.CosmosDB`
   - `Intent.Dapr.AspNetCore.StateManagement`
   - `Intent.MongoDb`
+- Improvement: Integration Event Handler's constructor will now be in Intent Managed Merge mode.  
 
 ### Version 5.2.2
 
