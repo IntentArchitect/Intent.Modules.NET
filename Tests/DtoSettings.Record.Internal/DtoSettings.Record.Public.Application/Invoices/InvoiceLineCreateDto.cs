@@ -7,10 +7,11 @@ namespace DtoSettings.Record.Public.Application.Invoices
 {
     public record InvoiceLineCreateDto
     {
-        public InvoiceLineCreateDto()
+        public InvoiceLineCreateDto(string description, decimal amount, string currency)
         {
-            Description = null!;
-            Currency = null!;
+            Description = description;
+            Amount = amount;
+            Currency = currency;
         }
 
         public string Description { get; internal set; }

@@ -8,10 +8,10 @@ namespace DtoSettings.Class.Private.Application.Invoices
 {
     public class InvoiceCreateDto
     {
-        public InvoiceCreateDto()
+        public InvoiceCreateDto(string number, List<InvoiceLineCreateDto> invoiceLines)
         {
-            Number = null!;
-            InvoiceLines = null!;
+            Number = number;
+            InvoiceLines = invoiceLines;
         }
 
         public string Number { get; private set; }

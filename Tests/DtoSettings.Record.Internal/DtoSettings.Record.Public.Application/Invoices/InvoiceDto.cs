@@ -12,10 +12,11 @@ namespace DtoSettings.Record.Public.Application.Invoices
 {
     public record InvoiceDto : IMapFrom<Invoice>
     {
-        public InvoiceDto()
+        public InvoiceDto(Guid id, string number, List<InvoiceLineDto> invoiceLines)
         {
-            Number = null!;
-            InvoiceLines = null!;
+            Id = id;
+            Number = number;
+            InvoiceLines = invoiceLines;
         }
 
         public Guid Id { get; internal set; }

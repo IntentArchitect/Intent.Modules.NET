@@ -9,10 +9,11 @@ namespace DtoSettings.Class.Internal.Application.Invoices
 {
     public class InvoiceUpdateDto
     {
-        public InvoiceUpdateDto()
+        public InvoiceUpdateDto(Guid id, string number, List<InvoiceLineDto> invoiceLines)
         {
-            Number = null!;
-            InvoiceLines = null!;
+            Id = id;
+            Number = number;
+            InvoiceLines = invoiceLines;
         }
 
         public Guid Id { get; internal set; }

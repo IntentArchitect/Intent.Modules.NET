@@ -11,10 +11,13 @@ namespace DtoSettings.Record.Public.Application.Invoices
 {
     public record InvoiceLineDto : IMapFrom<InvoiceLine>
     {
-        public InvoiceLineDto()
+        public InvoiceLineDto(string description, decimal amount, string currency, Guid invoiceId, Guid id)
         {
-            Description = null!;
-            Currency = null!;
+            Description = description;
+            Amount = amount;
+            Currency = currency;
+            InvoiceId = invoiceId;
+            Id = id;
         }
 
         public string Description { get; private set; }

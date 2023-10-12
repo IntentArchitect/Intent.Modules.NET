@@ -18,14 +18,15 @@ namespace DtoSettings.Class.Internal.Application.Invoices
         public decimal Amount { get; internal set; }
         public string Currency { get; internal set; }
 
-        // public static InvoiceLineCreateDto Create(string description, decimal amount, string currency)
-        // {
-        //     return new InvoiceLineCreateDto
-        //     {
-        //         Description = description,
-        //         Amount = amount,
-        //         Currency = currency
-        //     };
-        // }
+        public static InvoiceLineCreateDto Create(string description, decimal amount, string currency)
+        {
+            return new InvoiceLineCreateDto
+            {
+                Description = description,
+                Amount = amount,
+                Currency = currency
+            };
+        }
+
     }
 }
