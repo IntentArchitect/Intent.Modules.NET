@@ -63,5 +63,9 @@
     <application id="08952368-69ef-41f9-8cb3-9e6009b7602f" name="DtoSettings.Class.Private" relativePath="DtoSettings.Class.Private/DtoSettings.Class.Private.application.config" />
     <application id="9cae4a38-dab6-4550-bb2f-56aded674e59" name="DtoSettings.Record.Public" relativePath="DtoSettings.Record.Public/DtoSettings.Record.Public.application.config" />
     <application id="681cbcf0-f052-42f6-bb3c-fa06c3a93484" name="DtoSettings.Class.Protected" relativePath="DtoSettings.Class.Protected/DtoSettings.Class.Protected.application.config" />
+    <application id="ff8f718e-4941-4ade-b17b-a34d5061b780" name="DtoSettings.Record.Init" relativePath="DtoSettings.Record.Init/DtoSettings.Record.Init.application.config" />
+    <application id="65c392ab-89f2-4223-b88c-a1c829e3c609" name="DtoSettings.Record.Internal" relativePath="DtoSettings.Record.Internal/DtoSettings.Record.Internal.application.config" />
+    <application id="7300340b-0f97-4454-84ec-f75cb292bd84" name="DtoSettings.Record.Private" relativePath="DtoSettings.Record.Private/DtoSettings.Record.Private.application.config" />
+    <application id="4258acfe-c95e-4737-8c21-abbca52b6d62" name="DtoSettings.Record.Protected" relativePath="DtoSettings.Record.Protected/DtoSettings.Record.Protected.application.config" />
   </applications>
 </solution>
