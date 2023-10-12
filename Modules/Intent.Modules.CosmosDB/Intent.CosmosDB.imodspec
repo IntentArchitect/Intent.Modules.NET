@@ -121,7 +121,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.2" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.3" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">

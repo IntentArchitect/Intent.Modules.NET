@@ -1,3 +1,7 @@
+### Version 4.2.3
+
+- Fixed: The `Intent.CosmosDB` "peer" dependency would prevent installation of any other modules if the `Intent.CosmosDB` module was already installed.
+
 ### Version 4.2.2
 
 - Improvement: `UnitOfWorkBehaviour` will now universally save changes for all of the following modules without separate `Behaviour`s being created for each:

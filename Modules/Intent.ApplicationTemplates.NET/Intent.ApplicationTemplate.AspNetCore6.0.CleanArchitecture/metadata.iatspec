@@ -114,7 +114,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.Application.MediatR.Behaviours" version="4.2.2" metadataOnly="false">
+            <module id="Intent.Application.MediatR.Behaviours" version="4.2.3" metadataOnly="false">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
