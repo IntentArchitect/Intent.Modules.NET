@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1582e130-cfe2-47ea-98d9-7d6eaedf00e1" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>24c63adc-2c26-4e25-b51a-7eb448059977</parentFolderId>
+  <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+  <packageName>DtoSettings.Domain</packageName>
+  <diagram>
+    <targetPackageId>24c63adc-2c26-4e25-b51a-7eb448059977</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

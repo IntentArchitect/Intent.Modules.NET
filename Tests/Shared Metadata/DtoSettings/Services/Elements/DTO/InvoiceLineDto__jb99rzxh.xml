@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="da6450ec-b5c5-436c-a3a8-6f9f4f5850ee" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>InvoiceLineDto</name>
+  <display>InvoiceLineDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>48652ca2-a60b-441f-b593-0eca38b87399</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="f95ddd47-82fb-48fa-b8a6-10190bb00420" name="InvoiceLine" type="element" specialization="Class" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>21989178-e6ee-4e1b-950c-5c73458cb3d1</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="InvoiceLine" />
+  </metadata>
+  <childElements>
+    <childElement id="52cd6ced-72d6-49e1-b27b-3d3d9c8fd100" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9337985a-13c9-4933-9a42-882a362552de">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="1081a947-28ab-4f4a-9635-c96f26b58844" name="Description" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>da6450ec-b5c5-436c-a3a8-6f9f4f5850ee</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="96f2ea0b-4f57-4df6-8a87-c0ca6b1aa99d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Amount</name>
+      <display>Amount: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bf34454f-1124-4fca-a447-8b44b1c4b503">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="87407798-6f13-408d-b532-bf9b7c5d0eff" name="Amount" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>da6450ec-b5c5-436c-a3a8-6f9f4f5850ee</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="11dab718-14bc-46ff-bcad-2051b4291b43" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Currency</name>
+      <display>Currency: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c55b927d-471a-4f9b-b320-c6cea8bf418f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="4f383eb4-13cc-467b-83aa-d19907674a52" name="Currency" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>da6450ec-b5c5-436c-a3a8-6f9f4f5850ee</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf20932f-19fb-48b3-bf03-4767d06de164" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>InvoiceId</name>
+      <display>InvoiceId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8b1b88ab-86d0-449c-92a9-4a1f1422dcea">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="e86c2be6-af5e-4aa5-82c9-2c62b2c38802" name="InvoiceId" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>da6450ec-b5c5-436c-a3a8-6f9f4f5850ee</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d9376858-c70a-4f9e-a787-beb51f86efcd" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="33279fa7-54ec-4415-bfe4-655fdab35bc2">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="75ba1132-e7f6-478d-b140-abc00d9c8ad7" name="Id" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>da6450ec-b5c5-436c-a3a8-6f9f4f5850ee</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
