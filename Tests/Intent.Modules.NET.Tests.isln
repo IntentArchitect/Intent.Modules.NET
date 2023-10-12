@@ -59,5 +59,6 @@
     <application id="aaf53608-ca0b-4cc7-a2ea-8e8a19c7fd67" name="CleanArchitecture.OnlyModeledDomainEvents" relativePath="CleanArchitecture.OnlyModeledDomainEvents/CleanArchitecture.OnlyModeledDomainEvents.application.config" />
     <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" relativePath="CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
     <application id="48652ca2-a60b-441f-b593-0eca38b87399" name="DtoSettings.Class.Init" relativePath="DtoSettings.Class.Init/DtoSettings.Class.Init.application.config" />
+    <application id="911db950-d9d5-4e0a-a0a2-33b988afcc64" name="DtoSettings.Class.Internal" relativePath="DtoSettings.Class.Internal/DtoSettings.Class.Internal.application.config" />
   </applications>
 </solution>
