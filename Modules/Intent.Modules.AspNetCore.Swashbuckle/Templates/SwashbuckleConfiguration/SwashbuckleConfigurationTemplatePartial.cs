@@ -137,15 +137,17 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
             .AddClass("RequireNonNullablePropertiesSchemaFilter", @class =>
             {
                 @class.Internal();
-                @class.ExtendsClass("Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter");
+                @class.ExtendsClass("ISchemaFilter");
                 @class.AddMethod("void", "Apply", method =>
                 {
-                    method.AddParameter("OpenApiSchema", "schema");
+                    method.AddParameter("OpenApiSchema", "model");
                     method.AddParameter("SchemaFilterContext", "context");
 
-                    method.AddStatement("var additionalRequiredProps = model.Properties")
-                        .AddMethodChainStatement(".Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))")
-                        .AddMethodChainStatement(".Select(x => x.Key);");
+                    method.AddMethodChainStatement("var additionalRequiredProps = model.Properties", chainStatement =>
+                    {
+                        chainStatement.AddChainStatement("Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))");
+                        chainStatement.AddChainStatement("Select(x => x.Key)");
+                    });
 
                     method.AddForEachStatement("propKey", "additionalRequiredProps", @foreach =>
                     {
