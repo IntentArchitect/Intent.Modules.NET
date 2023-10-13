@@ -19,15 +19,5 @@ namespace DtoSettings.Record.Public.Application.Invoices
         public Guid Id { get; internal set; }
         public string Number { get; internal set; }
         public List<InvoiceLineDto> InvoiceLines { get; internal set; }
-
-        public static InvoiceUpdateDto Create(Guid id, string number, List<InvoiceLineDto> invoiceLines)
-        {
-            return new InvoiceUpdateDto
-            {
-                Id = id,
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
-        }
     }
 }

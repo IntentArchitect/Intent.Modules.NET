@@ -67,7 +67,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         PopulateDefaultCtor(ctor);
                     }
 
-                    if (!Model.IsAbstract)
+                    if (!Model.IsAbstract && ExecutionContext.Settings.GetDTOSettings().StaticFactoryMethod())
                     {
                         var genericTypes = Model.GenericTypes.Any()
                             ? $"<{string.Join(", ", model.GenericTypes)}>"

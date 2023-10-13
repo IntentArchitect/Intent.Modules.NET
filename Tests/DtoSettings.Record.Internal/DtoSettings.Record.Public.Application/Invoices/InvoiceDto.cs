@@ -23,16 +23,6 @@ namespace DtoSettings.Record.Public.Application.Invoices
         public string Number { get; internal set; }
         public List<InvoiceLineDto> InvoiceLines { get; internal set; }
 
-        public static InvoiceDto Create(Guid id, string number, List<InvoiceLineDto> invoiceLines)
-        {
-            return new InvoiceDto
-            {
-                Id = id,
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
-        }
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Invoice, InvoiceDto>()

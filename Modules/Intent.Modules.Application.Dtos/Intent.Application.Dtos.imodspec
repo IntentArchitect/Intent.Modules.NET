@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos</id>
-  <version>4.0.8-pre.0</version>
+  <version>4.1.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
   <description>Generates code for your Application Service that applies the Interface segregation principal</description>
@@ -68,8 +68,13 @@
         </setting>
         <setting id="9fd57931-91b4-45ba-aca4-eb38d91b7f97" title="Sealed" type="switch">
           <isRequired>false</isRequired>
-          <hint>Should DTO's have the sealed access modifier?</hint>
-          <defaultValue>no</defaultValue>
+          <hint>Should DTOs have the sealed access modifier?</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="c2df571f-f917-41a2-933e-cfef7999c597" title="Static Factory Method" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Should DTOs have a static factory method?</hint>
+          <defaultValue>true</defaultValue>
         </setting>
       </settings>
     </group>

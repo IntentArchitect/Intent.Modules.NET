@@ -26,18 +26,6 @@ namespace DtoSettings.Class.Internal.Application.Invoices
         public Guid InvoiceId { get; internal set; }
         public Guid Id { get; internal set; }
 
-        public static InvoiceLineDto Create(string description, decimal amount, string currency, Guid invoiceId, Guid id)
-        {
-            return new InvoiceLineDto
-            {
-                Description = description,
-                Amount = amount,
-                Currency = currency,
-                InvoiceId = invoiceId,
-                Id = id
-            };
-        }
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<InvoiceLine, InvoiceLineDto>();

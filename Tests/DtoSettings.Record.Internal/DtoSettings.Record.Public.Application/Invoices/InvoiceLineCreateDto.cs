@@ -17,15 +17,5 @@ namespace DtoSettings.Record.Public.Application.Invoices
         public string Description { get; internal set; }
         public decimal Amount { get; internal set; }
         public string Currency { get; internal set; }
-
-        public static InvoiceLineCreateDto Create(string description, decimal amount, string currency)
-        {
-            return new InvoiceLineCreateDto
-            {
-                Description = description,
-                Amount = amount,
-                Currency = currency
-            };
-        }
     }
 }

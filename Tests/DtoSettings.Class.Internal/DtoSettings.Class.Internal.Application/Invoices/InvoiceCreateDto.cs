@@ -16,14 +16,5 @@ namespace DtoSettings.Class.Internal.Application.Invoices
 
         public string Number { get; internal set; }
         public List<InvoiceLineCreateDto> InvoiceLines { get; internal set; }
-
-        public static InvoiceCreateDto Create(string number, List<InvoiceLineCreateDto> invoiceLines)
-        {
-            return new InvoiceCreateDto
-            {
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
-        }
     }
 }
