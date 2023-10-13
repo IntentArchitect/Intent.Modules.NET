@@ -19,7 +19,6 @@
       <genericTypes />
       <typeReference id="57fd48f0-68ea-4033-9eaa-643b9f5b9426">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -55,7 +54,6 @@
       <genericTypes />
       <typeReference id="eadbec95-8fb1-44f0-bdc6-db89e473bc43">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -115,7 +113,6 @@
           <genericTypes />
           <typeReference id="85dac7c4-a816-4746-bc7f-314f4fec7a5f">
             <typeId>2562baa7-f014-4afe-937b-e6d338c0c3be</typeId>
-            <typeName>OpAndCtorMapping3</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -147,7 +144,6 @@
           <genericTypes />
           <typeReference id="b9222d46-49dc-441e-a2a2-803fa6687449">
             <typeId>cbf005eb-63da-48a4-8b4d-a2a04cabda62</typeId>
-            <typeName>OpAndCtorMapping2</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -181,7 +177,6 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="c81d01c2-5cf8-4136-89ed-32a1c4c2e5c7">
-        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -212,7 +207,6 @@
           <genericTypes />
           <typeReference id="10f2d2cc-2b37-4a76-9ccd-2cc9431bb7ab">
             <typeId>2562baa7-f014-4afe-937b-e6d338c0c3be</typeId>
-            <typeName>OpAndCtorMapping3</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -244,7 +238,6 @@
           <genericTypes />
           <typeReference id="1dffddcb-8e92-4dc3-93a7-e7e80ae79bc6">
             <typeId>cbf005eb-63da-48a4-8b4d-a2a04cabda62</typeId>
-            <typeName>OpAndCtorMapping2</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

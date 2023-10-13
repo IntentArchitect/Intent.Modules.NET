@@ -30,7 +30,6 @@
       <genericTypes />
       <typeReference id="c298671f-2971-4c55-96f4-7fe95bb07e5d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -75,7 +74,6 @@
       <genericTypes />
       <typeReference id="b97d9e13-be20-41c5-bde0-fb856161afce">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -127,7 +125,6 @@
       <genericTypes />
       <typeReference id="bcd67e3b-d7dc-473e-9898-2f474c946045">
         <typeId>30ac497d-6788-4bf8-bdce-279782ba9ef4</typeId>
-        <typeName>ImplicitKeyAggrRootImplicitKeyNestedCompositionDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

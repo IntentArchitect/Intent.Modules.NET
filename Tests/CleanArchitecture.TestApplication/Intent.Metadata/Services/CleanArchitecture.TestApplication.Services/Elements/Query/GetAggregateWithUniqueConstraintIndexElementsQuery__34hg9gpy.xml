@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="f32e802e-64cb-477b-b9d9-348f0b7559b1">
     <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
-    <typeName>AggregateWithUniqueConstraintIndexElementDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

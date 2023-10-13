@@ -29,7 +29,6 @@
       <genericTypes />
       <typeReference id="ddbdd88a-b680-464e-a50b-563eb4edf2e0">
         <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
-        <typeName>PagedResult</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -40,7 +39,6 @@
         <genericTypeParameters>
           <genericTypeParameter id="fc7f212d-58eb-4d3a-93da-d3fd2075c3fa">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-            <typeName>string</typeName>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>

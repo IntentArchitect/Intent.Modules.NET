@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="9328375a-d17d-4b78-96e4-8ed6af13177f">
     <typeId>09590c38-69ac-4e42-a8eb-5bc3645f78a6</typeId>
-    <typeName>ClassWithEnumsDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

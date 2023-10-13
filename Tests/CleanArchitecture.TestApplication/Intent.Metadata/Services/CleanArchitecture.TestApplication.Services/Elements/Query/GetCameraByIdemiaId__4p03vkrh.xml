@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="adbe1175-f76e-4cf1-b1a8-8b66ad8560b4">
     <typeId>a3218ab8-5368-427b-9b8c-acedce5434da</typeId>
-    <typeName>GetCameraDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -40,7 +39,6 @@
       <genericTypes />
       <typeReference id="c89fe1ec-1725-4fa8-8886-1189a19810c5">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

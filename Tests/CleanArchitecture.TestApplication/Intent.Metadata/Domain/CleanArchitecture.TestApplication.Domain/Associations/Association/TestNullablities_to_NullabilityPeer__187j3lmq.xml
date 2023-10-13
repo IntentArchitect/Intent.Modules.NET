@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="aebf1182-c666-4819-92ed-1f5074a0b0aa">
       <typeId>c18ee638-36a2-4082-a9cb-763fdbb6ef1b</typeId>
-      <typeName>TestNullablity</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>true</isCollection>
@@ -26,7 +25,6 @@
     <order>11</order>
     <typeReference id="804dda7f-e225-426d-86c6-64c29d5644a1">
       <typeId>1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</typeId>
-      <typeName>NullabilityPeer</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

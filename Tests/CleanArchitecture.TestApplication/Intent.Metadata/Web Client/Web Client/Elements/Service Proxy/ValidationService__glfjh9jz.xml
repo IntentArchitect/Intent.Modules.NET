@@ -29,7 +29,6 @@
       <genericTypes />
       <typeReference id="6779036c-6810-4806-a4ff-ba4b7709a70e">
         <typeId>65328190-ec6d-4a47-a1c3-3c834d04c1a3</typeId>
-        <typeName>ValidatedResultDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

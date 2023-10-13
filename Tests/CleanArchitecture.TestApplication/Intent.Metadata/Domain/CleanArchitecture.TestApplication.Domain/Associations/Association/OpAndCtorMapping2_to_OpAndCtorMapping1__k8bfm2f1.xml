@@ -6,7 +6,6 @@
     <order>5</order>
     <typeReference id="e13b984d-e2bf-4f28-8f2e-41760c485945">
       <typeId>cbf005eb-63da-48a4-8b4d-a2a04cabda62</typeId>
-      <typeName>OpAndCtorMapping2</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>1</order>
     <typeReference id="0dbc4928-0cc4-4cdf-8364-8dea2ab98002">
       <typeId>201b4869-b344-474e-b507-f1ccd638e16c</typeId>
-      <typeName>OpAndCtorMapping1</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

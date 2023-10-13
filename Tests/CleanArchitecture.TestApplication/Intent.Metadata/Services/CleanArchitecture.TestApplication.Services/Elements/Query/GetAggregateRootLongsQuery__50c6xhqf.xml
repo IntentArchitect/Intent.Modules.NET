@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="9f09c61a-2525-405c-a7d1-2a211f2e2251">
     <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
-    <typeName>PagedResult</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -18,7 +17,6 @@
     <genericTypeParameters>
       <genericTypeParameter id="302caa68-95a2-415a-aa94-54f33208d594">
         <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
-        <typeName>AggregateRootLongDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -58,7 +56,6 @@
       <genericTypes />
       <typeReference id="77eb3c12-087c-4c9a-b8af-ca869a4d0399">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -103,7 +100,6 @@
       <genericTypes />
       <typeReference id="b308ac15-3833-494d-9575-b5ed1681f88f">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

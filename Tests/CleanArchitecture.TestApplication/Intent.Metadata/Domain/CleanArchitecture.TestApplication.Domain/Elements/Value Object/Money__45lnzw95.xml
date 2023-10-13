@@ -19,7 +19,6 @@
       <genericTypes />
       <typeReference id="e0f38446-3cac-4b50-b040-1d3e8027d506">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -55,7 +54,6 @@
       <genericTypes />
       <typeReference id="cfd11c30-22a8-4aad-9a4a-7f59ce711ba0">
         <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
-        <typeName>decimal</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -28,7 +28,6 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="834ed698-3240-4041-916a-22a67d00e81e">
-        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -57,7 +56,6 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5b913152-2361-41bb-a101-0ffe81afb39e">
-        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -87,7 +85,6 @@
       <genericTypes />
       <typeReference id="f9a8ba13-3d09-4f9b-8551-d5c281d4eb28">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -119,7 +116,6 @@
       <genericTypes />
       <typeReference id="08583333-cafe-42b6-b129-1cac54e52eaf">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

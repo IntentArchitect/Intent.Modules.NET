@@ -6,7 +6,6 @@
     <order>0</order>
     <typeReference id="51c259e3-8a85-4868-ba51-f8bd6bc00ead">
       <typeId>ef229a2c-3961-4466-ab21-99aae3e3bf58</typeId>
-      <typeName>AccountHolder</typeName>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -26,7 +25,6 @@
     <order>5</order>
     <typeReference id="22d28daa-53da-4430-9392-d7935dce4e53">
       <typeId>43071d5b-3c4b-4a6a-9e21-4094f37d9a48</typeId>
-      <typeName>Account</typeName>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>true</isCollection>

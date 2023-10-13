@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="1cca9c38-ed0f-4ee2-a365-dccb917f3560">
     <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-    <typeName>int</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -42,7 +41,6 @@
       <genericTypes />
       <typeReference id="15743467-e0e8-46e4-b8ce-92b79ed95ebd">
         <typeId>9f19c517-254c-4867-a53d-2fd61c1e5842</typeId>
-        <typeName>QueryDtoParameterCriteria</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

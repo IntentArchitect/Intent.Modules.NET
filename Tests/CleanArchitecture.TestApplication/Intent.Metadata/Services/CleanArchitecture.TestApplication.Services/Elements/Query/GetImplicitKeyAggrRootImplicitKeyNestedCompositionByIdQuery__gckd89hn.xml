@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="8124b677-dd64-454e-ae96-9e54d20a17b4">
     <typeId>30ac497d-6788-4bf8-bdce-279782ba9ef4</typeId>
-    <typeName>ImplicitKeyAggrRootImplicitKeyNestedCompositionDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="64d148ce-e5b5-4255-a6ae-f7ab07af1351">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -98,7 +96,6 @@
       <genericTypes />
       <typeReference id="986526e4-509d-431e-8907-c2943632c214">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="4bed2d0e-6ff9-491d-bb0c-5595092820a8">
     <typeId>a733e81e-070d-4219-9158-e2fbe7d98400</typeId>
-    <typeName>AggregateRootDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

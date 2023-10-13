@@ -6,7 +6,6 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="edc14453-9742-4476-a82a-f9cfe07fd3f6">
-    <typeName>void</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -50,7 +49,6 @@
       <genericTypes />
       <typeReference id="e845c5a9-aa5a-491a-8fe6-608f411842a3">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -95,7 +93,6 @@
       <genericTypes />
       <typeReference id="62ff0f11-680d-428b-a9e9-81f1833f7220">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -147,7 +144,6 @@
       <genericTypes />
       <typeReference id="0624d4f2-16e8-423f-a031-a04118d8d6e0">
         <typeId>c77ca69e-7746-45cc-93cc-6d01e1905021</typeId>
-        <typeName>UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

@@ -31,7 +31,6 @@
       <genericTypes />
       <typeReference id="3977c638-5a3d-4bb7-8731-5d00c6d5e7fa">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -83,7 +82,6 @@
       <genericTypes />
       <typeReference id="602d0575-f627-4063-929e-ca1d5ce95d20">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -135,7 +133,6 @@
       <genericTypes />
       <typeReference id="ca4355dd-f8a4-40b7-918b-ee0eec86d8af">
         <typeId>11cdf9f5-f388-4b3e-b500-2c654f0352db</typeId>
-        <typeName>UpdateAggregateRootCompositeSingleACompositeSingleAADto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -187,7 +184,6 @@
       <genericTypes />
       <typeReference id="e4c13d51-70bd-4609-94c5-0fd73e471b75">
         <typeId>e99b16ff-0910-436e-93e4-f2cff2790287</typeId>
-        <typeName>UpdateAggregateRootCompositeSingleACompositeManyAADto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>

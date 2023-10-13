@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="923ca7c5-8f02-41d2-8154-b818f41b0978">
     <typeId>c1975adc-6672-4b21-a42a-12962cf6dffe</typeId>
-    <typeName>TestNullablityDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="97468200-9178-4b74-aff2-e197e01dae53">
     <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
-    <typeName>PagedResult</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -18,7 +17,6 @@
     <genericTypeParameters>
       <genericTypeParameter id="c2df587b-9992-46b4-b366-d7ac6a1268e5">
         <typeId>6c326be1-1ab4-4002-8a45-69d16ae4971f</typeId>
-        <typeName>LogEntryDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -56,7 +54,6 @@
       <genericTypes />
       <typeReference id="d29650b1-0568-4d37-82c5-2b81c2c066df">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -101,7 +98,6 @@
       <genericTypes />
       <typeReference id="1c045c34-7d9c-436f-87f4-47db006b499f">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-        <typeName>int</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

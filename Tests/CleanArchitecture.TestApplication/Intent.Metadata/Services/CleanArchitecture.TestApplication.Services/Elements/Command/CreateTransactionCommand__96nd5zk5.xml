@@ -6,7 +6,6 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="c23e4add-d77f-476c-a448-3ddc1714bd6a">
-    <typeName>void</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -37,7 +36,6 @@
       <genericTypes />
       <typeReference id="e0ef5c9f-27fa-4f9c-bb89-b2d15179182b">
         <typeId>d52a6906-6ecb-4d48-8541-135037727c8a</typeId>
-        <typeName>CreateMoneyDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -89,7 +87,6 @@
       <genericTypes />
       <typeReference id="a4328656-e03d-40d5-b478-00b0f59616c9">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -141,7 +138,6 @@
       <genericTypes />
       <typeReference id="d061c2d6-29e0-41be-8e1f-fa73d3749d5d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -193,7 +189,6 @@
       <genericTypes />
       <typeReference id="d5d6fec1-c75d-4403-aaab-5f42f5fb94bd">
         <typeId>5c96eaac-8b37-4d24-8472-889d66738368</typeId>
-        <typeName>CreateAccountDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

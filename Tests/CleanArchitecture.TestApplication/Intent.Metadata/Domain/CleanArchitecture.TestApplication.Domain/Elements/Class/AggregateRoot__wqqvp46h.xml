@@ -19,7 +19,6 @@
       <genericTypes />
       <typeReference id="30dfce97-708e-428a-80da-d41b68c6c36d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -55,7 +54,6 @@
       <genericTypes />
       <typeReference id="c5039d6d-c45d-481e-bce4-ad11907f383e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -91,7 +89,6 @@
       <genericTypes />
       <typeReference id="53d92e86-bc8e-453f-a7d4-d73d3e1edeb9">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -127,7 +124,6 @@
       <genericTypes />
       <typeReference id="8c4f0a21-8e8b-4b2a-b870-d5a4ffebc2cd">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -163,7 +159,6 @@
       <genericTypes />
       <typeReference id="908a6fd5-99d8-4110-a538-913479447ce5">
         <typeId>dd8ed8c5-fbd7-4a5e-8f5e-52bb716be359</typeId>
-        <typeName>EnumWithoutValues</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -188,7 +183,6 @@
       <genericTypes />
       <typeReference id="32129bf3-3ee6-4600-8589-428f9ca22790">
         <typeId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</typeId>
-        <typeName>EnumWithDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -213,7 +207,6 @@
       <genericTypes />
       <typeReference id="36914f7c-8ee3-4987-b889-ce0303d9d1d5">
         <typeId>8e99eda1-52d6-4f0a-9b9e-328eefa07361</typeId>
-        <typeName>EnumWithoutDefaultLiteral</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

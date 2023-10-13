@@ -28,7 +28,6 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a649ce7a-bea0-4db6-b2d3-70ec2a33c06d">
-        <typeName>void</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

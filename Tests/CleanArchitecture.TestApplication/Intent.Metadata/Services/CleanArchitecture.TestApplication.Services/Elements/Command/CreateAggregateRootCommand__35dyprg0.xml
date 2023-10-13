@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="b485ab65-c534-4c1c-aaa0-99ac373793fe">
     <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-    <typeName>guid</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="287b4ceb-a391-4105-b445-e2a34a38b578">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -105,7 +103,6 @@
       <genericTypes />
       <typeReference id="339f8c56-5cb7-418f-82b0-c7fe5069b22b">
         <typeId>5cfa2694-65ee-4d3d-bd36-2045d7f08bd8</typeId>
-        <typeName>CreateAggregateRootCompositeManyBDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -157,7 +154,6 @@
       <genericTypes />
       <typeReference id="e69fd811-9369-4ec4-b48b-966078e8eaea">
         <typeId>4e4f482f-422d-4612-99eb-f85b556d6cbc</typeId>
-        <typeName>CreateAggregateRootCompositeSingleADto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -209,7 +205,6 @@
       <genericTypes />
       <typeReference id="8c84886f-a127-4aaa-a878-404957e8f3a9">
         <typeId>b3ccbe02-de93-4834-84f5-d2e349dd17da</typeId>
-        <typeName>CreateAggregateRootAggregateSingleCDto</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -261,7 +256,6 @@
       <genericTypes />
       <typeReference id="af0efd3d-fb07-4f99-85df-0ce7b3421f73">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -313,7 +307,6 @@
       <genericTypes />
       <typeReference id="8992f52a-e4d6-4ba2-940b-69fa3f9f2881">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

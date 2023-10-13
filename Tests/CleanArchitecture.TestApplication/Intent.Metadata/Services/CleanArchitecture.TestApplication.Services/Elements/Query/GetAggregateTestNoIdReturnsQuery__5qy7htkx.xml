@@ -6,7 +6,6 @@
   <genericTypes />
   <typeReference id="42dda712-af7c-4f39-b345-0dc181411aa1">
     <typeId>34c0dd57-94b2-4a81-a9d0-7130c22da98d</typeId>
-    <typeName>AggregateTestNoIdReturnDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>

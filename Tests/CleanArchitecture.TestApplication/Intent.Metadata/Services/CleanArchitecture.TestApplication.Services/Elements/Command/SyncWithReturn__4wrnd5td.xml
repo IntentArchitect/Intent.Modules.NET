@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="c09180a1-5e50-461e-ad49-4372ad1f6b7c">
     <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
-    <typeName>object</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -52,7 +51,6 @@
       <genericTypes />
       <typeReference id="99f5397e-0572-489a-ae23-9fde6102b18f">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

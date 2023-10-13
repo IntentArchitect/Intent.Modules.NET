@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="2b64b51d-980c-4abc-9a40-3e0cac0aa8d9">
     <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
-    <typeName>AggregateRootLongDto</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -53,7 +52,6 @@
       <genericTypes />
       <typeReference id="a5555a6a-bd9f-43db-a259-95bf20f85a88">
         <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
-        <typeName>long</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

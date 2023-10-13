@@ -7,7 +7,6 @@
   <genericTypes />
   <typeReference id="59b140dd-a96f-4175-9d02-0d0c1b6f66fc">
     <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-    <typeName>guid</typeName>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -43,7 +42,6 @@
       <genericTypes />
       <typeReference id="3f3a8d20-ef23-4b10-bb51-4f63b2d7853c">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -95,7 +93,6 @@
       <genericTypes />
       <typeReference id="ae68f66a-116b-477e-a89e-33a86232f824">
         <typeId>0c590802-f71b-4d11-b3e1-c8f45a470242</typeId>
-        <typeName>NoDefaultLiteralEnum</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -147,7 +144,6 @@
       <genericTypes />
       <typeReference id="8434571f-952d-4679-be39-7ae63b8f2ef1">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -199,7 +195,6 @@
       <genericTypes />
       <typeReference id="7348b163-f76b-4990-92cd-71f46803dd1c">
         <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
-        <typeName>date</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -251,7 +246,6 @@
       <genericTypes />
       <typeReference id="e45387e0-9ff3-474a-8325-34a7d9ff325e">
         <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
-        <typeName>datetime</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -303,7 +297,6 @@
       <genericTypes />
       <typeReference id="d853060f-81b1-495c-8793-159683925f28">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <typeName>guid</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -355,7 +348,6 @@
       <genericTypes />
       <typeReference id="9e78fd9b-9c22-4e1b-86fb-a5a3018cdba5">
         <typeId>0c590802-f71b-4d11-b3e1-c8f45a470242</typeId>
-        <typeName>NoDefaultLiteralEnum</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -407,7 +399,6 @@
       <genericTypes />
       <typeReference id="d06b8e9f-2542-41d2-9452-c1851bcc75d4">
         <typeId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</typeId>
-        <typeName>DefaultLiteralEnum</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

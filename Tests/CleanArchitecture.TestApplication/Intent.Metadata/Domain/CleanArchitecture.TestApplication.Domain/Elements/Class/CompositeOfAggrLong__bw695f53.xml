@@ -19,7 +19,6 @@
       <genericTypes />
       <typeReference id="00678b45-f458-4fb5-9ab2-b314e0bbc5ba">
         <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
-        <typeName>long</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -55,7 +54,6 @@
       <genericTypes />
       <typeReference id="a35d84b4-1bf2-4510-8211-130b37f6641a">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <typeName>string</typeName>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
