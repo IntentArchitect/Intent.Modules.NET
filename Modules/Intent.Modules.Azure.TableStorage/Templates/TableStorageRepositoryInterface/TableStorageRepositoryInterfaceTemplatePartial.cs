@@ -42,27 +42,12 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )
                     .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
-                        .AddParameter("string", "id")
+                        .AddParameter("(string partitionKey, string rowKey)", "id")
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )
                     .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                         .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"int", "pageNo")
-                        .AddParameter($"int", "pageSize")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                        .AddParameter($"int", "pageNo")
-                        .AddParameter($"int", "pageSize")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
-                        .AddParameter($"IEnumerable<string>", "ids")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )
                 );
         }
@@ -82,18 +67,6 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                         .Single()
                         .Replace("IRepository", this.GetTableStorageRepositoryInterfaceName());
 
-                    /*
-                    if (model.GetPrimaryKeyAttribute()?.TypeReference?.Element.Name == "string")
-                    {
-                        var toRemove = @interface.Methods
-                            .Where(x => x.Name is "FindByIdAsync" or "FindByIdsAsync")
-                            .ToArray();
-
-                        foreach (var method in toRemove)
-                        {
-                            @interface.Methods.Remove(method);
-                        }
-                    }*/
                 }, 1000);
             }
         }

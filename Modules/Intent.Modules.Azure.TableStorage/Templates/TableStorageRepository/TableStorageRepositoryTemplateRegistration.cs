@@ -35,7 +35,10 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => TableStorageProvider.FilterDbProvider(x) &&
+                    x.IsAggregateRoot() && !x.IsAbstract)
+                .ToArray();
         }
     }
 }
