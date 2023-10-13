@@ -28,14 +28,7 @@ namespace DtoSettings.Record.Public.Application.Invoices
 
         public static InvoiceLineDto Create(string description, decimal amount, string currency, Guid invoiceId, Guid id)
         {
-            return new InvoiceLineDto
-            {
-                Description = description,
-                Amount = amount,
-                Currency = currency,
-                InvoiceId = invoiceId,
-                Id = id
-            };
+            return new InvoiceLineDto(description, amount, currency, invoiceId, id);
         }
 
         public void Mapping(Profile profile)

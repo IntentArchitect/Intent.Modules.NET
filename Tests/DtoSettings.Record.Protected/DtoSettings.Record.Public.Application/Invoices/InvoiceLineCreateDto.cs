@@ -20,12 +20,7 @@ namespace DtoSettings.Record.Public.Application.Invoices
 
         public static InvoiceLineCreateDto Create(string description, decimal amount, string currency)
         {
-            return new InvoiceLineCreateDto
-            {
-                Description = description,
-                Amount = amount,
-                Currency = currency
-            };
+            return new InvoiceLineCreateDto(description, amount, currency);
         }
     }
 }

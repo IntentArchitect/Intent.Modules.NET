@@ -22,12 +22,7 @@ namespace DtoSettings.Class.Private.Application.Invoices
 
         public static InvoiceUpdateDto Create(Guid id, string number, List<InvoiceLineDto> invoiceLines)
         {
-            return new InvoiceUpdateDto
-            {
-                Id = id,
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
+            return new InvoiceUpdateDto(id, number, invoiceLines);
         }
     }
 }

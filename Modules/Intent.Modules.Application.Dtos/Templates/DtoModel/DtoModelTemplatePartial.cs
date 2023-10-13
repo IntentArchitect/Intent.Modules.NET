@@ -79,14 +79,28 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
-                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+
+                            if (IsNonPublicPropertyAccessors())
                             {
-                                foreach (var field in Model.Fields)
+                                method.AddInvocationStatement($"return new {base.GetTypeName(this)}{genericTypes}", block =>
                                 {
-                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
-                                }
-                                block.WithSemicolon();
-                            });
+                                    foreach (var field in Model.Fields)
+                                    {
+                                        block.AddArgument(field.Name.ToParameterName());
+                                    }
+                                });  
+                            }
+                            else
+                            {
+                                method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+                                {
+                                    foreach (var field in Model.Fields)
+                                    {
+                                        block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
+                                    }
+                                    block.WithSemicolon();
+                                });   
+                            }
                         });
                     }
 

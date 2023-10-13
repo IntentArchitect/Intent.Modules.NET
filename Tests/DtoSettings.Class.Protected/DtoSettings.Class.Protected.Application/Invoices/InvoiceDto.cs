@@ -25,12 +25,7 @@ namespace DtoSettings.Class.Protected.Application.Invoices
 
         public static InvoiceDto Create(Guid id, string number, List<InvoiceLineDto> invoiceLines)
         {
-            return new InvoiceDto
-            {
-                Id = id,
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
+            return new InvoiceDto(id, number, invoiceLines);
         }
 
         public void Mapping(Profile profile)

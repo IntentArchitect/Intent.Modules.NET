@@ -19,11 +19,7 @@ namespace DtoSettings.Class.Protected.Application.Invoices
 
         public static InvoiceCreateDto Create(string number, List<InvoiceLineCreateDto> invoiceLines)
         {
-            return new InvoiceCreateDto
-            {
-                Number = number,
-                InvoiceLines = invoiceLines
-            };
+            return new InvoiceCreateDto(number, invoiceLines);
         }
     }
 }
