@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>4.0.8</version>
+  <version>4.0.9-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
@@ -55,7 +55,11 @@
   <metadata />
   <moduleSettings>
     <group id="7182f792-547f-46f3-b178-a92ceefeb4f8" title="Swagger Settings" externalReference="7182f792-547f-46f3-b178-a92ceefeb4f8">
-      <settings />
+      <settings>
+        <setting id="7faaa6d0-c739-430f-a953-c78fb5e0a302" title="Mark non-nullable fields as required" type="checkbox">
+          <isRequired>false</isRequired>
+        </setting>
+      </settings>
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
