@@ -35,6 +35,10 @@ public class DomainInteractionsManager
     public List<CSharpStatement> QueryEntity(ClassModel foundEntity, IAssociationEnd associationEnd)
     {
         var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
+        if (queryMapping == null)
+        {
+            throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
+        }
 
         var entityVariableName = associationEnd.Name;
 
@@ -207,6 +211,7 @@ public class DomainInteractionsManager
         _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
         _csharpMapping.SetFromReplacement(entity, entityVariableName);
         _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
+        _csharpMapping.SetToReplacement(entity, entityVariableName);
 
         foreach (var actions in createAction.ProcessingActions)
         {
@@ -295,12 +300,12 @@ public static class MappingExtensions
 {
     public static IElementToElementMapping GetQueryEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
     {
-        return mappings.SingleOrDefault(x => x.MappingType == "Query Entity Mapping");
+        return mappings.SingleOrDefault(x => x.Type == "Query Entity Mapping");
     }
 
     public static IElementToElementMapping GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
     {
-        return mappings.SingleOrDefault(x => x.MappingType == "Update Entity Mapping");
+        return mappings.SingleOrDefault(x => x.Type == "Update Entity Mapping");
     }
 }
 
