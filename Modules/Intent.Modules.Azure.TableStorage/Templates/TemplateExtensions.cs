@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modules.Azure.TableStorage.Templates.ReflectionHelper;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInterface;
@@ -18,10 +17,6 @@ namespace Intent.Modules.Azure.TableStorage.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetReflectionHelperName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(ReflectionHelperTemplate.TemplateId);
-        }
         public static string GetTableStorageRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(TableStorageRepositoryTemplate.TemplateId, template.Model);

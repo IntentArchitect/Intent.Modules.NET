@@ -1,6 +1,18 @@
+using System;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Plugins.FactoryExtensions;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
+
+using Intent.Modules.Azure.TableStorage.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -16,30 +28,76 @@ namespace Intent.Modules.Azure.TableStorage.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Your custom logic here.
+            var classModels = application.MetadataManager.Domain(application).GetClassModels()
+                .Where(TableStorageProvider.FilterDbProvider)
+                .ToArray();
+
+            foreach (var model in classModels)
+            {
+                var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.EntityImplementation, model.Id);
+
+                entityTemplate?.CSharpFile.OnBuild(file =>
+                {
+                    var stateTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.State, model.Id);
+
+                    var entityImplCtors = file.Classes.First().Constructors;
+                    var stateCtors = stateTemplate?.CSharpFile.Classes.First().Constructors ?? ArraySegment<CSharpConstructor>.Empty;
+                    var collectiveCtors = entityImplCtors.Concat(stateCtors).ToArray();
+
+                    if (collectiveCtors.Length == 0 || collectiveCtors.Any(x => !x.Parameters.Any()))
+                    {
+                        return;
+                    }
+
+                    if (stateTemplate is null)
+                    {
+                        var entityClass = file.Classes.First();
+                        IntroduceConstructor(entityClass, model, entityTemplate);
+                    }
+                    else
+                    {
+                        var stateClass = stateTemplate.CSharpFile.Classes.First();
+                        IntroduceConstructor(stateClass, model, stateTemplate);
+                    }
+                });
+            }
         }
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        private static void IntroduceConstructor(CSharpClass entityClass, ClassModel model, ICSharpFileBuilderTemplate primaryTemplate)
         {
-            // Your custom logic here.
+            entityClass.AddConstructor(ctor =>
+            {
+                ctor.WithComments(new[]
+                {
+                    "/// <summary>",
+                    "/// Required for derived Cosmos DB documents.",
+                    "/// </summary>"
+                });
+                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                ctor.Protected();
+                foreach (var attribute in model.Attributes)
+                {
+                    if (!string.IsNullOrWhiteSpace(attribute.Value))
+                    {
+                        continue;
+                    }
+
+                    var typeInfo = primaryTemplate.GetTypeInfo(attribute.TypeReference);
+                    if (NeedsNullabilityAssignment(typeInfo))
+                    {
+                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
+                    }
+                }
+            });
+        }
+
+        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive
+                     || typeInfo.IsNullable
+                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
     }
 }

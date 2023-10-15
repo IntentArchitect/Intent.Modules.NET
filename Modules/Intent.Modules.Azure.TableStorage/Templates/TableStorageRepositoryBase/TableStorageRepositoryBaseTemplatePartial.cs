@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -59,7 +60,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                         ctor.Protected();
                         ctor.AddParameter(this.GetTableStorageUnitOfWorkName(), "unitOfWork",
                             p => p.IntroduceReadonlyField());
-                        ctor.AddParameter(UseType("TableServiceClient"),"tableServiceClient");
+                        ctor.AddParameter(UseType("TableServiceClient"), "tableServiceClient");
                         ctor.AddParameter("string", "tableName");
                         @class.AddField("TableClient", "_tableClient", f => f.PrivateReadOnly());
 
@@ -122,7 +123,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement("var results = new List<TDomain>();")
                         .AddStatement($"var response = _tableClient.QueryAsync<{tTable}>(cancellationToken: cancellationToken);")
-                        .AddForEachStatement("document", "response", loop => 
+                        .AddForEachStatement("document", "response", loop =>
                         {
                             loop.Await();
                             loop.AddStatement("results.Add(document.ToEntity());");
@@ -222,19 +223,12 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                 });
         }
 
-        /*
+        
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
-            this.ApplyAppSetting("RepositoryOptions", new
-            {
-                CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-                DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-                ContainerId = "Container"
-            });
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
-                .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
-        }*/
+            this.ApplyAppSetting("TableStorageConnectionString", "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
+        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

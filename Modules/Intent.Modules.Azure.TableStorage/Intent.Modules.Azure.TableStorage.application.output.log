@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2803a406-4c58-463e-8d1d-b95a8c4d1101</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2803a406-4c58-463e-8d1d-b95a8c4d1101</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fdb71443-1048-4459-83a1-4173b5c5c4af</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TableStorageRepository/TableStorageRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
