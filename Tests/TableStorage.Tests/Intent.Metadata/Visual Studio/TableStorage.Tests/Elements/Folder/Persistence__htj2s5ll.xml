@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Persistence</name>
+  <display>Persistence</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9d79d83d-db93-4afa-9290-e591e20b66a0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbContext</name>
+      <display>Intent.EntityFrameworkCore.DbContext</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6f5169d2-54b7-4823-b67c-4f5964062762" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="03e4553b-61a1-4262-bd71-e2f43a2d352b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.TableStorage.TableStorageUnitOfWork</name>
+      <display>Intent.Azure.TableStorage.TableStorageUnitOfWork</display>
+      <externalReference>Intent.Azure.TableStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

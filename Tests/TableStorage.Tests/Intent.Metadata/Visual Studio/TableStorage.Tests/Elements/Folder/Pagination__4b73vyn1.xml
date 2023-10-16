@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e0bca63e-ae92-4fa4-843c-4b227ab0975d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Pagination</name>
+  <display>Pagination</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6b187152-548d-4842-984d-4b6cbbb950ce</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="130d4f89-961c-4ca8-88b9-1efcfadcb33c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResult</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResult</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e0bca63e-ae92-4fa4-843c-4b227ab0975d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d34fb2a8-3f3c-4244-93da-f49d84d94e17" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e0bca63e-ae92-4fa4-843c-4b227ab0975d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

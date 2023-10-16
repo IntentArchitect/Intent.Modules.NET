@@ -112,13 +112,18 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                         }
                     });
                 }
-                else
+                else if (IsCompositional((AssociationEndModel)metadataModel))
                 {
                     @class.AddProperty("string", entityProperty.Name, property => property.WithInitialValue("default!"));
                 }
             }
             @class.AddProperty(this.UseType("System.DateTimeOffset?"), "Timestamp");
             @class.AddProperty(this.UseType("Azure.ETag"), "ETag", property => property.WithInitialValue("ETag.All"));
+        }
+
+        private bool IsCompositional(AssociationEndModel associationEnd)
+        {
+            return !(associationEnd.OtherEnd().IsNullable || associationEnd.OtherEnd().IsCollection);
         }
 
         public void AddCosmosDBMappingMethods(
@@ -150,9 +155,10 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                     method.AddStatement($"entity.{attribute.Name.ToPascalCase()} = {assignmentValueExpression};", index == 0 ? s => s.SeparatedFromPrevious() : null);
                 }
 
-                foreach (var associationEnd in associationEnds)
+                //Only Compositions
+                foreach (var associationEnd in associationEnds.Where(a => IsCompositional(a)))
                 {
-                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetTypeName(associationEnd)}>({associationEnd.Name.ToPascalCase()});");
+                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, associationEnd.Class)}>({associationEnd.Name.ToPascalCase()});");
                 }
 
 
@@ -168,11 +174,12 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                     method.AddStatement($"{attribute.Name} = entity.{attribute.Name};");
                 }
 
-                foreach (var associationEnd in associationEnds)
+                //Only Compositions
+                foreach (var associationEnd in associationEnds.Where(a => IsCompositional(a)))
                 {
                     var documentTypeName = template.GetTypeName((IElement)associationEnd.TypeReference.Element);
 
-                    method.AddStatement($"{associationEnd.Name} = {template.UseType("System.Text.Json.JsonSerializer")}.Serialize<{GetTypeName(associationEnd)}>(entity.{associationEnd.Name.ToPascalCase()});");
+                    method.AddStatement($"{associationEnd.Name} = {template.UseType("System.Text.Json.JsonSerializer")}.Serialize(entity.{associationEnd.Name.ToPascalCase()});");
                 }
 
                 method.AddStatement("return this;", s => s.SeparatedFromPrevious());
