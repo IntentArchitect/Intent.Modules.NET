@@ -1,3 +1,7 @@
+### Version 5.3.1
+
+- Improvement: Better CRUD support for composite keys.
+
 ### Version 5.2.6
 
 - Fixed: When calling domain operations for Document DB aggregate entities, an uncompilable `_<entityName>Repository.Update(aggregateRoot)` statement would be generated.

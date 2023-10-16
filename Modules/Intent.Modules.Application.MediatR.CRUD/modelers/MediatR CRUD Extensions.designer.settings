@@ -736,7 +736,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
@@ -826,7 +826,7 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
@@ -884,31 +884,35 @@ var _a, _b;
 /// &lt;reference path="../_common/onMapQuery.ts" /&gt;
 const privateSettersOnly = ((_b = (_a = application.getSettings("c4d1e35c-7c0d-4926-afe0-18f17563ce17")) === null || _a === void 0 ? void 0 : _a.getField("0cf704e1-9a61-499a-bb91-b20717e334f5")) === null || _b === void 0 ? void 0 : _b.value) == "true";
 const mapToDomainOperationSettingId = "7c31c459-6229-4f10-bf13-507348cd8828";
-async function execute(element) {
-    var _a;
-    let entity = await DomainHelper.openSelectEntityDialog();
-    if (entity == null) {
-        return;
+var cqrsCrud;
+(function (cqrsCrud) {
+    async function execute(element) {
+        var _a;
+        let entity = await DomainHelper.openSelectEntityDialog();
+        if (entity == null) {
+            return;
+        }
+        const owningEntity = DomainHelper.getOwningAggregate(entity);
+        const folderName = pluralize(DomainHelper.ownerIsAggregateRoot(entity) ? owningEntity.getName() : entity.getName());
+        const folder = (_a = element.getChildren().find(x =&gt; x.getName() == pluralize(folderName))) !== null &amp;&amp; _a !== void 0 ? _a : createElement("Folder", pluralize(folderName), element.id);
+        const resultDto = createCqrsResultTypeDto(entity, folder);
+        if (owningEntity == null || !privateSettersOnly) {
+            createCqrsCreateCommand(entity, folder);
+        }
+        createCqrsFindByIdQuery(entity, folder, resultDto);
+        createCqrsFindAllQuery(entity, folder, resultDto);
+        if (!privateSettersOnly) {
+            createCqrsUpdateCommand(entity, folder);
+        }
+        const operations = entity.getChildren("Operation").filter(x =&gt; x.typeReference.getType() == null);
+        for (const operation of operations) {
+            createCqrsCallOperationCommand(entity, operation, folder);
+        }
+        if (owningEntity == null || !privateSettersOnly) {
+            createCqrsDeleteCommand(entity, folder);
+        }
     }
-    const owningEntity = DomainHelper.getOwningAggregate(entity);
-    const folderName = pluralize(DomainHelper.ownerIsAggregateRoot(entity) ? owningEntity.getName() : entity.getName());
-    const folder = (_a = element.getChildren().find(x =&gt; x.getName() == pluralize(folderName))) !== null &amp;&amp; _a !== void 0 ? _a : createElement("Folder", pluralize(folderName), element.id);
-    const resultDto = createCqrsResultTypeDto(entity, folder);
-    if (owningEntity == null || !privateSettersOnly) {
-        createCqrsCreateCommand(entity, folder);
-    }
-    createCqrsFindByIdQuery(entity, folder, resultDto);
-    createCqrsFindAllQuery(entity, folder, resultDto);
-    if (!privateSettersOnly) {
-        createCqrsUpdateCommand(entity, folder);
-    }
-    const operations = entity.getChildren("Operation").filter(x =&gt; x.typeReference.getType() == null);
-    for (const operation of operations) {
-        createCqrsCallOperationCommand(entity, operation, folder);
-    }
-    if (owningEntity == null || !privateSettersOnly) {
-        createCqrsDeleteCommand(entity, folder);
-    }
+    cqrsCrud.execute = execute;
     function createCqrsCreateCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
@@ -916,8 +920,12 @@ async function execute(element) {
         let primaryKeys = DomainHelper.getPrimaryKeys(entity);
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
             let command = folder.getChildren().filter(x =&gt; x.getName() == expectedCommandName)[0];
-            command.typeReference.setType(primaryKeys[0].typeId);
-            return;
+            let returnType = primaryKeys[0].typeId;
+            if (primaryKeys.length &gt; 1) {
+                returnType = null;
+            }
+            command.typeReference.setType(returnType);
+            return command;
         }
         let command = new ElementManager(createElement("Command", expectedCommandName, folder.id), {
             childSpecialization: "DTO-Field"
@@ -937,25 +945,31 @@ async function execute(element) {
             command.mapToElement(entity);
         }
         command.getElement().setMetadata("baseName", baseName);
-        if (primaryKeys[0].typeId) {
+        let surrogateKey = primaryKeys.length === 1;
+        if (surrogateKey) {
             command.setReturnType(primaryKeys[0].typeId);
         }
         if (entityCtor) {
             command.addChildrenFrom(DomainHelper.getChildrenOfType(entityCtor, "Parameter"));
         }
         else {
+            if (!surrogateKey) {
+                ServicesHelper.addDtoFieldsFromDomain(command.getElement(), primaryKeys);
+            }
             command.addChildrenFrom(DomainHelper.getAttributesWithMapPath(entity));
             command.addChildrenFrom(getMandatoryAssociationsWithMapPath(entity));
         }
         onMapCommand(command.getElement(), true, true);
         command.collapse();
+        return command.getElement();
     }
+    cqrsCrud.createCqrsCreateCommand = createCqrsCreateCommand;
     function createCqrsFindByIdQuery(entity, folder, resultDto) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedQueryName = `Get${baseName}ByIdQuery`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedQueryName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedQueryName);
         }
         let query = createElement("Query", expectedQueryName, folder.id);
         query.typeReference.setType(resultDto.id);
@@ -975,13 +989,15 @@ async function execute(element) {
         ServicesHelper.addDtoFieldsFromDomain(query, primaryKeys);
         onMapQuery(query);
         query.collapse();
+        return query;
     }
+    cqrsCrud.createCqrsFindByIdQuery = createCqrsFindByIdQuery;
     function createCqrsFindAllQuery(entity, folder, resultDto) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, true);
         let expectedQueryName = `Get${baseName}Query`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedQueryName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedQueryName);
         }
         let query = createElement("Query", expectedQueryName, folder.id);
         query.typeReference.setType(resultDto.id);
@@ -999,13 +1015,15 @@ async function execute(element) {
             });
         }
         query.collapse();
+        return query;
     }
+    cqrsCrud.createCqrsFindAllQuery = createCqrsFindAllQuery;
     function createCqrsUpdateCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedCommandName = `Update${baseName}Command`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedCommandName);
         }
         let command = new ElementManager(createElement("Command", expectedCommandName, folder.id), {
             childSpecialization: "DTO-Field"
@@ -1014,9 +1032,13 @@ async function execute(element) {
         command.getElement().setMetadata("baseName", baseName);
         command.addChildrenFrom(DomainHelper.getAttributesWithMapPath(entity));
         command.addChildrenFrom(getMandatoryAssociationsWithMapPath(entity));
+        let primaryKeys = DomainHelper.getPrimaryKeys(entity);
+        ServicesHelper.addDtoFieldsFromDomain(command.getElement(), primaryKeys);
         onMapCommand(command.getElement(), true);
         command.collapse();
+        return command.getElement();
     }
+    cqrsCrud.createCqrsUpdateCommand = createCqrsUpdateCommand;
     function createCqrsCallOperationCommand(entity, operation, folder) {
         var _a;
         const owningAggregate = DomainHelper.getOwningAggregate(entity);
@@ -1025,12 +1047,13 @@ async function execute(element) {
         operationName = removeSuffix(operationName, "Async");
         operationName = toPascalCase(operationName);
         const commandName = `${operationName}${entity.getName()}Command`;
-        if (folder.getChildren().some(x =&gt; {
+        const existing = folder.getChildren().find(x =&gt; {
             var _a, _b;
             return x.getName() == commandName ||
                 ((_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.id) === operation.id;
-        })) {
-            return;
+        });
+        if (existing) {
+            return existing;
         }
         const commandElement = createElement("Command", commandName, folder.id);
         commandElement.setMetadata("baseName", baseName);
@@ -1044,13 +1067,15 @@ async function execute(element) {
             .filter(x =&gt; x.typeId != null &amp;&amp; lookup(x.typeId).specialization !== "Domain Service"));
         onMapCommand(commandElement, true);
         commandManager.collapse();
+        return commandManager.getElement();
     }
+    cqrsCrud.createCqrsCallOperationCommand = createCqrsCallOperationCommand;
     function createCqrsDeleteCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedCommandName = `Delete${baseName}Command`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedCommandName);
         }
         let command = createElement("Command", expectedCommandName, folder.id);
         command.setMapping(entity.id);
@@ -1069,7 +1094,9 @@ async function execute(element) {
         ServicesHelper.addDtoFieldsFromDomain(command, primaryKeys);
         onMapCommand(command, true);
         command.collapse();
+        return command;
     }
+    cqrsCrud.createCqrsDeleteCommand = createCqrsDeleteCommand;
     function createCqrsResultTypeDto(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
@@ -1106,6 +1133,7 @@ async function execute(element) {
         dto.collapse();
         return dto;
     }
+    cqrsCrud.createCqrsResultTypeDto = createCqrsResultTypeDto;
     function getMandatoryAssociationsWithMapPath(entity) {
         return traverseInheritanceHierarchy(entity, [], []);
         function traverseInheritanceHierarchy(entity, results, generalizationStack) {
@@ -1132,18 +1160,18 @@ async function execute(element) {
             return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack);
         }
     }
-}
-function getBaseNameForElement(owningAggregate, entity, entityIsMany) {
-    let entityName = entityIsMany ? toPascalCase(pluralize(entity.getName())) : toPascalCase(entity.getName());
-    return owningAggregate ? `${toPascalCase(owningAggregate.getName())}${entityName}` : entityName;
-}
+    function getBaseNameForElement(owningAggregate, entity, entityIsMany) {
+        let entityName = entityIsMany ? toPascalCase(pluralize(entity.getName())) : toPascalCase(entity.getName());
+        return owningAggregate ? `${toPascalCase(owningAggregate.getName())}${entityName}` : entityName;
+    }
+})(cqrsCrud || (cqrsCrud = {}));
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.MediatR.CRUD
  *
  * Source code here:
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/services-cqrs-crud/create-crud-macro/create-crud-macro.ts
  */
-await execute(element);
+await cqrsCrud.execute(element);
 </script>
         </option>
       </scriptOptions>
@@ -2658,7 +2686,7 @@ function onMapCommand(element, isForCrudScript, isForCreate = false) {
         getOrCreateCommandCrudDto(element, element, false, mapFromDomainMappingSettingId);
     }
     const fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
+        .filter(x =&gt; { var _a, _b; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; ((_b = x.getMapping()) === null || _b === void 0 ? void 0 : _b.getElement().specialization.startsWith("Association")); });
     fields.forEach(field =&gt; {
         getOrCreateCommandCrudDto(element, field, true, projectMappingSettingId);
     });
@@ -2748,7 +2776,7 @@ function getOrCreateDtoCrudDto(element, dtoField, autoAddPrimaryKey) {
 function onMapQuery(element) {
     var complexTypes = ["Data Contract", "Value Object"];
     let fields = element.getChildren("DTO-Field")
-        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+        .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "DTO" &amp;&amp; x.isMapped() &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
     fields.forEach(f =&gt; {
         getOrCreateQueryCrudDto(element, f);
     });
@@ -2806,31 +2834,35 @@ var _a, _b;
 /// &lt;reference path="../_common/onMapQuery.ts" /&gt;
 const privateSettersOnly = ((_b = (_a = application.getSettings("c4d1e35c-7c0d-4926-afe0-18f17563ce17")) === null || _a === void 0 ? void 0 : _a.getField("0cf704e1-9a61-499a-bb91-b20717e334f5")) === null || _b === void 0 ? void 0 : _b.value) == "true";
 const mapToDomainOperationSettingId = "7c31c459-6229-4f10-bf13-507348cd8828";
-async function execute(element) {
-    var _a;
-    let entity = await DomainHelper.openSelectEntityDialog();
-    if (entity == null) {
-        return;
+var cqrsCrud;
+(function (cqrsCrud) {
+    async function execute(element) {
+        var _a;
+        let entity = await DomainHelper.openSelectEntityDialog();
+        if (entity == null) {
+            return;
+        }
+        const owningEntity = DomainHelper.getOwningAggregate(entity);
+        const folderName = pluralize(DomainHelper.ownerIsAggregateRoot(entity) ? owningEntity.getName() : entity.getName());
+        const folder = (_a = element.getChildren().find(x =&gt; x.getName() == pluralize(folderName))) !== null &amp;&amp; _a !== void 0 ? _a : createElement("Folder", pluralize(folderName), element.id);
+        const resultDto = createCqrsResultTypeDto(entity, folder);
+        if (owningEntity == null || !privateSettersOnly) {
+            createCqrsCreateCommand(entity, folder);
+        }
+        createCqrsFindByIdQuery(entity, folder, resultDto);
+        createCqrsFindAllQuery(entity, folder, resultDto);
+        if (!privateSettersOnly) {
+            createCqrsUpdateCommand(entity, folder);
+        }
+        const operations = entity.getChildren("Operation").filter(x =&gt; x.typeReference.getType() == null);
+        for (const operation of operations) {
+            createCqrsCallOperationCommand(entity, operation, folder);
+        }
+        if (owningEntity == null || !privateSettersOnly) {
+            createCqrsDeleteCommand(entity, folder);
+        }
     }
-    const owningEntity = DomainHelper.getOwningAggregate(entity);
-    const folderName = pluralize(DomainHelper.ownerIsAggregateRoot(entity) ? owningEntity.getName() : entity.getName());
-    const folder = (_a = element.getChildren().find(x =&gt; x.getName() == pluralize(folderName))) !== null &amp;&amp; _a !== void 0 ? _a : createElement("Folder", pluralize(folderName), element.id);
-    const resultDto = createCqrsResultTypeDto(entity, folder);
-    if (owningEntity == null || !privateSettersOnly) {
-        createCqrsCreateCommand(entity, folder);
-    }
-    createCqrsFindByIdQuery(entity, folder, resultDto);
-    createCqrsFindAllQuery(entity, folder, resultDto);
-    if (!privateSettersOnly) {
-        createCqrsUpdateCommand(entity, folder);
-    }
-    const operations = entity.getChildren("Operation").filter(x =&gt; x.typeReference.getType() == null);
-    for (const operation of operations) {
-        createCqrsCallOperationCommand(entity, operation, folder);
-    }
-    if (owningEntity == null || !privateSettersOnly) {
-        createCqrsDeleteCommand(entity, folder);
-    }
+    cqrsCrud.execute = execute;
     function createCqrsCreateCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
@@ -2838,8 +2870,12 @@ async function execute(element) {
         let primaryKeys = DomainHelper.getPrimaryKeys(entity);
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
             let command = folder.getChildren().filter(x =&gt; x.getName() == expectedCommandName)[0];
-            command.typeReference.setType(primaryKeys[0].typeId);
-            return;
+            let returnType = primaryKeys[0].typeId;
+            if (primaryKeys.length &gt; 1) {
+                returnType = null;
+            }
+            command.typeReference.setType(returnType);
+            return command;
         }
         let command = new ElementManager(createElement("Command", expectedCommandName, folder.id), {
             childSpecialization: "DTO-Field"
@@ -2859,25 +2895,31 @@ async function execute(element) {
             command.mapToElement(entity);
         }
         command.getElement().setMetadata("baseName", baseName);
-        if (primaryKeys[0].typeId) {
+        let surrogateKey = primaryKeys.length === 1;
+        if (surrogateKey) {
             command.setReturnType(primaryKeys[0].typeId);
         }
         if (entityCtor) {
             command.addChildrenFrom(DomainHelper.getChildrenOfType(entityCtor, "Parameter"));
         }
         else {
+            if (!surrogateKey) {
+                ServicesHelper.addDtoFieldsFromDomain(command.getElement(), primaryKeys);
+            }
             command.addChildrenFrom(DomainHelper.getAttributesWithMapPath(entity));
             command.addChildrenFrom(getMandatoryAssociationsWithMapPath(entity));
         }
         onMapCommand(command.getElement(), true, true);
         command.collapse();
+        return command.getElement();
     }
+    cqrsCrud.createCqrsCreateCommand = createCqrsCreateCommand;
     function createCqrsFindByIdQuery(entity, folder, resultDto) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedQueryName = `Get${baseName}ByIdQuery`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedQueryName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedQueryName);
         }
         let query = createElement("Query", expectedQueryName, folder.id);
         query.typeReference.setType(resultDto.id);
@@ -2897,13 +2939,15 @@ async function execute(element) {
         ServicesHelper.addDtoFieldsFromDomain(query, primaryKeys);
         onMapQuery(query);
         query.collapse();
+        return query;
     }
+    cqrsCrud.createCqrsFindByIdQuery = createCqrsFindByIdQuery;
     function createCqrsFindAllQuery(entity, folder, resultDto) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, true);
         let expectedQueryName = `Get${baseName}Query`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedQueryName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedQueryName);
         }
         let query = createElement("Query", expectedQueryName, folder.id);
         query.typeReference.setType(resultDto.id);
@@ -2921,13 +2965,15 @@ async function execute(element) {
             });
         }
         query.collapse();
+        return query;
     }
+    cqrsCrud.createCqrsFindAllQuery = createCqrsFindAllQuery;
     function createCqrsUpdateCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedCommandName = `Update${baseName}Command`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedCommandName);
         }
         let command = new ElementManager(createElement("Command", expectedCommandName, folder.id), {
             childSpecialization: "DTO-Field"
@@ -2936,9 +2982,13 @@ async function execute(element) {
         command.getElement().setMetadata("baseName", baseName);
         command.addChildrenFrom(DomainHelper.getAttributesWithMapPath(entity));
         command.addChildrenFrom(getMandatoryAssociationsWithMapPath(entity));
+        let primaryKeys = DomainHelper.getPrimaryKeys(entity);
+        ServicesHelper.addDtoFieldsFromDomain(command.getElement(), primaryKeys);
         onMapCommand(command.getElement(), true);
         command.collapse();
+        return command.getElement();
     }
+    cqrsCrud.createCqrsUpdateCommand = createCqrsUpdateCommand;
     function createCqrsCallOperationCommand(entity, operation, folder) {
         var _a;
         const owningAggregate = DomainHelper.getOwningAggregate(entity);
@@ -2947,12 +2997,13 @@ async function execute(element) {
         operationName = removeSuffix(operationName, "Async");
         operationName = toPascalCase(operationName);
         const commandName = `${operationName}${entity.getName()}Command`;
-        if (folder.getChildren().some(x =&gt; {
+        const existing = folder.getChildren().find(x =&gt; {
             var _a, _b;
             return x.getName() == commandName ||
                 ((_b = (_a = x.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement()) === null || _b === void 0 ? void 0 : _b.id) === operation.id;
-        })) {
-            return;
+        });
+        if (existing) {
+            return existing;
         }
         const commandElement = createElement("Command", commandName, folder.id);
         commandElement.setMetadata("baseName", baseName);
@@ -2966,13 +3017,15 @@ async function execute(element) {
             .filter(x =&gt; x.typeId != null &amp;&amp; lookup(x.typeId).specialization !== "Domain Service"));
         onMapCommand(commandElement, true);
         commandManager.collapse();
+        return commandManager.getElement();
     }
+    cqrsCrud.createCqrsCallOperationCommand = createCqrsCallOperationCommand;
     function createCqrsDeleteCommand(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
         let expectedCommandName = `Delete${baseName}Command`;
         if (folder.getChildren().some(x =&gt; x.getName() == expectedCommandName)) {
-            return;
+            return folder.getChildren().find(x =&gt; x.getName() == expectedCommandName);
         }
         let command = createElement("Command", expectedCommandName, folder.id);
         command.setMapping(entity.id);
@@ -2991,7 +3044,9 @@ async function execute(element) {
         ServicesHelper.addDtoFieldsFromDomain(command, primaryKeys);
         onMapCommand(command, true);
         command.collapse();
+        return command;
     }
+    cqrsCrud.createCqrsDeleteCommand = createCqrsDeleteCommand;
     function createCqrsResultTypeDto(entity, folder) {
         let owningAggregate = DomainHelper.getOwningAggregate(entity);
         let baseName = getBaseNameForElement(owningAggregate, entity, false);
@@ -3028,6 +3083,7 @@ async function execute(element) {
         dto.collapse();
         return dto;
     }
+    cqrsCrud.createCqrsResultTypeDto = createCqrsResultTypeDto;
     function getMandatoryAssociationsWithMapPath(entity) {
         return traverseInheritanceHierarchy(entity, [], []);
         function traverseInheritanceHierarchy(entity, results, generalizationStack) {
@@ -3054,18 +3110,18 @@ async function execute(element) {
             return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack);
         }
     }
-}
-function getBaseNameForElement(owningAggregate, entity, entityIsMany) {
-    let entityName = entityIsMany ? toPascalCase(pluralize(entity.getName())) : toPascalCase(entity.getName());
-    return owningAggregate ? `${toPascalCase(owningAggregate.getName())}${entityName}` : entityName;
-}
+    function getBaseNameForElement(owningAggregate, entity, entityIsMany) {
+        let entityName = entityIsMany ? toPascalCase(pluralize(entity.getName())) : toPascalCase(entity.getName());
+        return owningAggregate ? `${toPascalCase(owningAggregate.getName())}${entityName}` : entityName;
+    }
+})(cqrsCrud || (cqrsCrud = {}));
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.MediatR.CRUD
  *
  * Source code here:
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/services-cqrs-crud/create-crud-macro/create-crud-macro.ts
  */
-await execute(element);
+await cqrsCrud.execute(element);
 </script>
         </option>
       </scriptOptions>
@@ -3363,4 +3419,5 @@ onMapQuery(element);
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
 </settings>
