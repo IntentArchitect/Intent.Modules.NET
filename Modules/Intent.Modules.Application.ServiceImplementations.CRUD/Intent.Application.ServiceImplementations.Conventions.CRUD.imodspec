@@ -14,7 +14,7 @@
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="4.0.2" />
     <dependency id="Intent.Application.ServiceImplementations" version="4.1.4" />
-    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common" version="3.4.4-pre.1" />
     <dependency id="Intent.Common.CSharp" version="3.4.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.2" />

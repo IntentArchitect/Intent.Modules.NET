@@ -49,7 +49,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.5.0" />
-    <dependency id="Intent.Common" version="3.4.3" />
+    <dependency id="Intent.Common" version="3.4.4-pre.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.34" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.DomainEvents" version="4.1.1" />
