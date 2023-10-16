@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.SingleFiles.Domain.Entities;
+using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.SingleFiles.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICosmosInvoiceRepository : ICosmosDBRepository<CosmosInvoice, CosmosInvoice>
+    public interface ICosmosInvoiceRepository : ICosmosDBRepository<CosmosInvoice, ICosmosInvoiceDocument>
     {
     }
 }

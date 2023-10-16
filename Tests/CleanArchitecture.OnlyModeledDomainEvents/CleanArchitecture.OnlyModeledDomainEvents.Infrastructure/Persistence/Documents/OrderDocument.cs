@@ -1,4 +1,5 @@
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities;
+using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -8,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Persistence.Documents
 {
-    internal class OrderDocument : ICosmosDBDocument<Order, OrderDocument>
+    internal class OrderDocument : IOrderDocument, ICosmosDBDocument<Order, OrderDocument>
     {
         private string? _type;
         [JsonProperty("type")]

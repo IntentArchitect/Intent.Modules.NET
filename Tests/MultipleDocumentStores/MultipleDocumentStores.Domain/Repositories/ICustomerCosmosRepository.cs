@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MultipleDocumentStores.Domain.Entities;
+using MultipleDocumentStores.Domain.Repositories.Documents;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -12,7 +13,7 @@ using MultipleDocumentStores.Domain.Entities;
 namespace MultipleDocumentStores.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomerCosmosRepository : ICosmosDBRepository<CustomerCosmos, CustomerCosmos>
+    public interface ICustomerCosmosRepository : ICosmosDBRepository<CustomerCosmos, ICustomerCosmosDocument>
     {
     }
 }

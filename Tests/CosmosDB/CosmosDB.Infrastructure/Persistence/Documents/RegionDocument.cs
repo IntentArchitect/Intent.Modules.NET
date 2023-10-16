@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -12,12 +13,13 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class RegionDocument : ICosmosDBDocument<Region, RegionDocument>
+    internal class RegionDocument : IRegionDocument, ICosmosDBDocument<Region, RegionDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
-        public ICollection<CountryDocument> Countries { get; set; } = default!;
+        public List<CountryDocument> Countries { get; set; } = default!;
+        IReadOnlyList<ICountryDocument> IRegionDocument.Countries => Countries;
 
         public Region ToEntity(Region? entity = default)
         {

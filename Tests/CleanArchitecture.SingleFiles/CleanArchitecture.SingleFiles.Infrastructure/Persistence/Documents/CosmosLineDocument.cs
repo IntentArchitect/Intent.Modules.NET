@@ -1,4 +1,5 @@
 using CleanArchitecture.SingleFiles.Domain.Entities;
+using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -6,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
 {
-    internal class CosmosLineDocument
+    internal class CosmosLineDocument : ICosmosLineDocument
     {
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;

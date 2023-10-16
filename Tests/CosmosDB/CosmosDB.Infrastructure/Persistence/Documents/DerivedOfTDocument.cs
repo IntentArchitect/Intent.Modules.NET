@@ -1,4 +1,5 @@
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 
@@ -7,7 +8,7 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class DerivedOfTDocument : BaseOfTDocument<int>, ICosmosDBDocument<DerivedOfT, DerivedOfTDocument>
+    internal class DerivedOfTDocument : BaseOfTDocument<int>, IDerivedOfTDocument, ICosmosDBDocument<DerivedOfT, DerivedOfTDocument>
     {
         public string DerivedAttribute { get; set; } = default!;
 

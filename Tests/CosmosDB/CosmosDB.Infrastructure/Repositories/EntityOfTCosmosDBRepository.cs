@@ -1,6 +1,7 @@
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
+using CosmosDB.Domain.Repositories.Documents;
 using CosmosDB.Infrastructure.Persistence;
 using CosmosDB.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -11,7 +12,7 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDB.Infrastructure.Repositories
 {
-    internal class EntityOfTCosmosDBRepository<T> : CosmosDBRepositoryBase<EntityOfT<T>, EntityOfT<T>, EntityOfTDocument<T>>, IEntityOfTRepository<T>
+    internal class EntityOfTCosmosDBRepository<T> : CosmosDBRepositoryBase<EntityOfT<T>, EntityOfTDocument<T>, IEntityOfTDocument<T>>, IEntityOfTRepository<T>
     {
         public EntityOfTCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<EntityOfTDocument<T>> cosmosRepository,

@@ -11,14 +11,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.SingleFiles.Domain.Repositories
 {
-    public interface ICosmosDBRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface ICosmosDBRepository<TDomain, TDocumentInterface> : IRepository<TDomain>
     {
         ICosmosDBUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Expression<Func<TDocumentInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
-        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TDocumentInterface, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindByIdsAsync(IEnumerable<string> ids, CancellationToken cancellationToken = default);
     }
 }

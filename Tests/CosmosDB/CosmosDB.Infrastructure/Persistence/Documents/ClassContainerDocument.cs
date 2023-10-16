@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClassContainerDocument : ICosmosDBDocument<ClassContainer, ClassContainerDocument>
+    internal class ClassContainerDocument : IClassContainerDocument, ICosmosDBDocument<ClassContainer, ClassContainerDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;

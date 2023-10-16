@@ -1,4 +1,5 @@
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -8,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class DerivedTypeAggregateDocument : ICosmosDBDocument<DerivedTypeAggregate, DerivedTypeAggregateDocument>
+    internal class DerivedTypeAggregateDocument : IDerivedTypeAggregateDocument, ICosmosDBDocument<DerivedTypeAggregate, DerivedTypeAggregateDocument>
     {
         private string? _type;
         [JsonProperty("type")]

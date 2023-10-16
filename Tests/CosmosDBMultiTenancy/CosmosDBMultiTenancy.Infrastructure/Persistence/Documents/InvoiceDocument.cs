@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CosmosDBMultiTenancy.Domain.Common;
 using CosmosDBMultiTenancy.Domain.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Entities;
+using CosmosDBMultiTenancy.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
 {
-    internal class InvoiceDocument : ICosmosDBDocument<Invoice, InvoiceDocument>
+    internal class InvoiceDocument : IInvoiceDocument, ICosmosDBDocument<Invoice, InvoiceDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;

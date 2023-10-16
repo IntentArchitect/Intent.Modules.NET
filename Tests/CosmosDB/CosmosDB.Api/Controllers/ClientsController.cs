@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using CosmosDB.Api.Controllers.ResponseTypes;
 using CosmosDB.Application.Clients;
 using CosmosDB.Application.Clients.CreateClient;
+using CosmosDB.Application.Clients.CreateClientByCtor;
 using CosmosDB.Application.Clients.DeleteClient;
 using CosmosDB.Application.Clients.GetClientById;
 using CosmosDB.Application.Clients.GetClientByName;
 using CosmosDB.Application.Clients.GetClients;
 using CosmosDB.Application.Clients.GetClientsPaged;
 using CosmosDB.Application.Clients.UpdateClient;
+using CosmosDB.Application.Clients.UpdateClientByOp;
 using CosmosDB.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -40,6 +42,23 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpPost("api/client/by-ctor")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<JsonResponse<string>>> CreateClientByCtor(
+            [FromBody] CreateClientByCtorCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, new JsonResponse<string>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost("api/clients")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
@@ -58,13 +77,13 @@ namespace CosmosDB.Api.Controllers
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpDelete("api/clients")]
+        [HttpDelete("api/clients/{identifier}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClient(
-            [FromQuery] string identifier,
+            [FromRoute] string identifier,
             CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteClientCommand(identifier: identifier), cancellationToken);
@@ -75,14 +94,55 @@ namespace CosmosDB.Api.Controllers
         /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPut("api/clients")]
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPut("api/clients/{identifier}/by-op")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> UpdateClientByOp(
+            [FromRoute] string identifier,
+            [FromBody] UpdateClientByOpCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            if (command.Identifier == default)
+            {
+                command.Identifier = identifier;
+            }
+
+            if (identifier != command.Identifier)
+            {
+                return BadRequest();
+            }
+
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPut("api/clients/{identifier}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateClient(
+            [FromRoute] string identifier,
             [FromBody] UpdateClientCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.Identifier == default)
+            {
+                command.Identifier = identifier;
+            }
+
+            if (identifier != command.Identifier)
+            {
+                return BadRequest();
+            }
 
             await _mediator.Send(command, cancellationToken);
             return NoContent();
@@ -93,13 +153,13 @@ namespace CosmosDB.Api.Controllers
         /// <response code="200">Returns the specified ClientDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No ClientDto could be found with the provided parameters.</response>
-        [HttpGet("api/clients/by-id")]
+        [HttpGet("api/clients/by-id/{identifier}")]
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClientDto>> GetClientById(
-            [FromQuery] string identifier,
+            [FromRoute] string identifier,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByIdQuery(identifier: identifier), cancellationToken);

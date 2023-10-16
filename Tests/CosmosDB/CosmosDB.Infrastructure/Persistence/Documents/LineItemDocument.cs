@@ -1,4 +1,5 @@
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -6,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class LineItemDocument
+    internal class LineItemDocument : ILineItemDocument
     {
         public string Id { get; set; } = default!;
         public string Description { get; set; } = default!;

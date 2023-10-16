@@ -387,6 +387,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f098e69c-d5f2-4cba-9bfb-0be8161492fd</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#db7bce5a-2ef8-4993-b8ac-d7a7f04e5460</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Domain/Repositories/Documents/IInvoiceDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c33043c3-6d63-41d5-9342-79409d323fa2</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -444,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>46c08669-bd91-4e11-9eab-3f3e45460ab9</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>

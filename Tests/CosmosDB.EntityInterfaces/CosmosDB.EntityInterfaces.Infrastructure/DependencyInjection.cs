@@ -1,0 +1,86 @@
+using System;
+using CosmosDB.EntityInterfaces.Application.Common.Interfaces;
+using CosmosDB.EntityInterfaces.Domain.Common.Interfaces;
+using CosmosDB.EntityInterfaces.Domain.Repositories;
+using CosmosDB.EntityInterfaces.Domain.Repositories.Folder;
+using CosmosDB.EntityInterfaces.Infrastructure.Persistence;
+using CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents;
+using CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents.Folder;
+using CosmosDB.EntityInterfaces.Infrastructure.Repositories;
+using CosmosDB.EntityInterfaces.Infrastructure.Repositories.Folder;
+using CosmosDB.EntityInterfaces.Infrastructure.Services;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
+
+namespace CosmosDB.EntityInterfaces.Infrastructure
+{
+    public static class DependencyInjection
+    {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddCosmosRepository(options =>
+            {
+                var defaultContainerId = configuration.GetValue<string>("RepositoryOptions:ContainerId");
+
+                if (string.IsNullOrWhiteSpace(defaultContainerId))
+                {
+                    throw new Exception("\"RepositoryOptions:ContainerId\" configuration not specified");
+                }
+
+                options.ContainerPerItemType = true;
+
+                options.ContainerBuilder
+                    .Configure<BaseTypeDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<ClassContainerDocument>(c => c
+                        .WithContainer("Class")
+                        .WithPartitionKey("/classPartitionKey"))
+                    .Configure<ClientDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<DerivedOfTDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<DerivedTypeDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<DerivedTypeAggregateDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    //.Configure<EntityOfTDocument>(c => c
+                    //    .WithContainer(defaultContainerId))
+                    .Configure<FolderContainerDocument>(c => c
+                        .WithContainer("Folder")
+                        .WithPartitionKey("/folderPartitionKey"))
+                    .Configure<IdTestingDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<InvoiceDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<PackageContainerDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey"))
+                    .Configure<RegionDocument>(c => c
+                        .WithContainer(defaultContainerId))
+                    .Configure<WithoutPartitionKeyDocument>(c => c
+                        .WithContainer("WithoutPartitionKey"));
+            });
+            services.AddScoped<IBaseTypeRepository, BaseTypeCosmosDBRepository>();
+            services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
+            services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
+            services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
+            services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
+            services.AddScoped<IDerivedTypeAggregateRepository, DerivedTypeAggregateCosmosDBRepository>();
+            //services.AddScoped<IEntityOfTRepository, EntityOfTCosmosDBRepository>();
+            services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
+            services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
+            services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
+            services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
+            services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
+            services.AddScoped<CosmosDBUnitOfWork>();
+            services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
+            return services;
+        }
+    }
+}
