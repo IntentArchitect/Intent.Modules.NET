@@ -8,6 +8,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
@@ -32,40 +34,49 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddInterface($"ICosmosDBRepository", @interface => @interface
-                    .AddGenericParameter("TDomain", out var tDomain)
-                    .AddGenericParameter("TPersistence", out var tPersistence)
-                    .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
-                    .AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", property => property
-                        .WithoutSetter()
-                    )
-                    .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
-                        .AddParameter("string", "id")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"int", "pageNo")
-                        .AddParameter($"int", "pageSize")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                        .AddParameter($"int", "pageNo")
-                        .AddParameter($"int", "pageSize")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                    .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
-                        .AddParameter($"IEnumerable<string>", "ids")
-                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
-                    )
-                );
+                .AddInterface($"ICosmosDBRepository", @interface =>
+                {
+                    @interface
+                        .AddGenericParameter("TDomain", out var tDomain)
+                        .AddGenericParameter("TDocumentInterface", out var toDocumentInterface);
+
+                    @interface
+                        .ImplementsInterfaces($"{this.GetRepositoryInterfaceName()}<{tDomain}>")
+                        .AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", property => property
+                            .WithoutSetter()
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
+                            .AddParameter("string", "id")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"int", "pageNo")
+                            .AddParameter($"int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"int", "pageNo")
+                            .AddParameter($"int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
+                            .AddParameter($"IEnumerable<string>", "ids")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        );
+                });
         }
 
         public override void AfterTemplateRegistration()
@@ -78,10 +89,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                 template.CSharpFile.AfterBuild(file =>
                 {
                     var @interface = file.Interfaces.Single();
-
-                    @interface.Interfaces[0] = @interface.Interfaces
-                        .Single()
-                        .Replace("IRepository", this.GetCosmosDBRepositoryInterfaceName());
+                    @interface.Interfaces.Clear();
+                    var genericTypeParameters = model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", model.GenericTypes)}>"
+                        : string.Empty;
+                    var tDomainGenericArgument = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model);
+                    var tDocumentInterfaceGenericArgument = template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId, model);
+                    @interface.ImplementsInterfaces($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
 
                     if (model.GetPrimaryKeyAttribute()?.TypeReference?.Element.Name == "string")
                     {

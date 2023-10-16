@@ -18,6 +18,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentTypeExtensionMethods
     {
         public override string TemplateId => CosmosDBDocumentTypeExtensionMethodsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CosmosDBDocumentTypeExtensionMethodsTemplate(outputTarget);

@@ -12,24 +12,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
+namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CosmosDBValueObjectDocumentTemplateRegistration : FilePerModelTemplateRegistration<IElement>
+    public class CosmosDBValueObjectDocumentInterfaceTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public CosmosDBValueObjectDocumentTemplateRegistration(IMetadataManager metadataManager)
+        public CosmosDBValueObjectDocumentInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => CosmosDBValueObjectDocumentTemplate.TemplateId;
+        public override string TemplateId => CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
-            return new CosmosDBValueObjectDocumentTemplate(outputTarget, model);
+            return new CosmosDBValueObjectDocumentInterfaceTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

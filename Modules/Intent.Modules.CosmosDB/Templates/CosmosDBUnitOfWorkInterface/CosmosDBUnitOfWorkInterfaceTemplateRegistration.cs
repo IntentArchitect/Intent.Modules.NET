@@ -18,6 +18,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface
     {
         public override string TemplateId => CosmosDBUnitOfWorkInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CosmosDBUnitOfWorkInterfaceTemplate(outputTarget);

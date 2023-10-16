@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="f6ce433e-4f92-4909-895e-3ea3fff71d00" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>CosmosDBRepository</name>
-  <display>CosmosDBRepository: File Per Model</display>
+<class id="77906c77-ca47-4304-bd31-ea2039b4f328" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>CosmosDBValueObjectDocumentInterface</name>
+  <display>CosmosDBValueObjectDocumentInterface: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="a9805f92-5fb2-4674-933a-b847b4c43d94">
+  <typeReference id="ee34df05-1e84-4f9a-90c9-9f545804b297">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <typeName>File Per Model</typeName>
     <isNavigable>true</isNavigable>
@@ -34,12 +34,12 @@
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
-        <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
+        <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Custom Type" isActive="true" />
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="6ab29b31-27af-4f56-a67c-986d82097d63" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="04e12b51-ed12-42a3-9667-a6aa81bb6d10" isActive="true" />
-        <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Repository.Implementation" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Repositories" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="04e12b51-ed12-42a3-9667-a6aa81bb6d10" isActive="false" />
+        <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="Intent.Metadata.Models.IElement" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Repository.Interface.Contract" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Repositories/Documents" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

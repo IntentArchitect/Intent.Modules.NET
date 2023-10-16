@@ -18,6 +18,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
     {
         public override string TemplateId => CosmosPagedListTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CosmosPagedListTemplate(outputTarget);
