@@ -30,7 +30,6 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}TableStorageRepository", @class =>
                 {
-
                     @class.Internal();
                     @class.ExtendsClass($"{this.GetTableStorageRepositoryBaseName()}<{EntityInterfaceName}, {EntityStateName}, {this.GetTableStorageTableEntityName()}>");
                     @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}");
@@ -38,7 +37,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(this.GetTableStorageUnitOfWorkName(), "unitOfWork");
-                        ctor.AddParameter("TableServiceClient", "tableServiceClient");
+                        ctor.AddParameter(this.UseType("Azure.Data.Tables.TableServiceClient"), "tableServiceClient");
                         ctor.AddParameter("string", "tableName", p => p.WithDefaultValue($"nameof({EntityStateName})"));
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("unitOfWork")

@@ -43,9 +43,8 @@ namespace Intent.Modules.Azure.TableStorage.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("Microsoft.Extensions.DependencyInjection");
-
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
-                method.AddStatement("services.AddScoped<TableServiceClient>(provider => new TableServiceClient(configuration[\"TableStorageConnectionString\"]));");
+                method.AddStatement($"services.AddScoped<{template.UseType("Azure.Data.Tables.TableServiceClient")}>(provider => new TableServiceClient(configuration[\"TableStorageConnectionString\"]));");
             });
         }
     }

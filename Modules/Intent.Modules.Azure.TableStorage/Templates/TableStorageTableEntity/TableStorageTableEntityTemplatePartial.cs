@@ -117,8 +117,8 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                     @class.AddProperty("string", entityProperty.Name, property => property.WithInitialValue("default!"));
                 }
             }
-            @class.AddProperty("DateTimeOffset?", "Timestamp");
-            @class.AddProperty("ETag", "ETag", property => property.WithInitialValue("ETag.All"));
+            @class.AddProperty(this.UseType("System.DateTimeOffset?"), "Timestamp");
+            @class.AddProperty(this.UseType("Azure.ETag"), "ETag", property => property.WithInitialValue("ETag.All"));
         }
 
         public void AddCosmosDBMappingMethods(
