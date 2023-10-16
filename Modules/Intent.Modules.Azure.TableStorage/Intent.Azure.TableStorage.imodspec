@@ -74,6 +74,13 @@
     <factoryExtension id="Intent.Azure.TableStorage.EntityFactoryExtension" externalReference="24d0bbd6-e038-425a-bdca-c9b1786c977d" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.4-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.3" />
     <dependency id="Intent.Common.CSharp" version="3.3.43-pre.0" />
