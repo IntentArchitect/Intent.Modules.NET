@@ -22,8 +22,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
         {
             entity ??= new FolderContainer();
 
-            entity.Id = Id;
-            entity.FolderPartitionKey = FolderPartitionKey;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.FolderPartitionKey = FolderPartitionKey ?? throw new Exception($"{nameof(entity.FolderPartitionKey)} is null");
 
             return entity;
         }

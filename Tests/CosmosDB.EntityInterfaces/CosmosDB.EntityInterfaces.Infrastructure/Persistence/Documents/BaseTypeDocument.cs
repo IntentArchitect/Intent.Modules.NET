@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -24,7 +25,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             entity ??= new BaseType();
 
-            entity.Id = Id;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
 
             return entity;
         }

@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
+using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -82,8 +83,8 @@ namespace Intent.Modules.CosmosDB.Templates
 
         }
 
-        public static void AddCosmosDBMappingMethods(
-            this ICSharpTemplate template,
+        public static void AddCosmosDBMappingMethods<TModel>(
+            this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
             IReadOnlyList<AssociationEndModel> associationEnds,
@@ -143,6 +144,12 @@ namespace Intent.Modules.CosmosDB.Templates
                         };
                     }
 
+                    if (template.IsNonNullableReferenceType(attribute.TypeReference))
+                    {
+                        assignmentValueExpression =
+                            $"{assignmentValueExpression} ?? throw new {template.UseType("System.Exception")}($\"{{nameof(entity.{attribute.Name.ToPascalCase()})}} is null\")";
+                    }
+
                     method.AddStatement(
                         entityRequiresReflectionPropertySetting
                             ? $"{template.GetReflectionHelperName()}.ForceSetProperty(entity, nameof({attribute.Name.ToPascalCase()}), {assignmentValueExpression});"
@@ -153,13 +160,17 @@ namespace Intent.Modules.CosmosDB.Templates
                 foreach (var associationEnd in associationEnds)
                 {
                     var nullable = associationEnd.IsNullable ? "?" : string.Empty;
-                    var nullableSuppression = associationEnd.IsNullable || entityRequiresReflectionPropertySetting ? string.Empty : "!";
 
-                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity(){nullableSuppression}";
+                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity()";
 
                     if (associationEnd.IsCollection)
                     {
                         assignmentValueExpression = $"{associationEnd.Name}{nullable}.Select(x => x.ToEntity()).ToList()";
+                    }
+                    else if (!associationEnd.IsNullable)
+                    {
+                        assignmentValueExpression =
+                            $"{assignmentValueExpression} ?? throw new {template.UseType("System.Exception")}($\"{{nameof(entity.{associationEnd.Name.ToPascalCase()})}} is null\")";
                     }
 
                     method.AddStatement(entityRequiresReflectionPropertySetting

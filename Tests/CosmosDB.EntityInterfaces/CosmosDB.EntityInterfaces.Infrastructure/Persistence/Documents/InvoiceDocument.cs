@@ -38,16 +38,16 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             entity ??= ReflectionHelper.CreateNewInstanceOf<Invoice>();
 
-            entity.Id = Id;
-            entity.ClientIdentifier = ClientIdentifier;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.ClientIdentifier = ClientIdentifier ?? throw new Exception($"{nameof(entity.ClientIdentifier)} is null");
             entity.Date = Date;
-            entity.Number = Number;
-            entity.CreatedBy = CreatedBy;
+            entity.Number = Number ?? throw new Exception($"{nameof(entity.Number)} is null");
+            entity.CreatedBy = CreatedBy ?? throw new Exception($"{nameof(entity.CreatedBy)} is null");
             entity.CreatedDate = CreatedDate;
             entity.UpdatedBy = UpdatedBy;
             entity.UpdatedDate = UpdatedDate;
             entity.LineItems = LineItems.Select(x => x.ToEntity()).ToList();
-            entity.InvoiceLogo = InvoiceLogo.ToEntity()!;
+            entity.InvoiceLogo = InvoiceLogo.ToEntity() ?? throw new Exception($"{nameof(entity.InvoiceLogo)} is null");
 
             return entity;
         }

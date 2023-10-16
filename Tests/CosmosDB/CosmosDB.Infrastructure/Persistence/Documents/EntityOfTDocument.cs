@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -25,8 +26,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new EntityOfT<T>();
 
-            entity.Id = Id;
-            entity.GenericAttribute = GenericAttribute;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.GenericAttribute = GenericAttribute ?? throw new Exception($"{nameof(entity.GenericAttribute)} is null");
 
             return entity;
         }

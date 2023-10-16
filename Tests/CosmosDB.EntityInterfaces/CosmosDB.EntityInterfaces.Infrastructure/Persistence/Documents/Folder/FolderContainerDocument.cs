@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.EntityInterfaces.Domain.Entities.Folder;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents.Folder;
 using Intent.RoslynWeaver.Attributes;
@@ -30,8 +31,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents.Folder
         {
             entity ??= new FolderContainer();
 
-            entity.Id = Id;
-            entity.FolderPartitionKey = FolderPartitionKey;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.FolderPartitionKey = FolderPartitionKey ?? throw new Exception($"{nameof(entity.FolderPartitionKey)} is null");
 
             return entity;
         }

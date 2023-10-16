@@ -1,3 +1,4 @@
+using System;
 using CleanArchitecture.SingleFiles.Domain.Entities;
 using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -16,8 +17,8 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
         {
             entity ??= new CosmosLine();
 
-            entity.Id = Id;
-            entity.Name = Name;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

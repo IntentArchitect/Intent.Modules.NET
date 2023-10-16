@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -17,7 +18,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             entity ??= new Country();
 
             entity.Id = Id;
-            entity.Name = Name;
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

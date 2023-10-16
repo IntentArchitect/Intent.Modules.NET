@@ -22,8 +22,8 @@ namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
         {
             entity ??= new CustomerCosmos();
 
-            entity.Id = Id;
-            entity.Name = Name;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

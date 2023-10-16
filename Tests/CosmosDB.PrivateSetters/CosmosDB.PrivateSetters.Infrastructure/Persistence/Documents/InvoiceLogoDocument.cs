@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +16,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             entity ??= new InvoiceLogo();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Url), Url);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Url), Url ?? throw new Exception($"{nameof(entity.Url)} is null"));
 
             return entity;
         }

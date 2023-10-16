@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -30,8 +31,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             entity ??= new ClassContainer();
 
-            entity.Id = Id;
-            entity.ClassPartitionKey = ClassPartitionKey;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.ClassPartitionKey = ClassPartitionKey ?? throw new Exception($"{nameof(entity.ClassPartitionKey)} is null");
 
             return entity;
         }

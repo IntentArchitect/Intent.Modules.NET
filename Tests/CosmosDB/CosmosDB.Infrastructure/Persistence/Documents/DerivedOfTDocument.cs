@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -16,7 +17,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new DerivedOfT();
 
-            entity.DerivedAttribute = DerivedAttribute;
+            entity.DerivedAttribute = DerivedAttribute ?? throw new Exception($"{nameof(entity.DerivedAttribute)} is null");
             base.ToEntity(entity);
 
             return entity;

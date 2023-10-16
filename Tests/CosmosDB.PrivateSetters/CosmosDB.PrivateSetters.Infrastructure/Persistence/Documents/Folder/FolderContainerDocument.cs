@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.PrivateSetters.Domain.Entities.Folder;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents.Folder;
 using Intent.RoslynWeaver.Attributes;
@@ -30,8 +31,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents.Folder
         {
             entity ??= new FolderContainer();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
-            ReflectionHelper.ForceSetProperty(entity, nameof(FolderPartitionKey), FolderPartitionKey);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(FolderPartitionKey), FolderPartitionKey ?? throw new Exception($"{nameof(entity.FolderPartitionKey)} is null"));
 
             return entity;
         }

@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +16,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             entity ??= new DerivedType();
 
-            entity.DerivedTypeAggregateId = DerivedTypeAggregateId;
+            entity.DerivedTypeAggregateId = DerivedTypeAggregateId ?? throw new Exception($"{nameof(entity.DerivedTypeAggregateId)} is null");
             base.ToEntity(entity);
 
             return entity;

@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +16,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             entity ??= new DerivedOfT();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(DerivedAttribute), DerivedAttribute);
+            ReflectionHelper.ForceSetProperty(entity, nameof(DerivedAttribute), DerivedAttribute ?? throw new Exception($"{nameof(entity.DerivedAttribute)} is null"));
             base.ToEntity(entity);
 
             return entity;

@@ -35,8 +35,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new IdTesting();
 
-            entity.Identifier = Identifier;
-            entity.Id = Id;
+            entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
 
             return entity;
         }

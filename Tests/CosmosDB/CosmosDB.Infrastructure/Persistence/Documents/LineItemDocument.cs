@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -17,8 +18,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new LineItem();
 
-            entity.Id = Id;
-            entity.Description = Description;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Description = Description ?? throw new Exception($"{nameof(entity.Description)} is null");
             entity.Quantity = Quantity;
 
             return entity;

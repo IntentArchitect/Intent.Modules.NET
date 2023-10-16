@@ -22,8 +22,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new PackageContainer();
 
-            entity.Id = Id;
-            entity.PackagePartitionKey = PackagePartitionKey;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.PackagePartitionKey = PackagePartitionKey ?? throw new Exception($"{nameof(entity.PackagePartitionKey)} is null");
 
             return entity;
         }

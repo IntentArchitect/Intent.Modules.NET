@@ -29,8 +29,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            entity.Id = Id;
-            entity.GenericAttribute = GenericAttribute;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.GenericAttribute = GenericAttribute ?? throw new Exception($"{nameof(entity.GenericAttribute)} is null");
 
             return entity;
         }

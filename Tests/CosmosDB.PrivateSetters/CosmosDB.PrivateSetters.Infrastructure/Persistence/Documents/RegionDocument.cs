@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CosmosDB.PrivateSetters.Domain.Entities;
@@ -29,8 +30,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             entity ??= new Region();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
-            ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Countries), Countries.Select(x => x.ToEntity()).ToList());
 
             return entity;

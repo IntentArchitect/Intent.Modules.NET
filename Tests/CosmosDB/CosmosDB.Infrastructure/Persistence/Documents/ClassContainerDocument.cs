@@ -22,8 +22,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new ClassContainer();
 
-            entity.Id = Id;
-            entity.ClassPartitionKey = ClassPartitionKey;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.ClassPartitionKey = ClassPartitionKey ?? throw new Exception($"{nameof(entity.ClassPartitionKey)} is null");
 
             return entity;
         }

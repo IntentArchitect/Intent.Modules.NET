@@ -21,7 +21,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new BaseType();
 
-            entity.Id = Id;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
 
             return entity;
         }

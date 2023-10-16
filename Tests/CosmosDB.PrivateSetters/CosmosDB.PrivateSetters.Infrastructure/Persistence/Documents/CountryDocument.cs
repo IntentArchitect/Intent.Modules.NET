@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -17,7 +18,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
             entity ??= new Country();
 
             ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
-            ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
 
             return entity;
         }

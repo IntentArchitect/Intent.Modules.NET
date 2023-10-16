@@ -38,16 +38,16 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             entity ??= ReflectionHelper.CreateNewInstanceOf<Invoice>();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
-            ReflectionHelper.ForceSetProperty(entity, nameof(ClientIdentifier), ClientIdentifier);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(ClientIdentifier), ClientIdentifier ?? throw new Exception($"{nameof(entity.ClientIdentifier)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Date), Date);
-            ReflectionHelper.ForceSetProperty(entity, nameof(Number), Number);
-            ReflectionHelper.ForceSetProperty(entity, nameof(CreatedBy), CreatedBy);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Number), Number ?? throw new Exception($"{nameof(entity.Number)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(CreatedBy), CreatedBy ?? throw new Exception($"{nameof(entity.CreatedBy)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(CreatedDate), CreatedDate);
             ReflectionHelper.ForceSetProperty(entity, nameof(UpdatedBy), UpdatedBy);
             ReflectionHelper.ForceSetProperty(entity, nameof(UpdatedDate), UpdatedDate);
             ReflectionHelper.ForceSetProperty(entity, nameof(LineItems), LineItems.Select(x => x.ToEntity()).ToList());
-            ReflectionHelper.ForceSetProperty(entity, nameof(InvoiceLogo), InvoiceLogo.ToEntity());
+            ReflectionHelper.ForceSetProperty(entity, nameof(InvoiceLogo), InvoiceLogo.ToEntity() ?? throw new Exception($"{nameof(entity.InvoiceLogo)} is null"));
 
             return entity;
         }

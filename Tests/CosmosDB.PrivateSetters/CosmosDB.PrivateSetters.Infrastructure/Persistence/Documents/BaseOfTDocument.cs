@@ -29,8 +29,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
-            ReflectionHelper.ForceSetProperty(entity, nameof(GenericAttribute), GenericAttribute);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(GenericAttribute), GenericAttribute ?? throw new Exception($"{nameof(entity.GenericAttribute)} is null"));
 
             return entity;
         }

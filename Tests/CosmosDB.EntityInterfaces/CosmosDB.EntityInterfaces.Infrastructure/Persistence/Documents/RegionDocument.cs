@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CosmosDB.EntityInterfaces.Domain.Entities;
@@ -29,8 +30,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             entity ??= new Region();
 
-            entity.Id = Id;
-            entity.Name = Name;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
             entity.Countries = Countries.Select(x => x.ToEntity()).ToList();
 
             return entity;

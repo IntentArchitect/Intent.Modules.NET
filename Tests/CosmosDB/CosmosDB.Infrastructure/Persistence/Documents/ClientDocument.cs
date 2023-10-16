@@ -37,9 +37,9 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new Client();
 
-            entity.Identifier = Identifier;
+            entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
             entity.Type = Type;
-            entity.Name = Name;
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

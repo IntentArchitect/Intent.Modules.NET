@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -32,8 +33,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             entity ??= new IdTesting();
 
-            ReflectionHelper.ForceSetProperty(entity, nameof(Identifier), Identifier);
-            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id);
+            ReflectionHelper.ForceSetProperty(entity, nameof(Identifier), Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
 
             return entity;
         }

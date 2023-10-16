@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.SingleFiles.Domain.Entities;
@@ -29,8 +30,8 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
         {
             entity ??= new CosmosInvoice();
 
-            entity.Id = Id;
-            entity.Description = Description;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Description = Description ?? throw new Exception($"{nameof(entity.Description)} is null");
             entity.CosmosLines = CosmosLines.Select(x => x.ToEntity()).ToList();
 
             return entity;

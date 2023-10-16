@@ -1,3 +1,4 @@
+using System;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +16,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new InvoiceLogo();
 
-            entity.Url = Url;
+            entity.Url = Url ?? throw new Exception($"{nameof(entity.Url)} is null");
 
             return entity;
         }
