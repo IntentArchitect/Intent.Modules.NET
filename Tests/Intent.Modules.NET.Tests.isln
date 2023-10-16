@@ -68,5 +68,7 @@
     <application id="7300340b-0f97-4454-84ec-f75cb292bd84" name="DtoSettings.Record.Private" relativePath="DtoSettings.Record.Private/DtoSettings.Record.Private.application.config" />
     <application id="4258acfe-c95e-4737-8c21-abbca52b6d62" name="DtoSettings.Record.Protected" relativePath="DtoSettings.Record.Protected/DtoSettings.Record.Protected.application.config" />
     <application id="3d450dd7-4b01-4641-9828-8ba27fcdd370" name="TableStorage.Tests" relativePath="TableStorage.Tests/TableStorage.Tests.application.config" />
+    <application id="ba3debc4-493f-447c-bfff-f9dc07bcd2c6" name="CosmosDB.PrivateSetters" relativePath="CosmosDB.PrivateSetters/CosmosDB.PrivateSetters.application.config" />
+    <application id="eb8a85e0-59cb-434e-9c7d-56a07d44261f" name="CosmosDB.EntityInterfaces" relativePath="CosmosDB.EntityInterfaces/CosmosDB.EntityInterfaces.application.config" />
   </applications>
 </solution>
