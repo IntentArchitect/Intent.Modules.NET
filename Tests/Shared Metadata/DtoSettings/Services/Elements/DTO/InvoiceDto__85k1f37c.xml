@@ -104,7 +104,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="00253d09-6507-403a-85a7-9c1cad31924f" name="InvoiceLines" type="association" specialization="Association" />
+          <target id="00253d09-6507-403a-85a7-9c1cad31924f" name="InvoiceLines" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>50f25776-d91d-4194-b859-fa9f3a098762</parentFolderId>
