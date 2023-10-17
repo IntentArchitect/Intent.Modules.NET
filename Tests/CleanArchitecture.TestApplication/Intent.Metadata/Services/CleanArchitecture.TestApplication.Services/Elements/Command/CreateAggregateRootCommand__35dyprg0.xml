@@ -40,6 +40,14 @@
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="b6197544-7e0e-4900-a6e2-9747fb7e4ac4" name="OpenAPI Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata>
     <entry key="baseName" value="AggregateRoot" />
@@ -117,7 +125,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="61a5f22b-69f5-446c-ab28-1ff7b59ab9b5" name="Composites" type="association" specialization="Association" />
+          <target id="61a5f22b-69f5-446c-ab28-1ff7b59ab9b5" name="Composites" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5fafef2d-e558-4060-ac43-7f09f1ec434a</parentFolderId>
@@ -168,7 +176,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="bda60a81-5d83-4a4c-83a7-0ca2988dd628" name="Composite" type="association" specialization="Association" />
+          <target id="bda60a81-5d83-4a4c-83a7-0ca2988dd628" name="Composite" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5fafef2d-e558-4060-ac43-7f09f1ec434a</parentFolderId>
@@ -219,7 +227,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="f263fa68-e533-4353-87f3-f4a65bd3faac" name="Aggregate" type="association" specialization="Association" />
+          <target id="f263fa68-e533-4353-87f3-f4a65bd3faac" name="Aggregate" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5fafef2d-e558-4060-ac43-7f09f1ec434a</parentFolderId>
