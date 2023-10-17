@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2a72220e-ff80-4046-8451-e08b4fe0c465" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ApplicationSecurityConfigurationFactoryExtension</name>
+  <display>ApplicationSecurityConfigurationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b85b8091-2a99-406d-a7ba-ece21b2e9dbe</parentFolderId>
+  <packageId>b85b8091-2a99-406d-a7ba-ece21b2e9dbe</packageId>
+  <packageName>Intent.AspNetCore.Identity.SocialLogin</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
