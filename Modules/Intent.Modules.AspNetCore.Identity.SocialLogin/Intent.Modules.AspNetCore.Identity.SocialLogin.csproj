@@ -24,4 +24,19 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Templates\OAuthController\OAuthControllerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>OAuthControllerTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\OAuthController\OAuthControllerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OAuthControllerTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

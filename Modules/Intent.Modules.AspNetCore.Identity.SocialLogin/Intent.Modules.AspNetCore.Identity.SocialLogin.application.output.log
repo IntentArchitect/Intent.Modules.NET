@@ -40,5 +40,45 @@
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>951827bb-c678-41bb-8897-2f4dea625423</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#06d485ab-cf7b-4026-9814-291aace34dad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OAuthController/OAuthControllerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OAuthController/OAuthControllerTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>951827bb-c678-41bb-8897-2f4dea625423</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#06d485ab-cf7b-4026-9814-291aace34dad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OAuthController/OAuthControllerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OAuthController/OAuthControllerTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>951827bb-c678-41bb-8897-2f4dea625423</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#06d485ab-cf7b-4026-9814-291aace34dad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OAuthController/OAuthControllerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OAuthController/OAuthControllerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>951827bb-c678-41bb-8897-2f4dea625423</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#06d485ab-cf7b-4026-9814-291aace34dad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OAuthController/OAuthControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OAuthController/OAuthControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>951827bb-c678-41bb-8897-2f4dea625423</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

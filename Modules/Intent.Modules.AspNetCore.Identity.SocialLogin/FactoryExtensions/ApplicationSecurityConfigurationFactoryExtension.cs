@@ -20,6 +20,8 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
     public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.AspNetCore.Identity.SocialLogin.ApplicationSecurityConfigurationFactoryExtension";
+        private const string SocialSettingsGroupName = "SocialLogin";
+
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
@@ -31,13 +33,13 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
             {
                 return;
             }
-            
+
             var enabledSocialProviders = GetEnabledSocialProviders(template);
             if (enabledSocialProviders.Count == 0)
             {
                 return;
             }
-            
+
             AddNugetDependencies(template, enabledSocialProviders);
         }
 
@@ -98,11 +100,17 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
                 }
 
                 var enabledSocialProviders = GetEnabledSocialProviders(template);
-                
+
                 if (enabledSocialProviders.Count == 0)
                 {
                     return;
                 }
+                
+                (template as IntentTemplateBase).ApplyAppSetting(SocialSettingsGroupName, new SocialSettings
+                {
+                    AllowSelfRegistration = false,
+                    WhitelistedDomains = Array.Empty<string>(),
+                });
 
                 addJwtBearerInvocationStatement.WithoutSemicolon();
                 AddSocialLogins(template, authStatement, enabledSocialProviders);
@@ -162,17 +170,13 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
                 }
             }
         }
-
-        private const string SocialSettingsGroup = "SocialLogin";
-        private const string GoogleSettingsGroup = "Google";
-        private const string MicrosoftSettingsGroup = "Microsoft";
-        private const string FacebookSettingsGroup = "Facebook";
-        private const string TwitterSettingsGroup = "Twitter";
-
+        
         private static void AddGoogle(ICSharpTemplate template, CSharpMethodChainStatement authStatement,
             bool isFinalItem)
         {
-            (template as IntentTemplateBase).ApplyAppSetting("SocialLogin:Google", new
+            const string settingGroupName = SocialSettingsGroupName + ":Google";
+            
+            (template as IntentTemplateBase).ApplyAppSetting(settingGroupName, new SocialSettings.Google
             {
                 ClientId = string.Empty,
                 ClientSecret = string.Empty,
@@ -181,9 +185,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
             var invocationStatement = new CSharpInvocationStatement("AddGoogle")
                 .AddArgument(new CSharpLambdaBlock("options")
                     .AddStatement(
-                        @"options.ClientId = configuration.GetSection(""SocialLogin:Google:ClientId"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Google.ClientId), settingGroupName))
                     .AddStatement(
-                        @"options.ClientSecret = configuration.GetSection(""SocialLogin:Google:ClientSecret"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Google.ClientSecret), settingGroupName))
                 );
 
             if (!isFinalItem)
@@ -197,7 +201,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
         private static void AddMicrosoft(ICSharpTemplate template, CSharpMethodChainStatement authStatement,
             bool isFinalItem)
         {
-            (template as IntentTemplateBase).ApplyAppSetting("SocialLogin:Microsoft", new
+            const string settingGroupName = SocialSettingsGroupName + ":Microsoft";
+            
+            (template as IntentTemplateBase).ApplyAppSetting(settingGroupName, new SocialSettings.Microsoft
             {
                 ClientId = string.Empty,
                 ClientSecret = string.Empty,
@@ -206,9 +212,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
             var invocationStatement = new CSharpInvocationStatement("AddMicrosoftAccount")
                 .AddArgument(new CSharpLambdaBlock("options")
                     .AddStatement(
-                        @"options.ClientId = configuration.GetSection(""SocialLogin:Microsoft:ClientId"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Microsoft.ClientId), settingGroupName))
                     .AddStatement(
-                        @"options.ClientSecret = configuration.GetSection(""SocialLogin:Microsoft:ClientSecret"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Microsoft.ClientSecret), settingGroupName))
                 );
 
             if (!isFinalItem)
@@ -222,7 +228,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
         private static void AddTwitter(ICSharpTemplate template, CSharpMethodChainStatement authStatement,
             bool isFinalItem)
         {
-            (template as IntentTemplateBase).ApplyAppSetting("SocialLogin:Twitter", new
+            const string settingGroupName = SocialSettingsGroupName + ":Twitter";
+
+            (template as IntentTemplateBase).ApplyAppSetting(settingGroupName, new SocialSettings.Twitter
             {
                 ConsumerKey = string.Empty,
                 ConsumerSecret = string.Empty,
@@ -231,9 +239,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
             var invocationStatement = new CSharpInvocationStatement("AddTwitter")
                 .AddArgument(new CSharpLambdaBlock("options")
                     .AddStatement(
-                        @"options.ConsumerKey = configuration.GetSection(""SocialLogin:Twitter:ConsumerKey"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Twitter.ConsumerKey), settingGroupName))
                     .AddStatement(
-                        @"options.ConsumerSecret = configuration.GetSection(""SocialLogin:Twitter:ConsumerSecret"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Twitter.ConsumerSecret), settingGroupName))
                 );
 
             if (!isFinalItem)
@@ -247,7 +255,9 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
         private static void AddFacebook(ICSharpTemplate template, CSharpMethodChainStatement authStatement,
             bool isFinalItem)
         {
-            (template as IntentTemplateBase).ApplyAppSetting("SocialLogin:Facebook", new
+            const string settingGroupName = SocialSettingsGroupName + ":Facebook";
+
+            (template as IntentTemplateBase).ApplyAppSetting(settingGroupName, new SocialSettings.Facebook
             {
                 AppId = string.Empty,
                 AppSecret = string.Empty,
@@ -256,17 +266,53 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
             var invocationStatement = new CSharpInvocationStatement("AddFacebook")
                 .AddArgument(new CSharpLambdaBlock("options")
                     .AddStatement(
-                        @"options.AppId = configuration.GetSection(""SocialLogin:Facebook:AppId"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Facebook.AppId), settingGroupName))
                     .AddStatement(
-                        @"options.AppSecret = configuration.GetSection(""SocialLogin:Facebook:AppSecret"").Get<string>();")
+                        GetStringOptionStatement(nameof(SocialSettings.Facebook.AppSecret), settingGroupName))
                 );
-
+            
             if (!isFinalItem)
             {
                 invocationStatement.WithoutSemicolon();
             }
 
             authStatement.AddChainStatement(invocationStatement);
+        }
+
+        private static string GetStringOptionStatement(string optionName, string groupName)
+        {
+            return
+                $@"options.{optionName} = configuration.GetSection(""{groupName}:{optionName}"").Get<string>();";
+        }
+
+        private class SocialSettings
+        {
+            public bool AllowSelfRegistration { get; set; }
+            public string[] WhitelistedDomains { get; set; }
+            
+            internal class Google
+            {
+                public string ClientId { get; set; } = string.Empty;
+                public string ClientSecret { get; set; } = string.Empty;
+            }
+            
+            internal class Microsoft
+            {
+                public string ClientId { get; set; } = string.Empty;
+                public string ClientSecret { get; set; } = string.Empty;
+            }
+            
+            internal class Twitter
+            {
+                public string ConsumerKey { get; set; } = string.Empty;
+                public string ConsumerSecret { get; set; } = string.Empty;
+            }
+            
+            internal class Facebook
+            {
+                public string AppId { get; set; } = string.Empty;
+                public string AppSecret { get; set; } = string.Empty;
+            }
         }
 
         private enum SocialProvider
