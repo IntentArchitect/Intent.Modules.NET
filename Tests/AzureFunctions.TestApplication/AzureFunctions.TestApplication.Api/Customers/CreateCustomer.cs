@@ -36,7 +36,7 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("CreateCustomer")]
-        [OpenApiOperation("CreateCustomerCommand", tags: new[] { "Customers" }, Description = "Create customer command")]
+        [OpenApiOperation("CustomOnCommand", tags: new[] { "Customers" }, Description = "Line 1\nLine 2\nTab \t\nSlash \\")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateCustomerCommand))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

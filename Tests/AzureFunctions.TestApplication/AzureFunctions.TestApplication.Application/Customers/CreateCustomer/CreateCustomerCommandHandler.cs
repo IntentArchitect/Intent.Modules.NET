@@ -23,6 +23,12 @@ namespace AzureFunctions.TestApplication.Application.Customers.CreateCustomer
             _customerRepository = customerRepository;
         }
 
+        /// <summary>
+        /// Line 1
+        /// Line 2
+        /// Tab 	
+        /// Slash \
+        /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
