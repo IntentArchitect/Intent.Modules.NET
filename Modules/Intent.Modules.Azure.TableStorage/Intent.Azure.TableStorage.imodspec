@@ -35,6 +35,14 @@
       <role>Repository.Interface.Contract</role>
       <location>Repositories</location>
     </template>
+    <template id="Intent.Azure.TableStorage.TableStorageTableAdapterInterface" externalReference="1c23f4ed-4b10-407e-bd4f-b48c6b853301">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.TableStorage.Document</role>
+      <location>Persistence/Tables</location>
+    </template>
     <template id="Intent.Azure.TableStorage.TableStorageTableEntity" externalReference="35e53847-af58-4ef7-94bb-b28abdd7bfcc">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -50,14 +58,6 @@
       </config>
       <role>Repository.Interface.Contract</role>
       <location>Repositories/TableEntities</location>
-    </template>
-    <template id="Intent.Azure.TableStorage.TableStorageTableIAdapterInterface" externalReference="1c23f4ed-4b10-407e-bd4f-b48c6b853301">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Data.TableStorage.Document</role>
-      <location>Persistence/Tables</location>
     </template>
     <template id="Intent.Azure.TableStorage.TableStorageUnitOfWork" externalReference="31adb394-3081-4628-bfcc-90b210559e7f">
       <config>

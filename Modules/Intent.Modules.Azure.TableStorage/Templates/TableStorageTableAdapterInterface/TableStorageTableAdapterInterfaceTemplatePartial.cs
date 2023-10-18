@@ -11,15 +11,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIAdapterInterface
+namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableAdapterInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class TableStorageTableIAdapterInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class TableStorageTableAdapterInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Azure.TableStorage.TableStorageTableIAdapterInterface";
+        public const string TemplateId = "Intent.Azure.TableStorage.TableStorageTableAdapterInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public TableStorageTableIAdapterInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public TableStorageTableAdapterInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetDependencies.AzureDataTables);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -33,7 +33,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIAdapterI
                     .AddGenericTypeConstraint(tDomain, c => c
                         .AddType("class"))
                     .AddGenericTypeConstraint(tDocument, c => c
-                        .AddType($"{this.GetTableStorageTableIAdapterInterfaceName()}<{tDomain}, {tDocument}>"));
+                        .AddType($"{this.GetTableStorageTableAdapterInterfaceName()}<{tDomain}, {tDocument}>"));
 
                 @interface.ImplementsInterfaces(UseType("ITableAdapter"));
 

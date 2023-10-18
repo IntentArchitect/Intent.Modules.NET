@@ -65,7 +65,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                         })
                         .AddGenericTypeConstraint(tTable, c => c
                             .AddType("class")
-                            .AddType($"{this.GetTableStorageTableIAdapterInterfaceName()}<{tDomain}, {tTable}>")
+                            .AddType($"{this.GetTableStorageTableAdapterInterfaceName()}<{tDomain}, {tTable}>")
                             .AddType("new()"))
                     ;
 

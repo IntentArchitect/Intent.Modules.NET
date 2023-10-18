@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1c23f4ed-4b10-407e-bd4f-b48c6b853301" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>TableStorageTableIAdapterInterface</name>
-  <display>TableStorageTableIAdapterInterface: Single File</display>
+  <name>TableStorageTableAdapterInterface</name>
+  <display>TableStorageTableAdapterInterface: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="98e77222-0110-4af5-a8d0-72d185450263">
