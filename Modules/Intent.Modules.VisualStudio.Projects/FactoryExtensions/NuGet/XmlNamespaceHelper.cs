@@ -2,24 +2,22 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Intent.Modules.VisualStudio.Projects.NuGet
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
+
+internal static class XmlNamespaceHelper
 {
-    public static class XmlNamespaceHelper
+    public static (string Prefix, XmlNamespaceManager NamespaceManager, string NamespaceName) GetNamespaceManager(this XDocument document)
     {
-        public static (string Prefix, XmlNamespaceManager NamespaceManager, string NamespaceName) GetNamespaceManager(this XDocument document)
-        {
-            if (document == null)
-                throw new Exception("document is null");
-            if (document.Root == null)
-                throw new Exception("document.Root is null");
+        if (document == null)
+            throw new Exception("document is null");
+        if (document.Root == null)
+            throw new Exception("document.Root is null");
 
-            const string prefix = "ns";
-            var ns = document.Root.GetDefaultNamespace();
-            var namespaceManager = new XmlNamespaceManager(new NameTable());
-            namespaceManager.AddNamespace(prefix, ns.NamespaceName);
+        const string prefix = "ns";
+        var ns = document.Root.GetDefaultNamespace();
+        var namespaceManager = new XmlNamespaceManager(new NameTable());
+        namespaceManager.AddNamespace(prefix, ns.NamespaceName);
 
-            return (prefix, namespaceManager, ns.NamespaceName);
-        }
-
+        return (prefix, namespaceManager, ns.NamespaceName);
     }
 }
