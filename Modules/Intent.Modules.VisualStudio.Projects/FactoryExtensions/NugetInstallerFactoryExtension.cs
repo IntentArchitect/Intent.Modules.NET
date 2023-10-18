@@ -6,20 +6,19 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 using NuGet.Versioning;
-using Intent.Modules.VisualStudio.Projects.Settings;
-using Intent.Modules.Common.CSharp.VisualStudio;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
@@ -34,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         private bool _settingWarnOnMultipleVersionsOfSamePackage;
         private readonly IDictionary<string, IVisualStudioProjectTemplate> _projectRegistry = new Dictionary<string, IVisualStudioProjectTemplate>();
         private static readonly IDictionary<VisualStudioProjectScheme, INuGetSchemeProcessor> NuGetProjectSchemeProcessors;
-        private readonly IDictionary<string, List<string>> _projectPackgeRemoveRequests = new Dictionary<string, List<string>>();
+        private readonly IDictionary<string, List<string>> _projectPackageRemoveRequests = new Dictionary<string, List<string>>();
 
         static NugetInstallerFactoryExtension()
         {
@@ -102,10 +101,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         private void HandleEvent(RemoveNugetPackageEvent @event)
         {
-            if (!_projectPackgeRemoveRequests.TryGetValue(@event.Target.GetProject().Id, out var removeEvents))
+            if (!_projectPackageRemoveRequests.TryGetValue(@event.Target.GetProject().Id, out var removeEvents))
             {
                 removeEvents = new List<string>();
-                _projectPackgeRemoveRequests.Add(@event.Target.GetProject().Id, removeEvents);
+                _projectPackageRemoveRequests.Add(@event.Target.GetProject().Id, removeEvents);
             }
             removeEvents.Add(@event.NugetPackageName);
         }
@@ -153,7 +152,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <param name="dependencyVersionOverwriteBehavior"></param>
         internal void Execute(IEnumerable<IVisualStudioProjectTemplate> applicationProjects,
             ITracing tracing,
-            Action<string, string> saveProjectDelegate, 
+            Action<string, string> saveProjectDelegate,
             DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             string report;
@@ -180,7 +179,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     continue;
                 }
 
-                if (!_projectPackgeRemoveRequests.TryGetValue(projectPackage.ProjectId, out var packagesToRemove))
+                if (!_projectPackageRemoveRequests.TryGetValue(projectPackage.ProjectId, out var packagesToRemove))
                 {
                     packagesToRemove = new List<string>();
                 }
@@ -246,11 +245,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             if (!NuGetProjectSchemeProcessors.TryGetValue(projectType, out var processor))
                 throw new ArgumentOutOfRangeException(nameof(projectType), $"No scheme registered for type {projectType}.");
 
-            //if (!_projectRegistry.ContainsKey(project.Model.Id))
-            //{
-            //    Logging.Log.Warning($"Project file not found for project [{project}]");
-            //    continue;
-            //}
             var installedPackages = processor.GetInstalledPackages(project.FilePath, document);
 
             var highestVersionsInProject = new Dictionary<string, VersionRange>();
@@ -265,7 +259,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
             }
 
-            //var consolidatedPackages = installedPackages.ToDictionary(x => x.Key, x => x.Value.Clone());
             var requestedPackages = new Dictionary<string, NuGetPackage>();
 
             foreach (var package in project.RequestedNugetPackages())
@@ -282,15 +275,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 {
                     highestVersionsInProject[package.Name] = highestVersion = semanticVersion;
                 }
-
-                //if (consolidatedPackages.TryGetValue(package.Name, out var consolidatedPackage))
-                //{
-                //    consolidatedPackage.Update(highestVersion, package);
-                //}
-                //else
-                //{
-                //    consolidatedPackages.Add(package.Name, NuGetPackage.Create(package, highestVersion));
-                //}
 
                 if (requestedPackages.TryGetValue(package.Name, out var requestedPackage))
                 {

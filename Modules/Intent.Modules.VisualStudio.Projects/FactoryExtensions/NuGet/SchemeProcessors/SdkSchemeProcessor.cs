@@ -32,14 +32,14 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
                         ? privateAssetsElement.Value
                             .Split(';')
                             .Select(y => y.Trim())
-                        : new string[0];
+                        : Array.Empty<string>();
 
                     var includeAssetsElement = element.XPathSelectElement("IncludeAssets");
                     var includeAssets = includeAssetsElement != null
                         ? includeAssetsElement.Value
                             .Split(';')
                             .Select(y => y.Trim())
-                        : new string[0];
+                        : Array.Empty<string>();
 
                     var name = element.Attribute("Include")?.Value;
 
