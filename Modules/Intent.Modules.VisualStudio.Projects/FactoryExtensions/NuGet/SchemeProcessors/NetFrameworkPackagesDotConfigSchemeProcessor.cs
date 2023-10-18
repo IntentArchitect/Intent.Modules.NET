@@ -58,7 +58,9 @@ internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProces
         return nugetPackages.ToDictionary(x => x.Id, x => NuGetPackage.Create(projectPath, x.Id, x.Version, Array.Empty<string>(), Array.Empty<string>()));
     }
 
-    public string InstallPackages(string projectContent,
+    public string InstallPackages(
+        string projectPath,
+        string projectContent,
         Dictionary<string, NuGetPackage> requestedPackages,
         Dictionary<string, NuGetPackage> installedPackages,
         List<string> toRemovePackages,

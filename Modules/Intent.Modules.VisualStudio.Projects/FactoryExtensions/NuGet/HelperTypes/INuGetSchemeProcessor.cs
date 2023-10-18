@@ -9,7 +9,9 @@ internal interface INuGetSchemeProcessor
 {
     Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode);
 
-    string InstallPackages(string projectContent,
+    string InstallPackages(
+        string projectPath,
+        string projectContent,
         Dictionary<string, NuGetPackage> requestedPackages,
         Dictionary<string, NuGetPackage> installedPackages,
         List<string> packagesToRemove,

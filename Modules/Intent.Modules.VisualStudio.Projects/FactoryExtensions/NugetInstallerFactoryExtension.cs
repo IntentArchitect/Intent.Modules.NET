@@ -184,6 +184,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
 
                 var updatedProjectContent = projectPackage.Processor.InstallPackages(
+                    projectPath: projectPackage.FilePath,
                     projectContent: projectPackage.Content,
                     requestedPackages: projectPackage.RequestedPackages,
                     installedPackages: projectPackage.InstalledPackages,

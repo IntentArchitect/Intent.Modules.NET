@@ -13,7 +13,9 @@ internal class UnsupportedSchemeProcessor : INuGetSchemeProcessor
         return new Dictionary<string, NuGetPackage>();
     }
 
-    public string InstallPackages(string projectContent,
+    public string InstallPackages(
+        string projectPath,
+        string projectContent,
         Dictionary<string, NuGetPackage> requestedPackages,
         Dictionary<string, NuGetPackage> installedPackages,
         List<string> toRemovePackages,
