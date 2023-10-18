@@ -852,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eeaa8713-74b3-459e-a8c6-6b27009ec832</ProjectId>
-      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableIAdapterInterface</CorrelationId>
+      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableAdapterInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Infrastructure/Persistence/Tables/ITableAdapter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITableAdapter.cs</ProjectRelativeFilePath>

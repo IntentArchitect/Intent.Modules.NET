@@ -23,9 +23,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="725c5d41-1b5c-4e12-84a0-951c31960b57" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Azure.TableStorage.TableStorageTableIAdapterInterface</name>
-      <display>Intent.Azure.TableStorage.TableStorageTableIAdapterInterface</display>
+    <childElement id="718b504d-0f08-42ef-be67-2f9b03061520" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.TableStorage.TableStorageTableAdapterInterface</name>
+      <display>Intent.Azure.TableStorage.TableStorageTableAdapterInterface</display>
       <externalReference>Intent.Azure.TableStorage</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

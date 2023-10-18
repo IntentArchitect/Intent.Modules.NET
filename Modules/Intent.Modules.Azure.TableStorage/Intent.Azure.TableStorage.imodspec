@@ -40,7 +40,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Infrastructure.Data.TableStorage.Document</role>
+      <role>Infrastructure.Data.TableStorage.Table</role>
       <location>Persistence/Tables</location>
     </template>
     <template id="Intent.Azure.TableStorage.TableStorageTableEntity" externalReference="35e53847-af58-4ef7-94bb-b28abdd7bfcc">

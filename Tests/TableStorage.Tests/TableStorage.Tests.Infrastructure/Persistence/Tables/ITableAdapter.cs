@@ -3,7 +3,7 @@ using Azure.Data.Tables;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Azure.TableStorage.TableStorageTableIAdapterInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Azure.TableStorage.TableStorageTableAdapterInterface", Version = "1.0")]
 
 namespace TableStorage.Tests.Infrastructure.Persistence.Tables
 {
