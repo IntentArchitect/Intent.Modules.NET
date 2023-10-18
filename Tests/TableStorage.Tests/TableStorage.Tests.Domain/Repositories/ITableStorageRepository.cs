@@ -11,11 +11,11 @@ using TableStorage.Tests.Domain.Common.Interfaces;
 
 namespace TableStorage.Tests.Domain.Repositories
 {
-    public interface ITableStorageRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface ITableStorageRepository<TDomain, TTableInterface> : IRepository<TDomain>
     {
         ITableStorageUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<TDomain?> FindByIdAsync((string partitionKey, string rowKey) id, CancellationToken cancellationToken = default);
-        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Expression<Func<TTableInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
     }
 }

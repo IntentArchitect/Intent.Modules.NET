@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIEntityInterface
+namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIAdapterInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class TableStorageTableIEntityInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class TableStorageTableIAdapterInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => TableStorageTableIEntityInterfaceTemplate.TemplateId;
+        public override string TemplateId => TableStorageTableIAdapterInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new TableStorageTableIEntityInterfaceTemplate(outputTarget);
+            return new TableStorageTableIAdapterInterfaceTemplate(outputTarget);
         }
     }
 }

@@ -114,18 +114,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d48f340f-f81a-44d4-bfe2-851c1391e464</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#d48f340f-f81a-44d4-bfe2-851c1391e464</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TableStorageTableEntityInterface/TableStorageTableEntityInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1c23f4ed-4b10-407e-bd4f-b48c6b853301</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TableStorageTableIEntityInterface/TableStorageTableIEntityInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TableStorageTableIEntityInterface/TableStorageTableIEntityInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/TableStorageTableIAdapterInterface/TableStorageTableIAdapterInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TableStorageTableIAdapterInterface/TableStorageTableIAdapterInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#1c23f4ed-4b10-407e-bd4f-b48c6b853301</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TableStorageTableIEntityInterface/TableStorageTableIEntityInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TableStorageTableIEntityInterface/TableStorageTableIEntityInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/TableStorageTableIAdapterInterface/TableStorageTableIAdapterInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TableStorageTableIAdapterInterface/TableStorageTableIAdapterInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

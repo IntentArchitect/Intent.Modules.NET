@@ -2,6 +2,7 @@ using Azure.Data.Tables;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Entities;
 using TableStorage.Tests.Domain.Repositories;
+using TableStorage.Tests.Domain.Repositories.TableEntities;
 using TableStorage.Tests.Infrastructure.Persistence;
 using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
@@ -10,7 +11,7 @@ using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
 namespace TableStorage.Tests.Infrastructure.Repositories
 {
-    internal class OrderTableStorageRepository : TableStorageRepositoryBase<Order, Order, OrderTableEntity>, IOrderRepository
+    internal class OrderTableStorageRepository : TableStorageRepositoryBase<Order, OrderTableEntity, IOrderTableEntity>, IOrderRepository
     {
         public OrderTableStorageRepository(TableStorageUnitOfWork unitOfWork,
             TableServiceClient tableServiceClient,

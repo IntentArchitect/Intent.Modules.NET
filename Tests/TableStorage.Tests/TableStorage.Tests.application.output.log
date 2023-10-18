@@ -564,6 +564,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#440f408b-9796-4f8f-8781-a18645425ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersFiltered/GetOrdersFilteredQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#440f408b-9796-4f8f-8781-a18645425ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#440f408b-9796-4f8f-8781-a18645425ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersFiltered/GetOrdersFilteredQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e572a34b-cd69-437a-b4c4-8728b0d4f169</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/OrderCustomerDto.cs</ApplicationRelativeFilePath>
@@ -771,6 +795,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>dee32474-52fa-4f61-aec0-9493b5354764</ProjectId>
+      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableEntityInterface#d2bce3e0-08f3-42ec-a4df-f03d7dfa8f79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Domain/Repositories/TableEntities/IInvoiceTableEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceTableEntity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dee32474-52fa-4f61-aec0-9493b5354764</ProjectId>
+      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableEntityInterface#20e1d859-198e-4570-b6bb-565dd2986020</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Domain/Repositories/TableEntities/IOrderTableEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderTableEntity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4e188162-14f3-45e8-bdd1-a9c7ccfbfbf7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4e188162-14f3-45e8-bdd1-a9c7ccfbfbf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -812,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eeaa8713-74b3-459e-a8c6-6b27009ec832</ProjectId>
-      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableIEntityInterface</CorrelationId>
+      <CorrelationId>Intent.Azure.TableStorage.TableStorageTableIAdapterInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Infrastructure/Persistence/Tables/ITableAdapter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITableAdapter.cs</ProjectRelativeFilePath>

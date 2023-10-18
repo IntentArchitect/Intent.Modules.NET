@@ -41,7 +41,8 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                 {
                     @class.Internal();
 
-                    @class.ImplementsInterface($"{this.GetTableStorageTableIEntityInterfaceName()}<{EntityInterfaceName}, {@class.Name}>");
+                    @class.ImplementsInterface($"{this.GetTableStorageTableIAdapterInterfaceName()}<{EntityInterfaceName}, {@class.Name}>");
+                    @class.ImplementsInterface($"{this.GetTableStorageTableEntityInterfaceName()}");
 
                     if (model.IsAbstract)
                     {

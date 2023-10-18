@@ -17,8 +17,7 @@ using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
 namespace TableStorage.Tests.Infrastructure.Repositories
 {
-    internal abstract class TableStorageRepositoryBase<TDomain, TPersistence, TTable> : ITableStorageRepository<TDomain, TPersistence>
-        where TPersistence : TDomain
+    internal abstract class TableStorageRepositoryBase<TDomain, TTable, TTableInterfae> : ITableStorageRepository<TDomain, TTableInterfae>
         where TDomain : class
         where TTable : class, ITableAdapter<TDomain, TTable>, new()
     {
@@ -90,7 +89,7 @@ namespace TableStorage.Tests.Infrastructure.Repositories
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TTableInterfae, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             var results = new List<TDomain>();
@@ -106,11 +105,11 @@ namespace TableStorage.Tests.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TTable"/> predicate.
+        /// Adapts a <typeparamref name="TTableInterfae"/> predicate to a <typeparamref name="TTable"/> predicate.
         /// </summary>
-        private static Expression<Func<TTable, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
+        private static Expression<Func<TTable, bool>> AdaptFilterPredicate(Expression<Func<TTableInterfae, bool>> expression)
         {
-            if (!typeof(TPersistence).IsAssignableFrom(typeof(TTable))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TTable)}.");
+            if (!typeof(TTableInterfae).IsAssignableFrom(typeof(TTable))) throw new Exception($"typeof(TTableInterfae) is not assignable from typeof(TTable).");
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TTable), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);

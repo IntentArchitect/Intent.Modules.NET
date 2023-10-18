@@ -2,6 +2,7 @@ using Azure.Data.Tables;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Entities;
 using TableStorage.Tests.Domain.Repositories;
+using TableStorage.Tests.Domain.Repositories.TableEntities;
 using TableStorage.Tests.Infrastructure.Persistence;
 using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
@@ -10,7 +11,7 @@ using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
 namespace TableStorage.Tests.Infrastructure.Repositories
 {
-    internal class InvoiceTableStorageRepository : TableStorageRepositoryBase<Invoice, Invoice, InvoiceTableEntity>, IInvoiceRepository
+    internal class InvoiceTableStorageRepository : TableStorageRepositoryBase<Invoice, InvoiceTableEntity, IInvoiceTableEntity>, IInvoiceRepository
     {
         public InvoiceTableStorageRepository(TableStorageUnitOfWork unitOfWork,
             TableServiceClient tableServiceClient,

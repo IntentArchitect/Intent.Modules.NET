@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntityInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
@@ -33,7 +35,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"ITableStorageRepository", @interface => @interface
                     .AddGenericParameter("TDomain", out var tDomain)
-                    .AddGenericParameter("TPersistence", out var tPersistence)
+                    .AddGenericParameter("TTableInterface", out var tTableInterface)
                     .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
                     .AddProperty(this.GetTableStorageUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                         .WithoutSetter()
@@ -46,7 +48,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )
                     .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                        .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                     )
                 );
@@ -63,9 +65,10 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                 {
                     var @interface = file.Interfaces.Single();
 
-                    @interface.Interfaces[0] = @interface.Interfaces
-                        .Single()
-                        .Replace("IRepository", this.GetTableStorageRepositoryInterfaceName());
+                    @interface.Interfaces.Clear();
+                    var tDomainGenericArgument = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model);
+                    var tDocumentInterfaceGenericArgument = template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, model);
+                    @interface.ImplementsInterfaces($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomainGenericArgument}, {tDocumentInterfaceGenericArgument}>");
 
                 }, 1000);
             }

@@ -4,13 +4,14 @@ using System.Text.Json;
 using Azure;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Entities;
+using TableStorage.Tests.Domain.Repositories.TableEntities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Azure.TableStorage.TableStorageTableEntity", Version = "1.0")]
 
 namespace TableStorage.Tests.Infrastructure.Persistence.Tables
 {
-    internal class OrderTableEntity : ITableAdapter<Order, OrderTableEntity>
+    internal class OrderTableEntity : ITableAdapter<Order, OrderTableEntity>, IOrderTableEntity
     {
         public string PartitionKey { get; set; } = default!;
         public string RowKey { get; set; } = default!;

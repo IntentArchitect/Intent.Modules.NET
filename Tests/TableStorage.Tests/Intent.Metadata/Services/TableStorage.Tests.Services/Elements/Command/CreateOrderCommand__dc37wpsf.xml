@@ -267,7 +267,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="b37a1bea-fc8b-4246-a4c0-65ad360063e0" name="Customer" type="association" specialization="Association" />
+          <target id="b37a1bea-fc8b-4246-a4c0-65ad360063e0" name="Customer" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c91dd0b2-1570-4fe7-804b-124d84370f8d</parentFolderId>

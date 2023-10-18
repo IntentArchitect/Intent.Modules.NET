@@ -3,7 +3,8 @@ using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInterface;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity;
-using Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIEntityInterface;
+using Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntityInterface;
+using Intent.Modules.Azure.TableStorage.Templates.TableStorageTableIAdapterInterface;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageUnitOfWork;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageUnitOfWorkInterface;
 using Intent.Modules.Common.Templates;
@@ -47,9 +48,19 @@ namespace Intent.Modules.Azure.TableStorage.Templates
             return template.GetTypeName(TableStorageTableEntityTemplate.TemplateId, model);
         }
 
-        public static string GetTableStorageTableIEntityInterfaceName(this IIntentTemplate template)
+        public static string GetTableStorageTableEntityInterfaceName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
-            return template.GetTypeName(TableStorageTableIEntityInterfaceTemplate.TemplateId);
+            return template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetTableStorageTableEntityInterfaceName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        {
+            return template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, model);
+        }
+
+        public static string GetTableStorageTableIAdapterInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(TableStorageTableIAdapterInterfaceTemplate.TemplateId);
         }
 
         public static string GetTableStorageUnitOfWorkName(this IIntentTemplate template)

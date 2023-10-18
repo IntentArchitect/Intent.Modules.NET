@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,6 +26,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TableStorageRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             AddNugetDependency(NugetDependencies.AzureDataTables);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -41,19 +43,31 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                     @class
                         .Internal()
                         .Abstract()
-                        .AddGenericParameter("TDomain", out var tDomain)
-                        .AddGenericParameter("TPersistence", out var tPersistence)
+                        .AddGenericParameter("TDomain", out var tDomain);
+
+                    var tDomainState = tDomain;
+                    if (createEntityInterfaces)
+                    {
+                        @class.AddGenericParameter("TDomainState", out tDomainState);
+                    }
+
+                    @class
                         .AddGenericParameter("TTable", out var tTable)
-                        .ImplementsInterface($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomain}, {tPersistence}>")
-                        .AddGenericTypeConstraint(tPersistence, c => c
-                            .AddType(tDomain))
-                        .AddGenericTypeConstraint(tDomain, c => c
-                            .AddType("class"))
+                        .AddGenericParameter("TTableInterfae", out var tTableInterface)
+                        .ImplementsInterface($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomain}, {tTableInterface}>")
+                        .AddGenericTypeConstraint(tDomainState, constraint =>
+                        {
+                            constraint.AddType("class");
+                            if (createEntityInterfaces)
+                            {
+                                constraint.AddType(tDomain);
+                            }
+                        })
                         .AddGenericTypeConstraint(tTable, c => c
                             .AddType("class")
-                            .AddType($"{this.GetTableStorageTableIEntityInterfaceName()}<{tDomain}, {tTable}>")
+                            .AddType($"{this.GetTableStorageTableIAdapterInterfaceName()}<{tDomain}, {tTable}>")
                             .AddType("new()"))
-                        ;
+                    ;
 
                     @class.AddConstructor(ctor =>
                     {
@@ -147,11 +161,11 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
-                            .AddStatement("var results = new List<TDomain>();")
+                            .AddStatement($"var results = new List<{tDomain}>();")
                             .AddStatement("var response = _tableClient.QueryAsync(AdaptFilterPredicate(filterExpression), cancellationToken: cancellationToken);")
                         .AddForEachStatement("document", "response", loop =>
                         {
@@ -163,24 +177,24 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
                     });
 
-                    @class.AddMethod("Expression<Func<TTable, bool>>", "AdaptFilterPredicate", method =>
+                    @class.AddMethod($"Expression<Func<{tTable}, bool>>", "AdaptFilterPredicate", method =>
                     {
                         method
                             .Private()
                             .Static()
-                            .AddParameter("Expression<Func<TPersistence, bool>>", "expression")
+                            .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "expression")
                             .WithComments(new[]
                             {
                                 "/// <summary>",
-                                "/// Adapts a <typeparamref name=\"TPersistence\"/> predicate to a <typeparamref name=\"TTable\"/> predicate.",
+                                $"/// Adapts a <typeparamref name=\"{tTableInterface}\"/> predicate to a <typeparamref name=\"{tTable}\"/> predicate.",
                                 "/// </summary>"
                             });
 
-                        method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TTable))) throw new Exception($\"{typeof(TPersistence)} is not assignable from {typeof(TTable)}.\");");
+                        method.AddStatement($"if (!typeof({tTableInterface}).IsAssignableFrom(typeof(TTable))) throw new Exception($\"typeof({tTableInterface}) is not assignable from typeof({tTable}).\");");
                         method.AddStatement("var beforeParameter = expression.Parameters.Single();");
-                        method.AddStatement("var afterParameter = Expression.Parameter(typeof(TTable), beforeParameter.Name);");
+                        method.AddStatement($"var afterParameter = Expression.Parameter(typeof({tTable}), beforeParameter.Name);");
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
-                        method.AddStatement("return Expression.Lambda<Func<TTable, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
+                        method.AddStatement($"return Expression.Lambda<Func<{tTable}, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
 
                     });
 
@@ -223,7 +237,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                 });
         }
 
-        
+
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();

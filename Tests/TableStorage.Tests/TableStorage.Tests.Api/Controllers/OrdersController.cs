@@ -13,6 +13,7 @@ using TableStorage.Tests.Application.Orders.CreateOrder;
 using TableStorage.Tests.Application.Orders.DeleteOrder;
 using TableStorage.Tests.Application.Orders.GetOrderById;
 using TableStorage.Tests.Application.Orders.GetOrders;
+using TableStorage.Tests.Application.Orders.GetOrdersFiltered;
 using TableStorage.Tests.Application.Orders.UpdateOrder;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -141,6 +142,22 @@ namespace TableStorage.Tests.Api.Controllers
         {
             var result = await _mediator.Send(new GetOrderByIdQuery(partitionKey: partitionKey, rowKey: rowKey), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;OrderDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/orders")]
+        [ProducesResponseType(typeof(List<OrderDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<OrderDto>>> GetOrdersFiltered(
+            [FromQuery] string partitionKey,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetOrdersFilteredQuery(partitionKey: partitionKey), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>
