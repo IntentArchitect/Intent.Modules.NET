@@ -28,6 +28,7 @@ namespace TableStorage.Tests.Application.Orders.GetOrdersFiltered
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<OrderDto>> Handle(GetOrdersFilteredQuery request, CancellationToken cancellationToken)
         {
+            //IntentIgnore
             var orders = await _orderRepository.FindAllAsync((p) => p.PartitionKey == request.PartitionKey, cancellationToken);
             return orders.MapToOrderDtoList(_mapper);
         }
