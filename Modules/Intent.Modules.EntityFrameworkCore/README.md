@@ -359,6 +359,8 @@ dotnet ef database update --startup-project "SimplifiedEShopTutorial.Api" --proj
 
 ```
 
+For more information on EF Migrations check out [Microsoft's official documentation](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
+
 ### Factory Extension : Dependency Injection  
 
 This extension does the following handles various Entity Framework Core configuration concerns.
